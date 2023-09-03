@@ -432,6 +432,40 @@ class _$NotesEmptyOCSSerializer implements StructuredSerializer<NotesEmptyOCS> {
   }
 }
 
+abstract mixin class NotesNoteInterfaceBuilder {
+  void replace(NotesNoteInterface other);
+  void update(void Function(NotesNoteInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get etag;
+  set etag(String? etag);
+
+  bool? get readonly;
+  set readonly(bool? readonly);
+
+  String? get content;
+  set content(String? content);
+
+  String? get title;
+  set title(String? title);
+
+  String? get category;
+  set category(String? category);
+
+  bool? get favorite;
+  set favorite(bool? favorite);
+
+  int? get modified;
+  set modified(int? modified);
+
+  bool? get error;
+  set error(bool? error);
+
+  String? get errorType;
+  set errorType(String? errorType);
+}
+
 class _$NotesNote extends NotesNote {
   @override
   final int id;
@@ -536,48 +570,48 @@ class _$NotesNote extends NotesNote {
   }
 }
 
-class NotesNoteBuilder implements Builder<NotesNote, NotesNoteBuilder> {
+class NotesNoteBuilder implements Builder<NotesNote, NotesNoteBuilder>, NotesNoteInterfaceBuilder {
   _$NotesNote? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _etag;
   String? get etag => _$this._etag;
-  set etag(String? etag) => _$this._etag = etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
 
   bool? _readonly;
   bool? get readonly => _$this._readonly;
-  set readonly(bool? readonly) => _$this._readonly = readonly;
+  set readonly(covariant bool? readonly) => _$this._readonly = readonly;
 
   String? _content;
   String? get content => _$this._content;
-  set content(String? content) => _$this._content = content;
+  set content(covariant String? content) => _$this._content = content;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _category;
   String? get category => _$this._category;
-  set category(String? category) => _$this._category = category;
+  set category(covariant String? category) => _$this._category = category;
 
   bool? _favorite;
   bool? get favorite => _$this._favorite;
-  set favorite(bool? favorite) => _$this._favorite = favorite;
+  set favorite(covariant bool? favorite) => _$this._favorite = favorite;
 
   int? _modified;
   int? get modified => _$this._modified;
-  set modified(int? modified) => _$this._modified = modified;
+  set modified(covariant int? modified) => _$this._modified = modified;
 
   bool? _error;
   bool? get error => _$this._error;
-  set error(bool? error) => _$this._error = error;
+  set error(covariant bool? error) => _$this._error = error;
 
   String? _errorType;
   String? get errorType => _$this._errorType;
-  set errorType(String? errorType) => _$this._errorType = errorType;
+  set errorType(covariant String? errorType) => _$this._errorType = errorType;
 
   NotesNoteBuilder();
 
@@ -600,7 +634,7 @@ class NotesNoteBuilder implements Builder<NotesNote, NotesNoteBuilder> {
   }
 
   @override
-  void replace(NotesNote other) {
+  void replace(covariant NotesNote other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesNote;
   }
@@ -629,6 +663,19 @@ class NotesNoteBuilder implements Builder<NotesNote, NotesNoteBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesSettingsInterfaceBuilder {
+  void replace(NotesSettingsInterface other);
+  void update(void Function(NotesSettingsInterfaceBuilder) updates);
+  String? get notesPath;
+  set notesPath(String? notesPath);
+
+  String? get fileSuffix;
+  set fileSuffix(String? fileSuffix);
+
+  NotesSettings_NoteMode? get noteMode;
+  set noteMode(NotesSettings_NoteMode? noteMode);
 }
 
 class _$NotesSettings extends NotesSettings {
@@ -683,20 +730,20 @@ class _$NotesSettings extends NotesSettings {
   }
 }
 
-class NotesSettingsBuilder implements Builder<NotesSettings, NotesSettingsBuilder> {
+class NotesSettingsBuilder implements Builder<NotesSettings, NotesSettingsBuilder>, NotesSettingsInterfaceBuilder {
   _$NotesSettings? _$v;
 
   String? _notesPath;
   String? get notesPath => _$this._notesPath;
-  set notesPath(String? notesPath) => _$this._notesPath = notesPath;
+  set notesPath(covariant String? notesPath) => _$this._notesPath = notesPath;
 
   String? _fileSuffix;
   String? get fileSuffix => _$this._fileSuffix;
-  set fileSuffix(String? fileSuffix) => _$this._fileSuffix = fileSuffix;
+  set fileSuffix(covariant String? fileSuffix) => _$this._fileSuffix = fileSuffix;
 
   NotesSettings_NoteMode? _noteMode;
   NotesSettings_NoteMode? get noteMode => _$this._noteMode;
-  set noteMode(NotesSettings_NoteMode? noteMode) => _$this._noteMode = noteMode;
+  set noteMode(covariant NotesSettings_NoteMode? noteMode) => _$this._noteMode = noteMode;
 
   NotesSettingsBuilder();
 
@@ -712,7 +759,7 @@ class NotesSettingsBuilder implements Builder<NotesSettings, NotesSettingsBuilde
   }
 
   @override
-  void replace(NotesSettings other) {
+  void replace(covariant NotesSettings other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesSettings;
   }
@@ -734,6 +781,16 @@ class NotesSettingsBuilder implements Builder<NotesSettings, NotesSettingsBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesCapabilities_NotesInterfaceBuilder {
+  void replace(NotesCapabilities_NotesInterface other);
+  void update(void Function(NotesCapabilities_NotesInterfaceBuilder) updates);
+  ListBuilder<String> get apiVersion;
+  set apiVersion(ListBuilder<String>? apiVersion);
+
+  String? get version;
+  set version(String? version);
 }
 
 class _$NotesCapabilities_Notes extends NotesCapabilities_Notes {
@@ -778,16 +835,19 @@ class _$NotesCapabilities_Notes extends NotesCapabilities_Notes {
   }
 }
 
-class NotesCapabilities_NotesBuilder implements Builder<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
+class NotesCapabilities_NotesBuilder
+    implements
+        Builder<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder>,
+        NotesCapabilities_NotesInterfaceBuilder {
   _$NotesCapabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
   ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
-  set apiVersion(ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
+  set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   NotesCapabilities_NotesBuilder();
 
@@ -802,7 +862,7 @@ class NotesCapabilities_NotesBuilder implements Builder<NotesCapabilities_Notes,
   }
 
   @override
-  void replace(NotesCapabilities_Notes other) {
+  void replace(covariant NotesCapabilities_Notes other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesCapabilities_Notes;
   }
@@ -832,6 +892,13 @@ class NotesCapabilities_NotesBuilder implements Builder<NotesCapabilities_Notes,
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesCapabilitiesInterfaceBuilder {
+  void replace(NotesCapabilitiesInterface other);
+  void update(void Function(NotesCapabilitiesInterfaceBuilder) updates);
+  NotesCapabilities_NotesBuilder get notes;
+  set notes(NotesCapabilities_NotesBuilder? notes);
 }
 
 class _$NotesCapabilities extends NotesCapabilities {
@@ -871,12 +938,13 @@ class _$NotesCapabilities extends NotesCapabilities {
   }
 }
 
-class NotesCapabilitiesBuilder implements Builder<NotesCapabilities, NotesCapabilitiesBuilder> {
+class NotesCapabilitiesBuilder
+    implements Builder<NotesCapabilities, NotesCapabilitiesBuilder>, NotesCapabilitiesInterfaceBuilder {
   _$NotesCapabilities? _$v;
 
   NotesCapabilities_NotesBuilder? _notes;
   NotesCapabilities_NotesBuilder get notes => _$this._notes ??= NotesCapabilities_NotesBuilder();
-  set notes(NotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
+  set notes(covariant NotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
 
   NotesCapabilitiesBuilder();
 
@@ -890,7 +958,7 @@ class NotesCapabilitiesBuilder implements Builder<NotesCapabilities, NotesCapabi
   }
 
   @override
-  void replace(NotesCapabilities other) {
+  void replace(covariant NotesCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesCapabilities;
   }
@@ -920,6 +988,25 @@ class NotesCapabilitiesBuilder implements Builder<NotesCapabilities, NotesCapabi
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesOCSMetaInterfaceBuilder {
+  void replace(NotesOCSMetaInterface other);
+  void update(void Function(NotesOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
 }
 
 class _$NotesOCSMeta extends NotesOCSMeta {
@@ -984,28 +1071,28 @@ class _$NotesOCSMeta extends NotesOCSMeta {
   }
 }
 
-class NotesOCSMetaBuilder implements Builder<NotesOCSMeta, NotesOCSMetaBuilder> {
+class NotesOCSMetaBuilder implements Builder<NotesOCSMeta, NotesOCSMetaBuilder>, NotesOCSMetaInterfaceBuilder {
   _$NotesOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   NotesOCSMetaBuilder();
 
@@ -1023,7 +1110,7 @@ class NotesOCSMetaBuilder implements Builder<NotesOCSMeta, NotesOCSMetaBuilder> 
   }
 
   @override
-  void replace(NotesOCSMeta other) {
+  void replace(covariant NotesOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesOCSMeta;
   }
@@ -1047,6 +1134,16 @@ class NotesOCSMetaBuilder implements Builder<NotesOCSMeta, NotesOCSMetaBuilder> 
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesEmptyOCS_OcsInterfaceBuilder {
+  void replace(NotesEmptyOCS_OcsInterface other);
+  void update(void Function(NotesEmptyOCS_OcsInterfaceBuilder) updates);
+  NotesOCSMetaBuilder get meta;
+  set meta(NotesOCSMetaBuilder? meta);
+
+  ListBuilder<JsonObject> get data;
+  set data(ListBuilder<JsonObject>? data);
 }
 
 class _$NotesEmptyOCS_Ocs extends NotesEmptyOCS_Ocs {
@@ -1093,16 +1190,17 @@ class _$NotesEmptyOCS_Ocs extends NotesEmptyOCS_Ocs {
   }
 }
 
-class NotesEmptyOCS_OcsBuilder implements Builder<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder> {
+class NotesEmptyOCS_OcsBuilder
+    implements Builder<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder>, NotesEmptyOCS_OcsInterfaceBuilder {
   _$NotesEmptyOCS_Ocs? _$v;
 
   NotesOCSMetaBuilder? _meta;
   NotesOCSMetaBuilder get meta => _$this._meta ??= NotesOCSMetaBuilder();
-  set meta(NotesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NotesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
-  set data(ListBuilder<JsonObject>? data) => _$this._data = data;
+  set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   NotesEmptyOCS_OcsBuilder();
 
@@ -1117,7 +1215,7 @@ class NotesEmptyOCS_OcsBuilder implements Builder<NotesEmptyOCS_Ocs, NotesEmptyO
   }
 
   @override
-  void replace(NotesEmptyOCS_Ocs other) {
+  void replace(covariant NotesEmptyOCS_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesEmptyOCS_Ocs;
   }
@@ -1149,6 +1247,13 @@ class NotesEmptyOCS_OcsBuilder implements Builder<NotesEmptyOCS_Ocs, NotesEmptyO
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotesEmptyOCSInterfaceBuilder {
+  void replace(NotesEmptyOCSInterface other);
+  void update(void Function(NotesEmptyOCSInterfaceBuilder) updates);
+  NotesEmptyOCS_OcsBuilder get ocs;
+  set ocs(NotesEmptyOCS_OcsBuilder? ocs);
 }
 
 class _$NotesEmptyOCS extends NotesEmptyOCS {
@@ -1188,12 +1293,12 @@ class _$NotesEmptyOCS extends NotesEmptyOCS {
   }
 }
 
-class NotesEmptyOCSBuilder implements Builder<NotesEmptyOCS, NotesEmptyOCSBuilder> {
+class NotesEmptyOCSBuilder implements Builder<NotesEmptyOCS, NotesEmptyOCSBuilder>, NotesEmptyOCSInterfaceBuilder {
   _$NotesEmptyOCS? _$v;
 
   NotesEmptyOCS_OcsBuilder? _ocs;
   NotesEmptyOCS_OcsBuilder get ocs => _$this._ocs ??= NotesEmptyOCS_OcsBuilder();
-  set ocs(NotesEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NotesEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NotesEmptyOCSBuilder();
 
@@ -1207,7 +1312,7 @@ class NotesEmptyOCSBuilder implements Builder<NotesEmptyOCS, NotesEmptyOCSBuilde
   }
 
   @override
-  void replace(NotesEmptyOCS other) {
+  void replace(covariant NotesEmptyOCS other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotesEmptyOCS;
   }

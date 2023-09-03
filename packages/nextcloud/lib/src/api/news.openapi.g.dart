@@ -682,6 +682,13 @@ class _$NewsEmptyOCSSerializer implements StructuredSerializer<NewsEmptyOCS> {
   }
 }
 
+abstract mixin class NewsSupportedAPIVersionsInterfaceBuilder {
+  void replace(NewsSupportedAPIVersionsInterface other);
+  void update(void Function(NewsSupportedAPIVersionsInterfaceBuilder) updates);
+  ListBuilder<String> get apiLevels;
+  set apiLevels(ListBuilder<String>? apiLevels);
+}
+
 class _$NewsSupportedAPIVersions extends NewsSupportedAPIVersions {
   @override
   final BuiltList<String>? apiLevels;
@@ -718,12 +725,15 @@ class _$NewsSupportedAPIVersions extends NewsSupportedAPIVersions {
   }
 }
 
-class NewsSupportedAPIVersionsBuilder implements Builder<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder> {
+class NewsSupportedAPIVersionsBuilder
+    implements
+        Builder<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder>,
+        NewsSupportedAPIVersionsInterfaceBuilder {
   _$NewsSupportedAPIVersions? _$v;
 
   ListBuilder<String>? _apiLevels;
   ListBuilder<String> get apiLevels => _$this._apiLevels ??= ListBuilder<String>();
-  set apiLevels(ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
+  set apiLevels(covariant ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
 
   NewsSupportedAPIVersionsBuilder();
 
@@ -737,7 +747,7 @@ class NewsSupportedAPIVersionsBuilder implements Builder<NewsSupportedAPIVersion
   }
 
   @override
-  void replace(NewsSupportedAPIVersions other) {
+  void replace(covariant NewsSupportedAPIVersions other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsSupportedAPIVersions;
   }
@@ -767,6 +777,70 @@ class NewsSupportedAPIVersionsBuilder implements Builder<NewsSupportedAPIVersion
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsArticleInterfaceBuilder {
+  void replace(NewsArticleInterface other);
+  void update(void Function(NewsArticleInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get guid;
+  set guid(String? guid);
+
+  String? get guidHash;
+  set guidHash(String? guidHash);
+
+  String? get url;
+  set url(String? url);
+
+  String? get title;
+  set title(String? title);
+
+  String? get author;
+  set author(String? author);
+
+  int? get pubDate;
+  set pubDate(int? pubDate);
+
+  int? get updatedDate;
+  set updatedDate(int? updatedDate);
+
+  String? get body;
+  set body(String? body);
+
+  String? get enclosureMime;
+  set enclosureMime(String? enclosureMime);
+
+  String? get enclosureLink;
+  set enclosureLink(String? enclosureLink);
+
+  String? get mediaThumbnail;
+  set mediaThumbnail(String? mediaThumbnail);
+
+  String? get mediaDescription;
+  set mediaDescription(String? mediaDescription);
+
+  int? get feedId;
+  set feedId(int? feedId);
+
+  bool? get unread;
+  set unread(bool? unread);
+
+  bool? get starred;
+  set starred(bool? starred);
+
+  int? get lastModified;
+  set lastModified(int? lastModified);
+
+  bool? get rtl;
+  set rtl(bool? rtl);
+
+  String? get fingerprint;
+  set fingerprint(String? fingerprint);
+
+  String? get contentHash;
+  set contentHash(String? contentHash);
 }
 
 class _$NewsArticle extends NewsArticle {
@@ -937,88 +1011,88 @@ class _$NewsArticle extends NewsArticle {
   }
 }
 
-class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder> {
+class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder>, NewsArticleInterfaceBuilder {
   _$NewsArticle? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _guid;
   String? get guid => _$this._guid;
-  set guid(String? guid) => _$this._guid = guid;
+  set guid(covariant String? guid) => _$this._guid = guid;
 
   String? _guidHash;
   String? get guidHash => _$this._guidHash;
-  set guidHash(String? guidHash) => _$this._guidHash = guidHash;
+  set guidHash(covariant String? guidHash) => _$this._guidHash = guidHash;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _author;
   String? get author => _$this._author;
-  set author(String? author) => _$this._author = author;
+  set author(covariant String? author) => _$this._author = author;
 
   int? _pubDate;
   int? get pubDate => _$this._pubDate;
-  set pubDate(int? pubDate) => _$this._pubDate = pubDate;
+  set pubDate(covariant int? pubDate) => _$this._pubDate = pubDate;
 
   int? _updatedDate;
   int? get updatedDate => _$this._updatedDate;
-  set updatedDate(int? updatedDate) => _$this._updatedDate = updatedDate;
+  set updatedDate(covariant int? updatedDate) => _$this._updatedDate = updatedDate;
 
   String? _body;
   String? get body => _$this._body;
-  set body(String? body) => _$this._body = body;
+  set body(covariant String? body) => _$this._body = body;
 
   String? _enclosureMime;
   String? get enclosureMime => _$this._enclosureMime;
-  set enclosureMime(String? enclosureMime) => _$this._enclosureMime = enclosureMime;
+  set enclosureMime(covariant String? enclosureMime) => _$this._enclosureMime = enclosureMime;
 
   String? _enclosureLink;
   String? get enclosureLink => _$this._enclosureLink;
-  set enclosureLink(String? enclosureLink) => _$this._enclosureLink = enclosureLink;
+  set enclosureLink(covariant String? enclosureLink) => _$this._enclosureLink = enclosureLink;
 
   String? _mediaThumbnail;
   String? get mediaThumbnail => _$this._mediaThumbnail;
-  set mediaThumbnail(String? mediaThumbnail) => _$this._mediaThumbnail = mediaThumbnail;
+  set mediaThumbnail(covariant String? mediaThumbnail) => _$this._mediaThumbnail = mediaThumbnail;
 
   String? _mediaDescription;
   String? get mediaDescription => _$this._mediaDescription;
-  set mediaDescription(String? mediaDescription) => _$this._mediaDescription = mediaDescription;
+  set mediaDescription(covariant String? mediaDescription) => _$this._mediaDescription = mediaDescription;
 
   int? _feedId;
   int? get feedId => _$this._feedId;
-  set feedId(int? feedId) => _$this._feedId = feedId;
+  set feedId(covariant int? feedId) => _$this._feedId = feedId;
 
   bool? _unread;
   bool? get unread => _$this._unread;
-  set unread(bool? unread) => _$this._unread = unread;
+  set unread(covariant bool? unread) => _$this._unread = unread;
 
   bool? _starred;
   bool? get starred => _$this._starred;
-  set starred(bool? starred) => _$this._starred = starred;
+  set starred(covariant bool? starred) => _$this._starred = starred;
 
   int? _lastModified;
   int? get lastModified => _$this._lastModified;
-  set lastModified(int? lastModified) => _$this._lastModified = lastModified;
+  set lastModified(covariant int? lastModified) => _$this._lastModified = lastModified;
 
   bool? _rtl;
   bool? get rtl => _$this._rtl;
-  set rtl(bool? rtl) => _$this._rtl = rtl;
+  set rtl(covariant bool? rtl) => _$this._rtl = rtl;
 
   String? _fingerprint;
   String? get fingerprint => _$this._fingerprint;
-  set fingerprint(String? fingerprint) => _$this._fingerprint = fingerprint;
+  set fingerprint(covariant String? fingerprint) => _$this._fingerprint = fingerprint;
 
   String? _contentHash;
   String? get contentHash => _$this._contentHash;
-  set contentHash(String? contentHash) => _$this._contentHash = contentHash;
+  set contentHash(covariant String? contentHash) => _$this._contentHash = contentHash;
 
   NewsArticleBuilder();
 
@@ -1051,7 +1125,7 @@ class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder> {
   }
 
   @override
-  void replace(NewsArticle other) {
+  void replace(covariant NewsArticle other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsArticle;
   }
@@ -1090,6 +1164,49 @@ class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsFeedInterfaceBuilder {
+  void replace(NewsFeedInterface other);
+  void update(void Function(NewsFeedInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get url;
+  set url(String? url);
+
+  String? get title;
+  set title(String? title);
+
+  String? get faviconLink;
+  set faviconLink(String? faviconLink);
+
+  int? get added;
+  set added(int? added);
+
+  int? get folderId;
+  set folderId(int? folderId);
+
+  int? get unreadCount;
+  set unreadCount(int? unreadCount);
+
+  int? get ordering;
+  set ordering(int? ordering);
+
+  String? get link;
+  set link(String? link);
+
+  bool? get pinned;
+  set pinned(bool? pinned);
+
+  int? get updateErrorCount;
+  set updateErrorCount(int? updateErrorCount);
+
+  String? get lastUpdateError;
+  set lastUpdateError(String? lastUpdateError);
+
+  ListBuilder<NewsArticle> get items;
+  set items(ListBuilder<NewsArticle>? items);
 }
 
 class _$NewsFeed extends NewsFeed {
@@ -1212,60 +1329,60 @@ class _$NewsFeed extends NewsFeed {
   }
 }
 
-class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder> {
+class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInterfaceBuilder {
   _$NewsFeed? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _faviconLink;
   String? get faviconLink => _$this._faviconLink;
-  set faviconLink(String? faviconLink) => _$this._faviconLink = faviconLink;
+  set faviconLink(covariant String? faviconLink) => _$this._faviconLink = faviconLink;
 
   int? _added;
   int? get added => _$this._added;
-  set added(int? added) => _$this._added = added;
+  set added(covariant int? added) => _$this._added = added;
 
   int? _folderId;
   int? get folderId => _$this._folderId;
-  set folderId(int? folderId) => _$this._folderId = folderId;
+  set folderId(covariant int? folderId) => _$this._folderId = folderId;
 
   int? _unreadCount;
   int? get unreadCount => _$this._unreadCount;
-  set unreadCount(int? unreadCount) => _$this._unreadCount = unreadCount;
+  set unreadCount(covariant int? unreadCount) => _$this._unreadCount = unreadCount;
 
   int? _ordering;
   int? get ordering => _$this._ordering;
-  set ordering(int? ordering) => _$this._ordering = ordering;
+  set ordering(covariant int? ordering) => _$this._ordering = ordering;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   bool? _pinned;
   bool? get pinned => _$this._pinned;
-  set pinned(bool? pinned) => _$this._pinned = pinned;
+  set pinned(covariant bool? pinned) => _$this._pinned = pinned;
 
   int? _updateErrorCount;
   int? get updateErrorCount => _$this._updateErrorCount;
-  set updateErrorCount(int? updateErrorCount) => _$this._updateErrorCount = updateErrorCount;
+  set updateErrorCount(covariant int? updateErrorCount) => _$this._updateErrorCount = updateErrorCount;
 
   String? _lastUpdateError;
   String? get lastUpdateError => _$this._lastUpdateError;
-  set lastUpdateError(String? lastUpdateError) => _$this._lastUpdateError = lastUpdateError;
+  set lastUpdateError(covariant String? lastUpdateError) => _$this._lastUpdateError = lastUpdateError;
 
   ListBuilder<NewsArticle>? _items;
   ListBuilder<NewsArticle> get items => _$this._items ??= ListBuilder<NewsArticle>();
-  set items(ListBuilder<NewsArticle>? items) => _$this._items = items;
+  set items(covariant ListBuilder<NewsArticle>? items) => _$this._items = items;
 
   NewsFeedBuilder();
 
@@ -1291,7 +1408,7 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder> {
   }
 
   @override
-  void replace(NewsFeed other) {
+  void replace(covariant NewsFeed other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsFeed;
   }
@@ -1336,6 +1453,22 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsFolderInterfaceBuilder {
+  void replace(NewsFolderInterface other);
+  void update(void Function(NewsFolderInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get name;
+  set name(String? name);
+
+  bool? get opened;
+  set opened(bool? opened);
+
+  ListBuilder<NewsFeed> get feeds;
+  set feeds(ListBuilder<NewsFeed>? feeds);
 }
 
 class _$NewsFolder extends NewsFolder {
@@ -1395,24 +1528,24 @@ class _$NewsFolder extends NewsFolder {
   }
 }
 
-class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder> {
+class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsFolderInterfaceBuilder {
   _$NewsFolder? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   bool? _opened;
   bool? get opened => _$this._opened;
-  set opened(bool? opened) => _$this._opened = opened;
+  set opened(covariant bool? opened) => _$this._opened = opened;
 
   ListBuilder<NewsFeed>? _feeds;
   ListBuilder<NewsFeed> get feeds => _$this._feeds ??= ListBuilder<NewsFeed>();
-  set feeds(ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
+  set feeds(covariant ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
 
   NewsFolderBuilder();
 
@@ -1429,7 +1562,7 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder> {
   }
 
   @override
-  void replace(NewsFolder other) {
+  void replace(covariant NewsFolder other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsFolder;
   }
@@ -1464,6 +1597,13 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsListFoldersInterfaceBuilder {
+  void replace(NewsListFoldersInterface other);
+  void update(void Function(NewsListFoldersInterfaceBuilder) updates);
+  ListBuilder<NewsFolder> get folders;
+  set folders(ListBuilder<NewsFolder>? folders);
 }
 
 class _$NewsListFolders extends NewsListFolders {
@@ -1503,12 +1643,13 @@ class _$NewsListFolders extends NewsListFolders {
   }
 }
 
-class NewsListFoldersBuilder implements Builder<NewsListFolders, NewsListFoldersBuilder> {
+class NewsListFoldersBuilder
+    implements Builder<NewsListFolders, NewsListFoldersBuilder>, NewsListFoldersInterfaceBuilder {
   _$NewsListFolders? _$v;
 
   ListBuilder<NewsFolder>? _folders;
   ListBuilder<NewsFolder> get folders => _$this._folders ??= ListBuilder<NewsFolder>();
-  set folders(ListBuilder<NewsFolder>? folders) => _$this._folders = folders;
+  set folders(covariant ListBuilder<NewsFolder>? folders) => _$this._folders = folders;
 
   NewsListFoldersBuilder();
 
@@ -1522,7 +1663,7 @@ class NewsListFoldersBuilder implements Builder<NewsListFolders, NewsListFolders
   }
 
   @override
-  void replace(NewsListFolders other) {
+  void replace(covariant NewsListFolders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsListFolders;
   }
@@ -1552,6 +1693,19 @@ class NewsListFoldersBuilder implements Builder<NewsListFolders, NewsListFolders
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsListFeedsInterfaceBuilder {
+  void replace(NewsListFeedsInterface other);
+  void update(void Function(NewsListFeedsInterfaceBuilder) updates);
+  int? get starredCount;
+  set starredCount(int? starredCount);
+
+  int? get newestItemId;
+  set newestItemId(int? newestItemId);
+
+  ListBuilder<NewsFeed> get feeds;
+  set feeds(ListBuilder<NewsFeed>? feeds);
 }
 
 class _$NewsListFeeds extends NewsListFeeds {
@@ -1604,20 +1758,20 @@ class _$NewsListFeeds extends NewsListFeeds {
   }
 }
 
-class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilder> {
+class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilder>, NewsListFeedsInterfaceBuilder {
   _$NewsListFeeds? _$v;
 
   int? _starredCount;
   int? get starredCount => _$this._starredCount;
-  set starredCount(int? starredCount) => _$this._starredCount = starredCount;
+  set starredCount(covariant int? starredCount) => _$this._starredCount = starredCount;
 
   int? _newestItemId;
   int? get newestItemId => _$this._newestItemId;
-  set newestItemId(int? newestItemId) => _$this._newestItemId = newestItemId;
+  set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
 
   ListBuilder<NewsFeed>? _feeds;
   ListBuilder<NewsFeed> get feeds => _$this._feeds ??= ListBuilder<NewsFeed>();
-  set feeds(ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
+  set feeds(covariant ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
 
   NewsListFeedsBuilder();
 
@@ -1633,7 +1787,7 @@ class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilde
   }
 
   @override
-  void replace(NewsListFeeds other) {
+  void replace(covariant NewsListFeeds other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsListFeeds;
   }
@@ -1663,6 +1817,13 @@ class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsListArticlesInterfaceBuilder {
+  void replace(NewsListArticlesInterface other);
+  void update(void Function(NewsListArticlesInterfaceBuilder) updates);
+  ListBuilder<NewsArticle> get items;
+  set items(ListBuilder<NewsArticle>? items);
 }
 
 class _$NewsListArticles extends NewsListArticles {
@@ -1702,12 +1863,13 @@ class _$NewsListArticles extends NewsListArticles {
   }
 }
 
-class NewsListArticlesBuilder implements Builder<NewsListArticles, NewsListArticlesBuilder> {
+class NewsListArticlesBuilder
+    implements Builder<NewsListArticles, NewsListArticlesBuilder>, NewsListArticlesInterfaceBuilder {
   _$NewsListArticles? _$v;
 
   ListBuilder<NewsArticle>? _items;
   ListBuilder<NewsArticle> get items => _$this._items ??= ListBuilder<NewsArticle>();
-  set items(ListBuilder<NewsArticle>? items) => _$this._items = items;
+  set items(covariant ListBuilder<NewsArticle>? items) => _$this._items = items;
 
   NewsListArticlesBuilder();
 
@@ -1721,7 +1883,7 @@ class NewsListArticlesBuilder implements Builder<NewsListArticles, NewsListArtic
   }
 
   @override
-  void replace(NewsListArticles other) {
+  void replace(covariant NewsListArticles other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsListArticles;
   }
@@ -1751,6 +1913,25 @@ class NewsListArticlesBuilder implements Builder<NewsListArticles, NewsListArtic
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsOCSMetaInterfaceBuilder {
+  void replace(NewsOCSMetaInterface other);
+  void update(void Function(NewsOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
 }
 
 class _$NewsOCSMeta extends NewsOCSMeta {
@@ -1815,28 +1996,28 @@ class _$NewsOCSMeta extends NewsOCSMeta {
   }
 }
 
-class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder> {
+class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder>, NewsOCSMetaInterfaceBuilder {
   _$NewsOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   NewsOCSMetaBuilder();
 
@@ -1854,7 +2035,7 @@ class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder> {
   }
 
   @override
-  void replace(NewsOCSMeta other) {
+  void replace(covariant NewsOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsOCSMeta;
   }
@@ -1878,6 +2059,16 @@ class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsEmptyOCS_OcsInterfaceBuilder {
+  void replace(NewsEmptyOCS_OcsInterface other);
+  void update(void Function(NewsEmptyOCS_OcsInterfaceBuilder) updates);
+  NewsOCSMetaBuilder get meta;
+  set meta(NewsOCSMetaBuilder? meta);
+
+  ListBuilder<JsonObject> get data;
+  set data(ListBuilder<JsonObject>? data);
 }
 
 class _$NewsEmptyOCS_Ocs extends NewsEmptyOCS_Ocs {
@@ -1924,16 +2115,17 @@ class _$NewsEmptyOCS_Ocs extends NewsEmptyOCS_Ocs {
   }
 }
 
-class NewsEmptyOCS_OcsBuilder implements Builder<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder> {
+class NewsEmptyOCS_OcsBuilder
+    implements Builder<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder>, NewsEmptyOCS_OcsInterfaceBuilder {
   _$NewsEmptyOCS_Ocs? _$v;
 
   NewsOCSMetaBuilder? _meta;
   NewsOCSMetaBuilder get meta => _$this._meta ??= NewsOCSMetaBuilder();
-  set meta(NewsOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NewsOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
-  set data(ListBuilder<JsonObject>? data) => _$this._data = data;
+  set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   NewsEmptyOCS_OcsBuilder();
 
@@ -1948,7 +2140,7 @@ class NewsEmptyOCS_OcsBuilder implements Builder<NewsEmptyOCS_Ocs, NewsEmptyOCS_
   }
 
   @override
-  void replace(NewsEmptyOCS_Ocs other) {
+  void replace(covariant NewsEmptyOCS_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsEmptyOCS_Ocs;
   }
@@ -1980,6 +2172,13 @@ class NewsEmptyOCS_OcsBuilder implements Builder<NewsEmptyOCS_Ocs, NewsEmptyOCS_
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NewsEmptyOCSInterfaceBuilder {
+  void replace(NewsEmptyOCSInterface other);
+  void update(void Function(NewsEmptyOCSInterfaceBuilder) updates);
+  NewsEmptyOCS_OcsBuilder get ocs;
+  set ocs(NewsEmptyOCS_OcsBuilder? ocs);
 }
 
 class _$NewsEmptyOCS extends NewsEmptyOCS {
@@ -2019,12 +2218,12 @@ class _$NewsEmptyOCS extends NewsEmptyOCS {
   }
 }
 
-class NewsEmptyOCSBuilder implements Builder<NewsEmptyOCS, NewsEmptyOCSBuilder> {
+class NewsEmptyOCSBuilder implements Builder<NewsEmptyOCS, NewsEmptyOCSBuilder>, NewsEmptyOCSInterfaceBuilder {
   _$NewsEmptyOCS? _$v;
 
   NewsEmptyOCS_OcsBuilder? _ocs;
   NewsEmptyOCS_OcsBuilder get ocs => _$this._ocs ??= NewsEmptyOCS_OcsBuilder();
-  set ocs(NewsEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NewsEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NewsEmptyOCSBuilder();
 
@@ -2038,7 +2237,7 @@ class NewsEmptyOCSBuilder implements Builder<NewsEmptyOCS, NewsEmptyOCSBuilder> 
   }
 
   @override
-  void replace(NewsEmptyOCS other) {
+  void replace(covariant NewsEmptyOCS other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewsEmptyOCS;
   }

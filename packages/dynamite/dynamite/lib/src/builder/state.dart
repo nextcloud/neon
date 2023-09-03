@@ -12,4 +12,5 @@ class State {
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
+  final resolvedInterfaces = <TypeResult>{};
 }

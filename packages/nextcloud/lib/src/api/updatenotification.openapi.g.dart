@@ -320,6 +320,25 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJsonSerializer
   }
 }
 
+abstract mixin class UpdatenotificationOCSMetaInterfaceBuilder {
+  void replace(UpdatenotificationOCSMetaInterface other);
+  void update(void Function(UpdatenotificationOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$UpdatenotificationOCSMeta extends UpdatenotificationOCSMeta {
   @override
   final String status;
@@ -384,28 +403,31 @@ class _$UpdatenotificationOCSMeta extends UpdatenotificationOCSMeta {
   }
 }
 
-class UpdatenotificationOCSMetaBuilder implements Builder<UpdatenotificationOCSMeta, UpdatenotificationOCSMetaBuilder> {
+class UpdatenotificationOCSMetaBuilder
+    implements
+        Builder<UpdatenotificationOCSMeta, UpdatenotificationOCSMetaBuilder>,
+        UpdatenotificationOCSMetaInterfaceBuilder {
   _$UpdatenotificationOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   UpdatenotificationOCSMetaBuilder();
 
@@ -423,7 +445,7 @@ class UpdatenotificationOCSMetaBuilder implements Builder<UpdatenotificationOCSM
   }
 
   @override
-  void replace(UpdatenotificationOCSMeta other) {
+  void replace(covariant UpdatenotificationOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatenotificationOCSMeta;
   }
@@ -447,6 +469,16 @@ class UpdatenotificationOCSMetaBuilder implements Builder<UpdatenotificationOCSM
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UpdatenotificationAppInterfaceBuilder {
+  void replace(UpdatenotificationAppInterface other);
+  void update(void Function(UpdatenotificationAppInterfaceBuilder) updates);
+  String? get appId;
+  set appId(String? appId);
+
+  String? get appName;
+  set appName(String? appName);
 }
 
 class _$UpdatenotificationApp extends UpdatenotificationApp {
@@ -494,16 +526,17 @@ class _$UpdatenotificationApp extends UpdatenotificationApp {
   }
 }
 
-class UpdatenotificationAppBuilder implements Builder<UpdatenotificationApp, UpdatenotificationAppBuilder> {
+class UpdatenotificationAppBuilder
+    implements Builder<UpdatenotificationApp, UpdatenotificationAppBuilder>, UpdatenotificationAppInterfaceBuilder {
   _$UpdatenotificationApp? _$v;
 
   String? _appId;
   String? get appId => _$this._appId;
-  set appId(String? appId) => _$this._appId = appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
 
   String? _appName;
   String? get appName => _$this._appName;
-  set appName(String? appName) => _$this._appName = appName;
+  set appName(covariant String? appName) => _$this._appName = appName;
 
   UpdatenotificationAppBuilder();
 
@@ -518,7 +551,7 @@ class UpdatenotificationAppBuilder implements Builder<UpdatenotificationApp, Upd
   }
 
   @override
-  void replace(UpdatenotificationApp other) {
+  void replace(covariant UpdatenotificationApp other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatenotificationApp;
   }
@@ -539,6 +572,17 @@ class UpdatenotificationAppBuilder implements Builder<UpdatenotificationApp, Upd
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<UpdatenotificationApp> get missing;
+  set missing(ListBuilder<UpdatenotificationApp>? missing);
+
+  ListBuilder<UpdatenotificationApp> get available;
+  set available(ListBuilder<UpdatenotificationApp>? available);
 }
 
 class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
@@ -599,16 +643,17 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
 class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data,
-            UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder> {
+            UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder>,
+        UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<UpdatenotificationApp>? _missing;
   ListBuilder<UpdatenotificationApp> get missing => _$this._missing ??= ListBuilder<UpdatenotificationApp>();
-  set missing(ListBuilder<UpdatenotificationApp>? missing) => _$this._missing = missing;
+  set missing(covariant ListBuilder<UpdatenotificationApp>? missing) => _$this._missing = missing;
 
   ListBuilder<UpdatenotificationApp>? _available;
   ListBuilder<UpdatenotificationApp> get available => _$this._available ??= ListBuilder<UpdatenotificationApp>();
-  set available(ListBuilder<UpdatenotificationApp>? available) => _$this._available = available;
+  set available(covariant ListBuilder<UpdatenotificationApp>? available) => _$this._available = available;
 
   UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -623,7 +668,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data;
   }
@@ -658,6 +703,16 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  UpdatenotificationOCSMetaBuilder get meta;
+  set meta(UpdatenotificationOCSMetaBuilder? meta);
+
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
@@ -717,17 +772,19 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
 class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
     implements
         Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs,
-            UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder> {
+            UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder>,
+        UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder {
   _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs? _$v;
 
   UpdatenotificationOCSMetaBuilder? _meta;
   UpdatenotificationOCSMetaBuilder get meta => _$this._meta ??= UpdatenotificationOCSMetaBuilder();
-  set meta(UpdatenotificationOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant UpdatenotificationOCSMetaBuilder? meta) => _$this._meta = meta;
 
   UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? _data;
   UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder();
 
@@ -742,7 +799,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs;
   }
@@ -776,6 +833,13 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJsonInterface other);
+  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder) updates);
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$UpdatenotificationApiGetAppListResponse200ApplicationJson
@@ -824,13 +888,14 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson
 class UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder
     implements
         Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson,
-            UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder> {
+            UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder>,
+        UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder {
   _$UpdatenotificationApiGetAppListResponse200ApplicationJson? _$v;
 
   UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? _ocs;
   UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder();
-  set ocs(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder();
 
@@ -844,7 +909,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson;
   }

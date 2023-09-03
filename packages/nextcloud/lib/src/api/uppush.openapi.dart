@@ -418,8 +418,19 @@ class UppushClient extends DynamiteClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushCheckResponse200ApplicationJsonInterface {
+  bool get success;
+  UppushCheckResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushCheckResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushCheckResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushCheckResponse200ApplicationJson
-    implements Built<UppushCheckResponse200ApplicationJson, UppushCheckResponse200ApplicationJsonBuilder> {
+    implements
+        UppushCheckResponse200ApplicationJsonInterface,
+        Built<UppushCheckResponse200ApplicationJson, UppushCheckResponse200ApplicationJsonBuilder> {
   factory UppushCheckResponse200ApplicationJson([
     final void Function(UppushCheckResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushCheckResponse200ApplicationJson;
@@ -436,13 +447,22 @@ abstract class UppushCheckResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushCheckResponse200ApplicationJson> get serializer =>
       _$uppushCheckResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushSetKeepaliveResponse200ApplicationJsonInterface {
+  bool get success;
+  UppushSetKeepaliveResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushSetKeepaliveResponse200ApplicationJson
     implements
+        UppushSetKeepaliveResponse200ApplicationJsonInterface,
         Built<UppushSetKeepaliveResponse200ApplicationJson, UppushSetKeepaliveResponse200ApplicationJsonBuilder> {
   factory UppushSetKeepaliveResponse200ApplicationJson([
     final void Function(UppushSetKeepaliveResponse200ApplicationJsonBuilder)? b,
@@ -460,13 +480,23 @@ abstract class UppushSetKeepaliveResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushSetKeepaliveResponse200ApplicationJson> get serializer =>
       _$uppushSetKeepaliveResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushCreateDeviceResponse200ApplicationJsonInterface {
+  bool get success;
+  String get deviceId;
+  UppushCreateDeviceResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushCreateDeviceResponse200ApplicationJson
     implements
+        UppushCreateDeviceResponse200ApplicationJsonInterface,
         Built<UppushCreateDeviceResponse200ApplicationJson, UppushCreateDeviceResponse200ApplicationJsonBuilder> {
   factory UppushCreateDeviceResponse200ApplicationJson([
     final void Function(UppushCreateDeviceResponse200ApplicationJsonBuilder)? b,
@@ -484,14 +514,23 @@ abstract class UppushCreateDeviceResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
-  String get deviceId;
   static Serializer<UppushCreateDeviceResponse200ApplicationJson> get serializer =>
       _$uppushCreateDeviceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushSyncDeviceResponse401ApplicationJsonInterface {
+  bool get success;
+  UppushSyncDeviceResponse401ApplicationJsonInterface rebuild(
+    final void Function(UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushSyncDeviceResponse401ApplicationJson
-    implements Built<UppushSyncDeviceResponse401ApplicationJson, UppushSyncDeviceResponse401ApplicationJsonBuilder> {
+    implements
+        UppushSyncDeviceResponse401ApplicationJsonInterface,
+        Built<UppushSyncDeviceResponse401ApplicationJson, UppushSyncDeviceResponse401ApplicationJsonBuilder> {
   factory UppushSyncDeviceResponse401ApplicationJson([
     final void Function(UppushSyncDeviceResponse401ApplicationJsonBuilder)? b,
   ]) = _$UppushSyncDeviceResponse401ApplicationJson;
@@ -508,13 +547,22 @@ abstract class UppushSyncDeviceResponse401ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushSyncDeviceResponse401ApplicationJson> get serializer =>
       _$uppushSyncDeviceResponse401ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushDeleteDeviceResponse200ApplicationJsonInterface {
+  bool get success;
+  UppushDeleteDeviceResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushDeleteDeviceResponse200ApplicationJson
     implements
+        UppushDeleteDeviceResponse200ApplicationJsonInterface,
         Built<UppushDeleteDeviceResponse200ApplicationJson, UppushDeleteDeviceResponse200ApplicationJsonBuilder> {
   factory UppushDeleteDeviceResponse200ApplicationJson([
     final void Function(UppushDeleteDeviceResponse200ApplicationJsonBuilder)? b,
@@ -532,13 +580,24 @@ abstract class UppushDeleteDeviceResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushDeleteDeviceResponse200ApplicationJson> get serializer =>
       _$uppushDeleteDeviceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushCreateAppResponse200ApplicationJsonInterface {
+  bool get success;
+  String get token;
+  UppushCreateAppResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushCreateAppResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushCreateAppResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushCreateAppResponse200ApplicationJson
-    implements Built<UppushCreateAppResponse200ApplicationJson, UppushCreateAppResponse200ApplicationJsonBuilder> {
+    implements
+        UppushCreateAppResponse200ApplicationJsonInterface,
+        Built<UppushCreateAppResponse200ApplicationJson, UppushCreateAppResponse200ApplicationJsonBuilder> {
   factory UppushCreateAppResponse200ApplicationJson([
     final void Function(UppushCreateAppResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushCreateAppResponse200ApplicationJson;
@@ -555,14 +614,23 @@ abstract class UppushCreateAppResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
-  String get token;
   static Serializer<UppushCreateAppResponse200ApplicationJson> get serializer =>
       _$uppushCreateAppResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushDeleteAppResponse200ApplicationJsonInterface {
+  bool get success;
+  UppushDeleteAppResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushDeleteAppResponse200ApplicationJson
-    implements Built<UppushDeleteAppResponse200ApplicationJson, UppushDeleteAppResponse200ApplicationJsonBuilder> {
+    implements
+        UppushDeleteAppResponse200ApplicationJsonInterface,
+        Built<UppushDeleteAppResponse200ApplicationJson, UppushDeleteAppResponse200ApplicationJsonBuilder> {
   factory UppushDeleteAppResponse200ApplicationJson([
     final void Function(UppushDeleteAppResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushDeleteAppResponse200ApplicationJson;
@@ -579,13 +647,22 @@ abstract class UppushDeleteAppResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushDeleteAppResponse200ApplicationJson> get serializer =>
       _$uppushDeleteAppResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface {
+  int get version;
+  UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface rebuild(
+    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  );
+  UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
+}
+
 abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
     implements
+        UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface,
         Built<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
             UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush([
@@ -604,13 +681,22 @@ abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get version;
   static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
       _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface {
+  UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
+  UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson
     implements
+        UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface,
         Built<UppushUnifiedpushDiscoveryResponse200ApplicationJson,
             UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder> {
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson([
@@ -629,13 +715,23 @@ abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
   static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson> get serializer =>
       _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushPushResponse201ApplicationJsonInterface {
+  bool get success;
+  UppushPushResponse201ApplicationJsonInterface rebuild(
+    final void Function(UppushPushResponse201ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushPushResponse201ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushPushResponse201ApplicationJson
-    implements Built<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder> {
+    implements
+        UppushPushResponse201ApplicationJsonInterface,
+        Built<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder> {
   factory UppushPushResponse201ApplicationJson([final void Function(UppushPushResponse201ApplicationJsonBuilder)? b]) =
       _$UppushPushResponse201ApplicationJson;
 
@@ -651,13 +747,22 @@ abstract class UppushPushResponse201ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<UppushPushResponse201ApplicationJson> get serializer =>
       _$uppushPushResponse201ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface {
+  String get gateway;
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface rebuild(
+    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  );
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
+}
+
 abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
     implements
+        UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface,
         Built<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
             UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush([
@@ -678,13 +783,22 @@ abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get gateway;
   static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface {
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson
     implements
+        UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface,
         Built<UppushGatewayMatrixDiscoveryResponse200ApplicationJson,
             UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder> {
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson([
@@ -703,13 +817,22 @@ abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
   static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UppushGatewayMatrixResponse200ApplicationJsonInterface {
+  BuiltList<String> get rejected;
+  UppushGatewayMatrixResponse200ApplicationJsonInterface rebuild(
+    final void Function(UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UppushGatewayMatrixResponse200ApplicationJson
     implements
+        UppushGatewayMatrixResponse200ApplicationJsonInterface,
         Built<UppushGatewayMatrixResponse200ApplicationJson, UppushGatewayMatrixResponse200ApplicationJsonBuilder> {
   factory UppushGatewayMatrixResponse200ApplicationJson([
     final void Function(UppushGatewayMatrixResponse200ApplicationJsonBuilder)? b,
@@ -727,7 +850,6 @@ abstract class UppushGatewayMatrixResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get rejected;
   static Serializer<UppushGatewayMatrixResponse200ApplicationJson> get serializer =>
       _$uppushGatewayMatrixResponse200ApplicationJsonSerializer;
 }

@@ -707,8 +707,20 @@ class FilesTransferOwnershipClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesApiApiServiceWorkerHeadersInterface {
+  @BuiltValueField(wireName: 'service-worker-allowed')
+  String? get serviceWorkerAllowed;
+  FilesApiApiServiceWorkerHeadersInterface rebuild(
+    final void Function(FilesApiApiServiceWorkerHeadersInterfaceBuilder) updates,
+  );
+  FilesApiApiServiceWorkerHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class FilesApiApiServiceWorkerHeaders
-    implements Built<FilesApiApiServiceWorkerHeaders, FilesApiApiServiceWorkerHeadersBuilder> {
+    implements
+        FilesApiApiServiceWorkerHeadersInterface,
+        Built<FilesApiApiServiceWorkerHeaders, FilesApiApiServiceWorkerHeadersBuilder> {
   factory FilesApiApiServiceWorkerHeaders([final void Function(FilesApiApiServiceWorkerHeadersBuilder)? b]) =
       _$FilesApiApiServiceWorkerHeaders;
 
@@ -724,8 +736,6 @@ abstract class FilesApiApiServiceWorkerHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'service-worker-allowed')
-  String? get serviceWorkerAllowed;
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesApiApiServiceWorkerHeaders> get serializer => _$FilesApiApiServiceWorkerHeadersSerializer();
 }
@@ -769,7 +779,18 @@ class _$FilesApiApiServiceWorkerHeadersSerializer implements StructuredSerialize
   }
 }
 
-abstract class FilesOCSMeta implements Built<FilesOCSMeta, FilesOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  FilesOCSMetaInterface rebuild(final void Function(FilesOCSMetaInterfaceBuilder) updates);
+  FilesOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class FilesOCSMeta implements FilesOCSMetaInterface, Built<FilesOCSMeta, FilesOCSMetaBuilder> {
   factory FilesOCSMeta([final void Function(FilesOCSMetaBuilder)? b]) = _$FilesOCSMeta;
 
   // coverage:ignore-start
@@ -783,16 +804,25 @@ abstract class FilesOCSMeta implements Built<FilesOCSMeta, FilesOCSMetaBuilder> 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<FilesOCSMeta> get serializer => _$filesOCSMetaSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterface {
+  String get id;
+  String get name;
+  BuiltList<String> get mimetypes;
+  BuiltList<String> get optionalMimetypes;
+  bool get secure;
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterface rebuild(
+    final void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors
     implements
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterface,
         Built<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors,
             FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder> {
   factory FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors([
@@ -811,17 +841,28 @@ abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get name;
-  BuiltList<String> get mimetypes;
-  BuiltList<String> get optionalMimetypes;
-  bool get secure;
   static Serializer<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors> get serializer =>
       _$filesDirectEditingInfoResponse200ApplicationJsonOcsDataEditorsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterface {
+  String get id;
+  String get editor;
+  String get name;
+  @BuiltValueField(wireName: 'extension')
+  String get $extension;
+  bool get templates;
+  BuiltList<String> get mimetypes;
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterface rebuild(
+    final void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators
     implements
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterface,
         Built<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators,
             FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder> {
   factory FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators([
@@ -842,19 +883,23 @@ abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creator
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get editor;
-  String get name;
-  @BuiltValueField(wireName: 'extension')
-  String get $extension;
-  bool get templates;
-  BuiltList<String> get mimetypes;
   static Serializer<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators> get serializer =>
       _$filesDirectEditingInfoResponse200ApplicationJsonOcsDataCreatorsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors> get editors;
+  BuiltMap<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators> get creators;
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data
     implements
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data,
             FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data([
@@ -873,14 +918,23 @@ abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors> get editors;
-  BuiltMap<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators> get creators;
   static Serializer<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesDirectEditingInfoResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingInfoResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data get data;
+  FilesDirectEditingInfoResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesDirectEditingInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingInfoResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs
     implements
+        FilesDirectEditingInfoResponse200ApplicationJson_OcsInterface,
         Built<FilesDirectEditingInfoResponse200ApplicationJson_Ocs,
             FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder> {
   factory FilesDirectEditingInfoResponse200ApplicationJson_Ocs([
@@ -899,14 +953,22 @@ abstract class FilesDirectEditingInfoResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesDirectEditingInfoResponse200ApplicationJson_Ocs> get serializer =>
       _$filesDirectEditingInfoResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingInfoResponse200ApplicationJsonInterface {
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs get ocs;
+  FilesDirectEditingInfoResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesDirectEditingInfoResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesDirectEditingInfoResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingInfoResponse200ApplicationJson
     implements
+        FilesDirectEditingInfoResponse200ApplicationJsonInterface,
         Built<FilesDirectEditingInfoResponse200ApplicationJson,
             FilesDirectEditingInfoResponse200ApplicationJsonBuilder> {
   factory FilesDirectEditingInfoResponse200ApplicationJson([
@@ -925,13 +987,28 @@ abstract class FilesDirectEditingInfoResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesDirectEditingInfoResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesDirectEditingInfoResponse200ApplicationJson> get serializer =>
       _$filesDirectEditingInfoResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterface {
+  String get id;
+  String get title;
+  String? get preview;
+  @BuiltValueField(wireName: 'extension')
+  String get $extension;
+  String get mimetype;
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterface rebuild(
+    final void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterfaceBuilder)
+        updates,
+  );
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates
     implements
+        FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterface,
         Built<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates,
             FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBuilder> {
   factory FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates([
@@ -952,18 +1029,22 @@ abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Te
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get title;
-  String? get preview;
-  @BuiltValueField(wireName: 'extension')
-  String get $extension;
-  String get mimetype;
   static Serializer<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates> get serializer =>
       _$filesDirectEditingTemplatesResponse200ApplicationJsonOcsDataTemplatesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates> get templates;
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data
     implements
+        FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data,
             FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data([
@@ -982,13 +1063,23 @@ abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates> get templates;
   static Serializer<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesDirectEditingTemplatesResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data get data;
+  FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs
     implements
+        FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterface,
         Built<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs,
             FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder> {
   factory FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs([
@@ -1007,14 +1098,22 @@ abstract class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesDirectEditingTemplatesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingTemplatesResponse200ApplicationJsonInterface {
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs get ocs;
+  FilesDirectEditingTemplatesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesDirectEditingTemplatesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesDirectEditingTemplatesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingTemplatesResponse200ApplicationJson
     implements
+        FilesDirectEditingTemplatesResponse200ApplicationJsonInterface,
         Built<FilesDirectEditingTemplatesResponse200ApplicationJson,
             FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder> {
   factory FilesDirectEditingTemplatesResponse200ApplicationJson([
@@ -1033,13 +1132,22 @@ abstract class FilesDirectEditingTemplatesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesDirectEditingTemplatesResponse200ApplicationJson> get serializer =>
       _$filesDirectEditingTemplatesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterface {
+  String get url;
+  FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data
     implements
+        FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data,
             FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data([
@@ -1058,13 +1166,23 @@ abstract class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get url;
   static Serializer<FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesDirectEditingOpenResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingOpenResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data get data;
+  FilesDirectEditingOpenResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesDirectEditingOpenResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingOpenResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingOpenResponse200ApplicationJson_Ocs
     implements
+        FilesDirectEditingOpenResponse200ApplicationJson_OcsInterface,
         Built<FilesDirectEditingOpenResponse200ApplicationJson_Ocs,
             FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder> {
   factory FilesDirectEditingOpenResponse200ApplicationJson_Ocs([
@@ -1083,14 +1201,22 @@ abstract class FilesDirectEditingOpenResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesDirectEditingOpenResponse200ApplicationJson_Ocs> get serializer =>
       _$filesDirectEditingOpenResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingOpenResponse200ApplicationJsonInterface {
+  FilesDirectEditingOpenResponse200ApplicationJson_Ocs get ocs;
+  FilesDirectEditingOpenResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesDirectEditingOpenResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesDirectEditingOpenResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingOpenResponse200ApplicationJson
     implements
+        FilesDirectEditingOpenResponse200ApplicationJsonInterface,
         Built<FilesDirectEditingOpenResponse200ApplicationJson,
             FilesDirectEditingOpenResponse200ApplicationJsonBuilder> {
   factory FilesDirectEditingOpenResponse200ApplicationJson([
@@ -1109,13 +1235,22 @@ abstract class FilesDirectEditingOpenResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesDirectEditingOpenResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesDirectEditingOpenResponse200ApplicationJson> get serializer =>
       _$filesDirectEditingOpenResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterface {
+  String get url;
+  FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data
     implements
+        FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data,
             FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data([
@@ -1134,13 +1269,23 @@ abstract class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get url;
   static Serializer<FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesDirectEditingCreateResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingCreateResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data get data;
+  FilesDirectEditingCreateResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesDirectEditingCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesDirectEditingCreateResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingCreateResponse200ApplicationJson_Ocs
     implements
+        FilesDirectEditingCreateResponse200ApplicationJson_OcsInterface,
         Built<FilesDirectEditingCreateResponse200ApplicationJson_Ocs,
             FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder> {
   factory FilesDirectEditingCreateResponse200ApplicationJson_Ocs([
@@ -1159,14 +1304,22 @@ abstract class FilesDirectEditingCreateResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesDirectEditingCreateResponse200ApplicationJson_Ocs> get serializer =>
       _$filesDirectEditingCreateResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesDirectEditingCreateResponse200ApplicationJsonInterface {
+  FilesDirectEditingCreateResponse200ApplicationJson_Ocs get ocs;
+  FilesDirectEditingCreateResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesDirectEditingCreateResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesDirectEditingCreateResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesDirectEditingCreateResponse200ApplicationJson
     implements
+        FilesDirectEditingCreateResponse200ApplicationJsonInterface,
         Built<FilesDirectEditingCreateResponse200ApplicationJson,
             FilesDirectEditingCreateResponse200ApplicationJsonBuilder> {
   factory FilesDirectEditingCreateResponse200ApplicationJson([
@@ -1185,13 +1338,25 @@ abstract class FilesDirectEditingCreateResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesDirectEditingCreateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesDirectEditingCreateResponse200ApplicationJson> get serializer =>
       _$filesDirectEditingCreateResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterface {
+  String? get userId;
+  String get pathHash;
+  int get expirationTime;
+  String get token;
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data
     implements
+        FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data,
             FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data([
@@ -1210,16 +1375,23 @@ abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String? get userId;
-  String get pathHash;
-  int get expirationTime;
-  String get token;
   static Serializer<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesOpenLocalEditorCreateResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data get data;
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs
     implements
+        FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterface,
         Built<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs,
             FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder> {
   factory FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs([
@@ -1238,14 +1410,22 @@ abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs> get serializer =>
       _$filesOpenLocalEditorCreateResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorCreateResponse200ApplicationJsonInterface {
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs get ocs;
+  FilesOpenLocalEditorCreateResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesOpenLocalEditorCreateResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorCreateResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson
     implements
+        FilesOpenLocalEditorCreateResponse200ApplicationJsonInterface,
         Built<FilesOpenLocalEditorCreateResponse200ApplicationJson,
             FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder> {
   factory FilesOpenLocalEditorCreateResponse200ApplicationJson([
@@ -1264,13 +1444,25 @@ abstract class FilesOpenLocalEditorCreateResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesOpenLocalEditorCreateResponse200ApplicationJson> get serializer =>
       _$filesOpenLocalEditorCreateResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterface {
+  String get userId;
+  String get pathHash;
+  int get expirationTime;
+  String get token;
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data
     implements
+        FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data,
             FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data([
@@ -1289,16 +1481,23 @@ abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get userId;
-  String get pathHash;
-  int get expirationTime;
-  String get token;
   static Serializer<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesOpenLocalEditorValidateResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data get data;
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs
     implements
+        FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterface,
         Built<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs,
             FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder> {
   factory FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs([
@@ -1317,14 +1516,22 @@ abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs> get serializer =>
       _$filesOpenLocalEditorValidateResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesOpenLocalEditorValidateResponse200ApplicationJsonInterface {
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs get ocs;
+  FilesOpenLocalEditorValidateResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesOpenLocalEditorValidateResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesOpenLocalEditorValidateResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson
     implements
+        FilesOpenLocalEditorValidateResponse200ApplicationJsonInterface,
         Built<FilesOpenLocalEditorValidateResponse200ApplicationJson,
             FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder> {
   factory FilesOpenLocalEditorValidateResponse200ApplicationJson([
@@ -1343,12 +1550,26 @@ abstract class FilesOpenLocalEditorValidateResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesOpenLocalEditorValidateResponse200ApplicationJson> get serializer =>
       _$filesOpenLocalEditorValidateResponse200ApplicationJsonSerializer;
 }
 
-abstract class FilesTemplateFileCreator implements Built<FilesTemplateFileCreator, FilesTemplateFileCreatorBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateFileCreatorInterface {
+  String get app;
+  String get label;
+  @BuiltValueField(wireName: 'extension')
+  String get $extension;
+  String? get iconClass;
+  BuiltList<String> get mimetypes;
+  num? get ratio;
+  String get actionLabel;
+  FilesTemplateFileCreatorInterface rebuild(final void Function(FilesTemplateFileCreatorInterfaceBuilder) updates);
+  FilesTemplateFileCreatorInterfaceBuilder toBuilder();
+}
+
+abstract class FilesTemplateFileCreator
+    implements FilesTemplateFileCreatorInterface, Built<FilesTemplateFileCreator, FilesTemplateFileCreatorBuilder> {
   factory FilesTemplateFileCreator([final void Function(FilesTemplateFileCreatorBuilder)? b]) =
       _$FilesTemplateFileCreator;
 
@@ -1364,19 +1585,22 @@ abstract class FilesTemplateFileCreator implements Built<FilesTemplateFileCreato
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get app;
-  String get label;
-  @BuiltValueField(wireName: 'extension')
-  String get $extension;
-  String? get iconClass;
-  BuiltList<String> get mimetypes;
-  num? get ratio;
-  String get actionLabel;
   static Serializer<FilesTemplateFileCreator> get serializer => _$filesTemplateFileCreatorSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateListResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  BuiltList<FilesTemplateFileCreator> get data;
+  FilesTemplateListResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTemplateListResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTemplateListResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesTemplateListResponse200ApplicationJson_Ocs
     implements
+        FilesTemplateListResponse200ApplicationJson_OcsInterface,
         Built<FilesTemplateListResponse200ApplicationJson_Ocs, FilesTemplateListResponse200ApplicationJson_OcsBuilder> {
   factory FilesTemplateListResponse200ApplicationJson_Ocs([
     final void Function(FilesTemplateListResponse200ApplicationJson_OcsBuilder)? b,
@@ -1394,14 +1618,23 @@ abstract class FilesTemplateListResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  BuiltList<FilesTemplateFileCreator> get data;
   static Serializer<FilesTemplateListResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTemplateListResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateListResponse200ApplicationJsonInterface {
+  FilesTemplateListResponse200ApplicationJson_Ocs get ocs;
+  FilesTemplateListResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTemplateListResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTemplateListResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTemplateListResponse200ApplicationJson
-    implements Built<FilesTemplateListResponse200ApplicationJson, FilesTemplateListResponse200ApplicationJsonBuilder> {
+    implements
+        FilesTemplateListResponse200ApplicationJsonInterface,
+        Built<FilesTemplateListResponse200ApplicationJson, FilesTemplateListResponse200ApplicationJsonBuilder> {
   factory FilesTemplateListResponse200ApplicationJson([
     final void Function(FilesTemplateListResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesTemplateListResponse200ApplicationJson;
@@ -1418,12 +1651,27 @@ abstract class FilesTemplateListResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTemplateListResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTemplateListResponse200ApplicationJson> get serializer =>
       _$filesTemplateListResponse200ApplicationJsonSerializer;
 }
 
-abstract class FilesTemplateFile implements Built<FilesTemplateFile, FilesTemplateFileBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateFileInterface {
+  String get basename;
+  String get etag;
+  int get fileid;
+  String? get filename;
+  int get lastmod;
+  String get mime;
+  int get size;
+  String get type;
+  bool get hasPreview;
+  FilesTemplateFileInterface rebuild(final void Function(FilesTemplateFileInterfaceBuilder) updates);
+  FilesTemplateFileInterfaceBuilder toBuilder();
+}
+
+abstract class FilesTemplateFile
+    implements FilesTemplateFileInterface, Built<FilesTemplateFile, FilesTemplateFileBuilder> {
   factory FilesTemplateFile([final void Function(FilesTemplateFileBuilder)? b]) = _$FilesTemplateFile;
 
   // coverage:ignore-start
@@ -1438,20 +1686,22 @@ abstract class FilesTemplateFile implements Built<FilesTemplateFile, FilesTempla
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get basename;
-  String get etag;
-  int get fileid;
-  String? get filename;
-  int get lastmod;
-  String get mime;
-  int get size;
-  String get type;
-  bool get hasPreview;
   static Serializer<FilesTemplateFile> get serializer => _$filesTemplateFileSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateCreateResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesTemplateFile get data;
+  FilesTemplateCreateResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTemplateCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTemplateCreateResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesTemplateCreateResponse200ApplicationJson_Ocs
     implements
+        FilesTemplateCreateResponse200ApplicationJson_OcsInterface,
         Built<FilesTemplateCreateResponse200ApplicationJson_Ocs,
             FilesTemplateCreateResponse200ApplicationJson_OcsBuilder> {
   factory FilesTemplateCreateResponse200ApplicationJson_Ocs([
@@ -1470,14 +1720,22 @@ abstract class FilesTemplateCreateResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesTemplateFile get data;
   static Serializer<FilesTemplateCreateResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTemplateCreateResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateCreateResponse200ApplicationJsonInterface {
+  FilesTemplateCreateResponse200ApplicationJson_Ocs get ocs;
+  FilesTemplateCreateResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTemplateCreateResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTemplateCreateResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTemplateCreateResponse200ApplicationJson
     implements
+        FilesTemplateCreateResponse200ApplicationJsonInterface,
         Built<FilesTemplateCreateResponse200ApplicationJson, FilesTemplateCreateResponse200ApplicationJsonBuilder> {
   factory FilesTemplateCreateResponse200ApplicationJson([
     final void Function(FilesTemplateCreateResponse200ApplicationJsonBuilder)? b,
@@ -1495,13 +1753,24 @@ abstract class FilesTemplateCreateResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTemplateCreateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTemplateCreateResponse200ApplicationJson> get serializer =>
       _$filesTemplateCreateResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterface {
+  @BuiltValueField(wireName: 'template_path')
+  String get templatePath;
+  BuiltList<FilesTemplateFileCreator> get templates;
+  FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTemplatePathResponse200ApplicationJson_Ocs_Data
     implements
+        FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterface,
         Built<FilesTemplatePathResponse200ApplicationJson_Ocs_Data,
             FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder> {
   factory FilesTemplatePathResponse200ApplicationJson_Ocs_Data([
@@ -1520,15 +1789,23 @@ abstract class FilesTemplatePathResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'template_path')
-  String get templatePath;
-  BuiltList<FilesTemplateFileCreator> get templates;
   static Serializer<FilesTemplatePathResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$filesTemplatePathResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplatePathResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  FilesTemplatePathResponse200ApplicationJson_Ocs_Data get data;
+  FilesTemplatePathResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTemplatePathResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTemplatePathResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTemplatePathResponse200ApplicationJson_Ocs
     implements
+        FilesTemplatePathResponse200ApplicationJson_OcsInterface,
         Built<FilesTemplatePathResponse200ApplicationJson_Ocs, FilesTemplatePathResponse200ApplicationJson_OcsBuilder> {
   factory FilesTemplatePathResponse200ApplicationJson_Ocs([
     final void Function(FilesTemplatePathResponse200ApplicationJson_OcsBuilder)? b,
@@ -1546,14 +1823,23 @@ abstract class FilesTemplatePathResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  FilesTemplatePathResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<FilesTemplatePathResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTemplatePathResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplatePathResponse200ApplicationJsonInterface {
+  FilesTemplatePathResponse200ApplicationJson_Ocs get ocs;
+  FilesTemplatePathResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTemplatePathResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTemplatePathResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTemplatePathResponse200ApplicationJson
-    implements Built<FilesTemplatePathResponse200ApplicationJson, FilesTemplatePathResponse200ApplicationJsonBuilder> {
+    implements
+        FilesTemplatePathResponse200ApplicationJsonInterface,
+        Built<FilesTemplatePathResponse200ApplicationJson, FilesTemplatePathResponse200ApplicationJsonBuilder> {
   factory FilesTemplatePathResponse200ApplicationJson([
     final void Function(FilesTemplatePathResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesTemplatePathResponse200ApplicationJson;
@@ -1570,13 +1856,23 @@ abstract class FilesTemplatePathResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTemplatePathResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTemplatePathResponse200ApplicationJson> get serializer =>
       _$filesTemplatePathResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  JsonObject get data;
+  FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs
     implements
+        FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterface,
         Built<FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs,
             FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder> {
   factory FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs([
@@ -1595,14 +1891,22 @@ abstract class FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTransferOwnershipTransferResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipTransferResponse200ApplicationJsonInterface {
+  FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs get ocs;
+  FilesTransferOwnershipTransferResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTransferOwnershipTransferResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipTransferResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipTransferResponse200ApplicationJson
     implements
+        FilesTransferOwnershipTransferResponse200ApplicationJsonInterface,
         Built<FilesTransferOwnershipTransferResponse200ApplicationJson,
             FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder> {
   factory FilesTransferOwnershipTransferResponse200ApplicationJson([
@@ -1621,13 +1925,23 @@ abstract class FilesTransferOwnershipTransferResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTransferOwnershipTransferResponse200ApplicationJson> get serializer =>
       _$filesTransferOwnershipTransferResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  JsonObject get data;
+  FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs
     implements
+        FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterface,
         Built<FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs,
             FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder> {
   factory FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs([
@@ -1646,14 +1960,22 @@ abstract class FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTransferOwnershipAcceptResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipAcceptResponse200ApplicationJsonInterface {
+  FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs get ocs;
+  FilesTransferOwnershipAcceptResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTransferOwnershipAcceptResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipAcceptResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipAcceptResponse200ApplicationJson
     implements
+        FilesTransferOwnershipAcceptResponse200ApplicationJsonInterface,
         Built<FilesTransferOwnershipAcceptResponse200ApplicationJson,
             FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder> {
   factory FilesTransferOwnershipAcceptResponse200ApplicationJson([
@@ -1672,13 +1994,23 @@ abstract class FilesTransferOwnershipAcceptResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTransferOwnershipAcceptResponse200ApplicationJson> get serializer =>
       _$filesTransferOwnershipAcceptResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterface {
+  FilesOCSMeta get meta;
+  JsonObject get data;
+  FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs
     implements
+        FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterface,
         Built<FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs,
             FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder> {
   factory FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs([
@@ -1697,14 +2029,22 @@ abstract class FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs> get serializer =>
       _$filesTransferOwnershipRejectResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTransferOwnershipRejectResponse200ApplicationJsonInterface {
+  FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs get ocs;
+  FilesTransferOwnershipRejectResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesTransferOwnershipRejectResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesTransferOwnershipRejectResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTransferOwnershipRejectResponse200ApplicationJson
     implements
+        FilesTransferOwnershipRejectResponse200ApplicationJsonInterface,
         Built<FilesTransferOwnershipRejectResponse200ApplicationJson,
             FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder> {
   factory FilesTransferOwnershipRejectResponse200ApplicationJson([
@@ -1723,13 +2063,25 @@ abstract class FilesTransferOwnershipRejectResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesTransferOwnershipRejectResponse200ApplicationJson> get serializer =>
       _$filesTransferOwnershipRejectResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesCapabilities_Files_DirectEditingInterface {
+  String get url;
+  String get etag;
+  bool get supportsFileId;
+  FilesCapabilities_Files_DirectEditingInterface rebuild(
+    final void Function(FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates,
+  );
+  FilesCapabilities_Files_DirectEditingInterfaceBuilder toBuilder();
+}
+
 abstract class FilesCapabilities_Files_DirectEditing
-    implements Built<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder> {
+    implements
+        FilesCapabilities_Files_DirectEditingInterface,
+        Built<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder> {
   factory FilesCapabilities_Files_DirectEditing([
     final void Function(FilesCapabilities_Files_DirectEditingBuilder)? b,
   ]) = _$FilesCapabilities_Files_DirectEditing;
@@ -1746,14 +2098,22 @@ abstract class FilesCapabilities_Files_DirectEditing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get url;
-  String get etag;
-  bool get supportsFileId;
   static Serializer<FilesCapabilities_Files_DirectEditing> get serializer =>
       _$filesCapabilitiesFilesDirectEditingSerializer;
 }
 
-abstract class FilesCapabilities_Files implements Built<FilesCapabilities_Files, FilesCapabilities_FilesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesCapabilities_FilesInterface {
+  bool get bigfilechunking;
+  @BuiltValueField(wireName: 'blacklisted_files')
+  BuiltList<JsonObject> get blacklistedFiles;
+  FilesCapabilities_Files_DirectEditing get directEditing;
+  FilesCapabilities_FilesInterface rebuild(final void Function(FilesCapabilities_FilesInterfaceBuilder) updates);
+  FilesCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
+abstract class FilesCapabilities_Files
+    implements FilesCapabilities_FilesInterface, Built<FilesCapabilities_Files, FilesCapabilities_FilesBuilder> {
   factory FilesCapabilities_Files([final void Function(FilesCapabilities_FilesBuilder)? b]) = _$FilesCapabilities_Files;
 
   // coverage:ignore-start
@@ -1768,14 +2128,18 @@ abstract class FilesCapabilities_Files implements Built<FilesCapabilities_Files,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get bigfilechunking;
-  @BuiltValueField(wireName: 'blacklisted_files')
-  BuiltList<JsonObject> get blacklistedFiles;
-  FilesCapabilities_Files_DirectEditing get directEditing;
   static Serializer<FilesCapabilities_Files> get serializer => _$filesCapabilitiesFilesSerializer;
 }
 
-abstract class FilesCapabilities implements Built<FilesCapabilities, FilesCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesCapabilitiesInterface {
+  FilesCapabilities_Files get files;
+  FilesCapabilitiesInterface rebuild(final void Function(FilesCapabilitiesInterfaceBuilder) updates);
+  FilesCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class FilesCapabilities
+    implements FilesCapabilitiesInterface, Built<FilesCapabilities, FilesCapabilitiesBuilder> {
   factory FilesCapabilities([final void Function(FilesCapabilitiesBuilder)? b]) = _$FilesCapabilities;
 
   // coverage:ignore-start
@@ -1790,11 +2154,28 @@ abstract class FilesCapabilities implements Built<FilesCapabilities, FilesCapabi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesCapabilities_Files get files;
   static Serializer<FilesCapabilities> get serializer => _$filesCapabilitiesSerializer;
 }
 
-abstract class FilesTemplate implements Built<FilesTemplate, FilesTemplateBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesTemplateInterface {
+  String get templateType;
+  String get templateId;
+  String get basename;
+  String get etag;
+  int get fileid;
+  String get filename;
+  int get lastmod;
+  String get mime;
+  int get size;
+  String get type;
+  bool get hasPreview;
+  String? get previewUrl;
+  FilesTemplateInterface rebuild(final void Function(FilesTemplateInterfaceBuilder) updates);
+  FilesTemplateInterfaceBuilder toBuilder();
+}
+
+abstract class FilesTemplate implements FilesTemplateInterface, Built<FilesTemplate, FilesTemplateBuilder> {
   factory FilesTemplate([final void Function(FilesTemplateBuilder)? b]) = _$FilesTemplate;
 
   // coverage:ignore-start
@@ -1809,18 +2190,6 @@ abstract class FilesTemplate implements Built<FilesTemplate, FilesTemplateBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get templateType;
-  String get templateId;
-  String get basename;
-  String get etag;
-  int get fileid;
-  String get filename;
-  int get lastmod;
-  String get mime;
-  int get size;
-  String get type;
-  bool get hasPreview;
-  String? get previewUrl;
   static Serializer<FilesTemplate> get serializer => _$filesTemplateSerializer;
 }
 

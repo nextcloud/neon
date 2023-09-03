@@ -511,8 +511,20 @@ class ThemingUserThemeClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface {
+  String get src;
+  String get type;
+  String get sizes;
+  ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface rebuild(
+    final void Function(ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder) updates,
+  );
+  ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder toBuilder();
+}
+
 abstract class ThemingThemingGetManifestResponse200ApplicationJson_Icons
     implements
+        ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface,
         Built<ThemingThemingGetManifestResponse200ApplicationJson_Icons,
             ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder> {
   factory ThemingThemingGetManifestResponse200ApplicationJson_Icons([
@@ -531,15 +543,33 @@ abstract class ThemingThemingGetManifestResponse200ApplicationJson_Icons
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get src;
-  String get type;
-  String get sizes;
   static Serializer<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get serializer =>
       _$themingThemingGetManifestResponse200ApplicationJsonIconsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ThemingThemingGetManifestResponse200ApplicationJsonInterface {
+  String get name;
+  @BuiltValueField(wireName: 'short_name')
+  String get shortName;
+  @BuiltValueField(wireName: 'start_url')
+  String get startUrl;
+  @BuiltValueField(wireName: 'theme_color')
+  String get themeColor;
+  @BuiltValueField(wireName: 'background_color')
+  String get backgroundColor;
+  String get description;
+  BuiltList<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get icons;
+  String get display;
+  ThemingThemingGetManifestResponse200ApplicationJsonInterface rebuild(
+    final void Function(ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ThemingThemingGetManifestResponse200ApplicationJson
     implements
+        ThemingThemingGetManifestResponse200ApplicationJsonInterface,
         Built<ThemingThemingGetManifestResponse200ApplicationJson,
             ThemingThemingGetManifestResponse200ApplicationJsonBuilder> {
   factory ThemingThemingGetManifestResponse200ApplicationJson([
@@ -558,23 +588,21 @@ abstract class ThemingThemingGetManifestResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get name;
-  @BuiltValueField(wireName: 'short_name')
-  String get shortName;
-  @BuiltValueField(wireName: 'start_url')
-  String get startUrl;
-  @BuiltValueField(wireName: 'theme_color')
-  String get themeColor;
-  @BuiltValueField(wireName: 'background_color')
-  String get backgroundColor;
-  String get description;
-  BuiltList<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get icons;
-  String get display;
   static Serializer<ThemingThemingGetManifestResponse200ApplicationJson> get serializer =>
       _$themingThemingGetManifestResponse200ApplicationJsonSerializer;
 }
 
-abstract class ThemingBackground implements Built<ThemingBackground, ThemingBackgroundBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ThemingBackgroundInterface {
+  String? get backgroundImage;
+  String get backgroundColor;
+  int get version;
+  ThemingBackgroundInterface rebuild(final void Function(ThemingBackgroundInterfaceBuilder) updates);
+  ThemingBackgroundInterfaceBuilder toBuilder();
+}
+
+abstract class ThemingBackground
+    implements ThemingBackgroundInterface, Built<ThemingBackground, ThemingBackgroundBuilder> {
   factory ThemingBackground([final void Function(ThemingBackgroundBuilder)? b]) = _$ThemingBackground;
 
   // coverage:ignore-start
@@ -589,13 +617,21 @@ abstract class ThemingBackground implements Built<ThemingBackground, ThemingBack
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String? get backgroundImage;
-  String get backgroundColor;
-  int get version;
   static Serializer<ThemingBackground> get serializer => _$themingBackgroundSerializer;
 }
 
-abstract class ThemingOCSMeta implements Built<ThemingOCSMeta, ThemingOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ThemingOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  ThemingOCSMetaInterface rebuild(final void Function(ThemingOCSMetaInterfaceBuilder) updates);
+  ThemingOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class ThemingOCSMeta implements ThemingOCSMetaInterface, Built<ThemingOCSMeta, ThemingOCSMetaBuilder> {
   factory ThemingOCSMeta([final void Function(ThemingOCSMetaBuilder)? b]) = _$ThemingOCSMeta;
 
   // coverage:ignore-start
@@ -610,16 +646,22 @@ abstract class ThemingOCSMeta implements Built<ThemingOCSMeta, ThemingOCSMetaBui
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<ThemingOCSMeta> get serializer => _$themingOCSMetaSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface {
+  ThemingOCSMeta get meta;
+  JsonObject get data;
+  ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
     implements
+        ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface,
         Built<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs,
             ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder> {
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs([
@@ -638,14 +680,22 @@ abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ThemingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs> get serializer =>
       _$themingUserThemeEnableThemeResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface {
+  ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs get ocs;
+  ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface rebuild(
+    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson
     implements
+        ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface,
         Built<ThemingUserThemeEnableThemeResponse200ApplicationJson,
             ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder> {
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson([
@@ -664,13 +714,23 @@ abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson> get serializer =>
       _$themingUserThemeEnableThemeResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface {
+  ThemingOCSMeta get meta;
+  JsonObject get data;
+  ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
     implements
+        ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface,
         Built<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs,
             ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder> {
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs([
@@ -689,14 +749,22 @@ abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ThemingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs> get serializer =>
       _$themingUserThemeDisableThemeResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface {
+  ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs get ocs;
+  ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface rebuild(
+    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson
     implements
+        ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface,
         Built<ThemingUserThemeDisableThemeResponse200ApplicationJson,
             ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder> {
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson([
@@ -715,28 +783,12 @@ abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson> get serializer =>
       _$themingUserThemeDisableThemeResponse200ApplicationJsonSerializer;
 }
 
-abstract class ThemingPublicCapabilities_Theming
-    implements Built<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
-  factory ThemingPublicCapabilities_Theming([final void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
-      _$ThemingPublicCapabilities_Theming;
-
-  // coverage:ignore-start
-  const ThemingPublicCapabilities_Theming._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -757,10 +809,43 @@ abstract class ThemingPublicCapabilities_Theming
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
+  ThemingPublicCapabilities_ThemingInterface rebuild(
+    final void Function(ThemingPublicCapabilities_ThemingInterfaceBuilder) updates,
+  );
+  ThemingPublicCapabilities_ThemingInterfaceBuilder toBuilder();
+}
+
+abstract class ThemingPublicCapabilities_Theming
+    implements
+        ThemingPublicCapabilities_ThemingInterface,
+        Built<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
+  factory ThemingPublicCapabilities_Theming([final void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
+      _$ThemingPublicCapabilities_Theming;
+
+  // coverage:ignore-start
+  const ThemingPublicCapabilities_Theming._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory ThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<ThemingPublicCapabilities_Theming> get serializer => _$themingPublicCapabilitiesThemingSerializer;
 }
 
-abstract class ThemingPublicCapabilities implements Built<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ThemingPublicCapabilitiesInterface {
+  ThemingPublicCapabilities_Theming get theming;
+  ThemingPublicCapabilitiesInterface rebuild(final void Function(ThemingPublicCapabilitiesInterfaceBuilder) updates);
+  ThemingPublicCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class ThemingPublicCapabilities
+    implements ThemingPublicCapabilitiesInterface, Built<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
   factory ThemingPublicCapabilities([final void Function(ThemingPublicCapabilitiesBuilder)? b]) =
       _$ThemingPublicCapabilities;
 
@@ -776,7 +861,6 @@ abstract class ThemingPublicCapabilities implements Built<ThemingPublicCapabilit
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ThemingPublicCapabilities_Theming get theming;
   static Serializer<ThemingPublicCapabilities> get serializer => _$themingPublicCapabilitiesSerializer;
 }
 

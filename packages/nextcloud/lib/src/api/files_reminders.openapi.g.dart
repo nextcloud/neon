@@ -426,6 +426,25 @@ class _$FilesRemindersApiRemoveResponse200ApplicationJsonSerializer
   }
 }
 
+abstract mixin class FilesRemindersOCSMetaInterfaceBuilder {
+  void replace(FilesRemindersOCSMetaInterface other);
+  void update(void Function(FilesRemindersOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
   @override
   final String status;
@@ -490,28 +509,29 @@ class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
   }
 }
 
-class FilesRemindersOCSMetaBuilder implements Builder<FilesRemindersOCSMeta, FilesRemindersOCSMetaBuilder> {
+class FilesRemindersOCSMetaBuilder
+    implements Builder<FilesRemindersOCSMeta, FilesRemindersOCSMetaBuilder>, FilesRemindersOCSMetaInterfaceBuilder {
   _$FilesRemindersOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   FilesRemindersOCSMetaBuilder();
 
@@ -529,7 +549,7 @@ class FilesRemindersOCSMetaBuilder implements Builder<FilesRemindersOCSMeta, Fil
   }
 
   @override
-  void replace(FilesRemindersOCSMeta other) {
+  void replace(covariant FilesRemindersOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersOCSMeta;
   }
@@ -553,6 +573,13 @@ class FilesRemindersOCSMetaBuilder implements Builder<FilesRemindersOCSMeta, Fil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get dueDate;
+  set dueDate(String? dueDate);
 }
 
 class _$FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data
@@ -600,12 +627,13 @@ class _$FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data
 class FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data,
-            FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _dueDate;
   String? get dueDate => _$this._dueDate;
-  set dueDate(String? dueDate) => _$this._dueDate = dueDate;
+  set dueDate(covariant String? dueDate) => _$this._dueDate = dueDate;
 
   FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -619,7 +647,7 @@ class FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiGetResponse200ApplicationJson_Ocs_Data;
   }
@@ -637,6 +665,16 @@ class FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiGetResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesRemindersApiGetResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesRemindersApiGetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesRemindersOCSMetaBuilder get meta;
+  set meta(FilesRemindersOCSMetaBuilder? meta);
+
+  FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesRemindersApiGetResponse200ApplicationJson_Ocs extends FilesRemindersApiGetResponse200ApplicationJson_Ocs {
@@ -690,17 +728,18 @@ class _$FilesRemindersApiGetResponse200ApplicationJson_Ocs extends FilesReminder
 class FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesRemindersApiGetResponse200ApplicationJson_Ocs,
-            FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder> {
+            FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder>,
+        FilesRemindersApiGetResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesRemindersApiGetResponse200ApplicationJson_Ocs? _$v;
 
   FilesRemindersOCSMetaBuilder? _meta;
   FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesRemindersApiGetResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder();
 
@@ -715,7 +754,7 @@ class FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesRemindersApiGetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesRemindersApiGetResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiGetResponse200ApplicationJson_Ocs;
   }
@@ -748,6 +787,13 @@ class FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiGetResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesRemindersApiGetResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesRemindersApiGetResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesRemindersApiGetResponse200ApplicationJson extends FilesRemindersApiGetResponse200ApplicationJson {
@@ -793,13 +839,14 @@ class _$FilesRemindersApiGetResponse200ApplicationJson extends FilesRemindersApi
 
 class FilesRemindersApiGetResponse200ApplicationJsonBuilder
     implements
-        Builder<FilesRemindersApiGetResponse200ApplicationJson, FilesRemindersApiGetResponse200ApplicationJsonBuilder> {
+        Builder<FilesRemindersApiGetResponse200ApplicationJson, FilesRemindersApiGetResponse200ApplicationJsonBuilder>,
+        FilesRemindersApiGetResponse200ApplicationJsonInterfaceBuilder {
   _$FilesRemindersApiGetResponse200ApplicationJson? _$v;
 
   FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesRemindersApiGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesRemindersApiGetResponse200ApplicationJsonBuilder();
 
@@ -813,7 +860,7 @@ class FilesRemindersApiGetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesRemindersApiGetResponse200ApplicationJson other) {
+  void replace(covariant FilesRemindersApiGetResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiGetResponse200ApplicationJson;
   }
@@ -844,6 +891,16 @@ class FilesRemindersApiGetResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiSetResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesRemindersApiSetResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesRemindersApiSetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesRemindersOCSMetaBuilder get meta;
+  set meta(FilesRemindersOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$FilesRemindersApiSetResponse200ApplicationJson_Ocs extends FilesRemindersApiSetResponse200ApplicationJson_Ocs {
@@ -897,16 +954,17 @@ class _$FilesRemindersApiSetResponse200ApplicationJson_Ocs extends FilesReminder
 class FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesRemindersApiSetResponse200ApplicationJson_Ocs,
-            FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder> {
+            FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder>,
+        FilesRemindersApiSetResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesRemindersApiSetResponse200ApplicationJson_Ocs? _$v;
 
   FilesRemindersOCSMetaBuilder? _meta;
   FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder();
 
@@ -921,7 +979,7 @@ class FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesRemindersApiSetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesRemindersApiSetResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiSetResponse200ApplicationJson_Ocs;
   }
@@ -956,6 +1014,13 @@ class FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiSetResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesRemindersApiSetResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesRemindersApiSetResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesRemindersApiSetResponse200ApplicationJson extends FilesRemindersApiSetResponse200ApplicationJson {
@@ -1001,13 +1066,14 @@ class _$FilesRemindersApiSetResponse200ApplicationJson extends FilesRemindersApi
 
 class FilesRemindersApiSetResponse200ApplicationJsonBuilder
     implements
-        Builder<FilesRemindersApiSetResponse200ApplicationJson, FilesRemindersApiSetResponse200ApplicationJsonBuilder> {
+        Builder<FilesRemindersApiSetResponse200ApplicationJson, FilesRemindersApiSetResponse200ApplicationJsonBuilder>,
+        FilesRemindersApiSetResponse200ApplicationJsonInterfaceBuilder {
   _$FilesRemindersApiSetResponse200ApplicationJson? _$v;
 
   FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesRemindersApiSetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesRemindersApiSetResponse200ApplicationJsonBuilder();
 
@@ -1021,7 +1087,7 @@ class FilesRemindersApiSetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesRemindersApiSetResponse200ApplicationJson other) {
+  void replace(covariant FilesRemindersApiSetResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiSetResponse200ApplicationJson;
   }
@@ -1052,6 +1118,16 @@ class FilesRemindersApiSetResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiRemoveResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesRemindersApiRemoveResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesRemindersApiRemoveResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesRemindersOCSMetaBuilder get meta;
+  set meta(FilesRemindersOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$FilesRemindersApiRemoveResponse200ApplicationJson_Ocs
@@ -1106,16 +1182,17 @@ class _$FilesRemindersApiRemoveResponse200ApplicationJson_Ocs
 class FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesRemindersApiRemoveResponse200ApplicationJson_Ocs,
-            FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder> {
+            FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder>,
+        FilesRemindersApiRemoveResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesRemindersApiRemoveResponse200ApplicationJson_Ocs? _$v;
 
   FilesRemindersOCSMetaBuilder? _meta;
   FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder();
 
@@ -1130,7 +1207,7 @@ class FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesRemindersApiRemoveResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesRemindersApiRemoveResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiRemoveResponse200ApplicationJson_Ocs;
   }
@@ -1165,6 +1242,13 @@ class FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesRemindersApiRemoveResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesRemindersApiRemoveResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesRemindersApiRemoveResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesRemindersApiRemoveResponse200ApplicationJson extends FilesRemindersApiRemoveResponse200ApplicationJson {
@@ -1212,13 +1296,14 @@ class _$FilesRemindersApiRemoveResponse200ApplicationJson extends FilesReminders
 class FilesRemindersApiRemoveResponse200ApplicationJsonBuilder
     implements
         Builder<FilesRemindersApiRemoveResponse200ApplicationJson,
-            FilesRemindersApiRemoveResponse200ApplicationJsonBuilder> {
+            FilesRemindersApiRemoveResponse200ApplicationJsonBuilder>,
+        FilesRemindersApiRemoveResponse200ApplicationJsonInterfaceBuilder {
   _$FilesRemindersApiRemoveResponse200ApplicationJson? _$v;
 
   FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesRemindersApiRemoveResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesRemindersApiRemoveResponse200ApplicationJsonBuilder();
 
@@ -1232,7 +1317,7 @@ class FilesRemindersApiRemoveResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesRemindersApiRemoveResponse200ApplicationJson other) {
+  void replace(covariant FilesRemindersApiRemoveResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesRemindersApiRemoveResponse200ApplicationJson;
   }

@@ -350,7 +350,23 @@ class NotesClient extends DynamiteClient {
   }
 }
 
-abstract class NotesNote implements Built<NotesNote, NotesNoteBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesNoteInterface {
+  int get id;
+  String get etag;
+  bool get readonly;
+  String get content;
+  String get title;
+  String get category;
+  bool get favorite;
+  int get modified;
+  bool get error;
+  String get errorType;
+  NotesNoteInterface rebuild(final void Function(NotesNoteInterfaceBuilder) updates);
+  NotesNoteInterfaceBuilder toBuilder();
+}
+
+abstract class NotesNote implements NotesNoteInterface, Built<NotesNote, NotesNoteBuilder> {
   factory NotesNote([final void Function(NotesNoteBuilder)? b]) = _$NotesNote;
 
   // coverage:ignore-start
@@ -364,16 +380,6 @@ abstract class NotesNote implements Built<NotesNote, NotesNoteBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get id;
-  String get etag;
-  bool get readonly;
-  String get content;
-  String get title;
-  String get category;
-  bool get favorite;
-  int get modified;
-  bool get error;
-  String get errorType;
   static Serializer<NotesNote> get serializer => _$notesNoteSerializer;
 }
 
@@ -393,7 +399,16 @@ class NotesSettings_NoteMode extends EnumClass {
   static Serializer<NotesSettings_NoteMode> get serializer => _$notesSettingsNoteModeSerializer;
 }
 
-abstract class NotesSettings implements Built<NotesSettings, NotesSettingsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesSettingsInterface {
+  String get notesPath;
+  String get fileSuffix;
+  NotesSettings_NoteMode get noteMode;
+  NotesSettingsInterface rebuild(final void Function(NotesSettingsInterfaceBuilder) updates);
+  NotesSettingsInterfaceBuilder toBuilder();
+}
+
+abstract class NotesSettings implements NotesSettingsInterface, Built<NotesSettings, NotesSettingsBuilder> {
   factory NotesSettings([final void Function(NotesSettingsBuilder)? b]) = _$NotesSettings;
 
   // coverage:ignore-start
@@ -408,13 +423,20 @@ abstract class NotesSettings implements Built<NotesSettings, NotesSettingsBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get notesPath;
-  String get fileSuffix;
-  NotesSettings_NoteMode get noteMode;
   static Serializer<NotesSettings> get serializer => _$notesSettingsSerializer;
 }
 
-abstract class NotesCapabilities_Notes implements Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesCapabilities_NotesInterface {
+  @BuiltValueField(wireName: 'api_version')
+  BuiltList<String>? get apiVersion;
+  String? get version;
+  NotesCapabilities_NotesInterface rebuild(final void Function(NotesCapabilities_NotesInterfaceBuilder) updates);
+  NotesCapabilities_NotesInterfaceBuilder toBuilder();
+}
+
+abstract class NotesCapabilities_Notes
+    implements NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
   factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
 
   // coverage:ignore-start
@@ -429,13 +451,18 @@ abstract class NotesCapabilities_Notes implements Built<NotesCapabilities_Notes,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'api_version')
-  BuiltList<String>? get apiVersion;
-  String? get version;
   static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
 }
 
-abstract class NotesCapabilities implements Built<NotesCapabilities, NotesCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesCapabilitiesInterface {
+  NotesCapabilities_Notes get notes;
+  NotesCapabilitiesInterface rebuild(final void Function(NotesCapabilitiesInterfaceBuilder) updates);
+  NotesCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class NotesCapabilities
+    implements NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
   factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
 
   // coverage:ignore-start
@@ -450,11 +477,21 @@ abstract class NotesCapabilities implements Built<NotesCapabilities, NotesCapabi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotesCapabilities_Notes get notes;
   static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
 }
 
-abstract class NotesOCSMeta implements Built<NotesOCSMeta, NotesOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  NotesOCSMetaInterface rebuild(final void Function(NotesOCSMetaInterfaceBuilder) updates);
+  NotesOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class NotesOCSMeta implements NotesOCSMetaInterface, Built<NotesOCSMeta, NotesOCSMetaBuilder> {
   factory NotesOCSMeta([final void Function(NotesOCSMetaBuilder)? b]) = _$NotesOCSMeta;
 
   // coverage:ignore-start
@@ -468,15 +505,19 @@ abstract class NotesOCSMeta implements Built<NotesOCSMeta, NotesOCSMetaBuilder> 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<NotesOCSMeta> get serializer => _$notesOCSMetaSerializer;
 }
 
-abstract class NotesEmptyOCS_Ocs implements Built<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesEmptyOCS_OcsInterface {
+  NotesOCSMeta get meta;
+  BuiltList<JsonObject> get data;
+  NotesEmptyOCS_OcsInterface rebuild(final void Function(NotesEmptyOCS_OcsInterfaceBuilder) updates);
+  NotesEmptyOCS_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotesEmptyOCS_Ocs
+    implements NotesEmptyOCS_OcsInterface, Built<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder> {
   factory NotesEmptyOCS_Ocs([final void Function(NotesEmptyOCS_OcsBuilder)? b]) = _$NotesEmptyOCS_Ocs;
 
   // coverage:ignore-start
@@ -491,12 +532,17 @@ abstract class NotesEmptyOCS_Ocs implements Built<NotesEmptyOCS_Ocs, NotesEmptyO
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotesOCSMeta get meta;
-  BuiltList<JsonObject> get data;
   static Serializer<NotesEmptyOCS_Ocs> get serializer => _$notesEmptyOCSOcsSerializer;
 }
 
-abstract class NotesEmptyOCS implements Built<NotesEmptyOCS, NotesEmptyOCSBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotesEmptyOCSInterface {
+  NotesEmptyOCS_Ocs get ocs;
+  NotesEmptyOCSInterface rebuild(final void Function(NotesEmptyOCSInterfaceBuilder) updates);
+  NotesEmptyOCSInterfaceBuilder toBuilder();
+}
+
+abstract class NotesEmptyOCS implements NotesEmptyOCSInterface, Built<NotesEmptyOCS, NotesEmptyOCSBuilder> {
   factory NotesEmptyOCS([final void Function(NotesEmptyOCSBuilder)? b]) = _$NotesEmptyOCS;
 
   // coverage:ignore-start
@@ -511,7 +557,6 @@ abstract class NotesEmptyOCS implements Built<NotesEmptyOCS, NotesEmptyOCSBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotesEmptyOCS_Ocs get ocs;
   static Serializer<NotesEmptyOCS> get serializer => _$notesEmptyOCSSerializer;
 }
 

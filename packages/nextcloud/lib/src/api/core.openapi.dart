@@ -2056,7 +2056,21 @@ class CoreWipeClient {
   }
 }
 
-abstract class CoreStatus implements Built<CoreStatus, CoreStatusBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreStatusInterface {
+  bool get installed;
+  bool get maintenance;
+  bool get needsDbUpgrade;
+  String get version;
+  String get versionstring;
+  String get edition;
+  String get productname;
+  bool get extendedSupport;
+  CoreStatusInterface rebuild(final void Function(CoreStatusInterfaceBuilder) updates);
+  CoreStatusInterfaceBuilder toBuilder();
+}
+
+abstract class CoreStatus implements CoreStatusInterface, Built<CoreStatus, CoreStatusBuilder> {
   factory CoreStatus([final void Function(CoreStatusBuilder)? b]) = _$CoreStatus;
 
   // coverage:ignore-start
@@ -2070,18 +2084,21 @@ abstract class CoreStatus implements Built<CoreStatus, CoreStatusBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get installed;
-  bool get maintenance;
-  bool get needsDbUpgrade;
-  String get version;
-  String get versionstring;
-  String get edition;
-  String get productname;
-  bool get extendedSupport;
   static Serializer<CoreStatus> get serializer => _$coreStatusSerializer;
 }
 
-abstract class CoreOCSMeta implements Built<CoreOCSMeta, CoreOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  CoreOCSMetaInterface rebuild(final void Function(CoreOCSMetaInterfaceBuilder) updates);
+  CoreOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOCSMeta implements CoreOCSMetaInterface, Built<CoreOCSMeta, CoreOCSMetaBuilder> {
   factory CoreOCSMeta([final void Function(CoreOCSMetaBuilder)? b]) = _$CoreOCSMeta;
 
   // coverage:ignore-start
@@ -2095,16 +2112,21 @@ abstract class CoreOCSMeta implements Built<CoreOCSMeta, CoreOCSMetaBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<CoreOCSMeta> get serializer => _$coreOCSMetaSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterface {
+  String get apppassword;
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
     implements
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data,
             CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data([
@@ -2123,13 +2145,23 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get apppassword;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data get data;
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
     implements
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterface,
         Built<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs,
             CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder> {
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs([
@@ -2148,14 +2180,22 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterface {
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs get ocs;
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson
     implements
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterface,
         Built<CoreAppPasswordGetAppPasswordResponse200ApplicationJson,
             CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder> {
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson([
@@ -2174,13 +2214,22 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterface {
+  String get apppassword;
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
     implements
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data,
             CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data([
@@ -2201,13 +2250,23 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get apppassword;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data get data;
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
     implements
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterface,
         Built<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs,
             CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder> {
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs([
@@ -2226,14 +2285,22 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterface {
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs get ocs;
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
     implements
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterface,
         Built<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson,
             CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder> {
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson([
@@ -2252,13 +2319,23 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  JsonObject get data;
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
     implements
+        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterface,
         Built<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs,
             CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder> {
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs([
@@ -2277,14 +2354,22 @@ abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  JsonObject get data;
   static Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordDeleteAppPasswordResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterface {
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs get ocs;
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
     implements
+        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterface,
         Built<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson,
             CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder> {
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson([
@@ -2303,12 +2388,25 @@ abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreAutocompleteResult implements Built<CoreAutocompleteResult, CoreAutocompleteResultBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreAutocompleteResultInterface {
+  String get id;
+  String get label;
+  String get icon;
+  String get source;
+  String get status;
+  String get subline;
+  String get shareWithDisplayNameUnique;
+  CoreAutocompleteResultInterface rebuild(final void Function(CoreAutocompleteResultInterfaceBuilder) updates);
+  CoreAutocompleteResultInterfaceBuilder toBuilder();
+}
+
+abstract class CoreAutocompleteResult
+    implements CoreAutocompleteResultInterface, Built<CoreAutocompleteResult, CoreAutocompleteResultBuilder> {
   factory CoreAutocompleteResult([final void Function(CoreAutocompleteResultBuilder)? b]) = _$CoreAutocompleteResult;
 
   // coverage:ignore-start
@@ -2323,18 +2421,22 @@ abstract class CoreAutocompleteResult implements Built<CoreAutocompleteResult, C
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get label;
-  String get icon;
-  String get source;
-  String get status;
-  String get subline;
-  String get shareWithDisplayNameUnique;
   static Serializer<CoreAutocompleteResult> get serializer => _$coreAutocompleteResultSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreAutoCompleteGetResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreAutocompleteResult> get data;
+  CoreAutoCompleteGetResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreAutoCompleteGetResponse200ApplicationJson_Ocs
     implements
+        CoreAutoCompleteGetResponse200ApplicationJson_OcsInterface,
         Built<CoreAutoCompleteGetResponse200ApplicationJson_Ocs,
             CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder> {
   factory CoreAutoCompleteGetResponse200ApplicationJson_Ocs([
@@ -2353,14 +2455,22 @@ abstract class CoreAutoCompleteGetResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreAutocompleteResult> get data;
   static Serializer<CoreAutoCompleteGetResponse200ApplicationJson_Ocs> get serializer =>
       _$coreAutoCompleteGetResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAutoCompleteGetResponse200ApplicationJsonInterface {
+  CoreAutoCompleteGetResponse200ApplicationJson_Ocs get ocs;
+  CoreAutoCompleteGetResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAutoCompleteGetResponse200ApplicationJson
     implements
+        CoreAutoCompleteGetResponse200ApplicationJsonInterface,
         Built<CoreAutoCompleteGetResponse200ApplicationJson, CoreAutoCompleteGetResponse200ApplicationJsonBuilder> {
   factory CoreAutoCompleteGetResponse200ApplicationJson([
     final void Function(CoreAutoCompleteGetResponse200ApplicationJsonBuilder)? b,
@@ -2378,13 +2488,24 @@ abstract class CoreAutoCompleteGetResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreAutoCompleteGetResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAutoCompleteGetResponse200ApplicationJson> get serializer =>
       _$coreAutoCompleteGetResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAvatarAvatarGetAvatarDarkHeadersInterface {
+  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
+  int? get xNcIscustomavatar;
+  CoreAvatarAvatarGetAvatarDarkHeadersInterface rebuild(
+    final void Function(CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates,
+  );
+  CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAvatarAvatarGetAvatarDarkHeaders
-    implements Built<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder> {
+    implements
+        CoreAvatarAvatarGetAvatarDarkHeadersInterface,
+        Built<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder> {
   factory CoreAvatarAvatarGetAvatarDarkHeaders([final void Function(CoreAvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
       _$CoreAvatarAvatarGetAvatarDarkHeaders;
 
@@ -2400,8 +2521,6 @@ abstract class CoreAvatarAvatarGetAvatarDarkHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  int? get xNcIscustomavatar;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreAvatarAvatarGetAvatarDarkHeaders> get serializer =>
       _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer();
@@ -2447,8 +2566,20 @@ class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreAvatarAvatarGetAvatarHeadersInterface {
+  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
+  int? get xNcIscustomavatar;
+  CoreAvatarAvatarGetAvatarHeadersInterface rebuild(
+    final void Function(CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder) updates,
+  );
+  CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class CoreAvatarAvatarGetAvatarHeaders
-    implements Built<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder> {
+    implements
+        CoreAvatarAvatarGetAvatarHeadersInterface,
+        Built<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder> {
   factory CoreAvatarAvatarGetAvatarHeaders([final void Function(CoreAvatarAvatarGetAvatarHeadersBuilder)? b]) =
       _$CoreAvatarAvatarGetAvatarHeaders;
 
@@ -2464,8 +2595,6 @@ abstract class CoreAvatarAvatarGetAvatarHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  int? get xNcIscustomavatar;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreAvatarAvatarGetAvatarHeaders> get serializer => _$CoreAvatarAvatarGetAvatarHeadersSerializer();
 }
@@ -2509,8 +2638,19 @@ class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializ
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreLoginFlowV2CredentialsInterface {
+  String get server;
+  String get loginName;
+  String get appPassword;
+  CoreLoginFlowV2CredentialsInterface rebuild(final void Function(CoreLoginFlowV2CredentialsInterfaceBuilder) updates);
+  CoreLoginFlowV2CredentialsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreLoginFlowV2Credentials
-    implements Built<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder> {
+    implements
+        CoreLoginFlowV2CredentialsInterface,
+        Built<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder> {
   factory CoreLoginFlowV2Credentials([final void Function(CoreLoginFlowV2CredentialsBuilder)? b]) =
       _$CoreLoginFlowV2Credentials;
 
@@ -2526,13 +2666,19 @@ abstract class CoreLoginFlowV2Credentials
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get server;
-  String get loginName;
-  String get appPassword;
   static Serializer<CoreLoginFlowV2Credentials> get serializer => _$coreLoginFlowV2CredentialsSerializer;
 }
 
-abstract class CoreLoginFlowV2_Poll implements Built<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreLoginFlowV2_PollInterface {
+  String get token;
+  String get endpoint;
+  CoreLoginFlowV2_PollInterface rebuild(final void Function(CoreLoginFlowV2_PollInterfaceBuilder) updates);
+  CoreLoginFlowV2_PollInterfaceBuilder toBuilder();
+}
+
+abstract class CoreLoginFlowV2_Poll
+    implements CoreLoginFlowV2_PollInterface, Built<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder> {
   factory CoreLoginFlowV2_Poll([final void Function(CoreLoginFlowV2_PollBuilder)? b]) = _$CoreLoginFlowV2_Poll;
 
   // coverage:ignore-start
@@ -2547,12 +2693,18 @@ abstract class CoreLoginFlowV2_Poll implements Built<CoreLoginFlowV2_Poll, CoreL
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get token;
-  String get endpoint;
   static Serializer<CoreLoginFlowV2_Poll> get serializer => _$coreLoginFlowV2PollSerializer;
 }
 
-abstract class CoreLoginFlowV2 implements Built<CoreLoginFlowV2, CoreLoginFlowV2Builder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreLoginFlowV2Interface {
+  CoreLoginFlowV2_Poll get poll;
+  String get login;
+  CoreLoginFlowV2Interface rebuild(final void Function(CoreLoginFlowV2InterfaceBuilder) updates);
+  CoreLoginFlowV2InterfaceBuilder toBuilder();
+}
+
+abstract class CoreLoginFlowV2 implements CoreLoginFlowV2Interface, Built<CoreLoginFlowV2, CoreLoginFlowV2Builder> {
   factory CoreLoginFlowV2([final void Function(CoreLoginFlowV2Builder)? b]) = _$CoreLoginFlowV2;
 
   // coverage:ignore-start
@@ -2567,13 +2719,26 @@ abstract class CoreLoginFlowV2 implements Built<CoreLoginFlowV2, CoreLoginFlowV2
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreLoginFlowV2_Poll get poll;
-  String get login;
   static Serializer<CoreLoginFlowV2> get serializer => _$coreLoginFlowV2Serializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreOpenGraphObject_OpenGraphObjectInterface {
+  String get id;
+  String get name;
+  String? get description;
+  String? get thumb;
+  String get link;
+  CoreOpenGraphObject_OpenGraphObjectInterface rebuild(
+    final void Function(CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder) updates,
+  );
+  CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder toBuilder();
+}
+
 abstract class CoreOpenGraphObject_OpenGraphObject
-    implements Built<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder> {
+    implements
+        CoreOpenGraphObject_OpenGraphObjectInterface,
+        Built<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder> {
   factory CoreOpenGraphObject_OpenGraphObject([final void Function(CoreOpenGraphObject_OpenGraphObjectBuilder)? b]) =
       _$CoreOpenGraphObject_OpenGraphObject;
 
@@ -2589,16 +2754,22 @@ abstract class CoreOpenGraphObject_OpenGraphObject
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get name;
-  String? get description;
-  String? get thumb;
-  String get link;
   static Serializer<CoreOpenGraphObject_OpenGraphObject> get serializer =>
       _$coreOpenGraphObjectOpenGraphObjectSerializer;
 }
 
-abstract class CoreOpenGraphObject implements Built<CoreOpenGraphObject, CoreOpenGraphObjectBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreOpenGraphObjectInterface {
+  String get richObjectType;
+  BuiltMap<String, JsonObject> get richObject;
+  CoreOpenGraphObject_OpenGraphObject get openGraphObject;
+  bool get accessible;
+  CoreOpenGraphObjectInterface rebuild(final void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
+  CoreOpenGraphObjectInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOpenGraphObject
+    implements CoreOpenGraphObjectInterface, Built<CoreOpenGraphObject, CoreOpenGraphObjectBuilder> {
   factory CoreOpenGraphObject([final void Function(CoreOpenGraphObjectBuilder)? b]) = _$CoreOpenGraphObject;
 
   // coverage:ignore-start
@@ -2613,14 +2784,19 @@ abstract class CoreOpenGraphObject implements Built<CoreOpenGraphObject, CoreOpe
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get richObjectType;
-  BuiltMap<String, JsonObject> get richObject;
-  CoreOpenGraphObject_OpenGraphObject get openGraphObject;
-  bool get accessible;
   static Serializer<CoreOpenGraphObject> get serializer => _$coreOpenGraphObjectSerializer;
 }
 
-abstract class CoreCollection implements Built<CoreCollection, CoreCollectionBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollectionInterface {
+  int get id;
+  String get name;
+  BuiltList<CoreOpenGraphObject> get resources;
+  CoreCollectionInterface rebuild(final void Function(CoreCollectionInterfaceBuilder) updates);
+  CoreCollectionInterfaceBuilder toBuilder();
+}
+
+abstract class CoreCollection implements CoreCollectionInterface, Built<CoreCollection, CoreCollectionBuilder> {
   factory CoreCollection([final void Function(CoreCollectionBuilder)? b]) = _$CoreCollection;
 
   // coverage:ignore-start
@@ -2635,14 +2811,23 @@ abstract class CoreCollection implements Built<CoreCollection, CoreCollectionBui
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get id;
-  String get name;
-  BuiltList<CoreOpenGraphObject> get resources;
   static Serializer<CoreCollection> get serializer => _$coreCollectionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreCollection> get data;
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs([
@@ -2663,14 +2848,22 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponse200Application
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreCollection> get data;
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson,
             CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson([
@@ -2691,13 +2884,23 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponse200Application
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreCollection get data;
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs([
@@ -2718,14 +2921,22 @@ abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreCollection get data;
   static Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesListCollectionResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesListCollectionResponse200ApplicationJson,
             CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson([
@@ -2746,13 +2957,24 @@ abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesListCollectionResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreCollection get data;
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs([
@@ -2773,14 +2995,22 @@ abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJ
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreCollection get data;
   static Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesRenameCollectionResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson,
             CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson([
@@ -2801,13 +3031,23 @@ abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJ
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreCollection get data;
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs([
@@ -2828,14 +3068,22 @@ abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreCollection get data;
   static Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesAddResourceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesAddResourceResponse200ApplicationJson,
             CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson([
@@ -2854,13 +3102,23 @@ abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesAddResourceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreCollection get data;
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs([
@@ -2881,14 +3139,22 @@ abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreCollection get data;
   static Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesRemoveResourceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson,
             CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson([
@@ -2909,13 +3175,25 @@ abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreCollection> get data;
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(
+      CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder,
+    ) updates,
+  );
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs([
@@ -2936,14 +3214,23 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200Appl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreCollection> get data;
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder)
+        updates,
+  );
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson,
             CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson([
@@ -2964,13 +3251,25 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200Appl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreCollection get data;
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(
+      CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder,
+    ) updates,
+  );
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs
     implements
+        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterface,
         Built<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs,
             CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder> {
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs([
@@ -2991,14 +3290,23 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Ap
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreCollection get data;
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs>
       get serializer => _$coreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterface {
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs get ocs;
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder)
+        updates,
+  );
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson
     implements
+        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterface,
         Built<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson,
             CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder> {
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson([
@@ -3019,12 +3327,22 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Ap
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreContactsAction implements Built<CoreContactsAction, CoreContactsActionBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreContactsActionInterface {
+  String get title;
+  String get icon;
+  String get hyperlink;
+  String get appId;
+  CoreContactsActionInterface rebuild(final void Function(CoreContactsActionInterfaceBuilder) updates);
+  CoreContactsActionInterfaceBuilder toBuilder();
+}
+
+abstract class CoreContactsAction
+    implements CoreContactsActionInterface, Built<CoreContactsAction, CoreContactsActionBuilder> {
   factory CoreContactsAction([final void Function(CoreContactsActionBuilder)? b]) = _$CoreContactsAction;
 
   // coverage:ignore-start
@@ -3039,15 +3357,23 @@ abstract class CoreContactsAction implements Built<CoreContactsAction, CoreConta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get title;
-  String get icon;
-  String get hyperlink;
-  String get appId;
   static Serializer<CoreContactsAction> get serializer => _$coreContactsActionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterface {
+  String get userId;
+  String get displayName;
+  BuiltList<CoreContactsAction> get actions;
+  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
     implements
+        CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data,
             CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data([
@@ -3066,15 +3392,23 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get userId;
-  String get displayName;
-  BuiltList<CoreContactsAction> get actions;
   static Serializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreHoverCardGetUserResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreHoverCardGetUserResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data get data;
+  CoreHoverCardGetUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs
     implements
+        CoreHoverCardGetUserResponse200ApplicationJson_OcsInterface,
         Built<CoreHoverCardGetUserResponse200ApplicationJson_Ocs,
             CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder> {
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs([
@@ -3093,14 +3427,22 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs> get serializer =>
       _$coreHoverCardGetUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreHoverCardGetUserResponse200ApplicationJsonInterface {
+  CoreHoverCardGetUserResponse200ApplicationJson_Ocs get ocs;
+  CoreHoverCardGetUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreHoverCardGetUserResponse200ApplicationJson
     implements
+        CoreHoverCardGetUserResponse200ApplicationJsonInterface,
         Built<CoreHoverCardGetUserResponse200ApplicationJson, CoreHoverCardGetUserResponse200ApplicationJsonBuilder> {
   factory CoreHoverCardGetUserResponse200ApplicationJson([
     final void Function(CoreHoverCardGetUserResponse200ApplicationJsonBuilder)? b,
@@ -3118,7 +3460,6 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreHoverCardGetUserResponse200ApplicationJson> get serializer =>
       _$coreHoverCardGetUserResponse200ApplicationJsonSerializer;
 }
@@ -3179,7 +3520,23 @@ class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreN
   }
 }
 
-abstract class CoreNavigationEntry implements Built<CoreNavigationEntry, CoreNavigationEntryBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreNavigationEntryInterface {
+  String get id;
+  CoreNavigationEntry_Order get order;
+  String get href;
+  String get icon;
+  String get type;
+  String get name;
+  bool get active;
+  String get classes;
+  int get unread;
+  CoreNavigationEntryInterface rebuild(final void Function(CoreNavigationEntryInterfaceBuilder) updates);
+  CoreNavigationEntryInterfaceBuilder toBuilder();
+}
+
+abstract class CoreNavigationEntry
+    implements CoreNavigationEntryInterface, Built<CoreNavigationEntry, CoreNavigationEntryBuilder> {
   factory CoreNavigationEntry([final void Function(CoreNavigationEntryBuilder)? b]) = _$CoreNavigationEntry;
 
   // coverage:ignore-start
@@ -3194,20 +3551,22 @@ abstract class CoreNavigationEntry implements Built<CoreNavigationEntry, CoreNav
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  CoreNavigationEntry_Order get order;
-  String get href;
-  String get icon;
-  String get type;
-  String get name;
-  bool get active;
-  String get classes;
-  int get unread;
   static Serializer<CoreNavigationEntry> get serializer => _$coreNavigationEntrySerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreNavigationEntry> get data;
+  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
     implements
+        CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterface,
         Built<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs,
             CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder> {
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs([
@@ -3226,14 +3585,22 @@ abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreNavigationEntry> get data;
   static Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs> get serializer =>
       _$coreNavigationGetAppsNavigationResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterface {
+  CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs get ocs;
+  CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson
     implements
+        CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterface,
         Built<CoreNavigationGetAppsNavigationResponse200ApplicationJson,
             CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder> {
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson([
@@ -3252,13 +3619,23 @@ abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson> get serializer =>
       _$coreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreNavigationEntry> get data;
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
     implements
+        CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterface,
         Built<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs,
             CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder> {
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs([
@@ -3277,14 +3654,22 @@ abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreNavigationEntry> get data;
   static Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs> get serializer =>
       _$coreNavigationGetSettingsNavigationResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterface {
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs get ocs;
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson
     implements
+        CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterface,
         Built<CoreNavigationGetSettingsNavigationResponse200ApplicationJson,
             CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder> {
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson([
@@ -3303,13 +3688,27 @@ abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson> get serializer =>
       _$coreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterface {
+  int get major;
+  int get minor;
+  int get micro;
+  String get string;
+  String get edition;
+  bool get extendedSupport;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterface rebuild(
+    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates,
+  );
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder toBuilder();
+}
+
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
     implements
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterface,
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version,
             CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder> {
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version([
@@ -3328,18 +3727,23 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get major;
-  int get minor;
-  int get micro;
-  String get string;
-  String get edition;
-  bool get extendedSupport;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version> get serializer =>
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreCommentsCapabilities_FilesInterface {
+  bool get comments;
+  CoreCommentsCapabilities_FilesInterface rebuild(
+    final void Function(CoreCommentsCapabilities_FilesInterfaceBuilder) updates,
+  );
+  CoreCommentsCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreCommentsCapabilities_Files
-    implements Built<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
+    implements
+        CoreCommentsCapabilities_FilesInterface,
+        Built<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
   factory CoreCommentsCapabilities_Files([final void Function(CoreCommentsCapabilities_FilesBuilder)? b]) =
       _$CoreCommentsCapabilities_Files;
 
@@ -3355,11 +3759,18 @@ abstract class CoreCommentsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get comments;
   static Serializer<CoreCommentsCapabilities_Files> get serializer => _$coreCommentsCapabilitiesFilesSerializer;
 }
 
-abstract class CoreCommentsCapabilities implements Built<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreCommentsCapabilitiesInterface {
+  CoreCommentsCapabilities_Files get files;
+  CoreCommentsCapabilitiesInterface rebuild(final void Function(CoreCommentsCapabilitiesInterfaceBuilder) updates);
+  CoreCommentsCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class CoreCommentsCapabilities
+    implements CoreCommentsCapabilitiesInterface, Built<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
   factory CoreCommentsCapabilities([final void Function(CoreCommentsCapabilitiesBuilder)? b]) =
       _$CoreCommentsCapabilities;
 
@@ -3375,11 +3786,19 @@ abstract class CoreCommentsCapabilities implements Built<CoreCommentsCapabilitie
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreCommentsCapabilities_Files get files;
   static Serializer<CoreCommentsCapabilities> get serializer => _$coreCommentsCapabilitiesSerializer;
 }
 
-abstract class CoreDavCapabilities_Dav implements Built<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreDavCapabilities_DavInterface {
+  String get chunking;
+  String? get bulkupload;
+  CoreDavCapabilities_DavInterface rebuild(final void Function(CoreDavCapabilities_DavInterfaceBuilder) updates);
+  CoreDavCapabilities_DavInterfaceBuilder toBuilder();
+}
+
+abstract class CoreDavCapabilities_Dav
+    implements CoreDavCapabilities_DavInterface, Built<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
   factory CoreDavCapabilities_Dav([final void Function(CoreDavCapabilities_DavBuilder)? b]) = _$CoreDavCapabilities_Dav;
 
   // coverage:ignore-start
@@ -3394,12 +3813,18 @@ abstract class CoreDavCapabilities_Dav implements Built<CoreDavCapabilities_Dav,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get chunking;
-  String? get bulkupload;
   static Serializer<CoreDavCapabilities_Dav> get serializer => _$coreDavCapabilitiesDavSerializer;
 }
 
-abstract class CoreDavCapabilities implements Built<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreDavCapabilitiesInterface {
+  CoreDavCapabilities_Dav get dav;
+  CoreDavCapabilitiesInterface rebuild(final void Function(CoreDavCapabilitiesInterfaceBuilder) updates);
+  CoreDavCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class CoreDavCapabilities
+    implements CoreDavCapabilitiesInterface, Built<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
   factory CoreDavCapabilities([final void Function(CoreDavCapabilitiesBuilder)? b]) = _$CoreDavCapabilities;
 
   // coverage:ignore-start
@@ -3414,12 +3839,24 @@ abstract class CoreDavCapabilities implements Built<CoreDavCapabilities, CoreDav
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreDavCapabilities_Dav get dav;
   static Serializer<CoreDavCapabilities> get serializer => _$coreDavCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesCapabilities_Files_DirectEditingInterface {
+  String get url;
+  String get etag;
+  bool get supportsFileId;
+  CoreFilesCapabilities_Files_DirectEditingInterface rebuild(
+    final void Function(CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder) updates,
+  );
+  CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesCapabilities_Files_DirectEditing
-    implements Built<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
+    implements
+        CoreFilesCapabilities_Files_DirectEditingInterface,
+        Built<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
   factory CoreFilesCapabilities_Files_DirectEditing([
     final void Function(CoreFilesCapabilities_Files_DirectEditingBuilder)? b,
   ]) = _$CoreFilesCapabilities_Files_DirectEditing;
@@ -3436,15 +3873,26 @@ abstract class CoreFilesCapabilities_Files_DirectEditing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get url;
-  String get etag;
-  bool get supportsFileId;
   static Serializer<CoreFilesCapabilities_Files_DirectEditing> get serializer =>
       _$coreFilesCapabilitiesFilesDirectEditingSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesCapabilities_FilesInterface {
+  bool get bigfilechunking;
+  @BuiltValueField(wireName: 'blacklisted_files')
+  BuiltList<JsonObject> get blacklistedFiles;
+  CoreFilesCapabilities_Files_DirectEditing get directEditing;
+  CoreFilesCapabilities_FilesInterface rebuild(
+    final void Function(CoreFilesCapabilities_FilesInterfaceBuilder) updates,
+  );
+  CoreFilesCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesCapabilities_Files
-    implements Built<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
+    implements
+        CoreFilesCapabilities_FilesInterface,
+        Built<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
   factory CoreFilesCapabilities_Files([final void Function(CoreFilesCapabilities_FilesBuilder)? b]) =
       _$CoreFilesCapabilities_Files;
 
@@ -3460,14 +3908,18 @@ abstract class CoreFilesCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get bigfilechunking;
-  @BuiltValueField(wireName: 'blacklisted_files')
-  BuiltList<JsonObject> get blacklistedFiles;
-  CoreFilesCapabilities_Files_DirectEditing get directEditing;
   static Serializer<CoreFilesCapabilities_Files> get serializer => _$coreFilesCapabilitiesFilesSerializer;
 }
 
-abstract class CoreFilesCapabilities implements Built<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesCapabilitiesInterface {
+  CoreFilesCapabilities_Files get files;
+  CoreFilesCapabilitiesInterface rebuild(final void Function(CoreFilesCapabilitiesInterfaceBuilder) updates);
+  CoreFilesCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class CoreFilesCapabilities
+    implements CoreFilesCapabilitiesInterface, Built<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
   factory CoreFilesCapabilities([final void Function(CoreFilesCapabilitiesBuilder)? b]) = _$CoreFilesCapabilities;
 
   // coverage:ignore-start
@@ -3482,12 +3934,22 @@ abstract class CoreFilesCapabilities implements Built<CoreFilesCapabilities, Cor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreFilesCapabilities_Files get files;
   static Serializer<CoreFilesCapabilities> get serializer => _$coreFilesCapabilitiesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
+  bool get enforced;
+  bool get askForOptionalPassword;
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
 }
 
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
             CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Public_Password([
@@ -3506,14 +3968,24 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enforced;
-  bool get askForOptionalPassword;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
             CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate([
@@ -3532,15 +4004,24 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
             CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
@@ -3561,15 +4042,24 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateIntern
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
             CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
@@ -3588,15 +4078,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_PublicInterface {
+  bool get enabled;
+  CoreFilesSharingCapabilities_FilesSharing_Public_Password? get password;
+  @BuiltValueField(wireName: 'multiple_links')
+  bool? get multipleLinks;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
+  @BuiltValueField(wireName: 'expire_date_internal')
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
+  @BuiltValueField(wireName: 'expire_date_remote')
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
+  @BuiltValueField(wireName: 'send_mail')
+  bool? get sendMail;
+  bool? get upload;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  bool? get uploadFilesDrop;
+  CoreFilesSharingCapabilities_FilesSharing_PublicInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public
     implements
+        CoreFilesSharingCapabilities_FilesSharing_PublicInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Public,
             CoreFilesSharingCapabilities_FilesSharing_PublicBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Public([
@@ -3615,27 +4126,22 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_Public_Password? get password;
-  @BuiltValueField(wireName: 'multiple_links')
-  bool? get multipleLinks;
-  @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
-  @BuiltValueField(wireName: 'expire_date_internal')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
-  @BuiltValueField(wireName: 'expire_date_remote')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
-  @BuiltValueField(wireName: 'send_mail')
-  bool? get sendMail;
-  bool? get upload;
-  @BuiltValueField(wireName: 'upload_files_drop')
-  bool? get uploadFilesDrop;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
+  bool get enabled;
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
     implements
+        CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
             CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate([
@@ -3654,13 +4160,25 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_UserInterface {
+  @BuiltValueField(wireName: 'send_mail')
+  bool get sendMail;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_UserInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_User
     implements
+        CoreFilesSharingCapabilities_FilesSharing_UserInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_User([
     final void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder)? b,
@@ -3678,16 +4196,22 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'send_mail')
-  bool get sendMail;
-  @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_User> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingUserSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
+  bool get enabled;
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
             CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate([
@@ -3706,13 +4230,24 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_GroupInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_GroupInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Group
     implements
+        CoreFilesSharingCapabilities_FilesSharing_GroupInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Group, CoreFilesSharingCapabilities_FilesSharing_GroupBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Group([
     final void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
@@ -3730,15 +4265,22 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingGroupSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
+  bool get enabled;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
             CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
@@ -3757,13 +4299,23 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
+  bool get enabled;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder)
+        updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
     implements
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
             CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
@@ -3784,13 +4336,27 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_FederationInterface {
+  bool get outgoing;
+  bool get incoming;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
+  @BuiltValueField(wireName: 'expire_date_supported')
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+  CoreFilesSharingCapabilities_FilesSharing_FederationInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
     implements
+        CoreFilesSharingCapabilities_FilesSharing_FederationInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Federation,
             CoreFilesSharingCapabilities_FilesSharing_FederationBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Federation([
@@ -3809,18 +4375,25 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get outgoing;
-  bool get incoming;
-  @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
-  @BuiltValueField(wireName: 'expire_date_supported')
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharing_ShareeInterface {
+  @BuiltValueField(wireName: 'query_lookup_default')
+  bool get queryLookupDefault;
+  @BuiltValueField(wireName: 'always_show_unique')
+  bool get alwaysShowUnique;
+  CoreFilesSharingCapabilities_FilesSharing_ShareeInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
     implements
+        CoreFilesSharingCapabilities_FilesSharing_ShareeInterface,
         Built<CoreFilesSharingCapabilities_FilesSharing_Sharee,
             CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing_Sharee([
@@ -3839,16 +4412,34 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'query_lookup_default')
-  bool get queryLookupDefault;
-  @BuiltValueField(wireName: 'always_show_unique')
-  bool get alwaysShowUnique;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingShareeSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilities_FilesSharingInterface {
+  @BuiltValueField(wireName: 'api_enabled')
+  bool get apiEnabled;
+  CoreFilesSharingCapabilities_FilesSharing_Public get public;
+  CoreFilesSharingCapabilities_FilesSharing_User get user;
+  bool get resharing;
+  @BuiltValueField(wireName: 'group_sharing')
+  bool? get groupSharing;
+  CoreFilesSharingCapabilities_FilesSharing_Group? get group;
+  @BuiltValueField(wireName: 'default_permissions')
+  int? get defaultPermissions;
+  CoreFilesSharingCapabilities_FilesSharing_Federation get federation;
+  CoreFilesSharingCapabilities_FilesSharing_Sharee get sharee;
+  CoreFilesSharingCapabilities_FilesSharingInterface rebuild(
+    final void Function(CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing
-    implements Built<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
+    implements
+        CoreFilesSharingCapabilities_FilesSharingInterface,
+        Built<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
   factory CoreFilesSharingCapabilities_FilesSharing([
     final void Function(CoreFilesSharingCapabilities_FilesSharingBuilder)? b,
   ]) = _$CoreFilesSharingCapabilities_FilesSharing;
@@ -3865,24 +4456,24 @@ abstract class CoreFilesSharingCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'api_enabled')
-  bool get apiEnabled;
-  CoreFilesSharingCapabilities_FilesSharing_Public get public;
-  CoreFilesSharingCapabilities_FilesSharing_User get user;
-  bool get resharing;
-  @BuiltValueField(wireName: 'group_sharing')
-  bool? get groupSharing;
-  CoreFilesSharingCapabilities_FilesSharing_Group? get group;
-  @BuiltValueField(wireName: 'default_permissions')
-  int? get defaultPermissions;
-  CoreFilesSharingCapabilities_FilesSharing_Federation get federation;
-  CoreFilesSharingCapabilities_FilesSharing_Sharee get sharee;
   static Serializer<CoreFilesSharingCapabilities_FilesSharing> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesSharingCapabilitiesInterface {
+  @BuiltValueField(wireName: 'files_sharing')
+  CoreFilesSharingCapabilities_FilesSharing get filesSharing;
+  CoreFilesSharingCapabilitiesInterface rebuild(
+    final void Function(CoreFilesSharingCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreFilesSharingCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesSharingCapabilities
-    implements Built<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
+    implements
+        CoreFilesSharingCapabilitiesInterface,
+        Built<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
   factory CoreFilesSharingCapabilities([final void Function(CoreFilesSharingCapabilitiesBuilder)? b]) =
       _$CoreFilesSharingCapabilities;
 
@@ -3898,13 +4489,22 @@ abstract class CoreFilesSharingCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'files_sharing')
-  CoreFilesSharingCapabilities_FilesSharing get filesSharing;
   static Serializer<CoreFilesSharingCapabilities> get serializer => _$coreFilesSharingCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesTrashbinCapabilities_FilesInterface {
+  bool get undelete;
+  CoreFilesTrashbinCapabilities_FilesInterface rebuild(
+    final void Function(CoreFilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
+  );
+  CoreFilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesTrashbinCapabilities_Files
-    implements Built<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
+    implements
+        CoreFilesTrashbinCapabilities_FilesInterface,
+        Built<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
   factory CoreFilesTrashbinCapabilities_Files([final void Function(CoreFilesTrashbinCapabilities_FilesBuilder)? b]) =
       _$CoreFilesTrashbinCapabilities_Files;
 
@@ -3920,13 +4520,23 @@ abstract class CoreFilesTrashbinCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get undelete;
   static Serializer<CoreFilesTrashbinCapabilities_Files> get serializer =>
       _$coreFilesTrashbinCapabilitiesFilesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesTrashbinCapabilitiesInterface {
+  CoreFilesTrashbinCapabilities_Files get files;
+  CoreFilesTrashbinCapabilitiesInterface rebuild(
+    final void Function(CoreFilesTrashbinCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreFilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesTrashbinCapabilities
-    implements Built<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
+    implements
+        CoreFilesTrashbinCapabilitiesInterface,
+        Built<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
   factory CoreFilesTrashbinCapabilities([final void Function(CoreFilesTrashbinCapabilitiesBuilder)? b]) =
       _$CoreFilesTrashbinCapabilities;
 
@@ -3942,12 +4552,26 @@ abstract class CoreFilesTrashbinCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreFilesTrashbinCapabilities_Files get files;
   static Serializer<CoreFilesTrashbinCapabilities> get serializer => _$coreFilesTrashbinCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesVersionsCapabilities_FilesInterface {
+  bool get versioning;
+  @BuiltValueField(wireName: 'version_labeling')
+  bool get versionLabeling;
+  @BuiltValueField(wireName: 'version_deletion')
+  bool get versionDeletion;
+  CoreFilesVersionsCapabilities_FilesInterface rebuild(
+    final void Function(CoreFilesVersionsCapabilities_FilesInterfaceBuilder) updates,
+  );
+  CoreFilesVersionsCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesVersionsCapabilities_Files
-    implements Built<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
+    implements
+        CoreFilesVersionsCapabilities_FilesInterface,
+        Built<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
   factory CoreFilesVersionsCapabilities_Files([final void Function(CoreFilesVersionsCapabilities_FilesBuilder)? b]) =
       _$CoreFilesVersionsCapabilities_Files;
 
@@ -3963,17 +4587,23 @@ abstract class CoreFilesVersionsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get versioning;
-  @BuiltValueField(wireName: 'version_labeling')
-  bool get versionLabeling;
-  @BuiltValueField(wireName: 'version_deletion')
-  bool get versionDeletion;
   static Serializer<CoreFilesVersionsCapabilities_Files> get serializer =>
       _$coreFilesVersionsCapabilitiesFilesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreFilesVersionsCapabilitiesInterface {
+  CoreFilesVersionsCapabilities_Files get files;
+  CoreFilesVersionsCapabilitiesInterface rebuild(
+    final void Function(CoreFilesVersionsCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreFilesVersionsCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreFilesVersionsCapabilities
-    implements Built<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
+    implements
+        CoreFilesVersionsCapabilitiesInterface,
+        Built<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
   factory CoreFilesVersionsCapabilities([final void Function(CoreFilesVersionsCapabilitiesBuilder)? b]) =
       _$CoreFilesVersionsCapabilities;
 
@@ -3989,12 +4619,24 @@ abstract class CoreFilesVersionsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreFilesVersionsCapabilities_Files get files;
   static Serializer<CoreFilesVersionsCapabilities> get serializer => _$coreFilesVersionsCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNotesCapabilities_NotesInterface {
+  @BuiltValueField(wireName: 'api_version')
+  BuiltList<String>? get apiVersion;
+  String? get version;
+  CoreNotesCapabilities_NotesInterface rebuild(
+    final void Function(CoreNotesCapabilities_NotesInterfaceBuilder) updates,
+  );
+  CoreNotesCapabilities_NotesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNotesCapabilities_Notes
-    implements Built<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
+    implements
+        CoreNotesCapabilities_NotesInterface,
+        Built<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
   factory CoreNotesCapabilities_Notes([final void Function(CoreNotesCapabilities_NotesBuilder)? b]) =
       _$CoreNotesCapabilities_Notes;
 
@@ -4010,13 +4652,18 @@ abstract class CoreNotesCapabilities_Notes
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'api_version')
-  BuiltList<String>? get apiVersion;
-  String? get version;
   static Serializer<CoreNotesCapabilities_Notes> get serializer => _$coreNotesCapabilitiesNotesSerializer;
 }
 
-abstract class CoreNotesCapabilities implements Built<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreNotesCapabilitiesInterface {
+  CoreNotesCapabilities_Notes get notes;
+  CoreNotesCapabilitiesInterface rebuild(final void Function(CoreNotesCapabilitiesInterfaceBuilder) updates);
+  CoreNotesCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class CoreNotesCapabilities
+    implements CoreNotesCapabilitiesInterface, Built<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
   factory CoreNotesCapabilities([final void Function(CoreNotesCapabilitiesBuilder)? b]) = _$CoreNotesCapabilities;
 
   // coverage:ignore-start
@@ -4031,12 +4678,26 @@ abstract class CoreNotesCapabilities implements Built<CoreNotesCapabilities, Cor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreNotesCapabilities_Notes get notes;
   static Serializer<CoreNotesCapabilities> get serializer => _$coreNotesCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNotificationsCapabilities_NotificationsInterface {
+  @BuiltValueField(wireName: 'ocs-endpoints')
+  BuiltList<String>? get ocsEndpoints;
+  BuiltList<String>? get push;
+  @BuiltValueField(wireName: 'admin-notifications')
+  BuiltList<String>? get adminNotifications;
+  CoreNotificationsCapabilities_NotificationsInterface rebuild(
+    final void Function(CoreNotificationsCapabilities_NotificationsInterfaceBuilder) updates,
+  );
+  CoreNotificationsCapabilities_NotificationsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNotificationsCapabilities_Notifications
-    implements Built<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
+    implements
+        CoreNotificationsCapabilities_NotificationsInterface,
+        Built<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
   factory CoreNotificationsCapabilities_Notifications([
     final void Function(CoreNotificationsCapabilities_NotificationsBuilder)? b,
   ]) = _$CoreNotificationsCapabilities_Notifications;
@@ -4053,17 +4714,23 @@ abstract class CoreNotificationsCapabilities_Notifications
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'ocs-endpoints')
-  BuiltList<String>? get ocsEndpoints;
-  BuiltList<String>? get push;
-  @BuiltValueField(wireName: 'admin-notifications')
-  BuiltList<String>? get adminNotifications;
   static Serializer<CoreNotificationsCapabilities_Notifications> get serializer =>
       _$coreNotificationsCapabilitiesNotificationsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreNotificationsCapabilitiesInterface {
+  CoreNotificationsCapabilities_Notifications get notifications;
+  CoreNotificationsCapabilitiesInterface rebuild(
+    final void Function(CoreNotificationsCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreNotificationsCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreNotificationsCapabilities
-    implements Built<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
+    implements
+        CoreNotificationsCapabilitiesInterface,
+        Built<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
   factory CoreNotificationsCapabilities([final void Function(CoreNotificationsCapabilitiesBuilder)? b]) =
       _$CoreNotificationsCapabilities;
 
@@ -4079,12 +4746,27 @@ abstract class CoreNotificationsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreNotificationsCapabilities_Notifications get notifications;
   static Serializer<CoreNotificationsCapabilities> get serializer => _$coreNotificationsCapabilitiesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreProvisioningApiCapabilities_ProvisioningApiInterface {
+  String get version;
+  @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
+  int get accountPropertyScopesVersion;
+  @BuiltValueField(wireName: 'AccountPropertyScopesFederatedEnabled')
+  bool get accountPropertyScopesFederatedEnabled;
+  @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
+  bool get accountPropertyScopesPublishedEnabled;
+  CoreProvisioningApiCapabilities_ProvisioningApiInterface rebuild(
+    final void Function(CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates,
+  );
+  CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder toBuilder();
 }
 
 abstract class CoreProvisioningApiCapabilities_ProvisioningApi
     implements
+        CoreProvisioningApiCapabilities_ProvisioningApiInterface,
         Built<CoreProvisioningApiCapabilities_ProvisioningApi, CoreProvisioningApiCapabilities_ProvisioningApiBuilder> {
   factory CoreProvisioningApiCapabilities_ProvisioningApi([
     final void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
@@ -4102,19 +4784,24 @@ abstract class CoreProvisioningApiCapabilities_ProvisioningApi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get version;
-  @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
-  int get accountPropertyScopesVersion;
-  @BuiltValueField(wireName: 'AccountPropertyScopesFederatedEnabled')
-  bool get accountPropertyScopesFederatedEnabled;
-  @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
-  bool get accountPropertyScopesPublishedEnabled;
   static Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> get serializer =>
       _$coreProvisioningApiCapabilitiesProvisioningApiSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreProvisioningApiCapabilitiesInterface {
+  @BuiltValueField(wireName: 'provisioning_api')
+  CoreProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
+  CoreProvisioningApiCapabilitiesInterface rebuild(
+    final void Function(CoreProvisioningApiCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreProvisioningApiCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreProvisioningApiCapabilities
-    implements Built<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
+    implements
+        CoreProvisioningApiCapabilitiesInterface,
+        Built<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
   factory CoreProvisioningApiCapabilities([final void Function(CoreProvisioningApiCapabilitiesBuilder)? b]) =
       _$CoreProvisioningApiCapabilities;
 
@@ -4130,13 +4817,21 @@ abstract class CoreProvisioningApiCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'provisioning_api')
-  CoreProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
   static Serializer<CoreProvisioningApiCapabilities> get serializer => _$coreProvisioningApiCapabilitiesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
+  bool get enabled;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
 }
 
 abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
         Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
             CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
   factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
@@ -4157,13 +4852,23 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesD
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
+  bool get enabled;
+  bool get enforced;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
+}
+
 abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
     implements
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
         Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
             CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
   factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password([
@@ -4182,14 +4887,23 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  bool get enforced;
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+  bool get enabled;
+  bool get enforced;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
     implements
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
         Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
             CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
   factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
@@ -4208,14 +4922,29 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  bool get enforced;
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilities_FilesSharing_SharebymailInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'send_password_by_mail')
+  bool get sendPasswordByMail;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  CoreSharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
+    final void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
+}
+
 abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
     implements
+        CoreSharebymailCapabilities_FilesSharing_SharebymailInterface,
         Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail,
             CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder> {
   factory CoreSharebymailCapabilities_FilesSharing_Sharebymail([
@@ -4234,20 +4963,23 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  @BuiltValueField(wireName: 'send_password_by_mail')
-  bool get sendPasswordByMail;
-  @BuiltValueField(wireName: 'upload_files_drop')
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
-  @BuiltValueField(wireName: 'expire_date')
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilities_FilesSharingInterface {
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
+  CoreSharebymailCapabilities_FilesSharingInterface rebuild(
+    final void Function(CoreSharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
+}
+
 abstract class CoreSharebymailCapabilities_FilesSharing
-    implements Built<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
+    implements
+        CoreSharebymailCapabilities_FilesSharingInterface,
+        Built<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
   factory CoreSharebymailCapabilities_FilesSharing([
     final void Function(CoreSharebymailCapabilities_FilesSharingBuilder)? b,
   ]) = _$CoreSharebymailCapabilities_FilesSharing;
@@ -4264,13 +4996,24 @@ abstract class CoreSharebymailCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
   static Serializer<CoreSharebymailCapabilities_FilesSharing> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreSharebymailCapabilitiesInterface {
+  @BuiltValueField(wireName: 'files_sharing')
+  CoreSharebymailCapabilities_FilesSharing get filesSharing;
+  CoreSharebymailCapabilitiesInterface rebuild(
+    final void Function(CoreSharebymailCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreSharebymailCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreSharebymailCapabilities
-    implements Built<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
+    implements
+        CoreSharebymailCapabilitiesInterface,
+        Built<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
   factory CoreSharebymailCapabilities([final void Function(CoreSharebymailCapabilitiesBuilder)? b]) =
       _$CoreSharebymailCapabilities;
 
@@ -4286,29 +5029,11 @@ abstract class CoreSharebymailCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'files_sharing')
-  CoreSharebymailCapabilities_FilesSharing get filesSharing;
   static Serializer<CoreSharebymailCapabilities> get serializer => _$coreSharebymailCapabilitiesSerializer;
 }
 
-abstract class CoreThemingPublicCapabilities_Theming
-    implements Built<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
-  factory CoreThemingPublicCapabilities_Theming([
-    final void Function(CoreThemingPublicCapabilities_ThemingBuilder)? b,
-  ]) = _$CoreThemingPublicCapabilities_Theming;
-
-  // coverage:ignore-start
-  const CoreThemingPublicCapabilities_Theming._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class CoreThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -4329,12 +5054,49 @@ abstract class CoreThemingPublicCapabilities_Theming
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
+  CoreThemingPublicCapabilities_ThemingInterface rebuild(
+    final void Function(CoreThemingPublicCapabilities_ThemingInterfaceBuilder) updates,
+  );
+  CoreThemingPublicCapabilities_ThemingInterfaceBuilder toBuilder();
+}
+
+abstract class CoreThemingPublicCapabilities_Theming
+    implements
+        CoreThemingPublicCapabilities_ThemingInterface,
+        Built<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
+  factory CoreThemingPublicCapabilities_Theming([
+    final void Function(CoreThemingPublicCapabilities_ThemingBuilder)? b,
+  ]) = _$CoreThemingPublicCapabilities_Theming;
+
+  // coverage:ignore-start
+  const CoreThemingPublicCapabilities_Theming._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<CoreThemingPublicCapabilities_Theming> get serializer =>
       _$coreThemingPublicCapabilitiesThemingSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreThemingPublicCapabilitiesInterface {
+  CoreThemingPublicCapabilities_Theming get theming;
+  CoreThemingPublicCapabilitiesInterface rebuild(
+    final void Function(CoreThemingPublicCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreThemingPublicCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreThemingPublicCapabilities
-    implements Built<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
+    implements
+        CoreThemingPublicCapabilitiesInterface,
+        Built<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
   factory CoreThemingPublicCapabilities([final void Function(CoreThemingPublicCapabilitiesBuilder)? b]) =
       _$CoreThemingPublicCapabilities;
 
@@ -4350,12 +5112,25 @@ abstract class CoreThemingPublicCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreThemingPublicCapabilities_Theming get theming;
   static Serializer<CoreThemingPublicCapabilities> get serializer => _$coreThemingPublicCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreUserStatusCapabilities_UserStatusInterface {
+  bool get enabled;
+  bool get restore;
+  @BuiltValueField(wireName: 'supports_emoji')
+  bool get supportsEmoji;
+  CoreUserStatusCapabilities_UserStatusInterface rebuild(
+    final void Function(CoreUserStatusCapabilities_UserStatusInterfaceBuilder) updates,
+  );
+  CoreUserStatusCapabilities_UserStatusInterfaceBuilder toBuilder();
+}
+
 abstract class CoreUserStatusCapabilities_UserStatus
-    implements Built<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
+    implements
+        CoreUserStatusCapabilities_UserStatusInterface,
+        Built<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
   factory CoreUserStatusCapabilities_UserStatus([
     final void Function(CoreUserStatusCapabilities_UserStatusBuilder)? b,
   ]) = _$CoreUserStatusCapabilities_UserStatus;
@@ -4372,16 +5147,22 @@ abstract class CoreUserStatusCapabilities_UserStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  bool get restore;
-  @BuiltValueField(wireName: 'supports_emoji')
-  bool get supportsEmoji;
   static Serializer<CoreUserStatusCapabilities_UserStatus> get serializer =>
       _$coreUserStatusCapabilitiesUserStatusSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreUserStatusCapabilitiesInterface {
+  @BuiltValueField(wireName: 'user_status')
+  CoreUserStatusCapabilities_UserStatus get userStatus;
+  CoreUserStatusCapabilitiesInterface rebuild(final void Function(CoreUserStatusCapabilitiesInterfaceBuilder) updates);
+  CoreUserStatusCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreUserStatusCapabilities
-    implements Built<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
+    implements
+        CoreUserStatusCapabilitiesInterface,
+        Built<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
   factory CoreUserStatusCapabilities([final void Function(CoreUserStatusCapabilitiesBuilder)? b]) =
       _$CoreUserStatusCapabilities;
 
@@ -4397,13 +5178,22 @@ abstract class CoreUserStatusCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'user_status')
-  CoreUserStatusCapabilities_UserStatus get userStatus;
   static Serializer<CoreUserStatusCapabilities> get serializer => _$coreUserStatusCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWeatherStatusCapabilities_WeatherStatusInterface {
+  bool get enabled;
+  CoreWeatherStatusCapabilities_WeatherStatusInterface rebuild(
+    final void Function(CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates,
+  );
+  CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWeatherStatusCapabilities_WeatherStatus
-    implements Built<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
+    implements
+        CoreWeatherStatusCapabilities_WeatherStatusInterface,
+        Built<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
   factory CoreWeatherStatusCapabilities_WeatherStatus([
     final void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder)? b,
   ]) = _$CoreWeatherStatusCapabilities_WeatherStatus;
@@ -4420,13 +5210,24 @@ abstract class CoreWeatherStatusCapabilities_WeatherStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<CoreWeatherStatusCapabilities_WeatherStatus> get serializer =>
       _$coreWeatherStatusCapabilitiesWeatherStatusSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWeatherStatusCapabilitiesInterface {
+  @BuiltValueField(wireName: 'weather_status')
+  CoreWeatherStatusCapabilities_WeatherStatus get weatherStatus;
+  CoreWeatherStatusCapabilitiesInterface rebuild(
+    final void Function(CoreWeatherStatusCapabilitiesInterfaceBuilder) updates,
+  );
+  CoreWeatherStatusCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWeatherStatusCapabilities
-    implements Built<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
+    implements
+        CoreWeatherStatusCapabilitiesInterface,
+        Built<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
   factory CoreWeatherStatusCapabilities([final void Function(CoreWeatherStatusCapabilitiesBuilder)? b]) =
       _$CoreWeatherStatusCapabilities;
 
@@ -4442,8 +5243,6 @@ abstract class CoreWeatherStatusCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'weather_status')
-  CoreWeatherStatusCapabilities_WeatherStatus get weatherStatus;
   static Serializer<CoreWeatherStatusCapabilities> get serializer => _$coreWeatherStatusCapabilitiesSerializer;
 }
 
@@ -4626,8 +5425,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterface {
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version get version;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities get capabilities;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
     implements
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
             CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data([
@@ -4646,14 +5456,23 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version get version;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities get capabilities;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data get data;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
     implements
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterface,
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs,
             CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder> {
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs([
@@ -4672,14 +5491,22 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs> get serializer =>
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcsGetCapabilitiesResponse200ApplicationJsonInterface {
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs get ocs;
+  CoreOcsGetCapabilitiesResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson
     implements
+        CoreOcsGetCapabilitiesResponse200ApplicationJsonInterface,
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson,
             CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder> {
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson([
@@ -4698,13 +5525,23 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson> get serializer =>
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  JsonObject get data;
+  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
     implements
+        CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterface,
         Built<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs,
             CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder> {
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs([
@@ -4723,14 +5560,22 @@ abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  JsonObject get data;
   static Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs> get serializer =>
       _$coreProfileApiSetVisibilityResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreProfileApiSetVisibilityResponse200ApplicationJsonInterface {
+  CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs get ocs;
+  CoreProfileApiSetVisibilityResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson
     implements
+        CoreProfileApiSetVisibilityResponse200ApplicationJsonInterface,
         Built<CoreProfileApiSetVisibilityResponse200ApplicationJson,
             CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder> {
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson([
@@ -4749,12 +5594,21 @@ abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson> get serializer =>
       _$coreProfileApiSetVisibilityResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreReference implements Built<CoreReference, CoreReferenceBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceInterface {
+  String get richObjectType;
+  BuiltMap<String, JsonObject> get richObject;
+  CoreOpenGraphObject get openGraphObject;
+  bool get accessible;
+  CoreReferenceInterface rebuild(final void Function(CoreReferenceInterfaceBuilder) updates);
+  CoreReferenceInterfaceBuilder toBuilder();
+}
+
+abstract class CoreReference implements CoreReferenceInterface, Built<CoreReference, CoreReferenceBuilder> {
   factory CoreReference([final void Function(CoreReferenceBuilder)? b]) = _$CoreReference;
 
   // coverage:ignore-start
@@ -4769,15 +5623,21 @@ abstract class CoreReference implements Built<CoreReference, CoreReferenceBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get richObjectType;
-  BuiltMap<String, JsonObject> get richObject;
-  CoreOpenGraphObject get openGraphObject;
-  bool get accessible;
   static Serializer<CoreReference> get serializer => _$coreReferenceSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, CoreReference> get references;
+  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
     implements
+        CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data,
             CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data([
@@ -4796,13 +5656,23 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, CoreReference> get references;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveOneResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data get data;
+  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
     implements
+        CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterface,
         Built<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs,
             CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder> {
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs([
@@ -4821,14 +5691,22 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiResolveOneResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveOneResponse200ApplicationJsonInterface {
+  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs get ocs;
+  CoreReferenceApiResolveOneResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiResolveOneResponse200ApplicationJson
     implements
+        CoreReferenceApiResolveOneResponse200ApplicationJsonInterface,
         Built<CoreReferenceApiResolveOneResponse200ApplicationJson,
             CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder> {
   factory CoreReferenceApiResolveOneResponse200ApplicationJson([
@@ -4847,7 +5725,6 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiResolveOneResponse200ApplicationJsonSerializer;
 }
@@ -4925,8 +5802,18 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesSer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references;
+  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
     implements
+        CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data,
             CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data([
@@ -4945,13 +5832,23 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data get data;
+  CoreReferenceApiResolveResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs
     implements
+        CoreReferenceApiResolveResponse200ApplicationJson_OcsInterface,
         Built<CoreReferenceApiResolveResponse200ApplicationJson_Ocs,
             CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder> {
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs([
@@ -4970,14 +5867,22 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiResolveResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiResolveResponse200ApplicationJsonInterface {
+  CoreReferenceApiResolveResponse200ApplicationJson_Ocs get ocs;
+  CoreReferenceApiResolveResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiResolveResponse200ApplicationJson
     implements
+        CoreReferenceApiResolveResponse200ApplicationJsonInterface,
         Built<CoreReferenceApiResolveResponse200ApplicationJson,
             CoreReferenceApiResolveResponse200ApplicationJsonBuilder> {
   factory CoreReferenceApiResolveResponse200ApplicationJson([
@@ -4996,7 +5901,6 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiResolveResponse200ApplicationJsonSerializer;
 }
@@ -5074,8 +5978,18 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesSer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references;
+  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
     implements
+        CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data,
             CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data([
@@ -5094,13 +6008,23 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiExtractResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiExtractResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data get data;
+  CoreReferenceApiExtractResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs
     implements
+        CoreReferenceApiExtractResponse200ApplicationJson_OcsInterface,
         Built<CoreReferenceApiExtractResponse200ApplicationJson_Ocs,
             CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder> {
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs([
@@ -5119,14 +6043,22 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiExtractResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiExtractResponse200ApplicationJsonInterface {
+  CoreReferenceApiExtractResponse200ApplicationJson_Ocs get ocs;
+  CoreReferenceApiExtractResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiExtractResponse200ApplicationJson
     implements
+        CoreReferenceApiExtractResponse200ApplicationJsonInterface,
         Built<CoreReferenceApiExtractResponse200ApplicationJson,
             CoreReferenceApiExtractResponse200ApplicationJsonBuilder> {
   factory CoreReferenceApiExtractResponse200ApplicationJson([
@@ -5145,12 +6077,25 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiExtractResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreReferenceProvider implements Built<CoreReferenceProvider, CoreReferenceProviderBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceProviderInterface {
+  String get id;
+  String get title;
+  @BuiltValueField(wireName: 'icon_url')
+  String get iconUrl;
+  int get order;
+  @BuiltValueField(wireName: 'search_providers_ids')
+  BuiltList<String>? get searchProvidersIds;
+  CoreReferenceProviderInterface rebuild(final void Function(CoreReferenceProviderInterfaceBuilder) updates);
+  CoreReferenceProviderInterfaceBuilder toBuilder();
+}
+
+abstract class CoreReferenceProvider
+    implements CoreReferenceProviderInterface, Built<CoreReferenceProvider, CoreReferenceProviderBuilder> {
   factory CoreReferenceProvider([final void Function(CoreReferenceProviderBuilder)? b]) = _$CoreReferenceProvider;
 
   // coverage:ignore-start
@@ -5165,18 +6110,22 @@ abstract class CoreReferenceProvider implements Built<CoreReferenceProvider, Cor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get title;
-  @BuiltValueField(wireName: 'icon_url')
-  String get iconUrl;
-  int get order;
-  @BuiltValueField(wireName: 'search_providers_ids')
-  BuiltList<String>? get searchProvidersIds;
   static Serializer<CoreReferenceProvider> get serializer => _$coreReferenceProviderSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreReferenceProvider> get data;
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
     implements
+        CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterface,
         Built<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs,
             CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder> {
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs([
@@ -5195,14 +6144,22 @@ abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreReferenceProvider> get data;
   static Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiGetProvidersInfoResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterface {
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs get ocs;
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
     implements
+        CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterface,
         Built<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson,
             CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder> {
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson([
@@ -5221,13 +6178,22 @@ abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterface {
+  bool get success;
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
     implements
+        CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data,
             CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data([
@@ -5246,13 +6212,23 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get success;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiTouchProviderResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data get data;
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
     implements
+        CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterface,
         Built<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs,
             CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder> {
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs([
@@ -5271,14 +6247,22 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiTouchProviderResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreReferenceApiTouchProviderResponse200ApplicationJsonInterface {
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs get ocs;
+  CoreReferenceApiTouchProviderResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson
     implements
+        CoreReferenceApiTouchProviderResponse200ApplicationJsonInterface,
         Built<CoreReferenceApiTouchProviderResponse200ApplicationJson,
             CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder> {
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson([
@@ -5297,13 +6281,25 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiTouchProviderResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterface {
+  String get id;
+  String get name;
+  String get description;
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterface rebuild(
+    final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder)
+        updates,
+  );
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
     implements
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterface,
         Built<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types,
             CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder> {
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types([
@@ -5324,15 +6320,22 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get name;
-  String get description;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsDataTypesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types;
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data,
             CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data([
@@ -5351,13 +6354,23 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data get data;
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
     implements
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterface,
         Built<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs,
             CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder> {
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs([
@@ -5376,14 +6389,22 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterface {
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs get ocs;
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson
     implements
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterface,
         Built<CoreTextProcessingApiTaskTypesResponse200ApplicationJson,
             CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder> {
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson([
@@ -5402,12 +6423,26 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreTextProcessingTask implements Built<CoreTextProcessingTask, CoreTextProcessingTaskBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingTaskInterface {
+  int? get id;
+  String get type;
+  int get status;
+  String? get userId;
+  String get appId;
+  String get input;
+  String? get output;
+  String get identifier;
+  CoreTextProcessingTaskInterface rebuild(final void Function(CoreTextProcessingTaskInterfaceBuilder) updates);
+  CoreTextProcessingTaskInterfaceBuilder toBuilder();
+}
+
+abstract class CoreTextProcessingTask
+    implements CoreTextProcessingTaskInterface, Built<CoreTextProcessingTask, CoreTextProcessingTaskBuilder> {
   factory CoreTextProcessingTask([final void Function(CoreTextProcessingTaskBuilder)? b]) = _$CoreTextProcessingTask;
 
   // coverage:ignore-start
@@ -5422,19 +6457,21 @@ abstract class CoreTextProcessingTask implements Built<CoreTextProcessingTask, C
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int? get id;
-  String get type;
-  int get status;
-  String? get userId;
-  String get appId;
-  String get input;
-  String? get output;
-  String get identifier;
   static Serializer<CoreTextProcessingTask> get serializer => _$coreTextProcessingTaskSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterface {
+  CoreTextProcessingTask get task;
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data,
             CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data([
@@ -5453,13 +6490,23 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingTask get task;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiScheduleResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data get data;
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
     implements
+        CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterface,
         Built<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs,
             CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder> {
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs([
@@ -5478,14 +6525,22 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiScheduleResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiScheduleResponse200ApplicationJsonInterface {
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs get ocs;
+  CoreTextProcessingApiScheduleResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson
     implements
+        CoreTextProcessingApiScheduleResponse200ApplicationJsonInterface,
         Built<CoreTextProcessingApiScheduleResponse200ApplicationJson,
             CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder> {
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson([
@@ -5504,13 +6559,22 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiScheduleResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterface {
+  CoreTextProcessingTask get task;
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data,
             CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data([
@@ -5529,13 +6593,23 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingTask get task;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data get data;
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
     implements
+        CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterface,
         Built<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs,
             CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder> {
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs([
@@ -5554,14 +6628,22 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterface {
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs get ocs;
+  CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson
     implements
+        CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterface,
         Built<CoreTextProcessingApiGetTaskResponse200ApplicationJson,
             CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder> {
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson([
@@ -5580,13 +6662,22 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterface {
+  CoreTextProcessingTask get task;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
             CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data([
@@ -5607,13 +6698,23 @@ abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingTask get task;
   static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data get data;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
     implements
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterface,
         Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
             CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder> {
   factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs([
@@ -5632,14 +6733,22 @@ abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterface {
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs get ocs;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
     implements
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterface,
         Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
             CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder> {
   factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson([
@@ -5658,13 +6767,22 @@ abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<CoreTextProcessingTask> get tasks;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
             CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data([
@@ -5685,13 +6803,23 @@ abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<CoreTextProcessingTask> get tasks;
   static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data get data;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
     implements
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterface,
         Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
             CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder> {
   factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs([
@@ -5710,14 +6838,22 @@ abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterface {
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs get ocs;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
     implements
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterface,
         Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
             CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder> {
   factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson([
@@ -5736,13 +6872,26 @@ abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterface {
+  String get from;
+  String get fromLabel;
+  String get to;
+  String get toLabel;
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterface rebuild(
+    final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder)
+        updates,
+  );
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
     implements
+        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterface,
         Built<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages,
             CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder> {
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages([
@@ -5763,16 +6912,23 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_La
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get from;
-  String get fromLabel;
-  String get to;
-  String get toLabel;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get serializer =>
       _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsDataLanguagesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages;
+  bool get languageDetection;
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data,
             CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data([
@@ -5791,14 +6947,23 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages;
-  bool get languageDetection;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data get data;
+  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
     implements
+        CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterface,
         Built<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs,
             CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder> {
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs([
@@ -5817,14 +6982,22 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiLanguagesResponse200ApplicationJsonInterface {
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs get ocs;
+  CoreTranslationApiLanguagesResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiLanguagesResponse200ApplicationJson
     implements
+        CoreTranslationApiLanguagesResponse200ApplicationJsonInterface,
         Built<CoreTranslationApiLanguagesResponse200ApplicationJson,
             CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder> {
   factory CoreTranslationApiLanguagesResponse200ApplicationJson([
@@ -5843,13 +7016,23 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson> get serializer =>
       _$coreTranslationApiLanguagesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterface {
+  String get text;
+  String? get from;
+  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
     implements
+        CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data,
             CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data([
@@ -5868,14 +7051,23 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get text;
-  String? get from;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTranslationApiTranslateResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data get data;
+  CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
     implements
+        CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterface,
         Built<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs,
             CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder> {
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs([
@@ -5894,14 +7086,22 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs> get serializer =>
       _$coreTranslationApiTranslateResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreTranslationApiTranslateResponse200ApplicationJsonInterface {
+  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs get ocs;
+  CoreTranslationApiTranslateResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreTranslationApiTranslateResponse200ApplicationJson
     implements
+        CoreTranslationApiTranslateResponse200ApplicationJsonInterface,
         Built<CoreTranslationApiTranslateResponse200ApplicationJson,
             CoreTranslationApiTranslateResponse200ApplicationJsonBuilder> {
   factory CoreTranslationApiTranslateResponse200ApplicationJson([
@@ -5920,12 +7120,21 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson> get serializer =>
       _$coreTranslationApiTranslateResponse200ApplicationJsonSerializer;
 }
 
-abstract class CoreUnifiedSearchProvider implements Built<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchProviderInterface {
+  String get id;
+  String get name;
+  int get order;
+  CoreUnifiedSearchProviderInterface rebuild(final void Function(CoreUnifiedSearchProviderInterfaceBuilder) updates);
+  CoreUnifiedSearchProviderInterfaceBuilder toBuilder();
+}
+
+abstract class CoreUnifiedSearchProvider
+    implements CoreUnifiedSearchProviderInterface, Built<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
   factory CoreUnifiedSearchProvider([final void Function(CoreUnifiedSearchProviderBuilder)? b]) =
       _$CoreUnifiedSearchProvider;
 
@@ -5941,14 +7150,22 @@ abstract class CoreUnifiedSearchProvider implements Built<CoreUnifiedSearchProvi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get name;
-  int get order;
   static Serializer<CoreUnifiedSearchProvider> get serializer => _$coreUnifiedSearchProviderSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  BuiltList<CoreUnifiedSearchProvider> get data;
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
     implements
+        CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterface,
         Built<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs,
             CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder> {
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs([
@@ -5967,14 +7184,22 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  BuiltList<CoreUnifiedSearchProvider> get data;
   static Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs> get serializer =>
       _$coreUnifiedSearchGetProvidersResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterface {
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs get ocs;
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson
     implements
+        CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterface,
         Built<CoreUnifiedSearchGetProvidersResponse200ApplicationJson,
             CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder> {
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson([
@@ -5993,7 +7218,6 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson> get serializer =>
       _$coreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer;
 }
@@ -6055,8 +7279,25 @@ class _$CoreUnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<C
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchResultEntryInterface {
+  String get thumbnailUrl;
+  String get title;
+  String get subline;
+  String get resourceUrl;
+  String get icon;
+  bool get rounded;
+  BuiltList<String> get attributes;
+  CoreUnifiedSearchResultEntryInterface rebuild(
+    final void Function(CoreUnifiedSearchResultEntryInterfaceBuilder) updates,
+  );
+  CoreUnifiedSearchResultEntryInterfaceBuilder toBuilder();
+}
+
 abstract class CoreUnifiedSearchResultEntry
-    implements Built<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
+    implements
+        CoreUnifiedSearchResultEntryInterface,
+        Built<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
   factory CoreUnifiedSearchResultEntry([final void Function(CoreUnifiedSearchResultEntryBuilder)? b]) =
       _$CoreUnifiedSearchResultEntry;
 
@@ -6072,13 +7313,6 @@ abstract class CoreUnifiedSearchResultEntry
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get thumbnailUrl;
-  String get title;
-  String get subline;
-  String get resourceUrl;
-  String get icon;
-  bool get rounded;
-  BuiltList<String> get attributes;
   static Serializer<CoreUnifiedSearchResultEntry> get serializer => _$coreUnifiedSearchResultEntrySerializer;
 }
 
@@ -6139,7 +7373,18 @@ class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<
   }
 }
 
-abstract class CoreUnifiedSearchResult implements Built<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchResultInterface {
+  String get name;
+  bool get isPaginated;
+  BuiltList<CoreUnifiedSearchResultEntry> get entries;
+  CoreUnifiedSearchResult_Cursor? get cursor;
+  CoreUnifiedSearchResultInterface rebuild(final void Function(CoreUnifiedSearchResultInterfaceBuilder) updates);
+  CoreUnifiedSearchResultInterfaceBuilder toBuilder();
+}
+
+abstract class CoreUnifiedSearchResult
+    implements CoreUnifiedSearchResultInterface, Built<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
   factory CoreUnifiedSearchResult([final void Function(CoreUnifiedSearchResultBuilder)? b]) = _$CoreUnifiedSearchResult;
 
   // coverage:ignore-start
@@ -6154,15 +7399,22 @@ abstract class CoreUnifiedSearchResult implements Built<CoreUnifiedSearchResult,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get name;
-  bool get isPaginated;
-  BuiltList<CoreUnifiedSearchResultEntry> get entries;
-  CoreUnifiedSearchResult_Cursor? get cursor;
   static Serializer<CoreUnifiedSearchResult> get serializer => _$coreUnifiedSearchResultSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreUnifiedSearchResult get data;
+  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
     implements
+        CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterface,
         Built<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs,
             CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder> {
   factory CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs([
@@ -6181,14 +7433,22 @@ abstract class CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreUnifiedSearchResult get data;
   static Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs> get serializer =>
       _$coreUnifiedSearchSearchResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreUnifiedSearchSearchResponse200ApplicationJsonInterface {
+  CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs get ocs;
+  CoreUnifiedSearchSearchResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreUnifiedSearchSearchResponse200ApplicationJson
     implements
+        CoreUnifiedSearchSearchResponse200ApplicationJsonInterface,
         Built<CoreUnifiedSearchSearchResponse200ApplicationJson,
             CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder> {
   factory CoreUnifiedSearchSearchResponse200ApplicationJson([
@@ -6207,13 +7467,23 @@ abstract class CoreUnifiedSearchSearchResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson> get serializer =>
       _$coreUnifiedSearchSearchResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterface {
+  BuiltList<String> get regular;
+  BuiltList<String> get admin;
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterface rebuild(
+    final void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates,
+  );
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
     implements
+        CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterface,
         Built<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew,
             CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder> {
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew([
@@ -6232,14 +7502,25 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get regular;
-  BuiltList<String> get admin;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew> get serializer =>
       _$coreWhatsNewGetResponse200ApplicationJsonOcsDataWhatsNewSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface {
+  String get changelogURL;
+  String get product;
+  String get version;
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew? get whatsNew;
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data
     implements
+        CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface,
         Built<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data,
             CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder> {
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data([
@@ -6258,16 +7539,23 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get changelogURL;
-  String get product;
-  String get version;
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew? get whatsNew;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreWhatsNewGetResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewGetResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data get data;
+  CoreWhatsNewGetResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs
     implements
+        CoreWhatsNewGetResponse200ApplicationJson_OcsInterface,
         Built<CoreWhatsNewGetResponse200ApplicationJson_Ocs, CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder> {
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs([
     final void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder)? b,
@@ -6285,14 +7573,23 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs> get serializer =>
       _$coreWhatsNewGetResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewGetResponse200ApplicationJsonInterface {
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs get ocs;
+  CoreWhatsNewGetResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewGetResponse200ApplicationJson
-    implements Built<CoreWhatsNewGetResponse200ApplicationJson, CoreWhatsNewGetResponse200ApplicationJsonBuilder> {
+    implements
+        CoreWhatsNewGetResponse200ApplicationJsonInterface,
+        Built<CoreWhatsNewGetResponse200ApplicationJson, CoreWhatsNewGetResponse200ApplicationJsonBuilder> {
   factory CoreWhatsNewGetResponse200ApplicationJson([
     final void Function(CoreWhatsNewGetResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreWhatsNewGetResponse200ApplicationJson;
@@ -6309,13 +7606,23 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson> get serializer =>
       _$coreWhatsNewGetResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewDismissResponse200ApplicationJson_OcsInterface {
+  CoreOCSMeta get meta;
+  JsonObject get data;
+  CoreWhatsNewDismissResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewDismissResponse200ApplicationJson_Ocs
     implements
+        CoreWhatsNewDismissResponse200ApplicationJson_OcsInterface,
         Built<CoreWhatsNewDismissResponse200ApplicationJson_Ocs,
             CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder> {
   factory CoreWhatsNewDismissResponse200ApplicationJson_Ocs([
@@ -6334,14 +7641,22 @@ abstract class CoreWhatsNewDismissResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreOCSMeta get meta;
-  JsonObject get data;
   static Serializer<CoreWhatsNewDismissResponse200ApplicationJson_Ocs> get serializer =>
       _$coreWhatsNewDismissResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWhatsNewDismissResponse200ApplicationJsonInterface {
+  CoreWhatsNewDismissResponse200ApplicationJson_Ocs get ocs;
+  CoreWhatsNewDismissResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWhatsNewDismissResponse200ApplicationJson
     implements
+        CoreWhatsNewDismissResponse200ApplicationJsonInterface,
         Built<CoreWhatsNewDismissResponse200ApplicationJson, CoreWhatsNewDismissResponse200ApplicationJsonBuilder> {
   factory CoreWhatsNewDismissResponse200ApplicationJson([
     final void Function(CoreWhatsNewDismissResponse200ApplicationJsonBuilder)? b,
@@ -6359,13 +7674,23 @@ abstract class CoreWhatsNewDismissResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CoreWhatsNewDismissResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreWhatsNewDismissResponse200ApplicationJson> get serializer =>
       _$coreWhatsNewDismissResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CoreWipeCheckWipeResponse200ApplicationJsonInterface {
+  bool get wipe;
+  CoreWipeCheckWipeResponse200ApplicationJsonInterface rebuild(
+    final void Function(CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class CoreWipeCheckWipeResponse200ApplicationJson
-    implements Built<CoreWipeCheckWipeResponse200ApplicationJson, CoreWipeCheckWipeResponse200ApplicationJsonBuilder> {
+    implements
+        CoreWipeCheckWipeResponse200ApplicationJsonInterface,
+        Built<CoreWipeCheckWipeResponse200ApplicationJson, CoreWipeCheckWipeResponse200ApplicationJsonBuilder> {
   factory CoreWipeCheckWipeResponse200ApplicationJson([
     final void Function(CoreWipeCheckWipeResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreWipeCheckWipeResponse200ApplicationJson;
@@ -6382,7 +7707,6 @@ abstract class CoreWipeCheckWipeResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get wipe;
   static Serializer<CoreWipeCheckWipeResponse200ApplicationJson> get serializer =>
       _$coreWipeCheckWipeResponse200ApplicationJsonSerializer;
 }

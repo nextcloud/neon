@@ -6,6 +6,13 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+abstract mixin class SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
+  void replace(SettingsLogSettingsLogSettingsDownloadHeadersInterface other);
+  void update(void Function(SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
+  String? get contentDisposition;
+  set contentDisposition(String? contentDisposition);
+}
+
 class _$SettingsLogSettingsLogSettingsDownloadHeaders extends SettingsLogSettingsLogSettingsDownloadHeaders {
   @override
   final String? contentDisposition;
@@ -49,12 +56,13 @@ class _$SettingsLogSettingsLogSettingsDownloadHeaders extends SettingsLogSetting
 
 class SettingsLogSettingsLogSettingsDownloadHeadersBuilder
     implements
-        Builder<SettingsLogSettingsLogSettingsDownloadHeaders, SettingsLogSettingsLogSettingsDownloadHeadersBuilder> {
+        Builder<SettingsLogSettingsLogSettingsDownloadHeaders, SettingsLogSettingsLogSettingsDownloadHeadersBuilder>,
+        SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
   _$SettingsLogSettingsLogSettingsDownloadHeaders? _$v;
 
   String? _contentDisposition;
   String? get contentDisposition => _$this._contentDisposition;
-  set contentDisposition(String? contentDisposition) => _$this._contentDisposition = contentDisposition;
+  set contentDisposition(covariant String? contentDisposition) => _$this._contentDisposition = contentDisposition;
 
   SettingsLogSettingsLogSettingsDownloadHeadersBuilder();
 
@@ -68,7 +76,7 @@ class SettingsLogSettingsLogSettingsDownloadHeadersBuilder
   }
 
   @override
-  void replace(SettingsLogSettingsLogSettingsDownloadHeaders other) {
+  void replace(covariant SettingsLogSettingsLogSettingsDownloadHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsLogSettingsLogSettingsDownloadHeaders;
   }

@@ -620,6 +620,19 @@ class _$ThemingPublicCapabilitiesSerializer implements StructuredSerializer<Them
   }
 }
 
+abstract mixin class ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder {
+  void replace(ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface other);
+  void update(void Function(ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder) updates);
+  String? get src;
+  set src(String? src);
+
+  String? get type;
+  set type(String? type);
+
+  String? get sizes;
+  set sizes(String? sizes);
+}
+
 class _$ThemingThemingGetManifestResponse200ApplicationJson_Icons
     extends ThemingThemingGetManifestResponse200ApplicationJson_Icons {
   @override
@@ -682,20 +695,21 @@ class _$ThemingThemingGetManifestResponse200ApplicationJson_Icons
 class ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder
     implements
         Builder<ThemingThemingGetManifestResponse200ApplicationJson_Icons,
-            ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder> {
+            ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder>,
+        ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder {
   _$ThemingThemingGetManifestResponse200ApplicationJson_Icons? _$v;
 
   String? _src;
   String? get src => _$this._src;
-  set src(String? src) => _$this._src = src;
+  set src(covariant String? src) => _$this._src = src;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   String? _sizes;
   String? get sizes => _$this._sizes;
-  set sizes(String? sizes) => _$this._sizes = sizes;
+  set sizes(covariant String? sizes) => _$this._sizes = sizes;
 
   ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder();
 
@@ -711,7 +725,7 @@ class ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder
   }
 
   @override
-  void replace(ThemingThemingGetManifestResponse200ApplicationJson_Icons other) {
+  void replace(covariant ThemingThemingGetManifestResponse200ApplicationJson_Icons other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingThemingGetManifestResponse200ApplicationJson_Icons;
   }
@@ -736,6 +750,34 @@ class ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ThemingThemingGetManifestResponse200ApplicationJsonInterface other);
+  void update(void Function(ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get shortName;
+  set shortName(String? shortName);
+
+  String? get startUrl;
+  set startUrl(String? startUrl);
+
+  String? get themeColor;
+  set themeColor(String? themeColor);
+
+  String? get backgroundColor;
+  set backgroundColor(String? backgroundColor);
+
+  String? get description;
+  set description(String? description);
+
+  ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get icons;
+  set icons(ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>? icons);
+
+  String? get display;
+  set display(String? display);
 }
 
 class _$ThemingThemingGetManifestResponse200ApplicationJson
@@ -841,41 +883,43 @@ class _$ThemingThemingGetManifestResponse200ApplicationJson
 class ThemingThemingGetManifestResponse200ApplicationJsonBuilder
     implements
         Builder<ThemingThemingGetManifestResponse200ApplicationJson,
-            ThemingThemingGetManifestResponse200ApplicationJsonBuilder> {
+            ThemingThemingGetManifestResponse200ApplicationJsonBuilder>,
+        ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder {
   _$ThemingThemingGetManifestResponse200ApplicationJson? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _shortName;
   String? get shortName => _$this._shortName;
-  set shortName(String? shortName) => _$this._shortName = shortName;
+  set shortName(covariant String? shortName) => _$this._shortName = shortName;
 
   String? _startUrl;
   String? get startUrl => _$this._startUrl;
-  set startUrl(String? startUrl) => _$this._startUrl = startUrl;
+  set startUrl(covariant String? startUrl) => _$this._startUrl = startUrl;
 
   String? _themeColor;
   String? get themeColor => _$this._themeColor;
-  set themeColor(String? themeColor) => _$this._themeColor = themeColor;
+  set themeColor(covariant String? themeColor) => _$this._themeColor = themeColor;
 
   String? _backgroundColor;
   String? get backgroundColor => _$this._backgroundColor;
-  set backgroundColor(String? backgroundColor) => _$this._backgroundColor = backgroundColor;
+  set backgroundColor(covariant String? backgroundColor) => _$this._backgroundColor = backgroundColor;
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  set description(covariant String? description) => _$this._description = description;
 
   ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>? _icons;
   ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get icons =>
       _$this._icons ??= ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>();
-  set icons(ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>? icons) => _$this._icons = icons;
+  set icons(covariant ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>? icons) =>
+      _$this._icons = icons;
 
   String? _display;
   String? get display => _$this._display;
-  set display(String? display) => _$this._display = display;
+  set display(covariant String? display) => _$this._display = display;
 
   ThemingThemingGetManifestResponse200ApplicationJsonBuilder();
 
@@ -896,7 +940,7 @@ class ThemingThemingGetManifestResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ThemingThemingGetManifestResponse200ApplicationJson other) {
+  void replace(covariant ThemingThemingGetManifestResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingThemingGetManifestResponse200ApplicationJson;
   }
@@ -943,6 +987,19 @@ class ThemingThemingGetManifestResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingBackgroundInterfaceBuilder {
+  void replace(ThemingBackgroundInterface other);
+  void update(void Function(ThemingBackgroundInterfaceBuilder) updates);
+  String? get backgroundImage;
+  set backgroundImage(String? backgroundImage);
+
+  String? get backgroundColor;
+  set backgroundColor(String? backgroundColor);
+
+  int? get version;
+  set version(int? version);
 }
 
 class _$ThemingBackground extends ThemingBackground {
@@ -996,20 +1053,21 @@ class _$ThemingBackground extends ThemingBackground {
   }
 }
 
-class ThemingBackgroundBuilder implements Builder<ThemingBackground, ThemingBackgroundBuilder> {
+class ThemingBackgroundBuilder
+    implements Builder<ThemingBackground, ThemingBackgroundBuilder>, ThemingBackgroundInterfaceBuilder {
   _$ThemingBackground? _$v;
 
   String? _backgroundImage;
   String? get backgroundImage => _$this._backgroundImage;
-  set backgroundImage(String? backgroundImage) => _$this._backgroundImage = backgroundImage;
+  set backgroundImage(covariant String? backgroundImage) => _$this._backgroundImage = backgroundImage;
 
   String? _backgroundColor;
   String? get backgroundColor => _$this._backgroundColor;
-  set backgroundColor(String? backgroundColor) => _$this._backgroundColor = backgroundColor;
+  set backgroundColor(covariant String? backgroundColor) => _$this._backgroundColor = backgroundColor;
 
   int? _version;
   int? get version => _$this._version;
-  set version(int? version) => _$this._version = version;
+  set version(covariant int? version) => _$this._version = version;
 
   ThemingBackgroundBuilder();
 
@@ -1025,7 +1083,7 @@ class ThemingBackgroundBuilder implements Builder<ThemingBackground, ThemingBack
   }
 
   @override
-  void replace(ThemingBackground other) {
+  void replace(covariant ThemingBackground other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingBackground;
   }
@@ -1048,6 +1106,25 @@ class ThemingBackgroundBuilder implements Builder<ThemingBackground, ThemingBack
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingOCSMetaInterfaceBuilder {
+  void replace(ThemingOCSMetaInterface other);
+  void update(void Function(ThemingOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
 }
 
 class _$ThemingOCSMeta extends ThemingOCSMeta {
@@ -1112,28 +1189,28 @@ class _$ThemingOCSMeta extends ThemingOCSMeta {
   }
 }
 
-class ThemingOCSMetaBuilder implements Builder<ThemingOCSMeta, ThemingOCSMetaBuilder> {
+class ThemingOCSMetaBuilder implements Builder<ThemingOCSMeta, ThemingOCSMetaBuilder>, ThemingOCSMetaInterfaceBuilder {
   _$ThemingOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   ThemingOCSMetaBuilder();
 
@@ -1151,7 +1228,7 @@ class ThemingOCSMetaBuilder implements Builder<ThemingOCSMeta, ThemingOCSMetaBui
   }
 
   @override
-  void replace(ThemingOCSMeta other) {
+  void replace(covariant ThemingOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingOCSMeta;
   }
@@ -1175,6 +1252,16 @@ class ThemingOCSMetaBuilder implements Builder<ThemingOCSMeta, ThemingOCSMetaBui
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ThemingOCSMetaBuilder get meta;
+  set meta(ThemingOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
@@ -1231,16 +1318,17 @@ class _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
 class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs,
-            ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder> {
+            ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder>,
+        ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs? _$v;
 
   ThemingOCSMetaBuilder? _meta;
   ThemingOCSMetaBuilder get meta => _$this._meta ??= ThemingOCSMetaBuilder();
-  set meta(ThemingOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ThemingOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder();
 
@@ -1255,7 +1343,7 @@ class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs;
   }
@@ -1290,6 +1378,13 @@ class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface other);
+  void update(void Function(ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder) updates);
+  ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ThemingUserThemeEnableThemeResponse200ApplicationJson
@@ -1338,13 +1433,14 @@ class _$ThemingUserThemeEnableThemeResponse200ApplicationJson
 class ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder
     implements
         Builder<ThemingUserThemeEnableThemeResponse200ApplicationJson,
-            ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder> {
+            ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder>,
+        ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder {
   _$ThemingUserThemeEnableThemeResponse200ApplicationJson? _$v;
 
   ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder? _ocs;
   ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder();
-  set ocs(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder();
 
@@ -1358,7 +1454,7 @@ class ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ThemingUserThemeEnableThemeResponse200ApplicationJson other) {
+  void replace(covariant ThemingUserThemeEnableThemeResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingUserThemeEnableThemeResponse200ApplicationJson;
   }
@@ -1389,6 +1485,16 @@ class ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ThemingOCSMetaBuilder get meta;
+  set meta(ThemingOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
@@ -1445,16 +1551,17 @@ class _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
 class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs,
-            ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder> {
+            ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder>,
+        ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs? _$v;
 
   ThemingOCSMetaBuilder? _meta;
   ThemingOCSMetaBuilder get meta => _$this._meta ??= ThemingOCSMetaBuilder();
-  set meta(ThemingOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ThemingOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder();
 
@@ -1469,7 +1576,7 @@ class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs;
   }
@@ -1504,6 +1611,13 @@ class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface other);
+  void update(void Function(ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder) updates);
+  ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ThemingUserThemeDisableThemeResponse200ApplicationJson
@@ -1552,13 +1666,14 @@ class _$ThemingUserThemeDisableThemeResponse200ApplicationJson
 class ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder
     implements
         Builder<ThemingUserThemeDisableThemeResponse200ApplicationJson,
-            ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder> {
+            ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder>,
+        ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder {
   _$ThemingUserThemeDisableThemeResponse200ApplicationJson? _$v;
 
   ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder? _ocs;
   ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder();
-  set ocs(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder();
 
@@ -1572,7 +1687,7 @@ class ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ThemingUserThemeDisableThemeResponse200ApplicationJson other) {
+  void replace(covariant ThemingUserThemeDisableThemeResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingUserThemeDisableThemeResponse200ApplicationJson;
   }
@@ -1603,6 +1718,52 @@ class ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ThemingPublicCapabilities_ThemingInterfaceBuilder {
+  void replace(ThemingPublicCapabilities_ThemingInterface other);
+  void update(void Function(ThemingPublicCapabilities_ThemingInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get url;
+  set url(String? url);
+
+  String? get slogan;
+  set slogan(String? slogan);
+
+  String? get color;
+  set color(String? color);
+
+  String? get colorText;
+  set colorText(String? colorText);
+
+  String? get colorElement;
+  set colorElement(String? colorElement);
+
+  String? get colorElementBright;
+  set colorElementBright(String? colorElementBright);
+
+  String? get colorElementDark;
+  set colorElementDark(String? colorElementDark);
+
+  String? get logo;
+  set logo(String? logo);
+
+  String? get background;
+  set background(String? background);
+
+  bool? get backgroundPlain;
+  set backgroundPlain(bool? backgroundPlain);
+
+  bool? get backgroundDefault;
+  set backgroundDefault(bool? backgroundDefault);
+
+  String? get logoheader;
+  set logoheader(String? logoheader);
+
+  String? get favicon;
+  set favicon(String? favicon);
 }
 
 class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Theming {
@@ -1741,64 +1902,66 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
 }
 
 class ThemingPublicCapabilities_ThemingBuilder
-    implements Builder<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
+    implements
+        Builder<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder>,
+        ThemingPublicCapabilities_ThemingInterfaceBuilder {
   _$ThemingPublicCapabilities_Theming? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _slogan;
   String? get slogan => _$this._slogan;
-  set slogan(String? slogan) => _$this._slogan = slogan;
+  set slogan(covariant String? slogan) => _$this._slogan = slogan;
 
   String? _color;
   String? get color => _$this._color;
-  set color(String? color) => _$this._color = color;
+  set color(covariant String? color) => _$this._color = color;
 
   String? _colorText;
   String? get colorText => _$this._colorText;
-  set colorText(String? colorText) => _$this._colorText = colorText;
+  set colorText(covariant String? colorText) => _$this._colorText = colorText;
 
   String? _colorElement;
   String? get colorElement => _$this._colorElement;
-  set colorElement(String? colorElement) => _$this._colorElement = colorElement;
+  set colorElement(covariant String? colorElement) => _$this._colorElement = colorElement;
 
   String? _colorElementBright;
   String? get colorElementBright => _$this._colorElementBright;
-  set colorElementBright(String? colorElementBright) => _$this._colorElementBright = colorElementBright;
+  set colorElementBright(covariant String? colorElementBright) => _$this._colorElementBright = colorElementBright;
 
   String? _colorElementDark;
   String? get colorElementDark => _$this._colorElementDark;
-  set colorElementDark(String? colorElementDark) => _$this._colorElementDark = colorElementDark;
+  set colorElementDark(covariant String? colorElementDark) => _$this._colorElementDark = colorElementDark;
 
   String? _logo;
   String? get logo => _$this._logo;
-  set logo(String? logo) => _$this._logo = logo;
+  set logo(covariant String? logo) => _$this._logo = logo;
 
   String? _background;
   String? get background => _$this._background;
-  set background(String? background) => _$this._background = background;
+  set background(covariant String? background) => _$this._background = background;
 
   bool? _backgroundPlain;
   bool? get backgroundPlain => _$this._backgroundPlain;
-  set backgroundPlain(bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
+  set backgroundPlain(covariant bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
 
   bool? _backgroundDefault;
   bool? get backgroundDefault => _$this._backgroundDefault;
-  set backgroundDefault(bool? backgroundDefault) => _$this._backgroundDefault = backgroundDefault;
+  set backgroundDefault(covariant bool? backgroundDefault) => _$this._backgroundDefault = backgroundDefault;
 
   String? _logoheader;
   String? get logoheader => _$this._logoheader;
-  set logoheader(String? logoheader) => _$this._logoheader = logoheader;
+  set logoheader(covariant String? logoheader) => _$this._logoheader = logoheader;
 
   String? _favicon;
   String? get favicon => _$this._favicon;
-  set favicon(String? favicon) => _$this._favicon = favicon;
+  set favicon(covariant String? favicon) => _$this._favicon = favicon;
 
   ThemingPublicCapabilities_ThemingBuilder();
 
@@ -1825,7 +1988,7 @@ class ThemingPublicCapabilities_ThemingBuilder
   }
 
   @override
-  void replace(ThemingPublicCapabilities_Theming other) {
+  void replace(covariant ThemingPublicCapabilities_Theming other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingPublicCapabilities_Theming;
   }
@@ -1868,6 +2031,13 @@ class ThemingPublicCapabilities_ThemingBuilder
   }
 }
 
+abstract mixin class ThemingPublicCapabilitiesInterfaceBuilder {
+  void replace(ThemingPublicCapabilitiesInterface other);
+  void update(void Function(ThemingPublicCapabilitiesInterfaceBuilder) updates);
+  ThemingPublicCapabilities_ThemingBuilder get theming;
+  set theming(ThemingPublicCapabilities_ThemingBuilder? theming);
+}
+
 class _$ThemingPublicCapabilities extends ThemingPublicCapabilities {
   @override
   final ThemingPublicCapabilities_Theming theming;
@@ -1906,13 +2076,16 @@ class _$ThemingPublicCapabilities extends ThemingPublicCapabilities {
   }
 }
 
-class ThemingPublicCapabilitiesBuilder implements Builder<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
+class ThemingPublicCapabilitiesBuilder
+    implements
+        Builder<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder>,
+        ThemingPublicCapabilitiesInterfaceBuilder {
   _$ThemingPublicCapabilities? _$v;
 
   ThemingPublicCapabilities_ThemingBuilder? _theming;
   ThemingPublicCapabilities_ThemingBuilder get theming =>
       _$this._theming ??= ThemingPublicCapabilities_ThemingBuilder();
-  set theming(ThemingPublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
+  set theming(covariant ThemingPublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
 
   ThemingPublicCapabilitiesBuilder();
 
@@ -1926,7 +2099,7 @@ class ThemingPublicCapabilitiesBuilder implements Builder<ThemingPublicCapabilit
   }
 
   @override
-  void replace(ThemingPublicCapabilities other) {
+  void replace(covariant ThemingPublicCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingPublicCapabilities;
   }

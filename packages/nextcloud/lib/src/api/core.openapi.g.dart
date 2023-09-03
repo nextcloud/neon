@@ -7894,6 +7894,34 @@ class _$CoreWipeCheckWipeResponse200ApplicationJsonSerializer
   }
 }
 
+abstract mixin class CoreStatusInterfaceBuilder {
+  void replace(CoreStatusInterface other);
+  void update(void Function(CoreStatusInterfaceBuilder) updates);
+  bool? get installed;
+  set installed(bool? installed);
+
+  bool? get maintenance;
+  set maintenance(bool? maintenance);
+
+  bool? get needsDbUpgrade;
+  set needsDbUpgrade(bool? needsDbUpgrade);
+
+  String? get version;
+  set version(String? version);
+
+  String? get versionstring;
+  set versionstring(String? versionstring);
+
+  String? get edition;
+  set edition(String? edition);
+
+  String? get productname;
+  set productname(String? productname);
+
+  bool? get extendedSupport;
+  set extendedSupport(bool? extendedSupport);
+}
+
 class _$CoreStatus extends CoreStatus {
   @override
   final bool installed;
@@ -7984,40 +8012,40 @@ class _$CoreStatus extends CoreStatus {
   }
 }
 
-class CoreStatusBuilder implements Builder<CoreStatus, CoreStatusBuilder> {
+class CoreStatusBuilder implements Builder<CoreStatus, CoreStatusBuilder>, CoreStatusInterfaceBuilder {
   _$CoreStatus? _$v;
 
   bool? _installed;
   bool? get installed => _$this._installed;
-  set installed(bool? installed) => _$this._installed = installed;
+  set installed(covariant bool? installed) => _$this._installed = installed;
 
   bool? _maintenance;
   bool? get maintenance => _$this._maintenance;
-  set maintenance(bool? maintenance) => _$this._maintenance = maintenance;
+  set maintenance(covariant bool? maintenance) => _$this._maintenance = maintenance;
 
   bool? _needsDbUpgrade;
   bool? get needsDbUpgrade => _$this._needsDbUpgrade;
-  set needsDbUpgrade(bool? needsDbUpgrade) => _$this._needsDbUpgrade = needsDbUpgrade;
+  set needsDbUpgrade(covariant bool? needsDbUpgrade) => _$this._needsDbUpgrade = needsDbUpgrade;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   String? _versionstring;
   String? get versionstring => _$this._versionstring;
-  set versionstring(String? versionstring) => _$this._versionstring = versionstring;
+  set versionstring(covariant String? versionstring) => _$this._versionstring = versionstring;
 
   String? _edition;
   String? get edition => _$this._edition;
-  set edition(String? edition) => _$this._edition = edition;
+  set edition(covariant String? edition) => _$this._edition = edition;
 
   String? _productname;
   String? get productname => _$this._productname;
-  set productname(String? productname) => _$this._productname = productname;
+  set productname(covariant String? productname) => _$this._productname = productname;
 
   bool? _extendedSupport;
   bool? get extendedSupport => _$this._extendedSupport;
-  set extendedSupport(bool? extendedSupport) => _$this._extendedSupport = extendedSupport;
+  set extendedSupport(covariant bool? extendedSupport) => _$this._extendedSupport = extendedSupport;
 
   CoreStatusBuilder();
 
@@ -8038,7 +8066,7 @@ class CoreStatusBuilder implements Builder<CoreStatus, CoreStatusBuilder> {
   }
 
   @override
-  void replace(CoreStatus other) {
+  void replace(covariant CoreStatus other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreStatus;
   }
@@ -8065,6 +8093,25 @@ class CoreStatusBuilder implements Builder<CoreStatus, CoreStatusBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOCSMetaInterfaceBuilder {
+  void replace(CoreOCSMetaInterface other);
+  void update(void Function(CoreOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
 }
 
 class _$CoreOCSMeta extends CoreOCSMeta {
@@ -8129,28 +8176,28 @@ class _$CoreOCSMeta extends CoreOCSMeta {
   }
 }
 
-class CoreOCSMetaBuilder implements Builder<CoreOCSMeta, CoreOCSMetaBuilder> {
+class CoreOCSMetaBuilder implements Builder<CoreOCSMeta, CoreOCSMetaBuilder>, CoreOCSMetaInterfaceBuilder {
   _$CoreOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   CoreOCSMetaBuilder();
 
@@ -8168,7 +8215,7 @@ class CoreOCSMetaBuilder implements Builder<CoreOCSMeta, CoreOCSMetaBuilder> {
   }
 
   @override
-  void replace(CoreOCSMeta other) {
+  void replace(covariant CoreOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOCSMeta;
   }
@@ -8192,6 +8239,13 @@ class CoreOCSMetaBuilder implements Builder<CoreOCSMeta, CoreOCSMetaBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get apppassword;
+  set apppassword(String? apppassword);
 }
 
 class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
@@ -8243,12 +8297,13 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
 class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _apppassword;
   String? get apppassword => _$this._apppassword;
-  set apppassword(String? apppassword) => _$this._apppassword = apppassword;
+  set apppassword(covariant String? apppassword) => _$this._apppassword = apppassword;
 
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -8262,7 +8317,7 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data;
   }
@@ -8283,6 +8338,16 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
@@ -8340,17 +8405,19 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
 class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder> {
+            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder>,
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder();
 
@@ -8365,7 +8432,7 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs;
   }
@@ -8399,6 +8466,13 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson
@@ -8447,13 +8521,14 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson
 class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
     implements
         Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder> {
+            CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder>,
+        CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder {
   _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson? _$v;
 
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder();
 
@@ -8467,7 +8542,7 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson;
   }
@@ -8498,6 +8573,14 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get apppassword;
+  set apppassword(String? apppassword);
 }
 
 class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
@@ -8549,12 +8632,13 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
 class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _apppassword;
   String? get apppassword => _$this._apppassword;
-  set apppassword(String? apppassword) => _$this._apppassword = apppassword;
+  set apppassword(covariant String? apppassword) => _$this._apppassword = apppassword;
 
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -8568,7 +8652,7 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data;
   }
@@ -8589,6 +8673,16 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
@@ -8648,17 +8742,19 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
 class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder> {
+            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder>,
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder();
 
@@ -8673,7 +8769,7 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs;
   }
@@ -8707,6 +8803,13 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
@@ -8755,13 +8858,14 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
 class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
     implements
         Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder> {
+            CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder>,
+        CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder {
   _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson? _$v;
 
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder();
 
@@ -8775,7 +8879,7 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson;
   }
@@ -8806,6 +8910,16 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
@@ -8865,16 +8979,17 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
 class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder> {
+            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder>,
+        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder();
 
@@ -8889,7 +9004,7 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs;
   }
@@ -8924,6 +9039,13 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
@@ -8972,13 +9094,14 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
 class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
     implements
         Builder<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder> {
+            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder>,
+        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder {
   _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson? _$v;
 
   CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder();
 
@@ -8992,7 +9115,7 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson;
   }
@@ -9023,6 +9146,31 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAutocompleteResultInterfaceBuilder {
+  void replace(CoreAutocompleteResultInterface other);
+  void update(void Function(CoreAutocompleteResultInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get label;
+  set label(String? label);
+
+  String? get icon;
+  set icon(String? icon);
+
+  String? get source;
+  set source(String? source);
+
+  String? get status;
+  set status(String? status);
+
+  String? get subline;
+  set subline(String? subline);
+
+  String? get shareWithDisplayNameUnique;
+  set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique);
 }
 
 class _$CoreAutocompleteResult extends CoreAutocompleteResult {
@@ -9111,36 +9259,37 @@ class _$CoreAutocompleteResult extends CoreAutocompleteResult {
   }
 }
 
-class CoreAutocompleteResultBuilder implements Builder<CoreAutocompleteResult, CoreAutocompleteResultBuilder> {
+class CoreAutocompleteResultBuilder
+    implements Builder<CoreAutocompleteResult, CoreAutocompleteResultBuilder>, CoreAutocompleteResultInterfaceBuilder {
   _$CoreAutocompleteResult? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _label;
   String? get label => _$this._label;
-  set label(String? label) => _$this._label = label;
+  set label(covariant String? label) => _$this._label = label;
 
   String? _icon;
   String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
 
   String? _source;
   String? get source => _$this._source;
-  set source(String? source) => _$this._source = source;
+  set source(covariant String? source) => _$this._source = source;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   String? _subline;
   String? get subline => _$this._subline;
-  set subline(String? subline) => _$this._subline = subline;
+  set subline(covariant String? subline) => _$this._subline = subline;
 
   String? _shareWithDisplayNameUnique;
   String? get shareWithDisplayNameUnique => _$this._shareWithDisplayNameUnique;
-  set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique) =>
+  set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique) =>
       _$this._shareWithDisplayNameUnique = shareWithDisplayNameUnique;
 
   CoreAutocompleteResultBuilder();
@@ -9161,7 +9310,7 @@ class CoreAutocompleteResultBuilder implements Builder<CoreAutocompleteResult, C
   }
 
   @override
-  void replace(CoreAutocompleteResult other) {
+  void replace(covariant CoreAutocompleteResult other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAutocompleteResult;
   }
@@ -9188,6 +9337,16 @@ class CoreAutocompleteResultBuilder implements Builder<CoreAutocompleteResult, C
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAutoCompleteGetResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreAutocompleteResult> get data;
+  set data(ListBuilder<CoreAutocompleteResult>? data);
 }
 
 class _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs extends CoreAutoCompleteGetResponse200ApplicationJson_Ocs {
@@ -9241,16 +9400,17 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs extends CoreAutoComple
 class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreAutoCompleteGetResponse200ApplicationJson_Ocs,
-            CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder> {
+            CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder>,
+        CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreAutocompleteResult>? _data;
   ListBuilder<CoreAutocompleteResult> get data => _$this._data ??= ListBuilder<CoreAutocompleteResult>();
-  set data(ListBuilder<CoreAutocompleteResult>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreAutocompleteResult>? data) => _$this._data = data;
 
   CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder();
 
@@ -9265,7 +9425,7 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreAutoCompleteGetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAutoCompleteGetResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs;
   }
@@ -9298,6 +9458,13 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreAutoCompleteGetResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreAutoCompleteGetResponse200ApplicationJson extends CoreAutoCompleteGetResponse200ApplicationJson {
@@ -9343,13 +9510,14 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson extends CoreAutoCompleteGe
 
 class CoreAutoCompleteGetResponse200ApplicationJsonBuilder
     implements
-        Builder<CoreAutoCompleteGetResponse200ApplicationJson, CoreAutoCompleteGetResponse200ApplicationJsonBuilder> {
+        Builder<CoreAutoCompleteGetResponse200ApplicationJson, CoreAutoCompleteGetResponse200ApplicationJsonBuilder>,
+        CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder {
   _$CoreAutoCompleteGetResponse200ApplicationJson? _$v;
 
   CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreAutoCompleteGetResponse200ApplicationJsonBuilder();
 
@@ -9363,7 +9531,7 @@ class CoreAutoCompleteGetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreAutoCompleteGetResponse200ApplicationJson other) {
+  void replace(covariant CoreAutoCompleteGetResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAutoCompleteGetResponse200ApplicationJson;
   }
@@ -9393,6 +9561,13 @@ class CoreAutoCompleteGetResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
+  void replace(CoreAvatarAvatarGetAvatarDarkHeadersInterface other);
+  void update(void Function(CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates);
+  int? get xNcIscustomavatar;
+  set xNcIscustomavatar(int? xNcIscustomavatar);
 }
 
 class _$CoreAvatarAvatarGetAvatarDarkHeaders extends CoreAvatarAvatarGetAvatarDarkHeaders {
@@ -9436,12 +9611,14 @@ class _$CoreAvatarAvatarGetAvatarDarkHeaders extends CoreAvatarAvatarGetAvatarDa
 }
 
 class CoreAvatarAvatarGetAvatarDarkHeadersBuilder
-    implements Builder<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder> {
+    implements
+        Builder<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder>,
+        CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   _$CoreAvatarAvatarGetAvatarDarkHeaders? _$v;
 
   int? _xNcIscustomavatar;
   int? get xNcIscustomavatar => _$this._xNcIscustomavatar;
-  set xNcIscustomavatar(int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
+  set xNcIscustomavatar(covariant int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   CoreAvatarAvatarGetAvatarDarkHeadersBuilder();
 
@@ -9455,7 +9632,7 @@ class CoreAvatarAvatarGetAvatarDarkHeadersBuilder
   }
 
   @override
-  void replace(CoreAvatarAvatarGetAvatarDarkHeaders other) {
+  void replace(covariant CoreAvatarAvatarGetAvatarDarkHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAvatarAvatarGetAvatarDarkHeaders;
   }
@@ -9473,6 +9650,13 @@ class CoreAvatarAvatarGetAvatarDarkHeadersBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder {
+  void replace(CoreAvatarAvatarGetAvatarHeadersInterface other);
+  void update(void Function(CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder) updates);
+  int? get xNcIscustomavatar;
+  set xNcIscustomavatar(int? xNcIscustomavatar);
 }
 
 class _$CoreAvatarAvatarGetAvatarHeaders extends CoreAvatarAvatarGetAvatarHeaders {
@@ -9514,12 +9698,14 @@ class _$CoreAvatarAvatarGetAvatarHeaders extends CoreAvatarAvatarGetAvatarHeader
 }
 
 class CoreAvatarAvatarGetAvatarHeadersBuilder
-    implements Builder<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder> {
+    implements
+        Builder<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder>,
+        CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder {
   _$CoreAvatarAvatarGetAvatarHeaders? _$v;
 
   int? _xNcIscustomavatar;
   int? get xNcIscustomavatar => _$this._xNcIscustomavatar;
-  set xNcIscustomavatar(int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
+  set xNcIscustomavatar(covariant int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   CoreAvatarAvatarGetAvatarHeadersBuilder();
 
@@ -9533,7 +9719,7 @@ class CoreAvatarAvatarGetAvatarHeadersBuilder
   }
 
   @override
-  void replace(CoreAvatarAvatarGetAvatarHeaders other) {
+  void replace(covariant CoreAvatarAvatarGetAvatarHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreAvatarAvatarGetAvatarHeaders;
   }
@@ -9551,6 +9737,19 @@ class CoreAvatarAvatarGetAvatarHeadersBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreLoginFlowV2CredentialsInterfaceBuilder {
+  void replace(CoreLoginFlowV2CredentialsInterface other);
+  void update(void Function(CoreLoginFlowV2CredentialsInterfaceBuilder) updates);
+  String? get server;
+  set server(String? server);
+
+  String? get loginName;
+  set loginName(String? loginName);
+
+  String? get appPassword;
+  set appPassword(String? appPassword);
 }
 
 class _$CoreLoginFlowV2Credentials extends CoreLoginFlowV2Credentials {
@@ -9608,20 +9807,22 @@ class _$CoreLoginFlowV2Credentials extends CoreLoginFlowV2Credentials {
 }
 
 class CoreLoginFlowV2CredentialsBuilder
-    implements Builder<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder> {
+    implements
+        Builder<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder>,
+        CoreLoginFlowV2CredentialsInterfaceBuilder {
   _$CoreLoginFlowV2Credentials? _$v;
 
   String? _server;
   String? get server => _$this._server;
-  set server(String? server) => _$this._server = server;
+  set server(covariant String? server) => _$this._server = server;
 
   String? _loginName;
   String? get loginName => _$this._loginName;
-  set loginName(String? loginName) => _$this._loginName = loginName;
+  set loginName(covariant String? loginName) => _$this._loginName = loginName;
 
   String? _appPassword;
   String? get appPassword => _$this._appPassword;
-  set appPassword(String? appPassword) => _$this._appPassword = appPassword;
+  set appPassword(covariant String? appPassword) => _$this._appPassword = appPassword;
 
   CoreLoginFlowV2CredentialsBuilder();
 
@@ -9637,7 +9838,7 @@ class CoreLoginFlowV2CredentialsBuilder
   }
 
   @override
-  void replace(CoreLoginFlowV2Credentials other) {
+  void replace(covariant CoreLoginFlowV2Credentials other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreLoginFlowV2Credentials;
   }
@@ -9660,6 +9861,16 @@ class CoreLoginFlowV2CredentialsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreLoginFlowV2_PollInterfaceBuilder {
+  void replace(CoreLoginFlowV2_PollInterface other);
+  void update(void Function(CoreLoginFlowV2_PollInterfaceBuilder) updates);
+  String? get token;
+  set token(String? token);
+
+  String? get endpoint;
+  set endpoint(String? endpoint);
 }
 
 class _$CoreLoginFlowV2_Poll extends CoreLoginFlowV2_Poll {
@@ -9707,16 +9918,17 @@ class _$CoreLoginFlowV2_Poll extends CoreLoginFlowV2_Poll {
   }
 }
 
-class CoreLoginFlowV2_PollBuilder implements Builder<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder> {
+class CoreLoginFlowV2_PollBuilder
+    implements Builder<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder>, CoreLoginFlowV2_PollInterfaceBuilder {
   _$CoreLoginFlowV2_Poll? _$v;
 
   String? _token;
   String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
+  set token(covariant String? token) => _$this._token = token;
 
   String? _endpoint;
   String? get endpoint => _$this._endpoint;
-  set endpoint(String? endpoint) => _$this._endpoint = endpoint;
+  set endpoint(covariant String? endpoint) => _$this._endpoint = endpoint;
 
   CoreLoginFlowV2_PollBuilder();
 
@@ -9731,7 +9943,7 @@ class CoreLoginFlowV2_PollBuilder implements Builder<CoreLoginFlowV2_Poll, CoreL
   }
 
   @override
-  void replace(CoreLoginFlowV2_Poll other) {
+  void replace(covariant CoreLoginFlowV2_Poll other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreLoginFlowV2_Poll;
   }
@@ -9752,6 +9964,16 @@ class CoreLoginFlowV2_PollBuilder implements Builder<CoreLoginFlowV2_Poll, CoreL
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreLoginFlowV2InterfaceBuilder {
+  void replace(CoreLoginFlowV2Interface other);
+  void update(void Function(CoreLoginFlowV2InterfaceBuilder) updates);
+  CoreLoginFlowV2_PollBuilder get poll;
+  set poll(CoreLoginFlowV2_PollBuilder? poll);
+
+  String? get login;
+  set login(String? login);
 }
 
 class _$CoreLoginFlowV2 extends CoreLoginFlowV2 {
@@ -9798,16 +10020,17 @@ class _$CoreLoginFlowV2 extends CoreLoginFlowV2 {
   }
 }
 
-class CoreLoginFlowV2Builder implements Builder<CoreLoginFlowV2, CoreLoginFlowV2Builder> {
+class CoreLoginFlowV2Builder
+    implements Builder<CoreLoginFlowV2, CoreLoginFlowV2Builder>, CoreLoginFlowV2InterfaceBuilder {
   _$CoreLoginFlowV2? _$v;
 
   CoreLoginFlowV2_PollBuilder? _poll;
   CoreLoginFlowV2_PollBuilder get poll => _$this._poll ??= CoreLoginFlowV2_PollBuilder();
-  set poll(CoreLoginFlowV2_PollBuilder? poll) => _$this._poll = poll;
+  set poll(covariant CoreLoginFlowV2_PollBuilder? poll) => _$this._poll = poll;
 
   String? _login;
   String? get login => _$this._login;
-  set login(String? login) => _$this._login = login;
+  set login(covariant String? login) => _$this._login = login;
 
   CoreLoginFlowV2Builder();
 
@@ -9822,7 +10045,7 @@ class CoreLoginFlowV2Builder implements Builder<CoreLoginFlowV2, CoreLoginFlowV2
   }
 
   @override
-  void replace(CoreLoginFlowV2 other) {
+  void replace(covariant CoreLoginFlowV2 other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreLoginFlowV2;
   }
@@ -9854,6 +10077,25 @@ class CoreLoginFlowV2Builder implements Builder<CoreLoginFlowV2, CoreLoginFlowV2
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder {
+  void replace(CoreOpenGraphObject_OpenGraphObjectInterface other);
+  void update(void Function(CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  String? get description;
+  set description(String? description);
+
+  String? get thumb;
+  set thumb(String? thumb);
+
+  String? get link;
+  set link(String? link);
 }
 
 class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGraphObject {
@@ -9922,28 +10164,30 @@ class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGrap
 }
 
 class CoreOpenGraphObject_OpenGraphObjectBuilder
-    implements Builder<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder> {
+    implements
+        Builder<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder>,
+        CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder {
   _$CoreOpenGraphObject_OpenGraphObject? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  set description(covariant String? description) => _$this._description = description;
 
   String? _thumb;
   String? get thumb => _$this._thumb;
-  set thumb(String? thumb) => _$this._thumb = thumb;
+  set thumb(covariant String? thumb) => _$this._thumb = thumb;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   CoreOpenGraphObject_OpenGraphObjectBuilder();
 
@@ -9961,7 +10205,7 @@ class CoreOpenGraphObject_OpenGraphObjectBuilder
   }
 
   @override
-  void replace(CoreOpenGraphObject_OpenGraphObject other) {
+  void replace(covariant CoreOpenGraphObject_OpenGraphObject other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOpenGraphObject_OpenGraphObject;
   }
@@ -9985,6 +10229,22 @@ class CoreOpenGraphObject_OpenGraphObjectBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOpenGraphObjectInterfaceBuilder {
+  void replace(CoreOpenGraphObjectInterface other);
+  void update(void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
+  String? get richObjectType;
+  set richObjectType(String? richObjectType);
+
+  MapBuilder<String, JsonObject> get richObject;
+  set richObject(MapBuilder<String, JsonObject>? richObject);
+
+  CoreOpenGraphObject_OpenGraphObjectBuilder get openGraphObject;
+  set openGraphObject(CoreOpenGraphObject_OpenGraphObjectBuilder? openGraphObject);
+
+  bool? get accessible;
+  set accessible(bool? accessible);
 }
 
 class _$CoreOpenGraphObject extends CoreOpenGraphObject {
@@ -10048,26 +10308,27 @@ class _$CoreOpenGraphObject extends CoreOpenGraphObject {
   }
 }
 
-class CoreOpenGraphObjectBuilder implements Builder<CoreOpenGraphObject, CoreOpenGraphObjectBuilder> {
+class CoreOpenGraphObjectBuilder
+    implements Builder<CoreOpenGraphObject, CoreOpenGraphObjectBuilder>, CoreOpenGraphObjectInterfaceBuilder {
   _$CoreOpenGraphObject? _$v;
 
   String? _richObjectType;
   String? get richObjectType => _$this._richObjectType;
-  set richObjectType(String? richObjectType) => _$this._richObjectType = richObjectType;
+  set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
 
   MapBuilder<String, JsonObject>? _richObject;
   MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
-  set richObject(MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
+  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
 
   CoreOpenGraphObject_OpenGraphObjectBuilder? _openGraphObject;
   CoreOpenGraphObject_OpenGraphObjectBuilder get openGraphObject =>
       _$this._openGraphObject ??= CoreOpenGraphObject_OpenGraphObjectBuilder();
-  set openGraphObject(CoreOpenGraphObject_OpenGraphObjectBuilder? openGraphObject) =>
+  set openGraphObject(covariant CoreOpenGraphObject_OpenGraphObjectBuilder? openGraphObject) =>
       _$this._openGraphObject = openGraphObject;
 
   bool? _accessible;
   bool? get accessible => _$this._accessible;
-  set accessible(bool? accessible) => _$this._accessible = accessible;
+  set accessible(covariant bool? accessible) => _$this._accessible = accessible;
 
   CoreOpenGraphObjectBuilder();
 
@@ -10084,7 +10345,7 @@ class CoreOpenGraphObjectBuilder implements Builder<CoreOpenGraphObject, CoreOpe
   }
 
   @override
-  void replace(CoreOpenGraphObject other) {
+  void replace(covariant CoreOpenGraphObject other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOpenGraphObject;
   }
@@ -10122,6 +10383,19 @@ class CoreOpenGraphObjectBuilder implements Builder<CoreOpenGraphObject, CoreOpe
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollectionInterfaceBuilder {
+  void replace(CoreCollectionInterface other);
+  void update(void Function(CoreCollectionInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get name;
+  set name(String? name);
+
+  ListBuilder<CoreOpenGraphObject> get resources;
+  set resources(ListBuilder<CoreOpenGraphObject>? resources);
 }
 
 class _$CoreCollection extends CoreCollection {
@@ -10173,20 +10447,20 @@ class _$CoreCollection extends CoreCollection {
   }
 }
 
-class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBuilder> {
+class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBuilder>, CoreCollectionInterfaceBuilder {
   _$CoreCollection? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   ListBuilder<CoreOpenGraphObject>? _resources;
   ListBuilder<CoreOpenGraphObject> get resources => _$this._resources ??= ListBuilder<CoreOpenGraphObject>();
-  set resources(ListBuilder<CoreOpenGraphObject>? resources) => _$this._resources = resources;
+  set resources(covariant ListBuilder<CoreOpenGraphObject>? resources) => _$this._resources = resources;
 
   CoreCollectionBuilder();
 
@@ -10202,7 +10476,7 @@ class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBui
   }
 
   @override
-  void replace(CoreCollection other) {
+  void replace(covariant CoreCollection other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollection;
   }
@@ -10236,6 +10510,17 @@ class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBui
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreCollection> get data;
+  set data(ListBuilder<CoreCollection>? data);
 }
 
 class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs
@@ -10296,16 +10581,17 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Oc
 class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreCollection>? _data;
   ListBuilder<CoreCollection> get data => _$this._data ??= ListBuilder<CoreCollection>();
-  set data(ListBuilder<CoreCollection>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreCollection>? data) => _$this._data = data;
 
   CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder();
 
@@ -10320,7 +10606,7 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
   }
 
   @override
-  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs;
   }
@@ -10356,6 +10642,14 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
@@ -10406,13 +10700,15 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
 class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson,
-            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder();
 
@@ -10426,7 +10722,7 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuild
   }
 
   @override
-  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson;
   }
@@ -10457,6 +10753,17 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuild
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreCollectionBuilder get data;
+  set data(CoreCollectionBuilder? data);
 }
 
 class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
@@ -10516,16 +10823,17 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
 class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreCollectionBuilder? _data;
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
-  set data(CoreCollectionBuilder? data) => _$this._data = data;
+  set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
   CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder();
 
@@ -10540,7 +10848,7 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs;
   }
@@ -10575,6 +10883,14 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson
@@ -10625,13 +10941,15 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson
 class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesListCollectionResponse200ApplicationJson,
-            CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder();
 
@@ -10645,7 +10963,7 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson;
   }
@@ -10676,6 +10994,17 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreCollectionBuilder get data;
+  set data(CoreCollectionBuilder? data);
 }
 
 class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
@@ -10735,16 +11064,17 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
 class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreCollectionBuilder? _data;
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
-  set data(CoreCollectionBuilder? data) => _$this._data = data;
+  set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
   CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder();
 
@@ -10759,7 +11089,7 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
   }
 
   @override
-  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs;
   }
@@ -10794,6 +11124,14 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
@@ -10844,13 +11182,15 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
 class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson,
-            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder();
 
@@ -10864,7 +11204,7 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilde
   }
 
   @override
-  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson;
   }
@@ -10895,6 +11235,17 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreCollectionBuilder get data;
+  set data(CoreCollectionBuilder? data);
 }
 
 class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
@@ -10954,16 +11305,17 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
 class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreCollectionBuilder? _data;
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
-  set data(CoreCollectionBuilder? data) => _$this._data = data;
+  set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
   CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder();
 
@@ -10978,7 +11330,7 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs;
   }
@@ -11013,6 +11365,13 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson
@@ -11063,13 +11422,15 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson
 class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesAddResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder();
 
@@ -11083,7 +11444,7 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson;
   }
@@ -11114,6 +11475,17 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreCollectionBuilder get data;
+  set data(CoreCollectionBuilder? data);
 }
 
 class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
@@ -11173,16 +11545,17 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
 class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreCollectionBuilder? _data;
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
-  set data(CoreCollectionBuilder? data) => _$this._data = data;
+  set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
   CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder();
 
@@ -11197,7 +11570,7 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs;
   }
@@ -11232,6 +11605,14 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
@@ -11282,13 +11663,15 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
 class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder();
 
@@ -11302,7 +11685,7 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson;
   }
@@ -11333,6 +11716,18 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreCollection> get data;
+  set data(ListBuilder<CoreCollection>? data);
 }
 
 class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs
@@ -11397,16 +11792,17 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
 class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreCollection>? _data;
   ListBuilder<CoreCollection> get data => _$this._data ??= ListBuilder<CoreCollection>();
-  set data(ListBuilder<CoreCollection>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreCollection>? data) => _$this._data = data;
 
   CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder();
 
@@ -11421,7 +11817,7 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 
   @override
-  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs;
   }
@@ -11459,6 +11855,15 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder)
+          updates);
+  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson
@@ -11510,13 +11915,14 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
 class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  set ocs(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
   CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder();
@@ -11531,7 +11937,7 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 
   @override
-  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson;
   }
@@ -11566,6 +11972,18 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreCollectionBuilder get data;
+  set data(CoreCollectionBuilder? data);
 }
 
 class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs
@@ -11630,16 +12048,17 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
 class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder> {
+            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreCollectionBuilder? _data;
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
-  set data(CoreCollectionBuilder? data) => _$this._data = data;
+  set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
   CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder();
 
@@ -11654,7 +12073,7 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   }
 
   @override
-  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs;
   }
@@ -11693,6 +12112,15 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder)
+          updates);
+  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson
@@ -11747,13 +12175,14 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
 class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder
     implements
         Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder> {
+            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder>,
+        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder {
   _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson? _$v;
 
   CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  set ocs(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
   CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder();
@@ -11768,7 +12197,7 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   }
 
   @override
-  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson;
   }
@@ -11803,6 +12232,22 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreContactsActionInterfaceBuilder {
+  void replace(CoreContactsActionInterface other);
+  void update(void Function(CoreContactsActionInterfaceBuilder) updates);
+  String? get title;
+  set title(String? title);
+
+  String? get icon;
+  set icon(String? icon);
+
+  String? get hyperlink;
+  set hyperlink(String? hyperlink);
+
+  String? get appId;
+  set appId(String? appId);
 }
 
 class _$CoreContactsAction extends CoreContactsAction {
@@ -11865,24 +12310,25 @@ class _$CoreContactsAction extends CoreContactsAction {
   }
 }
 
-class CoreContactsActionBuilder implements Builder<CoreContactsAction, CoreContactsActionBuilder> {
+class CoreContactsActionBuilder
+    implements Builder<CoreContactsAction, CoreContactsActionBuilder>, CoreContactsActionInterfaceBuilder {
   _$CoreContactsAction? _$v;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _icon;
   String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
 
   String? _hyperlink;
   String? get hyperlink => _$this._hyperlink;
-  set hyperlink(String? hyperlink) => _$this._hyperlink = hyperlink;
+  set hyperlink(covariant String? hyperlink) => _$this._hyperlink = hyperlink;
 
   String? _appId;
   String? get appId => _$this._appId;
-  set appId(String? appId) => _$this._appId = appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
 
   CoreContactsActionBuilder();
 
@@ -11899,7 +12345,7 @@ class CoreContactsActionBuilder implements Builder<CoreContactsAction, CoreConta
   }
 
   @override
-  void replace(CoreContactsAction other) {
+  void replace(covariant CoreContactsAction other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreContactsAction;
   }
@@ -11922,6 +12368,19 @@ class CoreContactsActionBuilder implements Builder<CoreContactsAction, CoreConta
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get userId;
+  set userId(String? userId);
+
+  String? get displayName;
+  set displayName(String? displayName);
+
+  ListBuilder<CoreContactsAction> get actions;
+  set actions(ListBuilder<CoreContactsAction>? actions);
 }
 
 class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
@@ -11988,20 +12447,21 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
 class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data,
-            CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
 
   String? _displayName;
   String? get displayName => _$this._displayName;
-  set displayName(String? displayName) => _$this._displayName = displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
 
   ListBuilder<CoreContactsAction>? _actions;
   ListBuilder<CoreContactsAction> get actions => _$this._actions ??= ListBuilder<CoreContactsAction>();
-  set actions(ListBuilder<CoreContactsAction>? actions) => _$this._actions = actions;
+  set actions(covariant ListBuilder<CoreContactsAction>? actions) => _$this._actions = actions;
 
   CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -12017,7 +12477,7 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data;
   }
@@ -12054,6 +12514,16 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs extends CoreHoverCardGetUserResponse200ApplicationJson_Ocs {
@@ -12107,17 +12577,18 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs extends CoreHoverCard
 class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreHoverCardGetUserResponse200ApplicationJson_Ocs,
-            CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder> {
+            CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder>,
+        CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder();
 
@@ -12132,7 +12603,7 @@ class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreHoverCardGetUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs;
   }
@@ -12165,6 +12636,13 @@ class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreHoverCardGetUserResponse200ApplicationJson extends CoreHoverCardGetUserResponse200ApplicationJson {
@@ -12210,13 +12688,14 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson extends CoreHoverCardGetU
 
 class CoreHoverCardGetUserResponse200ApplicationJsonBuilder
     implements
-        Builder<CoreHoverCardGetUserResponse200ApplicationJson, CoreHoverCardGetUserResponse200ApplicationJsonBuilder> {
+        Builder<CoreHoverCardGetUserResponse200ApplicationJson, CoreHoverCardGetUserResponse200ApplicationJsonBuilder>,
+        CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder {
   _$CoreHoverCardGetUserResponse200ApplicationJson? _$v;
 
   CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreHoverCardGetUserResponse200ApplicationJsonBuilder();
 
@@ -12230,7 +12709,7 @@ class CoreHoverCardGetUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreHoverCardGetUserResponse200ApplicationJson other) {
+  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson;
   }
@@ -12364,6 +12843,37 @@ class CoreNavigationEntry_OrderBuilder implements Builder<CoreNavigationEntry_Or
   }
 }
 
+abstract mixin class CoreNavigationEntryInterfaceBuilder {
+  void replace(CoreNavigationEntryInterface other);
+  void update(void Function(CoreNavigationEntryInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  CoreNavigationEntry_OrderBuilder get order;
+  set order(CoreNavigationEntry_OrderBuilder? order);
+
+  String? get href;
+  set href(String? href);
+
+  String? get icon;
+  set icon(String? icon);
+
+  String? get type;
+  set type(String? type);
+
+  String? get name;
+  set name(String? name);
+
+  bool? get active;
+  set active(bool? active);
+
+  String? get classes;
+  set classes(String? classes);
+
+  int? get unread;
+  set unread(int? unread);
+}
+
 class _$CoreNavigationEntry extends CoreNavigationEntry {
   @override
   final String id;
@@ -12463,44 +12973,45 @@ class _$CoreNavigationEntry extends CoreNavigationEntry {
   }
 }
 
-class CoreNavigationEntryBuilder implements Builder<CoreNavigationEntry, CoreNavigationEntryBuilder> {
+class CoreNavigationEntryBuilder
+    implements Builder<CoreNavigationEntry, CoreNavigationEntryBuilder>, CoreNavigationEntryInterfaceBuilder {
   _$CoreNavigationEntry? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   CoreNavigationEntry_OrderBuilder? _order;
   CoreNavigationEntry_OrderBuilder get order => _$this._order ??= CoreNavigationEntry_OrderBuilder();
-  set order(CoreNavigationEntry_OrderBuilder? order) => _$this._order = order;
+  set order(covariant CoreNavigationEntry_OrderBuilder? order) => _$this._order = order;
 
   String? _href;
   String? get href => _$this._href;
-  set href(String? href) => _$this._href = href;
+  set href(covariant String? href) => _$this._href = href;
 
   String? _icon;
   String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   bool? _active;
   bool? get active => _$this._active;
-  set active(bool? active) => _$this._active = active;
+  set active(covariant bool? active) => _$this._active = active;
 
   String? _classes;
   String? get classes => _$this._classes;
-  set classes(String? classes) => _$this._classes = classes;
+  set classes(covariant String? classes) => _$this._classes = classes;
 
   int? _unread;
   int? get unread => _$this._unread;
-  set unread(int? unread) => _$this._unread = unread;
+  set unread(covariant int? unread) => _$this._unread = unread;
 
   CoreNavigationEntryBuilder();
 
@@ -12522,7 +13033,7 @@ class CoreNavigationEntryBuilder implements Builder<CoreNavigationEntry, CoreNav
   }
 
   @override
-  void replace(CoreNavigationEntry other) {
+  void replace(covariant CoreNavigationEntry other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNavigationEntry;
   }
@@ -12562,6 +13073,16 @@ class CoreNavigationEntryBuilder implements Builder<CoreNavigationEntry, CoreNav
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreNavigationEntry> get data;
+  set data(ListBuilder<CoreNavigationEntry>? data);
 }
 
 class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
@@ -12621,16 +13142,17 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
 class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs,
-            CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder> {
+            CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder>,
+        CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreNavigationEntry>? _data;
   ListBuilder<CoreNavigationEntry> get data => _$this._data ??= ListBuilder<CoreNavigationEntry>();
-  set data(ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
 
   CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder();
 
@@ -12645,7 +13167,7 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs;
   }
@@ -12679,6 +13201,13 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson
@@ -12727,13 +13256,14 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson
 class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
     implements
         Builder<CoreNavigationGetAppsNavigationResponse200ApplicationJson,
-            CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder> {
+            CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder>,
+        CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder {
   _$CoreNavigationGetAppsNavigationResponse200ApplicationJson? _$v;
 
   CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder();
 
@@ -12747,7 +13277,7 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJson other) {
+  void replace(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNavigationGetAppsNavigationResponse200ApplicationJson;
   }
@@ -12778,6 +13308,16 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreNavigationEntry> get data;
+  set data(ListBuilder<CoreNavigationEntry>? data);
 }
 
 class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
@@ -12837,16 +13377,17 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
 class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs,
-            CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder> {
+            CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder>,
+        CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreNavigationEntry>? _data;
   ListBuilder<CoreNavigationEntry> get data => _$this._data ??= ListBuilder<CoreNavigationEntry>();
-  set data(ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
 
   CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder();
 
@@ -12861,7 +13402,7 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs;
   }
@@ -12895,6 +13436,13 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson
@@ -12944,13 +13492,14 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson
 class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
     implements
         Builder<CoreNavigationGetSettingsNavigationResponse200ApplicationJson,
-            CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder> {
+            CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder>,
+        CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder {
   _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson? _$v;
 
   CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder();
 
@@ -12964,7 +13513,7 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJson other) {
+  void replace(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson;
   }
@@ -12995,6 +13544,28 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates);
+  int? get major;
+  set major(int? major);
+
+  int? get minor;
+  set minor(int? minor);
+
+  int? get micro;
+  set micro(int? micro);
+
+  String? get string;
+  set string(String? string);
+
+  String? get edition;
+  set edition(String? edition);
+
+  bool? get extendedSupport;
+  set extendedSupport(bool? extendedSupport);
 }
 
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
@@ -13088,32 +13659,33 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
 class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
     implements
         Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder> {
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder>,
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version? _$v;
 
   int? _major;
   int? get major => _$this._major;
-  set major(int? major) => _$this._major = major;
+  set major(covariant int? major) => _$this._major = major;
 
   int? _minor;
   int? get minor => _$this._minor;
-  set minor(int? minor) => _$this._minor = minor;
+  set minor(covariant int? minor) => _$this._minor = minor;
 
   int? _micro;
   int? get micro => _$this._micro;
-  set micro(int? micro) => _$this._micro = micro;
+  set micro(covariant int? micro) => _$this._micro = micro;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   String? _edition;
   String? get edition => _$this._edition;
-  set edition(String? edition) => _$this._edition = edition;
+  set edition(covariant String? edition) => _$this._edition = edition;
 
   bool? _extendedSupport;
   bool? get extendedSupport => _$this._extendedSupport;
-  set extendedSupport(bool? extendedSupport) => _$this._extendedSupport = extendedSupport;
+  set extendedSupport(covariant bool? extendedSupport) => _$this._extendedSupport = extendedSupport;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder();
 
@@ -13132,7 +13704,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version;
   }
@@ -13163,6 +13735,13 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCommentsCapabilities_FilesInterfaceBuilder {
+  void replace(CoreCommentsCapabilities_FilesInterface other);
+  void update(void Function(CoreCommentsCapabilities_FilesInterfaceBuilder) updates);
+  bool? get comments;
+  set comments(bool? comments);
 }
 
 class _$CoreCommentsCapabilities_Files extends CoreCommentsCapabilities_Files {
@@ -13204,12 +13783,14 @@ class _$CoreCommentsCapabilities_Files extends CoreCommentsCapabilities_Files {
 }
 
 class CoreCommentsCapabilities_FilesBuilder
-    implements Builder<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
+    implements
+        Builder<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder>,
+        CoreCommentsCapabilities_FilesInterfaceBuilder {
   _$CoreCommentsCapabilities_Files? _$v;
 
   bool? _comments;
   bool? get comments => _$this._comments;
-  set comments(bool? comments) => _$this._comments = comments;
+  set comments(covariant bool? comments) => _$this._comments = comments;
 
   CoreCommentsCapabilities_FilesBuilder();
 
@@ -13223,7 +13804,7 @@ class CoreCommentsCapabilities_FilesBuilder
   }
 
   @override
-  void replace(CoreCommentsCapabilities_Files other) {
+  void replace(covariant CoreCommentsCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCommentsCapabilities_Files;
   }
@@ -13243,6 +13824,13 @@ class CoreCommentsCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreCommentsCapabilitiesInterfaceBuilder {
+  void replace(CoreCommentsCapabilitiesInterface other);
+  void update(void Function(CoreCommentsCapabilitiesInterfaceBuilder) updates);
+  CoreCommentsCapabilities_FilesBuilder get files;
+  set files(CoreCommentsCapabilities_FilesBuilder? files);
 }
 
 class _$CoreCommentsCapabilities extends CoreCommentsCapabilities {
@@ -13283,12 +13871,15 @@ class _$CoreCommentsCapabilities extends CoreCommentsCapabilities {
   }
 }
 
-class CoreCommentsCapabilitiesBuilder implements Builder<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
+class CoreCommentsCapabilitiesBuilder
+    implements
+        Builder<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder>,
+        CoreCommentsCapabilitiesInterfaceBuilder {
   _$CoreCommentsCapabilities? _$v;
 
   CoreCommentsCapabilities_FilesBuilder? _files;
   CoreCommentsCapabilities_FilesBuilder get files => _$this._files ??= CoreCommentsCapabilities_FilesBuilder();
-  set files(CoreCommentsCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant CoreCommentsCapabilities_FilesBuilder? files) => _$this._files = files;
 
   CoreCommentsCapabilitiesBuilder();
 
@@ -13302,7 +13893,7 @@ class CoreCommentsCapabilitiesBuilder implements Builder<CoreCommentsCapabilitie
   }
 
   @override
-  void replace(CoreCommentsCapabilities other) {
+  void replace(covariant CoreCommentsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreCommentsCapabilities;
   }
@@ -13332,6 +13923,16 @@ class CoreCommentsCapabilitiesBuilder implements Builder<CoreCommentsCapabilitie
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreDavCapabilities_DavInterfaceBuilder {
+  void replace(CoreDavCapabilities_DavInterface other);
+  void update(void Function(CoreDavCapabilities_DavInterfaceBuilder) updates);
+  String? get chunking;
+  set chunking(String? chunking);
+
+  String? get bulkupload;
+  set bulkupload(String? bulkupload);
 }
 
 class _$CoreDavCapabilities_Dav extends CoreDavCapabilities_Dav {
@@ -13378,16 +13979,19 @@ class _$CoreDavCapabilities_Dav extends CoreDavCapabilities_Dav {
   }
 }
 
-class CoreDavCapabilities_DavBuilder implements Builder<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
+class CoreDavCapabilities_DavBuilder
+    implements
+        Builder<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder>,
+        CoreDavCapabilities_DavInterfaceBuilder {
   _$CoreDavCapabilities_Dav? _$v;
 
   String? _chunking;
   String? get chunking => _$this._chunking;
-  set chunking(String? chunking) => _$this._chunking = chunking;
+  set chunking(covariant String? chunking) => _$this._chunking = chunking;
 
   String? _bulkupload;
   String? get bulkupload => _$this._bulkupload;
-  set bulkupload(String? bulkupload) => _$this._bulkupload = bulkupload;
+  set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
 
   CoreDavCapabilities_DavBuilder();
 
@@ -13402,7 +14006,7 @@ class CoreDavCapabilities_DavBuilder implements Builder<CoreDavCapabilities_Dav,
   }
 
   @override
-  void replace(CoreDavCapabilities_Dav other) {
+  void replace(covariant CoreDavCapabilities_Dav other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreDavCapabilities_Dav;
   }
@@ -13423,6 +14027,13 @@ class CoreDavCapabilities_DavBuilder implements Builder<CoreDavCapabilities_Dav,
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreDavCapabilitiesInterfaceBuilder {
+  void replace(CoreDavCapabilitiesInterface other);
+  void update(void Function(CoreDavCapabilitiesInterfaceBuilder) updates);
+  CoreDavCapabilities_DavBuilder get dav;
+  set dav(CoreDavCapabilities_DavBuilder? dav);
 }
 
 class _$CoreDavCapabilities extends CoreDavCapabilities {
@@ -13463,12 +14074,13 @@ class _$CoreDavCapabilities extends CoreDavCapabilities {
   }
 }
 
-class CoreDavCapabilitiesBuilder implements Builder<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
+class CoreDavCapabilitiesBuilder
+    implements Builder<CoreDavCapabilities, CoreDavCapabilitiesBuilder>, CoreDavCapabilitiesInterfaceBuilder {
   _$CoreDavCapabilities? _$v;
 
   CoreDavCapabilities_DavBuilder? _dav;
   CoreDavCapabilities_DavBuilder get dav => _$this._dav ??= CoreDavCapabilities_DavBuilder();
-  set dav(CoreDavCapabilities_DavBuilder? dav) => _$this._dav = dav;
+  set dav(covariant CoreDavCapabilities_DavBuilder? dav) => _$this._dav = dav;
 
   CoreDavCapabilitiesBuilder();
 
@@ -13482,7 +14094,7 @@ class CoreDavCapabilitiesBuilder implements Builder<CoreDavCapabilities, CoreDav
   }
 
   @override
-  void replace(CoreDavCapabilities other) {
+  void replace(covariant CoreDavCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreDavCapabilities;
   }
@@ -13512,6 +14124,19 @@ class CoreDavCapabilitiesBuilder implements Builder<CoreDavCapabilities, CoreDav
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder {
+  void replace(CoreFilesCapabilities_Files_DirectEditingInterface other);
+  void update(void Function(CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder) updates);
+  String? get url;
+  set url(String? url);
+
+  String? get etag;
+  set etag(String? etag);
+
+  bool? get supportsFileId;
+  set supportsFileId(bool? supportsFileId);
 }
 
 class _$CoreFilesCapabilities_Files_DirectEditing extends CoreFilesCapabilities_Files_DirectEditing {
@@ -13573,20 +14198,22 @@ class _$CoreFilesCapabilities_Files_DirectEditing extends CoreFilesCapabilities_
 }
 
 class CoreFilesCapabilities_Files_DirectEditingBuilder
-    implements Builder<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
+    implements
+        Builder<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder>,
+        CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder {
   _$CoreFilesCapabilities_Files_DirectEditing? _$v;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _etag;
   String? get etag => _$this._etag;
-  set etag(String? etag) => _$this._etag = etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
 
   bool? _supportsFileId;
   bool? get supportsFileId => _$this._supportsFileId;
-  set supportsFileId(bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
+  set supportsFileId(covariant bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
 
   CoreFilesCapabilities_Files_DirectEditingBuilder();
 
@@ -13602,7 +14229,7 @@ class CoreFilesCapabilities_Files_DirectEditingBuilder
   }
 
   @override
-  void replace(CoreFilesCapabilities_Files_DirectEditing other) {
+  void replace(covariant CoreFilesCapabilities_Files_DirectEditing other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesCapabilities_Files_DirectEditing;
   }
@@ -13625,6 +14252,19 @@ class CoreFilesCapabilities_Files_DirectEditingBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesCapabilities_FilesInterfaceBuilder {
+  void replace(CoreFilesCapabilities_FilesInterface other);
+  void update(void Function(CoreFilesCapabilities_FilesInterfaceBuilder) updates);
+  bool? get bigfilechunking;
+  set bigfilechunking(bool? bigfilechunking);
+
+  ListBuilder<JsonObject> get blacklistedFiles;
+  set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
+
+  CoreFilesCapabilities_Files_DirectEditingBuilder get directEditing;
+  set directEditing(CoreFilesCapabilities_Files_DirectEditingBuilder? directEditing);
 }
 
 class _$CoreFilesCapabilities_Files extends CoreFilesCapabilities_Files {
@@ -13683,21 +14323,24 @@ class _$CoreFilesCapabilities_Files extends CoreFilesCapabilities_Files {
 }
 
 class CoreFilesCapabilities_FilesBuilder
-    implements Builder<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
+    implements
+        Builder<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder>,
+        CoreFilesCapabilities_FilesInterfaceBuilder {
   _$CoreFilesCapabilities_Files? _$v;
 
   bool? _bigfilechunking;
   bool? get bigfilechunking => _$this._bigfilechunking;
-  set bigfilechunking(bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
+  set bigfilechunking(covariant bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
 
   ListBuilder<JsonObject>? _blacklistedFiles;
   ListBuilder<JsonObject> get blacklistedFiles => _$this._blacklistedFiles ??= ListBuilder<JsonObject>();
-  set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles) => _$this._blacklistedFiles = blacklistedFiles;
+  set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
+      _$this._blacklistedFiles = blacklistedFiles;
 
   CoreFilesCapabilities_Files_DirectEditingBuilder? _directEditing;
   CoreFilesCapabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= CoreFilesCapabilities_Files_DirectEditingBuilder();
-  set directEditing(CoreFilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
+  set directEditing(covariant CoreFilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
       _$this._directEditing = directEditing;
 
   CoreFilesCapabilities_FilesBuilder();
@@ -13714,7 +14357,7 @@ class CoreFilesCapabilities_FilesBuilder
   }
 
   @override
-  void replace(CoreFilesCapabilities_Files other) {
+  void replace(covariant CoreFilesCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesCapabilities_Files;
   }
@@ -13751,6 +14394,13 @@ class CoreFilesCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesCapabilitiesInterfaceBuilder {
+  void replace(CoreFilesCapabilitiesInterface other);
+  void update(void Function(CoreFilesCapabilitiesInterfaceBuilder) updates);
+  CoreFilesCapabilities_FilesBuilder get files;
+  set files(CoreFilesCapabilities_FilesBuilder? files);
 }
 
 class _$CoreFilesCapabilities extends CoreFilesCapabilities {
@@ -13791,12 +14441,13 @@ class _$CoreFilesCapabilities extends CoreFilesCapabilities {
   }
 }
 
-class CoreFilesCapabilitiesBuilder implements Builder<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
+class CoreFilesCapabilitiesBuilder
+    implements Builder<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder>, CoreFilesCapabilitiesInterfaceBuilder {
   _$CoreFilesCapabilities? _$v;
 
   CoreFilesCapabilities_FilesBuilder? _files;
   CoreFilesCapabilities_FilesBuilder get files => _$this._files ??= CoreFilesCapabilities_FilesBuilder();
-  set files(CoreFilesCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant CoreFilesCapabilities_FilesBuilder? files) => _$this._files = files;
 
   CoreFilesCapabilitiesBuilder();
 
@@ -13810,7 +14461,7 @@ class CoreFilesCapabilitiesBuilder implements Builder<CoreFilesCapabilities, Cor
   }
 
   @override
-  void replace(CoreFilesCapabilities other) {
+  void replace(covariant CoreFilesCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesCapabilities;
   }
@@ -13840,6 +14491,16 @@ class CoreFilesCapabilitiesBuilder implements Builder<CoreFilesCapabilities, Cor
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates);
+  bool? get enforced;
+  set enforced(bool? enforced);
+
+  bool? get askForOptionalPassword;
+  set askForOptionalPassword(bool? askForOptionalPassword);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_Password
@@ -13900,16 +14561,18 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Public_Password
 class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
-            CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Public_Password? _$v;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   bool? _askForOptionalPassword;
   bool? get askForOptionalPassword => _$this._askForOptionalPassword;
-  set askForOptionalPassword(bool? askForOptionalPassword) => _$this._askForOptionalPassword = askForOptionalPassword;
+  set askForOptionalPassword(covariant bool? askForOptionalPassword) =>
+      _$this._askForOptionalPassword = askForOptionalPassword;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
 
@@ -13924,7 +14587,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_Password other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Public_Password other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_Password;
   }
@@ -13947,6 +14610,19 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  int? get days;
+  set days(int? days);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
@@ -14009,20 +14685,21 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
 class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   int? _days;
   int? get days => _$this._days;
-  set days(int? days) => _$this._days = days;
+  set days(covariant int? days) => _$this._days = days;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
 
@@ -14038,7 +14715,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate;
   }
@@ -14061,6 +14738,20 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface other);
+  void update(
+      void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  int? get days;
+  set days(int? days);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
@@ -14124,20 +14815,21 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
 class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   int? _days;
   int? get days => _$this._days;
-  set days(int? days) => _$this._days = days;
+  set days(covariant int? days) => _$this._days = days;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
@@ -14153,7 +14845,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
   }
@@ -14176,6 +14868,19 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  int? get days;
+  set days(int? days);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
@@ -14239,20 +14944,21 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
 class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   int? _days;
   int? get days => _$this._days;
-  set days(int? days) => _$this._days = days;
+  set days(covariant int? days) => _$this._days = days;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
@@ -14268,7 +14974,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
   }
@@ -14291,6 +14997,38 @@ class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_PublicInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get password;
+  set password(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password);
+
+  bool? get multipleLinks;
+  set multipleLinks(bool? multipleLinks);
+
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get expireDate;
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate);
+
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal;
+  set expireDateInternal(
+      CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal);
+
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote;
+  set expireDateRemote(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote);
+
+  bool? get sendMail;
+  set sendMail(bool? sendMail);
+
+  bool? get upload;
+  set upload(bool? upload);
+
+  bool? get uploadFilesDrop;
+  set uploadFilesDrop(bool? uploadFilesDrop);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Public extends CoreFilesSharingCapabilities_FilesSharing_Public {
@@ -14390,53 +15128,55 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Public extends CoreFilesSharin
 class CoreFilesSharingCapabilities_FilesSharing_PublicBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Public,
-            CoreFilesSharingCapabilities_FilesSharing_PublicBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_PublicBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Public? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? _password;
   CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get password =>
       _$this._password ??= CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
-  set password(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password) =>
+  set password(covariant CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password) =>
       _$this._password = password;
 
   bool? _multipleLinks;
   bool? get multipleLinks => _$this._multipleLinks;
-  set multipleLinks(bool? multipleLinks) => _$this._multipleLinks = multipleLinks;
+  set multipleLinks(covariant bool? multipleLinks) => _$this._multipleLinks = multipleLinks;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? _expireDate;
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
-  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? _expireDateInternal;
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal =>
       _$this._expireDateInternal ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
   set expireDateInternal(
-          CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal) =>
+          covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal) =>
       _$this._expireDateInternal = expireDateInternal;
 
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? _expireDateRemote;
   CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote =>
       _$this._expireDateRemote ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
-  set expireDateRemote(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote) =>
+  set expireDateRemote(
+          covariant CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote) =>
       _$this._expireDateRemote = expireDateRemote;
 
   bool? _sendMail;
   bool? get sendMail => _$this._sendMail;
-  set sendMail(bool? sendMail) => _$this._sendMail = sendMail;
+  set sendMail(covariant bool? sendMail) => _$this._sendMail = sendMail;
 
   bool? _upload;
   bool? get upload => _$this._upload;
-  set upload(bool? upload) => _$this._upload = upload;
+  set upload(covariant bool? upload) => _$this._upload = upload;
 
   bool? _uploadFilesDrop;
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
-  set uploadFilesDrop(bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
+  set uploadFilesDrop(covariant bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
   CoreFilesSharingCapabilities_FilesSharing_PublicBuilder();
 
@@ -14458,7 +15198,7 @@ class CoreFilesSharingCapabilities_FilesSharing_PublicBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Public other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Public other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public;
   }
@@ -14509,6 +15249,13 @@ class CoreFilesSharingCapabilities_FilesSharing_PublicBuilder
   }
 }
 
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+}
+
 class _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
     extends CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate {
   @override
@@ -14557,12 +15304,13 @@ class _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
 class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
 
@@ -14576,7 +15324,7 @@ class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate;
   }
@@ -14597,6 +15345,16 @@ class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_UserInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates);
+  bool? get sendMail;
+  set sendMail(bool? sendMail);
+
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get expireDate;
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_User extends CoreFilesSharingCapabilities_FilesSharing_User {
@@ -14650,17 +15408,18 @@ class _$CoreFilesSharingCapabilities_FilesSharing_User extends CoreFilesSharingC
 
 class CoreFilesSharingCapabilities_FilesSharing_UserBuilder
     implements
-        Builder<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder> {
+        Builder<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_User? _$v;
 
   bool? _sendMail;
   bool? get sendMail => _$this._sendMail;
-  set sendMail(bool? sendMail) => _$this._sendMail = sendMail;
+  set sendMail(covariant bool? sendMail) => _$this._sendMail = sendMail;
 
   CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? _expireDate;
   CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
-  set expireDate(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   CoreFilesSharingCapabilities_FilesSharing_UserBuilder();
@@ -14676,7 +15435,7 @@ class CoreFilesSharingCapabilities_FilesSharing_UserBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_User other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_User other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_User;
   }
@@ -14711,6 +15470,13 @@ class CoreFilesSharingCapabilities_FilesSharing_UserBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
@@ -14761,12 +15527,13 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
 class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
 
@@ -14780,7 +15547,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate;
   }
@@ -14801,6 +15568,16 @@ class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_GroupInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get expireDate;
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Group extends CoreFilesSharingCapabilities_FilesSharing_Group {
@@ -14855,17 +15632,18 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Group extends CoreFilesSharing
 class CoreFilesSharingCapabilities_FilesSharing_GroupBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Group,
-            CoreFilesSharingCapabilities_FilesSharing_GroupBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_GroupBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Group? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? _expireDate;
   CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
-  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   CoreFilesSharingCapabilities_FilesSharing_GroupBuilder();
@@ -14881,7 +15659,7 @@ class CoreFilesSharingCapabilities_FilesSharing_GroupBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Group other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Group other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Group;
   }
@@ -14916,6 +15694,13 @@ class CoreFilesSharingCapabilities_FilesSharing_GroupBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
@@ -14966,12 +15751,13 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
 class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
 
@@ -14985,7 +15771,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
   }
@@ -15006,6 +15792,14 @@ class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface other);
+  void update(
+      void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
@@ -15057,12 +15851,13 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
 class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
-            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
 
@@ -15076,7 +15871,7 @@ class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBu
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
   }
@@ -15097,6 +15892,23 @@ class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_FederationInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates);
+  bool? get outgoing;
+  set outgoing(bool? outgoing);
+
+  bool? get incoming;
+  set incoming(bool? incoming);
+
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate;
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate);
+
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported;
+  set expireDateSupported(
+      CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Federation
@@ -15171,28 +15983,30 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Federation
 class CoreFilesSharingCapabilities_FilesSharing_FederationBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Federation,
-            CoreFilesSharingCapabilities_FilesSharing_FederationBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_FederationBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Federation? _$v;
 
   bool? _outgoing;
   bool? get outgoing => _$this._outgoing;
-  set outgoing(bool? outgoing) => _$this._outgoing = outgoing;
+  set outgoing(covariant bool? outgoing) => _$this._outgoing = outgoing;
 
   bool? _incoming;
   bool? get incoming => _$this._incoming;
-  set incoming(bool? incoming) => _$this._incoming = incoming;
+  set incoming(covariant bool? incoming) => _$this._incoming = incoming;
 
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? _expireDate;
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
-  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? _expireDateSupported;
   CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported =>
       _$this._expireDateSupported ??= CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
   set expireDateSupported(
-          CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
+          covariant CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder?
+              expireDateSupported) =>
       _$this._expireDateSupported = expireDateSupported;
 
   CoreFilesSharingCapabilities_FilesSharing_FederationBuilder();
@@ -15210,7 +16024,7 @@ class CoreFilesSharingCapabilities_FilesSharing_FederationBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Federation other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation;
   }
@@ -15250,6 +16064,16 @@ class CoreFilesSharingCapabilities_FilesSharing_FederationBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_ShareeInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates);
+  bool? get queryLookupDefault;
+  set queryLookupDefault(bool? queryLookupDefault);
+
+  bool? get alwaysShowUnique;
+  set alwaysShowUnique(bool? alwaysShowUnique);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing_Sharee extends CoreFilesSharingCapabilities_FilesSharing_Sharee {
@@ -15309,16 +16133,17 @@ class _$CoreFilesSharingCapabilities_FilesSharing_Sharee extends CoreFilesSharin
 class CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder
     implements
         Builder<CoreFilesSharingCapabilities_FilesSharing_Sharee,
-            CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder> {
+            CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder>,
+        CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing_Sharee? _$v;
 
   bool? _queryLookupDefault;
   bool? get queryLookupDefault => _$this._queryLookupDefault;
-  set queryLookupDefault(bool? queryLookupDefault) => _$this._queryLookupDefault = queryLookupDefault;
+  set queryLookupDefault(covariant bool? queryLookupDefault) => _$this._queryLookupDefault = queryLookupDefault;
 
   bool? _alwaysShowUnique;
   bool? get alwaysShowUnique => _$this._alwaysShowUnique;
-  set alwaysShowUnique(bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
+  set alwaysShowUnique(covariant bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
 
   CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder();
 
@@ -15333,7 +16158,7 @@ class CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing_Sharee other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing_Sharee other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Sharee;
   }
@@ -15356,6 +16181,37 @@ class CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilities_FilesSharingInterface other);
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder) updates);
+  bool? get apiEnabled;
+  set apiEnabled(bool? apiEnabled);
+
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder get public;
+  set public(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? public);
+
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder get user;
+  set user(CoreFilesSharingCapabilities_FilesSharing_UserBuilder? user);
+
+  bool? get resharing;
+  set resharing(bool? resharing);
+
+  bool? get groupSharing;
+  set groupSharing(bool? groupSharing);
+
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder get group;
+  set group(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? group);
+
+  int? get defaultPermissions;
+  set defaultPermissions(int? defaultPermissions);
+
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder get federation;
+  set federation(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? federation);
+
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder get sharee;
+  set sharee(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee);
 }
 
 class _$CoreFilesSharingCapabilities_FilesSharing extends CoreFilesSharingCapabilities_FilesSharing {
@@ -15458,50 +16314,52 @@ class _$CoreFilesSharingCapabilities_FilesSharing extends CoreFilesSharingCapabi
 }
 
 class CoreFilesSharingCapabilities_FilesSharingBuilder
-    implements Builder<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
+    implements
+        Builder<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder>,
+        CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder {
   _$CoreFilesSharingCapabilities_FilesSharing? _$v;
 
   bool? _apiEnabled;
   bool? get apiEnabled => _$this._apiEnabled;
-  set apiEnabled(bool? apiEnabled) => _$this._apiEnabled = apiEnabled;
+  set apiEnabled(covariant bool? apiEnabled) => _$this._apiEnabled = apiEnabled;
 
   CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? _public;
   CoreFilesSharingCapabilities_FilesSharing_PublicBuilder get public =>
       _$this._public ??= CoreFilesSharingCapabilities_FilesSharing_PublicBuilder();
-  set public(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? public) => _$this._public = public;
+  set public(covariant CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? public) => _$this._public = public;
 
   CoreFilesSharingCapabilities_FilesSharing_UserBuilder? _user;
   CoreFilesSharingCapabilities_FilesSharing_UserBuilder get user =>
       _$this._user ??= CoreFilesSharingCapabilities_FilesSharing_UserBuilder();
-  set user(CoreFilesSharingCapabilities_FilesSharing_UserBuilder? user) => _$this._user = user;
+  set user(covariant CoreFilesSharingCapabilities_FilesSharing_UserBuilder? user) => _$this._user = user;
 
   bool? _resharing;
   bool? get resharing => _$this._resharing;
-  set resharing(bool? resharing) => _$this._resharing = resharing;
+  set resharing(covariant bool? resharing) => _$this._resharing = resharing;
 
   bool? _groupSharing;
   bool? get groupSharing => _$this._groupSharing;
-  set groupSharing(bool? groupSharing) => _$this._groupSharing = groupSharing;
+  set groupSharing(covariant bool? groupSharing) => _$this._groupSharing = groupSharing;
 
   CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? _group;
   CoreFilesSharingCapabilities_FilesSharing_GroupBuilder get group =>
       _$this._group ??= CoreFilesSharingCapabilities_FilesSharing_GroupBuilder();
-  set group(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? group) => _$this._group = group;
+  set group(covariant CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? group) => _$this._group = group;
 
   int? _defaultPermissions;
   int? get defaultPermissions => _$this._defaultPermissions;
-  set defaultPermissions(int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
+  set defaultPermissions(covariant int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
 
   CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? _federation;
   CoreFilesSharingCapabilities_FilesSharing_FederationBuilder get federation =>
       _$this._federation ??= CoreFilesSharingCapabilities_FilesSharing_FederationBuilder();
-  set federation(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? federation) =>
+  set federation(covariant CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? federation) =>
       _$this._federation = federation;
 
   CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? _sharee;
   CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder get sharee =>
       _$this._sharee ??= CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder();
-  set sharee(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
+  set sharee(covariant CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
 
   CoreFilesSharingCapabilities_FilesSharingBuilder();
 
@@ -15523,7 +16381,7 @@ class CoreFilesSharingCapabilities_FilesSharingBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities_FilesSharing other) {
+  void replace(covariant CoreFilesSharingCapabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities_FilesSharing;
   }
@@ -15577,6 +16435,13 @@ class CoreFilesSharingCapabilities_FilesSharingBuilder
   }
 }
 
+abstract mixin class CoreFilesSharingCapabilitiesInterfaceBuilder {
+  void replace(CoreFilesSharingCapabilitiesInterface other);
+  void update(void Function(CoreFilesSharingCapabilitiesInterfaceBuilder) updates);
+  CoreFilesSharingCapabilities_FilesSharingBuilder get filesSharing;
+  set filesSharing(CoreFilesSharingCapabilities_FilesSharingBuilder? filesSharing);
+}
+
 class _$CoreFilesSharingCapabilities extends CoreFilesSharingCapabilities {
   @override
   final CoreFilesSharingCapabilities_FilesSharing filesSharing;
@@ -15616,13 +16481,15 @@ class _$CoreFilesSharingCapabilities extends CoreFilesSharingCapabilities {
 }
 
 class CoreFilesSharingCapabilitiesBuilder
-    implements Builder<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
+    implements
+        Builder<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder>,
+        CoreFilesSharingCapabilitiesInterfaceBuilder {
   _$CoreFilesSharingCapabilities? _$v;
 
   CoreFilesSharingCapabilities_FilesSharingBuilder? _filesSharing;
   CoreFilesSharingCapabilities_FilesSharingBuilder get filesSharing =>
       _$this._filesSharing ??= CoreFilesSharingCapabilities_FilesSharingBuilder();
-  set filesSharing(CoreFilesSharingCapabilities_FilesSharingBuilder? filesSharing) =>
+  set filesSharing(covariant CoreFilesSharingCapabilities_FilesSharingBuilder? filesSharing) =>
       _$this._filesSharing = filesSharing;
 
   CoreFilesSharingCapabilitiesBuilder();
@@ -15637,7 +16504,7 @@ class CoreFilesSharingCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreFilesSharingCapabilities other) {
+  void replace(covariant CoreFilesSharingCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesSharingCapabilities;
   }
@@ -15667,6 +16534,13 @@ class CoreFilesSharingCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesTrashbinCapabilities_FilesInterfaceBuilder {
+  void replace(CoreFilesTrashbinCapabilities_FilesInterface other);
+  void update(void Function(CoreFilesTrashbinCapabilities_FilesInterfaceBuilder) updates);
+  bool? get undelete;
+  set undelete(bool? undelete);
 }
 
 class _$CoreFilesTrashbinCapabilities_Files extends CoreFilesTrashbinCapabilities_Files {
@@ -15708,12 +16582,14 @@ class _$CoreFilesTrashbinCapabilities_Files extends CoreFilesTrashbinCapabilitie
 }
 
 class CoreFilesTrashbinCapabilities_FilesBuilder
-    implements Builder<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
+    implements
+        Builder<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder>,
+        CoreFilesTrashbinCapabilities_FilesInterfaceBuilder {
   _$CoreFilesTrashbinCapabilities_Files? _$v;
 
   bool? _undelete;
   bool? get undelete => _$this._undelete;
-  set undelete(bool? undelete) => _$this._undelete = undelete;
+  set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
   CoreFilesTrashbinCapabilities_FilesBuilder();
 
@@ -15727,7 +16603,7 @@ class CoreFilesTrashbinCapabilities_FilesBuilder
   }
 
   @override
-  void replace(CoreFilesTrashbinCapabilities_Files other) {
+  void replace(covariant CoreFilesTrashbinCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesTrashbinCapabilities_Files;
   }
@@ -15748,6 +16624,13 @@ class CoreFilesTrashbinCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesTrashbinCapabilitiesInterfaceBuilder {
+  void replace(CoreFilesTrashbinCapabilitiesInterface other);
+  void update(void Function(CoreFilesTrashbinCapabilitiesInterfaceBuilder) updates);
+  CoreFilesTrashbinCapabilities_FilesBuilder get files;
+  set files(CoreFilesTrashbinCapabilities_FilesBuilder? files);
 }
 
 class _$CoreFilesTrashbinCapabilities extends CoreFilesTrashbinCapabilities {
@@ -15789,13 +16672,15 @@ class _$CoreFilesTrashbinCapabilities extends CoreFilesTrashbinCapabilities {
 }
 
 class CoreFilesTrashbinCapabilitiesBuilder
-    implements Builder<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
+    implements
+        Builder<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder>,
+        CoreFilesTrashbinCapabilitiesInterfaceBuilder {
   _$CoreFilesTrashbinCapabilities? _$v;
 
   CoreFilesTrashbinCapabilities_FilesBuilder? _files;
   CoreFilesTrashbinCapabilities_FilesBuilder get files =>
       _$this._files ??= CoreFilesTrashbinCapabilities_FilesBuilder();
-  set files(CoreFilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant CoreFilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
 
   CoreFilesTrashbinCapabilitiesBuilder();
 
@@ -15809,7 +16694,7 @@ class CoreFilesTrashbinCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreFilesTrashbinCapabilities other) {
+  void replace(covariant CoreFilesTrashbinCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesTrashbinCapabilities;
   }
@@ -15839,6 +16724,19 @@ class CoreFilesTrashbinCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesVersionsCapabilities_FilesInterfaceBuilder {
+  void replace(CoreFilesVersionsCapabilities_FilesInterface other);
+  void update(void Function(CoreFilesVersionsCapabilities_FilesInterfaceBuilder) updates);
+  bool? get versioning;
+  set versioning(bool? versioning);
+
+  bool? get versionLabeling;
+  set versionLabeling(bool? versionLabeling);
+
+  bool? get versionDeletion;
+  set versionDeletion(bool? versionDeletion);
 }
 
 class _$CoreFilesVersionsCapabilities_Files extends CoreFilesVersionsCapabilities_Files {
@@ -15897,20 +16795,22 @@ class _$CoreFilesVersionsCapabilities_Files extends CoreFilesVersionsCapabilitie
 }
 
 class CoreFilesVersionsCapabilities_FilesBuilder
-    implements Builder<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
+    implements
+        Builder<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder>,
+        CoreFilesVersionsCapabilities_FilesInterfaceBuilder {
   _$CoreFilesVersionsCapabilities_Files? _$v;
 
   bool? _versioning;
   bool? get versioning => _$this._versioning;
-  set versioning(bool? versioning) => _$this._versioning = versioning;
+  set versioning(covariant bool? versioning) => _$this._versioning = versioning;
 
   bool? _versionLabeling;
   bool? get versionLabeling => _$this._versionLabeling;
-  set versionLabeling(bool? versionLabeling) => _$this._versionLabeling = versionLabeling;
+  set versionLabeling(covariant bool? versionLabeling) => _$this._versionLabeling = versionLabeling;
 
   bool? _versionDeletion;
   bool? get versionDeletion => _$this._versionDeletion;
-  set versionDeletion(bool? versionDeletion) => _$this._versionDeletion = versionDeletion;
+  set versionDeletion(covariant bool? versionDeletion) => _$this._versionDeletion = versionDeletion;
 
   CoreFilesVersionsCapabilities_FilesBuilder();
 
@@ -15926,7 +16826,7 @@ class CoreFilesVersionsCapabilities_FilesBuilder
   }
 
   @override
-  void replace(CoreFilesVersionsCapabilities_Files other) {
+  void replace(covariant CoreFilesVersionsCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesVersionsCapabilities_Files;
   }
@@ -15951,6 +16851,13 @@ class CoreFilesVersionsCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreFilesVersionsCapabilitiesInterfaceBuilder {
+  void replace(CoreFilesVersionsCapabilitiesInterface other);
+  void update(void Function(CoreFilesVersionsCapabilitiesInterfaceBuilder) updates);
+  CoreFilesVersionsCapabilities_FilesBuilder get files;
+  set files(CoreFilesVersionsCapabilities_FilesBuilder? files);
 }
 
 class _$CoreFilesVersionsCapabilities extends CoreFilesVersionsCapabilities {
@@ -15992,13 +16899,15 @@ class _$CoreFilesVersionsCapabilities extends CoreFilesVersionsCapabilities {
 }
 
 class CoreFilesVersionsCapabilitiesBuilder
-    implements Builder<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
+    implements
+        Builder<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder>,
+        CoreFilesVersionsCapabilitiesInterfaceBuilder {
   _$CoreFilesVersionsCapabilities? _$v;
 
   CoreFilesVersionsCapabilities_FilesBuilder? _files;
   CoreFilesVersionsCapabilities_FilesBuilder get files =>
       _$this._files ??= CoreFilesVersionsCapabilities_FilesBuilder();
-  set files(CoreFilesVersionsCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant CoreFilesVersionsCapabilities_FilesBuilder? files) => _$this._files = files;
 
   CoreFilesVersionsCapabilitiesBuilder();
 
@@ -16012,7 +16921,7 @@ class CoreFilesVersionsCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreFilesVersionsCapabilities other) {
+  void replace(covariant CoreFilesVersionsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreFilesVersionsCapabilities;
   }
@@ -16042,6 +16951,16 @@ class CoreFilesVersionsCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNotesCapabilities_NotesInterfaceBuilder {
+  void replace(CoreNotesCapabilities_NotesInterface other);
+  void update(void Function(CoreNotesCapabilities_NotesInterfaceBuilder) updates);
+  ListBuilder<String> get apiVersion;
+  set apiVersion(ListBuilder<String>? apiVersion);
+
+  String? get version;
+  set version(String? version);
 }
 
 class _$CoreNotesCapabilities_Notes extends CoreNotesCapabilities_Notes {
@@ -16087,16 +17006,18 @@ class _$CoreNotesCapabilities_Notes extends CoreNotesCapabilities_Notes {
 }
 
 class CoreNotesCapabilities_NotesBuilder
-    implements Builder<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
+    implements
+        Builder<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder>,
+        CoreNotesCapabilities_NotesInterfaceBuilder {
   _$CoreNotesCapabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
   ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
-  set apiVersion(ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
+  set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   CoreNotesCapabilities_NotesBuilder();
 
@@ -16111,7 +17032,7 @@ class CoreNotesCapabilities_NotesBuilder
   }
 
   @override
-  void replace(CoreNotesCapabilities_Notes other) {
+  void replace(covariant CoreNotesCapabilities_Notes other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNotesCapabilities_Notes;
   }
@@ -16141,6 +17062,13 @@ class CoreNotesCapabilities_NotesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNotesCapabilitiesInterfaceBuilder {
+  void replace(CoreNotesCapabilitiesInterface other);
+  void update(void Function(CoreNotesCapabilitiesInterfaceBuilder) updates);
+  CoreNotesCapabilities_NotesBuilder get notes;
+  set notes(CoreNotesCapabilities_NotesBuilder? notes);
 }
 
 class _$CoreNotesCapabilities extends CoreNotesCapabilities {
@@ -16181,12 +17109,13 @@ class _$CoreNotesCapabilities extends CoreNotesCapabilities {
   }
 }
 
-class CoreNotesCapabilitiesBuilder implements Builder<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
+class CoreNotesCapabilitiesBuilder
+    implements Builder<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder>, CoreNotesCapabilitiesInterfaceBuilder {
   _$CoreNotesCapabilities? _$v;
 
   CoreNotesCapabilities_NotesBuilder? _notes;
   CoreNotesCapabilities_NotesBuilder get notes => _$this._notes ??= CoreNotesCapabilities_NotesBuilder();
-  set notes(CoreNotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
+  set notes(covariant CoreNotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
 
   CoreNotesCapabilitiesBuilder();
 
@@ -16200,7 +17129,7 @@ class CoreNotesCapabilitiesBuilder implements Builder<CoreNotesCapabilities, Cor
   }
 
   @override
-  void replace(CoreNotesCapabilities other) {
+  void replace(covariant CoreNotesCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNotesCapabilities;
   }
@@ -16230,6 +17159,19 @@ class CoreNotesCapabilitiesBuilder implements Builder<CoreNotesCapabilities, Cor
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNotificationsCapabilities_NotificationsInterfaceBuilder {
+  void replace(CoreNotificationsCapabilities_NotificationsInterface other);
+  void update(void Function(CoreNotificationsCapabilities_NotificationsInterfaceBuilder) updates);
+  ListBuilder<String> get ocsEndpoints;
+  set ocsEndpoints(ListBuilder<String>? ocsEndpoints);
+
+  ListBuilder<String> get push;
+  set push(ListBuilder<String>? push);
+
+  ListBuilder<String> get adminNotifications;
+  set adminNotifications(ListBuilder<String>? adminNotifications);
 }
 
 class _$CoreNotificationsCapabilities_Notifications extends CoreNotificationsCapabilities_Notifications {
@@ -16286,20 +17228,22 @@ class _$CoreNotificationsCapabilities_Notifications extends CoreNotificationsCap
 
 class CoreNotificationsCapabilities_NotificationsBuilder
     implements
-        Builder<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
+        Builder<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder>,
+        CoreNotificationsCapabilities_NotificationsInterfaceBuilder {
   _$CoreNotificationsCapabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
   ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
-  set ocsEndpoints(ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
+  set ocsEndpoints(covariant ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
 
   ListBuilder<String>? _push;
   ListBuilder<String> get push => _$this._push ??= ListBuilder<String>();
-  set push(ListBuilder<String>? push) => _$this._push = push;
+  set push(covariant ListBuilder<String>? push) => _$this._push = push;
 
   ListBuilder<String>? _adminNotifications;
   ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= ListBuilder<String>();
-  set adminNotifications(ListBuilder<String>? adminNotifications) => _$this._adminNotifications = adminNotifications;
+  set adminNotifications(covariant ListBuilder<String>? adminNotifications) =>
+      _$this._adminNotifications = adminNotifications;
 
   CoreNotificationsCapabilities_NotificationsBuilder();
 
@@ -16315,7 +17259,7 @@ class CoreNotificationsCapabilities_NotificationsBuilder
   }
 
   @override
-  void replace(CoreNotificationsCapabilities_Notifications other) {
+  void replace(covariant CoreNotificationsCapabilities_Notifications other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNotificationsCapabilities_Notifications;
   }
@@ -16353,6 +17297,13 @@ class CoreNotificationsCapabilities_NotificationsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreNotificationsCapabilitiesInterfaceBuilder {
+  void replace(CoreNotificationsCapabilitiesInterface other);
+  void update(void Function(CoreNotificationsCapabilitiesInterfaceBuilder) updates);
+  CoreNotificationsCapabilities_NotificationsBuilder get notifications;
+  set notifications(CoreNotificationsCapabilities_NotificationsBuilder? notifications);
 }
 
 class _$CoreNotificationsCapabilities extends CoreNotificationsCapabilities {
@@ -16395,13 +17346,15 @@ class _$CoreNotificationsCapabilities extends CoreNotificationsCapabilities {
 }
 
 class CoreNotificationsCapabilitiesBuilder
-    implements Builder<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
+    implements
+        Builder<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder>,
+        CoreNotificationsCapabilitiesInterfaceBuilder {
   _$CoreNotificationsCapabilities? _$v;
 
   CoreNotificationsCapabilities_NotificationsBuilder? _notifications;
   CoreNotificationsCapabilities_NotificationsBuilder get notifications =>
       _$this._notifications ??= CoreNotificationsCapabilities_NotificationsBuilder();
-  set notifications(CoreNotificationsCapabilities_NotificationsBuilder? notifications) =>
+  set notifications(covariant CoreNotificationsCapabilities_NotificationsBuilder? notifications) =>
       _$this._notifications = notifications;
 
   CoreNotificationsCapabilitiesBuilder();
@@ -16416,7 +17369,7 @@ class CoreNotificationsCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreNotificationsCapabilities other) {
+  void replace(covariant CoreNotificationsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreNotificationsCapabilities;
   }
@@ -16446,6 +17399,22 @@ class CoreNotificationsCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder {
+  void replace(CoreProvisioningApiCapabilities_ProvisioningApiInterface other);
+  void update(void Function(CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates);
+  String? get version;
+  set version(String? version);
+
+  int? get accountPropertyScopesVersion;
+  set accountPropertyScopesVersion(int? accountPropertyScopesVersion);
+
+  bool? get accountPropertyScopesFederatedEnabled;
+  set accountPropertyScopesFederatedEnabled(bool? accountPropertyScopesFederatedEnabled);
+
+  bool? get accountPropertyScopesPublishedEnabled;
+  set accountPropertyScopesPublishedEnabled(bool? accountPropertyScopesPublishedEnabled);
 }
 
 class _$CoreProvisioningApiCapabilities_ProvisioningApi extends CoreProvisioningApiCapabilities_ProvisioningApi {
@@ -16521,26 +17490,27 @@ class _$CoreProvisioningApiCapabilities_ProvisioningApi extends CoreProvisioning
 class CoreProvisioningApiCapabilities_ProvisioningApiBuilder
     implements
         Builder<CoreProvisioningApiCapabilities_ProvisioningApi,
-            CoreProvisioningApiCapabilities_ProvisioningApiBuilder> {
+            CoreProvisioningApiCapabilities_ProvisioningApiBuilder>,
+        CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder {
   _$CoreProvisioningApiCapabilities_ProvisioningApi? _$v;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   int? _accountPropertyScopesVersion;
   int? get accountPropertyScopesVersion => _$this._accountPropertyScopesVersion;
-  set accountPropertyScopesVersion(int? accountPropertyScopesVersion) =>
+  set accountPropertyScopesVersion(covariant int? accountPropertyScopesVersion) =>
       _$this._accountPropertyScopesVersion = accountPropertyScopesVersion;
 
   bool? _accountPropertyScopesFederatedEnabled;
   bool? get accountPropertyScopesFederatedEnabled => _$this._accountPropertyScopesFederatedEnabled;
-  set accountPropertyScopesFederatedEnabled(bool? accountPropertyScopesFederatedEnabled) =>
+  set accountPropertyScopesFederatedEnabled(covariant bool? accountPropertyScopesFederatedEnabled) =>
       _$this._accountPropertyScopesFederatedEnabled = accountPropertyScopesFederatedEnabled;
 
   bool? _accountPropertyScopesPublishedEnabled;
   bool? get accountPropertyScopesPublishedEnabled => _$this._accountPropertyScopesPublishedEnabled;
-  set accountPropertyScopesPublishedEnabled(bool? accountPropertyScopesPublishedEnabled) =>
+  set accountPropertyScopesPublishedEnabled(covariant bool? accountPropertyScopesPublishedEnabled) =>
       _$this._accountPropertyScopesPublishedEnabled = accountPropertyScopesPublishedEnabled;
 
   CoreProvisioningApiCapabilities_ProvisioningApiBuilder();
@@ -16558,7 +17528,7 @@ class CoreProvisioningApiCapabilities_ProvisioningApiBuilder
   }
 
   @override
-  void replace(CoreProvisioningApiCapabilities_ProvisioningApi other) {
+  void replace(covariant CoreProvisioningApiCapabilities_ProvisioningApi other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreProvisioningApiCapabilities_ProvisioningApi;
   }
@@ -16589,6 +17559,13 @@ class CoreProvisioningApiCapabilities_ProvisioningApiBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreProvisioningApiCapabilitiesInterfaceBuilder {
+  void replace(CoreProvisioningApiCapabilitiesInterface other);
+  void update(void Function(CoreProvisioningApiCapabilitiesInterfaceBuilder) updates);
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder get provisioningApi;
+  set provisioningApi(CoreProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi);
 }
 
 class _$CoreProvisioningApiCapabilities extends CoreProvisioningApiCapabilities {
@@ -16631,13 +17608,15 @@ class _$CoreProvisioningApiCapabilities extends CoreProvisioningApiCapabilities 
 }
 
 class CoreProvisioningApiCapabilitiesBuilder
-    implements Builder<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
+    implements
+        Builder<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder>,
+        CoreProvisioningApiCapabilitiesInterfaceBuilder {
   _$CoreProvisioningApiCapabilities? _$v;
 
   CoreProvisioningApiCapabilities_ProvisioningApiBuilder? _provisioningApi;
   CoreProvisioningApiCapabilities_ProvisioningApiBuilder get provisioningApi =>
       _$this._provisioningApi ??= CoreProvisioningApiCapabilities_ProvisioningApiBuilder();
-  set provisioningApi(CoreProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi) =>
+  set provisioningApi(covariant CoreProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi) =>
       _$this._provisioningApi = provisioningApi;
 
   CoreProvisioningApiCapabilitiesBuilder();
@@ -16652,7 +17631,7 @@ class CoreProvisioningApiCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreProvisioningApiCapabilities other) {
+  void replace(covariant CoreProvisioningApiCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreProvisioningApiCapabilities;
   }
@@ -16682,6 +17661,14 @@ class CoreProvisioningApiCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface other);
+  void update(
+      void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
@@ -16732,12 +17719,13 @@ class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
 class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
     implements
         Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
   _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
@@ -16751,7 +17739,7 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilde
   }
 
   @override
-  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
+  void replace(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
   }
@@ -16772,6 +17760,16 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface other);
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
@@ -16831,16 +17829,17 @@ class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
 class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
     implements
         Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder>,
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
   _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
 
@@ -16855,7 +17854,7 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
   }
 
   @override
-  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
+  void replace(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password;
   }
@@ -16878,6 +17877,16 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface other);
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
@@ -16937,16 +17946,17 @@ class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
 class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
     implements
         Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder>,
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
   _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
 
@@ -16961,7 +17971,7 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
   }
 
   @override
-  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
+  void replace(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
   }
@@ -16984,6 +17994,25 @@ class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
+  void replace(CoreSharebymailCapabilities_FilesSharing_SharebymailInterface other);
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get sendPasswordByMail;
+  set sendPasswordByMail(bool? sendPasswordByMail);
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
+  set uploadFilesDrop(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password;
+  set password(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password);
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
+  set expireDate(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
 }
 
 class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail
@@ -17068,33 +18097,35 @@ class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail
 class CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder
     implements
         Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail,
-            CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+            CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder>,
+        CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
   _$CoreSharebymailCapabilities_FilesSharing_Sharebymail? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _sendPasswordByMail;
   bool? get sendPasswordByMail => _$this._sendPasswordByMail;
-  set sendPasswordByMail(bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
+  set sendPasswordByMail(covariant bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
       _$this._uploadFilesDrop ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
-  set uploadFilesDrop(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
+  set uploadFilesDrop(
+          covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
       _$this._uploadFilesDrop = uploadFilesDrop;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? _password;
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password =>
       _$this._password ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
-  set password(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
+  set password(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
       _$this._password = password;
 
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
   CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
-  set expireDate(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder();
@@ -17113,7 +18144,7 @@ class CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder
   }
 
   @override
-  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail other) {
+  void replace(covariant CoreSharebymailCapabilities_FilesSharing_Sharebymail other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail;
   }
@@ -17156,6 +18187,13 @@ class CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilities_FilesSharingInterfaceBuilder {
+  void replace(CoreSharebymailCapabilities_FilesSharingInterface other);
+  void update(void Function(CoreSharebymailCapabilities_FilesSharingInterfaceBuilder) updates);
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail;
+  set sharebymail(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail);
 }
 
 class _$CoreSharebymailCapabilities_FilesSharing extends CoreSharebymailCapabilities_FilesSharing {
@@ -17201,13 +18239,15 @@ class _$CoreSharebymailCapabilities_FilesSharing extends CoreSharebymailCapabili
 }
 
 class CoreSharebymailCapabilities_FilesSharingBuilder
-    implements Builder<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
+    implements
+        Builder<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder>,
+        CoreSharebymailCapabilities_FilesSharingInterfaceBuilder {
   _$CoreSharebymailCapabilities_FilesSharing? _$v;
 
   CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? _sharebymail;
   CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail =>
       _$this._sharebymail ??= CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder();
-  set sharebymail(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
+  set sharebymail(covariant CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
   CoreSharebymailCapabilities_FilesSharingBuilder();
@@ -17222,7 +18262,7 @@ class CoreSharebymailCapabilities_FilesSharingBuilder
   }
 
   @override
-  void replace(CoreSharebymailCapabilities_FilesSharing other) {
+  void replace(covariant CoreSharebymailCapabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities_FilesSharing;
   }
@@ -17252,6 +18292,13 @@ class CoreSharebymailCapabilities_FilesSharingBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreSharebymailCapabilitiesInterfaceBuilder {
+  void replace(CoreSharebymailCapabilitiesInterface other);
+  void update(void Function(CoreSharebymailCapabilitiesInterfaceBuilder) updates);
+  CoreSharebymailCapabilities_FilesSharingBuilder get filesSharing;
+  set filesSharing(CoreSharebymailCapabilities_FilesSharingBuilder? filesSharing);
 }
 
 class _$CoreSharebymailCapabilities extends CoreSharebymailCapabilities {
@@ -17293,13 +18340,15 @@ class _$CoreSharebymailCapabilities extends CoreSharebymailCapabilities {
 }
 
 class CoreSharebymailCapabilitiesBuilder
-    implements Builder<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
+    implements
+        Builder<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder>,
+        CoreSharebymailCapabilitiesInterfaceBuilder {
   _$CoreSharebymailCapabilities? _$v;
 
   CoreSharebymailCapabilities_FilesSharingBuilder? _filesSharing;
   CoreSharebymailCapabilities_FilesSharingBuilder get filesSharing =>
       _$this._filesSharing ??= CoreSharebymailCapabilities_FilesSharingBuilder();
-  set filesSharing(CoreSharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
+  set filesSharing(covariant CoreSharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
       _$this._filesSharing = filesSharing;
 
   CoreSharebymailCapabilitiesBuilder();
@@ -17314,7 +18363,7 @@ class CoreSharebymailCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreSharebymailCapabilities other) {
+  void replace(covariant CoreSharebymailCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreSharebymailCapabilities;
   }
@@ -17344,6 +18393,52 @@ class CoreSharebymailCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreThemingPublicCapabilities_ThemingInterfaceBuilder {
+  void replace(CoreThemingPublicCapabilities_ThemingInterface other);
+  void update(void Function(CoreThemingPublicCapabilities_ThemingInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get url;
+  set url(String? url);
+
+  String? get slogan;
+  set slogan(String? slogan);
+
+  String? get color;
+  set color(String? color);
+
+  String? get colorText;
+  set colorText(String? colorText);
+
+  String? get colorElement;
+  set colorElement(String? colorElement);
+
+  String? get colorElementBright;
+  set colorElementBright(String? colorElementBright);
+
+  String? get colorElementDark;
+  set colorElementDark(String? colorElementDark);
+
+  String? get logo;
+  set logo(String? logo);
+
+  String? get background;
+  set background(String? background);
+
+  bool? get backgroundPlain;
+  set backgroundPlain(bool? backgroundPlain);
+
+  bool? get backgroundDefault;
+  set backgroundDefault(bool? backgroundDefault);
+
+  String? get logoheader;
+  set logoheader(String? logoheader);
+
+  String? get favicon;
+  set favicon(String? favicon);
 }
 
 class _$CoreThemingPublicCapabilities_Theming extends CoreThemingPublicCapabilities_Theming {
@@ -17486,64 +18581,66 @@ class _$CoreThemingPublicCapabilities_Theming extends CoreThemingPublicCapabilit
 }
 
 class CoreThemingPublicCapabilities_ThemingBuilder
-    implements Builder<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
+    implements
+        Builder<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder>,
+        CoreThemingPublicCapabilities_ThemingInterfaceBuilder {
   _$CoreThemingPublicCapabilities_Theming? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _slogan;
   String? get slogan => _$this._slogan;
-  set slogan(String? slogan) => _$this._slogan = slogan;
+  set slogan(covariant String? slogan) => _$this._slogan = slogan;
 
   String? _color;
   String? get color => _$this._color;
-  set color(String? color) => _$this._color = color;
+  set color(covariant String? color) => _$this._color = color;
 
   String? _colorText;
   String? get colorText => _$this._colorText;
-  set colorText(String? colorText) => _$this._colorText = colorText;
+  set colorText(covariant String? colorText) => _$this._colorText = colorText;
 
   String? _colorElement;
   String? get colorElement => _$this._colorElement;
-  set colorElement(String? colorElement) => _$this._colorElement = colorElement;
+  set colorElement(covariant String? colorElement) => _$this._colorElement = colorElement;
 
   String? _colorElementBright;
   String? get colorElementBright => _$this._colorElementBright;
-  set colorElementBright(String? colorElementBright) => _$this._colorElementBright = colorElementBright;
+  set colorElementBright(covariant String? colorElementBright) => _$this._colorElementBright = colorElementBright;
 
   String? _colorElementDark;
   String? get colorElementDark => _$this._colorElementDark;
-  set colorElementDark(String? colorElementDark) => _$this._colorElementDark = colorElementDark;
+  set colorElementDark(covariant String? colorElementDark) => _$this._colorElementDark = colorElementDark;
 
   String? _logo;
   String? get logo => _$this._logo;
-  set logo(String? logo) => _$this._logo = logo;
+  set logo(covariant String? logo) => _$this._logo = logo;
 
   String? _background;
   String? get background => _$this._background;
-  set background(String? background) => _$this._background = background;
+  set background(covariant String? background) => _$this._background = background;
 
   bool? _backgroundPlain;
   bool? get backgroundPlain => _$this._backgroundPlain;
-  set backgroundPlain(bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
+  set backgroundPlain(covariant bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
 
   bool? _backgroundDefault;
   bool? get backgroundDefault => _$this._backgroundDefault;
-  set backgroundDefault(bool? backgroundDefault) => _$this._backgroundDefault = backgroundDefault;
+  set backgroundDefault(covariant bool? backgroundDefault) => _$this._backgroundDefault = backgroundDefault;
 
   String? _logoheader;
   String? get logoheader => _$this._logoheader;
-  set logoheader(String? logoheader) => _$this._logoheader = logoheader;
+  set logoheader(covariant String? logoheader) => _$this._logoheader = logoheader;
 
   String? _favicon;
   String? get favicon => _$this._favicon;
-  set favicon(String? favicon) => _$this._favicon = favicon;
+  set favicon(covariant String? favicon) => _$this._favicon = favicon;
 
   CoreThemingPublicCapabilities_ThemingBuilder();
 
@@ -17570,7 +18667,7 @@ class CoreThemingPublicCapabilities_ThemingBuilder
   }
 
   @override
-  void replace(CoreThemingPublicCapabilities_Theming other) {
+  void replace(covariant CoreThemingPublicCapabilities_Theming other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreThemingPublicCapabilities_Theming;
   }
@@ -17614,6 +18711,13 @@ class CoreThemingPublicCapabilities_ThemingBuilder
   }
 }
 
+abstract mixin class CoreThemingPublicCapabilitiesInterfaceBuilder {
+  void replace(CoreThemingPublicCapabilitiesInterface other);
+  void update(void Function(CoreThemingPublicCapabilitiesInterfaceBuilder) updates);
+  CoreThemingPublicCapabilities_ThemingBuilder get theming;
+  set theming(CoreThemingPublicCapabilities_ThemingBuilder? theming);
+}
+
 class _$CoreThemingPublicCapabilities extends CoreThemingPublicCapabilities {
   @override
   final CoreThemingPublicCapabilities_Theming theming;
@@ -17653,13 +18757,15 @@ class _$CoreThemingPublicCapabilities extends CoreThemingPublicCapabilities {
 }
 
 class CoreThemingPublicCapabilitiesBuilder
-    implements Builder<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
+    implements
+        Builder<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder>,
+        CoreThemingPublicCapabilitiesInterfaceBuilder {
   _$CoreThemingPublicCapabilities? _$v;
 
   CoreThemingPublicCapabilities_ThemingBuilder? _theming;
   CoreThemingPublicCapabilities_ThemingBuilder get theming =>
       _$this._theming ??= CoreThemingPublicCapabilities_ThemingBuilder();
-  set theming(CoreThemingPublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
+  set theming(covariant CoreThemingPublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
 
   CoreThemingPublicCapabilitiesBuilder();
 
@@ -17673,7 +18779,7 @@ class CoreThemingPublicCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreThemingPublicCapabilities other) {
+  void replace(covariant CoreThemingPublicCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreThemingPublicCapabilities;
   }
@@ -17703,6 +18809,19 @@ class CoreThemingPublicCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUserStatusCapabilities_UserStatusInterfaceBuilder {
+  void replace(CoreUserStatusCapabilities_UserStatusInterface other);
+  void update(void Function(CoreUserStatusCapabilities_UserStatusInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get restore;
+  set restore(bool? restore);
+
+  bool? get supportsEmoji;
+  set supportsEmoji(bool? supportsEmoji);
 }
 
 class _$CoreUserStatusCapabilities_UserStatus extends CoreUserStatusCapabilities_UserStatus {
@@ -17762,20 +18881,22 @@ class _$CoreUserStatusCapabilities_UserStatus extends CoreUserStatusCapabilities
 }
 
 class CoreUserStatusCapabilities_UserStatusBuilder
-    implements Builder<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
+    implements
+        Builder<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder>,
+        CoreUserStatusCapabilities_UserStatusInterfaceBuilder {
   _$CoreUserStatusCapabilities_UserStatus? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _restore;
   bool? get restore => _$this._restore;
-  set restore(bool? restore) => _$this._restore = restore;
+  set restore(covariant bool? restore) => _$this._restore = restore;
 
   bool? _supportsEmoji;
   bool? get supportsEmoji => _$this._supportsEmoji;
-  set supportsEmoji(bool? supportsEmoji) => _$this._supportsEmoji = supportsEmoji;
+  set supportsEmoji(covariant bool? supportsEmoji) => _$this._supportsEmoji = supportsEmoji;
 
   CoreUserStatusCapabilities_UserStatusBuilder();
 
@@ -17791,7 +18912,7 @@ class CoreUserStatusCapabilities_UserStatusBuilder
   }
 
   @override
-  void replace(CoreUserStatusCapabilities_UserStatus other) {
+  void replace(covariant CoreUserStatusCapabilities_UserStatus other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUserStatusCapabilities_UserStatus;
   }
@@ -17816,6 +18937,13 @@ class CoreUserStatusCapabilities_UserStatusBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUserStatusCapabilitiesInterfaceBuilder {
+  void replace(CoreUserStatusCapabilitiesInterface other);
+  void update(void Function(CoreUserStatusCapabilitiesInterfaceBuilder) updates);
+  CoreUserStatusCapabilities_UserStatusBuilder get userStatus;
+  set userStatus(CoreUserStatusCapabilities_UserStatusBuilder? userStatus);
 }
 
 class _$CoreUserStatusCapabilities extends CoreUserStatusCapabilities {
@@ -17857,13 +18985,15 @@ class _$CoreUserStatusCapabilities extends CoreUserStatusCapabilities {
 }
 
 class CoreUserStatusCapabilitiesBuilder
-    implements Builder<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
+    implements
+        Builder<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder>,
+        CoreUserStatusCapabilitiesInterfaceBuilder {
   _$CoreUserStatusCapabilities? _$v;
 
   CoreUserStatusCapabilities_UserStatusBuilder? _userStatus;
   CoreUserStatusCapabilities_UserStatusBuilder get userStatus =>
       _$this._userStatus ??= CoreUserStatusCapabilities_UserStatusBuilder();
-  set userStatus(CoreUserStatusCapabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
+  set userStatus(covariant CoreUserStatusCapabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
 
   CoreUserStatusCapabilitiesBuilder();
 
@@ -17877,7 +19007,7 @@ class CoreUserStatusCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreUserStatusCapabilities other) {
+  void replace(covariant CoreUserStatusCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUserStatusCapabilities;
   }
@@ -17907,6 +19037,13 @@ class CoreUserStatusCapabilitiesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder {
+  void replace(CoreWeatherStatusCapabilities_WeatherStatusInterface other);
+  void update(void Function(CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$CoreWeatherStatusCapabilities_WeatherStatus extends CoreWeatherStatusCapabilities_WeatherStatus {
@@ -17953,12 +19090,13 @@ class _$CoreWeatherStatusCapabilities_WeatherStatus extends CoreWeatherStatusCap
 
 class CoreWeatherStatusCapabilities_WeatherStatusBuilder
     implements
-        Builder<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
+        Builder<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder>,
+        CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder {
   _$CoreWeatherStatusCapabilities_WeatherStatus? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   CoreWeatherStatusCapabilities_WeatherStatusBuilder();
 
@@ -17972,7 +19110,7 @@ class CoreWeatherStatusCapabilities_WeatherStatusBuilder
   }
 
   @override
-  void replace(CoreWeatherStatusCapabilities_WeatherStatus other) {
+  void replace(covariant CoreWeatherStatusCapabilities_WeatherStatus other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWeatherStatusCapabilities_WeatherStatus;
   }
@@ -17993,6 +19131,13 @@ class CoreWeatherStatusCapabilities_WeatherStatusBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWeatherStatusCapabilitiesInterfaceBuilder {
+  void replace(CoreWeatherStatusCapabilitiesInterface other);
+  void update(void Function(CoreWeatherStatusCapabilitiesInterfaceBuilder) updates);
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder get weatherStatus;
+  set weatherStatus(CoreWeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus);
 }
 
 class _$CoreWeatherStatusCapabilities extends CoreWeatherStatusCapabilities {
@@ -18035,13 +19180,15 @@ class _$CoreWeatherStatusCapabilities extends CoreWeatherStatusCapabilities {
 }
 
 class CoreWeatherStatusCapabilitiesBuilder
-    implements Builder<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
+    implements
+        Builder<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder>,
+        CoreWeatherStatusCapabilitiesInterfaceBuilder {
   _$CoreWeatherStatusCapabilities? _$v;
 
   CoreWeatherStatusCapabilities_WeatherStatusBuilder? _weatherStatus;
   CoreWeatherStatusCapabilities_WeatherStatusBuilder get weatherStatus =>
       _$this._weatherStatus ??= CoreWeatherStatusCapabilities_WeatherStatusBuilder();
-  set weatherStatus(CoreWeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus) =>
+  set weatherStatus(covariant CoreWeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus) =>
       _$this._weatherStatus = weatherStatus;
 
   CoreWeatherStatusCapabilitiesBuilder();
@@ -18056,7 +19203,7 @@ class CoreWeatherStatusCapabilitiesBuilder
   }
 
   @override
-  void replace(CoreWeatherStatusCapabilities other) {
+  void replace(covariant CoreWeatherStatusCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWeatherStatusCapabilities;
   }
@@ -18396,6 +19543,16 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   }
 }
 
+abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder get version;
+  set version(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? version);
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities;
+  set capabilities(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities);
+}
+
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
     extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data {
   @override
@@ -18453,19 +19610,21 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
 class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data? _$v;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? _version;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder get version =>
       _$this._version ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder();
-  set version(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? version) =>
+  set version(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? version) =>
       _$this._version = version;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? _capabilities;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities =>
       _$this._capabilities ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
-  set capabilities(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities) =>
+  set capabilities(
+          covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities) =>
       _$this._capabilities = capabilities;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder();
@@ -18481,7 +19640,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data;
   }
@@ -18516,6 +19675,16 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
@@ -18570,17 +19739,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
 class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder> {
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder>,
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder();
 
@@ -18595,7 +19765,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs;
   }
@@ -18629,6 +19799,13 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson extends CoreOcsGetCapabilitiesResponse200ApplicationJson {
@@ -18676,13 +19853,14 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson extends CoreOcsGetCapab
 class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
     implements
         Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson,
-            CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder> {
+            CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder>,
+        CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson? _$v;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder();
 
@@ -18696,7 +19874,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson;
   }
@@ -18727,6 +19905,16 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
@@ -18783,16 +19971,17 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
 class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs,
-            CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder> {
+            CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder>,
+        CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder();
 
@@ -18807,7 +19996,7 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs;
   }
@@ -18842,6 +20031,13 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreProfileApiSetVisibilityResponse200ApplicationJson
@@ -18890,13 +20086,14 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson
 class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
     implements
         Builder<CoreProfileApiSetVisibilityResponse200ApplicationJson,
-            CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder> {
+            CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder>,
+        CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder {
   _$CoreProfileApiSetVisibilityResponse200ApplicationJson? _$v;
 
   CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder();
 
@@ -18910,7 +20107,7 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJson other) {
+  void replace(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreProfileApiSetVisibilityResponse200ApplicationJson;
   }
@@ -18941,6 +20138,22 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceInterfaceBuilder {
+  void replace(CoreReferenceInterface other);
+  void update(void Function(CoreReferenceInterfaceBuilder) updates);
+  String? get richObjectType;
+  set richObjectType(String? richObjectType);
+
+  MapBuilder<String, JsonObject> get richObject;
+  set richObject(MapBuilder<String, JsonObject>? richObject);
+
+  CoreOpenGraphObjectBuilder get openGraphObject;
+  set openGraphObject(CoreOpenGraphObjectBuilder? openGraphObject);
+
+  bool? get accessible;
+  set accessible(bool? accessible);
 }
 
 class _$CoreReference extends CoreReference {
@@ -19003,24 +20216,25 @@ class _$CoreReference extends CoreReference {
   }
 }
 
-class CoreReferenceBuilder implements Builder<CoreReference, CoreReferenceBuilder> {
+class CoreReferenceBuilder implements Builder<CoreReference, CoreReferenceBuilder>, CoreReferenceInterfaceBuilder {
   _$CoreReference? _$v;
 
   String? _richObjectType;
   String? get richObjectType => _$this._richObjectType;
-  set richObjectType(String? richObjectType) => _$this._richObjectType = richObjectType;
+  set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
 
   MapBuilder<String, JsonObject>? _richObject;
   MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
-  set richObject(MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
+  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
 
   CoreOpenGraphObjectBuilder? _openGraphObject;
   CoreOpenGraphObjectBuilder get openGraphObject => _$this._openGraphObject ??= CoreOpenGraphObjectBuilder();
-  set openGraphObject(CoreOpenGraphObjectBuilder? openGraphObject) => _$this._openGraphObject = openGraphObject;
+  set openGraphObject(covariant CoreOpenGraphObjectBuilder? openGraphObject) =>
+      _$this._openGraphObject = openGraphObject;
 
   bool? _accessible;
   bool? get accessible => _$this._accessible;
-  set accessible(bool? accessible) => _$this._accessible = accessible;
+  set accessible(covariant bool? accessible) => _$this._accessible = accessible;
 
   CoreReferenceBuilder();
 
@@ -19037,7 +20251,7 @@ class CoreReferenceBuilder implements Builder<CoreReference, CoreReferenceBuilde
   }
 
   @override
-  void replace(CoreReference other) {
+  void replace(covariant CoreReference other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReference;
   }
@@ -19074,6 +20288,13 @@ class CoreReferenceBuilder implements Builder<CoreReference, CoreReferenceBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, CoreReference> get references;
+  set references(MapBuilder<String, CoreReference>? references);
 }
 
 class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
@@ -19124,12 +20345,13 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
 class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, CoreReference>? _references;
   MapBuilder<String, CoreReference> get references => _$this._references ??= MapBuilder<String, CoreReference>();
-  set references(MapBuilder<String, CoreReference>? references) => _$this._references = references;
+  set references(covariant MapBuilder<String, CoreReference>? references) => _$this._references = references;
 
   CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -19143,7 +20365,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data;
   }
@@ -19175,6 +20397,16 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
@@ -19231,17 +20463,18 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
 class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs,
-            CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder> {
+            CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder>,
+        CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder();
 
@@ -19256,7 +20489,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs;
   }
@@ -19290,6 +20523,13 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreReferenceApiResolveOneResponse200ApplicationJson
@@ -19338,13 +20578,14 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson
 class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
     implements
         Builder<CoreReferenceApiResolveOneResponse200ApplicationJson,
-            CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder> {
+            CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder>,
+        CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder {
   _$CoreReferenceApiResolveOneResponse200ApplicationJson? _$v;
 
   CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder();
 
@@ -19358,7 +20599,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson;
   }
@@ -19519,6 +20760,13 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 }
 
+abstract mixin class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references;
+  set references(MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>? references);
+}
+
 class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
     extends CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data {
   @override
@@ -19567,7 +20815,8 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
 class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>? _references;
@@ -19575,7 +20824,8 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
       _$this._references ??=
           MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>();
   set references(
-          MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>? references) =>
+          covariant MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>?
+              references) =>
       _$this._references = references;
 
   CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder();
@@ -19590,7 +20840,7 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data;
   }
@@ -19621,6 +20871,16 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs
@@ -19675,17 +20935,18 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs
 class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreReferenceApiResolveResponse200ApplicationJson_Ocs,
-            CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder> {
+            CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder>,
+        CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder();
 
@@ -19700,7 +20961,7 @@ class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs;
   }
@@ -19734,6 +20995,13 @@ class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreReferenceApiResolveResponse200ApplicationJson extends CoreReferenceApiResolveResponse200ApplicationJson {
@@ -19781,13 +21049,14 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson extends CoreReferenceA
 class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
     implements
         Builder<CoreReferenceApiResolveResponse200ApplicationJson,
-            CoreReferenceApiResolveResponse200ApplicationJsonBuilder> {
+            CoreReferenceApiResolveResponse200ApplicationJsonBuilder>,
+        CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder {
   _$CoreReferenceApiResolveResponse200ApplicationJson? _$v;
 
   CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreReferenceApiResolveResponse200ApplicationJsonBuilder();
 
@@ -19801,7 +21070,7 @@ class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson;
   }
@@ -19962,6 +21231,13 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 }
 
+abstract mixin class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references;
+  set references(MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>? references);
+}
+
 class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
     extends CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data {
   @override
@@ -20010,7 +21286,8 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
 class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>? _references;
@@ -20018,7 +21295,8 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
       _$this._references ??=
           MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>();
   set references(
-          MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>? references) =>
+          covariant MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>?
+              references) =>
       _$this._references = references;
 
   CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder();
@@ -20033,7 +21311,7 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data;
   }
@@ -20064,6 +21342,16 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs
@@ -20118,17 +21406,18 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs
 class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreReferenceApiExtractResponse200ApplicationJson_Ocs,
-            CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder> {
+            CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder>,
+        CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder();
 
@@ -20143,7 +21432,7 @@ class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs;
   }
@@ -20177,6 +21466,13 @@ class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreReferenceApiExtractResponse200ApplicationJson extends CoreReferenceApiExtractResponse200ApplicationJson {
@@ -20224,13 +21520,14 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson extends CoreReferenceA
 class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
     implements
         Builder<CoreReferenceApiExtractResponse200ApplicationJson,
-            CoreReferenceApiExtractResponse200ApplicationJsonBuilder> {
+            CoreReferenceApiExtractResponse200ApplicationJsonBuilder>,
+        CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder {
   _$CoreReferenceApiExtractResponse200ApplicationJson? _$v;
 
   CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreReferenceApiExtractResponse200ApplicationJsonBuilder();
 
@@ -20244,7 +21541,7 @@ class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson;
   }
@@ -20275,6 +21572,25 @@ class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceProviderInterfaceBuilder {
+  void replace(CoreReferenceProviderInterface other);
+  void update(void Function(CoreReferenceProviderInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get title;
+  set title(String? title);
+
+  String? get iconUrl;
+  set iconUrl(String? iconUrl);
+
+  int? get order;
+  set order(int? order);
+
+  ListBuilder<String> get searchProvidersIds;
+  set searchProvidersIds(ListBuilder<String>? searchProvidersIds);
 }
 
 class _$CoreReferenceProvider extends CoreReferenceProvider {
@@ -20343,28 +21659,30 @@ class _$CoreReferenceProvider extends CoreReferenceProvider {
   }
 }
 
-class CoreReferenceProviderBuilder implements Builder<CoreReferenceProvider, CoreReferenceProviderBuilder> {
+class CoreReferenceProviderBuilder
+    implements Builder<CoreReferenceProvider, CoreReferenceProviderBuilder>, CoreReferenceProviderInterfaceBuilder {
   _$CoreReferenceProvider? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
-  set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
+  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
 
   int? _order;
   int? get order => _$this._order;
-  set order(int? order) => _$this._order = order;
+  set order(covariant int? order) => _$this._order = order;
 
   ListBuilder<String>? _searchProvidersIds;
   ListBuilder<String> get searchProvidersIds => _$this._searchProvidersIds ??= ListBuilder<String>();
-  set searchProvidersIds(ListBuilder<String>? searchProvidersIds) => _$this._searchProvidersIds = searchProvidersIds;
+  set searchProvidersIds(covariant ListBuilder<String>? searchProvidersIds) =>
+      _$this._searchProvidersIds = searchProvidersIds;
 
   CoreReferenceProviderBuilder();
 
@@ -20382,7 +21700,7 @@ class CoreReferenceProviderBuilder implements Builder<CoreReferenceProvider, Cor
   }
 
   @override
-  void replace(CoreReferenceProvider other) {
+  void replace(covariant CoreReferenceProvider other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceProvider;
   }
@@ -20418,6 +21736,16 @@ class CoreReferenceProviderBuilder implements Builder<CoreReferenceProvider, Cor
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreReferenceProvider> get data;
+  set data(ListBuilder<CoreReferenceProvider>? data);
 }
 
 class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
@@ -20477,16 +21805,17 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
 class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs,
-            CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder> {
+            CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder>,
+        CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreReferenceProvider>? _data;
   ListBuilder<CoreReferenceProvider> get data => _$this._data ??= ListBuilder<CoreReferenceProvider>();
-  set data(ListBuilder<CoreReferenceProvider>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreReferenceProvider>? data) => _$this._data = data;
 
   CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder();
 
@@ -20501,7 +21830,7 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs;
   }
@@ -20535,6 +21864,13 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
@@ -20583,13 +21919,14 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
 class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
     implements
         Builder<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson,
-            CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder> {
+            CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder>,
+        CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder {
   _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson? _$v;
 
   CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder();
 
@@ -20603,7 +21940,7 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson;
   }
@@ -20634,6 +21971,13 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
@@ -20684,12 +22028,13 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
 class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -20703,7 +22048,7 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data;
   }
@@ -20724,6 +22069,16 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
@@ -20781,17 +22136,19 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
 class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs,
-            CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder> {
+            CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder>,
+        CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder();
 
@@ -20806,7 +22163,7 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs;
   }
@@ -20840,6 +22197,13 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreReferenceApiTouchProviderResponse200ApplicationJson
@@ -20888,13 +22252,14 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson
 class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
     implements
         Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson,
-            CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder> {
+            CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder>,
+        CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder {
   _$CoreReferenceApiTouchProviderResponse200ApplicationJson? _$v;
 
   CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder();
 
@@ -20908,7 +22273,7 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson;
   }
@@ -20939,6 +22304,20 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterface other);
+  void update(
+      void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  String? get description;
+  set description(String? description);
 }
 
 class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
@@ -21006,20 +22385,21 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
 class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder
     implements
         Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder> {
+            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder>,
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder {
   _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  set description(covariant String? description) => _$this._description = description;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder();
 
@@ -21035,7 +22415,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBui
   }
 
   @override
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types;
   }
@@ -21060,6 +22440,13 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBui
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types;
+  set types(ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? types);
 }
 
 class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
@@ -21110,13 +22497,14 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
 class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? _types;
   ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types =>
       _$this._types ??= ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>();
-  set types(ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? types) =>
+  set types(covariant ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? types) =>
       _$this._types = types;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder();
@@ -21131,7 +22519,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data;
   }
@@ -21162,6 +22550,16 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
@@ -21221,17 +22619,19 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
 class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder> {
+            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder();
 
@@ -21246,7 +22646,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs;
   }
@@ -21280,6 +22680,13 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson
@@ -21328,13 +22735,14 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson
 class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder> {
+            CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder>,
+        CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson? _$v;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder();
 
@@ -21348,7 +22756,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson;
   }
@@ -21379,6 +22787,34 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingTaskInterfaceBuilder {
+  void replace(CoreTextProcessingTaskInterface other);
+  void update(void Function(CoreTextProcessingTaskInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get type;
+  set type(String? type);
+
+  int? get status;
+  set status(int? status);
+
+  String? get userId;
+  set userId(String? userId);
+
+  String? get appId;
+  set appId(String? appId);
+
+  String? get input;
+  set input(String? input);
+
+  String? get output;
+  set output(String? output);
+
+  String? get identifier;
+  set identifier(String? identifier);
 }
 
 class _$CoreTextProcessingTask extends CoreTextProcessingTask {
@@ -21470,40 +22906,41 @@ class _$CoreTextProcessingTask extends CoreTextProcessingTask {
   }
 }
 
-class CoreTextProcessingTaskBuilder implements Builder<CoreTextProcessingTask, CoreTextProcessingTaskBuilder> {
+class CoreTextProcessingTaskBuilder
+    implements Builder<CoreTextProcessingTask, CoreTextProcessingTaskBuilder>, CoreTextProcessingTaskInterfaceBuilder {
   _$CoreTextProcessingTask? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   int? _status;
   int? get status => _$this._status;
-  set status(int? status) => _$this._status = status;
+  set status(covariant int? status) => _$this._status = status;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
 
   String? _appId;
   String? get appId => _$this._appId;
-  set appId(String? appId) => _$this._appId = appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
 
   String? _input;
   String? get input => _$this._input;
-  set input(String? input) => _$this._input = input;
+  set input(covariant String? input) => _$this._input = input;
 
   String? _output;
   String? get output => _$this._output;
-  set output(String? output) => _$this._output = output;
+  set output(covariant String? output) => _$this._output = output;
 
   String? _identifier;
   String? get identifier => _$this._identifier;
-  set identifier(String? identifier) => _$this._identifier = identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
 
   CoreTextProcessingTaskBuilder();
 
@@ -21524,7 +22961,7 @@ class CoreTextProcessingTaskBuilder implements Builder<CoreTextProcessingTask, C
   }
 
   @override
-  void replace(CoreTextProcessingTask other) {
+  void replace(covariant CoreTextProcessingTask other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingTask;
   }
@@ -21551,6 +22988,13 @@ class CoreTextProcessingTaskBuilder implements Builder<CoreTextProcessingTask, C
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreTextProcessingTaskBuilder get task;
+  set task(CoreTextProcessingTaskBuilder? task);
 }
 
 class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
@@ -21601,12 +23045,13 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
 class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data? _$v;
 
   CoreTextProcessingTaskBuilder? _task;
   CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
-  set task(CoreTextProcessingTaskBuilder? task) => _$this._task = task;
+  set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
 
   CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -21620,7 +23065,7 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data;
   }
@@ -21651,6 +23096,16 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
@@ -21708,17 +23163,19 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
 class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder> {
+            CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder();
 
@@ -21733,7 +23190,7 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs;
   }
@@ -21767,6 +23224,13 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTextProcessingApiScheduleResponse200ApplicationJson
@@ -21815,13 +23279,14 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson
 class CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson,
-            CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder> {
+            CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder>,
+        CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTextProcessingApiScheduleResponse200ApplicationJson? _$v;
 
   CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder();
 
@@ -21835,7 +23300,7 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson;
   }
@@ -21866,6 +23331,13 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreTextProcessingTaskBuilder get task;
+  set task(CoreTextProcessingTaskBuilder? task);
 }
 
 class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
@@ -21916,12 +23388,13 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
 class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data? _$v;
 
   CoreTextProcessingTaskBuilder? _task;
   CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
-  set task(CoreTextProcessingTaskBuilder? task) => _$this._task = task;
+  set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
 
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -21935,7 +23408,7 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data;
   }
@@ -21966,6 +23439,16 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
@@ -22022,17 +23505,19 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
 class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder> {
+            CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder();
 
@@ -22047,7 +23532,7 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs;
   }
@@ -22081,6 +23566,13 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson
@@ -22129,13 +23621,14 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson
 class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder> {
+            CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder>,
+        CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTextProcessingApiGetTaskResponse200ApplicationJson? _$v;
 
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder();
 
@@ -22149,7 +23642,7 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson;
   }
@@ -22180,6 +23673,14 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreTextProcessingTaskBuilder get task;
+  set task(CoreTextProcessingTaskBuilder? task);
 }
 
 class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
@@ -22230,12 +23731,13 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
 class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data? _$v;
 
   CoreTextProcessingTaskBuilder? _task;
   CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
-  set task(CoreTextProcessingTaskBuilder? task) => _$this._task = task;
+  set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
 
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -22249,7 +23751,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data;
   }
@@ -22280,6 +23782,16 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
@@ -22339,17 +23851,19 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
 class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder> {
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
 
@@ -22364,7 +23878,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs;
   }
@@ -22398,6 +23912,13 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
@@ -22446,13 +23967,14 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
 class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder> {
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder>,
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson? _$v;
 
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder();
 
@@ -22466,7 +23988,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson;
   }
@@ -22497,6 +24019,14 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<CoreTextProcessingTask> get tasks;
+  set tasks(ListBuilder<CoreTextProcessingTask>? tasks);
 }
 
 class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
@@ -22547,12 +24077,13 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
 class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<CoreTextProcessingTask>? _tasks;
   ListBuilder<CoreTextProcessingTask> get tasks => _$this._tasks ??= ListBuilder<CoreTextProcessingTask>();
-  set tasks(ListBuilder<CoreTextProcessingTask>? tasks) => _$this._tasks = tasks;
+  set tasks(covariant ListBuilder<CoreTextProcessingTask>? tasks) => _$this._tasks = tasks;
 
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -22566,7 +24097,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuil
   }
 
   @override
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data;
   }
@@ -22598,6 +24129,16 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
@@ -22657,17 +24198,19 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
 class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder> {
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
 
@@ -22682,7 +24225,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs;
   }
@@ -22716,6 +24259,13 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
@@ -22765,13 +24315,14 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
 class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder> {
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder>,
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson? _$v;
 
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder();
 
@@ -22785,7 +24336,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson;
   }
@@ -22816,6 +24367,23 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterface other);
+  void update(
+      void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get fromLabel;
+  set fromLabel(String? fromLabel);
+
+  String? get to;
+  set to(String? to);
+
+  String? get toLabel;
+  set toLabel(String? toLabel);
 }
 
 class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
@@ -22890,24 +24458,25 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
 class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder
     implements
         Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder> {
+            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder>,
+        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
   _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages? _$v;
 
   String? _from;
   String? get from => _$this._from;
-  set from(String? from) => _$this._from = from;
+  set from(covariant String? from) => _$this._from = from;
 
   String? _fromLabel;
   String? get fromLabel => _$this._fromLabel;
-  set fromLabel(String? fromLabel) => _$this._fromLabel = fromLabel;
+  set fromLabel(covariant String? fromLabel) => _$this._fromLabel = fromLabel;
 
   String? _to;
   String? get to => _$this._to;
-  set to(String? to) => _$this._to = to;
+  set to(covariant String? to) => _$this._to = to;
 
   String? _toLabel;
   String? get toLabel => _$this._toLabel;
-  set toLabel(String? toLabel) => _$this._toLabel = toLabel;
+  set toLabel(covariant String? toLabel) => _$this._toLabel = toLabel;
 
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder();
 
@@ -22924,7 +24493,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBu
   }
 
   @override
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages other) {
+  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages;
   }
@@ -22951,6 +24520,16 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages;
+  set languages(ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? languages);
+
+  bool? get languageDetection;
+  set languageDetection(bool? languageDetection);
 }
 
 class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
@@ -23011,18 +24590,20 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
 class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? _languages;
   ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages =>
       _$this._languages ??= ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>();
-  set languages(ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? languages) =>
+  set languages(
+          covariant ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? languages) =>
       _$this._languages = languages;
 
   bool? _languageDetection;
   bool? get languageDetection => _$this._languageDetection;
-  set languageDetection(bool? languageDetection) => _$this._languageDetection = languageDetection;
+  set languageDetection(covariant bool? languageDetection) => _$this._languageDetection = languageDetection;
 
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -23037,7 +24618,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data;
   }
@@ -23072,6 +24653,16 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
@@ -23128,17 +24719,19 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
 class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder> {
+            CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder>,
+        CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder();
 
@@ -23153,7 +24746,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs;
   }
@@ -23187,6 +24780,13 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTranslationApiLanguagesResponse200ApplicationJson
@@ -23235,13 +24835,14 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson
 class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTranslationApiLanguagesResponse200ApplicationJson,
-            CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder> {
+            CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder>,
+        CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTranslationApiLanguagesResponse200ApplicationJson? _$v;
 
   CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder();
 
@@ -23255,7 +24856,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson other) {
+  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson;
   }
@@ -23286,6 +24887,16 @@ class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get text;
+  set text(String? text);
+
+  String? get from;
+  set from(String? from);
 }
 
 class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
@@ -23342,16 +24953,17 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
 class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data,
-            CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _text;
   String? get text => _$this._text;
-  set text(String? text) => _$this._text = text;
+  set text(covariant String? text) => _$this._text = text;
 
   String? _from;
   String? get from => _$this._from;
-  set from(String? from) => _$this._from = from;
+  set from(covariant String? from) => _$this._from = from;
 
   CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -23366,7 +24978,7 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data;
   }
@@ -23388,6 +25000,16 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
@@ -23444,17 +25066,19 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
 class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs,
-            CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder> {
+            CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder>,
+        CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder();
 
@@ -23469,7 +25093,7 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs;
   }
@@ -23503,6 +25127,13 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreTranslationApiTranslateResponse200ApplicationJson
@@ -23551,13 +25182,14 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson
 class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
     implements
         Builder<CoreTranslationApiTranslateResponse200ApplicationJson,
-            CoreTranslationApiTranslateResponse200ApplicationJsonBuilder> {
+            CoreTranslationApiTranslateResponse200ApplicationJsonBuilder>,
+        CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder {
   _$CoreTranslationApiTranslateResponse200ApplicationJson? _$v;
 
   CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreTranslationApiTranslateResponse200ApplicationJsonBuilder();
 
@@ -23571,7 +25203,7 @@ class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJson other) {
+  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson;
   }
@@ -23602,6 +25234,19 @@ class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUnifiedSearchProviderInterfaceBuilder {
+  void replace(CoreUnifiedSearchProviderInterface other);
+  void update(void Function(CoreUnifiedSearchProviderInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  int? get order;
+  set order(int? order);
 }
 
 class _$CoreUnifiedSearchProvider extends CoreUnifiedSearchProvider {
@@ -23654,20 +25299,23 @@ class _$CoreUnifiedSearchProvider extends CoreUnifiedSearchProvider {
   }
 }
 
-class CoreUnifiedSearchProviderBuilder implements Builder<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
+class CoreUnifiedSearchProviderBuilder
+    implements
+        Builder<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder>,
+        CoreUnifiedSearchProviderInterfaceBuilder {
   _$CoreUnifiedSearchProvider? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   int? _order;
   int? get order => _$this._order;
-  set order(int? order) => _$this._order = order;
+  set order(covariant int? order) => _$this._order = order;
 
   CoreUnifiedSearchProviderBuilder();
 
@@ -23683,7 +25331,7 @@ class CoreUnifiedSearchProviderBuilder implements Builder<CoreUnifiedSearchProvi
   }
 
   @override
-  void replace(CoreUnifiedSearchProvider other) {
+  void replace(covariant CoreUnifiedSearchProvider other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchProvider;
   }
@@ -23705,6 +25353,16 @@ class CoreUnifiedSearchProviderBuilder implements Builder<CoreUnifiedSearchProvi
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  ListBuilder<CoreUnifiedSearchProvider> get data;
+  set data(ListBuilder<CoreUnifiedSearchProvider>? data);
 }
 
 class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
@@ -23762,16 +25420,17 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
 class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs,
-            CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder> {
+            CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder>,
+        CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<CoreUnifiedSearchProvider>? _data;
   ListBuilder<CoreUnifiedSearchProvider> get data => _$this._data ??= ListBuilder<CoreUnifiedSearchProvider>();
-  set data(ListBuilder<CoreUnifiedSearchProvider>? data) => _$this._data = data;
+  set data(covariant ListBuilder<CoreUnifiedSearchProvider>? data) => _$this._data = data;
 
   CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder();
 
@@ -23786,7 +25445,7 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs;
   }
@@ -23820,6 +25479,13 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson
@@ -23868,13 +25534,14 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson
 class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder
     implements
         Builder<CoreUnifiedSearchGetProvidersResponse200ApplicationJson,
-            CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder> {
+            CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder>,
+        CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder {
   _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson? _$v;
 
   CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder();
 
@@ -23888,7 +25555,7 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJson other) {
+  void replace(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson;
   }
@@ -24023,6 +25690,31 @@ class CoreUnifiedSearchSearchCursorBuilder
   }
 }
 
+abstract mixin class CoreUnifiedSearchResultEntryInterfaceBuilder {
+  void replace(CoreUnifiedSearchResultEntryInterface other);
+  void update(void Function(CoreUnifiedSearchResultEntryInterfaceBuilder) updates);
+  String? get thumbnailUrl;
+  set thumbnailUrl(String? thumbnailUrl);
+
+  String? get title;
+  set title(String? title);
+
+  String? get subline;
+  set subline(String? subline);
+
+  String? get resourceUrl;
+  set resourceUrl(String? resourceUrl);
+
+  String? get icon;
+  set icon(String? icon);
+
+  bool? get rounded;
+  set rounded(bool? rounded);
+
+  ListBuilder<String> get attributes;
+  set attributes(ListBuilder<String>? attributes);
+}
+
 class _$CoreUnifiedSearchResultEntry extends CoreUnifiedSearchResultEntry {
   @override
   final String thumbnailUrl;
@@ -24109,36 +25801,38 @@ class _$CoreUnifiedSearchResultEntry extends CoreUnifiedSearchResultEntry {
 }
 
 class CoreUnifiedSearchResultEntryBuilder
-    implements Builder<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
+    implements
+        Builder<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder>,
+        CoreUnifiedSearchResultEntryInterfaceBuilder {
   _$CoreUnifiedSearchResultEntry? _$v;
 
   String? _thumbnailUrl;
   String? get thumbnailUrl => _$this._thumbnailUrl;
-  set thumbnailUrl(String? thumbnailUrl) => _$this._thumbnailUrl = thumbnailUrl;
+  set thumbnailUrl(covariant String? thumbnailUrl) => _$this._thumbnailUrl = thumbnailUrl;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _subline;
   String? get subline => _$this._subline;
-  set subline(String? subline) => _$this._subline = subline;
+  set subline(covariant String? subline) => _$this._subline = subline;
 
   String? _resourceUrl;
   String? get resourceUrl => _$this._resourceUrl;
-  set resourceUrl(String? resourceUrl) => _$this._resourceUrl = resourceUrl;
+  set resourceUrl(covariant String? resourceUrl) => _$this._resourceUrl = resourceUrl;
 
   String? _icon;
   String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
 
   bool? _rounded;
   bool? get rounded => _$this._rounded;
-  set rounded(bool? rounded) => _$this._rounded = rounded;
+  set rounded(covariant bool? rounded) => _$this._rounded = rounded;
 
   ListBuilder<String>? _attributes;
   ListBuilder<String> get attributes => _$this._attributes ??= ListBuilder<String>();
-  set attributes(ListBuilder<String>? attributes) => _$this._attributes = attributes;
+  set attributes(covariant ListBuilder<String>? attributes) => _$this._attributes = attributes;
 
   CoreUnifiedSearchResultEntryBuilder();
 
@@ -24158,7 +25852,7 @@ class CoreUnifiedSearchResultEntryBuilder
   }
 
   @override
-  void replace(CoreUnifiedSearchResultEntry other) {
+  void replace(covariant CoreUnifiedSearchResultEntry other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchResultEntry;
   }
@@ -24305,6 +25999,22 @@ class CoreUnifiedSearchResult_CursorBuilder
   }
 }
 
+abstract mixin class CoreUnifiedSearchResultInterfaceBuilder {
+  void replace(CoreUnifiedSearchResultInterface other);
+  void update(void Function(CoreUnifiedSearchResultInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  bool? get isPaginated;
+  set isPaginated(bool? isPaginated);
+
+  ListBuilder<CoreUnifiedSearchResultEntry> get entries;
+  set entries(ListBuilder<CoreUnifiedSearchResultEntry>? entries);
+
+  CoreUnifiedSearchResult_CursorBuilder get cursor;
+  set cursor(CoreUnifiedSearchResult_CursorBuilder? cursor);
+}
+
 class _$CoreUnifiedSearchResult extends CoreUnifiedSearchResult {
   @override
   final String name;
@@ -24364,25 +26074,28 @@ class _$CoreUnifiedSearchResult extends CoreUnifiedSearchResult {
   }
 }
 
-class CoreUnifiedSearchResultBuilder implements Builder<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
+class CoreUnifiedSearchResultBuilder
+    implements
+        Builder<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder>,
+        CoreUnifiedSearchResultInterfaceBuilder {
   _$CoreUnifiedSearchResult? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   bool? _isPaginated;
   bool? get isPaginated => _$this._isPaginated;
-  set isPaginated(bool? isPaginated) => _$this._isPaginated = isPaginated;
+  set isPaginated(covariant bool? isPaginated) => _$this._isPaginated = isPaginated;
 
   ListBuilder<CoreUnifiedSearchResultEntry>? _entries;
   ListBuilder<CoreUnifiedSearchResultEntry> get entries =>
       _$this._entries ??= ListBuilder<CoreUnifiedSearchResultEntry>();
-  set entries(ListBuilder<CoreUnifiedSearchResultEntry>? entries) => _$this._entries = entries;
+  set entries(covariant ListBuilder<CoreUnifiedSearchResultEntry>? entries) => _$this._entries = entries;
 
   CoreUnifiedSearchResult_CursorBuilder? _cursor;
   CoreUnifiedSearchResult_CursorBuilder get cursor => _$this._cursor ??= CoreUnifiedSearchResult_CursorBuilder();
-  set cursor(CoreUnifiedSearchResult_CursorBuilder? cursor) => _$this._cursor = cursor;
+  set cursor(covariant CoreUnifiedSearchResult_CursorBuilder? cursor) => _$this._cursor = cursor;
 
   CoreUnifiedSearchResultBuilder();
 
@@ -24399,7 +26112,7 @@ class CoreUnifiedSearchResultBuilder implements Builder<CoreUnifiedSearchResult,
   }
 
   @override
-  void replace(CoreUnifiedSearchResult other) {
+  void replace(covariant CoreUnifiedSearchResult other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchResult;
   }
@@ -24437,6 +26150,16 @@ class CoreUnifiedSearchResultBuilder implements Builder<CoreUnifiedSearchResult,
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreUnifiedSearchResultBuilder get data;
+  set data(CoreUnifiedSearchResultBuilder? data);
 }
 
 class _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
@@ -24491,16 +26214,17 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
 class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs,
-            CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder> {
+            CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder>,
+        CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreUnifiedSearchResultBuilder? _data;
   CoreUnifiedSearchResultBuilder get data => _$this._data ??= CoreUnifiedSearchResultBuilder();
-  set data(CoreUnifiedSearchResultBuilder? data) => _$this._data = data;
+  set data(covariant CoreUnifiedSearchResultBuilder? data) => _$this._data = data;
 
   CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder();
 
@@ -24515,7 +26239,7 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs;
   }
@@ -24549,6 +26273,13 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreUnifiedSearchSearchResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreUnifiedSearchSearchResponse200ApplicationJson extends CoreUnifiedSearchSearchResponse200ApplicationJson {
@@ -24596,13 +26327,14 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson extends CoreUnifiedSea
 class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
     implements
         Builder<CoreUnifiedSearchSearchResponse200ApplicationJson,
-            CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder> {
+            CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder>,
+        CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder {
   _$CoreUnifiedSearchSearchResponse200ApplicationJson? _$v;
 
   CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder();
 
@@ -24616,7 +26348,7 @@ class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreUnifiedSearchSearchResponse200ApplicationJson other) {
+  void replace(covariant CoreUnifiedSearchSearchResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreUnifiedSearchSearchResponse200ApplicationJson;
   }
@@ -24647,6 +26379,16 @@ class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterface other);
+  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates);
+  ListBuilder<String> get regular;
+  set regular(ListBuilder<String>? regular);
+
+  ListBuilder<String> get admin;
+  set admin(ListBuilder<String>? admin);
 }
 
 class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
@@ -24706,16 +26448,17 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
 class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
     implements
         Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew,
-            CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder> {
+            CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder>,
+        CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
   _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew? _$v;
 
   ListBuilder<String>? _regular;
   ListBuilder<String> get regular => _$this._regular ??= ListBuilder<String>();
-  set regular(ListBuilder<String>? regular) => _$this._regular = regular;
+  set regular(covariant ListBuilder<String>? regular) => _$this._regular = regular;
 
   ListBuilder<String>? _admin;
   ListBuilder<String> get admin => _$this._admin ??= ListBuilder<String>();
-  set admin(ListBuilder<String>? admin) => _$this._admin = admin;
+  set admin(covariant ListBuilder<String>? admin) => _$this._admin = admin;
 
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder();
 
@@ -24730,7 +26473,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
   }
 
   @override
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew other) {
+  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew;
   }
@@ -24765,6 +26508,22 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get changelogURL;
+  set changelogURL(String? changelogURL);
+
+  String? get product;
+  set product(String? product);
+
+  String? get version;
+  set version(String? version);
+
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew;
+  set whatsNew(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew);
 }
 
 class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data {
@@ -24834,25 +26593,26 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewG
 class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data,
-            CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder> {
+            CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder>,
+        CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _changelogURL;
   String? get changelogURL => _$this._changelogURL;
-  set changelogURL(String? changelogURL) => _$this._changelogURL = changelogURL;
+  set changelogURL(covariant String? changelogURL) => _$this._changelogURL = changelogURL;
 
   String? _product;
   String? get product => _$this._product;
-  set product(String? product) => _$this._product = product;
+  set product(covariant String? product) => _$this._product = product;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? _whatsNew;
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew =>
       _$this._whatsNew ??= CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder();
-  set whatsNew(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew) =>
+  set whatsNew(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew) =>
       _$this._whatsNew = whatsNew;
 
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder();
@@ -24870,7 +26630,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data;
   }
@@ -24909,6 +26669,16 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs extends CoreWhatsNewGetResponse200ApplicationJson_Ocs {
@@ -24961,17 +26731,18 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs extends CoreWhatsNewGetRes
 
 class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
     implements
-        Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs, CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder> {
+        Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs, CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder>,
+        CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreWhatsNewGetResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? _data;
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder();
 
@@ -24986,7 +26757,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs;
   }
@@ -25018,6 +26789,13 @@ class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreWhatsNewGetResponse200ApplicationJson extends CoreWhatsNewGetResponse200ApplicationJson {
@@ -25062,13 +26840,15 @@ class _$CoreWhatsNewGetResponse200ApplicationJson extends CoreWhatsNewGetRespons
 }
 
 class CoreWhatsNewGetResponse200ApplicationJsonBuilder
-    implements Builder<CoreWhatsNewGetResponse200ApplicationJson, CoreWhatsNewGetResponse200ApplicationJsonBuilder> {
+    implements
+        Builder<CoreWhatsNewGetResponse200ApplicationJson, CoreWhatsNewGetResponse200ApplicationJsonBuilder>,
+        CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder {
   _$CoreWhatsNewGetResponse200ApplicationJson? _$v;
 
   CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreWhatsNewGetResponse200ApplicationJsonBuilder();
 
@@ -25082,7 +26862,7 @@ class CoreWhatsNewGetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreWhatsNewGetResponse200ApplicationJson other) {
+  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson;
   }
@@ -25112,6 +26892,16 @@ class CoreWhatsNewGetResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreWhatsNewDismissResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs extends CoreWhatsNewDismissResponse200ApplicationJson_Ocs {
@@ -25165,16 +26955,17 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs extends CoreWhatsNewDi
 class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
     implements
         Builder<CoreWhatsNewDismissResponse200ApplicationJson_Ocs,
-            CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder> {
+            CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder>,
+        CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder {
   _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder();
 
@@ -25189,7 +26980,7 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(CoreWhatsNewDismissResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreWhatsNewDismissResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs;
   }
@@ -25224,6 +27015,13 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreWhatsNewDismissResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder) updates);
+  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$CoreWhatsNewDismissResponse200ApplicationJson extends CoreWhatsNewDismissResponse200ApplicationJson {
@@ -25269,13 +27067,14 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson extends CoreWhatsNewDismis
 
 class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
     implements
-        Builder<CoreWhatsNewDismissResponse200ApplicationJson, CoreWhatsNewDismissResponse200ApplicationJsonBuilder> {
+        Builder<CoreWhatsNewDismissResponse200ApplicationJson, CoreWhatsNewDismissResponse200ApplicationJsonBuilder>,
+        CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder {
   _$CoreWhatsNewDismissResponse200ApplicationJson? _$v;
 
   CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? _ocs;
   CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder();
-  set ocs(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   CoreWhatsNewDismissResponse200ApplicationJsonBuilder();
 
@@ -25289,7 +27088,7 @@ class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreWhatsNewDismissResponse200ApplicationJson other) {
+  void replace(covariant CoreWhatsNewDismissResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWhatsNewDismissResponse200ApplicationJson;
   }
@@ -25319,6 +27118,13 @@ class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder {
+  void replace(CoreWipeCheckWipeResponse200ApplicationJsonInterface other);
+  void update(void Function(CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get wipe;
+  set wipe(bool? wipe);
 }
 
 class _$CoreWipeCheckWipeResponse200ApplicationJson extends CoreWipeCheckWipeResponse200ApplicationJson {
@@ -25364,12 +27170,13 @@ class _$CoreWipeCheckWipeResponse200ApplicationJson extends CoreWipeCheckWipeRes
 
 class CoreWipeCheckWipeResponse200ApplicationJsonBuilder
     implements
-        Builder<CoreWipeCheckWipeResponse200ApplicationJson, CoreWipeCheckWipeResponse200ApplicationJsonBuilder> {
+        Builder<CoreWipeCheckWipeResponse200ApplicationJson, CoreWipeCheckWipeResponse200ApplicationJsonBuilder>,
+        CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder {
   _$CoreWipeCheckWipeResponse200ApplicationJson? _$v;
 
   bool? _wipe;
   bool? get wipe => _$this._wipe;
-  set wipe(bool? wipe) => _$this._wipe = wipe;
+  set wipe(covariant bool? wipe) => _$this._wipe = wipe;
 
   CoreWipeCheckWipeResponse200ApplicationJsonBuilder();
 
@@ -25383,7 +27190,7 @@ class CoreWipeCheckWipeResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(CoreWipeCheckWipeResponse200ApplicationJson other) {
+  void replace(covariant CoreWipeCheckWipeResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CoreWipeCheckWipeResponse200ApplicationJson;
   }

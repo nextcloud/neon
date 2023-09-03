@@ -605,7 +605,15 @@ class NewsClient extends DynamiteClient {
   }
 }
 
-abstract class NewsSupportedAPIVersions implements Built<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsSupportedAPIVersionsInterface {
+  BuiltList<String>? get apiLevels;
+  NewsSupportedAPIVersionsInterface rebuild(final void Function(NewsSupportedAPIVersionsInterfaceBuilder) updates);
+  NewsSupportedAPIVersionsInterfaceBuilder toBuilder();
+}
+
+abstract class NewsSupportedAPIVersions
+    implements NewsSupportedAPIVersionsInterface, Built<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder> {
   factory NewsSupportedAPIVersions([final void Function(NewsSupportedAPIVersionsBuilder)? b]) =
       _$NewsSupportedAPIVersions;
 
@@ -621,24 +629,11 @@ abstract class NewsSupportedAPIVersions implements Built<NewsSupportedAPIVersion
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String>? get apiLevels;
   static Serializer<NewsSupportedAPIVersions> get serializer => _$newsSupportedAPIVersionsSerializer;
 }
 
-abstract class NewsArticle implements Built<NewsArticle, NewsArticleBuilder> {
-  factory NewsArticle([final void Function(NewsArticleBuilder)? b]) = _$NewsArticle;
-
-  // coverage:ignore-start
-  const NewsArticle._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NewsArticle.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class NewsArticleInterface {
   int get id;
   String get guid;
   String get guidHash;
@@ -659,23 +654,29 @@ abstract class NewsArticle implements Built<NewsArticle, NewsArticleBuilder> {
   bool get rtl;
   String get fingerprint;
   String get contentHash;
-  static Serializer<NewsArticle> get serializer => _$newsArticleSerializer;
+  NewsArticleInterface rebuild(final void Function(NewsArticleInterfaceBuilder) updates);
+  NewsArticleInterfaceBuilder toBuilder();
 }
 
-abstract class NewsFeed implements Built<NewsFeed, NewsFeedBuilder> {
-  factory NewsFeed([final void Function(NewsFeedBuilder)? b]) = _$NewsFeed;
+abstract class NewsArticle implements NewsArticleInterface, Built<NewsArticle, NewsArticleBuilder> {
+  factory NewsArticle([final void Function(NewsArticleBuilder)? b]) = _$NewsArticle;
 
   // coverage:ignore-start
-  const NewsFeed._();
+  const NewsArticle._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsFeed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory NewsArticle.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  static Serializer<NewsArticle> get serializer => _$newsArticleSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NewsFeedInterface {
   int get id;
   String get url;
   String get title;
@@ -689,10 +690,40 @@ abstract class NewsFeed implements Built<NewsFeed, NewsFeedBuilder> {
   int get updateErrorCount;
   String? get lastUpdateError;
   BuiltList<NewsArticle> get items;
+  NewsFeedInterface rebuild(final void Function(NewsFeedInterfaceBuilder) updates);
+  NewsFeedInterfaceBuilder toBuilder();
+}
+
+abstract class NewsFeed implements NewsFeedInterface, Built<NewsFeed, NewsFeedBuilder> {
+  factory NewsFeed([final void Function(NewsFeedBuilder)? b]) = _$NewsFeed;
+
+  // coverage:ignore-start
+  const NewsFeed._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NewsFeed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<NewsFeed> get serializer => _$newsFeedSerializer;
 }
 
-abstract class NewsFolder implements Built<NewsFolder, NewsFolderBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsFolderInterface {
+  int get id;
+  String get name;
+  bool get opened;
+
+  /// This seems to be broken. In testing it is always empty
+  BuiltList<NewsFeed> get feeds;
+  NewsFolderInterface rebuild(final void Function(NewsFolderInterfaceBuilder) updates);
+  NewsFolderInterfaceBuilder toBuilder();
+}
+
+abstract class NewsFolder implements NewsFolderInterface, Built<NewsFolder, NewsFolderBuilder> {
   factory NewsFolder([final void Function(NewsFolderBuilder)? b]) = _$NewsFolder;
 
   // coverage:ignore-start
@@ -706,16 +737,17 @@ abstract class NewsFolder implements Built<NewsFolder, NewsFolderBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get id;
-  String get name;
-  bool get opened;
-
-  /// This seems to be broken. In testing it is always empty
-  BuiltList<NewsFeed> get feeds;
   static Serializer<NewsFolder> get serializer => _$newsFolderSerializer;
 }
 
-abstract class NewsListFolders implements Built<NewsListFolders, NewsListFoldersBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsListFoldersInterface {
+  BuiltList<NewsFolder> get folders;
+  NewsListFoldersInterface rebuild(final void Function(NewsListFoldersInterfaceBuilder) updates);
+  NewsListFoldersInterfaceBuilder toBuilder();
+}
+
+abstract class NewsListFolders implements NewsListFoldersInterface, Built<NewsListFolders, NewsListFoldersBuilder> {
   factory NewsListFolders([final void Function(NewsListFoldersBuilder)? b]) = _$NewsListFolders;
 
   // coverage:ignore-start
@@ -730,11 +762,19 @@ abstract class NewsListFolders implements Built<NewsListFolders, NewsListFolders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<NewsFolder> get folders;
   static Serializer<NewsListFolders> get serializer => _$newsListFoldersSerializer;
 }
 
-abstract class NewsListFeeds implements Built<NewsListFeeds, NewsListFeedsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsListFeedsInterface {
+  int? get starredCount;
+  int? get newestItemId;
+  BuiltList<NewsFeed> get feeds;
+  NewsListFeedsInterface rebuild(final void Function(NewsListFeedsInterfaceBuilder) updates);
+  NewsListFeedsInterfaceBuilder toBuilder();
+}
+
+abstract class NewsListFeeds implements NewsListFeedsInterface, Built<NewsListFeeds, NewsListFeedsBuilder> {
   factory NewsListFeeds([final void Function(NewsListFeedsBuilder)? b]) = _$NewsListFeeds;
 
   // coverage:ignore-start
@@ -749,13 +789,17 @@ abstract class NewsListFeeds implements Built<NewsListFeeds, NewsListFeedsBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int? get starredCount;
-  int? get newestItemId;
-  BuiltList<NewsFeed> get feeds;
   static Serializer<NewsListFeeds> get serializer => _$newsListFeedsSerializer;
 }
 
-abstract class NewsListArticles implements Built<NewsListArticles, NewsListArticlesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsListArticlesInterface {
+  BuiltList<NewsArticle> get items;
+  NewsListArticlesInterface rebuild(final void Function(NewsListArticlesInterfaceBuilder) updates);
+  NewsListArticlesInterfaceBuilder toBuilder();
+}
+
+abstract class NewsListArticles implements NewsListArticlesInterface, Built<NewsListArticles, NewsListArticlesBuilder> {
   factory NewsListArticles([final void Function(NewsListArticlesBuilder)? b]) = _$NewsListArticles;
 
   // coverage:ignore-start
@@ -770,11 +814,21 @@ abstract class NewsListArticles implements Built<NewsListArticles, NewsListArtic
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<NewsArticle> get items;
   static Serializer<NewsListArticles> get serializer => _$newsListArticlesSerializer;
 }
 
-abstract class NewsOCSMeta implements Built<NewsOCSMeta, NewsOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  NewsOCSMetaInterface rebuild(final void Function(NewsOCSMetaInterfaceBuilder) updates);
+  NewsOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class NewsOCSMeta implements NewsOCSMetaInterface, Built<NewsOCSMeta, NewsOCSMetaBuilder> {
   factory NewsOCSMeta([final void Function(NewsOCSMetaBuilder)? b]) = _$NewsOCSMeta;
 
   // coverage:ignore-start
@@ -788,15 +842,18 @@ abstract class NewsOCSMeta implements Built<NewsOCSMeta, NewsOCSMetaBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<NewsOCSMeta> get serializer => _$newsOCSMetaSerializer;
 }
 
-abstract class NewsEmptyOCS_Ocs implements Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsEmptyOCS_OcsInterface {
+  NewsOCSMeta get meta;
+  BuiltList<JsonObject> get data;
+  NewsEmptyOCS_OcsInterface rebuild(final void Function(NewsEmptyOCS_OcsInterfaceBuilder) updates);
+  NewsEmptyOCS_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NewsEmptyOCS_Ocs implements NewsEmptyOCS_OcsInterface, Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder> {
   factory NewsEmptyOCS_Ocs([final void Function(NewsEmptyOCS_OcsBuilder)? b]) = _$NewsEmptyOCS_Ocs;
 
   // coverage:ignore-start
@@ -811,12 +868,17 @@ abstract class NewsEmptyOCS_Ocs implements Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NewsOCSMeta get meta;
-  BuiltList<JsonObject> get data;
   static Serializer<NewsEmptyOCS_Ocs> get serializer => _$newsEmptyOCSOcsSerializer;
 }
 
-abstract class NewsEmptyOCS implements Built<NewsEmptyOCS, NewsEmptyOCSBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NewsEmptyOCSInterface {
+  NewsEmptyOCS_Ocs get ocs;
+  NewsEmptyOCSInterface rebuild(final void Function(NewsEmptyOCSInterfaceBuilder) updates);
+  NewsEmptyOCSInterfaceBuilder toBuilder();
+}
+
+abstract class NewsEmptyOCS implements NewsEmptyOCSInterface, Built<NewsEmptyOCS, NewsEmptyOCSBuilder> {
   factory NewsEmptyOCS([final void Function(NewsEmptyOCSBuilder)? b]) = _$NewsEmptyOCS;
 
   // coverage:ignore-start
@@ -830,7 +892,6 @@ abstract class NewsEmptyOCS implements Built<NewsEmptyOCS, NewsEmptyOCSBuilder> 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NewsEmptyOCS_Ocs get ocs;
   static Serializer<NewsEmptyOCS> get serializer => _$newsEmptyOCSSerializer;
 }
 

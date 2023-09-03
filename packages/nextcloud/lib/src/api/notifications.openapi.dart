@@ -290,7 +290,19 @@ class NotificationsClient extends DynamiteClient {
   }
 }
 
-abstract class NotificationsOCSMeta implements Built<NotificationsOCSMeta, NotificationsOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  NotificationsOCSMetaInterface rebuild(final void Function(NotificationsOCSMetaInterfaceBuilder) updates);
+  NotificationsOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsOCSMeta
+    implements NotificationsOCSMetaInterface, Built<NotificationsOCSMeta, NotificationsOCSMetaBuilder> {
   factory NotificationsOCSMeta([final void Function(NotificationsOCSMetaBuilder)? b]) = _$NotificationsOCSMeta;
 
   // coverage:ignore-start
@@ -305,16 +317,25 @@ abstract class NotificationsOCSMeta implements Built<NotificationsOCSMeta, Notif
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<NotificationsOCSMeta> get serializer => _$notificationsOCSMetaSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsNotificationActionInterface {
+  String get label;
+  String get link;
+  String get type;
+  bool? get primary;
+  NotificationsNotificationActionInterface rebuild(
+    final void Function(NotificationsNotificationActionInterfaceBuilder) updates,
+  );
+  NotificationsNotificationActionInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsNotificationAction
-    implements Built<NotificationsNotificationAction, NotificationsNotificationActionBuilder> {
+    implements
+        NotificationsNotificationActionInterface,
+        Built<NotificationsNotificationAction, NotificationsNotificationActionBuilder> {
   factory NotificationsNotificationAction([final void Function(NotificationsNotificationActionBuilder)? b]) =
       _$NotificationsNotificationAction;
 
@@ -330,29 +351,11 @@ abstract class NotificationsNotificationAction
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get label;
-  String get link;
-  String get type;
-  bool? get primary;
   static Serializer<NotificationsNotificationAction> get serializer => _$notificationsNotificationActionSerializer;
 }
 
-abstract class NotificationsNotification implements Built<NotificationsNotification, NotificationsNotificationBuilder> {
-  factory NotificationsNotification([final void Function(NotificationsNotificationBuilder)? b]) =
-      _$NotificationsNotification;
-
-  // coverage:ignore-start
-  const NotificationsNotification._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NotificationsNotification.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsNotificationInterface {
   @BuiltValueField(wireName: 'notification_id')
   int get notificationId;
   String get app;
@@ -372,11 +375,44 @@ abstract class NotificationsNotification implements Built<NotificationsNotificat
   String? get icon;
   bool? get shouldNotify;
   BuiltList<NotificationsNotificationAction> get actions;
+  NotificationsNotificationInterface rebuild(final void Function(NotificationsNotificationInterfaceBuilder) updates);
+  NotificationsNotificationInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsNotification
+    implements NotificationsNotificationInterface, Built<NotificationsNotification, NotificationsNotificationBuilder> {
+  factory NotificationsNotification([final void Function(NotificationsNotificationBuilder)? b]) =
+      _$NotificationsNotification;
+
+  // coverage:ignore-start
+  const NotificationsNotification._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsNotification.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<NotificationsNotification> get serializer => _$notificationsNotificationSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsListNotifications_OcsInterface {
+  NotificationsOCSMeta get meta;
+  BuiltList<NotificationsNotification> get data;
+  NotificationsListNotifications_OcsInterface rebuild(
+    final void Function(NotificationsListNotifications_OcsInterfaceBuilder) updates,
+  );
+  NotificationsListNotifications_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsListNotifications_Ocs
-    implements Built<NotificationsListNotifications_Ocs, NotificationsListNotifications_OcsBuilder> {
+    implements
+        NotificationsListNotifications_OcsInterface,
+        Built<NotificationsListNotifications_Ocs, NotificationsListNotifications_OcsBuilder> {
   factory NotificationsListNotifications_Ocs([final void Function(NotificationsListNotifications_OcsBuilder)? b]) =
       _$NotificationsListNotifications_Ocs;
 
@@ -392,13 +428,22 @@ abstract class NotificationsListNotifications_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsOCSMeta get meta;
-  BuiltList<NotificationsNotification> get data;
   static Serializer<NotificationsListNotifications_Ocs> get serializer => _$notificationsListNotificationsOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsListNotificationsInterface {
+  NotificationsListNotifications_Ocs get ocs;
+  NotificationsListNotificationsInterface rebuild(
+    final void Function(NotificationsListNotificationsInterfaceBuilder) updates,
+  );
+  NotificationsListNotificationsInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsListNotifications
-    implements Built<NotificationsListNotifications, NotificationsListNotificationsBuilder> {
+    implements
+        NotificationsListNotificationsInterface,
+        Built<NotificationsListNotifications, NotificationsListNotificationsBuilder> {
   factory NotificationsListNotifications([final void Function(NotificationsListNotificationsBuilder)? b]) =
       _$NotificationsListNotifications;
 
@@ -414,12 +459,23 @@ abstract class NotificationsListNotifications
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsListNotifications_Ocs get ocs;
   static Serializer<NotificationsListNotifications> get serializer => _$notificationsListNotificationsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsGetNotification_OcsInterface {
+  NotificationsOCSMeta get meta;
+  NotificationsNotification get data;
+  NotificationsGetNotification_OcsInterface rebuild(
+    final void Function(NotificationsGetNotification_OcsInterfaceBuilder) updates,
+  );
+  NotificationsGetNotification_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsGetNotification_Ocs
-    implements Built<NotificationsGetNotification_Ocs, NotificationsGetNotification_OcsBuilder> {
+    implements
+        NotificationsGetNotification_OcsInterface,
+        Built<NotificationsGetNotification_Ocs, NotificationsGetNotification_OcsBuilder> {
   factory NotificationsGetNotification_Ocs([final void Function(NotificationsGetNotification_OcsBuilder)? b]) =
       _$NotificationsGetNotification_Ocs;
 
@@ -435,13 +491,22 @@ abstract class NotificationsGetNotification_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsOCSMeta get meta;
-  NotificationsNotification get data;
   static Serializer<NotificationsGetNotification_Ocs> get serializer => _$notificationsGetNotificationOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsGetNotificationInterface {
+  NotificationsGetNotification_Ocs get ocs;
+  NotificationsGetNotificationInterface rebuild(
+    final void Function(NotificationsGetNotificationInterfaceBuilder) updates,
+  );
+  NotificationsGetNotificationInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsGetNotification
-    implements Built<NotificationsGetNotification, NotificationsGetNotificationBuilder> {
+    implements
+        NotificationsGetNotificationInterface,
+        Built<NotificationsGetNotification, NotificationsGetNotificationBuilder> {
   factory NotificationsGetNotification([final void Function(NotificationsGetNotificationBuilder)? b]) =
       _$NotificationsGetNotification;
 
@@ -457,11 +522,19 @@ abstract class NotificationsGetNotification
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsGetNotification_Ocs get ocs;
   static Serializer<NotificationsGetNotification> get serializer => _$notificationsGetNotificationSerializer;
 }
 
-abstract class NotificationsEmptyOCS_Ocs implements Built<NotificationsEmptyOCS_Ocs, NotificationsEmptyOCS_OcsBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEmptyOCS_OcsInterface {
+  NotificationsOCSMeta get meta;
+  BuiltList<JsonObject> get data;
+  NotificationsEmptyOCS_OcsInterface rebuild(final void Function(NotificationsEmptyOCS_OcsInterfaceBuilder) updates);
+  NotificationsEmptyOCS_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEmptyOCS_Ocs
+    implements NotificationsEmptyOCS_OcsInterface, Built<NotificationsEmptyOCS_Ocs, NotificationsEmptyOCS_OcsBuilder> {
   factory NotificationsEmptyOCS_Ocs([final void Function(NotificationsEmptyOCS_OcsBuilder)? b]) =
       _$NotificationsEmptyOCS_Ocs;
 
@@ -477,12 +550,18 @@ abstract class NotificationsEmptyOCS_Ocs implements Built<NotificationsEmptyOCS_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsOCSMeta get meta;
-  BuiltList<JsonObject> get data;
   static Serializer<NotificationsEmptyOCS_Ocs> get serializer => _$notificationsEmptyOCSOcsSerializer;
 }
 
-abstract class NotificationsEmptyOCS implements Built<NotificationsEmptyOCS, NotificationsEmptyOCSBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEmptyOCSInterface {
+  NotificationsEmptyOCS_Ocs get ocs;
+  NotificationsEmptyOCSInterface rebuild(final void Function(NotificationsEmptyOCSInterfaceBuilder) updates);
+  NotificationsEmptyOCSInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEmptyOCS
+    implements NotificationsEmptyOCSInterface, Built<NotificationsEmptyOCS, NotificationsEmptyOCSBuilder> {
   factory NotificationsEmptyOCS([final void Function(NotificationsEmptyOCSBuilder)? b]) = _$NotificationsEmptyOCS;
 
   // coverage:ignore-start
@@ -497,12 +576,25 @@ abstract class NotificationsEmptyOCS implements Built<NotificationsEmptyOCS, Not
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsEmptyOCS_Ocs get ocs;
   static Serializer<NotificationsEmptyOCS> get serializer => _$notificationsEmptyOCSSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushServerSubscriptionInterface {
+  String get publicKey;
+  String get deviceIdentifier;
+  String get signature;
+  String? get message;
+  NotificationsPushServerSubscriptionInterface rebuild(
+    final void Function(NotificationsPushServerSubscriptionInterfaceBuilder) updates,
+  );
+  NotificationsPushServerSubscriptionInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsPushServerSubscription
-    implements Built<NotificationsPushServerSubscription, NotificationsPushServerSubscriptionBuilder> {
+    implements
+        NotificationsPushServerSubscriptionInterface,
+        Built<NotificationsPushServerSubscription, NotificationsPushServerSubscriptionBuilder> {
   factory NotificationsPushServerSubscription([final void Function(NotificationsPushServerSubscriptionBuilder)? b]) =
       _$NotificationsPushServerSubscription;
 
@@ -518,16 +610,24 @@ abstract class NotificationsPushServerSubscription
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get publicKey;
-  String get deviceIdentifier;
-  String get signature;
-  String? get message;
   static Serializer<NotificationsPushServerSubscription> get serializer =>
       _$notificationsPushServerSubscriptionSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushServerRegistration_OcsInterface {
+  NotificationsOCSMeta get meta;
+  NotificationsPushServerSubscription get data;
+  NotificationsPushServerRegistration_OcsInterface rebuild(
+    final void Function(NotificationsPushServerRegistration_OcsInterfaceBuilder) updates,
+  );
+  NotificationsPushServerRegistration_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsPushServerRegistration_Ocs
-    implements Built<NotificationsPushServerRegistration_Ocs, NotificationsPushServerRegistration_OcsBuilder> {
+    implements
+        NotificationsPushServerRegistration_OcsInterface,
+        Built<NotificationsPushServerRegistration_Ocs, NotificationsPushServerRegistration_OcsBuilder> {
   factory NotificationsPushServerRegistration_Ocs([
     final void Function(NotificationsPushServerRegistration_OcsBuilder)? b,
   ]) = _$NotificationsPushServerRegistration_Ocs;
@@ -544,14 +644,23 @@ abstract class NotificationsPushServerRegistration_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsOCSMeta get meta;
-  NotificationsPushServerSubscription get data;
   static Serializer<NotificationsPushServerRegistration_Ocs> get serializer =>
       _$notificationsPushServerRegistrationOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushServerRegistrationInterface {
+  NotificationsPushServerRegistration_Ocs get ocs;
+  NotificationsPushServerRegistrationInterface rebuild(
+    final void Function(NotificationsPushServerRegistrationInterfaceBuilder) updates,
+  );
+  NotificationsPushServerRegistrationInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsPushServerRegistration
-    implements Built<NotificationsPushServerRegistration, NotificationsPushServerRegistrationBuilder> {
+    implements
+        NotificationsPushServerRegistrationInterface,
+        Built<NotificationsPushServerRegistration, NotificationsPushServerRegistrationBuilder> {
   factory NotificationsPushServerRegistration([final void Function(NotificationsPushServerRegistrationBuilder)? b]) =
       _$NotificationsPushServerRegistration;
 
@@ -567,13 +676,27 @@ abstract class NotificationsPushServerRegistration
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsPushServerRegistration_Ocs get ocs;
   static Serializer<NotificationsPushServerRegistration> get serializer =>
       _$notificationsPushServerRegistrationSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsCapabilities_NotificationsInterface {
+  @BuiltValueField(wireName: 'ocs-endpoints')
+  BuiltList<String>? get ocsEndpoints;
+  BuiltList<String>? get push;
+  @BuiltValueField(wireName: 'admin-notifications')
+  BuiltList<String>? get adminNotifications;
+  NotificationsCapabilities_NotificationsInterface rebuild(
+    final void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates,
+  );
+  NotificationsCapabilities_NotificationsInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsCapabilities_Notifications
-    implements Built<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
+    implements
+        NotificationsCapabilities_NotificationsInterface,
+        Built<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
   factory NotificationsCapabilities_Notifications([
     final void Function(NotificationsCapabilities_NotificationsBuilder)? b,
   ]) = _$NotificationsCapabilities_Notifications;
@@ -590,16 +713,19 @@ abstract class NotificationsCapabilities_Notifications
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'ocs-endpoints')
-  BuiltList<String>? get ocsEndpoints;
-  BuiltList<String>? get push;
-  @BuiltValueField(wireName: 'admin-notifications')
-  BuiltList<String>? get adminNotifications;
   static Serializer<NotificationsCapabilities_Notifications> get serializer =>
       _$notificationsCapabilitiesNotificationsSerializer;
 }
 
-abstract class NotificationsCapabilities implements Built<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsCapabilitiesInterface {
+  NotificationsCapabilities_Notifications get notifications;
+  NotificationsCapabilitiesInterface rebuild(final void Function(NotificationsCapabilitiesInterfaceBuilder) updates);
+  NotificationsCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsCapabilities
+    implements NotificationsCapabilitiesInterface, Built<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
   factory NotificationsCapabilities([final void Function(NotificationsCapabilitiesBuilder)? b]) =
       _$NotificationsCapabilities;
 
@@ -615,12 +741,29 @@ abstract class NotificationsCapabilities implements Built<NotificationsCapabilit
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  NotificationsCapabilities_Notifications get notifications;
   static Serializer<NotificationsCapabilities> get serializer => _$notificationsCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsNotificationDecryptedSubjectInterface {
+  int? get nid;
+  String? get app;
+  String? get subject;
+  String? get type;
+  String? get id;
+  bool? get delete;
+  @BuiltValueField(wireName: 'delete-all')
+  bool? get deleteAll;
+  NotificationsNotificationDecryptedSubjectInterface rebuild(
+    final void Function(NotificationsNotificationDecryptedSubjectInterfaceBuilder) updates,
+  );
+  NotificationsNotificationDecryptedSubjectInterfaceBuilder toBuilder();
+}
+
 abstract class NotificationsNotificationDecryptedSubject
-    implements Built<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder> {
+    implements
+        NotificationsNotificationDecryptedSubjectInterface,
+        Built<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder> {
   factory NotificationsNotificationDecryptedSubject([
     final void Function(NotificationsNotificationDecryptedSubjectBuilder)? b,
   ]) = _$NotificationsNotificationDecryptedSubject;
@@ -637,14 +780,6 @@ abstract class NotificationsNotificationDecryptedSubject
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int? get nid;
-  String? get app;
-  String? get subject;
-  String? get type;
-  String? get id;
-  bool? get delete;
-  @BuiltValueField(wireName: 'delete-all')
-  bool? get deleteAll;
   static Serializer<NotificationsNotificationDecryptedSubject> get serializer =>
       _$notificationsNotificationDecryptedSubjectSerializer;
 }

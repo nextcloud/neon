@@ -6272,6 +6272,25 @@ class _$ProvisioningApiCapabilitiesSerializer implements StructuredSerializer<Pr
   }
 }
 
+abstract mixin class ProvisioningApiOCSMetaInterfaceBuilder {
+  void replace(ProvisioningApiOCSMetaInterface other);
+  void update(void Function(ProvisioningApiOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$ProvisioningApiOCSMeta extends ProvisioningApiOCSMeta {
   @override
   final String status;
@@ -6336,28 +6355,29 @@ class _$ProvisioningApiOCSMeta extends ProvisioningApiOCSMeta {
   }
 }
 
-class ProvisioningApiOCSMetaBuilder implements Builder<ProvisioningApiOCSMeta, ProvisioningApiOCSMetaBuilder> {
+class ProvisioningApiOCSMetaBuilder
+    implements Builder<ProvisioningApiOCSMeta, ProvisioningApiOCSMetaBuilder>, ProvisioningApiOCSMetaInterfaceBuilder {
   _$ProvisioningApiOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   ProvisioningApiOCSMetaBuilder();
 
@@ -6375,7 +6395,7 @@ class ProvisioningApiOCSMetaBuilder implements Builder<ProvisioningApiOCSMeta, P
   }
 
   @override
-  void replace(ProvisioningApiOCSMeta other) {
+  void replace(covariant ProvisioningApiOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiOCSMeta;
   }
@@ -6399,6 +6419,14 @@ class ProvisioningApiOCSMetaBuilder implements Builder<ProvisioningApiOCSMeta, P
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data
@@ -6449,12 +6477,13 @@ class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -6468,7 +6497,7 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data;
   }
@@ -6499,6 +6528,16 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs
@@ -6558,17 +6597,19 @@ class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs
 class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder();
 
@@ -6583,7 +6624,7 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs;
   }
@@ -6617,6 +6658,13 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson
@@ -6665,13 +6713,14 @@ class _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson
 class ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson,
-            ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder();
 
@@ -6685,7 +6734,7 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppConfigGetAppsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson;
   }
@@ -6716,6 +6765,14 @@ class ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data
@@ -6766,12 +6823,13 @@ class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -6785,7 +6843,7 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data;
   }
@@ -6816,6 +6874,16 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs
@@ -6875,17 +6943,19 @@ class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs
 class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder();
 
@@ -6900,7 +6970,7 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs;
   }
@@ -6934,6 +7004,13 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson
@@ -6982,13 +7059,14 @@ class _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson
 class ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson,
-            ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder();
 
@@ -7002,7 +7080,7 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppConfigGetKeysResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson;
   }
@@ -7033,6 +7111,14 @@ class ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get data;
+  set data(String? data);
 }
 
 class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data
@@ -7083,12 +7169,13 @@ class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _data;
   String? get data => _$this._data;
-  set data(String? data) => _$this._data = data;
+  set data(covariant String? data) => _$this._data = data;
 
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -7102,7 +7189,7 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data;
   }
@@ -7123,6 +7210,16 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs
@@ -7182,17 +7279,19 @@ class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs
 class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder();
 
@@ -7207,7 +7306,7 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs;
   }
@@ -7241,6 +7340,13 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson
@@ -7289,13 +7395,14 @@ class _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson
 class ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppConfigGetValueResponse200ApplicationJson,
-            ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder();
 
@@ -7309,7 +7416,7 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigGetValueResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppConfigGetValueResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson;
   }
@@ -7340,6 +7447,16 @@ class ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs
@@ -7399,16 +7516,17 @@ class _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs
 class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder();
 
@@ -7423,7 +7541,7 @@ class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs;
   }
@@ -7458,6 +7576,13 @@ class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson
@@ -7506,13 +7631,14 @@ class _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson
 class ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppConfigSetValueResponse200ApplicationJson,
-            ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder();
 
@@ -7526,7 +7652,7 @@ class ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigSetValueResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppConfigSetValueResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson;
   }
@@ -7557,6 +7683,16 @@ class ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs
@@ -7616,16 +7752,17 @@ class _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs
 class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder();
 
@@ -7640,7 +7777,7 @@ class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs;
   }
@@ -7675,6 +7812,13 @@ class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson
@@ -7724,13 +7868,14 @@ class _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson
 class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson,
-            ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder();
 
@@ -7744,7 +7889,7 @@ class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson;
   }
@@ -7775,6 +7920,13 @@ class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get apps;
+  set apps(ListBuilder<String>? apps);
 }
 
 class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data
@@ -7825,12 +7977,13 @@ class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _apps;
   ListBuilder<String> get apps => _$this._apps ??= ListBuilder<String>();
-  set apps(ListBuilder<String>? apps) => _$this._apps = apps;
+  set apps(covariant ListBuilder<String>? apps) => _$this._apps = apps;
 
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -7844,7 +7997,7 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data;
   }
@@ -7875,6 +8028,16 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs
@@ -7931,17 +8094,18 @@ class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs
 class ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder();
 
@@ -7956,7 +8120,7 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs;
   }
@@ -7990,6 +8154,13 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson
@@ -8038,13 +8209,14 @@ class _$ProvisioningApiAppsGetAppsResponse200ApplicationJson
 class ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppsGetAppsResponse200ApplicationJson,
-            ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppsGetAppsResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder();
 
@@ -8058,7 +8230,7 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsGetAppsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppsGetAppsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsGetAppsResponse200ApplicationJson;
   }
@@ -8089,6 +8261,127 @@ class ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppInfoInterfaceBuilder {
+  void replace(ProvisioningApiAppInfoInterface other);
+  void update(void Function(ProvisioningApiAppInfoInterfaceBuilder) updates);
+  bool? get active;
+  set active(bool? active);
+
+  JsonObject? get activity;
+  set activity(JsonObject? activity);
+
+  JsonObject? get author;
+  set author(JsonObject? author);
+
+  JsonObject? get backgroundJobs;
+  set backgroundJobs(JsonObject? backgroundJobs);
+
+  JsonObject? get bugs;
+  set bugs(JsonObject? bugs);
+
+  JsonObject? get category;
+  set category(JsonObject? category);
+
+  JsonObject? get collaboration;
+  set collaboration(JsonObject? collaboration);
+
+  JsonObject? get commands;
+  set commands(JsonObject? commands);
+
+  JsonObject? get defaultEnable;
+  set defaultEnable(JsonObject? defaultEnable);
+
+  JsonObject? get dependencies;
+  set dependencies(JsonObject? dependencies);
+
+  String? get description;
+  set description(String? description);
+
+  JsonObject? get discussion;
+  set discussion(JsonObject? discussion);
+
+  JsonObject? get documentation;
+  set documentation(JsonObject? documentation);
+
+  JsonObject? get groups;
+  set groups(JsonObject? groups);
+
+  String? get id;
+  set id(String? id);
+
+  JsonObject? get info;
+  set info(JsonObject? info);
+
+  bool? get internal;
+  set internal(bool? internal);
+
+  int? get level;
+  set level(int? level);
+
+  JsonObject? get licence;
+  set licence(JsonObject? licence);
+
+  String? get name;
+  set name(String? name);
+
+  JsonObject? get namespace;
+  set namespace(JsonObject? namespace);
+
+  JsonObject? get navigations;
+  set navigations(JsonObject? navigations);
+
+  JsonObject? get preview;
+  set preview(JsonObject? preview);
+
+  bool? get previewAsIcon;
+  set previewAsIcon(bool? previewAsIcon);
+
+  JsonObject? get public;
+  set public(JsonObject? public);
+
+  JsonObject? get remote;
+  set remote(JsonObject? remote);
+
+  bool? get removable;
+  set removable(bool? removable);
+
+  JsonObject? get repairSteps;
+  set repairSteps(JsonObject? repairSteps);
+
+  JsonObject? get repository;
+  set repository(JsonObject? repository);
+
+  JsonObject? get sabre;
+  set sabre(JsonObject? sabre);
+
+  JsonObject? get screenshot;
+  set screenshot(JsonObject? screenshot);
+
+  JsonObject? get settings;
+  set settings(JsonObject? settings);
+
+  String? get summary;
+  set summary(String? summary);
+
+  JsonObject? get trash;
+  set trash(JsonObject? trash);
+
+  JsonObject? get twoFactorProviders;
+  set twoFactorProviders(JsonObject? twoFactorProviders);
+
+  JsonObject? get types;
+  set types(JsonObject? types);
+
+  String? get version;
+  set version(String? version);
+
+  JsonObject? get versions;
+  set versions(JsonObject? versions);
+
+  JsonObject? get website;
+  set website(JsonObject? website);
 }
 
 class _$ProvisioningApiAppInfo extends ProvisioningApiAppInfo {
@@ -8366,164 +8659,165 @@ class _$ProvisioningApiAppInfo extends ProvisioningApiAppInfo {
   }
 }
 
-class ProvisioningApiAppInfoBuilder implements Builder<ProvisioningApiAppInfo, ProvisioningApiAppInfoBuilder> {
+class ProvisioningApiAppInfoBuilder
+    implements Builder<ProvisioningApiAppInfo, ProvisioningApiAppInfoBuilder>, ProvisioningApiAppInfoInterfaceBuilder {
   _$ProvisioningApiAppInfo? _$v;
 
   bool? _active;
   bool? get active => _$this._active;
-  set active(bool? active) => _$this._active = active;
+  set active(covariant bool? active) => _$this._active = active;
 
   JsonObject? _activity;
   JsonObject? get activity => _$this._activity;
-  set activity(JsonObject? activity) => _$this._activity = activity;
+  set activity(covariant JsonObject? activity) => _$this._activity = activity;
 
   JsonObject? _author;
   JsonObject? get author => _$this._author;
-  set author(JsonObject? author) => _$this._author = author;
+  set author(covariant JsonObject? author) => _$this._author = author;
 
   JsonObject? _backgroundJobs;
   JsonObject? get backgroundJobs => _$this._backgroundJobs;
-  set backgroundJobs(JsonObject? backgroundJobs) => _$this._backgroundJobs = backgroundJobs;
+  set backgroundJobs(covariant JsonObject? backgroundJobs) => _$this._backgroundJobs = backgroundJobs;
 
   JsonObject? _bugs;
   JsonObject? get bugs => _$this._bugs;
-  set bugs(JsonObject? bugs) => _$this._bugs = bugs;
+  set bugs(covariant JsonObject? bugs) => _$this._bugs = bugs;
 
   JsonObject? _category;
   JsonObject? get category => _$this._category;
-  set category(JsonObject? category) => _$this._category = category;
+  set category(covariant JsonObject? category) => _$this._category = category;
 
   JsonObject? _collaboration;
   JsonObject? get collaboration => _$this._collaboration;
-  set collaboration(JsonObject? collaboration) => _$this._collaboration = collaboration;
+  set collaboration(covariant JsonObject? collaboration) => _$this._collaboration = collaboration;
 
   JsonObject? _commands;
   JsonObject? get commands => _$this._commands;
-  set commands(JsonObject? commands) => _$this._commands = commands;
+  set commands(covariant JsonObject? commands) => _$this._commands = commands;
 
   JsonObject? _defaultEnable;
   JsonObject? get defaultEnable => _$this._defaultEnable;
-  set defaultEnable(JsonObject? defaultEnable) => _$this._defaultEnable = defaultEnable;
+  set defaultEnable(covariant JsonObject? defaultEnable) => _$this._defaultEnable = defaultEnable;
 
   JsonObject? _dependencies;
   JsonObject? get dependencies => _$this._dependencies;
-  set dependencies(JsonObject? dependencies) => _$this._dependencies = dependencies;
+  set dependencies(covariant JsonObject? dependencies) => _$this._dependencies = dependencies;
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  set description(covariant String? description) => _$this._description = description;
 
   JsonObject? _discussion;
   JsonObject? get discussion => _$this._discussion;
-  set discussion(JsonObject? discussion) => _$this._discussion = discussion;
+  set discussion(covariant JsonObject? discussion) => _$this._discussion = discussion;
 
   JsonObject? _documentation;
   JsonObject? get documentation => _$this._documentation;
-  set documentation(JsonObject? documentation) => _$this._documentation = documentation;
+  set documentation(covariant JsonObject? documentation) => _$this._documentation = documentation;
 
   JsonObject? _groups;
   JsonObject? get groups => _$this._groups;
-  set groups(JsonObject? groups) => _$this._groups = groups;
+  set groups(covariant JsonObject? groups) => _$this._groups = groups;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   JsonObject? _info;
   JsonObject? get info => _$this._info;
-  set info(JsonObject? info) => _$this._info = info;
+  set info(covariant JsonObject? info) => _$this._info = info;
 
   bool? _internal;
   bool? get internal => _$this._internal;
-  set internal(bool? internal) => _$this._internal = internal;
+  set internal(covariant bool? internal) => _$this._internal = internal;
 
   int? _level;
   int? get level => _$this._level;
-  set level(int? level) => _$this._level = level;
+  set level(covariant int? level) => _$this._level = level;
 
   JsonObject? _licence;
   JsonObject? get licence => _$this._licence;
-  set licence(JsonObject? licence) => _$this._licence = licence;
+  set licence(covariant JsonObject? licence) => _$this._licence = licence;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   JsonObject? _namespace;
   JsonObject? get namespace => _$this._namespace;
-  set namespace(JsonObject? namespace) => _$this._namespace = namespace;
+  set namespace(covariant JsonObject? namespace) => _$this._namespace = namespace;
 
   JsonObject? _navigations;
   JsonObject? get navigations => _$this._navigations;
-  set navigations(JsonObject? navigations) => _$this._navigations = navigations;
+  set navigations(covariant JsonObject? navigations) => _$this._navigations = navigations;
 
   JsonObject? _preview;
   JsonObject? get preview => _$this._preview;
-  set preview(JsonObject? preview) => _$this._preview = preview;
+  set preview(covariant JsonObject? preview) => _$this._preview = preview;
 
   bool? _previewAsIcon;
   bool? get previewAsIcon => _$this._previewAsIcon;
-  set previewAsIcon(bool? previewAsIcon) => _$this._previewAsIcon = previewAsIcon;
+  set previewAsIcon(covariant bool? previewAsIcon) => _$this._previewAsIcon = previewAsIcon;
 
   JsonObject? _public;
   JsonObject? get public => _$this._public;
-  set public(JsonObject? public) => _$this._public = public;
+  set public(covariant JsonObject? public) => _$this._public = public;
 
   JsonObject? _remote;
   JsonObject? get remote => _$this._remote;
-  set remote(JsonObject? remote) => _$this._remote = remote;
+  set remote(covariant JsonObject? remote) => _$this._remote = remote;
 
   bool? _removable;
   bool? get removable => _$this._removable;
-  set removable(bool? removable) => _$this._removable = removable;
+  set removable(covariant bool? removable) => _$this._removable = removable;
 
   JsonObject? _repairSteps;
   JsonObject? get repairSteps => _$this._repairSteps;
-  set repairSteps(JsonObject? repairSteps) => _$this._repairSteps = repairSteps;
+  set repairSteps(covariant JsonObject? repairSteps) => _$this._repairSteps = repairSteps;
 
   JsonObject? _repository;
   JsonObject? get repository => _$this._repository;
-  set repository(JsonObject? repository) => _$this._repository = repository;
+  set repository(covariant JsonObject? repository) => _$this._repository = repository;
 
   JsonObject? _sabre;
   JsonObject? get sabre => _$this._sabre;
-  set sabre(JsonObject? sabre) => _$this._sabre = sabre;
+  set sabre(covariant JsonObject? sabre) => _$this._sabre = sabre;
 
   JsonObject? _screenshot;
   JsonObject? get screenshot => _$this._screenshot;
-  set screenshot(JsonObject? screenshot) => _$this._screenshot = screenshot;
+  set screenshot(covariant JsonObject? screenshot) => _$this._screenshot = screenshot;
 
   JsonObject? _settings;
   JsonObject? get settings => _$this._settings;
-  set settings(JsonObject? settings) => _$this._settings = settings;
+  set settings(covariant JsonObject? settings) => _$this._settings = settings;
 
   String? _summary;
   String? get summary => _$this._summary;
-  set summary(String? summary) => _$this._summary = summary;
+  set summary(covariant String? summary) => _$this._summary = summary;
 
   JsonObject? _trash;
   JsonObject? get trash => _$this._trash;
-  set trash(JsonObject? trash) => _$this._trash = trash;
+  set trash(covariant JsonObject? trash) => _$this._trash = trash;
 
   JsonObject? _twoFactorProviders;
   JsonObject? get twoFactorProviders => _$this._twoFactorProviders;
-  set twoFactorProviders(JsonObject? twoFactorProviders) => _$this._twoFactorProviders = twoFactorProviders;
+  set twoFactorProviders(covariant JsonObject? twoFactorProviders) => _$this._twoFactorProviders = twoFactorProviders;
 
   JsonObject? _types;
   JsonObject? get types => _$this._types;
-  set types(JsonObject? types) => _$this._types = types;
+  set types(covariant JsonObject? types) => _$this._types = types;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   JsonObject? _versions;
   JsonObject? get versions => _$this._versions;
-  set versions(JsonObject? versions) => _$this._versions = versions;
+  set versions(covariant JsonObject? versions) => _$this._versions = versions;
 
   JsonObject? _website;
   JsonObject? get website => _$this._website;
-  set website(JsonObject? website) => _$this._website = website;
+  set website(covariant JsonObject? website) => _$this._website = website;
 
   ProvisioningApiAppInfoBuilder();
 
@@ -8575,7 +8869,7 @@ class ProvisioningApiAppInfoBuilder implements Builder<ProvisioningApiAppInfo, P
   }
 
   @override
-  void replace(ProvisioningApiAppInfo other) {
+  void replace(covariant ProvisioningApiAppInfo other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppInfo;
   }
@@ -8635,6 +8929,16 @@ class ProvisioningApiAppInfoBuilder implements Builder<ProvisioningApiAppInfo, P
   }
 }
 
+abstract mixin class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiAppInfoBuilder get data;
+  set data(ProvisioningApiAppInfoBuilder? data);
+}
+
 class _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs
     extends ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs {
   @override
@@ -8690,16 +8994,17 @@ class _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs
 class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiAppInfoBuilder? _data;
   ProvisioningApiAppInfoBuilder get data => _$this._data ??= ProvisioningApiAppInfoBuilder();
-  set data(ProvisioningApiAppInfoBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiAppInfoBuilder? data) => _$this._data = data;
 
   ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder();
 
@@ -8714,7 +9019,7 @@ class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs;
   }
@@ -8748,6 +9053,13 @@ class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson
@@ -8796,13 +9108,14 @@ class _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson
 class ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson,
-            ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder();
 
@@ -8816,7 +9129,7 @@ class ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppsGetAppInfoResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson;
   }
@@ -8847,6 +9160,16 @@ class ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs
@@ -8901,16 +9224,17 @@ class _$ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs
 class ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder();
 
@@ -8925,7 +9249,7 @@ class ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs;
   }
@@ -8960,6 +9284,13 @@ class ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsEnableResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppsEnableResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppsEnableResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppsEnableResponse200ApplicationJson
@@ -9008,13 +9339,14 @@ class _$ProvisioningApiAppsEnableResponse200ApplicationJson
 class ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppsEnableResponse200ApplicationJson,
-            ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppsEnableResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppsEnableResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder();
 
@@ -9028,7 +9360,7 @@ class ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsEnableResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppsEnableResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsEnableResponse200ApplicationJson;
   }
@@ -9059,6 +9391,16 @@ class ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs
@@ -9115,16 +9457,17 @@ class _$ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs
 class ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs,
-            ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder();
 
@@ -9139,7 +9482,7 @@ class ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs;
   }
@@ -9174,6 +9517,13 @@ class ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiAppsDisableResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiAppsDisableResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiAppsDisableResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiAppsDisableResponse200ApplicationJson
@@ -9222,13 +9572,14 @@ class _$ProvisioningApiAppsDisableResponse200ApplicationJson
 class ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiAppsDisableResponse200ApplicationJson,
-            ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder> {
+            ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder>,
+        ProvisioningApiAppsDisableResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiAppsDisableResponse200ApplicationJson? _$v;
 
   ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder();
 
@@ -9242,7 +9593,7 @@ class ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiAppsDisableResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiAppsDisableResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiAppsDisableResponse200ApplicationJson;
   }
@@ -9273,6 +9624,13 @@ class ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get groups;
+  set groups(ListBuilder<String>? groups);
 }
 
 class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data
@@ -9323,12 +9681,13 @@ class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _groups;
   ListBuilder<String> get groups => _$this._groups ??= ListBuilder<String>();
-  set groups(ListBuilder<String>? groups) => _$this._groups = groups;
+  set groups(covariant ListBuilder<String>? groups) => _$this._groups = groups;
 
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -9342,7 +9701,7 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data;
   }
@@ -9373,6 +9732,16 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs
@@ -9432,17 +9801,19 @@ class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder();
 
@@ -9457,7 +9828,7 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs;
   }
@@ -9491,6 +9862,13 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson
@@ -9539,13 +9917,14 @@ class _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson
 class ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson,
-            ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder();
 
@@ -9559,7 +9938,7 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson;
   }
@@ -9590,6 +9969,16 @@ class ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs
@@ -9647,16 +10036,17 @@ class _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -9671,7 +10061,7 @@ class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs;
   }
@@ -9706,6 +10096,13 @@ class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson
@@ -9754,13 +10151,14 @@ class _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson
 class ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsAddGroupResponse200ApplicationJson,
-            ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder();
 
@@ -9774,7 +10172,7 @@ class ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsAddGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsAddGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson;
   }
@@ -10021,6 +10419,28 @@ class ProvisioningApiGroupDetails_DisabledBuilder
   }
 }
 
+abstract mixin class ProvisioningApiGroupDetailsInterfaceBuilder {
+  void replace(ProvisioningApiGroupDetailsInterface other);
+  void update(void Function(ProvisioningApiGroupDetailsInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get displayname;
+  set displayname(String? displayname);
+
+  ProvisioningApiGroupDetails_UsercountBuilder get usercount;
+  set usercount(ProvisioningApiGroupDetails_UsercountBuilder? usercount);
+
+  ProvisioningApiGroupDetails_DisabledBuilder get disabled;
+  set disabled(ProvisioningApiGroupDetails_DisabledBuilder? disabled);
+
+  bool? get canAdd;
+  set canAdd(bool? canAdd);
+
+  bool? get canRemove;
+  set canRemove(bool? canRemove);
+}
+
 class _$ProvisioningApiGroupDetails extends ProvisioningApiGroupDetails {
   @override
   final String id;
@@ -10100,34 +10520,36 @@ class _$ProvisioningApiGroupDetails extends ProvisioningApiGroupDetails {
 }
 
 class ProvisioningApiGroupDetailsBuilder
-    implements Builder<ProvisioningApiGroupDetails, ProvisioningApiGroupDetailsBuilder> {
+    implements
+        Builder<ProvisioningApiGroupDetails, ProvisioningApiGroupDetailsBuilder>,
+        ProvisioningApiGroupDetailsInterfaceBuilder {
   _$ProvisioningApiGroupDetails? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _displayname;
   String? get displayname => _$this._displayname;
-  set displayname(String? displayname) => _$this._displayname = displayname;
+  set displayname(covariant String? displayname) => _$this._displayname = displayname;
 
   ProvisioningApiGroupDetails_UsercountBuilder? _usercount;
   ProvisioningApiGroupDetails_UsercountBuilder get usercount =>
       _$this._usercount ??= ProvisioningApiGroupDetails_UsercountBuilder();
-  set usercount(ProvisioningApiGroupDetails_UsercountBuilder? usercount) => _$this._usercount = usercount;
+  set usercount(covariant ProvisioningApiGroupDetails_UsercountBuilder? usercount) => _$this._usercount = usercount;
 
   ProvisioningApiGroupDetails_DisabledBuilder? _disabled;
   ProvisioningApiGroupDetails_DisabledBuilder get disabled =>
       _$this._disabled ??= ProvisioningApiGroupDetails_DisabledBuilder();
-  set disabled(ProvisioningApiGroupDetails_DisabledBuilder? disabled) => _$this._disabled = disabled;
+  set disabled(covariant ProvisioningApiGroupDetails_DisabledBuilder? disabled) => _$this._disabled = disabled;
 
   bool? _canAdd;
   bool? get canAdd => _$this._canAdd;
-  set canAdd(bool? canAdd) => _$this._canAdd = canAdd;
+  set canAdd(covariant bool? canAdd) => _$this._canAdd = canAdd;
 
   bool? _canRemove;
   bool? get canRemove => _$this._canRemove;
-  set canRemove(bool? canRemove) => _$this._canRemove = canRemove;
+  set canRemove(covariant bool? canRemove) => _$this._canRemove = canRemove;
 
   ProvisioningApiGroupDetailsBuilder();
 
@@ -10146,7 +10568,7 @@ class ProvisioningApiGroupDetailsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupDetails other) {
+  void replace(covariant ProvisioningApiGroupDetails other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupDetails;
   }
@@ -10186,6 +10608,14 @@ class ProvisioningApiGroupDetailsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<ProvisioningApiGroupDetails> get groups;
+  set groups(ListBuilder<ProvisioningApiGroupDetails>? groups);
 }
 
 class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data
@@ -10236,12 +10666,13 @@ class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<ProvisioningApiGroupDetails>? _groups;
   ListBuilder<ProvisioningApiGroupDetails> get groups => _$this._groups ??= ListBuilder<ProvisioningApiGroupDetails>();
-  set groups(ListBuilder<ProvisioningApiGroupDetails>? groups) => _$this._groups = groups;
+  set groups(covariant ListBuilder<ProvisioningApiGroupDetails>? groups) => _$this._groups = groups;
 
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -10255,7 +10686,7 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBu
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data;
   }
@@ -10287,6 +10718,17 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs
@@ -10346,17 +10788,18 @@ class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder();
@@ -10372,7 +10815,7 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs;
   }
@@ -10407,6 +10850,13 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson
@@ -10457,13 +10907,15 @@ class _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson
 class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson,
-            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder();
 
@@ -10477,7 +10929,7 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson;
   }
@@ -10508,6 +10960,14 @@ class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get users;
+  set users(ListBuilder<String>? users);
 }
 
 class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data
@@ -10558,12 +11018,13 @@ class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _users;
   ListBuilder<String> get users => _$this._users ??= ListBuilder<String>();
-  set users(ListBuilder<String>? users) => _$this._users = users;
+  set users(covariant ListBuilder<String>? users) => _$this._users = users;
 
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -10577,7 +11038,7 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuild
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data;
   }
@@ -10608,6 +11069,16 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuild
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs
@@ -10667,17 +11138,19 @@ class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder();
 
@@ -10692,7 +11165,7 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs;
   }
@@ -10726,6 +11199,13 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson
@@ -10775,13 +11255,14 @@ class _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson
 class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson,
-            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder();
 
@@ -10795,7 +11276,7 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson;
   }
@@ -10826,6 +11307,16 @@ class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUserDetails_BackendCapabilitiesInterfaceBuilder {
+  void replace(ProvisioningApiUserDetails_BackendCapabilitiesInterface other);
+  void update(void Function(ProvisioningApiUserDetails_BackendCapabilitiesInterfaceBuilder) updates);
+  bool? get setDisplayName;
+  set setDisplayName(bool? setDisplayName);
+
+  bool? get setPassword;
+  set setPassword(bool? setPassword);
 }
 
 class _$ProvisioningApiUserDetails_BackendCapabilities extends ProvisioningApiUserDetails_BackendCapabilities {
@@ -10883,16 +11374,17 @@ class _$ProvisioningApiUserDetails_BackendCapabilities extends ProvisioningApiUs
 
 class ProvisioningApiUserDetails_BackendCapabilitiesBuilder
     implements
-        Builder<ProvisioningApiUserDetails_BackendCapabilities, ProvisioningApiUserDetails_BackendCapabilitiesBuilder> {
+        Builder<ProvisioningApiUserDetails_BackendCapabilities, ProvisioningApiUserDetails_BackendCapabilitiesBuilder>,
+        ProvisioningApiUserDetails_BackendCapabilitiesInterfaceBuilder {
   _$ProvisioningApiUserDetails_BackendCapabilities? _$v;
 
   bool? _setDisplayName;
   bool? get setDisplayName => _$this._setDisplayName;
-  set setDisplayName(bool? setDisplayName) => _$this._setDisplayName = setDisplayName;
+  set setDisplayName(covariant bool? setDisplayName) => _$this._setDisplayName = setDisplayName;
 
   bool? _setPassword;
   bool? get setPassword => _$this._setPassword;
-  set setPassword(bool? setPassword) => _$this._setPassword = setPassword;
+  set setPassword(covariant bool? setPassword) => _$this._setPassword = setPassword;
 
   ProvisioningApiUserDetails_BackendCapabilitiesBuilder();
 
@@ -10907,7 +11399,7 @@ class ProvisioningApiUserDetails_BackendCapabilitiesBuilder
   }
 
   @override
-  void replace(ProvisioningApiUserDetails_BackendCapabilities other) {
+  void replace(covariant ProvisioningApiUserDetails_BackendCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUserDetails_BackendCapabilities;
   }
@@ -11039,6 +11531,25 @@ class ProvisioningApiUserDetailsQuota_QuotaBuilder
   }
 }
 
+abstract mixin class ProvisioningApiUserDetailsQuotaInterfaceBuilder {
+  void replace(ProvisioningApiUserDetailsQuotaInterface other);
+  void update(void Function(ProvisioningApiUserDetailsQuotaInterfaceBuilder) updates);
+  num? get free;
+  set free(num? free);
+
+  ProvisioningApiUserDetailsQuota_QuotaBuilder get quota;
+  set quota(ProvisioningApiUserDetailsQuota_QuotaBuilder? quota);
+
+  num? get relative;
+  set relative(num? relative);
+
+  num? get total;
+  set total(num? total);
+
+  num? get used;
+  set used(num? used);
+}
+
 class _$ProvisioningApiUserDetailsQuota extends ProvisioningApiUserDetailsQuota {
   @override
   final num? free;
@@ -11099,29 +11610,31 @@ class _$ProvisioningApiUserDetailsQuota extends ProvisioningApiUserDetailsQuota 
 }
 
 class ProvisioningApiUserDetailsQuotaBuilder
-    implements Builder<ProvisioningApiUserDetailsQuota, ProvisioningApiUserDetailsQuotaBuilder> {
+    implements
+        Builder<ProvisioningApiUserDetailsQuota, ProvisioningApiUserDetailsQuotaBuilder>,
+        ProvisioningApiUserDetailsQuotaInterfaceBuilder {
   _$ProvisioningApiUserDetailsQuota? _$v;
 
   num? _free;
   num? get free => _$this._free;
-  set free(num? free) => _$this._free = free;
+  set free(covariant num? free) => _$this._free = free;
 
   ProvisioningApiUserDetailsQuota_QuotaBuilder? _quota;
   ProvisioningApiUserDetailsQuota_QuotaBuilder get quota =>
       _$this._quota ??= ProvisioningApiUserDetailsQuota_QuotaBuilder();
-  set quota(ProvisioningApiUserDetailsQuota_QuotaBuilder? quota) => _$this._quota = quota;
+  set quota(covariant ProvisioningApiUserDetailsQuota_QuotaBuilder? quota) => _$this._quota = quota;
 
   num? _relative;
   num? get relative => _$this._relative;
-  set relative(num? relative) => _$this._relative = relative;
+  set relative(covariant num? relative) => _$this._relative = relative;
 
   num? _total;
   num? get total => _$this._total;
-  set total(num? total) => _$this._total = total;
+  set total(covariant num? total) => _$this._total = total;
 
   num? _used;
   num? get used => _$this._used;
-  set used(num? used) => _$this._used = used;
+  set used(covariant num? used) => _$this._used = used;
 
   ProvisioningApiUserDetailsQuotaBuilder();
 
@@ -11139,7 +11652,7 @@ class ProvisioningApiUserDetailsQuotaBuilder
   }
 
   @override
-  void replace(ProvisioningApiUserDetailsQuota other) {
+  void replace(covariant ProvisioningApiUserDetailsQuota other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUserDetailsQuota;
   }
@@ -11171,6 +11684,133 @@ class ProvisioningApiUserDetailsQuotaBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUserDetailsInterfaceBuilder {
+  void replace(ProvisioningApiUserDetailsInterface other);
+  void update(void Function(ProvisioningApiUserDetailsInterfaceBuilder) updates);
+  ListBuilder<String> get additionalMail;
+  set additionalMail(ListBuilder<String>? additionalMail);
+
+  ListBuilder<String> get additionalMailScope;
+  set additionalMailScope(ListBuilder<String>? additionalMailScope);
+
+  String? get address;
+  set address(String? address);
+
+  String? get addressScope;
+  set addressScope(String? addressScope);
+
+  String? get avatarScope;
+  set avatarScope(String? avatarScope);
+
+  String? get backend;
+  set backend(String? backend);
+
+  ProvisioningApiUserDetails_BackendCapabilitiesBuilder get backendCapabilities;
+  set backendCapabilities(ProvisioningApiUserDetails_BackendCapabilitiesBuilder? backendCapabilities);
+
+  String? get biography;
+  set biography(String? biography);
+
+  String? get biographyScope;
+  set biographyScope(String? biographyScope);
+
+  String? get displayName;
+  set displayName(String? displayName);
+
+  String? get displayname;
+  set displayname(String? displayname);
+
+  String? get displaynameScope;
+  set displaynameScope(String? displaynameScope);
+
+  String? get email;
+  set email(String? email);
+
+  String? get emailScope;
+  set emailScope(String? emailScope);
+
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  String? get fediverse;
+  set fediverse(String? fediverse);
+
+  String? get fediverseScope;
+  set fediverseScope(String? fediverseScope);
+
+  ListBuilder<String> get groups;
+  set groups(ListBuilder<String>? groups);
+
+  String? get headline;
+  set headline(String? headline);
+
+  String? get headlineScope;
+  set headlineScope(String? headlineScope);
+
+  String? get id;
+  set id(String? id);
+
+  String? get language;
+  set language(String? language);
+
+  int? get lastLogin;
+  set lastLogin(int? lastLogin);
+
+  String? get locale;
+  set locale(String? locale);
+
+  String? get manager;
+  set manager(String? manager);
+
+  String? get notifyEmail;
+  set notifyEmail(String? notifyEmail);
+
+  String? get organisation;
+  set organisation(String? organisation);
+
+  String? get organisationScope;
+  set organisationScope(String? organisationScope);
+
+  String? get phone;
+  set phone(String? phone);
+
+  String? get phoneScope;
+  set phoneScope(String? phoneScope);
+
+  String? get profileEnabled;
+  set profileEnabled(String? profileEnabled);
+
+  String? get profileEnabledScope;
+  set profileEnabledScope(String? profileEnabledScope);
+
+  ProvisioningApiUserDetailsQuotaBuilder get quota;
+  set quota(ProvisioningApiUserDetailsQuotaBuilder? quota);
+
+  String? get role;
+  set role(String? role);
+
+  String? get roleScope;
+  set roleScope(String? roleScope);
+
+  String? get storageLocation;
+  set storageLocation(String? storageLocation);
+
+  ListBuilder<String> get subadmin;
+  set subadmin(ListBuilder<String>? subadmin);
+
+  String? get twitter;
+  set twitter(String? twitter);
+
+  String? get twitterScope;
+  set twitterScope(String? twitterScope);
+
+  String? get website;
+  set website(String? website);
+
+  String? get websiteScope;
+  set websiteScope(String? websiteScope);
 }
 
 class _$ProvisioningApiUserDetails extends ProvisioningApiUserDetails {
@@ -11479,175 +12119,177 @@ class _$ProvisioningApiUserDetails extends ProvisioningApiUserDetails {
 }
 
 class ProvisioningApiUserDetailsBuilder
-    implements Builder<ProvisioningApiUserDetails, ProvisioningApiUserDetailsBuilder> {
+    implements
+        Builder<ProvisioningApiUserDetails, ProvisioningApiUserDetailsBuilder>,
+        ProvisioningApiUserDetailsInterfaceBuilder {
   _$ProvisioningApiUserDetails? _$v;
 
   ListBuilder<String>? _additionalMail;
   ListBuilder<String> get additionalMail => _$this._additionalMail ??= ListBuilder<String>();
-  set additionalMail(ListBuilder<String>? additionalMail) => _$this._additionalMail = additionalMail;
+  set additionalMail(covariant ListBuilder<String>? additionalMail) => _$this._additionalMail = additionalMail;
 
   ListBuilder<String>? _additionalMailScope;
   ListBuilder<String> get additionalMailScope => _$this._additionalMailScope ??= ListBuilder<String>();
-  set additionalMailScope(ListBuilder<String>? additionalMailScope) =>
+  set additionalMailScope(covariant ListBuilder<String>? additionalMailScope) =>
       _$this._additionalMailScope = additionalMailScope;
 
   String? _address;
   String? get address => _$this._address;
-  set address(String? address) => _$this._address = address;
+  set address(covariant String? address) => _$this._address = address;
 
   String? _addressScope;
   String? get addressScope => _$this._addressScope;
-  set addressScope(String? addressScope) => _$this._addressScope = addressScope;
+  set addressScope(covariant String? addressScope) => _$this._addressScope = addressScope;
 
   String? _avatarScope;
   String? get avatarScope => _$this._avatarScope;
-  set avatarScope(String? avatarScope) => _$this._avatarScope = avatarScope;
+  set avatarScope(covariant String? avatarScope) => _$this._avatarScope = avatarScope;
 
   String? _backend;
   String? get backend => _$this._backend;
-  set backend(String? backend) => _$this._backend = backend;
+  set backend(covariant String? backend) => _$this._backend = backend;
 
   ProvisioningApiUserDetails_BackendCapabilitiesBuilder? _backendCapabilities;
   ProvisioningApiUserDetails_BackendCapabilitiesBuilder get backendCapabilities =>
       _$this._backendCapabilities ??= ProvisioningApiUserDetails_BackendCapabilitiesBuilder();
-  set backendCapabilities(ProvisioningApiUserDetails_BackendCapabilitiesBuilder? backendCapabilities) =>
+  set backendCapabilities(covariant ProvisioningApiUserDetails_BackendCapabilitiesBuilder? backendCapabilities) =>
       _$this._backendCapabilities = backendCapabilities;
 
   String? _biography;
   String? get biography => _$this._biography;
-  set biography(String? biography) => _$this._biography = biography;
+  set biography(covariant String? biography) => _$this._biography = biography;
 
   String? _biographyScope;
   String? get biographyScope => _$this._biographyScope;
-  set biographyScope(String? biographyScope) => _$this._biographyScope = biographyScope;
+  set biographyScope(covariant String? biographyScope) => _$this._biographyScope = biographyScope;
 
   String? _displayName;
   String? get displayName => _$this._displayName;
-  set displayName(String? displayName) => _$this._displayName = displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
 
   String? _displayname;
   String? get displayname => _$this._displayname;
-  set displayname(String? displayname) => _$this._displayname = displayname;
+  set displayname(covariant String? displayname) => _$this._displayname = displayname;
 
   String? _displaynameScope;
   String? get displaynameScope => _$this._displaynameScope;
-  set displaynameScope(String? displaynameScope) => _$this._displaynameScope = displaynameScope;
+  set displaynameScope(covariant String? displaynameScope) => _$this._displaynameScope = displaynameScope;
 
   String? _email;
   String? get email => _$this._email;
-  set email(String? email) => _$this._email = email;
+  set email(covariant String? email) => _$this._email = email;
 
   String? _emailScope;
   String? get emailScope => _$this._emailScope;
-  set emailScope(String? emailScope) => _$this._emailScope = emailScope;
+  set emailScope(covariant String? emailScope) => _$this._emailScope = emailScope;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   String? _fediverse;
   String? get fediverse => _$this._fediverse;
-  set fediverse(String? fediverse) => _$this._fediverse = fediverse;
+  set fediverse(covariant String? fediverse) => _$this._fediverse = fediverse;
 
   String? _fediverseScope;
   String? get fediverseScope => _$this._fediverseScope;
-  set fediverseScope(String? fediverseScope) => _$this._fediverseScope = fediverseScope;
+  set fediverseScope(covariant String? fediverseScope) => _$this._fediverseScope = fediverseScope;
 
   ListBuilder<String>? _groups;
   ListBuilder<String> get groups => _$this._groups ??= ListBuilder<String>();
-  set groups(ListBuilder<String>? groups) => _$this._groups = groups;
+  set groups(covariant ListBuilder<String>? groups) => _$this._groups = groups;
 
   String? _headline;
   String? get headline => _$this._headline;
-  set headline(String? headline) => _$this._headline = headline;
+  set headline(covariant String? headline) => _$this._headline = headline;
 
   String? _headlineScope;
   String? get headlineScope => _$this._headlineScope;
-  set headlineScope(String? headlineScope) => _$this._headlineScope = headlineScope;
+  set headlineScope(covariant String? headlineScope) => _$this._headlineScope = headlineScope;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _language;
   String? get language => _$this._language;
-  set language(String? language) => _$this._language = language;
+  set language(covariant String? language) => _$this._language = language;
 
   int? _lastLogin;
   int? get lastLogin => _$this._lastLogin;
-  set lastLogin(int? lastLogin) => _$this._lastLogin = lastLogin;
+  set lastLogin(covariant int? lastLogin) => _$this._lastLogin = lastLogin;
 
   String? _locale;
   String? get locale => _$this._locale;
-  set locale(String? locale) => _$this._locale = locale;
+  set locale(covariant String? locale) => _$this._locale = locale;
 
   String? _manager;
   String? get manager => _$this._manager;
-  set manager(String? manager) => _$this._manager = manager;
+  set manager(covariant String? manager) => _$this._manager = manager;
 
   String? _notifyEmail;
   String? get notifyEmail => _$this._notifyEmail;
-  set notifyEmail(String? notifyEmail) => _$this._notifyEmail = notifyEmail;
+  set notifyEmail(covariant String? notifyEmail) => _$this._notifyEmail = notifyEmail;
 
   String? _organisation;
   String? get organisation => _$this._organisation;
-  set organisation(String? organisation) => _$this._organisation = organisation;
+  set organisation(covariant String? organisation) => _$this._organisation = organisation;
 
   String? _organisationScope;
   String? get organisationScope => _$this._organisationScope;
-  set organisationScope(String? organisationScope) => _$this._organisationScope = organisationScope;
+  set organisationScope(covariant String? organisationScope) => _$this._organisationScope = organisationScope;
 
   String? _phone;
   String? get phone => _$this._phone;
-  set phone(String? phone) => _$this._phone = phone;
+  set phone(covariant String? phone) => _$this._phone = phone;
 
   String? _phoneScope;
   String? get phoneScope => _$this._phoneScope;
-  set phoneScope(String? phoneScope) => _$this._phoneScope = phoneScope;
+  set phoneScope(covariant String? phoneScope) => _$this._phoneScope = phoneScope;
 
   String? _profileEnabled;
   String? get profileEnabled => _$this._profileEnabled;
-  set profileEnabled(String? profileEnabled) => _$this._profileEnabled = profileEnabled;
+  set profileEnabled(covariant String? profileEnabled) => _$this._profileEnabled = profileEnabled;
 
   String? _profileEnabledScope;
   String? get profileEnabledScope => _$this._profileEnabledScope;
-  set profileEnabledScope(String? profileEnabledScope) => _$this._profileEnabledScope = profileEnabledScope;
+  set profileEnabledScope(covariant String? profileEnabledScope) => _$this._profileEnabledScope = profileEnabledScope;
 
   ProvisioningApiUserDetailsQuotaBuilder? _quota;
   ProvisioningApiUserDetailsQuotaBuilder get quota => _$this._quota ??= ProvisioningApiUserDetailsQuotaBuilder();
-  set quota(ProvisioningApiUserDetailsQuotaBuilder? quota) => _$this._quota = quota;
+  set quota(covariant ProvisioningApiUserDetailsQuotaBuilder? quota) => _$this._quota = quota;
 
   String? _role;
   String? get role => _$this._role;
-  set role(String? role) => _$this._role = role;
+  set role(covariant String? role) => _$this._role = role;
 
   String? _roleScope;
   String? get roleScope => _$this._roleScope;
-  set roleScope(String? roleScope) => _$this._roleScope = roleScope;
+  set roleScope(covariant String? roleScope) => _$this._roleScope = roleScope;
 
   String? _storageLocation;
   String? get storageLocation => _$this._storageLocation;
-  set storageLocation(String? storageLocation) => _$this._storageLocation = storageLocation;
+  set storageLocation(covariant String? storageLocation) => _$this._storageLocation = storageLocation;
 
   ListBuilder<String>? _subadmin;
   ListBuilder<String> get subadmin => _$this._subadmin ??= ListBuilder<String>();
-  set subadmin(ListBuilder<String>? subadmin) => _$this._subadmin = subadmin;
+  set subadmin(covariant ListBuilder<String>? subadmin) => _$this._subadmin = subadmin;
 
   String? _twitter;
   String? get twitter => _$this._twitter;
-  set twitter(String? twitter) => _$this._twitter = twitter;
+  set twitter(covariant String? twitter) => _$this._twitter = twitter;
 
   String? _twitterScope;
   String? get twitterScope => _$this._twitterScope;
-  set twitterScope(String? twitterScope) => _$this._twitterScope = twitterScope;
+  set twitterScope(covariant String? twitterScope) => _$this._twitterScope = twitterScope;
 
   String? _website;
   String? get website => _$this._website;
-  set website(String? website) => _$this._website = website;
+  set website(covariant String? website) => _$this._website = website;
 
   String? _websiteScope;
   String? get websiteScope => _$this._websiteScope;
-  set websiteScope(String? websiteScope) => _$this._websiteScope = websiteScope;
+  set websiteScope(covariant String? websiteScope) => _$this._websiteScope = websiteScope;
 
   ProvisioningApiUserDetailsBuilder();
 
@@ -11701,7 +12343,7 @@ class ProvisioningApiUserDetailsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUserDetails other) {
+  void replace(covariant ProvisioningApiUserDetails other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUserDetails;
   }
@@ -11793,6 +12435,15 @@ class ProvisioningApiUserDetailsBuilder
   }
 }
 
+abstract mixin class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder)
+          updates);
+  String? get id;
+  set id(String? id);
+}
+
 class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1
     extends ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1 {
   @override
@@ -11847,12 +12498,13 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_
 class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1,
-            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder> {
+            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder>,
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder();
 
@@ -11866,7 +12518,7 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Da
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1 other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1 other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1;
   }
@@ -12042,6 +12694,16 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Da
   }
 }
 
+abstract mixin class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
+          updates);
+  MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
+  set users(
+      MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>? users);
+}
+
 class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data
     extends ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data {
   @override
@@ -12092,7 +12754,8 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_
 class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>? _users;
@@ -12100,7 +12763,8 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Da
       _$this._users ??=
           MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>();
   set users(
-          MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>?
+          covariant MapBuilder<String,
+                  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>?
               users) =>
       _$this._users = users;
 
@@ -12116,7 +12780,7 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Da
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data;
   }
@@ -12151,6 +12815,17 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Da
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs
@@ -12210,17 +12885,18 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder();
@@ -12236,7 +12912,7 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBui
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs;
   }
@@ -12271,6 +12947,14 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBui
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson
@@ -12321,13 +13005,15 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson
 class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson,
-            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder();
 
@@ -12341,7 +13027,7 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson;
   }
@@ -12372,6 +13058,17 @@ class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs
@@ -12431,16 +13128,17 @@ class _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -12455,7 +13153,7 @@ class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs;
   }
@@ -12490,6 +13188,14 @@ class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson
@@ -12540,13 +13246,15 @@ class _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson
 class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson,
-            ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder();
 
@@ -12560,7 +13268,7 @@ class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson;
   }
@@ -12591,6 +13299,13 @@ class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get users;
+  set users(ListBuilder<String>? users);
 }
 
 class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data
@@ -12641,12 +13356,13 @@ class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _users;
   ListBuilder<String> get users => _$this._users ??= ListBuilder<String>();
-  set users(ListBuilder<String>? users) => _$this._users = users;
+  set users(covariant ListBuilder<String>? users) => _$this._users = users;
 
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -12660,7 +13376,7 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data;
   }
@@ -12691,6 +13407,16 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs
@@ -12748,17 +13474,19 @@ class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -12773,7 +13501,7 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs;
   }
@@ -12807,6 +13535,13 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson
@@ -12855,13 +13590,14 @@ class _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson
 class ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsGetGroupResponse200ApplicationJson,
-            ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder();
 
@@ -12875,7 +13611,7 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsGetGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsGetGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson;
   }
@@ -12906,6 +13642,16 @@ class ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs
@@ -12965,16 +13711,17 @@ class _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -12989,7 +13736,7 @@ class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs;
   }
@@ -13024,6 +13771,13 @@ class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson
@@ -13072,13 +13826,14 @@ class _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson
 class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson,
-            ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder();
 
@@ -13092,7 +13847,7 @@ class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson;
   }
@@ -13123,6 +13878,16 @@ class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs
@@ -13182,16 +13947,17 @@ class _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -13206,7 +13972,7 @@ class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs;
   }
@@ -13241,6 +14007,13 @@ class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson
@@ -13289,13 +14062,14 @@ class _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson
 class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson,
-            ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder();
 
@@ -13309,7 +14083,7 @@ class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson;
   }
@@ -13340,6 +14114,17 @@ class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs
@@ -13399,16 +14184,17 @@ class _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs
 class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs,
-            ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder();
 
@@ -13423,7 +14209,7 @@ class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuild
   }
 
   @override
-  void replace(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs;
   }
@@ -13458,6 +14244,13 @@ class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuild
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
@@ -13508,13 +14301,15 @@ class _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
 class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson,
-            ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder> {
+            ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder>,
+        ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson? _$v;
 
   ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder();
 
@@ -13528,7 +14323,7 @@ class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson;
   }
@@ -13559,6 +14354,17 @@ class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs
@@ -13618,16 +14424,17 @@ class _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs
 class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs,
-            ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder();
 
@@ -13642,7 +14449,7 @@ class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBu
   }
 
   @override
-  void replace(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs;
   }
@@ -13677,6 +14484,14 @@ class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson
@@ -13727,13 +14542,15 @@ class _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson
 class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson,
-            ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder> {
+            ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder>,
+        ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson? _$v;
 
   ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder();
 
@@ -13747,7 +14564,7 @@ class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilde
   }
 
   @override
-  void replace(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson;
   }
@@ -13778,6 +14595,18 @@ class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs
@@ -13842,16 +14671,17 @@ class _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJs
 class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs,
-            ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder();
 
@@ -13866,7 +14696,7 @@ class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
   }
 
   @override
-  void replace(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs;
   }
@@ -13904,6 +14734,15 @@ class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterfaceBuilder)
+          updates);
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
@@ -13955,13 +14794,14 @@ class _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJs
 class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson,
-            ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder> {
+            ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder>,
+        ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson? _$v;
 
   ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder? ocs) =>
+  set ocs(covariant ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
   ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder();
@@ -13976,7 +14816,7 @@ class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
   }
 
   @override
-  void replace(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson;
   }
@@ -14009,6 +14849,18 @@ class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs
@@ -14073,16 +14925,17 @@ class _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Application
 class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs,
-            ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder();
 
@@ -14097,7 +14950,7 @@ class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJs
   }
 
   @override
-  void replace(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs;
   }
@@ -14135,6 +14988,15 @@ class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterfaceBuilder)
+          updates);
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson
@@ -14186,13 +15048,14 @@ class _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Application
 class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson,
-            ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder> {
+            ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder>,
+        ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson? _$v;
 
   ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  set ocs(covariant ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
   ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder();
@@ -14207,7 +15070,7 @@ class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJs
   }
 
   @override
-  void replace(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson;
   }
@@ -14242,6 +15105,13 @@ class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get users;
+  set users(ListBuilder<String>? users);
 }
 
 class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data
@@ -14292,12 +15162,13 @@ class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _users;
   ListBuilder<String> get users => _$this._users ??= ListBuilder<String>();
-  set users(ListBuilder<String>? users) => _$this._users = users;
+  set users(covariant ListBuilder<String>? users) => _$this._users = users;
 
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -14311,7 +15182,7 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data;
   }
@@ -14342,6 +15213,16 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs
@@ -14398,17 +15279,19 @@ class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder();
 
@@ -14423,7 +15306,7 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs;
   }
@@ -14457,6 +15340,13 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson
@@ -14505,13 +15395,14 @@ class _$ProvisioningApiUsersGetUsersResponse200ApplicationJson
 class ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersResponse200ApplicationJson,
-            ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder();
 
@@ -14525,7 +15416,7 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetUsersResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersResponse200ApplicationJson;
   }
@@ -14556,6 +15447,13 @@ class ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
 }
 
 class _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data
@@ -14605,12 +15503,13 @@ class _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -14624,7 +15523,7 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data;
   }
@@ -14645,6 +15544,16 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs
@@ -14701,17 +15610,19 @@ class _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder();
 
@@ -14726,7 +15637,7 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs;
   }
@@ -14760,6 +15671,13 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersAddUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersAddUserResponse200ApplicationJson
@@ -14808,13 +15726,14 @@ class _$ProvisioningApiUsersAddUserResponse200ApplicationJson
 class ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersAddUserResponse200ApplicationJson,
-            ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersAddUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersAddUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder();
 
@@ -14828,7 +15747,7 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersAddUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddUserResponse200ApplicationJson;
   }
@@ -14859,6 +15778,15 @@ class ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface other);
+  void update(
+      void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder)
+          updates);
+  String? get id;
+  set id(String? id);
 }
 
 class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1
@@ -14913,12 +15841,13 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_U
 class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder
     implements
         Builder<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1,
-            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder> {
+            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder>,
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder {
   _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder();
 
@@ -14932,7 +15861,7 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Use
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1 other) {
+  void replace(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1 other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1;
   }
@@ -15103,6 +16032,14 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Use
   }
 }
 
+abstract mixin class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
+  set users(MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>? users);
+}
+
 class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data
     extends ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data {
   @override
@@ -15151,14 +16088,17 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>? _users;
   MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users =>
       _$this._users ??=
           MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>();
-  set users(MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>? users) =>
+  set users(
+          covariant MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>?
+              users) =>
       _$this._users = users;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder();
@@ -15173,7 +16113,7 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuil
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data;
   }
@@ -15205,6 +16145,16 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
@@ -15264,17 +16214,19 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder();
 
@@ -15289,7 +16241,7 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs;
   }
@@ -15323,6 +16275,13 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson
@@ -15372,13 +16331,14 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson
 class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson,
-            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder();
 
@@ -15392,7 +16352,7 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson;
   }
@@ -15423,6 +16383,17 @@ class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  MapBuilder<String, String> get data;
+  set data(MapBuilder<String, String>? data);
 }
 
 class _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs
@@ -15482,16 +16453,17 @@ class _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, String>? _data;
   MapBuilder<String, String> get data => _$this._data ??= MapBuilder<String, String>();
-  set data(MapBuilder<String, String>? data) => _$this._data = data;
+  set data(covariant MapBuilder<String, String>? data) => _$this._data = data;
 
   ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder();
 
@@ -15506,7 +16478,7 @@ class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs;
   }
@@ -15541,6 +16513,14 @@ class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson
@@ -15591,13 +16571,15 @@ class _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson
 class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson,
-            ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder();
 
@@ -15611,7 +16593,7 @@ class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson;
   }
@@ -15642,6 +16624,16 @@ class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUserDetailsBuilder get data;
+  set data(ProvisioningApiUserDetailsBuilder? data);
 }
 
 class _$ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs
@@ -15698,16 +16690,17 @@ class _$ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUserDetailsBuilder? _data;
   ProvisioningApiUserDetailsBuilder get data => _$this._data ??= ProvisioningApiUserDetailsBuilder();
-  set data(ProvisioningApiUserDetailsBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUserDetailsBuilder? data) => _$this._data = data;
 
   ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder();
 
@@ -15722,7 +16715,7 @@ class ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs;
   }
@@ -15756,6 +16749,13 @@ class ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetUserResponse200ApplicationJson
@@ -15804,13 +16804,14 @@ class _$ProvisioningApiUsersGetUserResponse200ApplicationJson
 class ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetUserResponse200ApplicationJson,
-            ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder();
 
@@ -15824,7 +16825,7 @@ class ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUserResponse200ApplicationJson;
   }
@@ -15855,6 +16856,16 @@ class ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs
@@ -15911,16 +16922,17 @@ class _$ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder();
 
@@ -15935,7 +16947,7 @@ class ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs;
   }
@@ -15970,6 +16982,13 @@ class ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEditUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersEditUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersEditUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersEditUserResponse200ApplicationJson
@@ -16018,13 +17037,14 @@ class _$ProvisioningApiUsersEditUserResponse200ApplicationJson
 class ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersEditUserResponse200ApplicationJson,
-            ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersEditUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersEditUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder();
 
@@ -16038,7 +17058,7 @@ class ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersEditUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersEditUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEditUserResponse200ApplicationJson;
   }
@@ -16069,6 +17089,16 @@ class ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs
@@ -16128,16 +17158,17 @@ class _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder();
 
@@ -16152,7 +17183,7 @@ class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs;
   }
@@ -16187,6 +17218,13 @@ class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson
@@ -16235,13 +17273,14 @@ class _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson
 class ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersDeleteUserResponse200ApplicationJson,
-            ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder();
 
@@ -16255,7 +17294,7 @@ class ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersDeleteUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersDeleteUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson;
   }
@@ -16286,6 +17325,16 @@ class ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUserDetailsBuilder get data;
+  set data(ProvisioningApiUserDetailsBuilder? data);
 }
 
 class _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs
@@ -16345,16 +17394,17 @@ class _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUserDetailsBuilder? _data;
   ProvisioningApiUserDetailsBuilder get data => _$this._data ??= ProvisioningApiUserDetailsBuilder();
-  set data(ProvisioningApiUserDetailsBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUserDetailsBuilder? data) => _$this._data = data;
 
   ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder();
 
@@ -16369,7 +17419,7 @@ class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs;
   }
@@ -16403,6 +17453,13 @@ class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson
@@ -16452,13 +17509,14 @@ class _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson
 class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson,
-            ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder();
 
@@ -16472,7 +17530,7 @@ class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson;
   }
@@ -16503,6 +17561,17 @@ class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs
@@ -16562,16 +17631,17 @@ class _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder();
 
@@ -16586,7 +17656,7 @@ class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs;
   }
@@ -16621,6 +17691,13 @@ class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson
@@ -16671,13 +17748,15 @@ class _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson
 class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson,
-            ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder();
 
@@ -16691,7 +17770,7 @@ class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson;
   }
@@ -16722,6 +17801,18 @@ class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs
@@ -16783,16 +17874,17 @@ class _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_O
 class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder();
 
@@ -16807,7 +17899,7 @@ class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs
   }
 
   @override
-  void replace(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs;
   }
@@ -16843,6 +17935,14 @@ class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson
@@ -16893,13 +17993,15 @@ class _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson
 class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson,
-            ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder();
 
@@ -16913,7 +18015,7 @@ class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuil
   }
 
   @override
-  void replace(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson;
   }
@@ -16944,6 +18046,17 @@ class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs
@@ -17003,16 +18116,17 @@ class _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder();
 
@@ -17027,7 +18141,7 @@ class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilde
   }
 
   @override
-  void replace(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs;
   }
@@ -17062,6 +18176,13 @@ class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson
@@ -17112,13 +18233,15 @@ class _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson
 class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson,
-            ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder();
 
@@ -17132,7 +18255,7 @@ class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson;
   }
@@ -17163,6 +18286,16 @@ class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs
@@ -17222,16 +18355,17 @@ class _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder();
 
@@ -17246,7 +18380,7 @@ class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs;
   }
@@ -17281,6 +18415,13 @@ class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson
@@ -17330,13 +18471,14 @@ class _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson
 class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson,
-            ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder();
 
@@ -17350,7 +18492,7 @@ class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson;
   }
@@ -17381,6 +18523,16 @@ class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs
@@ -17440,16 +18592,17 @@ class _$ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder();
 
@@ -17464,7 +18617,7 @@ class ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs;
   }
@@ -17499,6 +18652,13 @@ class ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersEnableUserResponse200ApplicationJson
@@ -17547,13 +18707,14 @@ class _$ProvisioningApiUsersEnableUserResponse200ApplicationJson
 class ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersEnableUserResponse200ApplicationJson,
-            ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersEnableUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder();
 
@@ -17567,7 +18728,7 @@ class ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersEnableUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersEnableUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersEnableUserResponse200ApplicationJson;
   }
@@ -17598,6 +18759,16 @@ class ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs
@@ -17657,16 +18828,17 @@ class _$ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder();
 
@@ -17681,7 +18853,7 @@ class ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs;
   }
@@ -17716,6 +18888,13 @@ class ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersDisableUserResponse200ApplicationJson
@@ -17764,13 +18943,14 @@ class _$ProvisioningApiUsersDisableUserResponse200ApplicationJson
 class ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersDisableUserResponse200ApplicationJson,
-            ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersDisableUserResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder();
 
@@ -17784,7 +18964,7 @@ class ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersDisableUserResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersDisableUserResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersDisableUserResponse200ApplicationJson;
   }
@@ -17815,6 +18995,14 @@ class ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get groups;
+  set groups(ListBuilder<String>? groups);
 }
 
 class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data
@@ -17865,12 +19053,13 @@ class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data
 class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data,
-            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder> {
+            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder>,
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _groups;
   ListBuilder<String> get groups => _$this._groups ??= ListBuilder<String>();
-  set groups(ListBuilder<String>? groups) => _$this._groups = groups;
+  set groups(covariant ListBuilder<String>? groups) => _$this._groups = groups;
 
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -17884,7 +19073,7 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuild
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data;
   }
@@ -17916,6 +19105,16 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuild
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs
@@ -17975,17 +19174,19 @@ class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder? _data;
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder();
 
@@ -18000,7 +19201,7 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs;
   }
@@ -18034,6 +19235,13 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson
@@ -18083,13 +19291,14 @@ class _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson
 class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson,
-            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder();
 
@@ -18103,7 +19312,7 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson;
   }
@@ -18134,6 +19343,16 @@ class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs
@@ -18193,16 +19412,17 @@ class _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -18217,7 +19437,7 @@ class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs;
   }
@@ -18252,6 +19472,13 @@ class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson
@@ -18300,13 +19527,14 @@ class _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson
 class ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersAddToGroupResponse200ApplicationJson,
-            ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder();
 
@@ -18320,7 +19548,7 @@ class ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddToGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersAddToGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson;
   }
@@ -18351,6 +19579,16 @@ class ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs
@@ -18410,16 +19648,17 @@ class _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder();
 
@@ -18434,7 +19673,7 @@ class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs;
   }
@@ -18469,6 +19708,13 @@ class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson
@@ -18518,13 +19764,14 @@ class _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson
 class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson,
-            ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder();
 
@@ -18538,7 +19785,7 @@ class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson;
   }
@@ -18569,6 +19816,17 @@ class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs
@@ -18628,16 +19886,17 @@ class _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder();
 
@@ -18652,7 +19911,7 @@ class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBui
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs;
   }
@@ -18687,6 +19946,14 @@ class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBui
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson
@@ -18737,13 +20004,15 @@ class _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson
 class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson,
-            ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder();
 
@@ -18757,7 +20026,7 @@ class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson;
   }
@@ -18788,6 +20057,16 @@ class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs
@@ -18847,16 +20126,17 @@ class _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder();
 
@@ -18871,7 +20151,7 @@ class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs;
   }
@@ -18906,6 +20186,13 @@ class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson
@@ -18954,13 +20241,14 @@ class _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson
 class ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson,
-            ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder();
 
@@ -18974,7 +20262,7 @@ class ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersAddSubAdminResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson;
   }
@@ -19005,6 +20293,16 @@ class ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs
@@ -19064,16 +20362,17 @@ class _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder();
 
@@ -19088,7 +20387,7 @@ class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs;
   }
@@ -19123,6 +20422,13 @@ class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterface other);
+  void update(void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson
@@ -19172,13 +20478,14 @@ class _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson
 class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson,
-            ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder();
 
@@ -19192,7 +20499,7 @@ class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson;
   }
@@ -19223,6 +20530,17 @@ class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaBuilder get meta;
+  set meta(ProvisioningApiOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs
@@ -19282,16 +20600,17 @@ class _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs
 class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder
     implements
         Builder<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs,
-            ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder> {
+            ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder>,
+        ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterfaceBuilder {
   _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs? _$v;
 
   ProvisioningApiOCSMetaBuilder? _meta;
   ProvisioningApiOCSMetaBuilder get meta => _$this._meta ??= ProvisioningApiOCSMetaBuilder();
-  set meta(ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant ProvisioningApiOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder();
 
@@ -19306,7 +20625,7 @@ class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs other) {
+  void replace(covariant ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs;
   }
@@ -19341,6 +20660,14 @@ class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterfaceBuilder {
+  void replace(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterfaceBuilder) updates);
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson
@@ -19391,13 +20718,15 @@ class _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson
 class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder
     implements
         Builder<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson,
-            ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder> {
+            ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder>,
+        ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterfaceBuilder {
   _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson? _$v;
 
   ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder? _ocs;
   ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder();
-  set ocs(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder();
 
@@ -19411,7 +20740,7 @@ class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson other) {
+  void replace(covariant ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson;
   }
@@ -19442,6 +20771,22 @@ class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder {
+  void replace(ProvisioningApiCapabilities_ProvisioningApiInterface other);
+  void update(void Function(ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates);
+  String? get version;
+  set version(String? version);
+
+  int? get accountPropertyScopesVersion;
+  set accountPropertyScopesVersion(int? accountPropertyScopesVersion);
+
+  bool? get accountPropertyScopesFederatedEnabled;
+  set accountPropertyScopesFederatedEnabled(bool? accountPropertyScopesFederatedEnabled);
+
+  bool? get accountPropertyScopesPublishedEnabled;
+  set accountPropertyScopesPublishedEnabled(bool? accountPropertyScopesPublishedEnabled);
 }
 
 class _$ProvisioningApiCapabilities_ProvisioningApi extends ProvisioningApiCapabilities_ProvisioningApi {
@@ -19516,26 +20861,27 @@ class _$ProvisioningApiCapabilities_ProvisioningApi extends ProvisioningApiCapab
 
 class ProvisioningApiCapabilities_ProvisioningApiBuilder
     implements
-        Builder<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder> {
+        Builder<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder>,
+        ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder {
   _$ProvisioningApiCapabilities_ProvisioningApi? _$v;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   int? _accountPropertyScopesVersion;
   int? get accountPropertyScopesVersion => _$this._accountPropertyScopesVersion;
-  set accountPropertyScopesVersion(int? accountPropertyScopesVersion) =>
+  set accountPropertyScopesVersion(covariant int? accountPropertyScopesVersion) =>
       _$this._accountPropertyScopesVersion = accountPropertyScopesVersion;
 
   bool? _accountPropertyScopesFederatedEnabled;
   bool? get accountPropertyScopesFederatedEnabled => _$this._accountPropertyScopesFederatedEnabled;
-  set accountPropertyScopesFederatedEnabled(bool? accountPropertyScopesFederatedEnabled) =>
+  set accountPropertyScopesFederatedEnabled(covariant bool? accountPropertyScopesFederatedEnabled) =>
       _$this._accountPropertyScopesFederatedEnabled = accountPropertyScopesFederatedEnabled;
 
   bool? _accountPropertyScopesPublishedEnabled;
   bool? get accountPropertyScopesPublishedEnabled => _$this._accountPropertyScopesPublishedEnabled;
-  set accountPropertyScopesPublishedEnabled(bool? accountPropertyScopesPublishedEnabled) =>
+  set accountPropertyScopesPublishedEnabled(covariant bool? accountPropertyScopesPublishedEnabled) =>
       _$this._accountPropertyScopesPublishedEnabled = accountPropertyScopesPublishedEnabled;
 
   ProvisioningApiCapabilities_ProvisioningApiBuilder();
@@ -19553,7 +20899,7 @@ class ProvisioningApiCapabilities_ProvisioningApiBuilder
   }
 
   @override
-  void replace(ProvisioningApiCapabilities_ProvisioningApi other) {
+  void replace(covariant ProvisioningApiCapabilities_ProvisioningApi other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiCapabilities_ProvisioningApi;
   }
@@ -19584,6 +20930,13 @@ class ProvisioningApiCapabilities_ProvisioningApiBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class ProvisioningApiCapabilitiesInterfaceBuilder {
+  void replace(ProvisioningApiCapabilitiesInterface other);
+  void update(void Function(ProvisioningApiCapabilitiesInterfaceBuilder) updates);
+  ProvisioningApiCapabilities_ProvisioningApiBuilder get provisioningApi;
+  set provisioningApi(ProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi);
 }
 
 class _$ProvisioningApiCapabilities extends ProvisioningApiCapabilities {
@@ -19626,13 +20979,15 @@ class _$ProvisioningApiCapabilities extends ProvisioningApiCapabilities {
 }
 
 class ProvisioningApiCapabilitiesBuilder
-    implements Builder<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
+    implements
+        Builder<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder>,
+        ProvisioningApiCapabilitiesInterfaceBuilder {
   _$ProvisioningApiCapabilities? _$v;
 
   ProvisioningApiCapabilities_ProvisioningApiBuilder? _provisioningApi;
   ProvisioningApiCapabilities_ProvisioningApiBuilder get provisioningApi =>
       _$this._provisioningApi ??= ProvisioningApiCapabilities_ProvisioningApiBuilder();
-  set provisioningApi(ProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi) =>
+  set provisioningApi(covariant ProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi) =>
       _$this._provisioningApi = provisioningApi;
 
   ProvisioningApiCapabilitiesBuilder();
@@ -19647,7 +21002,7 @@ class ProvisioningApiCapabilitiesBuilder
   }
 
   @override
-  void replace(ProvisioningApiCapabilities other) {
+  void replace(covariant ProvisioningApiCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProvisioningApiCapabilities;
   }
