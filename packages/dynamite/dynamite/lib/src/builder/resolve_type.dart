@@ -30,6 +30,14 @@ TypeResult resolveType(
       spec.components!.schemas![name]!,
       nullable: nullable,
     );
+  } else if (schema.allOf != null) {
+    result = resolveAllOf(
+      spec,
+      state,
+      identifier,
+      schema,
+      nullable: nullable,
+    );
   } else if (schema.ofs != null) {
     result = resolveOfs(
       spec,

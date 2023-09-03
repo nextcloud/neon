@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
+import 'package:dynamite/src/builder/resolve_interface.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
@@ -8,6 +9,61 @@ import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
 
+TypeResult resolveAllOf(
+  final OpenAPI spec,
+  final State state,
+  final String identifier,
+  final Schema schema, {
+  final bool nullable = false,
+}) {
+  final result = TypeResultObject(
+    '${state.classPrefix}$identifier',
+    nullable: nullable,
+  );
+
+  if (state.resolvedTypes.add(result)) {
+    final interfaces = <TypeResultObject>{};
+
+    for (final s in schema.allOf!) {
+      final TypeResultObject interfaceClass;
+      if (s.ref != null) {
+        final object = resolveType(
+          spec,
+          state,
+          identifier,
+          s,
+          nullable: nullable,
+        );
+
+        if (object is! TypeResultObject) {
+          throw StateError('allOf does only allow objects. Please change $identifier');
+        }
+
+        interfaceClass = object;
+      } else {
+        final interfaceName = schema.ofs!.length == 1 ? identifier : '${identifier}_${schema.allOf!.indexOf(s)}';
+
+        interfaceClass = resolveInterface(
+          spec,
+          state,
+          interfaceName,
+          s,
+        );
+      }
+
+      interfaces.add(interfaceClass);
+    }
+
+    state.output.add(
+      buildBuiltClass(
+        '${state.classPrefix}$identifier',
+        interfaces: interfaces,
+      ),
+    );
+  }
+  return result;
+}
+
 TypeResult resolveOfs(
   final OpenAPI spec,
   final State state,
@@ -15,6 +71,10 @@ TypeResult resolveOfs(
   final Schema schema, {
   final bool nullable = false,
 }) {
+  if (schema.allOf != null) {
+    throw StateError('allOf should be handled with inheritance');
+  }
+
   final result = TypeResultObject(
     '${state.classPrefix}$identifier',
     nullable: nullable,
@@ -28,7 +88,7 @@ TypeResult resolveOfs(
             state,
             '$identifier${schema.ofs!.indexOf(s)}',
             s,
-            nullable: !(schema.allOf?.contains(s) ?? false),
+            nullable: true,
           ),
         )
         .toList();
@@ -42,7 +102,7 @@ TypeResult resolveOfs(
     state.output.addAll([
       buildBuiltClass(
         '${state.classPrefix}$identifier',
-        BuiltList.build((final b) {
+        methods: BuiltList.build((final b) {
           b.add(
             Method(
               (final b) {
@@ -152,69 +212,59 @@ TypeResult resolveOfs(
                   <String>[
                     'final result = new ${state.classPrefix}${identifier}Builder()',
                     '..data = JsonObject(data);',
-                    if (schema.allOf != null) ...[
-                      for (final result in results) ...[
-                        if (result is TypeResultBase || result is TypeResultEnum) ...[
-                          'result.${fields[result.name]!} = ${result.deserialize('data')};',
-                        ] else ...[
-                          'result.${fields[result.name]!}.replace(${result.deserialize('data')});',
-                        ],
-                      ],
-                    ] else ...[
+                    if (schema.discriminator != null) ...[
+                      'if (data is! Iterable) {',
+                      r"throw StateError('Expected an Iterable but got ${data.runtimeType}');",
+                      '}',
+                      '',
+                      'String? discriminator;',
+                      '',
+                      'final iterator = data.iterator;',
+                      'while (iterator.moveNext()) {',
+                      'final key = iterator.current! as String;',
+                      'iterator.moveNext();',
+                      'final Object? value = iterator.current;',
+                      "if (key == '${schema.discriminator!.propertyName}') {",
+                      'discriminator = value! as String;',
+                      'break;',
+                      '}',
+                      '}',
+                    ],
+                    for (final result in results) ...[
                       if (schema.discriminator != null) ...[
-                        'if (data is! Iterable) {',
-                        r"throw StateError('Expected an Iterable but got ${data.runtimeType}');",
-                        '}',
-                        '',
-                        'String? discriminator;',
-                        '',
-                        'final iterator = data.iterator;',
-                        'while (iterator.moveNext()) {',
-                        'final key = iterator.current! as String;',
-                        'iterator.moveNext();',
-                        'final Object? value = iterator.current;',
-                        "if (key == '${schema.discriminator!.propertyName}') {",
-                        'discriminator = value! as String;',
-                        'break;',
-                        '}',
-                        '}',
-                      ],
-                      for (final result in results) ...[
-                        if (schema.discriminator != null) ...[
-                          "if (discriminator == '${result.name.replaceFirst(state.classPrefix, '')}'",
-                          if (schema.discriminator!.mapping != null && schema.discriminator!.mapping!.isNotEmpty) ...[
-                            for (final key in schema.discriminator!.mapping!.entries
-                                .where(
-                                  (final entry) =>
-                                      entry.value.endsWith('/${result.name.replaceFirst(state.classPrefix, '')}'),
-                                )
-                                .map((final entry) => entry.key)) ...[
-                              " ||  discriminator == '$key'",
-                            ],
-                            ') {',
+                        "if (discriminator == '${result.name.replaceFirst(state.classPrefix, '')}'",
+                        if (schema.discriminator!.mapping != null && schema.discriminator!.mapping!.isNotEmpty) ...[
+                          for (final key in schema.discriminator!.mapping!.entries
+                              .where(
+                                (final entry) =>
+                                    entry.value.endsWith('/${result.name.replaceFirst(state.classPrefix, '')}'),
+                              )
+                              .map((final entry) => entry.key)) ...[
+                            " ||  discriminator == '$key'",
                           ],
+                          ') {',
                         ],
-                        'try {',
-                        if (result is TypeResultBase || result is TypeResultEnum) ...[
-                          'result._${fields[result.name]!} = ${result.deserialize('data')};',
-                        ] else ...[
-                          'result._${fields[result.name]!} = ${result.deserialize('data')}.toBuilder();',
-                        ],
-                        '} catch (_) {',
-                        if (schema.discriminator != null) ...[
-                          'rethrow;',
-                        ],
+                      ],
+                      'try {',
+                      if (result is TypeResultBase || result is TypeResultEnum) ...[
+                        'result._${fields[result.name]!} = ${result.deserialize('data')};',
+                      ] else ...[
+                        'result._${fields[result.name]!} = ${result.deserialize('data')}.toBuilder();',
+                      ],
+                      '} catch (_) {',
+                      if (schema.discriminator != null) ...[
+                        'rethrow;',
+                      ],
+                      '}',
+                      if (schema.discriminator != null) ...[
                         '}',
-                        if (schema.discriminator != null) ...[
-                          '}',
-                        ],
                       ],
-                      if (schema.oneOf != null) ...[
-                        "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \${result._data}');",
-                      ],
-                      if (schema.anyOf != null) ...[
-                        "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need anyOf for \${result._data}');",
-                      ],
+                    ],
+                    if (schema.oneOf != null) ...[
+                      "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \${result._data}');",
+                    ],
+                    if (schema.anyOf != null) ...[
+                      "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need anyOf for \${result._data}');",
                     ],
                     'return result.build();',
                   ].join(),

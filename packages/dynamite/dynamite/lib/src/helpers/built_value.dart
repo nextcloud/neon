@@ -1,65 +1,73 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/type_result/type_result.dart';
+
+const interfaceSuffix = 'Interface';
 
 Spec buildBuiltClass(
-  final String className,
-  final BuiltList<Method> methods, {
+  final String className, {
+  final BuiltList<Method>? methods,
   final Iterable<String>? defaults,
+  final Iterable<TypeResultObject>? interfaces,
   final bool customSerializer = false,
-}) =>
-    Class(
-      (final b) {
-        b
-          ..name = className
-          ..abstract = true
-          ..implements.add(
-            refer(
-              'Built<$className, ${className}Builder>',
-            ),
-          )
-          ..constructors.addAll([
-            builtValueConstructor(className),
-            hiddenConstructor,
-            fromJsonConstructor,
-          ])
-          ..methods.addAll([
-            toJsonMethod,
-            ...methods,
-            buildSerializer(className, isCustom: customSerializer),
-          ]);
+}) {
+  assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
 
-        if (defaults != null && defaults.isNotEmpty) {
-          b.methods.add(
-            Method(
-              (final b) => b
-                ..name = '_defaults'
-                ..returns = refer('void')
-                ..static = true
-                ..lambda = true
-                ..annotations.add(
-                  refer('BuiltValueHook').call([], {
-                    'initializeBuilder': literalTrue,
-                  }),
-                )
-                ..requiredParameters.add(
-                  Parameter(
-                    (final b) => b
-                      ..name = 'b'
-                      ..type = refer('${className}Builder'),
-                  ),
-                )
-                ..body = Code(
-                  <String?>[
-                    'b',
-                    ...defaults,
-                  ].join(),
+  return Class(
+    (final b) {
+      b
+        ..name = className
+        ..abstract = true
+        ..implements.addAll([
+          ...?interfaces?.map((final i) => refer('${i.name}$interfaceSuffix')),
+          refer(
+            'Built<$className, ${className}Builder>',
+          ),
+        ])
+        ..constructors.addAll([
+          builtValueConstructor(className),
+          hiddenConstructor,
+          fromJsonConstructor,
+        ])
+        ..methods.addAll([
+          toJsonMethod,
+          ...?methods,
+          buildSerializer(className, isCustom: customSerializer),
+        ]);
+
+      if (defaults != null && defaults.isNotEmpty) {
+        b.methods.add(
+          Method(
+            (final b) => b
+              ..name = '_defaults'
+              ..returns = refer('void')
+              ..static = true
+              ..lambda = true
+              ..annotations.add(
+                refer('BuiltValueHook').call([], {
+                  'initializeBuilder': literalTrue,
+                }),
+              )
+              ..requiredParameters.add(
+                Parameter(
+                  (final b) => b
+                    ..name = 'b'
+                    ..type = refer('${className}Builder'),
                 ),
-            ),
-          );
-        }
-      },
-    );
+              )
+              ..body = Code(
+                <String?>[
+                  'b',
+                  ...defaults,
+                ].join(),
+              ),
+          ),
+        );
+      }
+    },
+  );
+}
 
 Method get toJsonMethod => Method(
       (final b) => b
