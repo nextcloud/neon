@@ -85,7 +85,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 ),
               ),
               if (widget.showStatus) ...[
-                ResultBuilder<UserStatusPublic?>(
+                ResultBuilder<UserStatusPublicInterface?>(
                   stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                   builder: _userStatusIconBuilder,
                 ),
@@ -95,7 +95,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublic?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublicInterface?> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 

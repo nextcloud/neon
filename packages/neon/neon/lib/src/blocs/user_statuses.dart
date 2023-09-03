@@ -16,7 +16,7 @@ abstract class UserStatusesBlocEvents {
 }
 
 abstract class UserStatusesBlocStates {
-  BehaviorSubject<Map<String, Result<UserStatusPublic?>>> get statuses;
+  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> get statuses;
 }
 
 @internal
@@ -39,8 +39,8 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<UserStatusPublic?>>> statuses =
-      BehaviorSubject<Map<String, Result<UserStatusPublic?>>>();
+  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> statuses =
+      BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>>();
 
   @override
   Future refresh() async {
@@ -58,7 +58,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     try {
       _updateStatus(username, Result.loading());
 
-      UserStatusPublic? data;
+      UserStatusPublicInterface? data;
 
       if (_account.username == username) {
         var isAway = false;
@@ -71,7 +71,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
           final response = await _account.client.userStatus.heartbeat.heartbeat(
             status: isAway ? 'away' : 'online',
           );
-          data = response.ocs.data.public;
+          data = response.ocs.data;
         } catch (e) {
           // 204 is returned if the heartbeat failed because the current status is different. Ignore this and fetch the normal status
           if (e is! DynamiteApiException || e.statusCode != 204) {
@@ -97,9 +97,10 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
   }
 
-  Map<String, Result<UserStatusPublic?>> get _statuses => statuses.valueOrNull ?? <String, Result<UserStatusPublic?>>{};
+  Map<String, Result<UserStatusPublicInterface?>> get _statuses =>
+      statuses.valueOrNull ?? <String, Result<UserStatusPublicInterface?>>{};
 
-  void _updateStatus(final String username, final Result<UserStatusPublic?> result) {
+  void _updateStatus(final String username, final Result<UserStatusPublicInterface?> result) {
     statuses.add({
       ..._statuses,
       username: result,

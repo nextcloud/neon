@@ -52,14 +52,14 @@ void main() {
       test('Set status', () async {
         final response = await client.userStatus.userStatus.setStatus(statusType: 'online');
 
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, null);
-        expect(response.ocs.data.private1.messageId, null);
-        expect(response.ocs.data.private1.messageIsPredefined, false);
-        expect(response.ocs.data.public.icon, null);
-        expect(response.ocs.data.public.clearAt, null);
-        expect(response.ocs.data.public.status, 'online');
-        expect(response.ocs.data.private1.statusIsUserDefined, true);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, null);
+        expect(response.ocs.data.messageId, null);
+        expect(response.ocs.data.messageIsPredefined, false);
+        expect(response.ocs.data.icon, null);
+        expect(response.ocs.data.clearAt, null);
+        expect(response.ocs.data.status, 'online');
+        expect(response.ocs.data.statusIsUserDefined, true);
       });
 
       test('Get status', () async {
@@ -68,14 +68,14 @@ void main() {
         await client.userStatus.userStatus.setStatus(statusType: 'online');
 
         final response = await client.userStatus.userStatus.getStatus();
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, null);
-        expect(response.ocs.data.private1.messageId, null);
-        expect(response.ocs.data.private1.messageIsPredefined, false);
-        expect(response.ocs.data.public.icon, null);
-        expect(response.ocs.data.public.clearAt, null);
-        expect(response.ocs.data.public.status, 'online');
-        expect(response.ocs.data.private1.statusIsUserDefined, true);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, null);
+        expect(response.ocs.data.messageId, null);
+        expect(response.ocs.data.messageIsPredefined, false);
+        expect(response.ocs.data.icon, null);
+        expect(response.ocs.data.clearAt, null);
+        expect(response.ocs.data.status, 'online');
+        expect(response.ocs.data.statusIsUserDefined, true);
       });
 
       test('Find all statuses', () async {
@@ -111,14 +111,14 @@ void main() {
           messageId: 'meeting',
           clearAt: clearAt,
         );
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, null);
-        expect(response.ocs.data.private1.messageId, 'meeting');
-        expect(response.ocs.data.private1.messageIsPredefined, true);
-        expect(response.ocs.data.public.icon, null);
-        expect(response.ocs.data.public.clearAt, clearAt);
-        expect(response.ocs.data.public.status, 'offline');
-        expect(response.ocs.data.private1.statusIsUserDefined, false);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, null);
+        expect(response.ocs.data.messageId, 'meeting');
+        expect(response.ocs.data.messageIsPredefined, true);
+        expect(response.ocs.data.icon, null);
+        expect(response.ocs.data.clearAt, clearAt);
+        expect(response.ocs.data.status, 'offline');
+        expect(response.ocs.data.statusIsUserDefined, false);
       });
 
       test('Set custom message', () async {
@@ -128,14 +128,14 @@ void main() {
           message: 'bla',
           clearAt: clearAt,
         );
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, 'bla');
-        expect(response.ocs.data.private1.messageId, null);
-        expect(response.ocs.data.private1.messageIsPredefined, false);
-        expect(response.ocs.data.public.icon, '😀');
-        expect(response.ocs.data.public.clearAt, clearAt);
-        expect(response.ocs.data.public.status, 'offline');
-        expect(response.ocs.data.private1.statusIsUserDefined, false);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, 'bla');
+        expect(response.ocs.data.messageId, null);
+        expect(response.ocs.data.messageIsPredefined, false);
+        expect(response.ocs.data.icon, '😀');
+        expect(response.ocs.data.clearAt, clearAt);
+        expect(response.ocs.data.status, 'offline');
+        expect(response.ocs.data.statusIsUserDefined, false);
       });
 
       test('Clear message', () async {
@@ -148,26 +148,26 @@ void main() {
         await client.userStatus.userStatus.clearMessage();
 
         final response = await client.userStatus.userStatus.getStatus();
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, null);
-        expect(response.ocs.data.private1.messageId, null);
-        expect(response.ocs.data.private1.messageIsPredefined, false);
-        expect(response.ocs.data.public.icon, null);
-        expect(response.ocs.data.public.clearAt, null);
-        expect(response.ocs.data.public.status, 'offline');
-        expect(response.ocs.data.private1.statusIsUserDefined, false);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, null);
+        expect(response.ocs.data.messageId, null);
+        expect(response.ocs.data.messageIsPredefined, false);
+        expect(response.ocs.data.icon, null);
+        expect(response.ocs.data.clearAt, null);
+        expect(response.ocs.data.status, 'offline');
+        expect(response.ocs.data.statusIsUserDefined, false);
       });
 
       test('Heartbeat', () async {
         final response = await client.userStatus.heartbeat.heartbeat(status: 'online');
-        expect(response.ocs.data.public.userId, 'user1');
-        expect(response.ocs.data.public.message, null);
-        expect(response.ocs.data.private1.messageId, null);
-        expect(response.ocs.data.private1.messageIsPredefined, false);
-        expect(response.ocs.data.public.icon, null);
-        expect(response.ocs.data.public.clearAt, null);
-        expect(response.ocs.data.public.status, 'online');
-        expect(response.ocs.data.private1.statusIsUserDefined, false);
+        expect(response.ocs.data.userId, 'user1');
+        expect(response.ocs.data.message, null);
+        expect(response.ocs.data.messageId, null);
+        expect(response.ocs.data.messageIsPredefined, false);
+        expect(response.ocs.data.icon, null);
+        expect(response.ocs.data.clearAt, null);
+        expect(response.ocs.data.status, 'online');
+        expect(response.ocs.data.statusIsUserDefined, false);
       });
     },
     retry: retryCount,
