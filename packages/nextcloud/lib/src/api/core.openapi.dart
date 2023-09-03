@@ -1176,7 +1176,7 @@ class CoreProfileApiClient {
 
   final CoreClient _rootClient;
 
-  /// Update the visiblity of a parameter
+  /// Update the visibility of a parameter
   Future<CoreProfileApiSetVisibilityResponse200ApplicationJson> setVisibility({
     required final String paramId,
     required final String visibility,
