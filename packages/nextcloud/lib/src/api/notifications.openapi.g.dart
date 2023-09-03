@@ -911,6 +911,25 @@ class _$NotificationsNotificationDecryptedSubjectSerializer
   }
 }
 
+abstract mixin class NotificationsOCSMetaInterfaceBuilder {
+  void replace(NotificationsOCSMetaInterface other);
+  void update(void Function(NotificationsOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$NotificationsOCSMeta extends NotificationsOCSMeta {
   @override
   final String status;
@@ -975,28 +994,29 @@ class _$NotificationsOCSMeta extends NotificationsOCSMeta {
   }
 }
 
-class NotificationsOCSMetaBuilder implements Builder<NotificationsOCSMeta, NotificationsOCSMetaBuilder> {
+class NotificationsOCSMetaBuilder
+    implements Builder<NotificationsOCSMeta, NotificationsOCSMetaBuilder>, NotificationsOCSMetaInterfaceBuilder {
   _$NotificationsOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   NotificationsOCSMetaBuilder();
 
@@ -1014,7 +1034,7 @@ class NotificationsOCSMetaBuilder implements Builder<NotificationsOCSMeta, Notif
   }
 
   @override
-  void replace(NotificationsOCSMeta other) {
+  void replace(covariant NotificationsOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsOCSMeta;
   }
@@ -1038,6 +1058,22 @@ class NotificationsOCSMetaBuilder implements Builder<NotificationsOCSMeta, Notif
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsNotificationActionInterfaceBuilder {
+  void replace(NotificationsNotificationActionInterface other);
+  void update(void Function(NotificationsNotificationActionInterfaceBuilder) updates);
+  String? get label;
+  set label(String? label);
+
+  String? get link;
+  set link(String? link);
+
+  String? get type;
+  set type(String? type);
+
+  bool? get primary;
+  set primary(bool? primary);
 }
 
 class _$NotificationsNotificationAction extends NotificationsNotificationAction {
@@ -1100,24 +1136,26 @@ class _$NotificationsNotificationAction extends NotificationsNotificationAction 
 }
 
 class NotificationsNotificationActionBuilder
-    implements Builder<NotificationsNotificationAction, NotificationsNotificationActionBuilder> {
+    implements
+        Builder<NotificationsNotificationAction, NotificationsNotificationActionBuilder>,
+        NotificationsNotificationActionInterfaceBuilder {
   _$NotificationsNotificationAction? _$v;
 
   String? _label;
   String? get label => _$this._label;
-  set label(String? label) => _$this._label = label;
+  set label(covariant String? label) => _$this._label = label;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   bool? _primary;
   bool? get primary => _$this._primary;
-  set primary(bool? primary) => _$this._primary = primary;
+  set primary(covariant bool? primary) => _$this._primary = primary;
 
   NotificationsNotificationActionBuilder();
 
@@ -1134,7 +1172,7 @@ class NotificationsNotificationActionBuilder
   }
 
   @override
-  void replace(NotificationsNotificationAction other) {
+  void replace(covariant NotificationsNotificationAction other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsNotificationAction;
   }
@@ -1157,6 +1195,58 @@ class NotificationsNotificationActionBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsNotificationInterfaceBuilder {
+  void replace(NotificationsNotificationInterface other);
+  void update(void Function(NotificationsNotificationInterfaceBuilder) updates);
+  int? get notificationId;
+  set notificationId(int? notificationId);
+
+  String? get app;
+  set app(String? app);
+
+  String? get user;
+  set user(String? user);
+
+  String? get datetime;
+  set datetime(String? datetime);
+
+  String? get objectType;
+  set objectType(String? objectType);
+
+  String? get objectId;
+  set objectId(String? objectId);
+
+  String? get subject;
+  set subject(String? subject);
+
+  String? get message;
+  set message(String? message);
+
+  String? get link;
+  set link(String? link);
+
+  String? get subjectRich;
+  set subjectRich(String? subjectRich);
+
+  JsonObject? get subjectRichParameters;
+  set subjectRichParameters(JsonObject? subjectRichParameters);
+
+  String? get messageRich;
+  set messageRich(String? messageRich);
+
+  JsonObject? get messageRichParameters;
+  set messageRichParameters(JsonObject? messageRichParameters);
+
+  String? get icon;
+  set icon(String? icon);
+
+  bool? get shouldNotify;
+  set shouldNotify(bool? shouldNotify);
+
+  ListBuilder<NotificationsNotificationAction> get actions;
+  set actions(ListBuilder<NotificationsNotificationAction>? actions);
 }
 
 class _$NotificationsNotification extends NotificationsNotification {
@@ -1301,73 +1391,78 @@ class _$NotificationsNotification extends NotificationsNotification {
   }
 }
 
-class NotificationsNotificationBuilder implements Builder<NotificationsNotification, NotificationsNotificationBuilder> {
+class NotificationsNotificationBuilder
+    implements
+        Builder<NotificationsNotification, NotificationsNotificationBuilder>,
+        NotificationsNotificationInterfaceBuilder {
   _$NotificationsNotification? _$v;
 
   int? _notificationId;
   int? get notificationId => _$this._notificationId;
-  set notificationId(int? notificationId) => _$this._notificationId = notificationId;
+  set notificationId(covariant int? notificationId) => _$this._notificationId = notificationId;
 
   String? _app;
   String? get app => _$this._app;
-  set app(String? app) => _$this._app = app;
+  set app(covariant String? app) => _$this._app = app;
 
   String? _user;
   String? get user => _$this._user;
-  set user(String? user) => _$this._user = user;
+  set user(covariant String? user) => _$this._user = user;
 
   String? _datetime;
   String? get datetime => _$this._datetime;
-  set datetime(String? datetime) => _$this._datetime = datetime;
+  set datetime(covariant String? datetime) => _$this._datetime = datetime;
 
   String? _objectType;
   String? get objectType => _$this._objectType;
-  set objectType(String? objectType) => _$this._objectType = objectType;
+  set objectType(covariant String? objectType) => _$this._objectType = objectType;
 
   String? _objectId;
   String? get objectId => _$this._objectId;
-  set objectId(String? objectId) => _$this._objectId = objectId;
+  set objectId(covariant String? objectId) => _$this._objectId = objectId;
 
   String? _subject;
   String? get subject => _$this._subject;
-  set subject(String? subject) => _$this._subject = subject;
+  set subject(covariant String? subject) => _$this._subject = subject;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   String? _subjectRich;
   String? get subjectRich => _$this._subjectRich;
-  set subjectRich(String? subjectRich) => _$this._subjectRich = subjectRich;
+  set subjectRich(covariant String? subjectRich) => _$this._subjectRich = subjectRich;
 
   JsonObject? _subjectRichParameters;
   JsonObject? get subjectRichParameters => _$this._subjectRichParameters;
-  set subjectRichParameters(JsonObject? subjectRichParameters) => _$this._subjectRichParameters = subjectRichParameters;
+  set subjectRichParameters(covariant JsonObject? subjectRichParameters) =>
+      _$this._subjectRichParameters = subjectRichParameters;
 
   String? _messageRich;
   String? get messageRich => _$this._messageRich;
-  set messageRich(String? messageRich) => _$this._messageRich = messageRich;
+  set messageRich(covariant String? messageRich) => _$this._messageRich = messageRich;
 
   JsonObject? _messageRichParameters;
   JsonObject? get messageRichParameters => _$this._messageRichParameters;
-  set messageRichParameters(JsonObject? messageRichParameters) => _$this._messageRichParameters = messageRichParameters;
+  set messageRichParameters(covariant JsonObject? messageRichParameters) =>
+      _$this._messageRichParameters = messageRichParameters;
 
   String? _icon;
   String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
 
   bool? _shouldNotify;
   bool? get shouldNotify => _$this._shouldNotify;
-  set shouldNotify(bool? shouldNotify) => _$this._shouldNotify = shouldNotify;
+  set shouldNotify(covariant bool? shouldNotify) => _$this._shouldNotify = shouldNotify;
 
   ListBuilder<NotificationsNotificationAction>? _actions;
   ListBuilder<NotificationsNotificationAction> get actions =>
       _$this._actions ??= ListBuilder<NotificationsNotificationAction>();
-  set actions(ListBuilder<NotificationsNotificationAction>? actions) => _$this._actions = actions;
+  set actions(covariant ListBuilder<NotificationsNotificationAction>? actions) => _$this._actions = actions;
 
   NotificationsNotificationBuilder();
 
@@ -1396,7 +1491,7 @@ class NotificationsNotificationBuilder implements Builder<NotificationsNotificat
   }
 
   @override
-  void replace(NotificationsNotification other) {
+  void replace(covariant NotificationsNotification other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsNotification;
   }
@@ -1446,6 +1541,16 @@ class NotificationsNotificationBuilder implements Builder<NotificationsNotificat
   }
 }
 
+abstract mixin class NotificationsListNotifications_OcsInterfaceBuilder {
+  void replace(NotificationsListNotifications_OcsInterface other);
+  void update(void Function(NotificationsListNotifications_OcsInterfaceBuilder) updates);
+  NotificationsOCSMetaBuilder get meta;
+  set meta(NotificationsOCSMetaBuilder? meta);
+
+  ListBuilder<NotificationsNotification> get data;
+  set data(ListBuilder<NotificationsNotification>? data);
+}
+
 class _$NotificationsListNotifications_Ocs extends NotificationsListNotifications_Ocs {
   @override
   final NotificationsOCSMeta meta;
@@ -1492,16 +1597,18 @@ class _$NotificationsListNotifications_Ocs extends NotificationsListNotification
 }
 
 class NotificationsListNotifications_OcsBuilder
-    implements Builder<NotificationsListNotifications_Ocs, NotificationsListNotifications_OcsBuilder> {
+    implements
+        Builder<NotificationsListNotifications_Ocs, NotificationsListNotifications_OcsBuilder>,
+        NotificationsListNotifications_OcsInterfaceBuilder {
   _$NotificationsListNotifications_Ocs? _$v;
 
   NotificationsOCSMetaBuilder? _meta;
   NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<NotificationsNotification>? _data;
   ListBuilder<NotificationsNotification> get data => _$this._data ??= ListBuilder<NotificationsNotification>();
-  set data(ListBuilder<NotificationsNotification>? data) => _$this._data = data;
+  set data(covariant ListBuilder<NotificationsNotification>? data) => _$this._data = data;
 
   NotificationsListNotifications_OcsBuilder();
 
@@ -1516,7 +1623,7 @@ class NotificationsListNotifications_OcsBuilder
   }
 
   @override
-  void replace(NotificationsListNotifications_Ocs other) {
+  void replace(covariant NotificationsListNotifications_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsListNotifications_Ocs;
   }
@@ -1548,6 +1655,13 @@ class NotificationsListNotifications_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsListNotificationsInterfaceBuilder {
+  void replace(NotificationsListNotificationsInterface other);
+  void update(void Function(NotificationsListNotificationsInterfaceBuilder) updates);
+  NotificationsListNotifications_OcsBuilder get ocs;
+  set ocs(NotificationsListNotifications_OcsBuilder? ocs);
 }
 
 class _$NotificationsListNotifications extends NotificationsListNotifications {
@@ -1589,12 +1703,14 @@ class _$NotificationsListNotifications extends NotificationsListNotifications {
 }
 
 class NotificationsListNotificationsBuilder
-    implements Builder<NotificationsListNotifications, NotificationsListNotificationsBuilder> {
+    implements
+        Builder<NotificationsListNotifications, NotificationsListNotificationsBuilder>,
+        NotificationsListNotificationsInterfaceBuilder {
   _$NotificationsListNotifications? _$v;
 
   NotificationsListNotifications_OcsBuilder? _ocs;
   NotificationsListNotifications_OcsBuilder get ocs => _$this._ocs ??= NotificationsListNotifications_OcsBuilder();
-  set ocs(NotificationsListNotifications_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NotificationsListNotifications_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NotificationsListNotificationsBuilder();
 
@@ -1608,7 +1724,7 @@ class NotificationsListNotificationsBuilder
   }
 
   @override
-  void replace(NotificationsListNotifications other) {
+  void replace(covariant NotificationsListNotifications other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsListNotifications;
   }
@@ -1638,6 +1754,16 @@ class NotificationsListNotificationsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsGetNotification_OcsInterfaceBuilder {
+  void replace(NotificationsGetNotification_OcsInterface other);
+  void update(void Function(NotificationsGetNotification_OcsInterfaceBuilder) updates);
+  NotificationsOCSMetaBuilder get meta;
+  set meta(NotificationsOCSMetaBuilder? meta);
+
+  NotificationsNotificationBuilder get data;
+  set data(NotificationsNotificationBuilder? data);
 }
 
 class _$NotificationsGetNotification_Ocs extends NotificationsGetNotification_Ocs {
@@ -1686,16 +1812,18 @@ class _$NotificationsGetNotification_Ocs extends NotificationsGetNotification_Oc
 }
 
 class NotificationsGetNotification_OcsBuilder
-    implements Builder<NotificationsGetNotification_Ocs, NotificationsGetNotification_OcsBuilder> {
+    implements
+        Builder<NotificationsGetNotification_Ocs, NotificationsGetNotification_OcsBuilder>,
+        NotificationsGetNotification_OcsInterfaceBuilder {
   _$NotificationsGetNotification_Ocs? _$v;
 
   NotificationsOCSMetaBuilder? _meta;
   NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
 
   NotificationsNotificationBuilder? _data;
   NotificationsNotificationBuilder get data => _$this._data ??= NotificationsNotificationBuilder();
-  set data(NotificationsNotificationBuilder? data) => _$this._data = data;
+  set data(covariant NotificationsNotificationBuilder? data) => _$this._data = data;
 
   NotificationsGetNotification_OcsBuilder();
 
@@ -1710,7 +1838,7 @@ class NotificationsGetNotification_OcsBuilder
   }
 
   @override
-  void replace(NotificationsGetNotification_Ocs other) {
+  void replace(covariant NotificationsGetNotification_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsGetNotification_Ocs;
   }
@@ -1742,6 +1870,13 @@ class NotificationsGetNotification_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsGetNotificationInterfaceBuilder {
+  void replace(NotificationsGetNotificationInterface other);
+  void update(void Function(NotificationsGetNotificationInterfaceBuilder) updates);
+  NotificationsGetNotification_OcsBuilder get ocs;
+  set ocs(NotificationsGetNotification_OcsBuilder? ocs);
 }
 
 class _$NotificationsGetNotification extends NotificationsGetNotification {
@@ -1783,12 +1918,14 @@ class _$NotificationsGetNotification extends NotificationsGetNotification {
 }
 
 class NotificationsGetNotificationBuilder
-    implements Builder<NotificationsGetNotification, NotificationsGetNotificationBuilder> {
+    implements
+        Builder<NotificationsGetNotification, NotificationsGetNotificationBuilder>,
+        NotificationsGetNotificationInterfaceBuilder {
   _$NotificationsGetNotification? _$v;
 
   NotificationsGetNotification_OcsBuilder? _ocs;
   NotificationsGetNotification_OcsBuilder get ocs => _$this._ocs ??= NotificationsGetNotification_OcsBuilder();
-  set ocs(NotificationsGetNotification_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NotificationsGetNotification_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NotificationsGetNotificationBuilder();
 
@@ -1802,7 +1939,7 @@ class NotificationsGetNotificationBuilder
   }
 
   @override
-  void replace(NotificationsGetNotification other) {
+  void replace(covariant NotificationsGetNotification other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsGetNotification;
   }
@@ -1832,6 +1969,16 @@ class NotificationsGetNotificationBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsEmptyOCS_OcsInterfaceBuilder {
+  void replace(NotificationsEmptyOCS_OcsInterface other);
+  void update(void Function(NotificationsEmptyOCS_OcsInterfaceBuilder) updates);
+  NotificationsOCSMetaBuilder get meta;
+  set meta(NotificationsOCSMetaBuilder? meta);
+
+  ListBuilder<JsonObject> get data;
+  set data(ListBuilder<JsonObject>? data);
 }
 
 class _$NotificationsEmptyOCS_Ocs extends NotificationsEmptyOCS_Ocs {
@@ -1879,16 +2026,19 @@ class _$NotificationsEmptyOCS_Ocs extends NotificationsEmptyOCS_Ocs {
   }
 }
 
-class NotificationsEmptyOCS_OcsBuilder implements Builder<NotificationsEmptyOCS_Ocs, NotificationsEmptyOCS_OcsBuilder> {
+class NotificationsEmptyOCS_OcsBuilder
+    implements
+        Builder<NotificationsEmptyOCS_Ocs, NotificationsEmptyOCS_OcsBuilder>,
+        NotificationsEmptyOCS_OcsInterfaceBuilder {
   _$NotificationsEmptyOCS_Ocs? _$v;
 
   NotificationsOCSMetaBuilder? _meta;
   NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
-  set data(ListBuilder<JsonObject>? data) => _$this._data = data;
+  set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   NotificationsEmptyOCS_OcsBuilder();
 
@@ -1903,7 +2053,7 @@ class NotificationsEmptyOCS_OcsBuilder implements Builder<NotificationsEmptyOCS_
   }
 
   @override
-  void replace(NotificationsEmptyOCS_Ocs other) {
+  void replace(covariant NotificationsEmptyOCS_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsEmptyOCS_Ocs;
   }
@@ -1935,6 +2085,13 @@ class NotificationsEmptyOCS_OcsBuilder implements Builder<NotificationsEmptyOCS_
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsEmptyOCSInterfaceBuilder {
+  void replace(NotificationsEmptyOCSInterface other);
+  void update(void Function(NotificationsEmptyOCSInterfaceBuilder) updates);
+  NotificationsEmptyOCS_OcsBuilder get ocs;
+  set ocs(NotificationsEmptyOCS_OcsBuilder? ocs);
 }
 
 class _$NotificationsEmptyOCS extends NotificationsEmptyOCS {
@@ -1975,12 +2132,13 @@ class _$NotificationsEmptyOCS extends NotificationsEmptyOCS {
   }
 }
 
-class NotificationsEmptyOCSBuilder implements Builder<NotificationsEmptyOCS, NotificationsEmptyOCSBuilder> {
+class NotificationsEmptyOCSBuilder
+    implements Builder<NotificationsEmptyOCS, NotificationsEmptyOCSBuilder>, NotificationsEmptyOCSInterfaceBuilder {
   _$NotificationsEmptyOCS? _$v;
 
   NotificationsEmptyOCS_OcsBuilder? _ocs;
   NotificationsEmptyOCS_OcsBuilder get ocs => _$this._ocs ??= NotificationsEmptyOCS_OcsBuilder();
-  set ocs(NotificationsEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NotificationsEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NotificationsEmptyOCSBuilder();
 
@@ -1994,7 +2152,7 @@ class NotificationsEmptyOCSBuilder implements Builder<NotificationsEmptyOCS, Not
   }
 
   @override
-  void replace(NotificationsEmptyOCS other) {
+  void replace(covariant NotificationsEmptyOCS other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsEmptyOCS;
   }
@@ -2024,6 +2182,22 @@ class NotificationsEmptyOCSBuilder implements Builder<NotificationsEmptyOCS, Not
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsPushServerSubscriptionInterfaceBuilder {
+  void replace(NotificationsPushServerSubscriptionInterface other);
+  void update(void Function(NotificationsPushServerSubscriptionInterfaceBuilder) updates);
+  String? get publicKey;
+  set publicKey(String? publicKey);
+
+  String? get deviceIdentifier;
+  set deviceIdentifier(String? deviceIdentifier);
+
+  String? get signature;
+  set signature(String? signature);
+
+  String? get message;
+  set message(String? message);
 }
 
 class _$NotificationsPushServerSubscription extends NotificationsPushServerSubscription {
@@ -2087,24 +2261,26 @@ class _$NotificationsPushServerSubscription extends NotificationsPushServerSubsc
 }
 
 class NotificationsPushServerSubscriptionBuilder
-    implements Builder<NotificationsPushServerSubscription, NotificationsPushServerSubscriptionBuilder> {
+    implements
+        Builder<NotificationsPushServerSubscription, NotificationsPushServerSubscriptionBuilder>,
+        NotificationsPushServerSubscriptionInterfaceBuilder {
   _$NotificationsPushServerSubscription? _$v;
 
   String? _publicKey;
   String? get publicKey => _$this._publicKey;
-  set publicKey(String? publicKey) => _$this._publicKey = publicKey;
+  set publicKey(covariant String? publicKey) => _$this._publicKey = publicKey;
 
   String? _deviceIdentifier;
   String? get deviceIdentifier => _$this._deviceIdentifier;
-  set deviceIdentifier(String? deviceIdentifier) => _$this._deviceIdentifier = deviceIdentifier;
+  set deviceIdentifier(covariant String? deviceIdentifier) => _$this._deviceIdentifier = deviceIdentifier;
 
   String? _signature;
   String? get signature => _$this._signature;
-  set signature(String? signature) => _$this._signature = signature;
+  set signature(covariant String? signature) => _$this._signature = signature;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   NotificationsPushServerSubscriptionBuilder();
 
@@ -2121,7 +2297,7 @@ class NotificationsPushServerSubscriptionBuilder
   }
 
   @override
-  void replace(NotificationsPushServerSubscription other) {
+  void replace(covariant NotificationsPushServerSubscription other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsPushServerSubscription;
   }
@@ -2147,6 +2323,16 @@ class NotificationsPushServerSubscriptionBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsPushServerRegistration_OcsInterfaceBuilder {
+  void replace(NotificationsPushServerRegistration_OcsInterface other);
+  void update(void Function(NotificationsPushServerRegistration_OcsInterfaceBuilder) updates);
+  NotificationsOCSMetaBuilder get meta;
+  set meta(NotificationsOCSMetaBuilder? meta);
+
+  NotificationsPushServerSubscriptionBuilder get data;
+  set data(NotificationsPushServerSubscriptionBuilder? data);
 }
 
 class _$NotificationsPushServerRegistration_Ocs extends NotificationsPushServerRegistration_Ocs {
@@ -2198,16 +2384,18 @@ class _$NotificationsPushServerRegistration_Ocs extends NotificationsPushServerR
 }
 
 class NotificationsPushServerRegistration_OcsBuilder
-    implements Builder<NotificationsPushServerRegistration_Ocs, NotificationsPushServerRegistration_OcsBuilder> {
+    implements
+        Builder<NotificationsPushServerRegistration_Ocs, NotificationsPushServerRegistration_OcsBuilder>,
+        NotificationsPushServerRegistration_OcsInterfaceBuilder {
   _$NotificationsPushServerRegistration_Ocs? _$v;
 
   NotificationsOCSMetaBuilder? _meta;
   NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
 
   NotificationsPushServerSubscriptionBuilder? _data;
   NotificationsPushServerSubscriptionBuilder get data => _$this._data ??= NotificationsPushServerSubscriptionBuilder();
-  set data(NotificationsPushServerSubscriptionBuilder? data) => _$this._data = data;
+  set data(covariant NotificationsPushServerSubscriptionBuilder? data) => _$this._data = data;
 
   NotificationsPushServerRegistration_OcsBuilder();
 
@@ -2222,7 +2410,7 @@ class NotificationsPushServerRegistration_OcsBuilder
   }
 
   @override
-  void replace(NotificationsPushServerRegistration_Ocs other) {
+  void replace(covariant NotificationsPushServerRegistration_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsPushServerRegistration_Ocs;
   }
@@ -2254,6 +2442,13 @@ class NotificationsPushServerRegistration_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsPushServerRegistrationInterfaceBuilder {
+  void replace(NotificationsPushServerRegistrationInterface other);
+  void update(void Function(NotificationsPushServerRegistrationInterfaceBuilder) updates);
+  NotificationsPushServerRegistration_OcsBuilder get ocs;
+  set ocs(NotificationsPushServerRegistration_OcsBuilder? ocs);
 }
 
 class _$NotificationsPushServerRegistration extends NotificationsPushServerRegistration {
@@ -2295,13 +2490,15 @@ class _$NotificationsPushServerRegistration extends NotificationsPushServerRegis
 }
 
 class NotificationsPushServerRegistrationBuilder
-    implements Builder<NotificationsPushServerRegistration, NotificationsPushServerRegistrationBuilder> {
+    implements
+        Builder<NotificationsPushServerRegistration, NotificationsPushServerRegistrationBuilder>,
+        NotificationsPushServerRegistrationInterfaceBuilder {
   _$NotificationsPushServerRegistration? _$v;
 
   NotificationsPushServerRegistration_OcsBuilder? _ocs;
   NotificationsPushServerRegistration_OcsBuilder get ocs =>
       _$this._ocs ??= NotificationsPushServerRegistration_OcsBuilder();
-  set ocs(NotificationsPushServerRegistration_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant NotificationsPushServerRegistration_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   NotificationsPushServerRegistrationBuilder();
 
@@ -2315,7 +2512,7 @@ class NotificationsPushServerRegistrationBuilder
   }
 
   @override
-  void replace(NotificationsPushServerRegistration other) {
+  void replace(covariant NotificationsPushServerRegistration other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsPushServerRegistration;
   }
@@ -2345,6 +2542,19 @@ class NotificationsPushServerRegistrationBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsCapabilities_NotificationsInterfaceBuilder {
+  void replace(NotificationsCapabilities_NotificationsInterface other);
+  void update(void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates);
+  ListBuilder<String> get ocsEndpoints;
+  set ocsEndpoints(ListBuilder<String>? ocsEndpoints);
+
+  ListBuilder<String> get push;
+  set push(ListBuilder<String>? push);
+
+  ListBuilder<String> get adminNotifications;
+  set adminNotifications(ListBuilder<String>? adminNotifications);
 }
 
 class _$NotificationsCapabilities_Notifications extends NotificationsCapabilities_Notifications {
@@ -2400,20 +2610,23 @@ class _$NotificationsCapabilities_Notifications extends NotificationsCapabilitie
 }
 
 class NotificationsCapabilities_NotificationsBuilder
-    implements Builder<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
+    implements
+        Builder<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder>,
+        NotificationsCapabilities_NotificationsInterfaceBuilder {
   _$NotificationsCapabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
   ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
-  set ocsEndpoints(ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
+  set ocsEndpoints(covariant ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
 
   ListBuilder<String>? _push;
   ListBuilder<String> get push => _$this._push ??= ListBuilder<String>();
-  set push(ListBuilder<String>? push) => _$this._push = push;
+  set push(covariant ListBuilder<String>? push) => _$this._push = push;
 
   ListBuilder<String>? _adminNotifications;
   ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= ListBuilder<String>();
-  set adminNotifications(ListBuilder<String>? adminNotifications) => _$this._adminNotifications = adminNotifications;
+  set adminNotifications(covariant ListBuilder<String>? adminNotifications) =>
+      _$this._adminNotifications = adminNotifications;
 
   NotificationsCapabilities_NotificationsBuilder();
 
@@ -2429,7 +2642,7 @@ class NotificationsCapabilities_NotificationsBuilder
   }
 
   @override
-  void replace(NotificationsCapabilities_Notifications other) {
+  void replace(covariant NotificationsCapabilities_Notifications other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsCapabilities_Notifications;
   }
@@ -2467,6 +2680,13 @@ class NotificationsCapabilities_NotificationsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsCapabilitiesInterfaceBuilder {
+  void replace(NotificationsCapabilitiesInterface other);
+  void update(void Function(NotificationsCapabilitiesInterfaceBuilder) updates);
+  NotificationsCapabilities_NotificationsBuilder get notifications;
+  set notifications(NotificationsCapabilities_NotificationsBuilder? notifications);
 }
 
 class _$NotificationsCapabilities extends NotificationsCapabilities {
@@ -2507,13 +2727,16 @@ class _$NotificationsCapabilities extends NotificationsCapabilities {
   }
 }
 
-class NotificationsCapabilitiesBuilder implements Builder<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
+class NotificationsCapabilitiesBuilder
+    implements
+        Builder<NotificationsCapabilities, NotificationsCapabilitiesBuilder>,
+        NotificationsCapabilitiesInterfaceBuilder {
   _$NotificationsCapabilities? _$v;
 
   NotificationsCapabilities_NotificationsBuilder? _notifications;
   NotificationsCapabilities_NotificationsBuilder get notifications =>
       _$this._notifications ??= NotificationsCapabilities_NotificationsBuilder();
-  set notifications(NotificationsCapabilities_NotificationsBuilder? notifications) =>
+  set notifications(covariant NotificationsCapabilities_NotificationsBuilder? notifications) =>
       _$this._notifications = notifications;
 
   NotificationsCapabilitiesBuilder();
@@ -2528,7 +2751,7 @@ class NotificationsCapabilitiesBuilder implements Builder<NotificationsCapabilit
   }
 
   @override
-  void replace(NotificationsCapabilities other) {
+  void replace(covariant NotificationsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsCapabilities;
   }
@@ -2558,6 +2781,31 @@ class NotificationsCapabilitiesBuilder implements Builder<NotificationsCapabilit
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class NotificationsNotificationDecryptedSubjectInterfaceBuilder {
+  void replace(NotificationsNotificationDecryptedSubjectInterface other);
+  void update(void Function(NotificationsNotificationDecryptedSubjectInterfaceBuilder) updates);
+  int? get nid;
+  set nid(int? nid);
+
+  String? get app;
+  set app(String? app);
+
+  String? get subject;
+  set subject(String? subject);
+
+  String? get type;
+  set type(String? type);
+
+  String? get id;
+  set id(String? id);
+
+  bool? get delete;
+  set delete(bool? delete);
+
+  bool? get deleteAll;
+  set deleteAll(bool? deleteAll);
 }
 
 class _$NotificationsNotificationDecryptedSubject extends NotificationsNotificationDecryptedSubject {
@@ -2635,36 +2883,38 @@ class _$NotificationsNotificationDecryptedSubject extends NotificationsNotificat
 }
 
 class NotificationsNotificationDecryptedSubjectBuilder
-    implements Builder<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder> {
+    implements
+        Builder<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder>,
+        NotificationsNotificationDecryptedSubjectInterfaceBuilder {
   _$NotificationsNotificationDecryptedSubject? _$v;
 
   int? _nid;
   int? get nid => _$this._nid;
-  set nid(int? nid) => _$this._nid = nid;
+  set nid(covariant int? nid) => _$this._nid = nid;
 
   String? _app;
   String? get app => _$this._app;
-  set app(String? app) => _$this._app = app;
+  set app(covariant String? app) => _$this._app = app;
 
   String? _subject;
   String? get subject => _$this._subject;
-  set subject(String? subject) => _$this._subject = subject;
+  set subject(covariant String? subject) => _$this._subject = subject;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   bool? _delete;
   bool? get delete => _$this._delete;
-  set delete(bool? delete) => _$this._delete = delete;
+  set delete(covariant bool? delete) => _$this._delete = delete;
 
   bool? _deleteAll;
   bool? get deleteAll => _$this._deleteAll;
-  set deleteAll(bool? deleteAll) => _$this._deleteAll = deleteAll;
+  set deleteAll(covariant bool? deleteAll) => _$this._deleteAll = deleteAll;
 
   NotificationsNotificationDecryptedSubjectBuilder();
 
@@ -2684,7 +2934,7 @@ class NotificationsNotificationDecryptedSubjectBuilder
   }
 
   @override
-  void replace(NotificationsNotificationDecryptedSubject other) {
+  void replace(covariant NotificationsNotificationDecryptedSubject other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationsNotificationDecryptedSubject;
   }

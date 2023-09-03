@@ -86,6 +86,13 @@ class _$CommentsCapabilitiesSerializer implements StructuredSerializer<CommentsC
   }
 }
 
+abstract mixin class CommentsNotificationsNotificationsViewHeadersInterfaceBuilder {
+  void replace(CommentsNotificationsNotificationsViewHeadersInterface other);
+  void update(void Function(CommentsNotificationsNotificationsViewHeadersInterfaceBuilder) updates);
+  String? get location;
+  set location(String? location);
+}
+
 class _$CommentsNotificationsNotificationsViewHeaders extends CommentsNotificationsNotificationsViewHeaders {
   @override
   final String? location;
@@ -128,12 +135,13 @@ class _$CommentsNotificationsNotificationsViewHeaders extends CommentsNotificati
 
 class CommentsNotificationsNotificationsViewHeadersBuilder
     implements
-        Builder<CommentsNotificationsNotificationsViewHeaders, CommentsNotificationsNotificationsViewHeadersBuilder> {
+        Builder<CommentsNotificationsNotificationsViewHeaders, CommentsNotificationsNotificationsViewHeadersBuilder>,
+        CommentsNotificationsNotificationsViewHeadersInterfaceBuilder {
   _$CommentsNotificationsNotificationsViewHeaders? _$v;
 
   String? _location;
   String? get location => _$this._location;
-  set location(String? location) => _$this._location = location;
+  set location(covariant String? location) => _$this._location = location;
 
   CommentsNotificationsNotificationsViewHeadersBuilder();
 
@@ -147,7 +155,7 @@ class CommentsNotificationsNotificationsViewHeadersBuilder
   }
 
   @override
-  void replace(CommentsNotificationsNotificationsViewHeaders other) {
+  void replace(covariant CommentsNotificationsNotificationsViewHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CommentsNotificationsNotificationsViewHeaders;
   }
@@ -165,6 +173,13 @@ class CommentsNotificationsNotificationsViewHeadersBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CommentsCapabilities_FilesInterfaceBuilder {
+  void replace(CommentsCapabilities_FilesInterface other);
+  void update(void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
+  bool? get comments;
+  set comments(bool? comments);
 }
 
 class _$CommentsCapabilities_Files extends CommentsCapabilities_Files {
@@ -206,12 +221,14 @@ class _$CommentsCapabilities_Files extends CommentsCapabilities_Files {
 }
 
 class CommentsCapabilities_FilesBuilder
-    implements Builder<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
+    implements
+        Builder<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder>,
+        CommentsCapabilities_FilesInterfaceBuilder {
   _$CommentsCapabilities_Files? _$v;
 
   bool? _comments;
   bool? get comments => _$this._comments;
-  set comments(bool? comments) => _$this._comments = comments;
+  set comments(covariant bool? comments) => _$this._comments = comments;
 
   CommentsCapabilities_FilesBuilder();
 
@@ -225,7 +242,7 @@ class CommentsCapabilities_FilesBuilder
   }
 
   @override
-  void replace(CommentsCapabilities_Files other) {
+  void replace(covariant CommentsCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CommentsCapabilities_Files;
   }
@@ -245,6 +262,13 @@ class CommentsCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class CommentsCapabilitiesInterfaceBuilder {
+  void replace(CommentsCapabilitiesInterface other);
+  void update(void Function(CommentsCapabilitiesInterfaceBuilder) updates);
+  CommentsCapabilities_FilesBuilder get files;
+  set files(CommentsCapabilities_FilesBuilder? files);
 }
 
 class _$CommentsCapabilities extends CommentsCapabilities {
@@ -285,12 +309,13 @@ class _$CommentsCapabilities extends CommentsCapabilities {
   }
 }
 
-class CommentsCapabilitiesBuilder implements Builder<CommentsCapabilities, CommentsCapabilitiesBuilder> {
+class CommentsCapabilitiesBuilder
+    implements Builder<CommentsCapabilities, CommentsCapabilitiesBuilder>, CommentsCapabilitiesInterfaceBuilder {
   _$CommentsCapabilities? _$v;
 
   CommentsCapabilities_FilesBuilder? _files;
   CommentsCapabilities_FilesBuilder get files => _$this._files ??= CommentsCapabilities_FilesBuilder();
-  set files(CommentsCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant CommentsCapabilities_FilesBuilder? files) => _$this._files = files;
 
   CommentsCapabilitiesBuilder();
 
@@ -304,7 +329,7 @@ class CommentsCapabilitiesBuilder implements Builder<CommentsCapabilities, Comme
   }
 
   @override
-  void replace(CommentsCapabilities other) {
+  void replace(covariant CommentsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CommentsCapabilities;
   }

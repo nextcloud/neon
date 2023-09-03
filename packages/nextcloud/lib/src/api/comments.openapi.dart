@@ -110,8 +110,18 @@ class CommentsNotificationsClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CommentsNotificationsNotificationsViewHeadersInterface {
+  String? get location;
+  CommentsNotificationsNotificationsViewHeadersInterface rebuild(
+    final void Function(CommentsNotificationsNotificationsViewHeadersInterfaceBuilder) updates,
+  );
+  CommentsNotificationsNotificationsViewHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class CommentsNotificationsNotificationsViewHeaders
     implements
+        CommentsNotificationsNotificationsViewHeadersInterface,
         Built<CommentsNotificationsNotificationsViewHeaders, CommentsNotificationsNotificationsViewHeadersBuilder> {
   factory CommentsNotificationsNotificationsViewHeaders([
     final void Function(CommentsNotificationsNotificationsViewHeadersBuilder)? b,
@@ -129,7 +139,6 @@ abstract class CommentsNotificationsNotificationsViewHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String? get location;
   @BuiltValueSerializer(custom: true)
   static Serializer<CommentsNotificationsNotificationsViewHeaders> get serializer =>
       _$CommentsNotificationsNotificationsViewHeadersSerializer();
@@ -178,8 +187,17 @@ class _$CommentsNotificationsNotificationsViewHeadersSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class CommentsCapabilities_FilesInterface {
+  bool get comments;
+  CommentsCapabilities_FilesInterface rebuild(final void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
+  CommentsCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class CommentsCapabilities_Files
-    implements Built<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
+    implements
+        CommentsCapabilities_FilesInterface,
+        Built<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
   factory CommentsCapabilities_Files([final void Function(CommentsCapabilities_FilesBuilder)? b]) =
       _$CommentsCapabilities_Files;
 
@@ -195,11 +213,18 @@ abstract class CommentsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get comments;
   static Serializer<CommentsCapabilities_Files> get serializer => _$commentsCapabilitiesFilesSerializer;
 }
 
-abstract class CommentsCapabilities implements Built<CommentsCapabilities, CommentsCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class CommentsCapabilitiesInterface {
+  CommentsCapabilities_Files get files;
+  CommentsCapabilitiesInterface rebuild(final void Function(CommentsCapabilitiesInterfaceBuilder) updates);
+  CommentsCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class CommentsCapabilities
+    implements CommentsCapabilitiesInterface, Built<CommentsCapabilities, CommentsCapabilitiesBuilder> {
   factory CommentsCapabilities([final void Function(CommentsCapabilitiesBuilder)? b]) = _$CommentsCapabilities;
 
   // coverage:ignore-start
@@ -214,7 +239,6 @@ abstract class CommentsCapabilities implements Built<CommentsCapabilities, Comme
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  CommentsCapabilities_Files get files;
   static Serializer<CommentsCapabilities> get serializer => _$commentsCapabilitiesSerializer;
 }
 

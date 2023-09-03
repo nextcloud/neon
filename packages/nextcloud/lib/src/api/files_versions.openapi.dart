@@ -127,8 +127,23 @@ class FilesVersionsPreviewClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesVersionsCapabilities_FilesInterface {
+  bool get versioning;
+  @BuiltValueField(wireName: 'version_labeling')
+  bool get versionLabeling;
+  @BuiltValueField(wireName: 'version_deletion')
+  bool get versionDeletion;
+  FilesVersionsCapabilities_FilesInterface rebuild(
+    final void Function(FilesVersionsCapabilities_FilesInterfaceBuilder) updates,
+  );
+  FilesVersionsCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class FilesVersionsCapabilities_Files
-    implements Built<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder> {
+    implements
+        FilesVersionsCapabilities_FilesInterface,
+        Built<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder> {
   factory FilesVersionsCapabilities_Files([final void Function(FilesVersionsCapabilities_FilesBuilder)? b]) =
       _$FilesVersionsCapabilities_Files;
 
@@ -144,15 +159,18 @@ abstract class FilesVersionsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get versioning;
-  @BuiltValueField(wireName: 'version_labeling')
-  bool get versionLabeling;
-  @BuiltValueField(wireName: 'version_deletion')
-  bool get versionDeletion;
   static Serializer<FilesVersionsCapabilities_Files> get serializer => _$filesVersionsCapabilitiesFilesSerializer;
 }
 
-abstract class FilesVersionsCapabilities implements Built<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesVersionsCapabilitiesInterface {
+  FilesVersionsCapabilities_Files get files;
+  FilesVersionsCapabilitiesInterface rebuild(final void Function(FilesVersionsCapabilitiesInterfaceBuilder) updates);
+  FilesVersionsCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class FilesVersionsCapabilities
+    implements FilesVersionsCapabilitiesInterface, Built<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder> {
   factory FilesVersionsCapabilities([final void Function(FilesVersionsCapabilitiesBuilder)? b]) =
       _$FilesVersionsCapabilities;
 
@@ -168,7 +186,6 @@ abstract class FilesVersionsCapabilities implements Built<FilesVersionsCapabilit
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesVersionsCapabilities_Files get files;
   static Serializer<FilesVersionsCapabilities> get serializer => _$filesVersionsCapabilitiesSerializer;
 }
 

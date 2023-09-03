@@ -309,6 +309,25 @@ class _$DavCapabilitiesSerializer implements StructuredSerializer<DavCapabilitie
   }
 }
 
+abstract mixin class DavOCSMetaInterfaceBuilder {
+  void replace(DavOCSMetaInterface other);
+  void update(void Function(DavOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$DavOCSMeta extends DavOCSMeta {
   @override
   final String status;
@@ -370,28 +389,28 @@ class _$DavOCSMeta extends DavOCSMeta {
   }
 }
 
-class DavOCSMetaBuilder implements Builder<DavOCSMeta, DavOCSMetaBuilder> {
+class DavOCSMetaBuilder implements Builder<DavOCSMeta, DavOCSMetaBuilder>, DavOCSMetaInterfaceBuilder {
   _$DavOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   DavOCSMetaBuilder();
 
@@ -409,7 +428,7 @@ class DavOCSMetaBuilder implements Builder<DavOCSMeta, DavOCSMetaBuilder> {
   }
 
   @override
-  void replace(DavOCSMeta other) {
+  void replace(covariant DavOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavOCSMeta;
   }
@@ -433,6 +452,13 @@ class DavOCSMetaBuilder implements Builder<DavOCSMeta, DavOCSMetaBuilder> {
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get url;
+  set url(String? url);
 }
 
 class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data extends DavDirectGetUrlResponse200ApplicationJson_Ocs_Data {
@@ -480,12 +506,13 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data extends DavDirectGetU
 class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data,
-            DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder> {
+            DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder>,
+        DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -499,7 +526,7 @@ class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(DavDirectGetUrlResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data;
   }
@@ -520,6 +547,16 @@ class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(DavDirectGetUrlResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  DavOCSMetaBuilder get meta;
+  set meta(DavOCSMetaBuilder? meta);
+
+  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$DavDirectGetUrlResponse200ApplicationJson_Ocs extends DavDirectGetUrlResponse200ApplicationJson_Ocs {
@@ -572,17 +609,18 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs extends DavDirectGetUrlRes
 
 class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
     implements
-        Builder<DavDirectGetUrlResponse200ApplicationJson_Ocs, DavDirectGetUrlResponse200ApplicationJson_OcsBuilder> {
+        Builder<DavDirectGetUrlResponse200ApplicationJson_Ocs, DavDirectGetUrlResponse200ApplicationJson_OcsBuilder>,
+        DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder {
   _$DavDirectGetUrlResponse200ApplicationJson_Ocs? _$v;
 
   DavOCSMetaBuilder? _meta;
   DavOCSMetaBuilder get meta => _$this._meta ??= DavOCSMetaBuilder();
-  set meta(DavOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant DavOCSMetaBuilder? meta) => _$this._meta = meta;
 
   DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? _data;
   DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DavDirectGetUrlResponse200ApplicationJson_OcsBuilder();
 
@@ -597,7 +635,7 @@ class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(DavDirectGetUrlResponse200ApplicationJson_Ocs other) {
+  void replace(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavDirectGetUrlResponse200ApplicationJson_Ocs;
   }
@@ -629,6 +667,13 @@ class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder {
+  void replace(DavDirectGetUrlResponse200ApplicationJsonInterface other);
+  void update(void Function(DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder) updates);
+  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$DavDirectGetUrlResponse200ApplicationJson extends DavDirectGetUrlResponse200ApplicationJson {
@@ -673,13 +718,15 @@ class _$DavDirectGetUrlResponse200ApplicationJson extends DavDirectGetUrlRespons
 }
 
 class DavDirectGetUrlResponse200ApplicationJsonBuilder
-    implements Builder<DavDirectGetUrlResponse200ApplicationJson, DavDirectGetUrlResponse200ApplicationJsonBuilder> {
+    implements
+        Builder<DavDirectGetUrlResponse200ApplicationJson, DavDirectGetUrlResponse200ApplicationJsonBuilder>,
+        DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder {
   _$DavDirectGetUrlResponse200ApplicationJson? _$v;
 
   DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? _ocs;
   DavDirectGetUrlResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= DavDirectGetUrlResponse200ApplicationJson_OcsBuilder();
-  set ocs(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DavDirectGetUrlResponse200ApplicationJsonBuilder();
 
@@ -693,7 +740,7 @@ class DavDirectGetUrlResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(DavDirectGetUrlResponse200ApplicationJson other) {
+  void replace(covariant DavDirectGetUrlResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavDirectGetUrlResponse200ApplicationJson;
   }
@@ -723,6 +770,16 @@ class DavDirectGetUrlResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DavCapabilities_DavInterfaceBuilder {
+  void replace(DavCapabilities_DavInterface other);
+  void update(void Function(DavCapabilities_DavInterfaceBuilder) updates);
+  String? get chunking;
+  set chunking(String? chunking);
+
+  String? get bulkupload;
+  set bulkupload(String? bulkupload);
 }
 
 class _$DavCapabilities_Dav extends DavCapabilities_Dav {
@@ -769,16 +826,17 @@ class _$DavCapabilities_Dav extends DavCapabilities_Dav {
   }
 }
 
-class DavCapabilities_DavBuilder implements Builder<DavCapabilities_Dav, DavCapabilities_DavBuilder> {
+class DavCapabilities_DavBuilder
+    implements Builder<DavCapabilities_Dav, DavCapabilities_DavBuilder>, DavCapabilities_DavInterfaceBuilder {
   _$DavCapabilities_Dav? _$v;
 
   String? _chunking;
   String? get chunking => _$this._chunking;
-  set chunking(String? chunking) => _$this._chunking = chunking;
+  set chunking(covariant String? chunking) => _$this._chunking = chunking;
 
   String? _bulkupload;
   String? get bulkupload => _$this._bulkupload;
-  set bulkupload(String? bulkupload) => _$this._bulkupload = bulkupload;
+  set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
 
   DavCapabilities_DavBuilder();
 
@@ -793,7 +851,7 @@ class DavCapabilities_DavBuilder implements Builder<DavCapabilities_Dav, DavCapa
   }
 
   @override
-  void replace(DavCapabilities_Dav other) {
+  void replace(covariant DavCapabilities_Dav other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavCapabilities_Dav;
   }
@@ -814,6 +872,13 @@ class DavCapabilities_DavBuilder implements Builder<DavCapabilities_Dav, DavCapa
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DavCapabilitiesInterfaceBuilder {
+  void replace(DavCapabilitiesInterface other);
+  void update(void Function(DavCapabilitiesInterfaceBuilder) updates);
+  DavCapabilities_DavBuilder get dav;
+  set dav(DavCapabilities_DavBuilder? dav);
 }
 
 class _$DavCapabilities extends DavCapabilities {
@@ -853,12 +918,13 @@ class _$DavCapabilities extends DavCapabilities {
   }
 }
 
-class DavCapabilitiesBuilder implements Builder<DavCapabilities, DavCapabilitiesBuilder> {
+class DavCapabilitiesBuilder
+    implements Builder<DavCapabilities, DavCapabilitiesBuilder>, DavCapabilitiesInterfaceBuilder {
   _$DavCapabilities? _$v;
 
   DavCapabilities_DavBuilder? _dav;
   DavCapabilities_DavBuilder get dav => _$this._dav ??= DavCapabilities_DavBuilder();
-  set dav(DavCapabilities_DavBuilder? dav) => _$this._dav = dav;
+  set dav(covariant DavCapabilities_DavBuilder? dav) => _$this._dav = dav;
 
   DavCapabilitiesBuilder();
 
@@ -872,7 +938,7 @@ class DavCapabilitiesBuilder implements Builder<DavCapabilities, DavCapabilities
   }
 
   @override
-  void replace(DavCapabilities other) {
+  void replace(covariant DavCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DavCapabilities;
   }

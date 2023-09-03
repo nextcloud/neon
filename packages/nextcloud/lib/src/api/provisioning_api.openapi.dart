@@ -2081,7 +2081,19 @@ class ProvisioningApiUsersClient {
   }
 }
 
-abstract class ProvisioningApiOCSMeta implements Built<ProvisioningApiOCSMeta, ProvisioningApiOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  ProvisioningApiOCSMetaInterface rebuild(final void Function(ProvisioningApiOCSMetaInterfaceBuilder) updates);
+  ProvisioningApiOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class ProvisioningApiOCSMeta
+    implements ProvisioningApiOCSMetaInterface, Built<ProvisioningApiOCSMeta, ProvisioningApiOCSMetaBuilder> {
   factory ProvisioningApiOCSMeta([final void Function(ProvisioningApiOCSMetaBuilder)? b]) = _$ProvisioningApiOCSMeta;
 
   // coverage:ignore-start
@@ -2096,16 +2108,21 @@ abstract class ProvisioningApiOCSMeta implements Built<ProvisioningApiOCSMeta, P
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<ProvisioningApiOCSMeta> get serializer => _$provisioningApiOCSMetaSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get data;
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data([
@@ -2126,13 +2143,23 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetAppsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs,
             ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs([
@@ -2151,14 +2178,22 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetAppsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterface {
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson
     implements
+        ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson,
             ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson([
@@ -2177,13 +2212,22 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetAppsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get data;
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data([
@@ -2204,13 +2248,23 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetKeysResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs,
             ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs([
@@ -2229,14 +2283,22 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetKeysResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterface {
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson
     implements
+        ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson,
             ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson([
@@ -2255,13 +2317,22 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetKeysResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterface {
+  String get data;
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data([
@@ -2282,13 +2353,23 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get data;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetValueResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs,
             ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs([
@@ -2307,14 +2388,22 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetValueResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterface {
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson
     implements
+        ProvisioningApiAppConfigGetValueResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppConfigGetValueResponse200ApplicationJson,
             ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson([
@@ -2333,13 +2422,23 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetValueResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs,
             ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs([
@@ -2358,14 +2457,22 @@ abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigSetValueResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterface {
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson
     implements
+        ProvisioningApiAppConfigSetValueResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppConfigSetValueResponse200ApplicationJson,
             ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson([
@@ -2384,13 +2491,23 @@ abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigSetValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigSetValueResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs,
             ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs([
@@ -2409,14 +2526,22 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigDeleteKeyResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterface {
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson
     implements
+        ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson,
             ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson([
@@ -2435,13 +2560,22 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigDeleteKeyResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get apps;
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data([
@@ -2460,13 +2594,23 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get apps;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppsGetAppsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs,
             ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs([
@@ -2485,14 +2629,22 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsGetAppsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterface {
+  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson
     implements
+        ProvisioningApiAppsGetAppsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppsGetAppsResponse200ApplicationJson,
             ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson([
@@ -2511,26 +2663,12 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppsResponse200ApplicationJsonSerializer;
 }
 
-abstract class ProvisioningApiAppInfo implements Built<ProvisioningApiAppInfo, ProvisioningApiAppInfoBuilder> {
-  factory ProvisioningApiAppInfo([final void Function(ProvisioningApiAppInfoBuilder)? b]) = _$ProvisioningApiAppInfo;
-
-  // coverage:ignore-start
-  const ProvisioningApiAppInfo._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ProvisioningApiAppInfo.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppInfoInterface {
   bool? get active;
   JsonObject? get activity;
   JsonObject? get author;
@@ -2574,11 +2712,42 @@ abstract class ProvisioningApiAppInfo implements Built<ProvisioningApiAppInfo, P
   String get version;
   JsonObject? get versions;
   JsonObject? get website;
+  ProvisioningApiAppInfoInterface rebuild(final void Function(ProvisioningApiAppInfoInterfaceBuilder) updates);
+  ProvisioningApiAppInfoInterfaceBuilder toBuilder();
+}
+
+abstract class ProvisioningApiAppInfo
+    implements ProvisioningApiAppInfoInterface, Built<ProvisioningApiAppInfo, ProvisioningApiAppInfoBuilder> {
+  factory ProvisioningApiAppInfo([final void Function(ProvisioningApiAppInfoBuilder)? b]) = _$ProvisioningApiAppInfo;
+
+  // coverage:ignore-start
+  const ProvisioningApiAppInfo._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory ProvisioningApiAppInfo.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<ProvisioningApiAppInfo> get serializer => _$provisioningApiAppInfoSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiAppInfo get data;
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs,
             ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs([
@@ -2597,14 +2766,22 @@ abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiAppInfo get data;
   static Serializer<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsGetAppInfoResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterface {
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson
     implements
+        ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson,
             ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson([
@@ -2623,13 +2800,23 @@ abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppInfoResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppsEnableResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs,
             ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs([
@@ -2648,14 +2835,22 @@ abstract class ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsEnableResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsEnableResponse200ApplicationJsonInterface {
+  ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppsEnableResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppsEnableResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsEnableResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsEnableResponse200ApplicationJson
     implements
+        ProvisioningApiAppsEnableResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppsEnableResponse200ApplicationJson,
             ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppsEnableResponse200ApplicationJson([
@@ -2674,13 +2869,23 @@ abstract class ProvisioningApiAppsEnableResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsEnableResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsEnableResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiAppsDisableResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs,
             ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs([
@@ -2699,14 +2904,22 @@ abstract class ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsDisableResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiAppsDisableResponse200ApplicationJsonInterface {
+  ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiAppsDisableResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiAppsDisableResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiAppsDisableResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiAppsDisableResponse200ApplicationJson
     implements
+        ProvisioningApiAppsDisableResponse200ApplicationJsonInterface,
         Built<ProvisioningApiAppsDisableResponse200ApplicationJson,
             ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiAppsDisableResponse200ApplicationJson([
@@ -2725,13 +2938,22 @@ abstract class ProvisioningApiAppsDisableResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsDisableResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsDisableResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get groups;
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data([
@@ -2750,13 +2972,23 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get groups;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs([
@@ -2775,14 +3007,22 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson,
             ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson([
@@ -2801,13 +3041,23 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs([
@@ -2826,14 +3076,22 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsAddGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsAddGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsAddGroupResponse200ApplicationJson,
             ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson([
@@ -2852,7 +3110,6 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsAddGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsAddGroupResponse200ApplicationJsonSerializer;
 }
@@ -2976,8 +3233,24 @@ class _$ProvisioningApiGroupDetails_DisabledSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupDetailsInterface {
+  String get id;
+  String get displayname;
+  ProvisioningApiGroupDetails_Usercount get usercount;
+  ProvisioningApiGroupDetails_Disabled get disabled;
+  bool get canAdd;
+  bool get canRemove;
+  ProvisioningApiGroupDetailsInterface rebuild(
+    final void Function(ProvisioningApiGroupDetailsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupDetailsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupDetails
-    implements Built<ProvisioningApiGroupDetails, ProvisioningApiGroupDetailsBuilder> {
+    implements
+        ProvisioningApiGroupDetailsInterface,
+        Built<ProvisioningApiGroupDetails, ProvisioningApiGroupDetailsBuilder> {
   factory ProvisioningApiGroupDetails([final void Function(ProvisioningApiGroupDetailsBuilder)? b]) =
       _$ProvisioningApiGroupDetails;
 
@@ -2993,17 +3266,22 @@ abstract class ProvisioningApiGroupDetails
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
-  String get displayname;
-  ProvisioningApiGroupDetails_Usercount get usercount;
-  ProvisioningApiGroupDetails_Disabled get disabled;
-  bool get canAdd;
-  bool get canRemove;
   static Serializer<ProvisioningApiGroupDetails> get serializer => _$provisioningApiGroupDetailsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<ProvisioningApiGroupDetails> get groups;
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data([
@@ -3024,13 +3302,23 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<ProvisioningApiGroupDetails> get groups;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs([
@@ -3051,14 +3339,22 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson,
             ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson([
@@ -3077,13 +3373,22 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get users;
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data([
@@ -3104,13 +3409,23 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get users;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs([
@@ -3129,14 +3444,22 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson,
             ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson([
@@ -3155,13 +3478,23 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUserDetails_BackendCapabilitiesInterface {
+  bool get setDisplayName;
+  bool get setPassword;
+  ProvisioningApiUserDetails_BackendCapabilitiesInterface rebuild(
+    final void Function(ProvisioningApiUserDetails_BackendCapabilitiesInterfaceBuilder) updates,
+  );
+  ProvisioningApiUserDetails_BackendCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUserDetails_BackendCapabilities
     implements
+        ProvisioningApiUserDetails_BackendCapabilitiesInterface,
         Built<ProvisioningApiUserDetails_BackendCapabilities, ProvisioningApiUserDetails_BackendCapabilitiesBuilder> {
   factory ProvisioningApiUserDetails_BackendCapabilities([
     final void Function(ProvisioningApiUserDetails_BackendCapabilitiesBuilder)? b,
@@ -3179,8 +3512,6 @@ abstract class ProvisioningApiUserDetails_BackendCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get setDisplayName;
-  bool get setPassword;
   static Serializer<ProvisioningApiUserDetails_BackendCapabilities> get serializer =>
       _$provisioningApiUserDetailsBackendCapabilitiesSerializer;
 }
@@ -3245,8 +3576,23 @@ class _$ProvisioningApiUserDetailsQuota_QuotaSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUserDetailsQuotaInterface {
+  num? get free;
+  ProvisioningApiUserDetailsQuota_Quota? get quota;
+  num? get relative;
+  num? get total;
+  num? get used;
+  ProvisioningApiUserDetailsQuotaInterface rebuild(
+    final void Function(ProvisioningApiUserDetailsQuotaInterfaceBuilder) updates,
+  );
+  ProvisioningApiUserDetailsQuotaInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUserDetailsQuota
-    implements Built<ProvisioningApiUserDetailsQuota, ProvisioningApiUserDetailsQuotaBuilder> {
+    implements
+        ProvisioningApiUserDetailsQuotaInterface,
+        Built<ProvisioningApiUserDetailsQuota, ProvisioningApiUserDetailsQuotaBuilder> {
   factory ProvisioningApiUserDetailsQuota([final void Function(ProvisioningApiUserDetailsQuotaBuilder)? b]) =
       _$ProvisioningApiUserDetailsQuota;
 
@@ -3262,31 +3608,11 @@ abstract class ProvisioningApiUserDetailsQuota
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  num? get free;
-  ProvisioningApiUserDetailsQuota_Quota? get quota;
-  num? get relative;
-  num? get total;
-  num? get used;
   static Serializer<ProvisioningApiUserDetailsQuota> get serializer => _$provisioningApiUserDetailsQuotaSerializer;
 }
 
-abstract class ProvisioningApiUserDetails
-    implements Built<ProvisioningApiUserDetails, ProvisioningApiUserDetailsBuilder> {
-  factory ProvisioningApiUserDetails([final void Function(ProvisioningApiUserDetailsBuilder)? b]) =
-      _$ProvisioningApiUserDetails;
-
-  // coverage:ignore-start
-  const ProvisioningApiUserDetails._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ProvisioningApiUserDetails.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUserDetailsInterface {
   @BuiltValueField(wireName: 'additional_mail')
   BuiltList<String> get additionalMail;
   @BuiltValueField(wireName: 'additional_mailScope')
@@ -3334,11 +3660,46 @@ abstract class ProvisioningApiUserDetails
   String? get twitterScope;
   String get website;
   String? get websiteScope;
+  ProvisioningApiUserDetailsInterface rebuild(final void Function(ProvisioningApiUserDetailsInterfaceBuilder) updates);
+  ProvisioningApiUserDetailsInterfaceBuilder toBuilder();
+}
+
+abstract class ProvisioningApiUserDetails
+    implements
+        ProvisioningApiUserDetailsInterface,
+        Built<ProvisioningApiUserDetails, ProvisioningApiUserDetailsBuilder> {
+  factory ProvisioningApiUserDetails([final void Function(ProvisioningApiUserDetailsBuilder)? b]) =
+      _$ProvisioningApiUserDetails;
+
+  // coverage:ignore-start
+  const ProvisioningApiUserDetails._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory ProvisioningApiUserDetails.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<ProvisioningApiUserDetails> get serializer => _$provisioningApiUserDetailsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface {
+  String get id;
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface rebuild(
+    final void Function(
+      ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder,
+    ) updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1
     implements
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface,
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder> {
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1([
@@ -3359,7 +3720,6 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1>
       get serializer => _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonOcsDataUsers1Serializer;
 }
@@ -3449,8 +3809,19 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data([
@@ -3471,13 +3842,24 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs([
@@ -3498,14 +3880,22 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson([
@@ -3526,13 +3916,23 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  BuiltList<String> get data;
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs([
@@ -3553,14 +3953,22 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson,
             ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson([
@@ -3581,13 +3989,22 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get users;
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data([
@@ -3606,13 +4023,23 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get users;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs([
@@ -3631,14 +4058,22 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsGetGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsGetGroupResponse200ApplicationJson,
             ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson([
@@ -3657,13 +4092,23 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs([
@@ -3682,14 +4127,22 @@ abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsUpdateGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson,
             ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson([
@@ -3708,13 +4161,23 @@ abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsUpdateGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs([
@@ -3733,14 +4196,22 @@ abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsDeleteGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson
     implements
+        ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson,
             ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson([
@@ -3759,13 +4230,23 @@ abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsDeleteGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs,
             ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs([
@@ -3786,14 +4267,22 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesSetPreferenceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterface {
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
     implements
+        ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonInterface,
         Built<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson,
             ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson([
@@ -3812,13 +4301,24 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetPreferenceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs,
             ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs([
@@ -3839,14 +4339,22 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJ
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterface {
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson
     implements
+        ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonInterface,
         Built<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson,
             ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson([
@@ -3867,13 +4375,24 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJ
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs,
             ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs([
@@ -3894,14 +4413,23 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200Applic
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterface {
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson
     implements
+        ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonInterface,
         Built<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson,
             ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson([
@@ -3922,13 +4450,25 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200Applic
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(
+      ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterfaceBuilder,
+    ) updates,
+  );
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs,
             ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs([
@@ -3949,14 +4489,23 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Appl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterface {
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson
     implements
+        ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonInterface,
         Built<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson,
             ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson([
@@ -3977,13 +4526,22 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Appl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get users;
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data([
@@ -4002,13 +4560,23 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get users;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs([
@@ -4027,14 +4595,22 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetUsersResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetUsersResponse200ApplicationJson,
             ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson([
@@ -4053,13 +4629,22 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterface {
+  String get id;
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data([
@@ -4078,13 +4663,23 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersAddUserResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs([
@@ -4103,14 +4698,22 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersAddUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersAddUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersAddUserResponse200ApplicationJson,
             ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson([
@@ -4129,13 +4732,23 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface {
+  String get id;
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1InterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1
     implements
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Interface,
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder> {
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1([
@@ -4156,7 +4769,6 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get id;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonOcsDataUsers1Serializer;
 }
@@ -4243,8 +4855,18 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_U
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data([
@@ -4265,13 +4887,23 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltMap<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs([
@@ -4290,14 +4922,22 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson([
@@ -4316,13 +4956,23 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  BuiltMap<String, String> get data;
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs([
@@ -4343,14 +4993,22 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  BuiltMap<String, String> get data;
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson
     implements
+        ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson,
             ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson([
@@ -4371,13 +5029,23 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUserDetails get data;
+  ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs([
@@ -4396,14 +5064,22 @@ abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUserDetails get data;
   static Serializer<ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetUserResponse200ApplicationJson,
             ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson([
@@ -4422,13 +5098,23 @@ abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs([
@@ -4447,14 +5133,22 @@ abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEditUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEditUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersEditUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersEditUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEditUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersEditUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersEditUserResponse200ApplicationJson,
             ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson([
@@ -4473,13 +5167,23 @@ abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEditUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs([
@@ -4498,14 +5202,22 @@ abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersDeleteUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersDeleteUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersDeleteUserResponse200ApplicationJson,
             ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson([
@@ -4524,13 +5236,23 @@ abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersDeleteUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersDeleteUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUserDetails get data;
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs([
@@ -4549,14 +5271,22 @@ abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUserDetails get data;
   static Serializer<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetCurrentUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson,
             ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson([
@@ -4575,13 +5305,23 @@ abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetCurrentUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  BuiltList<String> get data;
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs([
@@ -4602,14 +5342,22 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetEditableFieldsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson,
             ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson([
@@ -4628,13 +5376,24 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  BuiltList<String> get data;
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs([
@@ -4655,14 +5414,22 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200Applicatio
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson,
             ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson([
@@ -4683,13 +5450,23 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200Applicatio
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs([
@@ -4710,14 +5487,22 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEditUserMultiValueResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson
     implements
+        ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson,
             ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson([
@@ -4736,13 +5521,23 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserMultiValueResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs([
@@ -4761,14 +5556,22 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersWipeUserDevicesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson
     implements
+        ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson,
             ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson([
@@ -4787,13 +5590,23 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersWipeUserDevicesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs([
@@ -4812,14 +5625,22 @@ abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEnableUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersEnableUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersEnableUserResponse200ApplicationJson,
             ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson([
@@ -4838,13 +5659,23 @@ abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEnableUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEnableUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs([
@@ -4863,14 +5694,22 @@ abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersDisableUserResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson
     implements
+        ProvisioningApiUsersDisableUserResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersDisableUserResponse200ApplicationJson,
             ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson([
@@ -4889,13 +5728,22 @@ abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersDisableUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersDisableUserResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get groups;
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data
     implements
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataInterface,
         Built<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data,
             ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder> {
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data([
@@ -4916,13 +5764,23 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String> get groups;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data get data;
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs([
@@ -4941,14 +5799,22 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson,
             ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson([
@@ -4967,13 +5833,23 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs([
@@ -4992,14 +5868,22 @@ abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddToGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson
     implements
+        ProvisioningApiUsersAddToGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersAddToGroupResponse200ApplicationJson,
             ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson([
@@ -5018,13 +5902,23 @@ abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddToGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddToGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs([
@@ -5043,14 +5937,22 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersRemoveFromGroupResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson
     implements
+        ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson,
             ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson([
@@ -5069,13 +5971,24 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveFromGroupResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  BuiltList<String> get data;
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterfaceBuilder)
+        updates,
+  );
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs([
@@ -5096,14 +6009,22 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson
     implements
+        ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson,
             ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson([
@@ -5124,13 +6045,23 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs([
@@ -5149,14 +6080,22 @@ abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddSubAdminResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson
     implements
+        ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson,
             ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson([
@@ -5175,13 +6114,23 @@ abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddSubAdminResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs([
@@ -5200,14 +6149,22 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersRemoveSubAdminResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson
     implements
+        ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson,
             ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson([
@@ -5226,13 +6183,23 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveSubAdminResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterface {
+  ProvisioningApiOCSMeta get meta;
+  JsonObject get data;
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs
     implements
+        ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsInterface,
         Built<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs,
             ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder> {
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs([
@@ -5253,14 +6220,22 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiOCSMeta get meta;
-  JsonObject get data;
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterface {
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs get ocs;
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterface rebuild(
+    final void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson
     implements
+        ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonInterface,
         Built<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson,
             ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder> {
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson([
@@ -5281,13 +6256,29 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiCapabilities_ProvisioningApiInterface {
+  String get version;
+  @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
+  int get accountPropertyScopesVersion;
+  @BuiltValueField(wireName: 'AccountPropertyScopesFederatedEnabled')
+  bool get accountPropertyScopesFederatedEnabled;
+  @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
+  bool get accountPropertyScopesPublishedEnabled;
+  ProvisioningApiCapabilities_ProvisioningApiInterface rebuild(
+    final void Function(ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates,
+  );
+  ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiCapabilities_ProvisioningApi
-    implements Built<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder> {
+    implements
+        ProvisioningApiCapabilities_ProvisioningApiInterface,
+        Built<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder> {
   factory ProvisioningApiCapabilities_ProvisioningApi([
     final void Function(ProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
   ]) = _$ProvisioningApiCapabilities_ProvisioningApi;
@@ -5304,19 +6295,24 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get version;
-  @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
-  int get accountPropertyScopesVersion;
-  @BuiltValueField(wireName: 'AccountPropertyScopesFederatedEnabled')
-  bool get accountPropertyScopesFederatedEnabled;
-  @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
-  bool get accountPropertyScopesPublishedEnabled;
   static Serializer<ProvisioningApiCapabilities_ProvisioningApi> get serializer =>
       _$provisioningApiCapabilitiesProvisioningApiSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ProvisioningApiCapabilitiesInterface {
+  @BuiltValueField(wireName: 'provisioning_api')
+  ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
+  ProvisioningApiCapabilitiesInterface rebuild(
+    final void Function(ProvisioningApiCapabilitiesInterfaceBuilder) updates,
+  );
+  ProvisioningApiCapabilitiesInterfaceBuilder toBuilder();
+}
+
 abstract class ProvisioningApiCapabilities
-    implements Built<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
+    implements
+        ProvisioningApiCapabilitiesInterface,
+        Built<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
   factory ProvisioningApiCapabilities([final void Function(ProvisioningApiCapabilitiesBuilder)? b]) =
       _$ProvisioningApiCapabilities;
 
@@ -5332,8 +6328,6 @@ abstract class ProvisioningApiCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'provisioning_api')
-  ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
   static Serializer<ProvisioningApiCapabilities> get serializer => _$provisioningApiCapabilitiesSerializer;
 }
 

@@ -118,7 +118,19 @@ class FilesExternalApiClient {
   }
 }
 
-abstract class FilesExternalOCSMeta implements Built<FilesExternalOCSMeta, FilesExternalOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesExternalOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  FilesExternalOCSMetaInterface rebuild(final void Function(FilesExternalOCSMetaInterfaceBuilder) updates);
+  FilesExternalOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class FilesExternalOCSMeta
+    implements FilesExternalOCSMetaInterface, Built<FilesExternalOCSMeta, FilesExternalOCSMetaBuilder> {
   factory FilesExternalOCSMeta([final void Function(FilesExternalOCSMetaBuilder)? b]) = _$FilesExternalOCSMeta;
 
   // coverage:ignore-start
@@ -133,11 +145,6 @@ abstract class FilesExternalOCSMeta implements Built<FilesExternalOCSMeta, Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<FilesExternalOCSMeta> get serializer => _$filesExternalOCSMetaSerializer;
 }
 
@@ -181,8 +188,29 @@ class FilesExternalStorageConfig_Type extends EnumClass {
   static Serializer<FilesExternalStorageConfig_Type> get serializer => _$filesExternalStorageConfigTypeSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesExternalStorageConfigInterface {
+  BuiltList<String>? get applicableGroups;
+  BuiltList<String>? get applicableUsers;
+  String get authMechanism;
+  String get backend;
+  BuiltMap<String, JsonObject> get backendOptions;
+  int? get id;
+  BuiltMap<String, JsonObject>? get mountOptions;
+  String get mountPoint;
+  int? get priority;
+  int? get status;
+  String? get statusMessage;
+  FilesExternalStorageConfig_Type get type;
+  bool get userProvided;
+  FilesExternalStorageConfigInterface rebuild(final void Function(FilesExternalStorageConfigInterfaceBuilder) updates);
+  FilesExternalStorageConfigInterfaceBuilder toBuilder();
+}
+
 abstract class FilesExternalStorageConfig
-    implements Built<FilesExternalStorageConfig, FilesExternalStorageConfigBuilder> {
+    implements
+        FilesExternalStorageConfigInterface,
+        Built<FilesExternalStorageConfig, FilesExternalStorageConfigBuilder> {
   factory FilesExternalStorageConfig([final void Function(FilesExternalStorageConfigBuilder)? b]) =
       _$FilesExternalStorageConfig;
 
@@ -198,23 +226,27 @@ abstract class FilesExternalStorageConfig
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<String>? get applicableGroups;
-  BuiltList<String>? get applicableUsers;
-  String get authMechanism;
-  String get backend;
-  BuiltMap<String, JsonObject> get backendOptions;
-  int? get id;
-  BuiltMap<String, JsonObject>? get mountOptions;
-  String get mountPoint;
-  int? get priority;
-  int? get status;
-  String? get statusMessage;
-  FilesExternalStorageConfig_Type get type;
-  bool get userProvided;
   static Serializer<FilesExternalStorageConfig> get serializer => _$filesExternalStorageConfigSerializer;
 }
 
-abstract class FilesExternalMount implements Built<FilesExternalMount, FilesExternalMountBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesExternalMountInterface {
+  String get name;
+  String get path;
+  FilesExternalMount_Type get type;
+  String get backend;
+  FilesExternalMount_Scope get scope;
+  int get permissions;
+  int get id;
+  @BuiltValueField(wireName: 'class')
+  String get $class;
+  FilesExternalStorageConfig get config;
+  FilesExternalMountInterface rebuild(final void Function(FilesExternalMountInterfaceBuilder) updates);
+  FilesExternalMountInterfaceBuilder toBuilder();
+}
+
+abstract class FilesExternalMount
+    implements FilesExternalMountInterface, Built<FilesExternalMount, FilesExternalMountBuilder> {
   factory FilesExternalMount([final void Function(FilesExternalMountBuilder)? b]) = _$FilesExternalMount;
 
   // coverage:ignore-start
@@ -229,21 +261,22 @@ abstract class FilesExternalMount implements Built<FilesExternalMount, FilesExte
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get name;
-  String get path;
-  FilesExternalMount_Type get type;
-  String get backend;
-  FilesExternalMount_Scope get scope;
-  int get permissions;
-  int get id;
-  @BuiltValueField(wireName: 'class')
-  String get $class;
-  FilesExternalStorageConfig get config;
   static Serializer<FilesExternalMount> get serializer => _$filesExternalMountSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface {
+  FilesExternalOCSMeta get meta;
+  BuiltList<FilesExternalMount> get data;
+  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
     implements
+        FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface,
         Built<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs,
             FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder> {
   factory FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs([
@@ -262,14 +295,22 @@ abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesExternalOCSMeta get meta;
-  BuiltList<FilesExternalMount> get data;
   static Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs> get serializer =>
       _$filesExternalApiGetUserMountsResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface {
+  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs get ocs;
+  FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson
     implements
+        FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface,
         Built<FilesExternalApiGetUserMountsResponse200ApplicationJson,
             FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder> {
   factory FilesExternalApiGetUserMountsResponse200ApplicationJson([
@@ -288,7 +329,6 @@ abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson> get serializer =>
       _$filesExternalApiGetUserMountsResponse200ApplicationJsonSerializer;
 }

@@ -87,6 +87,13 @@ class _$FilesTrashbinCapabilitiesSerializer implements StructuredSerializer<File
   }
 }
 
+abstract mixin class FilesTrashbinCapabilities_FilesInterfaceBuilder {
+  void replace(FilesTrashbinCapabilities_FilesInterface other);
+  void update(void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates);
+  bool? get undelete;
+  set undelete(bool? undelete);
+}
+
 class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files {
   @override
   final bool undelete;
@@ -126,12 +133,14 @@ class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files 
 }
 
 class FilesTrashbinCapabilities_FilesBuilder
-    implements Builder<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
+    implements
+        Builder<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder>,
+        FilesTrashbinCapabilities_FilesInterfaceBuilder {
   _$FilesTrashbinCapabilities_Files? _$v;
 
   bool? _undelete;
   bool? get undelete => _$this._undelete;
-  set undelete(bool? undelete) => _$this._undelete = undelete;
+  set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
   FilesTrashbinCapabilities_FilesBuilder();
 
@@ -145,7 +154,7 @@ class FilesTrashbinCapabilities_FilesBuilder
   }
 
   @override
-  void replace(FilesTrashbinCapabilities_Files other) {
+  void replace(covariant FilesTrashbinCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTrashbinCapabilities_Files;
   }
@@ -165,6 +174,13 @@ class FilesTrashbinCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTrashbinCapabilitiesInterfaceBuilder {
+  void replace(FilesTrashbinCapabilitiesInterface other);
+  void update(void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
+  FilesTrashbinCapabilities_FilesBuilder get files;
+  set files(FilesTrashbinCapabilities_FilesBuilder? files);
 }
 
 class _$FilesTrashbinCapabilities extends FilesTrashbinCapabilities {
@@ -205,12 +221,15 @@ class _$FilesTrashbinCapabilities extends FilesTrashbinCapabilities {
   }
 }
 
-class FilesTrashbinCapabilitiesBuilder implements Builder<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
+class FilesTrashbinCapabilitiesBuilder
+    implements
+        Builder<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder>,
+        FilesTrashbinCapabilitiesInterfaceBuilder {
   _$FilesTrashbinCapabilities? _$v;
 
   FilesTrashbinCapabilities_FilesBuilder? _files;
   FilesTrashbinCapabilities_FilesBuilder get files => _$this._files ??= FilesTrashbinCapabilities_FilesBuilder();
-  set files(FilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant FilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
 
   FilesTrashbinCapabilitiesBuilder();
 
@@ -224,7 +243,7 @@ class FilesTrashbinCapabilitiesBuilder implements Builder<FilesTrashbinCapabilit
   }
 
   @override
-  void replace(FilesTrashbinCapabilities other) {
+  void replace(covariant FilesTrashbinCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTrashbinCapabilities;
   }

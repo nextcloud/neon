@@ -656,6 +656,25 @@ class _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonSerialize
   }
 }
 
+abstract mixin class DashboardOCSMetaInterfaceBuilder {
+  void replace(DashboardOCSMetaInterface other);
+  void update(void Function(DashboardOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$DashboardOCSMeta extends DashboardOCSMeta {
   @override
   final String status;
@@ -719,28 +738,29 @@ class _$DashboardOCSMeta extends DashboardOCSMeta {
   }
 }
 
-class DashboardOCSMetaBuilder implements Builder<DashboardOCSMeta, DashboardOCSMetaBuilder> {
+class DashboardOCSMetaBuilder
+    implements Builder<DashboardOCSMeta, DashboardOCSMetaBuilder>, DashboardOCSMetaInterfaceBuilder {
   _$DashboardOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   DashboardOCSMetaBuilder();
 
@@ -758,7 +778,7 @@ class DashboardOCSMetaBuilder implements Builder<DashboardOCSMeta, DashboardOCSM
   }
 
   @override
-  void replace(DashboardOCSMeta other) {
+  void replace(covariant DashboardOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardOCSMeta;
   }
@@ -782,6 +802,19 @@ class DashboardOCSMetaBuilder implements Builder<DashboardOCSMeta, DashboardOCSM
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardWidget_ButtonsInterfaceBuilder {
+  void replace(DashboardWidget_ButtonsInterface other);
+  void update(void Function(DashboardWidget_ButtonsInterfaceBuilder) updates);
+  String? get type;
+  set type(String? type);
+
+  String? get text;
+  set text(String? text);
+
+  String? get link;
+  set link(String? link);
 }
 
 class _$DashboardWidget_Buttons extends DashboardWidget_Buttons {
@@ -834,20 +867,23 @@ class _$DashboardWidget_Buttons extends DashboardWidget_Buttons {
   }
 }
 
-class DashboardWidget_ButtonsBuilder implements Builder<DashboardWidget_Buttons, DashboardWidget_ButtonsBuilder> {
+class DashboardWidget_ButtonsBuilder
+    implements
+        Builder<DashboardWidget_Buttons, DashboardWidget_ButtonsBuilder>,
+        DashboardWidget_ButtonsInterfaceBuilder {
   _$DashboardWidget_Buttons? _$v;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   String? _text;
   String? get text => _$this._text;
-  set text(String? text) => _$this._text = text;
+  set text(covariant String? text) => _$this._text = text;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   DashboardWidget_ButtonsBuilder();
 
@@ -863,7 +899,7 @@ class DashboardWidget_ButtonsBuilder implements Builder<DashboardWidget_Buttons,
   }
 
   @override
-  void replace(DashboardWidget_Buttons other) {
+  void replace(covariant DashboardWidget_Buttons other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardWidget_Buttons;
   }
@@ -885,6 +921,40 @@ class DashboardWidget_ButtonsBuilder implements Builder<DashboardWidget_Buttons,
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardWidgetInterfaceBuilder {
+  void replace(DashboardWidgetInterface other);
+  void update(void Function(DashboardWidgetInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get title;
+  set title(String? title);
+
+  int? get order;
+  set order(int? order);
+
+  String? get iconClass;
+  set iconClass(String? iconClass);
+
+  String? get iconUrl;
+  set iconUrl(String? iconUrl);
+
+  String? get widgetUrl;
+  set widgetUrl(String? widgetUrl);
+
+  bool? get itemIconsRound;
+  set itemIconsRound(bool? itemIconsRound);
+
+  ListBuilder<int> get itemApiVersions;
+  set itemApiVersions(ListBuilder<int>? itemApiVersions);
+
+  int? get reloadInterval;
+  set reloadInterval(int? reloadInterval);
+
+  ListBuilder<DashboardWidget_Buttons> get buttons;
+  set buttons(ListBuilder<DashboardWidget_Buttons>? buttons);
 }
 
 class _$DashboardWidget extends DashboardWidget {
@@ -990,48 +1060,49 @@ class _$DashboardWidget extends DashboardWidget {
   }
 }
 
-class DashboardWidgetBuilder implements Builder<DashboardWidget, DashboardWidgetBuilder> {
+class DashboardWidgetBuilder
+    implements Builder<DashboardWidget, DashboardWidgetBuilder>, DashboardWidgetInterfaceBuilder {
   _$DashboardWidget? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   int? _order;
   int? get order => _$this._order;
-  set order(int? order) => _$this._order = order;
+  set order(covariant int? order) => _$this._order = order;
 
   String? _iconClass;
   String? get iconClass => _$this._iconClass;
-  set iconClass(String? iconClass) => _$this._iconClass = iconClass;
+  set iconClass(covariant String? iconClass) => _$this._iconClass = iconClass;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
-  set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
+  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
 
   String? _widgetUrl;
   String? get widgetUrl => _$this._widgetUrl;
-  set widgetUrl(String? widgetUrl) => _$this._widgetUrl = widgetUrl;
+  set widgetUrl(covariant String? widgetUrl) => _$this._widgetUrl = widgetUrl;
 
   bool? _itemIconsRound;
   bool? get itemIconsRound => _$this._itemIconsRound;
-  set itemIconsRound(bool? itemIconsRound) => _$this._itemIconsRound = itemIconsRound;
+  set itemIconsRound(covariant bool? itemIconsRound) => _$this._itemIconsRound = itemIconsRound;
 
   ListBuilder<int>? _itemApiVersions;
   ListBuilder<int> get itemApiVersions => _$this._itemApiVersions ??= ListBuilder<int>();
-  set itemApiVersions(ListBuilder<int>? itemApiVersions) => _$this._itemApiVersions = itemApiVersions;
+  set itemApiVersions(covariant ListBuilder<int>? itemApiVersions) => _$this._itemApiVersions = itemApiVersions;
 
   int? _reloadInterval;
   int? get reloadInterval => _$this._reloadInterval;
-  set reloadInterval(int? reloadInterval) => _$this._reloadInterval = reloadInterval;
+  set reloadInterval(covariant int? reloadInterval) => _$this._reloadInterval = reloadInterval;
 
   ListBuilder<DashboardWidget_Buttons>? _buttons;
   ListBuilder<DashboardWidget_Buttons> get buttons => _$this._buttons ??= ListBuilder<DashboardWidget_Buttons>();
-  set buttons(ListBuilder<DashboardWidget_Buttons>? buttons) => _$this._buttons = buttons;
+  set buttons(covariant ListBuilder<DashboardWidget_Buttons>? buttons) => _$this._buttons = buttons;
 
   DashboardWidgetBuilder();
 
@@ -1054,7 +1125,7 @@ class DashboardWidgetBuilder implements Builder<DashboardWidget, DashboardWidget
   }
 
   @override
-  void replace(DashboardWidget other) {
+  void replace(covariant DashboardWidget other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardWidget;
   }
@@ -1100,6 +1171,16 @@ class DashboardWidgetBuilder implements Builder<DashboardWidget, DashboardWidget
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  DashboardOCSMetaBuilder get meta;
+  set meta(DashboardOCSMetaBuilder? meta);
+
+  ListBuilder<DashboardWidget> get data;
+  set data(ListBuilder<DashboardWidget>? data);
 }
 
 class _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs
@@ -1159,16 +1240,17 @@ class _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs
 class DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder> {
+            DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder>,
+        DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs? _$v;
 
   DashboardOCSMetaBuilder? _meta;
   DashboardOCSMetaBuilder get meta => _$this._meta ??= DashboardOCSMetaBuilder();
-  set meta(DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<DashboardWidget>? _data;
   ListBuilder<DashboardWidget> get data => _$this._data ??= ListBuilder<DashboardWidget>();
-  set data(ListBuilder<DashboardWidget>? data) => _$this._data = data;
+  set data(covariant ListBuilder<DashboardWidget>? data) => _$this._data = data;
 
   DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder();
 
@@ -1183,7 +1265,7 @@ class DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson_Ocs;
   }
@@ -1217,6 +1299,13 @@ class DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetsResponse200ApplicationJsonInterface other);
+  void update(void Function(DashboardDashboardApiGetWidgetsResponse200ApplicationJsonInterfaceBuilder) updates);
+  DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson
@@ -1265,13 +1354,14 @@ class _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson
 class DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetsResponse200ApplicationJson,
-            DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder> {
+            DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder>,
+        DashboardDashboardApiGetWidgetsResponse200ApplicationJsonInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson? _$v;
 
   DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder? _ocs;
   DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder();
-  set ocs(DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant DashboardDashboardApiGetWidgetsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder();
 
@@ -1285,7 +1375,7 @@ class DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetsResponse200ApplicationJson other) {
+  void replace(covariant DashboardDashboardApiGetWidgetsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetsResponse200ApplicationJson;
   }
@@ -1316,6 +1406,28 @@ class DashboardDashboardApiGetWidgetsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardWidgetItemInterfaceBuilder {
+  void replace(DashboardWidgetItemInterface other);
+  void update(void Function(DashboardWidgetItemInterfaceBuilder) updates);
+  String? get subtitle;
+  set subtitle(String? subtitle);
+
+  String? get title;
+  set title(String? title);
+
+  String? get link;
+  set link(String? link);
+
+  String? get iconUrl;
+  set iconUrl(String? iconUrl);
+
+  String? get overlayIconUrl;
+  set overlayIconUrl(String? overlayIconUrl);
+
+  String? get sinceId;
+  set sinceId(String? sinceId);
 }
 
 class _$DashboardWidgetItem extends DashboardWidgetItem {
@@ -1396,32 +1508,33 @@ class _$DashboardWidgetItem extends DashboardWidgetItem {
   }
 }
 
-class DashboardWidgetItemBuilder implements Builder<DashboardWidgetItem, DashboardWidgetItemBuilder> {
+class DashboardWidgetItemBuilder
+    implements Builder<DashboardWidgetItem, DashboardWidgetItemBuilder>, DashboardWidgetItemInterfaceBuilder {
   _$DashboardWidgetItem? _$v;
 
   String? _subtitle;
   String? get subtitle => _$this._subtitle;
-  set subtitle(String? subtitle) => _$this._subtitle = subtitle;
+  set subtitle(covariant String? subtitle) => _$this._subtitle = subtitle;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _link;
   String? get link => _$this._link;
-  set link(String? link) => _$this._link = link;
+  set link(covariant String? link) => _$this._link = link;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
-  set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
+  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
 
   String? _overlayIconUrl;
   String? get overlayIconUrl => _$this._overlayIconUrl;
-  set overlayIconUrl(String? overlayIconUrl) => _$this._overlayIconUrl = overlayIconUrl;
+  set overlayIconUrl(covariant String? overlayIconUrl) => _$this._overlayIconUrl = overlayIconUrl;
 
   String? _sinceId;
   String? get sinceId => _$this._sinceId;
-  set sinceId(String? sinceId) => _$this._sinceId = sinceId;
+  set sinceId(covariant String? sinceId) => _$this._sinceId = sinceId;
 
   DashboardWidgetItemBuilder();
 
@@ -1440,7 +1553,7 @@ class DashboardWidgetItemBuilder implements Builder<DashboardWidgetItem, Dashboa
   }
 
   @override
-  void replace(DashboardWidgetItem other) {
+  void replace(covariant DashboardWidgetItem other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardWidgetItem;
   }
@@ -1466,6 +1579,16 @@ class DashboardWidgetItemBuilder implements Builder<DashboardWidgetItem, Dashboa
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  DashboardOCSMetaBuilder get meta;
+  set meta(DashboardOCSMetaBuilder? meta);
+
+  MapBuilder<String, BuiltList<DashboardWidgetItem>> get data;
+  set data(MapBuilder<String, BuiltList<DashboardWidgetItem>>? data);
 }
 
 class _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs
@@ -1525,17 +1648,18 @@ class _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs
 class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder> {
+            DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder>,
+        DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs? _$v;
 
   DashboardOCSMetaBuilder? _meta;
   DashboardOCSMetaBuilder get meta => _$this._meta ??= DashboardOCSMetaBuilder();
-  set meta(DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, BuiltList<DashboardWidgetItem>>? _data;
   MapBuilder<String, BuiltList<DashboardWidgetItem>> get data =>
       _$this._data ??= MapBuilder<String, BuiltList<DashboardWidgetItem>>();
-  set data(MapBuilder<String, BuiltList<DashboardWidgetItem>>? data) => _$this._data = data;
+  set data(covariant MapBuilder<String, BuiltList<DashboardWidgetItem>>? data) => _$this._data = data;
 
   DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder();
 
@@ -1550,7 +1674,7 @@ class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_Ocs;
   }
@@ -1584,6 +1708,13 @@ class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonInterface other);
+  void update(void Function(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonInterfaceBuilder) updates);
+  DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson
@@ -1633,13 +1764,14 @@ class _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson
 class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson,
-            DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder> {
+            DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder>,
+        DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson? _$v;
 
   DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder? _ocs;
   DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder();
-  set ocs(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder();
 
@@ -1653,7 +1785,7 @@ class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson other) {
+  void replace(covariant DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetItemsResponse200ApplicationJson;
   }
@@ -1684,6 +1816,19 @@ class DashboardDashboardApiGetWidgetItemsResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardWidgetItemsInterfaceBuilder {
+  void replace(DashboardWidgetItemsInterface other);
+  void update(void Function(DashboardWidgetItemsInterfaceBuilder) updates);
+  ListBuilder<DashboardWidgetItem> get items;
+  set items(ListBuilder<DashboardWidgetItem>? items);
+
+  String? get emptyContentMessage;
+  set emptyContentMessage(String? emptyContentMessage);
+
+  String? get halfEmptyContentMessage;
+  set halfEmptyContentMessage(String? halfEmptyContentMessage);
 }
 
 class _$DashboardWidgetItems extends DashboardWidgetItems {
@@ -1741,20 +1886,21 @@ class _$DashboardWidgetItems extends DashboardWidgetItems {
   }
 }
 
-class DashboardWidgetItemsBuilder implements Builder<DashboardWidgetItems, DashboardWidgetItemsBuilder> {
+class DashboardWidgetItemsBuilder
+    implements Builder<DashboardWidgetItems, DashboardWidgetItemsBuilder>, DashboardWidgetItemsInterfaceBuilder {
   _$DashboardWidgetItems? _$v;
 
   ListBuilder<DashboardWidgetItem>? _items;
   ListBuilder<DashboardWidgetItem> get items => _$this._items ??= ListBuilder<DashboardWidgetItem>();
-  set items(ListBuilder<DashboardWidgetItem>? items) => _$this._items = items;
+  set items(covariant ListBuilder<DashboardWidgetItem>? items) => _$this._items = items;
 
   String? _emptyContentMessage;
   String? get emptyContentMessage => _$this._emptyContentMessage;
-  set emptyContentMessage(String? emptyContentMessage) => _$this._emptyContentMessage = emptyContentMessage;
+  set emptyContentMessage(covariant String? emptyContentMessage) => _$this._emptyContentMessage = emptyContentMessage;
 
   String? _halfEmptyContentMessage;
   String? get halfEmptyContentMessage => _$this._halfEmptyContentMessage;
-  set halfEmptyContentMessage(String? halfEmptyContentMessage) =>
+  set halfEmptyContentMessage(covariant String? halfEmptyContentMessage) =>
       _$this._halfEmptyContentMessage = halfEmptyContentMessage;
 
   DashboardWidgetItemsBuilder();
@@ -1771,7 +1917,7 @@ class DashboardWidgetItemsBuilder implements Builder<DashboardWidgetItems, Dashb
   }
 
   @override
-  void replace(DashboardWidgetItems other) {
+  void replace(covariant DashboardWidgetItems other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardWidgetItems;
   }
@@ -1807,6 +1953,17 @@ class DashboardWidgetItemsBuilder implements Builder<DashboardWidgetItems, Dashb
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsInterfaceBuilder) updates);
+  DashboardOCSMetaBuilder get meta;
+  set meta(DashboardOCSMetaBuilder? meta);
+
+  MapBuilder<String, DashboardWidgetItems> get data;
+  set data(MapBuilder<String, DashboardWidgetItems>? data);
 }
 
 class _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs
@@ -1866,16 +2023,17 @@ class _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs
 class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder> {
+            DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder>,
+        DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs? _$v;
 
   DashboardOCSMetaBuilder? _meta;
   DashboardOCSMetaBuilder get meta => _$this._meta ??= DashboardOCSMetaBuilder();
-  set meta(DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, DashboardWidgetItems>? _data;
   MapBuilder<String, DashboardWidgetItems> get data => _$this._data ??= MapBuilder<String, DashboardWidgetItems>();
-  set data(MapBuilder<String, DashboardWidgetItems>? data) => _$this._data = data;
+  set data(covariant MapBuilder<String, DashboardWidgetItems>? data) => _$this._data = data;
 
   DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder();
 
@@ -1890,7 +2048,7 @@ class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs other) {
+  void replace(covariant DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_Ocs;
   }
@@ -1925,6 +2083,13 @@ class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonInterfaceBuilder {
+  void replace(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonInterface other);
+  void update(void Function(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonInterfaceBuilder) updates);
+  DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder get ocs;
+  set ocs(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson
@@ -1975,13 +2140,15 @@ class _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson
 class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonBuilder
     implements
         Builder<DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson,
-            DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonBuilder> {
+            DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonBuilder>,
+        DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonInterfaceBuilder {
   _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson? _$v;
 
   DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder? _ocs;
   DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder();
-  set ocs(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonBuilder();
 
@@ -1995,7 +2162,7 @@ class DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJsonBuilder
   }
 
   @override
-  void replace(DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson other) {
+  void replace(covariant DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardDashboardApiGetWidgetItemsV2Response200ApplicationJson;
   }

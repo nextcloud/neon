@@ -511,6 +511,25 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJsonSerializer
   }
 }
 
+abstract mixin class FilesExternalOCSMetaInterfaceBuilder {
+  void replace(FilesExternalOCSMetaInterface other);
+  void update(void Function(FilesExternalOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
   @override
   final String status;
@@ -575,28 +594,29 @@ class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
   }
 }
 
-class FilesExternalOCSMetaBuilder implements Builder<FilesExternalOCSMeta, FilesExternalOCSMetaBuilder> {
+class FilesExternalOCSMetaBuilder
+    implements Builder<FilesExternalOCSMeta, FilesExternalOCSMetaBuilder>, FilesExternalOCSMetaInterfaceBuilder {
   _$FilesExternalOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   FilesExternalOCSMetaBuilder();
 
@@ -614,7 +634,7 @@ class FilesExternalOCSMetaBuilder implements Builder<FilesExternalOCSMeta, Files
   }
 
   @override
-  void replace(FilesExternalOCSMeta other) {
+  void replace(covariant FilesExternalOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesExternalOCSMeta;
   }
@@ -638,6 +658,49 @@ class FilesExternalOCSMetaBuilder implements Builder<FilesExternalOCSMeta, Files
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesExternalStorageConfigInterfaceBuilder {
+  void replace(FilesExternalStorageConfigInterface other);
+  void update(void Function(FilesExternalStorageConfigInterfaceBuilder) updates);
+  ListBuilder<String> get applicableGroups;
+  set applicableGroups(ListBuilder<String>? applicableGroups);
+
+  ListBuilder<String> get applicableUsers;
+  set applicableUsers(ListBuilder<String>? applicableUsers);
+
+  String? get authMechanism;
+  set authMechanism(String? authMechanism);
+
+  String? get backend;
+  set backend(String? backend);
+
+  MapBuilder<String, JsonObject> get backendOptions;
+  set backendOptions(MapBuilder<String, JsonObject>? backendOptions);
+
+  int? get id;
+  set id(int? id);
+
+  MapBuilder<String, JsonObject> get mountOptions;
+  set mountOptions(MapBuilder<String, JsonObject>? mountOptions);
+
+  String? get mountPoint;
+  set mountPoint(String? mountPoint);
+
+  int? get priority;
+  set priority(int? priority);
+
+  int? get status;
+  set status(int? status);
+
+  String? get statusMessage;
+  set statusMessage(String? statusMessage);
+
+  FilesExternalStorageConfig_Type? get type;
+  set type(FilesExternalStorageConfig_Type? type);
+
+  bool? get userProvided;
+  set userProvided(bool? userProvided);
 }
 
 class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
@@ -761,60 +824,63 @@ class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
 }
 
 class FilesExternalStorageConfigBuilder
-    implements Builder<FilesExternalStorageConfig, FilesExternalStorageConfigBuilder> {
+    implements
+        Builder<FilesExternalStorageConfig, FilesExternalStorageConfigBuilder>,
+        FilesExternalStorageConfigInterfaceBuilder {
   _$FilesExternalStorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
   ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= ListBuilder<String>();
-  set applicableGroups(ListBuilder<String>? applicableGroups) => _$this._applicableGroups = applicableGroups;
+  set applicableGroups(covariant ListBuilder<String>? applicableGroups) => _$this._applicableGroups = applicableGroups;
 
   ListBuilder<String>? _applicableUsers;
   ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= ListBuilder<String>();
-  set applicableUsers(ListBuilder<String>? applicableUsers) => _$this._applicableUsers = applicableUsers;
+  set applicableUsers(covariant ListBuilder<String>? applicableUsers) => _$this._applicableUsers = applicableUsers;
 
   String? _authMechanism;
   String? get authMechanism => _$this._authMechanism;
-  set authMechanism(String? authMechanism) => _$this._authMechanism = authMechanism;
+  set authMechanism(covariant String? authMechanism) => _$this._authMechanism = authMechanism;
 
   String? _backend;
   String? get backend => _$this._backend;
-  set backend(String? backend) => _$this._backend = backend;
+  set backend(covariant String? backend) => _$this._backend = backend;
 
   MapBuilder<String, JsonObject>? _backendOptions;
   MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= MapBuilder<String, JsonObject>();
-  set backendOptions(MapBuilder<String, JsonObject>? backendOptions) => _$this._backendOptions = backendOptions;
+  set backendOptions(covariant MapBuilder<String, JsonObject>? backendOptions) =>
+      _$this._backendOptions = backendOptions;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   MapBuilder<String, JsonObject>? _mountOptions;
   MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= MapBuilder<String, JsonObject>();
-  set mountOptions(MapBuilder<String, JsonObject>? mountOptions) => _$this._mountOptions = mountOptions;
+  set mountOptions(covariant MapBuilder<String, JsonObject>? mountOptions) => _$this._mountOptions = mountOptions;
 
   String? _mountPoint;
   String? get mountPoint => _$this._mountPoint;
-  set mountPoint(String? mountPoint) => _$this._mountPoint = mountPoint;
+  set mountPoint(covariant String? mountPoint) => _$this._mountPoint = mountPoint;
 
   int? _priority;
   int? get priority => _$this._priority;
-  set priority(int? priority) => _$this._priority = priority;
+  set priority(covariant int? priority) => _$this._priority = priority;
 
   int? _status;
   int? get status => _$this._status;
-  set status(int? status) => _$this._status = status;
+  set status(covariant int? status) => _$this._status = status;
 
   String? _statusMessage;
   String? get statusMessage => _$this._statusMessage;
-  set statusMessage(String? statusMessage) => _$this._statusMessage = statusMessage;
+  set statusMessage(covariant String? statusMessage) => _$this._statusMessage = statusMessage;
 
   FilesExternalStorageConfig_Type? _type;
   FilesExternalStorageConfig_Type? get type => _$this._type;
-  set type(FilesExternalStorageConfig_Type? type) => _$this._type = type;
+  set type(covariant FilesExternalStorageConfig_Type? type) => _$this._type = type;
 
   bool? _userProvided;
   bool? get userProvided => _$this._userProvided;
-  set userProvided(bool? userProvided) => _$this._userProvided = userProvided;
+  set userProvided(covariant bool? userProvided) => _$this._userProvided = userProvided;
 
   FilesExternalStorageConfigBuilder();
 
@@ -840,7 +906,7 @@ class FilesExternalStorageConfigBuilder
   }
 
   @override
-  void replace(FilesExternalStorageConfig other) {
+  void replace(covariant FilesExternalStorageConfig other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesExternalStorageConfig;
   }
@@ -895,6 +961,37 @@ class FilesExternalStorageConfigBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesExternalMountInterfaceBuilder {
+  void replace(FilesExternalMountInterface other);
+  void update(void Function(FilesExternalMountInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get path;
+  set path(String? path);
+
+  FilesExternalMount_Type? get type;
+  set type(FilesExternalMount_Type? type);
+
+  String? get backend;
+  set backend(String? backend);
+
+  FilesExternalMount_Scope? get scope;
+  set scope(FilesExternalMount_Scope? scope);
+
+  int? get permissions;
+  set permissions(int? permissions);
+
+  int? get id;
+  set id(int? id);
+
+  String? get $class;
+  set $class(String? $class);
+
+  FilesExternalStorageConfigBuilder get config;
+  set config(FilesExternalStorageConfigBuilder? config);
 }
 
 class _$FilesExternalMount extends FilesExternalMount {
@@ -996,44 +1093,45 @@ class _$FilesExternalMount extends FilesExternalMount {
   }
 }
 
-class FilesExternalMountBuilder implements Builder<FilesExternalMount, FilesExternalMountBuilder> {
+class FilesExternalMountBuilder
+    implements Builder<FilesExternalMount, FilesExternalMountBuilder>, FilesExternalMountInterfaceBuilder {
   _$FilesExternalMount? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _path;
   String? get path => _$this._path;
-  set path(String? path) => _$this._path = path;
+  set path(covariant String? path) => _$this._path = path;
 
   FilesExternalMount_Type? _type;
   FilesExternalMount_Type? get type => _$this._type;
-  set type(FilesExternalMount_Type? type) => _$this._type = type;
+  set type(covariant FilesExternalMount_Type? type) => _$this._type = type;
 
   String? _backend;
   String? get backend => _$this._backend;
-  set backend(String? backend) => _$this._backend = backend;
+  set backend(covariant String? backend) => _$this._backend = backend;
 
   FilesExternalMount_Scope? _scope;
   FilesExternalMount_Scope? get scope => _$this._scope;
-  set scope(FilesExternalMount_Scope? scope) => _$this._scope = scope;
+  set scope(covariant FilesExternalMount_Scope? scope) => _$this._scope = scope;
 
   int? _permissions;
   int? get permissions => _$this._permissions;
-  set permissions(int? permissions) => _$this._permissions = permissions;
+  set permissions(covariant int? permissions) => _$this._permissions = permissions;
 
   int? _id;
   int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _$class;
   String? get $class => _$this._$class;
-  set $class(String? $class) => _$this._$class = $class;
+  set $class(covariant String? $class) => _$this._$class = $class;
 
   FilesExternalStorageConfigBuilder? _config;
   FilesExternalStorageConfigBuilder get config => _$this._config ??= FilesExternalStorageConfigBuilder();
-  set config(FilesExternalStorageConfigBuilder? config) => _$this._config = config;
+  set config(covariant FilesExternalStorageConfigBuilder? config) => _$this._config = config;
 
   FilesExternalMountBuilder();
 
@@ -1055,7 +1153,7 @@ class FilesExternalMountBuilder implements Builder<FilesExternalMount, FilesExte
   }
 
   @override
-  void replace(FilesExternalMount other) {
+  void replace(covariant FilesExternalMount other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesExternalMount;
   }
@@ -1095,6 +1193,16 @@ class FilesExternalMountBuilder implements Builder<FilesExternalMount, FilesExte
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesExternalOCSMetaBuilder get meta;
+  set meta(FilesExternalOCSMetaBuilder? meta);
+
+  ListBuilder<FilesExternalMount> get data;
+  set data(ListBuilder<FilesExternalMount>? data);
 }
 
 class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
@@ -1152,16 +1260,17 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
 class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs,
-            FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder> {
+            FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder>,
+        FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs? _$v;
 
   FilesExternalOCSMetaBuilder? _meta;
   FilesExternalOCSMetaBuilder get meta => _$this._meta ??= FilesExternalOCSMetaBuilder();
-  set meta(FilesExternalOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesExternalOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<FilesExternalMount>? _data;
   ListBuilder<FilesExternalMount> get data => _$this._data ??= ListBuilder<FilesExternalMount>();
-  set data(ListBuilder<FilesExternalMount>? data) => _$this._data = data;
+  set data(covariant ListBuilder<FilesExternalMount>? data) => _$this._data = data;
 
   FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder();
 
@@ -1176,7 +1285,7 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs;
   }
@@ -1210,6 +1319,13 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesExternalApiGetUserMountsResponse200ApplicationJson
@@ -1258,13 +1374,14 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson
 class FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder
     implements
         Builder<FilesExternalApiGetUserMountsResponse200ApplicationJson,
-            FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder> {
+            FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder>,
+        FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder {
   _$FilesExternalApiGetUserMountsResponse200ApplicationJson? _$v;
 
   FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder();
 
@@ -1278,7 +1395,7 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJson other) {
+  void replace(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesExternalApiGetUserMountsResponse200ApplicationJson;
   }

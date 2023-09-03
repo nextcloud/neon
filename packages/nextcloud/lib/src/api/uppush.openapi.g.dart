@@ -600,6 +600,13 @@ class _$UppushGatewayMatrixResponse200ApplicationJsonSerializer
   }
 }
 
+abstract mixin class UppushCheckResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushCheckResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushCheckResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
+}
+
 class _$UppushCheckResponse200ApplicationJson extends UppushCheckResponse200ApplicationJson {
   @override
   final bool success;
@@ -641,12 +648,14 @@ class _$UppushCheckResponse200ApplicationJson extends UppushCheckResponse200Appl
 }
 
 class UppushCheckResponse200ApplicationJsonBuilder
-    implements Builder<UppushCheckResponse200ApplicationJson, UppushCheckResponse200ApplicationJsonBuilder> {
+    implements
+        Builder<UppushCheckResponse200ApplicationJson, UppushCheckResponse200ApplicationJsonBuilder>,
+        UppushCheckResponse200ApplicationJsonInterfaceBuilder {
   _$UppushCheckResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushCheckResponse200ApplicationJsonBuilder();
 
@@ -660,7 +669,7 @@ class UppushCheckResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushCheckResponse200ApplicationJson other) {
+  void replace(covariant UppushCheckResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushCheckResponse200ApplicationJson;
   }
@@ -681,6 +690,13 @@ class UppushCheckResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushSetKeepaliveResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$UppushSetKeepaliveResponse200ApplicationJson extends UppushSetKeepaliveResponse200ApplicationJson {
@@ -727,12 +743,13 @@ class _$UppushSetKeepaliveResponse200ApplicationJson extends UppushSetKeepaliveR
 
 class UppushSetKeepaliveResponse200ApplicationJsonBuilder
     implements
-        Builder<UppushSetKeepaliveResponse200ApplicationJson, UppushSetKeepaliveResponse200ApplicationJsonBuilder> {
+        Builder<UppushSetKeepaliveResponse200ApplicationJson, UppushSetKeepaliveResponse200ApplicationJsonBuilder>,
+        UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder {
   _$UppushSetKeepaliveResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushSetKeepaliveResponse200ApplicationJsonBuilder();
 
@@ -746,7 +763,7 @@ class UppushSetKeepaliveResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushSetKeepaliveResponse200ApplicationJson other) {
+  void replace(covariant UppushSetKeepaliveResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushSetKeepaliveResponse200ApplicationJson;
   }
@@ -767,6 +784,16 @@ class UppushSetKeepaliveResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushCreateDeviceResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
+
+  String? get deviceId;
+  set deviceId(String? deviceId);
 }
 
 class _$UppushCreateDeviceResponse200ApplicationJson extends UppushCreateDeviceResponse200ApplicationJson {
@@ -821,16 +848,17 @@ class _$UppushCreateDeviceResponse200ApplicationJson extends UppushCreateDeviceR
 
 class UppushCreateDeviceResponse200ApplicationJsonBuilder
     implements
-        Builder<UppushCreateDeviceResponse200ApplicationJson, UppushCreateDeviceResponse200ApplicationJsonBuilder> {
+        Builder<UppushCreateDeviceResponse200ApplicationJson, UppushCreateDeviceResponse200ApplicationJsonBuilder>,
+        UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder {
   _$UppushCreateDeviceResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   String? _deviceId;
   String? get deviceId => _$this._deviceId;
-  set deviceId(String? deviceId) => _$this._deviceId = deviceId;
+  set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
 
   UppushCreateDeviceResponse200ApplicationJsonBuilder();
 
@@ -845,7 +873,7 @@ class UppushCreateDeviceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushCreateDeviceResponse200ApplicationJson other) {
+  void replace(covariant UppushCreateDeviceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushCreateDeviceResponse200ApplicationJson;
   }
@@ -868,6 +896,13 @@ class UppushCreateDeviceResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder {
+  void replace(UppushSyncDeviceResponse401ApplicationJsonInterface other);
+  void update(void Function(UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$UppushSyncDeviceResponse401ApplicationJson extends UppushSyncDeviceResponse401ApplicationJson {
@@ -913,12 +948,14 @@ class _$UppushSyncDeviceResponse401ApplicationJson extends UppushSyncDeviceRespo
 }
 
 class UppushSyncDeviceResponse401ApplicationJsonBuilder
-    implements Builder<UppushSyncDeviceResponse401ApplicationJson, UppushSyncDeviceResponse401ApplicationJsonBuilder> {
+    implements
+        Builder<UppushSyncDeviceResponse401ApplicationJson, UppushSyncDeviceResponse401ApplicationJsonBuilder>,
+        UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder {
   _$UppushSyncDeviceResponse401ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushSyncDeviceResponse401ApplicationJsonBuilder();
 
@@ -932,7 +969,7 @@ class UppushSyncDeviceResponse401ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushSyncDeviceResponse401ApplicationJson other) {
+  void replace(covariant UppushSyncDeviceResponse401ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushSyncDeviceResponse401ApplicationJson;
   }
@@ -953,6 +990,13 @@ class UppushSyncDeviceResponse401ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushDeleteDeviceResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$UppushDeleteDeviceResponse200ApplicationJson extends UppushDeleteDeviceResponse200ApplicationJson {
@@ -999,12 +1043,13 @@ class _$UppushDeleteDeviceResponse200ApplicationJson extends UppushDeleteDeviceR
 
 class UppushDeleteDeviceResponse200ApplicationJsonBuilder
     implements
-        Builder<UppushDeleteDeviceResponse200ApplicationJson, UppushDeleteDeviceResponse200ApplicationJsonBuilder> {
+        Builder<UppushDeleteDeviceResponse200ApplicationJson, UppushDeleteDeviceResponse200ApplicationJsonBuilder>,
+        UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder {
   _$UppushDeleteDeviceResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushDeleteDeviceResponse200ApplicationJsonBuilder();
 
@@ -1018,7 +1063,7 @@ class UppushDeleteDeviceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushDeleteDeviceResponse200ApplicationJson other) {
+  void replace(covariant UppushDeleteDeviceResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushDeleteDeviceResponse200ApplicationJson;
   }
@@ -1039,6 +1084,16 @@ class UppushDeleteDeviceResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushCreateAppResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushCreateAppResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushCreateAppResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
+
+  String? get token;
+  set token(String? token);
 }
 
 class _$UppushCreateAppResponse200ApplicationJson extends UppushCreateAppResponse200ApplicationJson {
@@ -1090,16 +1145,18 @@ class _$UppushCreateAppResponse200ApplicationJson extends UppushCreateAppRespons
 }
 
 class UppushCreateAppResponse200ApplicationJsonBuilder
-    implements Builder<UppushCreateAppResponse200ApplicationJson, UppushCreateAppResponse200ApplicationJsonBuilder> {
+    implements
+        Builder<UppushCreateAppResponse200ApplicationJson, UppushCreateAppResponse200ApplicationJsonBuilder>,
+        UppushCreateAppResponse200ApplicationJsonInterfaceBuilder {
   _$UppushCreateAppResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   String? _token;
   String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
+  set token(covariant String? token) => _$this._token = token;
 
   UppushCreateAppResponse200ApplicationJsonBuilder();
 
@@ -1114,7 +1171,7 @@ class UppushCreateAppResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushCreateAppResponse200ApplicationJson other) {
+  void replace(covariant UppushCreateAppResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushCreateAppResponse200ApplicationJson;
   }
@@ -1136,6 +1193,13 @@ class UppushCreateAppResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushDeleteAppResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$UppushDeleteAppResponse200ApplicationJson extends UppushDeleteAppResponse200ApplicationJson {
@@ -1181,12 +1245,14 @@ class _$UppushDeleteAppResponse200ApplicationJson extends UppushDeleteAppRespons
 }
 
 class UppushDeleteAppResponse200ApplicationJsonBuilder
-    implements Builder<UppushDeleteAppResponse200ApplicationJson, UppushDeleteAppResponse200ApplicationJsonBuilder> {
+    implements
+        Builder<UppushDeleteAppResponse200ApplicationJson, UppushDeleteAppResponse200ApplicationJsonBuilder>,
+        UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder {
   _$UppushDeleteAppResponse200ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushDeleteAppResponse200ApplicationJsonBuilder();
 
@@ -1200,7 +1266,7 @@ class UppushDeleteAppResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushDeleteAppResponse200ApplicationJson other) {
+  void replace(covariant UppushDeleteAppResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushDeleteAppResponse200ApplicationJson;
   }
@@ -1221,6 +1287,13 @@ class UppushDeleteAppResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface other);
+  void update(void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates);
+  int? get version;
+  set version(int? version);
 }
 
 class _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
@@ -1271,12 +1344,13 @@ class _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
 class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
     implements
         Builder<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
-            UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
+            UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder>,
+        UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder {
   _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush? _$v;
 
   int? _version;
   int? get version => _$this._version;
-  set version(int? version) => _$this._version = version;
+  set version(covariant int? version) => _$this._version = version;
 
   UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder();
 
@@ -1290,7 +1364,7 @@ class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
   }
 
   @override
-  void replace(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush other) {
+  void replace(covariant UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush;
   }
@@ -1311,6 +1385,13 @@ class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates);
+  UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder get unifiedpush;
+  set unifiedpush(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
 
 class _$UppushUnifiedpushDiscoveryResponse200ApplicationJson
@@ -1361,13 +1442,14 @@ class _$UppushUnifiedpushDiscoveryResponse200ApplicationJson
 class UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder
     implements
         Builder<UppushUnifiedpushDiscoveryResponse200ApplicationJson,
-            UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder> {
+            UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder>,
+        UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder {
   _$UppushUnifiedpushDiscoveryResponse200ApplicationJson? _$v;
 
   UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? _unifiedpush;
   UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder get unifiedpush =>
       _$this._unifiedpush ??= UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder();
-  set unifiedpush(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush) =>
+  set unifiedpush(covariant UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
   UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder();
@@ -1382,7 +1464,7 @@ class UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushUnifiedpushDiscoveryResponse200ApplicationJson other) {
+  void replace(covariant UppushUnifiedpushDiscoveryResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushUnifiedpushDiscoveryResponse200ApplicationJson;
   }
@@ -1413,6 +1495,13 @@ class UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushPushResponse201ApplicationJsonInterfaceBuilder {
+  void replace(UppushPushResponse201ApplicationJsonInterface other);
+  void update(void Function(UppushPushResponse201ApplicationJsonInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$UppushPushResponse201ApplicationJson extends UppushPushResponse201ApplicationJson {
@@ -1456,12 +1545,14 @@ class _$UppushPushResponse201ApplicationJson extends UppushPushResponse201Applic
 }
 
 class UppushPushResponse201ApplicationJsonBuilder
-    implements Builder<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder> {
+    implements
+        Builder<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder>,
+        UppushPushResponse201ApplicationJsonInterfaceBuilder {
   _$UppushPushResponse201ApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   UppushPushResponse201ApplicationJsonBuilder();
 
@@ -1475,7 +1566,7 @@ class UppushPushResponse201ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushPushResponse201ApplicationJson other) {
+  void replace(covariant UppushPushResponse201ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushPushResponse201ApplicationJson;
   }
@@ -1496,6 +1587,14 @@ class UppushPushResponse201ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface other);
+  void update(
+      void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates);
+  String? get gateway;
+  set gateway(String? gateway);
 }
 
 class _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
@@ -1546,12 +1645,13 @@ class _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
 class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
     implements
         Builder<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
-            UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
+            UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder>,
+        UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder {
   _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush? _$v;
 
   String? _gateway;
   String? get gateway => _$this._gateway;
-  set gateway(String? gateway) => _$this._gateway = gateway;
+  set gateway(covariant String? gateway) => _$this._gateway = gateway;
 
   UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder();
 
@@ -1565,7 +1665,7 @@ class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
   }
 
   @override
-  void replace(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush other) {
+  void replace(covariant UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush;
   }
@@ -1586,6 +1686,13 @@ class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates);
+  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder get unifiedpush;
+  set unifiedpush(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
 
 class _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson
@@ -1636,13 +1743,14 @@ class _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson
 class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder
     implements
         Builder<UppushGatewayMatrixDiscoveryResponse200ApplicationJson,
-            UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder> {
+            UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder>,
+        UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder {
   _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson? _$v;
 
   UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? _unifiedpush;
   UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder get unifiedpush =>
       _$this._unifiedpush ??= UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder();
-  set unifiedpush(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush) =>
+  set unifiedpush(covariant UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
   UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder();
@@ -1657,7 +1765,7 @@ class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushGatewayMatrixDiscoveryResponse200ApplicationJson other) {
+  void replace(covariant UppushGatewayMatrixDiscoveryResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson;
   }
@@ -1688,6 +1796,13 @@ class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder {
+  void replace(UppushGatewayMatrixResponse200ApplicationJsonInterface other);
+  void update(void Function(UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<String> get rejected;
+  set rejected(ListBuilder<String>? rejected);
 }
 
 class _$UppushGatewayMatrixResponse200ApplicationJson extends UppushGatewayMatrixResponse200ApplicationJson {
@@ -1734,12 +1849,13 @@ class _$UppushGatewayMatrixResponse200ApplicationJson extends UppushGatewayMatri
 
 class UppushGatewayMatrixResponse200ApplicationJsonBuilder
     implements
-        Builder<UppushGatewayMatrixResponse200ApplicationJson, UppushGatewayMatrixResponse200ApplicationJsonBuilder> {
+        Builder<UppushGatewayMatrixResponse200ApplicationJson, UppushGatewayMatrixResponse200ApplicationJsonBuilder>,
+        UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder {
   _$UppushGatewayMatrixResponse200ApplicationJson? _$v;
 
   ListBuilder<String>? _rejected;
   ListBuilder<String> get rejected => _$this._rejected ??= ListBuilder<String>();
-  set rejected(ListBuilder<String>? rejected) => _$this._rejected = rejected;
+  set rejected(covariant ListBuilder<String>? rejected) => _$this._rejected = rejected;
 
   UppushGatewayMatrixResponse200ApplicationJsonBuilder();
 
@@ -1753,7 +1869,7 @@ class UppushGatewayMatrixResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(UppushGatewayMatrixResponse200ApplicationJson other) {
+  void replace(covariant UppushGatewayMatrixResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UppushGatewayMatrixResponse200ApplicationJson;
   }

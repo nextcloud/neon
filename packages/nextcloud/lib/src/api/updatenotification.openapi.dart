@@ -138,7 +138,19 @@ class UpdatenotificationApiGetAppListApiVersion extends EnumClass {
       _$updatenotificationApiGetAppListApiVersionSerializer;
 }
 
-abstract class UpdatenotificationOCSMeta implements Built<UpdatenotificationOCSMeta, UpdatenotificationOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class UpdatenotificationOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  UpdatenotificationOCSMetaInterface rebuild(final void Function(UpdatenotificationOCSMetaInterfaceBuilder) updates);
+  UpdatenotificationOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class UpdatenotificationOCSMeta
+    implements UpdatenotificationOCSMetaInterface, Built<UpdatenotificationOCSMeta, UpdatenotificationOCSMetaBuilder> {
   factory UpdatenotificationOCSMeta([final void Function(UpdatenotificationOCSMetaBuilder)? b]) =
       _$UpdatenotificationOCSMeta;
 
@@ -154,15 +166,19 @@ abstract class UpdatenotificationOCSMeta implements Built<UpdatenotificationOCSM
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<UpdatenotificationOCSMeta> get serializer => _$updatenotificationOCSMetaSerializer;
 }
 
-abstract class UpdatenotificationApp implements Built<UpdatenotificationApp, UpdatenotificationAppBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class UpdatenotificationAppInterface {
+  String get appId;
+  String get appName;
+  UpdatenotificationAppInterface rebuild(final void Function(UpdatenotificationAppInterfaceBuilder) updates);
+  UpdatenotificationAppInterfaceBuilder toBuilder();
+}
+
+abstract class UpdatenotificationApp
+    implements UpdatenotificationAppInterface, Built<UpdatenotificationApp, UpdatenotificationAppBuilder> {
   factory UpdatenotificationApp([final void Function(UpdatenotificationAppBuilder)? b]) = _$UpdatenotificationApp;
 
   // coverage:ignore-start
@@ -177,13 +193,22 @@ abstract class UpdatenotificationApp implements Built<UpdatenotificationApp, Upd
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get appId;
-  String get appName;
   static Serializer<UpdatenotificationApp> get serializer => _$updatenotificationAppSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterface {
+  BuiltList<UpdatenotificationApp> get missing;
+  BuiltList<UpdatenotificationApp> get available;
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
     implements
+        UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterface,
         Built<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data,
             UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder> {
   factory UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data([
@@ -204,14 +229,23 @@ abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<UpdatenotificationApp> get missing;
-  BuiltList<UpdatenotificationApp> get available;
   static Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$updatenotificationApiGetAppListResponse200ApplicationJsonOcsDataSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterface {
+  UpdatenotificationOCSMeta get meta;
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data get data;
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
     implements
+        UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterface,
         Built<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs,
             UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder> {
   factory UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs([
@@ -230,14 +264,22 @@ abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  UpdatenotificationOCSMeta get meta;
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs> get serializer =>
       _$updatenotificationApiGetAppListResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UpdatenotificationApiGetAppListResponse200ApplicationJsonInterface {
+  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs get ocs;
+  UpdatenotificationApiGetAppListResponse200ApplicationJsonInterface rebuild(
+    final void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson
     implements
+        UpdatenotificationApiGetAppListResponse200ApplicationJsonInterface,
         Built<UpdatenotificationApiGetAppListResponse200ApplicationJson,
             UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder> {
   factory UpdatenotificationApiGetAppListResponse200ApplicationJson([
@@ -256,7 +298,6 @@ abstract class UpdatenotificationApiGetAppListResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson> get serializer =>
       _$updatenotificationApiGetAppListResponse200ApplicationJsonSerializer;
 }

@@ -97,6 +97,19 @@ class _$FilesVersionsCapabilitiesSerializer implements StructuredSerializer<File
   }
 }
 
+abstract mixin class FilesVersionsCapabilities_FilesInterfaceBuilder {
+  void replace(FilesVersionsCapabilities_FilesInterface other);
+  void update(void Function(FilesVersionsCapabilities_FilesInterfaceBuilder) updates);
+  bool? get versioning;
+  set versioning(bool? versioning);
+
+  bool? get versionLabeling;
+  set versionLabeling(bool? versionLabeling);
+
+  bool? get versionDeletion;
+  set versionDeletion(bool? versionDeletion);
+}
+
 class _$FilesVersionsCapabilities_Files extends FilesVersionsCapabilities_Files {
   @override
   final bool versioning;
@@ -153,20 +166,22 @@ class _$FilesVersionsCapabilities_Files extends FilesVersionsCapabilities_Files 
 }
 
 class FilesVersionsCapabilities_FilesBuilder
-    implements Builder<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder> {
+    implements
+        Builder<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder>,
+        FilesVersionsCapabilities_FilesInterfaceBuilder {
   _$FilesVersionsCapabilities_Files? _$v;
 
   bool? _versioning;
   bool? get versioning => _$this._versioning;
-  set versioning(bool? versioning) => _$this._versioning = versioning;
+  set versioning(covariant bool? versioning) => _$this._versioning = versioning;
 
   bool? _versionLabeling;
   bool? get versionLabeling => _$this._versionLabeling;
-  set versionLabeling(bool? versionLabeling) => _$this._versionLabeling = versionLabeling;
+  set versionLabeling(covariant bool? versionLabeling) => _$this._versionLabeling = versionLabeling;
 
   bool? _versionDeletion;
   bool? get versionDeletion => _$this._versionDeletion;
-  set versionDeletion(bool? versionDeletion) => _$this._versionDeletion = versionDeletion;
+  set versionDeletion(covariant bool? versionDeletion) => _$this._versionDeletion = versionDeletion;
 
   FilesVersionsCapabilities_FilesBuilder();
 
@@ -182,7 +197,7 @@ class FilesVersionsCapabilities_FilesBuilder
   }
 
   @override
-  void replace(FilesVersionsCapabilities_Files other) {
+  void replace(covariant FilesVersionsCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesVersionsCapabilities_Files;
   }
@@ -207,6 +222,13 @@ class FilesVersionsCapabilities_FilesBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesVersionsCapabilitiesInterfaceBuilder {
+  void replace(FilesVersionsCapabilitiesInterface other);
+  void update(void Function(FilesVersionsCapabilitiesInterfaceBuilder) updates);
+  FilesVersionsCapabilities_FilesBuilder get files;
+  set files(FilesVersionsCapabilities_FilesBuilder? files);
 }
 
 class _$FilesVersionsCapabilities extends FilesVersionsCapabilities {
@@ -247,12 +269,15 @@ class _$FilesVersionsCapabilities extends FilesVersionsCapabilities {
   }
 }
 
-class FilesVersionsCapabilitiesBuilder implements Builder<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder> {
+class FilesVersionsCapabilitiesBuilder
+    implements
+        Builder<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder>,
+        FilesVersionsCapabilitiesInterfaceBuilder {
   _$FilesVersionsCapabilities? _$v;
 
   FilesVersionsCapabilities_FilesBuilder? _files;
   FilesVersionsCapabilities_FilesBuilder get files => _$this._files ??= FilesVersionsCapabilities_FilesBuilder();
-  set files(FilesVersionsCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant FilesVersionsCapabilities_FilesBuilder? files) => _$this._files = files;
 
   FilesVersionsCapabilitiesBuilder();
 
@@ -266,7 +291,7 @@ class FilesVersionsCapabilitiesBuilder implements Builder<FilesVersionsCapabilit
   }
 
   @override
-  void replace(FilesVersionsCapabilities other) {
+  void replace(covariant FilesVersionsCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesVersionsCapabilities;
   }

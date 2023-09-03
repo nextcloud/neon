@@ -316,6 +316,13 @@ class _$SharebymailCapabilitiesSerializer implements StructuredSerializer<Shareb
   }
 }
 
+abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface other);
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+}
+
 class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     extends SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop {
   @override
@@ -364,12 +371,13 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
 class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
     implements
         Builder<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
+        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
   _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
@@ -383,7 +391,7 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
   }
 
   @override
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
   }
@@ -404,6 +412,16 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface other);
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
@@ -463,16 +481,17 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
 class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
     implements
         Builder<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder>,
+        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
   _$SharebymailCapabilities_FilesSharing_Sharebymail_Password? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
 
@@ -487,7 +506,7 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
   }
 
   @override
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
   }
@@ -510,6 +529,16 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface other);
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get enforced;
+  set enforced(bool? enforced);
 }
 
 class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
@@ -569,16 +598,17 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
 class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
     implements
         Builder<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder>,
+        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
   _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
-  set enforced(bool? enforced) => _$this._enforced = enforced;
+  set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
 
@@ -593,7 +623,7 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
   }
 
   @override
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
   }
@@ -616,6 +646,25 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
+  void replace(SharebymailCapabilities_FilesSharing_SharebymailInterface other);
+  void update(void Function(SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get sendPasswordByMail;
+  set sendPasswordByMail(bool? sendPasswordByMail);
+
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
+  set uploadFilesDrop(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
+
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password;
+  set password(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password);
+
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
+  set expireDate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
 }
 
 class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapabilities_FilesSharing_Sharebymail {
@@ -698,33 +747,35 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapa
 class SharebymailCapabilities_FilesSharing_SharebymailBuilder
     implements
         Builder<SharebymailCapabilities_FilesSharing_Sharebymail,
-            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder>,
+        SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
   _$SharebymailCapabilities_FilesSharing_Sharebymail? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   bool? _sendPasswordByMail;
   bool? get sendPasswordByMail => _$this._sendPasswordByMail;
-  set sendPasswordByMail(bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
+  set sendPasswordByMail(covariant bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
   SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
       _$this._uploadFilesDrop ??= SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
-  set uploadFilesDrop(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
+  set uploadFilesDrop(
+          covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
       _$this._uploadFilesDrop = uploadFilesDrop;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? _password;
   SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password =>
       _$this._password ??= SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
-  set password(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
+  set password(covariant SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
       _$this._password = password;
 
   SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
   SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
       _$this._expireDate ??= SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
-  set expireDate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
+  set expireDate(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
   SharebymailCapabilities_FilesSharing_SharebymailBuilder();
@@ -743,7 +794,7 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
   }
 
   @override
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail;
   }
@@ -788,6 +839,13 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
   }
 }
 
+abstract mixin class SharebymailCapabilities_FilesSharingInterfaceBuilder {
+  void replace(SharebymailCapabilities_FilesSharingInterface other);
+  void update(void Function(SharebymailCapabilities_FilesSharingInterfaceBuilder) updates);
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail;
+  set sharebymail(SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail);
+}
+
 class _$SharebymailCapabilities_FilesSharing extends SharebymailCapabilities_FilesSharing {
   @override
   final SharebymailCapabilities_FilesSharing_Sharebymail sharebymail;
@@ -830,13 +888,15 @@ class _$SharebymailCapabilities_FilesSharing extends SharebymailCapabilities_Fil
 }
 
 class SharebymailCapabilities_FilesSharingBuilder
-    implements Builder<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder> {
+    implements
+        Builder<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder>,
+        SharebymailCapabilities_FilesSharingInterfaceBuilder {
   _$SharebymailCapabilities_FilesSharing? _$v;
 
   SharebymailCapabilities_FilesSharing_SharebymailBuilder? _sharebymail;
   SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail =>
       _$this._sharebymail ??= SharebymailCapabilities_FilesSharing_SharebymailBuilder();
-  set sharebymail(SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
+  set sharebymail(covariant SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
   SharebymailCapabilities_FilesSharingBuilder();
@@ -851,7 +911,7 @@ class SharebymailCapabilities_FilesSharingBuilder
   }
 
   @override
-  void replace(SharebymailCapabilities_FilesSharing other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities_FilesSharing;
   }
@@ -881,6 +941,13 @@ class SharebymailCapabilities_FilesSharingBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class SharebymailCapabilitiesInterfaceBuilder {
+  void replace(SharebymailCapabilitiesInterface other);
+  void update(void Function(SharebymailCapabilitiesInterfaceBuilder) updates);
+  SharebymailCapabilities_FilesSharingBuilder get filesSharing;
+  set filesSharing(SharebymailCapabilities_FilesSharingBuilder? filesSharing);
 }
 
 class _$SharebymailCapabilities extends SharebymailCapabilities {
@@ -921,13 +988,17 @@ class _$SharebymailCapabilities extends SharebymailCapabilities {
   }
 }
 
-class SharebymailCapabilitiesBuilder implements Builder<SharebymailCapabilities, SharebymailCapabilitiesBuilder> {
+class SharebymailCapabilitiesBuilder
+    implements
+        Builder<SharebymailCapabilities, SharebymailCapabilitiesBuilder>,
+        SharebymailCapabilitiesInterfaceBuilder {
   _$SharebymailCapabilities? _$v;
 
   SharebymailCapabilities_FilesSharingBuilder? _filesSharing;
   SharebymailCapabilities_FilesSharingBuilder get filesSharing =>
       _$this._filesSharing ??= SharebymailCapabilities_FilesSharingBuilder();
-  set filesSharing(SharebymailCapabilities_FilesSharingBuilder? filesSharing) => _$this._filesSharing = filesSharing;
+  set filesSharing(covariant SharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
+      _$this._filesSharing = filesSharing;
 
   SharebymailCapabilitiesBuilder();
 
@@ -941,7 +1012,7 @@ class SharebymailCapabilitiesBuilder implements Builder<SharebymailCapabilities,
   }
 
   @override
-  void replace(SharebymailCapabilities other) {
+  void replace(covariant SharebymailCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SharebymailCapabilities;
   }

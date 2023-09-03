@@ -1934,6 +1934,25 @@ class _$WeatherStatusCapabilitiesSerializer implements StructuredSerializer<Weat
   }
 }
 
+abstract mixin class WeatherStatusOCSMetaInterfaceBuilder {
+  void replace(WeatherStatusOCSMetaInterface other);
+  void update(void Function(WeatherStatusOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
 class _$WeatherStatusOCSMeta extends WeatherStatusOCSMeta {
   @override
   final String status;
@@ -1998,28 +2017,29 @@ class _$WeatherStatusOCSMeta extends WeatherStatusOCSMeta {
   }
 }
 
-class WeatherStatusOCSMetaBuilder implements Builder<WeatherStatusOCSMeta, WeatherStatusOCSMetaBuilder> {
+class WeatherStatusOCSMetaBuilder
+    implements Builder<WeatherStatusOCSMeta, WeatherStatusOCSMetaBuilder>, WeatherStatusOCSMetaInterfaceBuilder {
   _$WeatherStatusOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   WeatherStatusOCSMetaBuilder();
 
@@ -2037,7 +2057,7 @@ class WeatherStatusOCSMetaBuilder implements Builder<WeatherStatusOCSMeta, Weath
   }
 
   @override
-  void replace(WeatherStatusOCSMeta other) {
+  void replace(covariant WeatherStatusOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusOCSMeta;
   }
@@ -2061,6 +2081,14 @@ class WeatherStatusOCSMetaBuilder implements Builder<WeatherStatusOCSMeta, Weath
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data
@@ -2111,12 +2139,13 @@ class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data
 class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder> {
+            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder>,
+        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -2130,7 +2159,7 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilde
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data;
   }
@@ -2151,6 +2180,16 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs
@@ -2210,17 +2249,19 @@ class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder? _data;
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder();
 
@@ -2235,7 +2276,7 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs;
   }
@@ -2269,6 +2310,13 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson
@@ -2318,13 +2366,14 @@ class _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson
 class WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder();
 
@@ -2338,7 +2387,7 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusSetModeResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson;
   }
@@ -2369,6 +2418,24 @@ class WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
+          updates);
+  bool? get success;
+  set success(bool? success);
+
+  num? get lat;
+  set lat(num? lat);
+
+  num? get lon;
+  set lon(num? lon);
+
+  String? get address;
+  set address(String? address);
 }
 
 class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data
@@ -2441,24 +2508,25 @@ class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_O
 class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder> {
+            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder>,
+        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   num? _lat;
   num? get lat => _$this._lat;
-  set lat(num? lat) => _$this._lat = lat;
+  set lat(covariant num? lat) => _$this._lat = lat;
 
   num? _lon;
   num? get lon => _$this._lon;
-  set lon(num? lon) => _$this._lon = lon;
+  set lon(covariant num? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
-  set address(String? address) => _$this._address = address;
+  set address(covariant String? address) => _$this._address = address;
 
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -2475,7 +2543,7 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data;
   }
@@ -2500,6 +2568,18 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterfaceBuilder)
+          updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
@@ -2561,17 +2641,18 @@ class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_O
 class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder? _data;
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder();
@@ -2587,7 +2668,7 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs;
   }
@@ -2623,6 +2704,14 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson
@@ -2673,13 +2762,15 @@ class _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson
 class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder();
 
@@ -2693,7 +2784,7 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuil
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson;
   }
@@ -2724,6 +2815,23 @@ class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuil
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  num? get lat;
+  set lat(num? lat);
+
+  num? get lon;
+  set lon(num? lon);
+
+  String? get address;
+  set address(String? address);
+
+  int? get mode;
+  set mode(int? mode);
 }
 
 class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data
@@ -2798,24 +2906,25 @@ class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data
 class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder> {
+            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder>,
+        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data? _$v;
 
   num? _lat;
   num? get lat => _$this._lat;
-  set lat(num? lat) => _$this._lat = lat;
+  set lat(covariant num? lat) => _$this._lat = lat;
 
   num? _lon;
   num? get lon => _$this._lon;
-  set lon(num? lon) => _$this._lon = lon;
+  set lon(covariant num? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
-  set address(String? address) => _$this._address = address;
+  set address(covariant String? address) => _$this._address = address;
 
   int? _mode;
   int? get mode => _$this._mode;
-  set mode(int? mode) => _$this._mode = mode;
+  set mode(covariant int? mode) => _$this._mode = mode;
 
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -2832,7 +2941,7 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBu
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data;
   }
@@ -2859,6 +2968,17 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs
@@ -2918,17 +3038,18 @@ class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder? _data;
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder();
@@ -2944,7 +3065,7 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs;
   }
@@ -2979,6 +3100,13 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson
@@ -3029,13 +3157,15 @@ class _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson
 class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder();
 
@@ -3049,7 +3179,7 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson;
   }
@@ -3080,6 +3210,23 @@ class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
+
+  num? get lat;
+  set lat(num? lat);
+
+  num? get lon;
+  set lon(num? lon);
+
+  String? get address;
+  set address(String? address);
 }
 
 class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data
@@ -3148,24 +3295,25 @@ class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data
 class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder> {
+            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder>,
+        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   num? _lat;
   num? get lat => _$this._lat;
-  set lat(num? lat) => _$this._lat = lat;
+  set lat(covariant num? lat) => _$this._lat = lat;
 
   num? _lon;
   num? get lon => _$this._lon;
-  set lon(num? lon) => _$this._lon = lon;
+  set lon(covariant num? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
-  set address(String? address) => _$this._address = address;
+  set address(covariant String? address) => _$this._address = address;
 
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -3182,7 +3330,7 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBu
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data;
   }
@@ -3206,6 +3354,17 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs
@@ -3265,17 +3424,18 @@ class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder? _data;
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder();
@@ -3291,7 +3451,7 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs;
   }
@@ -3326,6 +3486,13 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson
@@ -3376,13 +3543,15 @@ class _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson
 class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder();
 
@@ -3396,7 +3565,7 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson;
   }
@@ -3427,6 +3596,49 @@ class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Instant_DetailsInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Instant_DetailsInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Instant_DetailsInterfaceBuilder) updates);
+  num? get airPressureAtSeaLevel;
+  set airPressureAtSeaLevel(num? airPressureAtSeaLevel);
+
+  num? get airTemperature;
+  set airTemperature(num? airTemperature);
+
+  num? get cloudAreaFraction;
+  set cloudAreaFraction(num? cloudAreaFraction);
+
+  num? get cloudAreaFractionHigh;
+  set cloudAreaFractionHigh(num? cloudAreaFractionHigh);
+
+  num? get cloudAreaFractionLow;
+  set cloudAreaFractionLow(num? cloudAreaFractionLow);
+
+  num? get cloudAreaFractionMedium;
+  set cloudAreaFractionMedium(num? cloudAreaFractionMedium);
+
+  num? get dewPointTemperature;
+  set dewPointTemperature(num? dewPointTemperature);
+
+  num? get fogAreaFraction;
+  set fogAreaFraction(num? fogAreaFraction);
+
+  num? get relativeHumidity;
+  set relativeHumidity(num? relativeHumidity);
+
+  num? get ultravioletIndexClearSky;
+  set ultravioletIndexClearSky(num? ultravioletIndexClearSky);
+
+  num? get windFromDirection;
+  set windFromDirection(num? windFromDirection);
+
+  num? get windSpeed;
+  set windSpeed(num? windSpeed);
+
+  num? get windSpeedOfGust;
+  set windSpeedOfGust(num? windSpeedOfGust);
 }
 
 class _$WeatherStatusForecast_Data_Instant_Details extends WeatherStatusForecast_Data_Instant_Details {
@@ -3572,62 +3784,66 @@ class _$WeatherStatusForecast_Data_Instant_Details extends WeatherStatusForecast
 }
 
 class WeatherStatusForecast_Data_Instant_DetailsBuilder
-    implements Builder<WeatherStatusForecast_Data_Instant_Details, WeatherStatusForecast_Data_Instant_DetailsBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data_Instant_Details, WeatherStatusForecast_Data_Instant_DetailsBuilder>,
+        WeatherStatusForecast_Data_Instant_DetailsInterfaceBuilder {
   _$WeatherStatusForecast_Data_Instant_Details? _$v;
 
   num? _airPressureAtSeaLevel;
   num? get airPressureAtSeaLevel => _$this._airPressureAtSeaLevel;
-  set airPressureAtSeaLevel(num? airPressureAtSeaLevel) => _$this._airPressureAtSeaLevel = airPressureAtSeaLevel;
+  set airPressureAtSeaLevel(covariant num? airPressureAtSeaLevel) =>
+      _$this._airPressureAtSeaLevel = airPressureAtSeaLevel;
 
   num? _airTemperature;
   num? get airTemperature => _$this._airTemperature;
-  set airTemperature(num? airTemperature) => _$this._airTemperature = airTemperature;
+  set airTemperature(covariant num? airTemperature) => _$this._airTemperature = airTemperature;
 
   num? _cloudAreaFraction;
   num? get cloudAreaFraction => _$this._cloudAreaFraction;
-  set cloudAreaFraction(num? cloudAreaFraction) => _$this._cloudAreaFraction = cloudAreaFraction;
+  set cloudAreaFraction(covariant num? cloudAreaFraction) => _$this._cloudAreaFraction = cloudAreaFraction;
 
   num? _cloudAreaFractionHigh;
   num? get cloudAreaFractionHigh => _$this._cloudAreaFractionHigh;
-  set cloudAreaFractionHigh(num? cloudAreaFractionHigh) => _$this._cloudAreaFractionHigh = cloudAreaFractionHigh;
+  set cloudAreaFractionHigh(covariant num? cloudAreaFractionHigh) =>
+      _$this._cloudAreaFractionHigh = cloudAreaFractionHigh;
 
   num? _cloudAreaFractionLow;
   num? get cloudAreaFractionLow => _$this._cloudAreaFractionLow;
-  set cloudAreaFractionLow(num? cloudAreaFractionLow) => _$this._cloudAreaFractionLow = cloudAreaFractionLow;
+  set cloudAreaFractionLow(covariant num? cloudAreaFractionLow) => _$this._cloudAreaFractionLow = cloudAreaFractionLow;
 
   num? _cloudAreaFractionMedium;
   num? get cloudAreaFractionMedium => _$this._cloudAreaFractionMedium;
-  set cloudAreaFractionMedium(num? cloudAreaFractionMedium) =>
+  set cloudAreaFractionMedium(covariant num? cloudAreaFractionMedium) =>
       _$this._cloudAreaFractionMedium = cloudAreaFractionMedium;
 
   num? _dewPointTemperature;
   num? get dewPointTemperature => _$this._dewPointTemperature;
-  set dewPointTemperature(num? dewPointTemperature) => _$this._dewPointTemperature = dewPointTemperature;
+  set dewPointTemperature(covariant num? dewPointTemperature) => _$this._dewPointTemperature = dewPointTemperature;
 
   num? _fogAreaFraction;
   num? get fogAreaFraction => _$this._fogAreaFraction;
-  set fogAreaFraction(num? fogAreaFraction) => _$this._fogAreaFraction = fogAreaFraction;
+  set fogAreaFraction(covariant num? fogAreaFraction) => _$this._fogAreaFraction = fogAreaFraction;
 
   num? _relativeHumidity;
   num? get relativeHumidity => _$this._relativeHumidity;
-  set relativeHumidity(num? relativeHumidity) => _$this._relativeHumidity = relativeHumidity;
+  set relativeHumidity(covariant num? relativeHumidity) => _$this._relativeHumidity = relativeHumidity;
 
   num? _ultravioletIndexClearSky;
   num? get ultravioletIndexClearSky => _$this._ultravioletIndexClearSky;
-  set ultravioletIndexClearSky(num? ultravioletIndexClearSky) =>
+  set ultravioletIndexClearSky(covariant num? ultravioletIndexClearSky) =>
       _$this._ultravioletIndexClearSky = ultravioletIndexClearSky;
 
   num? _windFromDirection;
   num? get windFromDirection => _$this._windFromDirection;
-  set windFromDirection(num? windFromDirection) => _$this._windFromDirection = windFromDirection;
+  set windFromDirection(covariant num? windFromDirection) => _$this._windFromDirection = windFromDirection;
 
   num? _windSpeed;
   num? get windSpeed => _$this._windSpeed;
-  set windSpeed(num? windSpeed) => _$this._windSpeed = windSpeed;
+  set windSpeed(covariant num? windSpeed) => _$this._windSpeed = windSpeed;
 
   num? _windSpeedOfGust;
   num? get windSpeedOfGust => _$this._windSpeedOfGust;
-  set windSpeedOfGust(num? windSpeedOfGust) => _$this._windSpeedOfGust = windSpeedOfGust;
+  set windSpeedOfGust(covariant num? windSpeedOfGust) => _$this._windSpeedOfGust = windSpeedOfGust;
 
   WeatherStatusForecast_Data_Instant_DetailsBuilder();
 
@@ -3653,7 +3869,7 @@ class WeatherStatusForecast_Data_Instant_DetailsBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Instant_Details other) {
+  void replace(covariant WeatherStatusForecast_Data_Instant_Details other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Instant_Details;
   }
@@ -3695,6 +3911,13 @@ class WeatherStatusForecast_Data_Instant_DetailsBuilder
   }
 }
 
+abstract mixin class WeatherStatusForecast_Data_InstantInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_InstantInterface other);
+  void update(void Function(WeatherStatusForecast_Data_InstantInterfaceBuilder) updates);
+  WeatherStatusForecast_Data_Instant_DetailsBuilder get details;
+  set details(WeatherStatusForecast_Data_Instant_DetailsBuilder? details);
+}
+
 class _$WeatherStatusForecast_Data_Instant extends WeatherStatusForecast_Data_Instant {
   @override
   final WeatherStatusForecast_Data_Instant_Details details;
@@ -3734,13 +3957,15 @@ class _$WeatherStatusForecast_Data_Instant extends WeatherStatusForecast_Data_In
 }
 
 class WeatherStatusForecast_Data_InstantBuilder
-    implements Builder<WeatherStatusForecast_Data_Instant, WeatherStatusForecast_Data_InstantBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data_Instant, WeatherStatusForecast_Data_InstantBuilder>,
+        WeatherStatusForecast_Data_InstantInterfaceBuilder {
   _$WeatherStatusForecast_Data_Instant? _$v;
 
   WeatherStatusForecast_Data_Instant_DetailsBuilder? _details;
   WeatherStatusForecast_Data_Instant_DetailsBuilder get details =>
       _$this._details ??= WeatherStatusForecast_Data_Instant_DetailsBuilder();
-  set details(WeatherStatusForecast_Data_Instant_DetailsBuilder? details) => _$this._details = details;
+  set details(covariant WeatherStatusForecast_Data_Instant_DetailsBuilder? details) => _$this._details = details;
 
   WeatherStatusForecast_Data_InstantBuilder();
 
@@ -3754,7 +3979,7 @@ class WeatherStatusForecast_Data_InstantBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Instant other) {
+  void replace(covariant WeatherStatusForecast_Data_Instant other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Instant;
   }
@@ -3784,6 +4009,13 @@ class WeatherStatusForecast_Data_InstantBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next12Hours_SummaryInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next12Hours_SummaryInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next12Hours_SummaryInterfaceBuilder) updates);
+  String? get symbolCode;
+  set symbolCode(String? symbolCode);
 }
 
 class _$WeatherStatusForecast_Data_Next12Hours_Summary extends WeatherStatusForecast_Data_Next12Hours_Summary {
@@ -3831,12 +4063,13 @@ class _$WeatherStatusForecast_Data_Next12Hours_Summary extends WeatherStatusFore
 
 class WeatherStatusForecast_Data_Next12Hours_SummaryBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next12Hours_Summary, WeatherStatusForecast_Data_Next12Hours_SummaryBuilder> {
+        Builder<WeatherStatusForecast_Data_Next12Hours_Summary, WeatherStatusForecast_Data_Next12Hours_SummaryBuilder>,
+        WeatherStatusForecast_Data_Next12Hours_SummaryInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next12Hours_Summary? _$v;
 
   String? _symbolCode;
   String? get symbolCode => _$this._symbolCode;
-  set symbolCode(String? symbolCode) => _$this._symbolCode = symbolCode;
+  set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
   WeatherStatusForecast_Data_Next12Hours_SummaryBuilder();
 
@@ -3850,7 +4083,7 @@ class WeatherStatusForecast_Data_Next12Hours_SummaryBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next12Hours_Summary other) {
+  void replace(covariant WeatherStatusForecast_Data_Next12Hours_Summary other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next12Hours_Summary;
   }
@@ -3871,6 +4104,13 @@ class WeatherStatusForecast_Data_Next12Hours_SummaryBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next12Hours_DetailsInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next12Hours_DetailsInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next12Hours_DetailsInterfaceBuilder) updates);
+  num? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
 }
 
 class _$WeatherStatusForecast_Data_Next12Hours_Details extends WeatherStatusForecast_Data_Next12Hours_Details {
@@ -3920,12 +4160,13 @@ class _$WeatherStatusForecast_Data_Next12Hours_Details extends WeatherStatusFore
 
 class WeatherStatusForecast_Data_Next12Hours_DetailsBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next12Hours_Details, WeatherStatusForecast_Data_Next12Hours_DetailsBuilder> {
+        Builder<WeatherStatusForecast_Data_Next12Hours_Details, WeatherStatusForecast_Data_Next12Hours_DetailsBuilder>,
+        WeatherStatusForecast_Data_Next12Hours_DetailsInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next12Hours_Details? _$v;
 
   num? _probabilityOfPrecipitation;
   num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation) =>
+  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
   WeatherStatusForecast_Data_Next12Hours_DetailsBuilder();
@@ -3940,7 +4181,7 @@ class WeatherStatusForecast_Data_Next12Hours_DetailsBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next12Hours_Details other) {
+  void replace(covariant WeatherStatusForecast_Data_Next12Hours_Details other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next12Hours_Details;
   }
@@ -3961,6 +4202,16 @@ class WeatherStatusForecast_Data_Next12Hours_DetailsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next12HoursInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next12HoursInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next12HoursInterfaceBuilder) updates);
+  WeatherStatusForecast_Data_Next12Hours_SummaryBuilder get summary;
+  set summary(WeatherStatusForecast_Data_Next12Hours_SummaryBuilder? summary);
+
+  WeatherStatusForecast_Data_Next12Hours_DetailsBuilder get details;
+  set details(WeatherStatusForecast_Data_Next12Hours_DetailsBuilder? details);
 }
 
 class _$WeatherStatusForecast_Data_Next12Hours extends WeatherStatusForecast_Data_Next12Hours {
@@ -4012,18 +4263,20 @@ class _$WeatherStatusForecast_Data_Next12Hours extends WeatherStatusForecast_Dat
 }
 
 class WeatherStatusForecast_Data_Next12HoursBuilder
-    implements Builder<WeatherStatusForecast_Data_Next12Hours, WeatherStatusForecast_Data_Next12HoursBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data_Next12Hours, WeatherStatusForecast_Data_Next12HoursBuilder>,
+        WeatherStatusForecast_Data_Next12HoursInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next12Hours? _$v;
 
   WeatherStatusForecast_Data_Next12Hours_SummaryBuilder? _summary;
   WeatherStatusForecast_Data_Next12Hours_SummaryBuilder get summary =>
       _$this._summary ??= WeatherStatusForecast_Data_Next12Hours_SummaryBuilder();
-  set summary(WeatherStatusForecast_Data_Next12Hours_SummaryBuilder? summary) => _$this._summary = summary;
+  set summary(covariant WeatherStatusForecast_Data_Next12Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   WeatherStatusForecast_Data_Next12Hours_DetailsBuilder? _details;
   WeatherStatusForecast_Data_Next12Hours_DetailsBuilder get details =>
       _$this._details ??= WeatherStatusForecast_Data_Next12Hours_DetailsBuilder();
-  set details(WeatherStatusForecast_Data_Next12Hours_DetailsBuilder? details) => _$this._details = details;
+  set details(covariant WeatherStatusForecast_Data_Next12Hours_DetailsBuilder? details) => _$this._details = details;
 
   WeatherStatusForecast_Data_Next12HoursBuilder();
 
@@ -4038,7 +4291,7 @@ class WeatherStatusForecast_Data_Next12HoursBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next12Hours other) {
+  void replace(covariant WeatherStatusForecast_Data_Next12Hours other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next12Hours;
   }
@@ -4070,6 +4323,13 @@ class WeatherStatusForecast_Data_Next12HoursBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next1Hours_SummaryInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next1Hours_SummaryInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next1Hours_SummaryInterfaceBuilder) updates);
+  String? get symbolCode;
+  set symbolCode(String? symbolCode);
 }
 
 class _$WeatherStatusForecast_Data_Next1Hours_Summary extends WeatherStatusForecast_Data_Next1Hours_Summary {
@@ -4117,12 +4377,13 @@ class _$WeatherStatusForecast_Data_Next1Hours_Summary extends WeatherStatusForec
 
 class WeatherStatusForecast_Data_Next1Hours_SummaryBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next1Hours_Summary, WeatherStatusForecast_Data_Next1Hours_SummaryBuilder> {
+        Builder<WeatherStatusForecast_Data_Next1Hours_Summary, WeatherStatusForecast_Data_Next1Hours_SummaryBuilder>,
+        WeatherStatusForecast_Data_Next1Hours_SummaryInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next1Hours_Summary? _$v;
 
   String? _symbolCode;
   String? get symbolCode => _$this._symbolCode;
-  set symbolCode(String? symbolCode) => _$this._symbolCode = symbolCode;
+  set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
   WeatherStatusForecast_Data_Next1Hours_SummaryBuilder();
 
@@ -4136,7 +4397,7 @@ class WeatherStatusForecast_Data_Next1Hours_SummaryBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next1Hours_Summary other) {
+  void replace(covariant WeatherStatusForecast_Data_Next1Hours_Summary other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next1Hours_Summary;
   }
@@ -4157,6 +4418,25 @@ class WeatherStatusForecast_Data_Next1Hours_SummaryBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next1Hours_DetailsInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next1Hours_DetailsInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next1Hours_DetailsInterfaceBuilder) updates);
+  num? get precipitationAmount;
+  set precipitationAmount(num? precipitationAmount);
+
+  num? get precipitationAmountMax;
+  set precipitationAmountMax(num? precipitationAmountMax);
+
+  num? get precipitationAmountMin;
+  set precipitationAmountMin(num? precipitationAmountMin);
+
+  num? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
+
+  num? get probabilityOfThunder;
+  set probabilityOfThunder(num? probabilityOfThunder);
 }
 
 class _$WeatherStatusForecast_Data_Next1Hours_Details extends WeatherStatusForecast_Data_Next1Hours_Details {
@@ -4240,29 +4520,32 @@ class _$WeatherStatusForecast_Data_Next1Hours_Details extends WeatherStatusForec
 
 class WeatherStatusForecast_Data_Next1Hours_DetailsBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next1Hours_Details, WeatherStatusForecast_Data_Next1Hours_DetailsBuilder> {
+        Builder<WeatherStatusForecast_Data_Next1Hours_Details, WeatherStatusForecast_Data_Next1Hours_DetailsBuilder>,
+        WeatherStatusForecast_Data_Next1Hours_DetailsInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next1Hours_Details? _$v;
 
   num? _precipitationAmount;
   num? get precipitationAmount => _$this._precipitationAmount;
-  set precipitationAmount(num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
+  set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
   num? _precipitationAmountMax;
   num? get precipitationAmountMax => _$this._precipitationAmountMax;
-  set precipitationAmountMax(num? precipitationAmountMax) => _$this._precipitationAmountMax = precipitationAmountMax;
+  set precipitationAmountMax(covariant num? precipitationAmountMax) =>
+      _$this._precipitationAmountMax = precipitationAmountMax;
 
   num? _precipitationAmountMin;
   num? get precipitationAmountMin => _$this._precipitationAmountMin;
-  set precipitationAmountMin(num? precipitationAmountMin) => _$this._precipitationAmountMin = precipitationAmountMin;
+  set precipitationAmountMin(covariant num? precipitationAmountMin) =>
+      _$this._precipitationAmountMin = precipitationAmountMin;
 
   num? _probabilityOfPrecipitation;
   num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation) =>
+  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
   num? _probabilityOfThunder;
   num? get probabilityOfThunder => _$this._probabilityOfThunder;
-  set probabilityOfThunder(num? probabilityOfThunder) => _$this._probabilityOfThunder = probabilityOfThunder;
+  set probabilityOfThunder(covariant num? probabilityOfThunder) => _$this._probabilityOfThunder = probabilityOfThunder;
 
   WeatherStatusForecast_Data_Next1Hours_DetailsBuilder();
 
@@ -4280,7 +4563,7 @@ class WeatherStatusForecast_Data_Next1Hours_DetailsBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next1Hours_Details other) {
+  void replace(covariant WeatherStatusForecast_Data_Next1Hours_Details other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next1Hours_Details;
   }
@@ -4309,6 +4592,16 @@ class WeatherStatusForecast_Data_Next1Hours_DetailsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next1HoursInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next1HoursInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next1HoursInterfaceBuilder) updates);
+  WeatherStatusForecast_Data_Next1Hours_SummaryBuilder get summary;
+  set summary(WeatherStatusForecast_Data_Next1Hours_SummaryBuilder? summary);
+
+  WeatherStatusForecast_Data_Next1Hours_DetailsBuilder get details;
+  set details(WeatherStatusForecast_Data_Next1Hours_DetailsBuilder? details);
 }
 
 class _$WeatherStatusForecast_Data_Next1Hours extends WeatherStatusForecast_Data_Next1Hours {
@@ -4359,18 +4652,20 @@ class _$WeatherStatusForecast_Data_Next1Hours extends WeatherStatusForecast_Data
 }
 
 class WeatherStatusForecast_Data_Next1HoursBuilder
-    implements Builder<WeatherStatusForecast_Data_Next1Hours, WeatherStatusForecast_Data_Next1HoursBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data_Next1Hours, WeatherStatusForecast_Data_Next1HoursBuilder>,
+        WeatherStatusForecast_Data_Next1HoursInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next1Hours? _$v;
 
   WeatherStatusForecast_Data_Next1Hours_SummaryBuilder? _summary;
   WeatherStatusForecast_Data_Next1Hours_SummaryBuilder get summary =>
       _$this._summary ??= WeatherStatusForecast_Data_Next1Hours_SummaryBuilder();
-  set summary(WeatherStatusForecast_Data_Next1Hours_SummaryBuilder? summary) => _$this._summary = summary;
+  set summary(covariant WeatherStatusForecast_Data_Next1Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   WeatherStatusForecast_Data_Next1Hours_DetailsBuilder? _details;
   WeatherStatusForecast_Data_Next1Hours_DetailsBuilder get details =>
       _$this._details ??= WeatherStatusForecast_Data_Next1Hours_DetailsBuilder();
-  set details(WeatherStatusForecast_Data_Next1Hours_DetailsBuilder? details) => _$this._details = details;
+  set details(covariant WeatherStatusForecast_Data_Next1Hours_DetailsBuilder? details) => _$this._details = details;
 
   WeatherStatusForecast_Data_Next1HoursBuilder();
 
@@ -4385,7 +4680,7 @@ class WeatherStatusForecast_Data_Next1HoursBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next1Hours other) {
+  void replace(covariant WeatherStatusForecast_Data_Next1Hours other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next1Hours;
   }
@@ -4417,6 +4712,13 @@ class WeatherStatusForecast_Data_Next1HoursBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next6Hours_SummaryInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next6Hours_SummaryInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next6Hours_SummaryInterfaceBuilder) updates);
+  String? get symbolCode;
+  set symbolCode(String? symbolCode);
 }
 
 class _$WeatherStatusForecast_Data_Next6Hours_Summary extends WeatherStatusForecast_Data_Next6Hours_Summary {
@@ -4464,12 +4766,13 @@ class _$WeatherStatusForecast_Data_Next6Hours_Summary extends WeatherStatusForec
 
 class WeatherStatusForecast_Data_Next6Hours_SummaryBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next6Hours_Summary, WeatherStatusForecast_Data_Next6Hours_SummaryBuilder> {
+        Builder<WeatherStatusForecast_Data_Next6Hours_Summary, WeatherStatusForecast_Data_Next6Hours_SummaryBuilder>,
+        WeatherStatusForecast_Data_Next6Hours_SummaryInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next6Hours_Summary? _$v;
 
   String? _symbolCode;
   String? get symbolCode => _$this._symbolCode;
-  set symbolCode(String? symbolCode) => _$this._symbolCode = symbolCode;
+  set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
   WeatherStatusForecast_Data_Next6Hours_SummaryBuilder();
 
@@ -4483,7 +4786,7 @@ class WeatherStatusForecast_Data_Next6Hours_SummaryBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next6Hours_Summary other) {
+  void replace(covariant WeatherStatusForecast_Data_Next6Hours_Summary other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next6Hours_Summary;
   }
@@ -4504,6 +4807,28 @@ class WeatherStatusForecast_Data_Next6Hours_SummaryBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next6Hours_DetailsInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next6Hours_DetailsInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next6Hours_DetailsInterfaceBuilder) updates);
+  num? get airTemperatureMax;
+  set airTemperatureMax(num? airTemperatureMax);
+
+  num? get airTemperatureMin;
+  set airTemperatureMin(num? airTemperatureMin);
+
+  num? get precipitationAmount;
+  set precipitationAmount(num? precipitationAmount);
+
+  num? get precipitationAmountMax;
+  set precipitationAmountMax(num? precipitationAmountMax);
+
+  num? get precipitationAmountMin;
+  set precipitationAmountMin(num? precipitationAmountMin);
+
+  num? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
 }
 
 class _$WeatherStatusForecast_Data_Next6Hours_Details extends WeatherStatusForecast_Data_Next6Hours_Details {
@@ -4595,32 +4920,35 @@ class _$WeatherStatusForecast_Data_Next6Hours_Details extends WeatherStatusForec
 
 class WeatherStatusForecast_Data_Next6Hours_DetailsBuilder
     implements
-        Builder<WeatherStatusForecast_Data_Next6Hours_Details, WeatherStatusForecast_Data_Next6Hours_DetailsBuilder> {
+        Builder<WeatherStatusForecast_Data_Next6Hours_Details, WeatherStatusForecast_Data_Next6Hours_DetailsBuilder>,
+        WeatherStatusForecast_Data_Next6Hours_DetailsInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next6Hours_Details? _$v;
 
   num? _airTemperatureMax;
   num? get airTemperatureMax => _$this._airTemperatureMax;
-  set airTemperatureMax(num? airTemperatureMax) => _$this._airTemperatureMax = airTemperatureMax;
+  set airTemperatureMax(covariant num? airTemperatureMax) => _$this._airTemperatureMax = airTemperatureMax;
 
   num? _airTemperatureMin;
   num? get airTemperatureMin => _$this._airTemperatureMin;
-  set airTemperatureMin(num? airTemperatureMin) => _$this._airTemperatureMin = airTemperatureMin;
+  set airTemperatureMin(covariant num? airTemperatureMin) => _$this._airTemperatureMin = airTemperatureMin;
 
   num? _precipitationAmount;
   num? get precipitationAmount => _$this._precipitationAmount;
-  set precipitationAmount(num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
+  set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
   num? _precipitationAmountMax;
   num? get precipitationAmountMax => _$this._precipitationAmountMax;
-  set precipitationAmountMax(num? precipitationAmountMax) => _$this._precipitationAmountMax = precipitationAmountMax;
+  set precipitationAmountMax(covariant num? precipitationAmountMax) =>
+      _$this._precipitationAmountMax = precipitationAmountMax;
 
   num? _precipitationAmountMin;
   num? get precipitationAmountMin => _$this._precipitationAmountMin;
-  set precipitationAmountMin(num? precipitationAmountMin) => _$this._precipitationAmountMin = precipitationAmountMin;
+  set precipitationAmountMin(covariant num? precipitationAmountMin) =>
+      _$this._precipitationAmountMin = precipitationAmountMin;
 
   num? _probabilityOfPrecipitation;
   num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation) =>
+  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
   WeatherStatusForecast_Data_Next6Hours_DetailsBuilder();
@@ -4640,7 +4968,7 @@ class WeatherStatusForecast_Data_Next6Hours_DetailsBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next6Hours_Details other) {
+  void replace(covariant WeatherStatusForecast_Data_Next6Hours_Details other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next6Hours_Details;
   }
@@ -4671,6 +4999,16 @@ class WeatherStatusForecast_Data_Next6Hours_DetailsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_Data_Next6HoursInterfaceBuilder {
+  void replace(WeatherStatusForecast_Data_Next6HoursInterface other);
+  void update(void Function(WeatherStatusForecast_Data_Next6HoursInterfaceBuilder) updates);
+  WeatherStatusForecast_Data_Next6Hours_SummaryBuilder get summary;
+  set summary(WeatherStatusForecast_Data_Next6Hours_SummaryBuilder? summary);
+
+  WeatherStatusForecast_Data_Next6Hours_DetailsBuilder get details;
+  set details(WeatherStatusForecast_Data_Next6Hours_DetailsBuilder? details);
 }
 
 class _$WeatherStatusForecast_Data_Next6Hours extends WeatherStatusForecast_Data_Next6Hours {
@@ -4721,18 +5059,20 @@ class _$WeatherStatusForecast_Data_Next6Hours extends WeatherStatusForecast_Data
 }
 
 class WeatherStatusForecast_Data_Next6HoursBuilder
-    implements Builder<WeatherStatusForecast_Data_Next6Hours, WeatherStatusForecast_Data_Next6HoursBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data_Next6Hours, WeatherStatusForecast_Data_Next6HoursBuilder>,
+        WeatherStatusForecast_Data_Next6HoursInterfaceBuilder {
   _$WeatherStatusForecast_Data_Next6Hours? _$v;
 
   WeatherStatusForecast_Data_Next6Hours_SummaryBuilder? _summary;
   WeatherStatusForecast_Data_Next6Hours_SummaryBuilder get summary =>
       _$this._summary ??= WeatherStatusForecast_Data_Next6Hours_SummaryBuilder();
-  set summary(WeatherStatusForecast_Data_Next6Hours_SummaryBuilder? summary) => _$this._summary = summary;
+  set summary(covariant WeatherStatusForecast_Data_Next6Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   WeatherStatusForecast_Data_Next6Hours_DetailsBuilder? _details;
   WeatherStatusForecast_Data_Next6Hours_DetailsBuilder get details =>
       _$this._details ??= WeatherStatusForecast_Data_Next6Hours_DetailsBuilder();
-  set details(WeatherStatusForecast_Data_Next6Hours_DetailsBuilder? details) => _$this._details = details;
+  set details(covariant WeatherStatusForecast_Data_Next6Hours_DetailsBuilder? details) => _$this._details = details;
 
   WeatherStatusForecast_Data_Next6HoursBuilder();
 
@@ -4747,7 +5087,7 @@ class WeatherStatusForecast_Data_Next6HoursBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data_Next6Hours other) {
+  void replace(covariant WeatherStatusForecast_Data_Next6Hours other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data_Next6Hours;
   }
@@ -4779,6 +5119,22 @@ class WeatherStatusForecast_Data_Next6HoursBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecast_DataInterfaceBuilder {
+  void replace(WeatherStatusForecast_DataInterface other);
+  void update(void Function(WeatherStatusForecast_DataInterfaceBuilder) updates);
+  WeatherStatusForecast_Data_InstantBuilder get instant;
+  set instant(WeatherStatusForecast_Data_InstantBuilder? instant);
+
+  WeatherStatusForecast_Data_Next12HoursBuilder get next12Hours;
+  set next12Hours(WeatherStatusForecast_Data_Next12HoursBuilder? next12Hours);
+
+  WeatherStatusForecast_Data_Next1HoursBuilder get next1Hours;
+  set next1Hours(WeatherStatusForecast_Data_Next1HoursBuilder? next1Hours);
+
+  WeatherStatusForecast_Data_Next6HoursBuilder get next6Hours;
+  set next6Hours(WeatherStatusForecast_Data_Next6HoursBuilder? next6Hours);
 }
 
 class _$WeatherStatusForecast_Data extends WeatherStatusForecast_Data {
@@ -4843,28 +5199,31 @@ class _$WeatherStatusForecast_Data extends WeatherStatusForecast_Data {
 }
 
 class WeatherStatusForecast_DataBuilder
-    implements Builder<WeatherStatusForecast_Data, WeatherStatusForecast_DataBuilder> {
+    implements
+        Builder<WeatherStatusForecast_Data, WeatherStatusForecast_DataBuilder>,
+        WeatherStatusForecast_DataInterfaceBuilder {
   _$WeatherStatusForecast_Data? _$v;
 
   WeatherStatusForecast_Data_InstantBuilder? _instant;
   WeatherStatusForecast_Data_InstantBuilder get instant =>
       _$this._instant ??= WeatherStatusForecast_Data_InstantBuilder();
-  set instant(WeatherStatusForecast_Data_InstantBuilder? instant) => _$this._instant = instant;
+  set instant(covariant WeatherStatusForecast_Data_InstantBuilder? instant) => _$this._instant = instant;
 
   WeatherStatusForecast_Data_Next12HoursBuilder? _next12Hours;
   WeatherStatusForecast_Data_Next12HoursBuilder get next12Hours =>
       _$this._next12Hours ??= WeatherStatusForecast_Data_Next12HoursBuilder();
-  set next12Hours(WeatherStatusForecast_Data_Next12HoursBuilder? next12Hours) => _$this._next12Hours = next12Hours;
+  set next12Hours(covariant WeatherStatusForecast_Data_Next12HoursBuilder? next12Hours) =>
+      _$this._next12Hours = next12Hours;
 
   WeatherStatusForecast_Data_Next1HoursBuilder? _next1Hours;
   WeatherStatusForecast_Data_Next1HoursBuilder get next1Hours =>
       _$this._next1Hours ??= WeatherStatusForecast_Data_Next1HoursBuilder();
-  set next1Hours(WeatherStatusForecast_Data_Next1HoursBuilder? next1Hours) => _$this._next1Hours = next1Hours;
+  set next1Hours(covariant WeatherStatusForecast_Data_Next1HoursBuilder? next1Hours) => _$this._next1Hours = next1Hours;
 
   WeatherStatusForecast_Data_Next6HoursBuilder? _next6Hours;
   WeatherStatusForecast_Data_Next6HoursBuilder get next6Hours =>
       _$this._next6Hours ??= WeatherStatusForecast_Data_Next6HoursBuilder();
-  set next6Hours(WeatherStatusForecast_Data_Next6HoursBuilder? next6Hours) => _$this._next6Hours = next6Hours;
+  set next6Hours(covariant WeatherStatusForecast_Data_Next6HoursBuilder? next6Hours) => _$this._next6Hours = next6Hours;
 
   WeatherStatusForecast_DataBuilder();
 
@@ -4881,7 +5240,7 @@ class WeatherStatusForecast_DataBuilder
   }
 
   @override
-  void replace(WeatherStatusForecast_Data other) {
+  void replace(covariant WeatherStatusForecast_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast_Data;
   }
@@ -4922,6 +5281,16 @@ class WeatherStatusForecast_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusForecastInterfaceBuilder {
+  void replace(WeatherStatusForecastInterface other);
+  void update(void Function(WeatherStatusForecastInterfaceBuilder) updates);
+  String? get time;
+  set time(String? time);
+
+  WeatherStatusForecast_DataBuilder get data;
+  set data(WeatherStatusForecast_DataBuilder? data);
 }
 
 class _$WeatherStatusForecast extends WeatherStatusForecast {
@@ -4969,16 +5338,17 @@ class _$WeatherStatusForecast extends WeatherStatusForecast {
   }
 }
 
-class WeatherStatusForecastBuilder implements Builder<WeatherStatusForecast, WeatherStatusForecastBuilder> {
+class WeatherStatusForecastBuilder
+    implements Builder<WeatherStatusForecast, WeatherStatusForecastBuilder>, WeatherStatusForecastInterfaceBuilder {
   _$WeatherStatusForecast? _$v;
 
   String? _time;
   String? get time => _$this._time;
-  set time(String? time) => _$this._time = time;
+  set time(covariant String? time) => _$this._time = time;
 
   WeatherStatusForecast_DataBuilder? _data;
   WeatherStatusForecast_DataBuilder get data => _$this._data ??= WeatherStatusForecast_DataBuilder();
-  set data(WeatherStatusForecast_DataBuilder? data) => _$this._data = data;
+  set data(covariant WeatherStatusForecast_DataBuilder? data) => _$this._data = data;
 
   WeatherStatusForecastBuilder();
 
@@ -4993,7 +5363,7 @@ class WeatherStatusForecastBuilder implements Builder<WeatherStatusForecast, Wea
   }
 
   @override
-  void replace(WeatherStatusForecast other) {
+  void replace(covariant WeatherStatusForecast other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusForecast;
   }
@@ -5025,6 +5395,17 @@ class WeatherStatusForecastBuilder implements Builder<WeatherStatusForecast, Wea
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  ListBuilder<WeatherStatusForecast> get data;
+  set data(ListBuilder<WeatherStatusForecast>? data);
 }
 
 class _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs
@@ -5084,16 +5465,17 @@ class _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<WeatherStatusForecast>? _data;
   ListBuilder<WeatherStatusForecast> get data => _$this._data ??= ListBuilder<WeatherStatusForecast>();
-  set data(ListBuilder<WeatherStatusForecast>? data) => _$this._data = data;
+  set data(covariant ListBuilder<WeatherStatusForecast>? data) => _$this._data = data;
 
   WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder();
 
@@ -5108,7 +5490,7 @@ class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs;
   }
@@ -5143,6 +5525,13 @@ class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson
@@ -5193,13 +5582,15 @@ class _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson
 class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder();
 
@@ -5213,7 +5604,7 @@ class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson;
   }
@@ -5244,6 +5635,17 @@ class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  ListBuilder<String> get data;
+  set data(ListBuilder<String>? data);
 }
 
 class _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs
@@ -5303,16 +5705,17 @@ class _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
-  set data(ListBuilder<String>? data) => _$this._data = data;
+  set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder();
 
@@ -5327,7 +5730,7 @@ class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilde
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs;
   }
@@ -5362,6 +5765,13 @@ class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson
@@ -5412,13 +5822,15 @@ class _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson
 class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder();
 
@@ -5432,7 +5844,7 @@ class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson;
   }
@@ -5463,6 +5875,14 @@ class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  bool? get success;
+  set success(bool? success);
 }
 
 class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data
@@ -5514,12 +5934,13 @@ class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Dat
 class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder> {
+            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder>,
+        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
-  set success(bool? success) => _$this._success = success;
+  set success(covariant bool? success) => _$this._success = success;
 
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -5533,7 +5954,7 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataB
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data;
   }
@@ -5555,6 +5976,17 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataB
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterface other);
+  void update(
+      void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  WeatherStatusOCSMetaBuilder get meta;
+  set meta(WeatherStatusOCSMetaBuilder? meta);
+
+  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs
@@ -5614,17 +6046,18 @@ class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs
 class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder> {
+            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder>,
+        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs? _$v;
 
   WeatherStatusOCSMetaBuilder? _meta;
   WeatherStatusOCSMetaBuilder get meta => _$this._meta ??= WeatherStatusOCSMetaBuilder();
-  set meta(WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant WeatherStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder? _data;
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  set data(covariant WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder();
@@ -5640,7 +6073,7 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilde
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs;
   }
@@ -5675,6 +6108,13 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilde
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterface other);
+  void update(void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterfaceBuilder) updates);
+  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson
@@ -5725,13 +6165,15 @@ class _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson
 class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder
     implements
         Builder<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder> {
+            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder>,
+        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterfaceBuilder {
   _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson? _$v;
 
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder? _ocs;
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder();
-  set ocs(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder();
 
@@ -5745,7 +6187,7 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson other) {
+  void replace(covariant WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson;
   }
@@ -5776,6 +6218,13 @@ class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusCapabilities_WeatherStatusInterfaceBuilder {
+  void replace(WeatherStatusCapabilities_WeatherStatusInterface other);
+  void update(void Function(WeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
 }
 
 class _$WeatherStatusCapabilities_WeatherStatus extends WeatherStatusCapabilities_WeatherStatus {
@@ -5821,12 +6270,14 @@ class _$WeatherStatusCapabilities_WeatherStatus extends WeatherStatusCapabilitie
 }
 
 class WeatherStatusCapabilities_WeatherStatusBuilder
-    implements Builder<WeatherStatusCapabilities_WeatherStatus, WeatherStatusCapabilities_WeatherStatusBuilder> {
+    implements
+        Builder<WeatherStatusCapabilities_WeatherStatus, WeatherStatusCapabilities_WeatherStatusBuilder>,
+        WeatherStatusCapabilities_WeatherStatusInterfaceBuilder {
   _$WeatherStatusCapabilities_WeatherStatus? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(bool? enabled) => _$this._enabled = enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
   WeatherStatusCapabilities_WeatherStatusBuilder();
 
@@ -5840,7 +6291,7 @@ class WeatherStatusCapabilities_WeatherStatusBuilder
   }
 
   @override
-  void replace(WeatherStatusCapabilities_WeatherStatus other) {
+  void replace(covariant WeatherStatusCapabilities_WeatherStatus other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusCapabilities_WeatherStatus;
   }
@@ -5861,6 +6312,13 @@ class WeatherStatusCapabilities_WeatherStatusBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class WeatherStatusCapabilitiesInterfaceBuilder {
+  void replace(WeatherStatusCapabilitiesInterface other);
+  void update(void Function(WeatherStatusCapabilitiesInterfaceBuilder) updates);
+  WeatherStatusCapabilities_WeatherStatusBuilder get weatherStatus;
+  set weatherStatus(WeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus);
 }
 
 class _$WeatherStatusCapabilities extends WeatherStatusCapabilities {
@@ -5901,13 +6359,16 @@ class _$WeatherStatusCapabilities extends WeatherStatusCapabilities {
   }
 }
 
-class WeatherStatusCapabilitiesBuilder implements Builder<WeatherStatusCapabilities, WeatherStatusCapabilitiesBuilder> {
+class WeatherStatusCapabilitiesBuilder
+    implements
+        Builder<WeatherStatusCapabilities, WeatherStatusCapabilitiesBuilder>,
+        WeatherStatusCapabilitiesInterfaceBuilder {
   _$WeatherStatusCapabilities? _$v;
 
   WeatherStatusCapabilities_WeatherStatusBuilder? _weatherStatus;
   WeatherStatusCapabilities_WeatherStatusBuilder get weatherStatus =>
       _$this._weatherStatus ??= WeatherStatusCapabilities_WeatherStatusBuilder();
-  set weatherStatus(WeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus) =>
+  set weatherStatus(covariant WeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus) =>
       _$this._weatherStatus = weatherStatus;
 
   WeatherStatusCapabilitiesBuilder();
@@ -5922,7 +6383,7 @@ class WeatherStatusCapabilitiesBuilder implements Builder<WeatherStatusCapabilit
   }
 
   @override
-  void replace(WeatherStatusCapabilities other) {
+  void replace(covariant WeatherStatusCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WeatherStatusCapabilities;
   }

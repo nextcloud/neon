@@ -118,8 +118,19 @@ class SettingsLogSettingsClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class SettingsLogSettingsLogSettingsDownloadHeadersInterface {
+  @BuiltValueField(wireName: 'content-disposition')
+  String? get contentDisposition;
+  SettingsLogSettingsLogSettingsDownloadHeadersInterface rebuild(
+    final void Function(SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates,
+  );
+  SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class SettingsLogSettingsLogSettingsDownloadHeaders
     implements
+        SettingsLogSettingsLogSettingsDownloadHeadersInterface,
         Built<SettingsLogSettingsLogSettingsDownloadHeaders, SettingsLogSettingsLogSettingsDownloadHeadersBuilder> {
   factory SettingsLogSettingsLogSettingsDownloadHeaders([
     final void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder)? b,
@@ -137,8 +148,6 @@ abstract class SettingsLogSettingsLogSettingsDownloadHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'content-disposition')
-  String? get contentDisposition;
   @BuiltValueSerializer(custom: true)
   static Serializer<SettingsLogSettingsLogSettingsDownloadHeaders> get serializer =>
       _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer();

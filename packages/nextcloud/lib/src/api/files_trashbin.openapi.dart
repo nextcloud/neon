@@ -127,8 +127,19 @@ class FilesTrashbinPreviewClient {
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesTrashbinCapabilities_FilesInterface {
+  bool get undelete;
+  FilesTrashbinCapabilities_FilesInterface rebuild(
+    final void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
+  );
+  FilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
+}
+
 abstract class FilesTrashbinCapabilities_Files
-    implements Built<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
+    implements
+        FilesTrashbinCapabilities_FilesInterface,
+        Built<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
   factory FilesTrashbinCapabilities_Files([final void Function(FilesTrashbinCapabilities_FilesBuilder)? b]) =
       _$FilesTrashbinCapabilities_Files;
 
@@ -144,11 +155,18 @@ abstract class FilesTrashbinCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get undelete;
   static Serializer<FilesTrashbinCapabilities_Files> get serializer => _$filesTrashbinCapabilitiesFilesSerializer;
 }
 
-abstract class FilesTrashbinCapabilities implements Built<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesTrashbinCapabilitiesInterface {
+  FilesTrashbinCapabilities_Files get files;
+  FilesTrashbinCapabilitiesInterface rebuild(final void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
+  FilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class FilesTrashbinCapabilities
+    implements FilesTrashbinCapabilitiesInterface, Built<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
   factory FilesTrashbinCapabilities([final void Function(FilesTrashbinCapabilitiesBuilder)? b]) =
       _$FilesTrashbinCapabilities;
 
@@ -164,7 +182,6 @@ abstract class FilesTrashbinCapabilities implements Built<FilesTrashbinCapabilit
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesTrashbinCapabilities_Files get files;
   static Serializer<FilesTrashbinCapabilities> get serializer => _$filesTrashbinCapabilitiesSerializer;
 }
 

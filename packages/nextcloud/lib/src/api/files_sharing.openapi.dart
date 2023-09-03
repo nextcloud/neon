@@ -1118,7 +1118,19 @@ class FilesSharingShareesapiClient {
   }
 }
 
-abstract class FilesSharingOCSMeta implements Built<FilesSharingOCSMeta, FilesSharingOCSMetaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingOCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  FilesSharingOCSMetaInterface rebuild(final void Function(FilesSharingOCSMetaInterfaceBuilder) updates);
+  FilesSharingOCSMetaInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingOCSMeta
+    implements FilesSharingOCSMetaInterface, Built<FilesSharingOCSMeta, FilesSharingOCSMetaBuilder> {
   factory FilesSharingOCSMeta([final void Function(FilesSharingOCSMetaBuilder)? b]) = _$FilesSharingOCSMeta;
 
   // coverage:ignore-start
@@ -1133,30 +1145,11 @@ abstract class FilesSharingOCSMeta implements Built<FilesSharingOCSMeta, FilesSh
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get status;
-  int get statuscode;
-  String? get message;
-  String? get totalitems;
-  String? get itemsperpage;
   static Serializer<FilesSharingOCSMeta> get serializer => _$filesSharingOCSMetaSerializer;
 }
 
-abstract class FilesSharingDeletedShare implements Built<FilesSharingDeletedShare, FilesSharingDeletedShareBuilder> {
-  factory FilesSharingDeletedShare([final void Function(FilesSharingDeletedShareBuilder)? b]) =
-      _$FilesSharingDeletedShare;
-
-  // coverage:ignore-start
-  const FilesSharingDeletedShare._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingDeletedShare.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingDeletedShareInterface {
   String get id;
   @BuiltValueField(wireName: 'share_type')
   int get shareType;
@@ -1190,11 +1183,43 @@ abstract class FilesSharingDeletedShare implements Built<FilesSharingDeletedShar
   String? get shareWithDisplayname;
   @BuiltValueField(wireName: 'share_with_link')
   String? get shareWithLink;
+  FilesSharingDeletedShareInterface rebuild(final void Function(FilesSharingDeletedShareInterfaceBuilder) updates);
+  FilesSharingDeletedShareInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingDeletedShare
+    implements FilesSharingDeletedShareInterface, Built<FilesSharingDeletedShare, FilesSharingDeletedShareBuilder> {
+  factory FilesSharingDeletedShare([final void Function(FilesSharingDeletedShareBuilder)? b]) =
+      _$FilesSharingDeletedShare;
+
+  // coverage:ignore-start
+  const FilesSharingDeletedShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory FilesSharingDeletedShare.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<FilesSharingDeletedShare> get serializer => _$filesSharingDeletedShareSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingDeletedShare> get data;
+  FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs
     implements
+        FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs,
             FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs([
@@ -1213,14 +1238,22 @@ abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingDeletedShare> get data;
   static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingDeletedShareapiListResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface {
+  FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingDeletedShareapiListResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson
     implements
+        FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface,
         Built<FilesSharingDeletedShareapiListResponse200ApplicationJson,
             FilesSharingDeletedShareapiListResponse200ApplicationJsonBuilder> {
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson([
@@ -1239,13 +1272,23 @@ abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson> get serializer =>
       _$filesSharingDeletedShareapiListResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs
     implements
+        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs,
             FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs([
@@ -1264,14 +1307,22 @@ abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingDeletedShareapiUndeleteResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface {
+  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson
     implements
+        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface,
         Built<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson,
             FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonBuilder> {
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson([
@@ -1290,26 +1341,12 @@ abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson> get serializer =>
       _$filesSharingDeletedShareapiUndeleteResponse200ApplicationJsonSerializer;
 }
 
-abstract class FilesSharingRemoteShare implements Built<FilesSharingRemoteShare, FilesSharingRemoteShareBuilder> {
-  factory FilesSharingRemoteShare([final void Function(FilesSharingRemoteShareBuilder)? b]) = _$FilesSharingRemoteShare;
-
-  // coverage:ignore-start
-  const FilesSharingRemoteShare._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingRemoteShare.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteShareInterface {
   bool get accepted;
   @BuiltValueField(wireName: 'file_id')
   int? get fileId;
@@ -1330,11 +1367,42 @@ abstract class FilesSharingRemoteShare implements Built<FilesSharingRemoteShare,
   int get shareType;
   String? get type;
   String get user;
+  FilesSharingRemoteShareInterface rebuild(final void Function(FilesSharingRemoteShareInterfaceBuilder) updates);
+  FilesSharingRemoteShareInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingRemoteShare
+    implements FilesSharingRemoteShareInterface, Built<FilesSharingRemoteShare, FilesSharingRemoteShareBuilder> {
+  factory FilesSharingRemoteShare([final void Function(FilesSharingRemoteShareBuilder)? b]) = _$FilesSharingRemoteShare;
+
+  // coverage:ignore-start
+  const FilesSharingRemoteShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory FilesSharingRemoteShare.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<FilesSharingRemoteShare> get serializer => _$filesSharingRemoteShareSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingRemoteShare> get data;
+  FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs,
             FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs([
@@ -1353,14 +1421,22 @@ abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingRemoteShare> get data;
   static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteGetSharesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface {
+  FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson
     implements
+        FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteGetSharesResponse200ApplicationJson,
             FilesSharingRemoteGetSharesResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson([
@@ -1379,13 +1455,23 @@ abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetSharesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingRemoteShare> get data;
+  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs,
             FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs([
@@ -1404,14 +1490,22 @@ abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingRemoteShare> get data;
   static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteGetOpenSharesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface {
+  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson
     implements
+        FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson,
             FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson([
@@ -1430,13 +1524,23 @@ abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetOpenSharesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs,
             FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs([
@@ -1455,14 +1559,22 @@ abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteAcceptShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface {
+  FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson
     implements
+        FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteAcceptShareResponse200ApplicationJson,
             FilesSharingRemoteAcceptShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson([
@@ -1481,13 +1593,23 @@ abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteAcceptShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs,
             FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs([
@@ -1506,14 +1628,22 @@ abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteDeclineShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface {
+  FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson
     implements
+        FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteDeclineShareResponse200ApplicationJson,
             FilesSharingRemoteDeclineShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson([
@@ -1532,13 +1662,23 @@ abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteDeclineShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingRemoteShare get data;
+  FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs,
             FilesSharingRemoteGetShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs([
@@ -1557,14 +1697,22 @@ abstract class FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingRemoteShare get data;
   static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteGetShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteGetShareResponse200ApplicationJsonInterface {
+  FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteGetShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteGetShareResponse200ApplicationJson
     implements
+        FilesSharingRemoteGetShareResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteGetShareResponse200ApplicationJson,
             FilesSharingRemoteGetShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteGetShareResponse200ApplicationJson([
@@ -1583,13 +1731,23 @@ abstract class FilesSharingRemoteGetShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs,
             FilesSharingRemoteUnshareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs([
@@ -1608,14 +1766,22 @@ abstract class FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingRemoteUnshareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingRemoteUnshareResponse200ApplicationJsonInterface {
+  FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingRemoteUnshareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingRemoteUnshareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingRemoteUnshareResponse200ApplicationJson
     implements
+        FilesSharingRemoteUnshareResponse200ApplicationJsonInterface,
         Built<FilesSharingRemoteUnshareResponse200ApplicationJson,
             FilesSharingRemoteUnshareResponse200ApplicationJsonBuilder> {
   factory FilesSharingRemoteUnshareResponse200ApplicationJson([
@@ -1634,7 +1800,6 @@ abstract class FilesSharingRemoteUnshareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteUnshareResponse200ApplicationJsonSerializer;
 }
@@ -1696,7 +1861,24 @@ class _$FilesSharingShareInfo_SizeSerializer implements PrimitiveSerializer<File
   }
 }
 
-abstract class FilesSharingShareInfo implements Built<FilesSharingShareInfo, FilesSharingShareInfoBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareInfoInterface {
+  int get id;
+  int get parentId;
+  int get mtime;
+  String get name;
+  int get permissions;
+  String get mimetype;
+  FilesSharingShareInfo_Size get size;
+  String get type;
+  String get etag;
+  BuiltList<BuiltMap<String, JsonObject>>? get children;
+  FilesSharingShareInfoInterface rebuild(final void Function(FilesSharingShareInfoInterfaceBuilder) updates);
+  FilesSharingShareInfoInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingShareInfo
+    implements FilesSharingShareInfoInterface, Built<FilesSharingShareInfo, FilesSharingShareInfoBuilder> {
   factory FilesSharingShareInfo([final void Function(FilesSharingShareInfoBuilder)? b]) = _$FilesSharingShareInfo;
 
   // coverage:ignore-start
@@ -1711,16 +1893,6 @@ abstract class FilesSharingShareInfo implements Built<FilesSharingShareInfo, Fil
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get id;
-  int get parentId;
-  int get mtime;
-  String get name;
-  int get permissions;
-  String get mimetype;
-  FilesSharingShareInfo_Size get size;
-  String get type;
-  String get etag;
-  BuiltList<BuiltMap<String, JsonObject>>? get children;
   static Serializer<FilesSharingShareInfo> get serializer => _$filesSharingShareInfoSerializer;
 }
 
@@ -1795,7 +1967,18 @@ class FilesSharingShare_ItemType extends EnumClass {
   static Serializer<FilesSharingShare_ItemType> get serializer => _$filesSharingShareItemTypeSerializer;
 }
 
-abstract class FilesSharingShare_Status implements Built<FilesSharingShare_Status, FilesSharingShare_StatusBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShare_StatusInterface {
+  int? get clearAt;
+  String? get icon;
+  String? get message;
+  String? get status;
+  FilesSharingShare_StatusInterface rebuild(final void Function(FilesSharingShare_StatusInterfaceBuilder) updates);
+  FilesSharingShare_StatusInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingShare_Status
+    implements FilesSharingShare_StatusInterface, Built<FilesSharingShare_Status, FilesSharingShare_StatusBuilder> {
   factory FilesSharingShare_Status([final void Function(FilesSharingShare_StatusBuilder)? b]) =
       _$FilesSharingShare_Status;
 
@@ -1811,28 +1994,11 @@ abstract class FilesSharingShare_Status implements Built<FilesSharingShare_Statu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int? get clearAt;
-  String? get icon;
-  String? get message;
-  String? get status;
   static Serializer<FilesSharingShare_Status> get serializer => _$filesSharingShareStatusSerializer;
 }
 
-abstract class FilesSharingShare implements Built<FilesSharingShare, FilesSharingShareBuilder> {
-  factory FilesSharingShare([final void Function(FilesSharingShareBuilder)? b]) = _$FilesSharingShare;
-
-  // coverage:ignore-start
-  const FilesSharingShare._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShare.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareInterface {
   String? get attributes;
   @BuiltValueField(wireName: 'can_delete')
   bool get canDelete;
@@ -1900,11 +2066,42 @@ abstract class FilesSharingShare implements Built<FilesSharingShare, FilesSharin
   @BuiltValueField(wireName: 'uid_owner')
   String get uidOwner;
   String? get url;
+  FilesSharingShareInterface rebuild(final void Function(FilesSharingShareInterfaceBuilder) updates);
+  FilesSharingShareInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingShare
+    implements FilesSharingShareInterface, Built<FilesSharingShare, FilesSharingShareBuilder> {
+  factory FilesSharingShare([final void Function(FilesSharingShareBuilder)? b]) = _$FilesSharingShare;
+
+  // coverage:ignore-start
+  const FilesSharingShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory FilesSharingShare.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   static Serializer<FilesSharingShare> get serializer => _$filesSharingShareSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingShare> get data;
+  FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs,
             FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs([
@@ -1923,14 +2120,22 @@ abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiGetSharesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface {
+  FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson
     implements
+        FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiGetSharesResponse200ApplicationJson,
             FilesSharingShareapiGetSharesResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson([
@@ -1949,13 +2154,23 @@ abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetSharesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingShare get data;
+  FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs,
             FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs([
@@ -1974,14 +2189,22 @@ abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingShare get data;
   static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiCreateShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface {
+  FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiCreateShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson
     implements
+        FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiCreateShareResponse200ApplicationJson,
             FilesSharingShareapiCreateShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson([
@@ -2000,13 +2223,23 @@ abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiCreateShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingShare> get data;
+  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs,
             FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs([
@@ -2027,14 +2260,22 @@ abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiGetInheritedSharesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface {
+  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson
     implements
+        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson,
             FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson([
@@ -2053,13 +2294,23 @@ abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetInheritedSharesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  BuiltList<FilesSharingShare> get data;
+  FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs,
             FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs([
@@ -2078,14 +2329,22 @@ abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiPendingSharesResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface {
+  FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson
     implements
+        FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiPendingSharesResponse200ApplicationJson,
             FilesSharingShareapiPendingSharesResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson([
@@ -2104,13 +2363,23 @@ abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiPendingSharesResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingShare get data;
+  FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs,
             FilesSharingShareapiGetShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs([
@@ -2129,14 +2398,22 @@ abstract class FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingShare get data;
   static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiGetShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiGetShareResponse200ApplicationJsonInterface {
+  FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiGetShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiGetShareResponse200ApplicationJson
     implements
+        FilesSharingShareapiGetShareResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiGetShareResponse200ApplicationJson,
             FilesSharingShareapiGetShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiGetShareResponse200ApplicationJson([
@@ -2155,13 +2432,23 @@ abstract class FilesSharingShareapiGetShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingShare get data;
+  FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs,
             FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs([
@@ -2180,14 +2467,22 @@ abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingShare get data;
   static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiUpdateShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface {
+  FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson
     implements
+        FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiUpdateShareResponse200ApplicationJson,
             FilesSharingShareapiUpdateShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson([
@@ -2206,13 +2501,23 @@ abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiUpdateShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs,
             FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs([
@@ -2231,14 +2536,22 @@ abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiDeleteShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface {
+  FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson
     implements
+        FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiDeleteShareResponse200ApplicationJson,
             FilesSharingShareapiDeleteShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson([
@@ -2257,13 +2570,23 @@ abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiDeleteShareResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  JsonObject get data;
+  FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs,
             FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs([
@@ -2282,14 +2605,22 @@ abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  JsonObject get data;
   static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareapiAcceptShareResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface {
+  FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson
     implements
+        FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface,
         Built<FilesSharingShareapiAcceptShareResponse200ApplicationJson,
             FilesSharingShareapiAcceptShareResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson([
@@ -2308,7 +2639,6 @@ abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiAcceptShareResponse200ApplicationJsonSerializer;
 }
@@ -2380,8 +2710,18 @@ class _$FilesSharingShareesapiSearchShareTypeSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesapiShareesapiSearchHeadersInterface {
+  String? get link;
+  FilesSharingShareesapiShareesapiSearchHeadersInterface rebuild(
+    final void Function(FilesSharingShareesapiShareesapiSearchHeadersInterfaceBuilder) updates,
+  );
+  FilesSharingShareesapiShareesapiSearchHeadersInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareesapiShareesapiSearchHeaders
     implements
+        FilesSharingShareesapiShareesapiSearchHeadersInterface,
         Built<FilesSharingShareesapiShareesapiSearchHeaders, FilesSharingShareesapiShareesapiSearchHeadersBuilder> {
   factory FilesSharingShareesapiShareesapiSearchHeaders([
     final void Function(FilesSharingShareesapiShareesapiSearchHeadersBuilder)? b,
@@ -2399,7 +2739,6 @@ abstract class FilesSharingShareesapiShareesapiSearchHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String? get link;
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareesapiShareesapiSearchHeaders> get serializer =>
       _$FilesSharingShareesapiShareesapiSearchHeadersSerializer();
@@ -2448,7 +2787,16 @@ class _$FilesSharingShareesapiShareesapiSearchHeadersSerializer
   }
 }
 
-abstract class FilesSharingSharee implements Built<FilesSharingSharee, FilesSharingShareeBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeInterface {
+  int? get count;
+  String get label;
+  FilesSharingShareeInterface rebuild(final void Function(FilesSharingShareeInterfaceBuilder) updates);
+  FilesSharingShareeInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingSharee
+    implements FilesSharingShareeInterface, Built<FilesSharingSharee, FilesSharingShareeBuilder> {
   factory FilesSharingSharee([final void Function(FilesSharingShareeBuilder)? b]) = _$FilesSharingSharee;
 
   // coverage:ignore-start
@@ -2463,12 +2811,19 @@ abstract class FilesSharingSharee implements Built<FilesSharingSharee, FilesShar
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int? get count;
-  String get label;
   static Serializer<FilesSharingSharee> get serializer => _$filesSharingShareeSerializer;
 }
 
-abstract class FilesSharingShareeValue implements Built<FilesSharingShareeValue, FilesSharingShareeValueBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeValueInterface {
+  int get shareType;
+  String get shareWith;
+  FilesSharingShareeValueInterface rebuild(final void Function(FilesSharingShareeValueInterfaceBuilder) updates);
+  FilesSharingShareeValueInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingShareeValue
+    implements FilesSharingShareeValueInterface, Built<FilesSharingShareeValue, FilesSharingShareeValueBuilder> {
   factory FilesSharingShareeValue([final void Function(FilesSharingShareeValueBuilder)? b]) = _$FilesSharingShareeValue;
 
   // coverage:ignore-start
@@ -2483,116 +2838,54 @@ abstract class FilesSharingShareeValue implements Built<FilesSharingShareeValue,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  int get shareType;
-  String get shareWith;
   static Serializer<FilesSharingShareeValue> get serializer => _$filesSharingShareeValueSerializer;
 }
 
-abstract class FilesSharingShareeCircle1_Value1
-    implements Built<FilesSharingShareeCircle1_Value1, FilesSharingShareeCircle1_Value1Builder> {
-  factory FilesSharingShareeCircle1_Value1([final void Function(FilesSharingShareeCircle1_Value1Builder)? b]) =
-      _$FilesSharingShareeCircle1_Value1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeCircle1_Value1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeCircle1_Value1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeCircle_1_Value_1Interface {
   String get circle;
-  static Serializer<FilesSharingShareeCircle1_Value1> get serializer => _$filesSharingShareeCircle1Value1Serializer;
+  FilesSharingShareeCircle_1_Value_1Interface rebuild(
+    final void Function(FilesSharingShareeCircle_1_Value_1InterfaceBuilder) updates,
+  );
+  FilesSharingShareeCircle_1_Value_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeCircle1_Value
-    implements Built<FilesSharingShareeCircle1_Value, FilesSharingShareeCircle1_ValueBuilder> {
-  factory FilesSharingShareeCircle1_Value([final void Function(FilesSharingShareeCircle1_ValueBuilder)? b]) =
-      _$FilesSharingShareeCircle1_Value;
+abstract class FilesSharingShareeCircle_1_Value
+    implements
+        FilesSharingShareeValueInterface,
+        FilesSharingShareeCircle_1_Value_1Interface,
+        Built<FilesSharingShareeCircle_1_Value, FilesSharingShareeCircle_1_ValueBuilder> {
+  factory FilesSharingShareeCircle_1_Value([final void Function(FilesSharingShareeCircle_1_ValueBuilder)? b]) =
+      _$FilesSharingShareeCircle_1_Value;
 
   // coverage:ignore-start
-  const FilesSharingShareeCircle1_Value._();
+  const FilesSharingShareeCircle_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeCircle1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeCircle_1_Value.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingShareeValue get shareeValue;
-  FilesSharingShareeCircle1_Value1 get shareeCircle1Value1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeCircle1_Value> get serializer => _$FilesSharingShareeCircle1_ValueSerializer();
+  static Serializer<FilesSharingShareeCircle_1_Value> get serializer => _$filesSharingShareeCircle1ValueSerializer;
 }
 
-class _$FilesSharingShareeCircle1_ValueSerializer implements PrimitiveSerializer<FilesSharingShareeCircle1_Value> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeCircle1_Value, _$FilesSharingShareeCircle1_Value];
-
-  @override
-  final String wireName = 'FilesSharingShareeCircle1_Value';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeCircle1_Value object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeCircle1_Value deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeCircle1_ValueBuilder()..data = JsonObject(data);
-    result.shareeValue.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeValue),
-      )! as FilesSharingShareeValue,
-    );
-    result.shareeCircle1Value1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeCircle1_Value1),
-      )! as FilesSharingShareeCircle1_Value1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeCircle1 implements Built<FilesSharingShareeCircle1, FilesSharingShareeCircle1Builder> {
-  factory FilesSharingShareeCircle1([final void Function(FilesSharingShareeCircle1Builder)? b]) =
-      _$FilesSharingShareeCircle1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeCircle1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeCircle1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeCircle_1Interface {
   String get shareWithDescription;
-  FilesSharingShareeCircle1_Value get value;
-  static Serializer<FilesSharingShareeCircle1> get serializer => _$filesSharingShareeCircle1Serializer;
+  FilesSharingShareeCircle_1_Value get value;
+  FilesSharingShareeCircle_1Interface rebuild(final void Function(FilesSharingShareeCircle_1InterfaceBuilder) updates);
+  FilesSharingShareeCircle_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeCircle implements Built<FilesSharingShareeCircle, FilesSharingShareeCircleBuilder> {
+abstract class FilesSharingShareeCircle
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeCircle_1Interface,
+        Built<FilesSharingShareeCircle, FilesSharingShareeCircleBuilder> {
   factory FilesSharingShareeCircle([final void Function(FilesSharingShareeCircleBuilder)? b]) =
       _$FilesSharingShareeCircle;
 
@@ -2608,73 +2901,25 @@ abstract class FilesSharingShareeCircle implements Built<FilesSharingShareeCircl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeCircle1 get shareeCircle1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeCircle> get serializer => _$FilesSharingShareeCircleSerializer();
+  static Serializer<FilesSharingShareeCircle> get serializer => _$filesSharingShareeCircleSerializer;
 }
 
-class _$FilesSharingShareeCircleSerializer implements PrimitiveSerializer<FilesSharingShareeCircle> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeCircle, _$FilesSharingShareeCircle];
-
-  @override
-  final String wireName = 'FilesSharingShareeCircle';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeCircle object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeCircle deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeCircleBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeCircle1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeCircle1),
-      )! as FilesSharingShareeCircle1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeEmail1 implements Built<FilesSharingShareeEmail1, FilesSharingShareeEmail1Builder> {
-  factory FilesSharingShareeEmail1([final void Function(FilesSharingShareeEmail1Builder)? b]) =
-      _$FilesSharingShareeEmail1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeEmail1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeEmail1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeEmail_1Interface {
   String get uuid;
   String get name;
   String get type;
   String get shareWithDisplayNameUnique;
   FilesSharingShareeValue get value;
-  static Serializer<FilesSharingShareeEmail1> get serializer => _$filesSharingShareeEmail1Serializer;
+  FilesSharingShareeEmail_1Interface rebuild(final void Function(FilesSharingShareeEmail_1InterfaceBuilder) updates);
+  FilesSharingShareeEmail_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeEmail implements Built<FilesSharingShareeEmail, FilesSharingShareeEmailBuilder> {
+abstract class FilesSharingShareeEmail
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeEmail_1Interface,
+        Built<FilesSharingShareeEmail, FilesSharingShareeEmailBuilder> {
   factory FilesSharingShareeEmail([final void Function(FilesSharingShareeEmailBuilder)? b]) = _$FilesSharingShareeEmail;
 
   // coverage:ignore-start
@@ -2689,158 +2934,59 @@ abstract class FilesSharingShareeEmail implements Built<FilesSharingShareeEmail,
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeEmail1 get shareeEmail1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeEmail> get serializer => _$FilesSharingShareeEmailSerializer();
+  static Serializer<FilesSharingShareeEmail> get serializer => _$filesSharingShareeEmailSerializer;
 }
 
-class _$FilesSharingShareeEmailSerializer implements PrimitiveSerializer<FilesSharingShareeEmail> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeEmail, _$FilesSharingShareeEmail];
-
-  @override
-  final String wireName = 'FilesSharingShareeEmail';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeEmail object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeEmail deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeEmailBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeEmail1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeEmail1),
-      )! as FilesSharingShareeEmail1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeRemoteGroup1_Value1
-    implements Built<FilesSharingShareeRemoteGroup1_Value1, FilesSharingShareeRemoteGroup1_Value1Builder> {
-  factory FilesSharingShareeRemoteGroup1_Value1([
-    final void Function(FilesSharingShareeRemoteGroup1_Value1Builder)? b,
-  ]) = _$FilesSharingShareeRemoteGroup1_Value1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeRemoteGroup1_Value1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeRemoteGroup1_Value1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeRemoteGroup_1_Value_1Interface {
   String get server;
-  static Serializer<FilesSharingShareeRemoteGroup1_Value1> get serializer =>
-      _$filesSharingShareeRemoteGroup1Value1Serializer;
+  FilesSharingShareeRemoteGroup_1_Value_1Interface rebuild(
+    final void Function(FilesSharingShareeRemoteGroup_1_Value_1InterfaceBuilder) updates,
+  );
+  FilesSharingShareeRemoteGroup_1_Value_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeRemoteGroup1_Value
-    implements Built<FilesSharingShareeRemoteGroup1_Value, FilesSharingShareeRemoteGroup1_ValueBuilder> {
-  factory FilesSharingShareeRemoteGroup1_Value([final void Function(FilesSharingShareeRemoteGroup1_ValueBuilder)? b]) =
-      _$FilesSharingShareeRemoteGroup1_Value;
+abstract class FilesSharingShareeRemoteGroup_1_Value
+    implements
+        FilesSharingShareeValueInterface,
+        FilesSharingShareeRemoteGroup_1_Value_1Interface,
+        Built<FilesSharingShareeRemoteGroup_1_Value, FilesSharingShareeRemoteGroup_1_ValueBuilder> {
+  factory FilesSharingShareeRemoteGroup_1_Value([
+    final void Function(FilesSharingShareeRemoteGroup_1_ValueBuilder)? b,
+  ]) = _$FilesSharingShareeRemoteGroup_1_Value;
 
   // coverage:ignore-start
-  const FilesSharingShareeRemoteGroup1_Value._();
+  const FilesSharingShareeRemoteGroup_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeRemoteGroup1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeRemoteGroup_1_Value.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingShareeValue get shareeValue;
-  FilesSharingShareeRemoteGroup1_Value1 get shareeRemoteGroup1Value1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeRemoteGroup1_Value> get serializer =>
-      _$FilesSharingShareeRemoteGroup1_ValueSerializer();
+  static Serializer<FilesSharingShareeRemoteGroup_1_Value> get serializer =>
+      _$filesSharingShareeRemoteGroup1ValueSerializer;
 }
 
-class _$FilesSharingShareeRemoteGroup1_ValueSerializer
-    implements PrimitiveSerializer<FilesSharingShareeRemoteGroup1_Value> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeRemoteGroup1_Value, _$FilesSharingShareeRemoteGroup1_Value];
-
-  @override
-  final String wireName = 'FilesSharingShareeRemoteGroup1_Value';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeRemoteGroup1_Value object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeRemoteGroup1_Value deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeRemoteGroup1_ValueBuilder()..data = JsonObject(data);
-    result.shareeValue.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeValue),
-      )! as FilesSharingShareeValue,
-    );
-    result.shareeRemoteGroup1Value1.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingShareeRemoteGroup1_Value1))!
-          as FilesSharingShareeRemoteGroup1_Value1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeRemoteGroup1
-    implements Built<FilesSharingShareeRemoteGroup1, FilesSharingShareeRemoteGroup1Builder> {
-  factory FilesSharingShareeRemoteGroup1([final void Function(FilesSharingShareeRemoteGroup1Builder)? b]) =
-      _$FilesSharingShareeRemoteGroup1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeRemoteGroup1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeRemoteGroup1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeRemoteGroup_1Interface {
   String get guid;
   String get name;
-  FilesSharingShareeRemoteGroup1_Value get value;
-  static Serializer<FilesSharingShareeRemoteGroup1> get serializer => _$filesSharingShareeRemoteGroup1Serializer;
+  FilesSharingShareeRemoteGroup_1_Value get value;
+  FilesSharingShareeRemoteGroup_1Interface rebuild(
+    final void Function(FilesSharingShareeRemoteGroup_1InterfaceBuilder) updates,
+  );
+  FilesSharingShareeRemoteGroup_1InterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareeRemoteGroup
-    implements Built<FilesSharingShareeRemoteGroup, FilesSharingShareeRemoteGroupBuilder> {
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeRemoteGroup_1Interface,
+        Built<FilesSharingShareeRemoteGroup, FilesSharingShareeRemoteGroupBuilder> {
   factory FilesSharingShareeRemoteGroup([final void Function(FilesSharingShareeRemoteGroupBuilder)? b]) =
       _$FilesSharingShareeRemoteGroup;
 
@@ -2856,155 +3002,56 @@ abstract class FilesSharingShareeRemoteGroup
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeRemoteGroup1 get shareeRemoteGroup1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeRemoteGroup> get serializer => _$FilesSharingShareeRemoteGroupSerializer();
+  static Serializer<FilesSharingShareeRemoteGroup> get serializer => _$filesSharingShareeRemoteGroupSerializer;
 }
 
-class _$FilesSharingShareeRemoteGroupSerializer implements PrimitiveSerializer<FilesSharingShareeRemoteGroup> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeRemoteGroup, _$FilesSharingShareeRemoteGroup];
-
-  @override
-  final String wireName = 'FilesSharingShareeRemoteGroup';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeRemoteGroup object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeRemoteGroup deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeRemoteGroupBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeRemoteGroup1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeRemoteGroup1),
-      )! as FilesSharingShareeRemoteGroup1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeRemote1_Value1
-    implements Built<FilesSharingShareeRemote1_Value1, FilesSharingShareeRemote1_Value1Builder> {
-  factory FilesSharingShareeRemote1_Value1([final void Function(FilesSharingShareeRemote1_Value1Builder)? b]) =
-      _$FilesSharingShareeRemote1_Value1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeRemote1_Value1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeRemote1_Value1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeRemote_1_Value_1Interface {
   String get server;
-  static Serializer<FilesSharingShareeRemote1_Value1> get serializer => _$filesSharingShareeRemote1Value1Serializer;
+  FilesSharingShareeRemote_1_Value_1Interface rebuild(
+    final void Function(FilesSharingShareeRemote_1_Value_1InterfaceBuilder) updates,
+  );
+  FilesSharingShareeRemote_1_Value_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeRemote1_Value
-    implements Built<FilesSharingShareeRemote1_Value, FilesSharingShareeRemote1_ValueBuilder> {
-  factory FilesSharingShareeRemote1_Value([final void Function(FilesSharingShareeRemote1_ValueBuilder)? b]) =
-      _$FilesSharingShareeRemote1_Value;
+abstract class FilesSharingShareeRemote_1_Value
+    implements
+        FilesSharingShareeValueInterface,
+        FilesSharingShareeRemote_1_Value_1Interface,
+        Built<FilesSharingShareeRemote_1_Value, FilesSharingShareeRemote_1_ValueBuilder> {
+  factory FilesSharingShareeRemote_1_Value([final void Function(FilesSharingShareeRemote_1_ValueBuilder)? b]) =
+      _$FilesSharingShareeRemote_1_Value;
 
   // coverage:ignore-start
-  const FilesSharingShareeRemote1_Value._();
+  const FilesSharingShareeRemote_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeRemote1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeRemote_1_Value.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingShareeValue get shareeValue;
-  FilesSharingShareeRemote1_Value1 get shareeRemote1Value1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeRemote1_Value> get serializer => _$FilesSharingShareeRemote1_ValueSerializer();
+  static Serializer<FilesSharingShareeRemote_1_Value> get serializer => _$filesSharingShareeRemote1ValueSerializer;
 }
 
-class _$FilesSharingShareeRemote1_ValueSerializer implements PrimitiveSerializer<FilesSharingShareeRemote1_Value> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeRemote1_Value, _$FilesSharingShareeRemote1_Value];
-
-  @override
-  final String wireName = 'FilesSharingShareeRemote1_Value';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeRemote1_Value object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeRemote1_Value deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeRemote1_ValueBuilder()..data = JsonObject(data);
-    result.shareeValue.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeValue),
-      )! as FilesSharingShareeValue,
-    );
-    result.shareeRemote1Value1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeRemote1_Value1),
-      )! as FilesSharingShareeRemote1_Value1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeRemote1 implements Built<FilesSharingShareeRemote1, FilesSharingShareeRemote1Builder> {
-  factory FilesSharingShareeRemote1([final void Function(FilesSharingShareeRemote1Builder)? b]) =
-      _$FilesSharingShareeRemote1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeRemote1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeRemote1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeRemote_1Interface {
   String get uuid;
   String get name;
   String get type;
-  FilesSharingShareeRemote1_Value get value;
-  static Serializer<FilesSharingShareeRemote1> get serializer => _$filesSharingShareeRemote1Serializer;
+  FilesSharingShareeRemote_1_Value get value;
+  FilesSharingShareeRemote_1Interface rebuild(final void Function(FilesSharingShareeRemote_1InterfaceBuilder) updates);
+  FilesSharingShareeRemote_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeRemote implements Built<FilesSharingShareeRemote, FilesSharingShareeRemoteBuilder> {
+abstract class FilesSharingShareeRemote
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeRemote_1Interface,
+        Built<FilesSharingShareeRemote, FilesSharingShareeRemoteBuilder> {
   factory FilesSharingShareeRemote([final void Function(FilesSharingShareeRemoteBuilder)? b]) =
       _$FilesSharingShareeRemote;
 
@@ -3020,96 +3067,59 @@ abstract class FilesSharingShareeRemote implements Built<FilesSharingShareeRemot
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeRemote1 get shareeRemote1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeRemote> get serializer => _$FilesSharingShareeRemoteSerializer();
+  static Serializer<FilesSharingShareeRemote> get serializer => _$filesSharingShareeRemoteSerializer;
 }
 
-class _$FilesSharingShareeRemoteSerializer implements PrimitiveSerializer<FilesSharingShareeRemote> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeRemote, _$FilesSharingShareeRemote];
-
-  @override
-  final String wireName = 'FilesSharingShareeRemote';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeRemote object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeRemote deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeRemoteBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeRemote1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeRemote1),
-      )! as FilesSharingShareeRemote1,
-    );
-    return result.build();
-  }
-}
-
-abstract class FilesSharingShareeUser1_Status
-    implements Built<FilesSharingShareeUser1_Status, FilesSharingShareeUser1_StatusBuilder> {
-  factory FilesSharingShareeUser1_Status([final void Function(FilesSharingShareeUser1_StatusBuilder)? b]) =
-      _$FilesSharingShareeUser1_Status;
-
-  // coverage:ignore-start
-  const FilesSharingShareeUser1_Status._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeUser1_Status.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeUser_1_StatusInterface {
   String get status;
   String get message;
   String get icon;
   int? get clearAt;
-  static Serializer<FilesSharingShareeUser1_Status> get serializer => _$filesSharingShareeUser1StatusSerializer;
+  FilesSharingShareeUser_1_StatusInterface rebuild(
+    final void Function(FilesSharingShareeUser_1_StatusInterfaceBuilder) updates,
+  );
+  FilesSharingShareeUser_1_StatusInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeUser1 implements Built<FilesSharingShareeUser1, FilesSharingShareeUser1Builder> {
-  factory FilesSharingShareeUser1([final void Function(FilesSharingShareeUser1Builder)? b]) = _$FilesSharingShareeUser1;
+abstract class FilesSharingShareeUser_1_Status
+    implements
+        FilesSharingShareeUser_1_StatusInterface,
+        Built<FilesSharingShareeUser_1_Status, FilesSharingShareeUser_1_StatusBuilder> {
+  factory FilesSharingShareeUser_1_Status([final void Function(FilesSharingShareeUser_1_StatusBuilder)? b]) =
+      _$FilesSharingShareeUser_1_Status;
 
   // coverage:ignore-start
-  const FilesSharingShareeUser1._();
+  const FilesSharingShareeUser_1_Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeUser1.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeUser_1_Status.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  static Serializer<FilesSharingShareeUser_1_Status> get serializer => _$filesSharingShareeUser1StatusSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeUser_1Interface {
   String get subline;
   String get icon;
   String get shareWithDisplayNameUnique;
-  FilesSharingShareeUser1_Status get status;
+  FilesSharingShareeUser_1_Status get status;
   FilesSharingShareeValue get value;
-  static Serializer<FilesSharingShareeUser1> get serializer => _$filesSharingShareeUser1Serializer;
+  FilesSharingShareeUser_1Interface rebuild(final void Function(FilesSharingShareeUser_1InterfaceBuilder) updates);
+  FilesSharingShareeUser_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeUser implements Built<FilesSharingShareeUser, FilesSharingShareeUserBuilder> {
+abstract class FilesSharingShareeUser
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeUser_1Interface,
+        Built<FilesSharingShareeUser, FilesSharingShareeUserBuilder> {
   factory FilesSharingShareeUser([final void Function(FilesSharingShareeUserBuilder)? b]) = _$FilesSharingShareeUser;
 
   // coverage:ignore-start
@@ -3124,50 +3134,29 @@ abstract class FilesSharingShareeUser implements Built<FilesSharingShareeUser, F
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeUser1 get shareeUser1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeUser> get serializer => _$FilesSharingShareeUserSerializer();
+  static Serializer<FilesSharingShareeUser> get serializer => _$filesSharingShareeUserSerializer;
 }
 
-class _$FilesSharingShareeUserSerializer implements PrimitiveSerializer<FilesSharingShareeUser> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeUser, _$FilesSharingShareeUser];
-
-  @override
-  final String wireName = 'FilesSharingShareeUser';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeUser object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeUser deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeUserBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeUser1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeUser1),
-      )! as FilesSharingShareeUser1,
-    );
-    return result.build();
-  }
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesSearchResult_ExactInterface {
+  BuiltList<FilesSharingShareeCircle> get circles;
+  BuiltList<FilesSharingShareeEmail> get emails;
+  BuiltList<FilesSharingSharee> get groups;
+  @BuiltValueField(wireName: 'remote_groups')
+  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
+  BuiltList<FilesSharingShareeRemote> get remotes;
+  BuiltList<FilesSharingSharee> get rooms;
+  BuiltList<FilesSharingShareeUser> get users;
+  FilesSharingShareesSearchResult_ExactInterface rebuild(
+    final void Function(FilesSharingShareesSearchResult_ExactInterfaceBuilder) updates,
+  );
+  FilesSharingShareesSearchResult_ExactInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareesSearchResult_Exact
-    implements Built<FilesSharingShareesSearchResult_Exact, FilesSharingShareesSearchResult_ExactBuilder> {
+    implements
+        FilesSharingShareesSearchResult_ExactInterface,
+        Built<FilesSharingShareesSearchResult_Exact, FilesSharingShareesSearchResult_ExactBuilder> {
   factory FilesSharingShareesSearchResult_Exact([
     final void Function(FilesSharingShareesSearchResult_ExactBuilder)? b,
   ]) = _$FilesSharingShareesSearchResult_Exact;
@@ -3184,19 +3173,20 @@ abstract class FilesSharingShareesSearchResult_Exact
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  BuiltList<FilesSharingShareeCircle> get circles;
-  BuiltList<FilesSharingShareeEmail> get emails;
-  BuiltList<FilesSharingSharee> get groups;
-  @BuiltValueField(wireName: 'remote_groups')
-  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
-  BuiltList<FilesSharingShareeRemote> get remotes;
-  BuiltList<FilesSharingSharee> get rooms;
-  BuiltList<FilesSharingShareeUser> get users;
   static Serializer<FilesSharingShareesSearchResult_Exact> get serializer =>
       _$filesSharingShareesSearchResultExactSerializer;
 }
 
-abstract class FilesSharingLookup implements Built<FilesSharingLookup, FilesSharingLookupBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingLookupInterface {
+  String get value;
+  int get verified;
+  FilesSharingLookupInterface rebuild(final void Function(FilesSharingLookupInterfaceBuilder) updates);
+  FilesSharingLookupInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingLookup
+    implements FilesSharingLookupInterface, Built<FilesSharingLookup, FilesSharingLookupBuilder> {
   factory FilesSharingLookup([final void Function(FilesSharingLookupBuilder)? b]) = _$FilesSharingLookup;
 
   // coverage:ignore-start
@@ -3211,28 +3201,11 @@ abstract class FilesSharingLookup implements Built<FilesSharingLookup, FilesShar
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  String get value;
-  int get verified;
   static Serializer<FilesSharingLookup> get serializer => _$filesSharingLookupSerializer;
 }
 
-abstract class FilesSharingShareeLookup1_Extra
-    implements Built<FilesSharingShareeLookup1_Extra, FilesSharingShareeLookup1_ExtraBuilder> {
-  factory FilesSharingShareeLookup1_Extra([final void Function(FilesSharingShareeLookup1_ExtraBuilder)? b]) =
-      _$FilesSharingShareeLookup1_Extra;
-
-  // coverage:ignore-start
-  const FilesSharingShareeLookup1_Extra._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeLookup1_Extra.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeLookup_1_ExtraInterface {
   String get federationId;
   FilesSharingLookup? get name;
   FilesSharingLookup? get email;
@@ -3245,114 +3218,79 @@ abstract class FilesSharingShareeLookup1_Extra
   @BuiltValueField(wireName: 'website_signature')
   FilesSharingLookup? get websiteSignature;
   FilesSharingLookup? get userid;
-  static Serializer<FilesSharingShareeLookup1_Extra> get serializer => _$filesSharingShareeLookup1ExtraSerializer;
+  FilesSharingShareeLookup_1_ExtraInterface rebuild(
+    final void Function(FilesSharingShareeLookup_1_ExtraInterfaceBuilder) updates,
+  );
+  FilesSharingShareeLookup_1_ExtraInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeLookup1_Value1
-    implements Built<FilesSharingShareeLookup1_Value1, FilesSharingShareeLookup1_Value1Builder> {
-  factory FilesSharingShareeLookup1_Value1([final void Function(FilesSharingShareeLookup1_Value1Builder)? b]) =
-      _$FilesSharingShareeLookup1_Value1;
+abstract class FilesSharingShareeLookup_1_Extra
+    implements
+        FilesSharingShareeLookup_1_ExtraInterface,
+        Built<FilesSharingShareeLookup_1_Extra, FilesSharingShareeLookup_1_ExtraBuilder> {
+  factory FilesSharingShareeLookup_1_Extra([final void Function(FilesSharingShareeLookup_1_ExtraBuilder)? b]) =
+      _$FilesSharingShareeLookup_1_Extra;
 
   // coverage:ignore-start
-  const FilesSharingShareeLookup1_Value1._();
+  const FilesSharingShareeLookup_1_Extra._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeLookup1_Value1.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeLookup_1_Extra.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  static Serializer<FilesSharingShareeLookup_1_Extra> get serializer => _$filesSharingShareeLookup1ExtraSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeLookup_1_Value_1Interface {
   bool get globalScale;
-  static Serializer<FilesSharingShareeLookup1_Value1> get serializer => _$filesSharingShareeLookup1Value1Serializer;
+  FilesSharingShareeLookup_1_Value_1Interface rebuild(
+    final void Function(FilesSharingShareeLookup_1_Value_1InterfaceBuilder) updates,
+  );
+  FilesSharingShareeLookup_1_Value_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeLookup1_Value
-    implements Built<FilesSharingShareeLookup1_Value, FilesSharingShareeLookup1_ValueBuilder> {
-  factory FilesSharingShareeLookup1_Value([final void Function(FilesSharingShareeLookup1_ValueBuilder)? b]) =
-      _$FilesSharingShareeLookup1_Value;
+abstract class FilesSharingShareeLookup_1_Value
+    implements
+        FilesSharingShareeValueInterface,
+        FilesSharingShareeLookup_1_Value_1Interface,
+        Built<FilesSharingShareeLookup_1_Value, FilesSharingShareeLookup_1_ValueBuilder> {
+  factory FilesSharingShareeLookup_1_Value([final void Function(FilesSharingShareeLookup_1_ValueBuilder)? b]) =
+      _$FilesSharingShareeLookup_1_Value;
 
   // coverage:ignore-start
-  const FilesSharingShareeLookup1_Value._();
+  const FilesSharingShareeLookup_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareeLookup1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareeLookup_1_Value.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingShareeValue get shareeValue;
-  FilesSharingShareeLookup1_Value1 get shareeLookup1Value1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeLookup1_Value> get serializer => _$FilesSharingShareeLookup1_ValueSerializer();
+  static Serializer<FilesSharingShareeLookup_1_Value> get serializer => _$filesSharingShareeLookup1ValueSerializer;
 }
 
-class _$FilesSharingShareeLookup1_ValueSerializer implements PrimitiveSerializer<FilesSharingShareeLookup1_Value> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeLookup1_Value, _$FilesSharingShareeLookup1_Value];
-
-  @override
-  final String wireName = 'FilesSharingShareeLookup1_Value';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeLookup1_Value object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeLookup1_Value deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeLookup1_ValueBuilder()..data = JsonObject(data);
-    result.shareeValue.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeValue),
-      )! as FilesSharingShareeValue,
-    );
-    result.shareeLookup1Value1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeLookup1_Value1),
-      )! as FilesSharingShareeLookup1_Value1,
-    );
-    return result.build();
-  }
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareeLookup_1Interface {
+  FilesSharingShareeLookup_1_Extra get extra;
+  FilesSharingShareeLookup_1_Value get value;
+  FilesSharingShareeLookup_1Interface rebuild(final void Function(FilesSharingShareeLookup_1InterfaceBuilder) updates);
+  FilesSharingShareeLookup_1InterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareeLookup1 implements Built<FilesSharingShareeLookup1, FilesSharingShareeLookup1Builder> {
-  factory FilesSharingShareeLookup1([final void Function(FilesSharingShareeLookup1Builder)? b]) =
-      _$FilesSharingShareeLookup1;
-
-  // coverage:ignore-start
-  const FilesSharingShareeLookup1._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesSharingShareeLookup1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  FilesSharingShareeLookup1_Extra get extra;
-  FilesSharingShareeLookup1_Value get value;
-  static Serializer<FilesSharingShareeLookup1> get serializer => _$filesSharingShareeLookup1Serializer;
-}
-
-abstract class FilesSharingShareeLookup implements Built<FilesSharingShareeLookup, FilesSharingShareeLookupBuilder> {
+abstract class FilesSharingShareeLookup
+    implements
+        FilesSharingShareeInterface,
+        FilesSharingShareeLookup_1Interface,
+        Built<FilesSharingShareeLookup, FilesSharingShareeLookupBuilder> {
   factory FilesSharingShareeLookup([final void Function(FilesSharingShareeLookupBuilder)? b]) =
       _$FilesSharingShareeLookup;
 
@@ -3368,50 +3306,32 @@ abstract class FilesSharingShareeLookup implements Built<FilesSharingShareeLooku
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  JsonObject get data;
-  FilesSharingSharee get sharee;
-  FilesSharingShareeLookup1 get shareeLookup1;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesSharingShareeLookup> get serializer => _$FilesSharingShareeLookupSerializer();
+  static Serializer<FilesSharingShareeLookup> get serializer => _$filesSharingShareeLookupSerializer;
 }
 
-class _$FilesSharingShareeLookupSerializer implements PrimitiveSerializer<FilesSharingShareeLookup> {
-  @override
-  final Iterable<Type> types = const [FilesSharingShareeLookup, _$FilesSharingShareeLookup];
-
-  @override
-  final String wireName = 'FilesSharingShareeLookup';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final FilesSharingShareeLookup object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  FilesSharingShareeLookup deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesSharingShareeLookupBuilder()..data = JsonObject(data);
-    result.sharee.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingSharee))! as FilesSharingSharee,
-    );
-    result.shareeLookup1.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingShareeLookup1),
-      )! as FilesSharingShareeLookup1,
-    );
-    return result.build();
-  }
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesSearchResultInterface {
+  FilesSharingShareesSearchResult_Exact get exact;
+  BuiltList<FilesSharingShareeCircle> get circles;
+  BuiltList<FilesSharingShareeEmail> get emails;
+  BuiltList<FilesSharingSharee> get groups;
+  BuiltList<FilesSharingShareeLookup> get lookup;
+  @BuiltValueField(wireName: 'remote_groups')
+  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
+  BuiltList<FilesSharingShareeRemote> get remotes;
+  BuiltList<FilesSharingSharee> get rooms;
+  BuiltList<FilesSharingShareeUser> get users;
+  bool get lookupEnabled;
+  FilesSharingShareesSearchResultInterface rebuild(
+    final void Function(FilesSharingShareesSearchResultInterfaceBuilder) updates,
+  );
+  FilesSharingShareesSearchResultInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareesSearchResult
-    implements Built<FilesSharingShareesSearchResult, FilesSharingShareesSearchResultBuilder> {
+    implements
+        FilesSharingShareesSearchResultInterface,
+        Built<FilesSharingShareesSearchResult, FilesSharingShareesSearchResultBuilder> {
   factory FilesSharingShareesSearchResult([final void Function(FilesSharingShareesSearchResultBuilder)? b]) =
       _$FilesSharingShareesSearchResult;
 
@@ -3427,22 +3347,22 @@ abstract class FilesSharingShareesSearchResult
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareesSearchResult_Exact get exact;
-  BuiltList<FilesSharingShareeCircle> get circles;
-  BuiltList<FilesSharingShareeEmail> get emails;
-  BuiltList<FilesSharingSharee> get groups;
-  BuiltList<FilesSharingShareeLookup> get lookup;
-  @BuiltValueField(wireName: 'remote_groups')
-  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
-  BuiltList<FilesSharingShareeRemote> get remotes;
-  BuiltList<FilesSharingSharee> get rooms;
-  BuiltList<FilesSharingShareeUser> get users;
-  bool get lookupEnabled;
   static Serializer<FilesSharingShareesSearchResult> get serializer => _$filesSharingShareesSearchResultSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingShareesSearchResult get data;
+  FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs,
             FilesSharingShareesapiSearchResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs([
@@ -3461,14 +3381,22 @@ abstract class FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingShareesSearchResult get data;
   static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareesapiSearchResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesapiSearchResponse200ApplicationJsonInterface {
+  FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareesapiSearchResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareesapiSearchResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareesapiSearchResponse200ApplicationJson
     implements
+        FilesSharingShareesapiSearchResponse200ApplicationJsonInterface,
         Built<FilesSharingShareesapiSearchResponse200ApplicationJson,
             FilesSharingShareesapiSearchResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareesapiSearchResponse200ApplicationJson([
@@ -3487,7 +3415,6 @@ abstract class FilesSharingShareesapiSearchResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson> get serializer =>
       _$filesSharingShareesapiSearchResponse200ApplicationJsonSerializer;
 }
@@ -3563,8 +3490,24 @@ class _$FilesSharingShareesapiFindRecommendedShareTypeSerializer
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesRecommendedResult_ExactInterface {
+  BuiltList<FilesSharingShareeEmail> get emails;
+  BuiltList<FilesSharingSharee> get groups;
+  @BuiltValueField(wireName: 'remote_groups')
+  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
+  BuiltList<FilesSharingShareeRemote> get remotes;
+  BuiltList<FilesSharingShareeUser> get users;
+  FilesSharingShareesRecommendedResult_ExactInterface rebuild(
+    final void Function(FilesSharingShareesRecommendedResult_ExactInterfaceBuilder) updates,
+  );
+  FilesSharingShareesRecommendedResult_ExactInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareesRecommendedResult_Exact
-    implements Built<FilesSharingShareesRecommendedResult_Exact, FilesSharingShareesRecommendedResult_ExactBuilder> {
+    implements
+        FilesSharingShareesRecommendedResult_ExactInterface,
+        Built<FilesSharingShareesRecommendedResult_Exact, FilesSharingShareesRecommendedResult_ExactBuilder> {
   factory FilesSharingShareesRecommendedResult_Exact([
     final void Function(FilesSharingShareesRecommendedResult_ExactBuilder)? b,
   ]) = _$FilesSharingShareesRecommendedResult_Exact;
@@ -3581,18 +3524,29 @@ abstract class FilesSharingShareesRecommendedResult_Exact
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  static Serializer<FilesSharingShareesRecommendedResult_Exact> get serializer =>
+      _$filesSharingShareesRecommendedResultExactSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesRecommendedResultInterface {
+  FilesSharingShareesRecommendedResult_Exact get exact;
   BuiltList<FilesSharingShareeEmail> get emails;
   BuiltList<FilesSharingSharee> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
   BuiltList<FilesSharingShareeRemote> get remotes;
   BuiltList<FilesSharingShareeUser> get users;
-  static Serializer<FilesSharingShareesRecommendedResult_Exact> get serializer =>
-      _$filesSharingShareesRecommendedResultExactSerializer;
+  FilesSharingShareesRecommendedResultInterface rebuild(
+    final void Function(FilesSharingShareesRecommendedResultInterfaceBuilder) updates,
+  );
+  FilesSharingShareesRecommendedResultInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingShareesRecommendedResult
-    implements Built<FilesSharingShareesRecommendedResult, FilesSharingShareesRecommendedResultBuilder> {
+    implements
+        FilesSharingShareesRecommendedResultInterface,
+        Built<FilesSharingShareesRecommendedResult, FilesSharingShareesRecommendedResultBuilder> {
   factory FilesSharingShareesRecommendedResult([final void Function(FilesSharingShareesRecommendedResultBuilder)? b]) =
       _$FilesSharingShareesRecommendedResult;
 
@@ -3608,19 +3562,23 @@ abstract class FilesSharingShareesRecommendedResult
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareesRecommendedResult_Exact get exact;
-  BuiltList<FilesSharingShareeEmail> get emails;
-  BuiltList<FilesSharingSharee> get groups;
-  @BuiltValueField(wireName: 'remote_groups')
-  BuiltList<FilesSharingShareeRemoteGroup> get remoteGroups;
-  BuiltList<FilesSharingShareeRemote> get remotes;
-  BuiltList<FilesSharingShareeUser> get users;
   static Serializer<FilesSharingShareesRecommendedResult> get serializer =>
       _$filesSharingShareesRecommendedResultSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface {
+  FilesSharingOCSMeta get meta;
+  FilesSharingShareesRecommendedResult get data;
+  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs
     implements
+        FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface,
         Built<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs,
             FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsBuilder> {
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs([
@@ -3641,14 +3599,22 @@ abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingOCSMeta get meta;
-  FilesSharingShareesRecommendedResult get data;
   static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs> get serializer =>
       _$filesSharingShareesapiFindRecommendedResponse200ApplicationJsonOcsSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface {
+  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs get ocs;
+  FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterfaceBuilder) updates,
+  );
+  FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson
     implements
+        FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface,
         Built<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson,
             FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonBuilder> {
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson([
@@ -3667,13 +3633,23 @@ abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson> get serializer =>
       _$filesSharingShareesapiFindRecommendedResponse200ApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
+  bool get enforced;
+  bool get askForOptionalPassword;
+  FilesSharingCapabilities_FilesSharing_Public_PasswordInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Public_Password
     implements
+        FilesSharingCapabilities_FilesSharing_Public_PasswordInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public_Password,
             FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_Password([
@@ -3692,14 +3668,24 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enforced;
-  bool get askForOptionalPassword;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
       _$filesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
     implements
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate([
@@ -3718,15 +3704,24 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
     implements
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
@@ -3745,15 +3740,24 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
       _$filesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
     implements
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
@@ -3772,15 +3776,36 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  int? get days;
-  bool? get enforced;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
       _$filesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_PublicInterface {
+  bool get enabled;
+  FilesSharingCapabilities_FilesSharing_Public_Password? get password;
+  @BuiltValueField(wireName: 'multiple_links')
+  bool? get multipleLinks;
+  @BuiltValueField(wireName: 'expire_date')
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
+  @BuiltValueField(wireName: 'expire_date_internal')
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
+  @BuiltValueField(wireName: 'expire_date_remote')
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
+  @BuiltValueField(wireName: 'send_mail')
+  bool? get sendMail;
+  bool? get upload;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  bool? get uploadFilesDrop;
+  FilesSharingCapabilities_FilesSharing_PublicInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Public
     implements
+        FilesSharingCapabilities_FilesSharing_PublicInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public, FilesSharingCapabilities_FilesSharing_PublicBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public([
     final void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
@@ -3798,27 +3823,22 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  FilesSharingCapabilities_FilesSharing_Public_Password? get password;
-  @BuiltValueField(wireName: 'multiple_links')
-  bool? get multipleLinks;
-  @BuiltValueField(wireName: 'expire_date')
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
-  @BuiltValueField(wireName: 'expire_date_internal')
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
-  @BuiltValueField(wireName: 'expire_date_remote')
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
-  @BuiltValueField(wireName: 'send_mail')
-  bool? get sendMail;
-  bool? get upload;
-  @BuiltValueField(wireName: 'upload_files_drop')
-  bool? get uploadFilesDrop;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public> get serializer =>
       _$filesSharingCapabilitiesFilesSharingPublicSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
+  bool get enabled;
+  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
     implements
+        FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface,
         Built<FilesSharingCapabilities_FilesSharing_User_ExpireDate,
             FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_User_ExpireDate([
@@ -3837,13 +3857,26 @@ abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_UserInterface {
+  @BuiltValueField(wireName: 'send_mail')
+  bool get sendMail;
+  @BuiltValueField(wireName: 'expire_date')
+  FilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
+  FilesSharingCapabilities_FilesSharing_UserInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_User
-    implements Built<FilesSharingCapabilities_FilesSharing_User, FilesSharingCapabilities_FilesSharing_UserBuilder> {
+    implements
+        FilesSharingCapabilities_FilesSharing_UserInterface,
+        Built<FilesSharingCapabilities_FilesSharing_User, FilesSharingCapabilities_FilesSharing_UserBuilder> {
   factory FilesSharingCapabilities_FilesSharing_User([
     final void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_User;
@@ -3860,16 +3893,22 @@ abstract class FilesSharingCapabilities_FilesSharing_User
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'send_mail')
-  bool get sendMail;
-  @BuiltValueField(wireName: 'expire_date')
-  FilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
   static Serializer<FilesSharingCapabilities_FilesSharing_User> get serializer =>
       _$filesSharingCapabilitiesFilesSharingUserSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
+  bool get enabled;
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
     implements
+        FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface,
         Built<FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate([
@@ -3888,13 +3927,25 @@ abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_GroupInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'expire_date')
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  FilesSharingCapabilities_FilesSharing_GroupInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Group
-    implements Built<FilesSharingCapabilities_FilesSharing_Group, FilesSharingCapabilities_FilesSharing_GroupBuilder> {
+    implements
+        FilesSharingCapabilities_FilesSharing_GroupInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Group, FilesSharingCapabilities_FilesSharing_GroupBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Group([
     final void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Group;
@@ -3911,15 +3962,22 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
-  @BuiltValueField(wireName: 'expire_date')
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
   static Serializer<FilesSharingCapabilities_FilesSharing_Group> get serializer =>
       _$filesSharingCapabilitiesFilesSharingGroupSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
+  bool get enabled;
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
     implements
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface,
         Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
@@ -3938,13 +3996,22 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
+  bool get enabled;
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
     implements
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
         Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
             FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
@@ -3965,13 +4032,27 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSuppor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$filesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_FederationInterface {
+  bool get outgoing;
+  bool get incoming;
+  @BuiltValueField(wireName: 'expire_date')
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
+  @BuiltValueField(wireName: 'expire_date_supported')
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+  FilesSharingCapabilities_FilesSharing_FederationInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Federation
     implements
+        FilesSharingCapabilities_FilesSharing_FederationInterface,
         Built<FilesSharingCapabilities_FilesSharing_Federation,
             FilesSharingCapabilities_FilesSharing_FederationBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation([
@@ -3990,18 +4071,25 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  bool get outgoing;
-  bool get incoming;
-  @BuiltValueField(wireName: 'expire_date')
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
-  @BuiltValueField(wireName: 'expire_date_supported')
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
   static Serializer<FilesSharingCapabilities_FilesSharing_Federation> get serializer =>
       _$filesSharingCapabilitiesFilesSharingFederationSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharing_ShareeInterface {
+  @BuiltValueField(wireName: 'query_lookup_default')
+  bool get queryLookupDefault;
+  @BuiltValueField(wireName: 'always_show_unique')
+  bool get alwaysShowUnique;
+  FilesSharingCapabilities_FilesSharing_ShareeInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing_Sharee
     implements
+        FilesSharingCapabilities_FilesSharing_ShareeInterface,
         Built<FilesSharingCapabilities_FilesSharing_Sharee, FilesSharingCapabilities_FilesSharing_ShareeBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Sharee([
     final void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
@@ -4019,16 +4107,34 @@ abstract class FilesSharingCapabilities_FilesSharing_Sharee
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'query_lookup_default')
-  bool get queryLookupDefault;
-  @BuiltValueField(wireName: 'always_show_unique')
-  bool get alwaysShowUnique;
   static Serializer<FilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
       _$filesSharingCapabilitiesFilesSharingShareeSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilities_FilesSharingInterface {
+  @BuiltValueField(wireName: 'api_enabled')
+  bool get apiEnabled;
+  FilesSharingCapabilities_FilesSharing_Public get public;
+  FilesSharingCapabilities_FilesSharing_User get user;
+  bool get resharing;
+  @BuiltValueField(wireName: 'group_sharing')
+  bool? get groupSharing;
+  FilesSharingCapabilities_FilesSharing_Group? get group;
+  @BuiltValueField(wireName: 'default_permissions')
+  int? get defaultPermissions;
+  FilesSharingCapabilities_FilesSharing_Federation get federation;
+  FilesSharingCapabilities_FilesSharing_Sharee get sharee;
+  FilesSharingCapabilities_FilesSharingInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharingInterfaceBuilder) updates,
+  );
+  FilesSharingCapabilities_FilesSharingInterfaceBuilder toBuilder();
+}
+
 abstract class FilesSharingCapabilities_FilesSharing
-    implements Built<FilesSharingCapabilities_FilesSharing, FilesSharingCapabilities_FilesSharingBuilder> {
+    implements
+        FilesSharingCapabilities_FilesSharingInterface,
+        Built<FilesSharingCapabilities_FilesSharing, FilesSharingCapabilities_FilesSharingBuilder> {
   factory FilesSharingCapabilities_FilesSharing([
     final void Function(FilesSharingCapabilities_FilesSharingBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing;
@@ -4045,23 +4151,20 @@ abstract class FilesSharingCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'api_enabled')
-  bool get apiEnabled;
-  FilesSharingCapabilities_FilesSharing_Public get public;
-  FilesSharingCapabilities_FilesSharing_User get user;
-  bool get resharing;
-  @BuiltValueField(wireName: 'group_sharing')
-  bool? get groupSharing;
-  FilesSharingCapabilities_FilesSharing_Group? get group;
-  @BuiltValueField(wireName: 'default_permissions')
-  int? get defaultPermissions;
-  FilesSharingCapabilities_FilesSharing_Federation get federation;
-  FilesSharingCapabilities_FilesSharing_Sharee get sharee;
   static Serializer<FilesSharingCapabilities_FilesSharing> get serializer =>
       _$filesSharingCapabilitiesFilesSharingSerializer;
 }
 
-abstract class FilesSharingCapabilities implements Built<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class FilesSharingCapabilitiesInterface {
+  @BuiltValueField(wireName: 'files_sharing')
+  FilesSharingCapabilities_FilesSharing get filesSharing;
+  FilesSharingCapabilitiesInterface rebuild(final void Function(FilesSharingCapabilitiesInterfaceBuilder) updates);
+  FilesSharingCapabilitiesInterfaceBuilder toBuilder();
+}
+
+abstract class FilesSharingCapabilities
+    implements FilesSharingCapabilitiesInterface, Built<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder> {
   factory FilesSharingCapabilities([final void Function(FilesSharingCapabilitiesBuilder)? b]) =
       _$FilesSharingCapabilities;
 
@@ -4077,8 +4180,6 @@ abstract class FilesSharingCapabilities implements Built<FilesSharingCapabilitie
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'files_sharing')
-  FilesSharingCapabilities_FilesSharing get filesSharing;
   static Serializer<FilesSharingCapabilities> get serializer => _$filesSharingCapabilitiesSerializer;
 }
 
@@ -4317,22 +4418,16 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesSharingShareeCircle.serializer)
       ..addBuilderFactory(const FullType(FilesSharingSharee), FilesSharingSharee.new)
       ..add(FilesSharingSharee.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeCircle1), FilesSharingShareeCircle1.new)
-      ..add(FilesSharingShareeCircle1.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeCircle1_Value), FilesSharingShareeCircle1_Value.new)
-      ..add(FilesSharingShareeCircle1_Value.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingShareeCircle_1_Value), FilesSharingShareeCircle_1_Value.new)
+      ..add(FilesSharingShareeCircle_1_Value.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShareeValue), FilesSharingShareeValue.new)
       ..add(FilesSharingShareeValue.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeCircle1_Value1), FilesSharingShareeCircle1_Value1.new)
-      ..add(FilesSharingShareeCircle1_Value1.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeCircle)]),
         ListBuilder<FilesSharingShareeCircle>.new,
       )
       ..addBuilderFactory(const FullType(FilesSharingShareeEmail), FilesSharingShareeEmail.new)
       ..add(FilesSharingShareeEmail.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeEmail1), FilesSharingShareeEmail1.new)
-      ..add(FilesSharingShareeEmail1.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeEmail)]),
         ListBuilder<FilesSharingShareeEmail>.new,
@@ -4343,56 +4438,39 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(FilesSharingShareeRemoteGroup), FilesSharingShareeRemoteGroup.new)
       ..add(FilesSharingShareeRemoteGroup.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeRemoteGroup1), FilesSharingShareeRemoteGroup1.new)
-      ..add(FilesSharingShareeRemoteGroup1.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareeRemoteGroup1_Value),
-        FilesSharingShareeRemoteGroup1_Value.new,
+        const FullType(FilesSharingShareeRemoteGroup_1_Value),
+        FilesSharingShareeRemoteGroup_1_Value.new,
       )
-      ..add(FilesSharingShareeRemoteGroup1_Value.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingShareeRemoteGroup1_Value1),
-        FilesSharingShareeRemoteGroup1_Value1.new,
-      )
-      ..add(FilesSharingShareeRemoteGroup1_Value1.serializer)
+      ..add(FilesSharingShareeRemoteGroup_1_Value.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)]),
         ListBuilder<FilesSharingShareeRemoteGroup>.new,
       )
       ..addBuilderFactory(const FullType(FilesSharingShareeRemote), FilesSharingShareeRemote.new)
       ..add(FilesSharingShareeRemote.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeRemote1), FilesSharingShareeRemote1.new)
-      ..add(FilesSharingShareeRemote1.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeRemote1_Value), FilesSharingShareeRemote1_Value.new)
-      ..add(FilesSharingShareeRemote1_Value.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeRemote1_Value1), FilesSharingShareeRemote1_Value1.new)
-      ..add(FilesSharingShareeRemote1_Value1.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingShareeRemote_1_Value), FilesSharingShareeRemote_1_Value.new)
+      ..add(FilesSharingShareeRemote_1_Value.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeRemote)]),
         ListBuilder<FilesSharingShareeRemote>.new,
       )
       ..addBuilderFactory(const FullType(FilesSharingShareeUser), FilesSharingShareeUser.new)
       ..add(FilesSharingShareeUser.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeUser1), FilesSharingShareeUser1.new)
-      ..add(FilesSharingShareeUser1.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeUser1_Status), FilesSharingShareeUser1_Status.new)
-      ..add(FilesSharingShareeUser1_Status.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingShareeUser_1_Status), FilesSharingShareeUser_1_Status.new)
+      ..add(FilesSharingShareeUser_1_Status.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeUser)]),
         ListBuilder<FilesSharingShareeUser>.new,
       )
       ..addBuilderFactory(const FullType(FilesSharingShareeLookup), FilesSharingShareeLookup.new)
       ..add(FilesSharingShareeLookup.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeLookup1), FilesSharingShareeLookup1.new)
-      ..add(FilesSharingShareeLookup1.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeLookup1_Extra), FilesSharingShareeLookup1_Extra.new)
-      ..add(FilesSharingShareeLookup1_Extra.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingShareeLookup_1_Extra), FilesSharingShareeLookup_1_Extra.new)
+      ..add(FilesSharingShareeLookup_1_Extra.serializer)
       ..addBuilderFactory(const FullType(FilesSharingLookup), FilesSharingLookup.new)
       ..add(FilesSharingLookup.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeLookup1_Value), FilesSharingShareeLookup1_Value.new)
-      ..add(FilesSharingShareeLookup1_Value.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingShareeLookup1_Value1), FilesSharingShareeLookup1_Value1.new)
-      ..add(FilesSharingShareeLookup1_Value1.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingShareeLookup_1_Value), FilesSharingShareeLookup_1_Value.new)
+      ..add(FilesSharingShareeLookup_1_Value.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(FilesSharingShareeLookup)]),
         ListBuilder<FilesSharingShareeLookup>.new,

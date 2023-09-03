@@ -2303,6 +2303,13 @@ class _$FilesTemplateSerializer implements StructuredSerializer<FilesTemplate> {
   }
 }
 
+abstract mixin class FilesApiApiServiceWorkerHeadersInterfaceBuilder {
+  void replace(FilesApiApiServiceWorkerHeadersInterface other);
+  void update(void Function(FilesApiApiServiceWorkerHeadersInterfaceBuilder) updates);
+  String? get serviceWorkerAllowed;
+  set serviceWorkerAllowed(String? serviceWorkerAllowed);
+}
+
 class _$FilesApiApiServiceWorkerHeaders extends FilesApiApiServiceWorkerHeaders {
   @override
   final String? serviceWorkerAllowed;
@@ -2342,12 +2349,15 @@ class _$FilesApiApiServiceWorkerHeaders extends FilesApiApiServiceWorkerHeaders 
 }
 
 class FilesApiApiServiceWorkerHeadersBuilder
-    implements Builder<FilesApiApiServiceWorkerHeaders, FilesApiApiServiceWorkerHeadersBuilder> {
+    implements
+        Builder<FilesApiApiServiceWorkerHeaders, FilesApiApiServiceWorkerHeadersBuilder>,
+        FilesApiApiServiceWorkerHeadersInterfaceBuilder {
   _$FilesApiApiServiceWorkerHeaders? _$v;
 
   String? _serviceWorkerAllowed;
   String? get serviceWorkerAllowed => _$this._serviceWorkerAllowed;
-  set serviceWorkerAllowed(String? serviceWorkerAllowed) => _$this._serviceWorkerAllowed = serviceWorkerAllowed;
+  set serviceWorkerAllowed(covariant String? serviceWorkerAllowed) =>
+      _$this._serviceWorkerAllowed = serviceWorkerAllowed;
 
   FilesApiApiServiceWorkerHeadersBuilder();
 
@@ -2361,7 +2371,7 @@ class FilesApiApiServiceWorkerHeadersBuilder
   }
 
   @override
-  void replace(FilesApiApiServiceWorkerHeaders other) {
+  void replace(covariant FilesApiApiServiceWorkerHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesApiApiServiceWorkerHeaders;
   }
@@ -2379,6 +2389,25 @@ class FilesApiApiServiceWorkerHeadersBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOCSMetaInterfaceBuilder {
+  void replace(FilesOCSMetaInterface other);
+  void update(void Function(FilesOCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
 }
 
 class _$FilesOCSMeta extends FilesOCSMeta {
@@ -2443,28 +2472,28 @@ class _$FilesOCSMeta extends FilesOCSMeta {
   }
 }
 
-class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder> {
+class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder>, FilesOCSMetaInterfaceBuilder {
   _$FilesOCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  set status(covariant String? status) => _$this._status = status;
 
   int? _statuscode;
   int? get statuscode => _$this._statuscode;
-  set statuscode(int? statuscode) => _$this._statuscode = statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
 
   String? _message;
   String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  set message(covariant String? message) => _$this._message = message;
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
   FilesOCSMetaBuilder();
 
@@ -2482,7 +2511,7 @@ class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder> 
   }
 
   @override
-  void replace(FilesOCSMeta other) {
+  void replace(covariant FilesOCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOCSMeta;
   }
@@ -2506,6 +2535,25 @@ class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder> 
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
+  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterface other);
+  void update(void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  ListBuilder<String> get mimetypes;
+  set mimetypes(ListBuilder<String>? mimetypes);
+
+  ListBuilder<String> get optionalMimetypes;
+  set optionalMimetypes(ListBuilder<String>? optionalMimetypes);
+
+  bool? get secure;
+  set secure(bool? secure);
 }
 
 class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors
@@ -2591,28 +2639,30 @@ class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors
 class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder
     implements
         Builder<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors,
-            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder> {
+            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder>,
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
   _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   ListBuilder<String>? _mimetypes;
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
-  set mimetypes(ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
+  set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
   ListBuilder<String>? _optionalMimetypes;
   ListBuilder<String> get optionalMimetypes => _$this._optionalMimetypes ??= ListBuilder<String>();
-  set optionalMimetypes(ListBuilder<String>? optionalMimetypes) => _$this._optionalMimetypes = optionalMimetypes;
+  set optionalMimetypes(covariant ListBuilder<String>? optionalMimetypes) =>
+      _$this._optionalMimetypes = optionalMimetypes;
 
   bool? _secure;
   bool? get secure => _$this._secure;
-  set secure(bool? secure) => _$this._secure = secure;
+  set secure(covariant bool? secure) => _$this._secure = secure;
 
   FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder();
 
@@ -2630,7 +2680,7 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors other) {
+  void replace(covariant FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors;
   }
@@ -2672,6 +2722,29 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_EditorsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
+  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterface other);
+  void update(
+      void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get editor;
+  set editor(String? editor);
+
+  String? get name;
+  set name(String? name);
+
+  String? get $extension;
+  set $extension(String? $extension);
+
+  bool? get templates;
+  set templates(bool? templates);
+
+  ListBuilder<String> get mimetypes;
+  set mimetypes(ListBuilder<String>? mimetypes);
 }
 
 class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators
@@ -2765,32 +2838,33 @@ class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators
 class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder
     implements
         Builder<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators,
-            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder> {
+            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder>,
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
   _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _editor;
   String? get editor => _$this._editor;
-  set editor(String? editor) => _$this._editor = editor;
+  set editor(covariant String? editor) => _$this._editor = editor;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _$extension;
   String? get $extension => _$this._$extension;
-  set $extension(String? $extension) => _$this._$extension = $extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
 
   bool? _templates;
   bool? get templates => _$this._templates;
-  set templates(bool? templates) => _$this._templates = templates;
+  set templates(covariant bool? templates) => _$this._templates = templates;
 
   ListBuilder<String>? _mimetypes;
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
-  set mimetypes(ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
+  set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
   FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder();
 
@@ -2809,7 +2883,7 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators other) {
+  void replace(covariant FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators;
   }
@@ -2852,6 +2926,16 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_CreatorsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors> get editors;
+  set editors(MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors>? editors);
+
+  MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators> get creators;
+  set creators(MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators>? creators);
 }
 
 class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data
@@ -2911,19 +2995,22 @@ class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data
 class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data,
-            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors>? _editors;
   MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors> get editors =>
       _$this._editors ??= MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors>();
-  set editors(MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors>? editors) =>
+  set editors(
+          covariant MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Editors>? editors) =>
       _$this._editors = editors;
 
   MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators>? _creators;
   MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators> get creators =>
       _$this._creators ??= MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators>();
-  set creators(MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators>? creators) =>
+  set creators(
+          covariant MapBuilder<String, FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data_Creators>? creators) =>
       _$this._creators = creators;
 
   FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder();
@@ -2939,7 +3026,7 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs_Data;
   }
@@ -2974,6 +3061,16 @@ class FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingInfoResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesDirectEditingInfoResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesDirectEditingInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs
@@ -3028,17 +3125,18 @@ class _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs
 class FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesDirectEditingInfoResponse200ApplicationJson_Ocs,
-            FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder> {
+            FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder>,
+        FilesDirectEditingInfoResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesDirectEditingInfoResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder();
 
@@ -3053,7 +3151,7 @@ class FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingInfoResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesDirectEditingInfoResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingInfoResponse200ApplicationJson_Ocs;
   }
@@ -3087,6 +3185,13 @@ class FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingInfoResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesDirectEditingInfoResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesDirectEditingInfoResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesDirectEditingInfoResponse200ApplicationJson extends FilesDirectEditingInfoResponse200ApplicationJson {
@@ -3134,13 +3239,14 @@ class _$FilesDirectEditingInfoResponse200ApplicationJson extends FilesDirectEdit
 class FilesDirectEditingInfoResponse200ApplicationJsonBuilder
     implements
         Builder<FilesDirectEditingInfoResponse200ApplicationJson,
-            FilesDirectEditingInfoResponse200ApplicationJsonBuilder> {
+            FilesDirectEditingInfoResponse200ApplicationJsonBuilder>,
+        FilesDirectEditingInfoResponse200ApplicationJsonInterfaceBuilder {
   _$FilesDirectEditingInfoResponse200ApplicationJson? _$v;
 
   FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesDirectEditingInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesDirectEditingInfoResponse200ApplicationJsonBuilder();
 
@@ -3154,7 +3260,7 @@ class FilesDirectEditingInfoResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesDirectEditingInfoResponse200ApplicationJson other) {
+  void replace(covariant FilesDirectEditingInfoResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingInfoResponse200ApplicationJson;
   }
@@ -3185,6 +3291,26 @@ class FilesDirectEditingInfoResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
+  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterface other);
+  void update(
+      void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get title;
+  set title(String? title);
+
+  String? get preview;
+  set preview(String? preview);
+
+  String? get $extension;
+  set $extension(String? $extension);
+
+  String? get mimetype;
+  set mimetype(String? mimetype);
 }
 
 class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates
@@ -3264,28 +3390,29 @@ class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates
 class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBuilder
     implements
         Builder<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates,
-            FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBuilder> {
+            FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBuilder>,
+        FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
   _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   String? _title;
   String? get title => _$this._title;
-  set title(String? title) => _$this._title = title;
+  set title(covariant String? title) => _$this._title = title;
 
   String? _preview;
   String? get preview => _$this._preview;
-  set preview(String? preview) => _$this._preview = preview;
+  set preview(covariant String? preview) => _$this._preview = preview;
 
   String? _$extension;
   String? get $extension => _$this._$extension;
-  set $extension(String? $extension) => _$this._$extension = $extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
 
   String? _mimetype;
   String? get mimetype => _$this._mimetype;
-  set mimetype(String? mimetype) => _$this._mimetype = mimetype;
+  set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
   FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBuilder();
 
@@ -3303,7 +3430,7 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBu
   }
 
   @override
-  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates other) {
+  void replace(covariant FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates;
   }
@@ -3331,6 +3458,14 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_TemplatesBu
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates> get templates;
+  set templates(
+      MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates>? templates);
 }
 
 class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data
@@ -3381,7 +3516,8 @@ class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data
 class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data,
-            FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates>? _templates;
@@ -3389,7 +3525,8 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder
       _$this._templates ??=
           MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates>();
   set templates(
-          MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates>? templates) =>
+          covariant MapBuilder<String, FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data_Templates>?
+              templates) =>
       _$this._templates = templates;
 
   FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder();
@@ -3404,7 +3541,7 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_Data;
   }
@@ -3436,6 +3573,16 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs
@@ -3492,17 +3639,19 @@ class _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs
 class FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs,
-            FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder> {
+            FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder>,
+        FilesDirectEditingTemplatesResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder();
 
@@ -3517,7 +3666,7 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingTemplatesResponse200ApplicationJson_Ocs;
   }
@@ -3551,6 +3700,13 @@ class FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingTemplatesResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesDirectEditingTemplatesResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesDirectEditingTemplatesResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesDirectEditingTemplatesResponse200ApplicationJson
@@ -3599,13 +3755,14 @@ class _$FilesDirectEditingTemplatesResponse200ApplicationJson
 class FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder
     implements
         Builder<FilesDirectEditingTemplatesResponse200ApplicationJson,
-            FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder> {
+            FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder>,
+        FilesDirectEditingTemplatesResponse200ApplicationJsonInterfaceBuilder {
   _$FilesDirectEditingTemplatesResponse200ApplicationJson? _$v;
 
   FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesDirectEditingTemplatesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder();
 
@@ -3619,7 +3776,7 @@ class FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesDirectEditingTemplatesResponse200ApplicationJson other) {
+  void replace(covariant FilesDirectEditingTemplatesResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingTemplatesResponse200ApplicationJson;
   }
@@ -3650,6 +3807,13 @@ class FilesDirectEditingTemplatesResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get url;
+  set url(String? url);
 }
 
 class _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data
@@ -3698,12 +3862,13 @@ class _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data
 class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data,
-            FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -3717,7 +3882,7 @@ class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs_Data;
   }
@@ -3738,6 +3903,16 @@ class FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingOpenResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesDirectEditingOpenResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesDirectEditingOpenResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs
@@ -3792,17 +3967,18 @@ class _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs
 class FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesDirectEditingOpenResponse200ApplicationJson_Ocs,
-            FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder> {
+            FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder>,
+        FilesDirectEditingOpenResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesDirectEditingOpenResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder();
 
@@ -3817,7 +3993,7 @@ class FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingOpenResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesDirectEditingOpenResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingOpenResponse200ApplicationJson_Ocs;
   }
@@ -3851,6 +4027,13 @@ class FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingOpenResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesDirectEditingOpenResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesDirectEditingOpenResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesDirectEditingOpenResponse200ApplicationJson extends FilesDirectEditingOpenResponse200ApplicationJson {
@@ -3898,13 +4081,14 @@ class _$FilesDirectEditingOpenResponse200ApplicationJson extends FilesDirectEdit
 class FilesDirectEditingOpenResponse200ApplicationJsonBuilder
     implements
         Builder<FilesDirectEditingOpenResponse200ApplicationJson,
-            FilesDirectEditingOpenResponse200ApplicationJsonBuilder> {
+            FilesDirectEditingOpenResponse200ApplicationJsonBuilder>,
+        FilesDirectEditingOpenResponse200ApplicationJsonInterfaceBuilder {
   _$FilesDirectEditingOpenResponse200ApplicationJson? _$v;
 
   FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesDirectEditingOpenResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesDirectEditingOpenResponse200ApplicationJsonBuilder();
 
@@ -3918,7 +4102,7 @@ class FilesDirectEditingOpenResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesDirectEditingOpenResponse200ApplicationJson other) {
+  void replace(covariant FilesDirectEditingOpenResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingOpenResponse200ApplicationJson;
   }
@@ -3949,6 +4133,13 @@ class FilesDirectEditingOpenResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get url;
+  set url(String? url);
 }
 
 class _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data
@@ -3998,12 +4189,13 @@ class _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data
 class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data,
-            FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -4017,7 +4209,7 @@ class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs_Data;
   }
@@ -4038,6 +4230,16 @@ class FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingCreateResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesDirectEditingCreateResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesDirectEditingCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs
@@ -4092,17 +4294,18 @@ class _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs
 class FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesDirectEditingCreateResponse200ApplicationJson_Ocs,
-            FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder> {
+            FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder>,
+        FilesDirectEditingCreateResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesDirectEditingCreateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder();
 
@@ -4117,7 +4320,7 @@ class FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesDirectEditingCreateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesDirectEditingCreateResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingCreateResponse200ApplicationJson_Ocs;
   }
@@ -4151,6 +4354,13 @@ class FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesDirectEditingCreateResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesDirectEditingCreateResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesDirectEditingCreateResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesDirectEditingCreateResponse200ApplicationJson extends FilesDirectEditingCreateResponse200ApplicationJson {
@@ -4198,13 +4408,14 @@ class _$FilesDirectEditingCreateResponse200ApplicationJson extends FilesDirectEd
 class FilesDirectEditingCreateResponse200ApplicationJsonBuilder
     implements
         Builder<FilesDirectEditingCreateResponse200ApplicationJson,
-            FilesDirectEditingCreateResponse200ApplicationJsonBuilder> {
+            FilesDirectEditingCreateResponse200ApplicationJsonBuilder>,
+        FilesDirectEditingCreateResponse200ApplicationJsonInterfaceBuilder {
   _$FilesDirectEditingCreateResponse200ApplicationJson? _$v;
 
   FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesDirectEditingCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesDirectEditingCreateResponse200ApplicationJsonBuilder();
 
@@ -4218,7 +4429,7 @@ class FilesDirectEditingCreateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesDirectEditingCreateResponse200ApplicationJson other) {
+  void replace(covariant FilesDirectEditingCreateResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesDirectEditingCreateResponse200ApplicationJson;
   }
@@ -4249,6 +4460,22 @@ class FilesDirectEditingCreateResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get userId;
+  set userId(String? userId);
+
+  String? get pathHash;
+  set pathHash(String? pathHash);
+
+  int? get expirationTime;
+  set expirationTime(int? expirationTime);
+
+  String? get token;
+  set token(String? token);
 }
 
 class _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data
@@ -4321,24 +4548,25 @@ class _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data
 class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data,
-            FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
 
   String? _pathHash;
   String? get pathHash => _$this._pathHash;
-  set pathHash(String? pathHash) => _$this._pathHash = pathHash;
+  set pathHash(covariant String? pathHash) => _$this._pathHash = pathHash;
 
   int? _expirationTime;
   int? get expirationTime => _$this._expirationTime;
-  set expirationTime(int? expirationTime) => _$this._expirationTime = expirationTime;
+  set expirationTime(covariant int? expirationTime) => _$this._expirationTime = expirationTime;
 
   String? _token;
   String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
+  set token(covariant String? token) => _$this._token = token;
 
   FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -4355,7 +4583,7 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_Data;
   }
@@ -4381,6 +4609,16 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs
@@ -4437,17 +4675,18 @@ class _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs
 class FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs,
-            FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder> {
+            FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder>,
+        FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder();
 
@@ -4462,7 +4701,7 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorCreateResponse200ApplicationJson_Ocs;
   }
@@ -4496,6 +4735,13 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorCreateResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesOpenLocalEditorCreateResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesOpenLocalEditorCreateResponse200ApplicationJson
@@ -4544,13 +4790,14 @@ class _$FilesOpenLocalEditorCreateResponse200ApplicationJson
 class FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder
     implements
         Builder<FilesOpenLocalEditorCreateResponse200ApplicationJson,
-            FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder> {
+            FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder>,
+        FilesOpenLocalEditorCreateResponse200ApplicationJsonInterfaceBuilder {
   _$FilesOpenLocalEditorCreateResponse200ApplicationJson? _$v;
 
   FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesOpenLocalEditorCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder();
 
@@ -4564,7 +4811,7 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorCreateResponse200ApplicationJson other) {
+  void replace(covariant FilesOpenLocalEditorCreateResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorCreateResponse200ApplicationJson;
   }
@@ -4595,6 +4842,22 @@ class FilesOpenLocalEditorCreateResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get userId;
+  set userId(String? userId);
+
+  String? get pathHash;
+  set pathHash(String? pathHash);
+
+  int? get expirationTime;
+  set expirationTime(int? expirationTime);
+
+  String? get token;
+  set token(String? token);
 }
 
 class _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data
@@ -4669,24 +4932,25 @@ class _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data
 class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data,
-            FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
 
   String? _pathHash;
   String? get pathHash => _$this._pathHash;
-  set pathHash(String? pathHash) => _$this._pathHash = pathHash;
+  set pathHash(covariant String? pathHash) => _$this._pathHash = pathHash;
 
   int? _expirationTime;
   int? get expirationTime => _$this._expirationTime;
-  set expirationTime(int? expirationTime) => _$this._expirationTime = expirationTime;
+  set expirationTime(covariant int? expirationTime) => _$this._expirationTime = expirationTime;
 
   String? _token;
   String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
+  set token(covariant String? token) => _$this._token = token;
 
   FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -4703,7 +4967,7 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_Data;
   }
@@ -4730,6 +4994,16 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs
@@ -4786,17 +5060,19 @@ class _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs
 class FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs,
-            FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder> {
+            FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder>,
+        FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder();
 
@@ -4811,7 +5087,7 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorValidateResponse200ApplicationJson_Ocs;
   }
@@ -4845,6 +5121,13 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesOpenLocalEditorValidateResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesOpenLocalEditorValidateResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesOpenLocalEditorValidateResponse200ApplicationJson
@@ -4893,13 +5176,14 @@ class _$FilesOpenLocalEditorValidateResponse200ApplicationJson
 class FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder
     implements
         Builder<FilesOpenLocalEditorValidateResponse200ApplicationJson,
-            FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder> {
+            FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder>,
+        FilesOpenLocalEditorValidateResponse200ApplicationJsonInterfaceBuilder {
   _$FilesOpenLocalEditorValidateResponse200ApplicationJson? _$v;
 
   FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesOpenLocalEditorValidateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder();
 
@@ -4913,7 +5197,7 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesOpenLocalEditorValidateResponse200ApplicationJson other) {
+  void replace(covariant FilesOpenLocalEditorValidateResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesOpenLocalEditorValidateResponse200ApplicationJson;
   }
@@ -4944,6 +5228,31 @@ class FilesOpenLocalEditorValidateResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateFileCreatorInterfaceBuilder {
+  void replace(FilesTemplateFileCreatorInterface other);
+  void update(void Function(FilesTemplateFileCreatorInterfaceBuilder) updates);
+  String? get app;
+  set app(String? app);
+
+  String? get label;
+  set label(String? label);
+
+  String? get $extension;
+  set $extension(String? $extension);
+
+  String? get iconClass;
+  set iconClass(String? iconClass);
+
+  ListBuilder<String> get mimetypes;
+  set mimetypes(ListBuilder<String>? mimetypes);
+
+  num? get ratio;
+  set ratio(num? ratio);
+
+  String? get actionLabel;
+  set actionLabel(String? actionLabel);
 }
 
 class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
@@ -5029,36 +5338,39 @@ class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
   }
 }
 
-class FilesTemplateFileCreatorBuilder implements Builder<FilesTemplateFileCreator, FilesTemplateFileCreatorBuilder> {
+class FilesTemplateFileCreatorBuilder
+    implements
+        Builder<FilesTemplateFileCreator, FilesTemplateFileCreatorBuilder>,
+        FilesTemplateFileCreatorInterfaceBuilder {
   _$FilesTemplateFileCreator? _$v;
 
   String? _app;
   String? get app => _$this._app;
-  set app(String? app) => _$this._app = app;
+  set app(covariant String? app) => _$this._app = app;
 
   String? _label;
   String? get label => _$this._label;
-  set label(String? label) => _$this._label = label;
+  set label(covariant String? label) => _$this._label = label;
 
   String? _$extension;
   String? get $extension => _$this._$extension;
-  set $extension(String? $extension) => _$this._$extension = $extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
 
   String? _iconClass;
   String? get iconClass => _$this._iconClass;
-  set iconClass(String? iconClass) => _$this._iconClass = iconClass;
+  set iconClass(covariant String? iconClass) => _$this._iconClass = iconClass;
 
   ListBuilder<String>? _mimetypes;
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
-  set mimetypes(ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
+  set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
   num? _ratio;
   num? get ratio => _$this._ratio;
-  set ratio(num? ratio) => _$this._ratio = ratio;
+  set ratio(covariant num? ratio) => _$this._ratio = ratio;
 
   String? _actionLabel;
   String? get actionLabel => _$this._actionLabel;
-  set actionLabel(String? actionLabel) => _$this._actionLabel = actionLabel;
+  set actionLabel(covariant String? actionLabel) => _$this._actionLabel = actionLabel;
 
   FilesTemplateFileCreatorBuilder();
 
@@ -5078,7 +5390,7 @@ class FilesTemplateFileCreatorBuilder implements Builder<FilesTemplateFileCreato
   }
 
   @override
-  void replace(FilesTemplateFileCreator other) {
+  void replace(covariant FilesTemplateFileCreator other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateFileCreator;
   }
@@ -5117,6 +5429,16 @@ class FilesTemplateFileCreatorBuilder implements Builder<FilesTemplateFileCreato
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateListResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTemplateListResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTemplateListResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  ListBuilder<FilesTemplateFileCreator> get data;
+  set data(ListBuilder<FilesTemplateFileCreator>? data);
 }
 
 class _$FilesTemplateListResponse200ApplicationJson_Ocs extends FilesTemplateListResponse200ApplicationJson_Ocs {
@@ -5170,16 +5492,17 @@ class _$FilesTemplateListResponse200ApplicationJson_Ocs extends FilesTemplateLis
 class FilesTemplateListResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTemplateListResponse200ApplicationJson_Ocs,
-            FilesTemplateListResponse200ApplicationJson_OcsBuilder> {
+            FilesTemplateListResponse200ApplicationJson_OcsBuilder>,
+        FilesTemplateListResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTemplateListResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<FilesTemplateFileCreator>? _data;
   ListBuilder<FilesTemplateFileCreator> get data => _$this._data ??= ListBuilder<FilesTemplateFileCreator>();
-  set data(ListBuilder<FilesTemplateFileCreator>? data) => _$this._data = data;
+  set data(covariant ListBuilder<FilesTemplateFileCreator>? data) => _$this._data = data;
 
   FilesTemplateListResponse200ApplicationJson_OcsBuilder();
 
@@ -5194,7 +5517,7 @@ class FilesTemplateListResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTemplateListResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTemplateListResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateListResponse200ApplicationJson_Ocs;
   }
@@ -5227,6 +5550,13 @@ class FilesTemplateListResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateListResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTemplateListResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTemplateListResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTemplateListResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTemplateListResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTemplateListResponse200ApplicationJson extends FilesTemplateListResponse200ApplicationJson {
@@ -5272,13 +5602,14 @@ class _$FilesTemplateListResponse200ApplicationJson extends FilesTemplateListRes
 
 class FilesTemplateListResponse200ApplicationJsonBuilder
     implements
-        Builder<FilesTemplateListResponse200ApplicationJson, FilesTemplateListResponse200ApplicationJsonBuilder> {
+        Builder<FilesTemplateListResponse200ApplicationJson, FilesTemplateListResponse200ApplicationJsonBuilder>,
+        FilesTemplateListResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTemplateListResponse200ApplicationJson? _$v;
 
   FilesTemplateListResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTemplateListResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTemplateListResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTemplateListResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTemplateListResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTemplateListResponse200ApplicationJsonBuilder();
 
@@ -5292,7 +5623,7 @@ class FilesTemplateListResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTemplateListResponse200ApplicationJson other) {
+  void replace(covariant FilesTemplateListResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateListResponse200ApplicationJson;
   }
@@ -5322,6 +5653,37 @@ class FilesTemplateListResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateFileInterfaceBuilder {
+  void replace(FilesTemplateFileInterface other);
+  void update(void Function(FilesTemplateFileInterfaceBuilder) updates);
+  String? get basename;
+  set basename(String? basename);
+
+  String? get etag;
+  set etag(String? etag);
+
+  int? get fileid;
+  set fileid(int? fileid);
+
+  String? get filename;
+  set filename(String? filename);
+
+  int? get lastmod;
+  set lastmod(int? lastmod);
+
+  String? get mime;
+  set mime(String? mime);
+
+  int? get size;
+  set size(int? size);
+
+  String? get type;
+  set type(String? type);
+
+  bool? get hasPreview;
+  set hasPreview(bool? hasPreview);
 }
 
 class _$FilesTemplateFile extends FilesTemplateFile {
@@ -5421,44 +5783,45 @@ class _$FilesTemplateFile extends FilesTemplateFile {
   }
 }
 
-class FilesTemplateFileBuilder implements Builder<FilesTemplateFile, FilesTemplateFileBuilder> {
+class FilesTemplateFileBuilder
+    implements Builder<FilesTemplateFile, FilesTemplateFileBuilder>, FilesTemplateFileInterfaceBuilder {
   _$FilesTemplateFile? _$v;
 
   String? _basename;
   String? get basename => _$this._basename;
-  set basename(String? basename) => _$this._basename = basename;
+  set basename(covariant String? basename) => _$this._basename = basename;
 
   String? _etag;
   String? get etag => _$this._etag;
-  set etag(String? etag) => _$this._etag = etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
 
   int? _fileid;
   int? get fileid => _$this._fileid;
-  set fileid(int? fileid) => _$this._fileid = fileid;
+  set fileid(covariant int? fileid) => _$this._fileid = fileid;
 
   String? _filename;
   String? get filename => _$this._filename;
-  set filename(String? filename) => _$this._filename = filename;
+  set filename(covariant String? filename) => _$this._filename = filename;
 
   int? _lastmod;
   int? get lastmod => _$this._lastmod;
-  set lastmod(int? lastmod) => _$this._lastmod = lastmod;
+  set lastmod(covariant int? lastmod) => _$this._lastmod = lastmod;
 
   String? _mime;
   String? get mime => _$this._mime;
-  set mime(String? mime) => _$this._mime = mime;
+  set mime(covariant String? mime) => _$this._mime = mime;
 
   int? _size;
   int? get size => _$this._size;
-  set size(int? size) => _$this._size = size;
+  set size(covariant int? size) => _$this._size = size;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   bool? _hasPreview;
   bool? get hasPreview => _$this._hasPreview;
-  set hasPreview(bool? hasPreview) => _$this._hasPreview = hasPreview;
+  set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
 
   FilesTemplateFileBuilder();
 
@@ -5480,7 +5843,7 @@ class FilesTemplateFileBuilder implements Builder<FilesTemplateFile, FilesTempla
   }
 
   @override
-  void replace(FilesTemplateFile other) {
+  void replace(covariant FilesTemplateFile other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateFile;
   }
@@ -5508,6 +5871,16 @@ class FilesTemplateFileBuilder implements Builder<FilesTemplateFile, FilesTempla
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateCreateResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTemplateCreateResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTemplateCreateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesTemplateFileBuilder get data;
+  set data(FilesTemplateFileBuilder? data);
 }
 
 class _$FilesTemplateCreateResponse200ApplicationJson_Ocs extends FilesTemplateCreateResponse200ApplicationJson_Ocs {
@@ -5561,16 +5934,17 @@ class _$FilesTemplateCreateResponse200ApplicationJson_Ocs extends FilesTemplateC
 class FilesTemplateCreateResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTemplateCreateResponse200ApplicationJson_Ocs,
-            FilesTemplateCreateResponse200ApplicationJson_OcsBuilder> {
+            FilesTemplateCreateResponse200ApplicationJson_OcsBuilder>,
+        FilesTemplateCreateResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTemplateCreateResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesTemplateFileBuilder? _data;
   FilesTemplateFileBuilder get data => _$this._data ??= FilesTemplateFileBuilder();
-  set data(FilesTemplateFileBuilder? data) => _$this._data = data;
+  set data(covariant FilesTemplateFileBuilder? data) => _$this._data = data;
 
   FilesTemplateCreateResponse200ApplicationJson_OcsBuilder();
 
@@ -5585,7 +5959,7 @@ class FilesTemplateCreateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTemplateCreateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTemplateCreateResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateCreateResponse200ApplicationJson_Ocs;
   }
@@ -5618,6 +5992,13 @@ class FilesTemplateCreateResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateCreateResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTemplateCreateResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTemplateCreateResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTemplateCreateResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTemplateCreateResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTemplateCreateResponse200ApplicationJson extends FilesTemplateCreateResponse200ApplicationJson {
@@ -5663,13 +6044,14 @@ class _$FilesTemplateCreateResponse200ApplicationJson extends FilesTemplateCreat
 
 class FilesTemplateCreateResponse200ApplicationJsonBuilder
     implements
-        Builder<FilesTemplateCreateResponse200ApplicationJson, FilesTemplateCreateResponse200ApplicationJsonBuilder> {
+        Builder<FilesTemplateCreateResponse200ApplicationJson, FilesTemplateCreateResponse200ApplicationJsonBuilder>,
+        FilesTemplateCreateResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTemplateCreateResponse200ApplicationJson? _$v;
 
   FilesTemplateCreateResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTemplateCreateResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTemplateCreateResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTemplateCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTemplateCreateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTemplateCreateResponse200ApplicationJsonBuilder();
 
@@ -5683,7 +6065,7 @@ class FilesTemplateCreateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTemplateCreateResponse200ApplicationJson other) {
+  void replace(covariant FilesTemplateCreateResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplateCreateResponse200ApplicationJson;
   }
@@ -5713,6 +6095,16 @@ class FilesTemplateCreateResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterface other);
+  void update(void Function(FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get templatePath;
+  set templatePath(String? templatePath);
+
+  ListBuilder<FilesTemplateFileCreator> get templates;
+  set templates(ListBuilder<FilesTemplateFileCreator>? templates);
 }
 
 class _$FilesTemplatePathResponse200ApplicationJson_Ocs_Data
@@ -5772,16 +6164,17 @@ class _$FilesTemplatePathResponse200ApplicationJson_Ocs_Data
 class FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder
     implements
         Builder<FilesTemplatePathResponse200ApplicationJson_Ocs_Data,
-            FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder> {
+            FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder>,
+        FilesTemplatePathResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
   _$FilesTemplatePathResponse200ApplicationJson_Ocs_Data? _$v;
 
   String? _templatePath;
   String? get templatePath => _$this._templatePath;
-  set templatePath(String? templatePath) => _$this._templatePath = templatePath;
+  set templatePath(covariant String? templatePath) => _$this._templatePath = templatePath;
 
   ListBuilder<FilesTemplateFileCreator>? _templates;
   ListBuilder<FilesTemplateFileCreator> get templates => _$this._templates ??= ListBuilder<FilesTemplateFileCreator>();
-  set templates(ListBuilder<FilesTemplateFileCreator>? templates) => _$this._templates = templates;
+  set templates(covariant ListBuilder<FilesTemplateFileCreator>? templates) => _$this._templates = templates;
 
   FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder();
 
@@ -5796,7 +6189,7 @@ class FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(FilesTemplatePathResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant FilesTemplatePathResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplatePathResponse200ApplicationJson_Ocs_Data;
   }
@@ -5831,6 +6224,16 @@ class FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplatePathResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTemplatePathResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTemplatePathResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder get data;
+  set data(FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$FilesTemplatePathResponse200ApplicationJson_Ocs extends FilesTemplatePathResponse200ApplicationJson_Ocs {
@@ -5884,17 +6287,18 @@ class _$FilesTemplatePathResponse200ApplicationJson_Ocs extends FilesTemplatePat
 class FilesTemplatePathResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTemplatePathResponse200ApplicationJson_Ocs,
-            FilesTemplatePathResponse200ApplicationJson_OcsBuilder> {
+            FilesTemplatePathResponse200ApplicationJson_OcsBuilder>,
+        FilesTemplatePathResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTemplatePathResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder? _data;
   FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant FilesTemplatePathResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   FilesTemplatePathResponse200ApplicationJson_OcsBuilder();
 
@@ -5909,7 +6313,7 @@ class FilesTemplatePathResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTemplatePathResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTemplatePathResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplatePathResponse200ApplicationJson_Ocs;
   }
@@ -5942,6 +6346,13 @@ class FilesTemplatePathResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplatePathResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTemplatePathResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTemplatePathResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTemplatePathResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTemplatePathResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTemplatePathResponse200ApplicationJson extends FilesTemplatePathResponse200ApplicationJson {
@@ -5987,13 +6398,14 @@ class _$FilesTemplatePathResponse200ApplicationJson extends FilesTemplatePathRes
 
 class FilesTemplatePathResponse200ApplicationJsonBuilder
     implements
-        Builder<FilesTemplatePathResponse200ApplicationJson, FilesTemplatePathResponse200ApplicationJsonBuilder> {
+        Builder<FilesTemplatePathResponse200ApplicationJson, FilesTemplatePathResponse200ApplicationJsonBuilder>,
+        FilesTemplatePathResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTemplatePathResponse200ApplicationJson? _$v;
 
   FilesTemplatePathResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTemplatePathResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTemplatePathResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTemplatePathResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTemplatePathResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTemplatePathResponse200ApplicationJsonBuilder();
 
@@ -6007,7 +6419,7 @@ class FilesTemplatePathResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTemplatePathResponse200ApplicationJson other) {
+  void replace(covariant FilesTemplatePathResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplatePathResponse200ApplicationJson;
   }
@@ -6037,6 +6449,16 @@ class FilesTemplatePathResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs
@@ -6096,16 +6518,17 @@ class _$FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs
 class FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs,
-            FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder> {
+            FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder>,
+        FilesTransferOwnershipTransferResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder();
 
@@ -6120,7 +6543,7 @@ class FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipTransferResponse200ApplicationJson_Ocs;
   }
@@ -6155,6 +6578,13 @@ class FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipTransferResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTransferOwnershipTransferResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTransferOwnershipTransferResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTransferOwnershipTransferResponse200ApplicationJson
@@ -6203,13 +6633,14 @@ class _$FilesTransferOwnershipTransferResponse200ApplicationJson
 class FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder
     implements
         Builder<FilesTransferOwnershipTransferResponse200ApplicationJson,
-            FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder> {
+            FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder>,
+        FilesTransferOwnershipTransferResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTransferOwnershipTransferResponse200ApplicationJson? _$v;
 
   FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTransferOwnershipTransferResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder();
 
@@ -6223,7 +6654,7 @@ class FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipTransferResponse200ApplicationJson other) {
+  void replace(covariant FilesTransferOwnershipTransferResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipTransferResponse200ApplicationJson;
   }
@@ -6254,6 +6685,16 @@ class FilesTransferOwnershipTransferResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs
@@ -6310,16 +6751,17 @@ class _$FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs
 class FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs,
-            FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder> {
+            FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder>,
+        FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder();
 
@@ -6334,7 +6776,7 @@ class FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipAcceptResponse200ApplicationJson_Ocs;
   }
@@ -6369,6 +6811,13 @@ class FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipAcceptResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTransferOwnershipAcceptResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTransferOwnershipAcceptResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTransferOwnershipAcceptResponse200ApplicationJson
@@ -6417,13 +6866,14 @@ class _$FilesTransferOwnershipAcceptResponse200ApplicationJson
 class FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder
     implements
         Builder<FilesTransferOwnershipAcceptResponse200ApplicationJson,
-            FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder> {
+            FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder>,
+        FilesTransferOwnershipAcceptResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTransferOwnershipAcceptResponse200ApplicationJson? _$v;
 
   FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTransferOwnershipAcceptResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder();
 
@@ -6437,7 +6887,7 @@ class FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipAcceptResponse200ApplicationJson other) {
+  void replace(covariant FilesTransferOwnershipAcceptResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipAcceptResponse200ApplicationJson;
   }
@@ -6468,6 +6918,16 @@ class FilesTransferOwnershipAcceptResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterface other);
+  void update(void Function(FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+  FilesOCSMetaBuilder get meta;
+  set meta(FilesOCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
 }
 
 class _$FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs
@@ -6524,16 +6984,17 @@ class _$FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs
 class FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder
     implements
         Builder<FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs,
-            FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder> {
+            FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder>,
+        FilesTransferOwnershipRejectResponse200ApplicationJson_OcsInterfaceBuilder {
   _$FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs? _$v;
 
   FilesOCSMetaBuilder? _meta;
   FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder();
 
@@ -6548,7 +7009,7 @@ class FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipRejectResponse200ApplicationJson_Ocs;
   }
@@ -6583,6 +7044,13 @@ class FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTransferOwnershipRejectResponse200ApplicationJsonInterfaceBuilder {
+  void replace(FilesTransferOwnershipRejectResponse200ApplicationJsonInterface other);
+  void update(void Function(FilesTransferOwnershipRejectResponse200ApplicationJsonInterfaceBuilder) updates);
+  FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder? ocs);
 }
 
 class _$FilesTransferOwnershipRejectResponse200ApplicationJson
@@ -6631,13 +7099,14 @@ class _$FilesTransferOwnershipRejectResponse200ApplicationJson
 class FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder
     implements
         Builder<FilesTransferOwnershipRejectResponse200ApplicationJson,
-            FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder> {
+            FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder>,
+        FilesTransferOwnershipRejectResponse200ApplicationJsonInterfaceBuilder {
   _$FilesTransferOwnershipRejectResponse200ApplicationJson? _$v;
 
   FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder? _ocs;
   FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder();
-  set ocs(FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant FilesTransferOwnershipRejectResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder();
 
@@ -6651,7 +7120,7 @@ class FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(FilesTransferOwnershipRejectResponse200ApplicationJson other) {
+  void replace(covariant FilesTransferOwnershipRejectResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTransferOwnershipRejectResponse200ApplicationJson;
   }
@@ -6682,6 +7151,19 @@ class FilesTransferOwnershipRejectResponse200ApplicationJsonBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesCapabilities_Files_DirectEditingInterfaceBuilder {
+  void replace(FilesCapabilities_Files_DirectEditingInterface other);
+  void update(void Function(FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates);
+  String? get url;
+  set url(String? url);
+
+  String? get etag;
+  set etag(String? etag);
+
+  bool? get supportsFileId;
+  set supportsFileId(bool? supportsFileId);
 }
 
 class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_DirectEditing {
@@ -6741,20 +7223,22 @@ class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_Di
 }
 
 class FilesCapabilities_Files_DirectEditingBuilder
-    implements Builder<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder> {
+    implements
+        Builder<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder>,
+        FilesCapabilities_Files_DirectEditingInterfaceBuilder {
   _$FilesCapabilities_Files_DirectEditing? _$v;
 
   String? _url;
   String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
+  set url(covariant String? url) => _$this._url = url;
 
   String? _etag;
   String? get etag => _$this._etag;
-  set etag(String? etag) => _$this._etag = etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
 
   bool? _supportsFileId;
   bool? get supportsFileId => _$this._supportsFileId;
-  set supportsFileId(bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
+  set supportsFileId(covariant bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
 
   FilesCapabilities_Files_DirectEditingBuilder();
 
@@ -6770,7 +7254,7 @@ class FilesCapabilities_Files_DirectEditingBuilder
   }
 
   @override
-  void replace(FilesCapabilities_Files_DirectEditing other) {
+  void replace(covariant FilesCapabilities_Files_DirectEditing other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesCapabilities_Files_DirectEditing;
   }
@@ -6793,6 +7277,19 @@ class FilesCapabilities_Files_DirectEditingBuilder
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesCapabilities_FilesInterfaceBuilder {
+  void replace(FilesCapabilities_FilesInterface other);
+  void update(void Function(FilesCapabilities_FilesInterfaceBuilder) updates);
+  bool? get bigfilechunking;
+  set bigfilechunking(bool? bigfilechunking);
+
+  ListBuilder<JsonObject> get blacklistedFiles;
+  set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
+
+  FilesCapabilities_Files_DirectEditingBuilder get directEditing;
+  set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing);
 }
 
 class _$FilesCapabilities_Files extends FilesCapabilities_Files {
@@ -6850,21 +7347,25 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   }
 }
 
-class FilesCapabilities_FilesBuilder implements Builder<FilesCapabilities_Files, FilesCapabilities_FilesBuilder> {
+class FilesCapabilities_FilesBuilder
+    implements
+        Builder<FilesCapabilities_Files, FilesCapabilities_FilesBuilder>,
+        FilesCapabilities_FilesInterfaceBuilder {
   _$FilesCapabilities_Files? _$v;
 
   bool? _bigfilechunking;
   bool? get bigfilechunking => _$this._bigfilechunking;
-  set bigfilechunking(bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
+  set bigfilechunking(covariant bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
 
   ListBuilder<JsonObject>? _blacklistedFiles;
   ListBuilder<JsonObject> get blacklistedFiles => _$this._blacklistedFiles ??= ListBuilder<JsonObject>();
-  set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles) => _$this._blacklistedFiles = blacklistedFiles;
+  set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
+      _$this._blacklistedFiles = blacklistedFiles;
 
   FilesCapabilities_Files_DirectEditingBuilder? _directEditing;
   FilesCapabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= FilesCapabilities_Files_DirectEditingBuilder();
-  set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
+  set directEditing(covariant FilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
       _$this._directEditing = directEditing;
 
   FilesCapabilities_FilesBuilder();
@@ -6881,7 +7382,7 @@ class FilesCapabilities_FilesBuilder implements Builder<FilesCapabilities_Files,
   }
 
   @override
-  void replace(FilesCapabilities_Files other) {
+  void replace(covariant FilesCapabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesCapabilities_Files;
   }
@@ -6918,6 +7419,13 @@ class FilesCapabilities_FilesBuilder implements Builder<FilesCapabilities_Files,
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesCapabilitiesInterfaceBuilder {
+  void replace(FilesCapabilitiesInterface other);
+  void update(void Function(FilesCapabilitiesInterfaceBuilder) updates);
+  FilesCapabilities_FilesBuilder get files;
+  set files(FilesCapabilities_FilesBuilder? files);
 }
 
 class _$FilesCapabilities extends FilesCapabilities {
@@ -6957,12 +7465,13 @@ class _$FilesCapabilities extends FilesCapabilities {
   }
 }
 
-class FilesCapabilitiesBuilder implements Builder<FilesCapabilities, FilesCapabilitiesBuilder> {
+class FilesCapabilitiesBuilder
+    implements Builder<FilesCapabilities, FilesCapabilitiesBuilder>, FilesCapabilitiesInterfaceBuilder {
   _$FilesCapabilities? _$v;
 
   FilesCapabilities_FilesBuilder? _files;
   FilesCapabilities_FilesBuilder get files => _$this._files ??= FilesCapabilities_FilesBuilder();
-  set files(FilesCapabilities_FilesBuilder? files) => _$this._files = files;
+  set files(covariant FilesCapabilities_FilesBuilder? files) => _$this._files = files;
 
   FilesCapabilitiesBuilder();
 
@@ -6976,7 +7485,7 @@ class FilesCapabilitiesBuilder implements Builder<FilesCapabilities, FilesCapabi
   }
 
   @override
-  void replace(FilesCapabilities other) {
+  void replace(covariant FilesCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesCapabilities;
   }
@@ -7006,6 +7515,46 @@ class FilesCapabilitiesBuilder implements Builder<FilesCapabilities, FilesCapabi
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class FilesTemplateInterfaceBuilder {
+  void replace(FilesTemplateInterface other);
+  void update(void Function(FilesTemplateInterfaceBuilder) updates);
+  String? get templateType;
+  set templateType(String? templateType);
+
+  String? get templateId;
+  set templateId(String? templateId);
+
+  String? get basename;
+  set basename(String? basename);
+
+  String? get etag;
+  set etag(String? etag);
+
+  int? get fileid;
+  set fileid(int? fileid);
+
+  String? get filename;
+  set filename(String? filename);
+
+  int? get lastmod;
+  set lastmod(int? lastmod);
+
+  String? get mime;
+  set mime(String? mime);
+
+  int? get size;
+  set size(int? size);
+
+  String? get type;
+  set type(String? type);
+
+  bool? get hasPreview;
+  set hasPreview(bool? hasPreview);
+
+  String? get previewUrl;
+  set previewUrl(String? previewUrl);
 }
 
 class _$FilesTemplate extends FilesTemplate {
@@ -7126,56 +7675,56 @@ class _$FilesTemplate extends FilesTemplate {
   }
 }
 
-class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilder> {
+class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilder>, FilesTemplateInterfaceBuilder {
   _$FilesTemplate? _$v;
 
   String? _templateType;
   String? get templateType => _$this._templateType;
-  set templateType(String? templateType) => _$this._templateType = templateType;
+  set templateType(covariant String? templateType) => _$this._templateType = templateType;
 
   String? _templateId;
   String? get templateId => _$this._templateId;
-  set templateId(String? templateId) => _$this._templateId = templateId;
+  set templateId(covariant String? templateId) => _$this._templateId = templateId;
 
   String? _basename;
   String? get basename => _$this._basename;
-  set basename(String? basename) => _$this._basename = basename;
+  set basename(covariant String? basename) => _$this._basename = basename;
 
   String? _etag;
   String? get etag => _$this._etag;
-  set etag(String? etag) => _$this._etag = etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
 
   int? _fileid;
   int? get fileid => _$this._fileid;
-  set fileid(int? fileid) => _$this._fileid = fileid;
+  set fileid(covariant int? fileid) => _$this._fileid = fileid;
 
   String? _filename;
   String? get filename => _$this._filename;
-  set filename(String? filename) => _$this._filename = filename;
+  set filename(covariant String? filename) => _$this._filename = filename;
 
   int? _lastmod;
   int? get lastmod => _$this._lastmod;
-  set lastmod(int? lastmod) => _$this._lastmod = lastmod;
+  set lastmod(covariant int? lastmod) => _$this._lastmod = lastmod;
 
   String? _mime;
   String? get mime => _$this._mime;
-  set mime(String? mime) => _$this._mime = mime;
+  set mime(covariant String? mime) => _$this._mime = mime;
 
   int? _size;
   int? get size => _$this._size;
-  set size(int? size) => _$this._size = size;
+  set size(covariant int? size) => _$this._size = size;
 
   String? _type;
   String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  set type(covariant String? type) => _$this._type = type;
 
   bool? _hasPreview;
   bool? get hasPreview => _$this._hasPreview;
-  set hasPreview(bool? hasPreview) => _$this._hasPreview = hasPreview;
+  set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
 
   String? _previewUrl;
   String? get previewUrl => _$this._previewUrl;
-  set previewUrl(String? previewUrl) => _$this._previewUrl = previewUrl;
+  set previewUrl(covariant String? previewUrl) => _$this._previewUrl = previewUrl;
 
   FilesTemplateBuilder();
 
@@ -7200,7 +7749,7 @@ class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilde
   }
 
   @override
-  void replace(FilesTemplate other) {
+  void replace(covariant FilesTemplate other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FilesTemplate;
   }
