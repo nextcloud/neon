@@ -5,12 +5,20 @@ cd "$(dirname "$0")/.."
 rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
-(
-  cd external/nextcloud-server
-  composer update
-  composer install --no-dev
-  git checkout . # Remove changed files
-)
+function generate_spec() {
+    path="$1"
+    codename="$2"
+    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+}
+
+for dir in external/nextcloud-server external/nextcloud-notifications; do
+  (
+    cd "$dir"
+    composer update
+    composer install --no-dev
+    git checkout . # Remove changed files
+  )
+done
 
 for path in \
   core \
@@ -31,12 +39,16 @@ for path in \
   apps/user_status \
   apps/weather_status \
 ; do
-  codename="$(echo $path | sed "s/^apps\///")"
   (
     cd external/nextcloud-server
-    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+    generate_spec "$path" "$(basename $path)"
   )
 done
+
+(
+  cd external/nextcloud-notifications
+  generate_spec "." "notifications"
+)
 
 (
   cd external/nextcloud-server

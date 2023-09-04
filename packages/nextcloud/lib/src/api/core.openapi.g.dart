@@ -4077,26 +4077,15 @@ class _$CoreNotificationsCapabilities_NotificationsSerializer
   @override
   Iterable<Object?> serialize(Serializers serializers, CoreNotificationsCapabilities_Notifications object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.ocsEndpoints;
-    if (value != null) {
-      result
-        ..add('ocs-endpoints')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
-    }
-    value = object.push;
-    if (value != null) {
-      result
-        ..add('push')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
-    }
-    value = object.adminNotifications;
-    if (value != null) {
-      result
-        ..add('admin-notifications')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
-    }
+    final result = <Object?>[
+      'ocs-endpoints',
+      serializers.serialize(object.ocsEndpoints, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'push',
+      serializers.serialize(object.push, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'admin-notifications',
+      serializers.serialize(object.adminNotifications, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
     return result;
   }
 
@@ -17095,17 +17084,24 @@ abstract mixin class CoreNotificationsCapabilities_NotificationsInterfaceBuilder
 
 class _$CoreNotificationsCapabilities_Notifications extends CoreNotificationsCapabilities_Notifications {
   @override
-  final BuiltList<String>? ocsEndpoints;
+  final BuiltList<String> ocsEndpoints;
   @override
-  final BuiltList<String>? push;
+  final BuiltList<String> push;
   @override
-  final BuiltList<String>? adminNotifications;
+  final BuiltList<String> adminNotifications;
 
   factory _$CoreNotificationsCapabilities_Notifications(
           [void Function(CoreNotificationsCapabilities_NotificationsBuilder)? updates]) =>
       (CoreNotificationsCapabilities_NotificationsBuilder()..update(updates))._build();
 
-  _$CoreNotificationsCapabilities_Notifications._({this.ocsEndpoints, this.push, this.adminNotifications}) : super._();
+  _$CoreNotificationsCapabilities_Notifications._(
+      {required this.ocsEndpoints, required this.push, required this.adminNotifications})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocsEndpoints, r'CoreNotificationsCapabilities_Notifications', 'ocsEndpoints');
+    BuiltValueNullFieldError.checkNotNull(push, r'CoreNotificationsCapabilities_Notifications', 'push');
+    BuiltValueNullFieldError.checkNotNull(
+        adminNotifications, r'CoreNotificationsCapabilities_Notifications', 'adminNotifications');
+  }
 
   @override
   CoreNotificationsCapabilities_Notifications rebuild(
@@ -17169,9 +17165,9 @@ class CoreNotificationsCapabilities_NotificationsBuilder
   CoreNotificationsCapabilities_NotificationsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _ocsEndpoints = $v.ocsEndpoints?.toBuilder();
-      _push = $v.push?.toBuilder();
-      _adminNotifications = $v.adminNotifications?.toBuilder();
+      _ocsEndpoints = $v.ocsEndpoints.toBuilder();
+      _push = $v.push.toBuilder();
+      _adminNotifications = $v.adminNotifications.toBuilder();
       _$v = null;
     }
     return this;
@@ -17196,18 +17192,16 @@ class CoreNotificationsCapabilities_NotificationsBuilder
     try {
       _$result = _$v ??
           _$CoreNotificationsCapabilities_Notifications._(
-              ocsEndpoints: _ocsEndpoints?.build(),
-              push: _push?.build(),
-              adminNotifications: _adminNotifications?.build());
+              ocsEndpoints: ocsEndpoints.build(), push: push.build(), adminNotifications: adminNotifications.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocsEndpoints';
-        _ocsEndpoints?.build();
+        ocsEndpoints.build();
         _$failedField = 'push';
-        _push?.build();
+        push.build();
         _$failedField = 'adminNotifications';
-        _adminNotifications?.build();
+        adminNotifications.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'CoreNotificationsCapabilities_Notifications', _$failedField, e.toString());
       }

@@ -22,7 +22,7 @@ void main() {
     tearDown(() => container.destroy());
 
     Future sendTestNotification() async {
-      await client.notifications.sendAdminNotification(
+      await client.notifications.api.generateNotification(
         userId: 'admin',
         shortMessage: '123',
         longMessage: '456',
@@ -37,7 +37,7 @@ void main() {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = await client.notifications.listNotifications();
+      final response = (await client.notifications.endpoint.listNotifications()).data;
       expect(response.ocs.data, hasLength(2));
       expect(response.ocs.data[0].notificationId, 2);
       expect(response.ocs.data[0].app, 'admin_notifications');
@@ -49,9 +49,9 @@ void main() {
       expect(response.ocs.data[0].message, '456');
       expect(response.ocs.data[0].link, '');
       expect(response.ocs.data[0].subjectRich, '');
-      expect(response.ocs.data[0].subjectRichParameters?.asList, isEmpty);
+      expect(response.ocs.data[0].subjectRichParameters, isEmpty);
       expect(response.ocs.data[0].messageRich, '');
-      expect(response.ocs.data[0].messageRichParameters?.asList, isEmpty);
+      expect(response.ocs.data[0].messageRichParameters, isEmpty);
       expect(response.ocs.data[0].icon, isNotEmpty);
       expect(response.ocs.data[0].actions, hasLength(0));
     });
@@ -60,7 +60,7 @@ void main() {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = await client.notifications.getNotification(id: 2);
+      final response = await client.notifications.endpoint.getNotification(id: 2);
       expect(response.ocs.data.notificationId, 2);
       expect(response.ocs.data.app, 'admin_notifications');
       expect(response.ocs.data.user, 'admin');
@@ -71,27 +71,27 @@ void main() {
       expect(response.ocs.data.message, '456');
       expect(response.ocs.data.link, '');
       expect(response.ocs.data.subjectRich, '');
-      expect(response.ocs.data.subjectRichParameters?.asList, isEmpty);
+      expect(response.ocs.data.subjectRichParameters, isEmpty);
       expect(response.ocs.data.messageRich, '');
-      expect(response.ocs.data.messageRichParameters?.asList, isEmpty);
+      expect(response.ocs.data.messageRichParameters, isEmpty);
       expect(response.ocs.data.icon, isNotEmpty);
       expect(response.ocs.data.actions, hasLength(0));
     });
 
     test('Delete notification', () async {
       await sendTestNotification();
-      await client.notifications.deleteNotification(id: 2);
+      await client.notifications.endpoint.deleteNotification(id: 2);
 
-      final response = await client.notifications.listNotifications();
+      final response = (await client.notifications.endpoint.listNotifications()).data;
       expect(response.ocs.data, hasLength(1));
     });
 
     test('Delete all notifications', () async {
       await sendTestNotification();
       await sendTestNotification();
-      await client.notifications.deleteAllNotifications();
+      await client.notifications.endpoint.deleteAllNotifications();
 
-      final response = await client.notifications.listNotifications();
+      final response = (await client.notifications.endpoint.listNotifications()).data;
       expect(response.ocs.data, hasLength(0));
     });
   });
@@ -121,7 +121,7 @@ void main() {
         const pushToken = '789';
         final keypair = generateKeypair();
 
-        final subscription = (await client.notifications.registerDevice(
+        final subscription = (await client.notifications.push.registerDevice(
           pushTokenHash: generatePushTokenHash(pushToken),
           devicePublicKey: keypair.publicKey.toFormattedPEM(),
           proxyServer: 'https://example.com/',
@@ -132,9 +132,8 @@ void main() {
         RSAPublicKey.fromPEM(subscription.publicKey);
         expect(subscription.deviceIdentifier, isNotEmpty);
         expect(subscription.signature, isNotEmpty);
-        expect(subscription.message, isNull);
 
-        await client.notifications.removeDevice();
+        await client.notifications.push.removeDevice();
       });
     },
     retry: retryCount,

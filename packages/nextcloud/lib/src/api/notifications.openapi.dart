@@ -70,23 +70,196 @@ class NotificationsClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  Future<NotificationsListNotifications> listNotifications() async {
-    const path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
+  NotificationsApiClient get api => NotificationsApiClient(this);
+  NotificationsEndpointClient get endpoint => NotificationsEndpointClient(this);
+  NotificationsPushClient get push => NotificationsPushClient(this);
+  NotificationsSettingsClient get settings => NotificationsSettingsClient(this);
+}
+
+class NotificationsApiClient {
+  NotificationsApiClient(this._rootClient);
+
+  final NotificationsClient _rootClient;
+
+  /// Generate a notification for a user
+  ///
+  /// This endpoint requires admin access
+  Future<NotificationsApiGenerateNotificationResponseApplicationJson> generateNotification({
+    required final String shortMessage,
+    required final String userId,
+    final String longMessage = '',
+    final NotificationsApiGenerateNotificationApiVersion apiVersion = NotificationsApiGenerateNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
-    } else if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
-      throw Exception('Missing authentication for bearer or basic_auth');
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    final response = await doRequest(
+    queryParameters['shortMessage'] = shortMessage;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
+    if (longMessage != '') {
+      queryParameters['longMessage'] = longMessage;
+    }
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson),
+      )! as NotificationsApiGenerateNotificationResponseApplicationJson;
+    }
+    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NotificationsEndpointClient {
+  NotificationsEndpointClient(this._rootClient);
+
+  final NotificationsClient _rootClient;
+
+  /// Get all notifications
+  Future<
+      NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+          NotificationsEndpointEndpointListNotificationsHeaders>> listNotifications({
+    final NotificationsEndpointListNotificationsApiVersion apiVersion =
+        NotificationsEndpointListNotificationsApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+          NotificationsEndpointEndpointListNotificationsHeaders>(
+        _jsonSerializers.deserialize(
+          await response.jsonBody,
+          specifiedType: const FullType(NotificationsEndpointListNotificationsResponseApplicationJson),
+        )! as NotificationsEndpointListNotificationsResponseApplicationJson,
+        _jsonSerializers.deserialize(
+          response.responseHeaders,
+          specifiedType: const FullType(NotificationsEndpointEndpointListNotificationsHeaders),
+        )! as NotificationsEndpointEndpointListNotificationsHeaders,
+      );
+    }
+    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Delete all notifications
+  Future<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson> deleteAllNotifications({
+    final NotificationsEndpointDeleteAllNotificationsApiVersion apiVersion =
+        NotificationsEndpointDeleteAllNotificationsApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson),
+      )! as NotificationsEndpointDeleteAllNotificationsResponseApplicationJson;
+    }
+    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Get a notification
+  Future<NotificationsEndpointGetNotificationResponseApplicationJson> getNotification({
+    required final int id,
+    final NotificationsEndpointGetNotificationApiVersion apiVersion = NotificationsEndpointGetNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
@@ -95,86 +268,42 @@ class NotificationsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(NotificationsListNotifications),
-      )! as NotificationsListNotifications;
+        specifiedType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson),
+      )! as NotificationsEndpointGetNotificationResponseApplicationJson;
     }
     throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<String> deleteAllNotifications() async {
-    const path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
+  /// Delete a notification
+  Future<NotificationsEndpointDeleteNotificationResponseApplicationJson> deleteNotification({
+    required final int id,
+    final NotificationsEndpointDeleteNotificationApiVersion apiVersion =
+        NotificationsEndpointDeleteNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
-      throw Exception('Missing authentication for bearer');
-    }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotificationsGetNotification> getNotification({required final int id}) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
-    } else if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for bearer or basic_auth');
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsGetNotification),
-      )! as NotificationsGetNotification;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotificationsEmptyOCS> deleteNotification({required final int id}) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
-    } else {
-      throw Exception('Missing authentication for bearer');
-    }
-    // coverage:ignore-end
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await doRequest(
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
@@ -183,98 +312,189 @@ class NotificationsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(NotificationsEmptyOCS),
-      )! as NotificationsEmptyOCS;
+        specifiedType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson),
+      )! as NotificationsEndpointDeleteNotificationResponseApplicationJson;
     }
     throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotificationsPushServerRegistration> registerDevice({
+  /// Check if notification IDs exist
+  Future<NotificationsEndpointConfirmIdsForUserResponseApplicationJson> confirmIdsForUser({
+    required final List<int> ids,
+    final NotificationsEndpointConfirmIdsForUserApiVersion apiVersion =
+        NotificationsEndpointConfirmIdsForUserApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    queryParameters['ids[]'] = ids.map((final e) => e.toString());
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200 || response.statusCode == 400) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson),
+      )! as NotificationsEndpointConfirmIdsForUserResponseApplicationJson;
+    }
+    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NotificationsPushClient {
+  NotificationsPushClient(this._rootClient);
+
+  final NotificationsClient _rootClient;
+
+  /// Register device for push notifications
+  Future<NotificationsPushRegisterDeviceResponseApplicationJson> registerDevice({
     required final String pushTokenHash,
     required final String devicePublicKey,
     required final String proxyServer,
+    final NotificationsPushRegisterDeviceApiVersion apiVersion = NotificationsPushRegisterDeviceApiVersion.v2,
+    final String oCSAPIRequest = 'true',
   }) async {
-    const path = '/ocs/v2.php/apps/notifications/api/v2/push';
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
-      throw Exception('Missing authentication for bearer');
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     queryParameters['pushTokenHash'] = pushTokenHash;
     queryParameters['devicePublicKey'] = devicePublicKey;
     queryParameters['proxyServer'] = proxyServer;
-    final response = await doRequest(
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(NotificationsPushServerRegistration),
-      )! as NotificationsPushServerRegistration;
+        specifiedType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson),
+      )! as NotificationsPushRegisterDeviceResponseApplicationJson;
     }
     throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<String> removeDevice() async {
-    const path = '/ocs/v2.php/apps/notifications/api/v2/push';
+  /// Remove a device from push notifications
+  Future<NotificationsPushRemoveDeviceResponseApplicationJson> removeDevice({
+    final NotificationsPushRemoveDeviceApiVersion apiVersion = NotificationsPushRemoveDeviceApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
-      throw Exception('Missing authentication for bearer');
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    final response = await doRequest(
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
-    if (response.statusCode == 202) {
-      return response.body;
+    if (response.statusCode == 200 || response.statusCode == 202 || response.statusCode == 401) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson),
+      )! as NotificationsPushRemoveDeviceResponseApplicationJson;
     }
     throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
+}
 
-  Future<NotificationsEmptyOCS> sendAdminNotification({
-    required final String userId,
-    required final String shortMessage,
-    final String longMessage = '',
+class NotificationsSettingsClient {
+  NotificationsSettingsClient(this._rootClient);
+
+  final NotificationsClient _rootClient;
+
+  /// Update personal notification settings
+  Future<NotificationsSettingsPersonalResponseApplicationJson> personal({
+    required final int batchSetting,
+    required final String soundNotification,
+    required final String soundTalk,
+    final NotificationsSettingsPersonalApiVersion apiVersion = NotificationsSettingsPersonalApiVersion.v2,
+    final String oCSAPIRequest = 'true',
   }) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}';
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
-      throw Exception('Missing authentication for bearer');
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    queryParameters['shortMessage'] = shortMessage;
-    if (longMessage != '') {
-      queryParameters['longMessage'] = longMessage;
-    }
-    final response = await doRequest(
+    queryParameters['batchSetting'] = batchSetting.toString();
+    queryParameters['soundNotification'] = soundNotification;
+    queryParameters['soundTalk'] = soundTalk;
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
@@ -283,11 +503,77 @@ class NotificationsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(NotificationsEmptyOCS),
-      )! as NotificationsEmptyOCS;
+        specifiedType: const FullType(NotificationsSettingsPersonalResponseApplicationJson),
+      )! as NotificationsSettingsPersonalResponseApplicationJson;
     }
     throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
+
+  /// Update default notification settings for new users
+  ///
+  /// This endpoint requires admin access
+  Future<NotificationsSettingsAdminResponseApplicationJson> admin({
+    required final int batchSetting,
+    required final String soundNotification,
+    required final String soundTalk,
+    final NotificationsSettingsAdminApiVersion apiVersion = NotificationsSettingsAdminApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    queryParameters['batchSetting'] = batchSetting.toString();
+    queryParameters['soundNotification'] = soundNotification;
+    queryParameters['soundTalk'] = soundTalk;
+    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(NotificationsSettingsAdminResponseApplicationJson),
+      )! as NotificationsSettingsAdminResponseApplicationJson;
+    }
+    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NotificationsApiGenerateNotificationApiVersion extends EnumClass {
+  const NotificationsApiGenerateNotificationApiVersion._(super.name);
+
+  static const NotificationsApiGenerateNotificationApiVersion v1 = _$notificationsApiGenerateNotificationApiVersionV1;
+
+  static const NotificationsApiGenerateNotificationApiVersion v2 = _$notificationsApiGenerateNotificationApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsApiGenerateNotificationApiVersion> get values =>
+      _$notificationsApiGenerateNotificationApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsApiGenerateNotificationApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsApiGenerateNotificationApiVersion(name);
+  static Serializer<NotificationsApiGenerateNotificationApiVersion> get serializer =>
+      _$notificationsApiGenerateNotificationApiVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -321,11 +607,178 @@ abstract class NotificationsOCSMeta
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  JsonObject get data;
+  NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsApiGenerateNotificationResponseApplicationJson_Ocs
+    implements
+        NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterface,
+        Built<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs,
+            NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder> {
+  factory NotificationsApiGenerateNotificationResponseApplicationJson_Ocs([
+    final void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsApiGenerateNotificationResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsApiGenerateNotificationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsApiGenerateNotificationResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsApiGenerateNotificationResponseApplicationJsonInterface {
+  NotificationsApiGenerateNotificationResponseApplicationJson_Ocs get ocs;
+  NotificationsApiGenerateNotificationResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsApiGenerateNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsApiGenerateNotificationResponseApplicationJson
+    implements
+        NotificationsApiGenerateNotificationResponseApplicationJsonInterface,
+        Built<NotificationsApiGenerateNotificationResponseApplicationJson,
+            NotificationsApiGenerateNotificationResponseApplicationJsonBuilder> {
+  factory NotificationsApiGenerateNotificationResponseApplicationJson([
+    final void Function(NotificationsApiGenerateNotificationResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsApiGenerateNotificationResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsApiGenerateNotificationResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsApiGenerateNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsApiGenerateNotificationResponseApplicationJson> get serializer =>
+      _$notificationsApiGenerateNotificationResponseApplicationJsonSerializer;
+}
+
+class NotificationsEndpointListNotificationsApiVersion extends EnumClass {
+  const NotificationsEndpointListNotificationsApiVersion._(super.name);
+
+  static const NotificationsEndpointListNotificationsApiVersion v1 =
+      _$notificationsEndpointListNotificationsApiVersionV1;
+
+  static const NotificationsEndpointListNotificationsApiVersion v2 =
+      _$notificationsEndpointListNotificationsApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsEndpointListNotificationsApiVersion> get values =>
+      _$notificationsEndpointListNotificationsApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsEndpointListNotificationsApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsEndpointListNotificationsApiVersion(name);
+  static Serializer<NotificationsEndpointListNotificationsApiVersion> get serializer =>
+      _$notificationsEndpointListNotificationsApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEndpointEndpointListNotificationsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-user-status')
+  String? get xNextcloudUserStatus;
+  NotificationsEndpointEndpointListNotificationsHeadersInterface rebuild(
+    final void Function(NotificationsEndpointEndpointListNotificationsHeadersInterfaceBuilder) updates,
+  );
+  NotificationsEndpointEndpointListNotificationsHeadersInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEndpointEndpointListNotificationsHeaders
+    implements
+        NotificationsEndpointEndpointListNotificationsHeadersInterface,
+        Built<NotificationsEndpointEndpointListNotificationsHeaders,
+            NotificationsEndpointEndpointListNotificationsHeadersBuilder> {
+  factory NotificationsEndpointEndpointListNotificationsHeaders([
+    final void Function(NotificationsEndpointEndpointListNotificationsHeadersBuilder)? b,
+  ]) = _$NotificationsEndpointEndpointListNotificationsHeaders;
+
+  // coverage:ignore-start
+  const NotificationsEndpointEndpointListNotificationsHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsEndpointEndpointListNotificationsHeaders.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NotificationsEndpointEndpointListNotificationsHeaders> get serializer =>
+      _$NotificationsEndpointEndpointListNotificationsHeadersSerializer();
+}
+
+class _$NotificationsEndpointEndpointListNotificationsHeadersSerializer
+    implements StructuredSerializer<NotificationsEndpointEndpointListNotificationsHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    NotificationsEndpointEndpointListNotificationsHeaders,
+    _$NotificationsEndpointEndpointListNotificationsHeaders,
+  ];
+
+  @override
+  final String wireName = 'NotificationsEndpointEndpointListNotificationsHeaders';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final NotificationsEndpointEndpointListNotificationsHeaders object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    throw UnimplementedError();
+  }
+
+  @override
+  NotificationsEndpointEndpointListNotificationsHeaders deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NotificationsEndpointEndpointListNotificationsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current! as String;
+      switch (key) {
+        case 'x-nextcloud-user-status':
+          result.xNextcloudUserStatus = value;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class NotificationsNotificationActionInterface {
   String get label;
   String get link;
   String get type;
-  bool? get primary;
+  bool get primary;
   NotificationsNotificationActionInterface rebuild(
     final void Function(NotificationsNotificationActionInterfaceBuilder) updates,
   );
@@ -368,13 +821,13 @@ abstract interface class NotificationsNotificationInterface {
   String get subject;
   String get message;
   String get link;
+  BuiltList<NotificationsNotificationAction> get actions;
   String? get subjectRich;
-  JsonObject? get subjectRichParameters;
+  BuiltMap<String, JsonObject>? get subjectRichParameters;
   String? get messageRich;
-  JsonObject? get messageRichParameters;
+  BuiltMap<String, JsonObject>? get messageRichParameters;
   String? get icon;
   bool? get shouldNotify;
-  BuiltList<NotificationsNotificationAction> get actions;
   NotificationsNotificationInterface rebuild(final void Function(NotificationsNotificationInterfaceBuilder) updates);
   NotificationsNotificationInterfaceBuilder toBuilder();
 }
@@ -400,293 +853,800 @@ abstract class NotificationsNotification
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsListNotifications_OcsInterface {
+abstract interface class NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterface {
   NotificationsOCSMeta get meta;
   BuiltList<NotificationsNotification> get data;
-  NotificationsListNotifications_OcsInterface rebuild(
-    final void Function(NotificationsListNotifications_OcsInterfaceBuilder) updates,
+  NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  NotificationsListNotifications_OcsInterfaceBuilder toBuilder();
+  NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsListNotifications_Ocs
+abstract class NotificationsEndpointListNotificationsResponseApplicationJson_Ocs
     implements
-        NotificationsListNotifications_OcsInterface,
-        Built<NotificationsListNotifications_Ocs, NotificationsListNotifications_OcsBuilder> {
-  factory NotificationsListNotifications_Ocs([final void Function(NotificationsListNotifications_OcsBuilder)? b]) =
-      _$NotificationsListNotifications_Ocs;
+        NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterface,
+        Built<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs,
+            NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder> {
+  factory NotificationsEndpointListNotificationsResponseApplicationJson_Ocs([
+    final void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const NotificationsListNotifications_Ocs._();
+  const NotificationsEndpointListNotificationsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsListNotifications_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointListNotificationsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsListNotifications_Ocs> get serializer => _$notificationsListNotificationsOcsSerializer;
+  static Serializer<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsEndpointListNotificationsResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsListNotificationsInterface {
-  NotificationsListNotifications_Ocs get ocs;
-  NotificationsListNotificationsInterface rebuild(
-    final void Function(NotificationsListNotificationsInterfaceBuilder) updates,
+abstract interface class NotificationsEndpointListNotificationsResponseApplicationJsonInterface {
+  NotificationsEndpointListNotificationsResponseApplicationJson_Ocs get ocs;
+  NotificationsEndpointListNotificationsResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsEndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates,
   );
-  NotificationsListNotificationsInterfaceBuilder toBuilder();
+  NotificationsEndpointListNotificationsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsListNotifications
+abstract class NotificationsEndpointListNotificationsResponseApplicationJson
     implements
-        NotificationsListNotificationsInterface,
-        Built<NotificationsListNotifications, NotificationsListNotificationsBuilder> {
-  factory NotificationsListNotifications([final void Function(NotificationsListNotificationsBuilder)? b]) =
-      _$NotificationsListNotifications;
+        NotificationsEndpointListNotificationsResponseApplicationJsonInterface,
+        Built<NotificationsEndpointListNotificationsResponseApplicationJson,
+            NotificationsEndpointListNotificationsResponseApplicationJsonBuilder> {
+  factory NotificationsEndpointListNotificationsResponseApplicationJson([
+    final void Function(NotificationsEndpointListNotificationsResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsEndpointListNotificationsResponseApplicationJson;
 
   // coverage:ignore-start
-  const NotificationsListNotifications._();
+  const NotificationsEndpointListNotificationsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsListNotifications.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointListNotificationsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsListNotifications> get serializer => _$notificationsListNotificationsSerializer;
+  static Serializer<NotificationsEndpointListNotificationsResponseApplicationJson> get serializer =>
+      _$notificationsEndpointListNotificationsResponseApplicationJsonSerializer;
+}
+
+class NotificationsEndpointDeleteAllNotificationsApiVersion extends EnumClass {
+  const NotificationsEndpointDeleteAllNotificationsApiVersion._(super.name);
+
+  static const NotificationsEndpointDeleteAllNotificationsApiVersion v1 =
+      _$notificationsEndpointDeleteAllNotificationsApiVersionV1;
+
+  static const NotificationsEndpointDeleteAllNotificationsApiVersion v2 =
+      _$notificationsEndpointDeleteAllNotificationsApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsEndpointDeleteAllNotificationsApiVersion> get values =>
+      _$notificationsEndpointDeleteAllNotificationsApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsEndpointDeleteAllNotificationsApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsEndpointDeleteAllNotificationsApiVersion(name);
+  static Serializer<NotificationsEndpointDeleteAllNotificationsApiVersion> get serializer =>
+      _$notificationsEndpointDeleteAllNotificationsApiVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsGetNotification_OcsInterface {
+abstract interface class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  JsonObject get data;
+  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs
+    implements
+        NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface,
+        Built<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
+            NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder> {
+  factory NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs([
+    final void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterface {
+  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs get ocs;
+  NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson
+    implements
+        NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterface,
+        Built<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson,
+            NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder> {
+  factory NotificationsEndpointDeleteAllNotificationsResponseApplicationJson([
+    final void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsEndpointDeleteAllNotificationsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsEndpointDeleteAllNotificationsResponseApplicationJson.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson> get serializer =>
+      _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerializer;
+}
+
+class NotificationsEndpointGetNotificationApiVersion extends EnumClass {
+  const NotificationsEndpointGetNotificationApiVersion._(super.name);
+
+  static const NotificationsEndpointGetNotificationApiVersion v1 = _$notificationsEndpointGetNotificationApiVersionV1;
+
+  static const NotificationsEndpointGetNotificationApiVersion v2 = _$notificationsEndpointGetNotificationApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsEndpointGetNotificationApiVersion> get values =>
+      _$notificationsEndpointGetNotificationApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsEndpointGetNotificationApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsEndpointGetNotificationApiVersion(name);
+  static Serializer<NotificationsEndpointGetNotificationApiVersion> get serializer =>
+      _$notificationsEndpointGetNotificationApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterface {
   NotificationsOCSMeta get meta;
   NotificationsNotification get data;
-  NotificationsGetNotification_OcsInterface rebuild(
-    final void Function(NotificationsGetNotification_OcsInterfaceBuilder) updates,
+  NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  NotificationsGetNotification_OcsInterfaceBuilder toBuilder();
+  NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsGetNotification_Ocs
+abstract class NotificationsEndpointGetNotificationResponseApplicationJson_Ocs
     implements
-        NotificationsGetNotification_OcsInterface,
-        Built<NotificationsGetNotification_Ocs, NotificationsGetNotification_OcsBuilder> {
-  factory NotificationsGetNotification_Ocs([final void Function(NotificationsGetNotification_OcsBuilder)? b]) =
-      _$NotificationsGetNotification_Ocs;
+        NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterface,
+        Built<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs,
+            NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder> {
+  factory NotificationsEndpointGetNotificationResponseApplicationJson_Ocs([
+    final void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const NotificationsGetNotification_Ocs._();
+  const NotificationsEndpointGetNotificationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsGetNotification_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointGetNotificationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsGetNotification_Ocs> get serializer => _$notificationsGetNotificationOcsSerializer;
+  static Serializer<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsEndpointGetNotificationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsGetNotificationInterface {
-  NotificationsGetNotification_Ocs get ocs;
-  NotificationsGetNotificationInterface rebuild(
-    final void Function(NotificationsGetNotificationInterfaceBuilder) updates,
+abstract interface class NotificationsEndpointGetNotificationResponseApplicationJsonInterface {
+  NotificationsEndpointGetNotificationResponseApplicationJson_Ocs get ocs;
+  NotificationsEndpointGetNotificationResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsEndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates,
   );
-  NotificationsGetNotificationInterfaceBuilder toBuilder();
+  NotificationsEndpointGetNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsGetNotification
+abstract class NotificationsEndpointGetNotificationResponseApplicationJson
     implements
-        NotificationsGetNotificationInterface,
-        Built<NotificationsGetNotification, NotificationsGetNotificationBuilder> {
-  factory NotificationsGetNotification([final void Function(NotificationsGetNotificationBuilder)? b]) =
-      _$NotificationsGetNotification;
+        NotificationsEndpointGetNotificationResponseApplicationJsonInterface,
+        Built<NotificationsEndpointGetNotificationResponseApplicationJson,
+            NotificationsEndpointGetNotificationResponseApplicationJsonBuilder> {
+  factory NotificationsEndpointGetNotificationResponseApplicationJson([
+    final void Function(NotificationsEndpointGetNotificationResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsEndpointGetNotificationResponseApplicationJson;
 
   // coverage:ignore-start
-  const NotificationsGetNotification._();
+  const NotificationsEndpointGetNotificationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsGetNotification.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointGetNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsGetNotification> get serializer => _$notificationsGetNotificationSerializer;
+  static Serializer<NotificationsEndpointGetNotificationResponseApplicationJson> get serializer =>
+      _$notificationsEndpointGetNotificationResponseApplicationJsonSerializer;
+}
+
+class NotificationsEndpointDeleteNotificationApiVersion extends EnumClass {
+  const NotificationsEndpointDeleteNotificationApiVersion._(super.name);
+
+  static const NotificationsEndpointDeleteNotificationApiVersion v1 =
+      _$notificationsEndpointDeleteNotificationApiVersionV1;
+
+  static const NotificationsEndpointDeleteNotificationApiVersion v2 =
+      _$notificationsEndpointDeleteNotificationApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsEndpointDeleteNotificationApiVersion> get values =>
+      _$notificationsEndpointDeleteNotificationApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsEndpointDeleteNotificationApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsEndpointDeleteNotificationApiVersion(name);
+  static Serializer<NotificationsEndpointDeleteNotificationApiVersion> get serializer =>
+      _$notificationsEndpointDeleteNotificationApiVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsEmptyOCS_OcsInterface {
+abstract interface class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterface {
   NotificationsOCSMeta get meta;
-  BuiltList<JsonObject> get data;
-  NotificationsEmptyOCS_OcsInterface rebuild(final void Function(NotificationsEmptyOCS_OcsInterfaceBuilder) updates);
-  NotificationsEmptyOCS_OcsInterfaceBuilder toBuilder();
+  JsonObject get data;
+  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsEmptyOCS_Ocs
-    implements NotificationsEmptyOCS_OcsInterface, Built<NotificationsEmptyOCS_Ocs, NotificationsEmptyOCS_OcsBuilder> {
-  factory NotificationsEmptyOCS_Ocs([final void Function(NotificationsEmptyOCS_OcsBuilder)? b]) =
-      _$NotificationsEmptyOCS_Ocs;
+abstract class NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs
+    implements
+        NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterface,
+        Built<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs,
+            NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder> {
+  factory NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs([
+    final void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const NotificationsEmptyOCS_Ocs._();
+  const NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsEmptyOCS_Ocs> get serializer => _$notificationsEmptyOCSOcsSerializer;
+  static Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsEndpointDeleteNotificationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsEmptyOCSInterface {
-  NotificationsEmptyOCS_Ocs get ocs;
-  NotificationsEmptyOCSInterface rebuild(final void Function(NotificationsEmptyOCSInterfaceBuilder) updates);
-  NotificationsEmptyOCSInterfaceBuilder toBuilder();
+abstract interface class NotificationsEndpointDeleteNotificationResponseApplicationJsonInterface {
+  NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs get ocs;
+  NotificationsEndpointDeleteNotificationResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsEndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsEmptyOCS
-    implements NotificationsEmptyOCSInterface, Built<NotificationsEmptyOCS, NotificationsEmptyOCSBuilder> {
-  factory NotificationsEmptyOCS([final void Function(NotificationsEmptyOCSBuilder)? b]) = _$NotificationsEmptyOCS;
+abstract class NotificationsEndpointDeleteNotificationResponseApplicationJson
+    implements
+        NotificationsEndpointDeleteNotificationResponseApplicationJsonInterface,
+        Built<NotificationsEndpointDeleteNotificationResponseApplicationJson,
+            NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder> {
+  factory NotificationsEndpointDeleteNotificationResponseApplicationJson([
+    final void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsEndpointDeleteNotificationResponseApplicationJson;
 
   // coverage:ignore-start
-  const NotificationsEmptyOCS._();
+  const NotificationsEndpointDeleteNotificationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsEmptyOCS.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsEndpointDeleteNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsEmptyOCS> get serializer => _$notificationsEmptyOCSSerializer;
+  static Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson> get serializer =>
+      _$notificationsEndpointDeleteNotificationResponseApplicationJsonSerializer;
+}
+
+class NotificationsEndpointConfirmIdsForUserApiVersion extends EnumClass {
+  const NotificationsEndpointConfirmIdsForUserApiVersion._(super.name);
+
+  static const NotificationsEndpointConfirmIdsForUserApiVersion v1 =
+      _$notificationsEndpointConfirmIdsForUserApiVersionV1;
+
+  static const NotificationsEndpointConfirmIdsForUserApiVersion v2 =
+      _$notificationsEndpointConfirmIdsForUserApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsEndpointConfirmIdsForUserApiVersion> get values =>
+      _$notificationsEndpointConfirmIdsForUserApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsEndpointConfirmIdsForUserApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsEndpointConfirmIdsForUserApiVersion(name);
+  static Serializer<NotificationsEndpointConfirmIdsForUserApiVersion> get serializer =>
+      _$notificationsEndpointConfirmIdsForUserApiVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsPushServerSubscriptionInterface {
+abstract interface class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  BuiltList<int> get data;
+  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs
+    implements
+        NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterface,
+        Built<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs,
+            NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder> {
+  factory NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs([
+    final void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterface {
+  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs get ocs;
+  NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsEndpointConfirmIdsForUserResponseApplicationJson
+    implements
+        NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterface,
+        Built<NotificationsEndpointConfirmIdsForUserResponseApplicationJson,
+            NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder> {
+  factory NotificationsEndpointConfirmIdsForUserResponseApplicationJson([
+    final void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsEndpointConfirmIdsForUserResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsEndpointConfirmIdsForUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson> get serializer =>
+      _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer;
+}
+
+class NotificationsPushRegisterDeviceApiVersion extends EnumClass {
+  const NotificationsPushRegisterDeviceApiVersion._(super.name);
+
+  static const NotificationsPushRegisterDeviceApiVersion v2 = _$notificationsPushRegisterDeviceApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsPushRegisterDeviceApiVersion> get values =>
+      _$notificationsPushRegisterDeviceApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsPushRegisterDeviceApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsPushRegisterDeviceApiVersion(name);
+  static Serializer<NotificationsPushRegisterDeviceApiVersion> get serializer =>
+      _$notificationsPushRegisterDeviceApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushDeviceInterface {
   String get publicKey;
   String get deviceIdentifier;
   String get signature;
-  String? get message;
-  NotificationsPushServerSubscriptionInterface rebuild(
-    final void Function(NotificationsPushServerSubscriptionInterfaceBuilder) updates,
-  );
-  NotificationsPushServerSubscriptionInterfaceBuilder toBuilder();
+  NotificationsPushDeviceInterface rebuild(final void Function(NotificationsPushDeviceInterfaceBuilder) updates);
+  NotificationsPushDeviceInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsPushServerSubscription
-    implements
-        NotificationsPushServerSubscriptionInterface,
-        Built<NotificationsPushServerSubscription, NotificationsPushServerSubscriptionBuilder> {
-  factory NotificationsPushServerSubscription([final void Function(NotificationsPushServerSubscriptionBuilder)? b]) =
-      _$NotificationsPushServerSubscription;
+abstract class NotificationsPushDevice
+    implements NotificationsPushDeviceInterface, Built<NotificationsPushDevice, NotificationsPushDeviceBuilder> {
+  factory NotificationsPushDevice([final void Function(NotificationsPushDeviceBuilder)? b]) = _$NotificationsPushDevice;
 
   // coverage:ignore-start
-  const NotificationsPushServerSubscription._();
+  const NotificationsPushDevice._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsPushServerSubscription.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsPushDevice.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsPushServerSubscription> get serializer =>
-      _$notificationsPushServerSubscriptionSerializer;
+  static Serializer<NotificationsPushDevice> get serializer => _$notificationsPushDeviceSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsPushServerRegistration_OcsInterface {
+abstract interface class NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterface {
   NotificationsOCSMeta get meta;
-  NotificationsPushServerSubscription get data;
-  NotificationsPushServerRegistration_OcsInterface rebuild(
-    final void Function(NotificationsPushServerRegistration_OcsInterfaceBuilder) updates,
+  NotificationsPushDevice get data;
+  NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  NotificationsPushServerRegistration_OcsInterfaceBuilder toBuilder();
+  NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsPushServerRegistration_Ocs
+abstract class NotificationsPushRegisterDeviceResponseApplicationJson_Ocs
     implements
-        NotificationsPushServerRegistration_OcsInterface,
-        Built<NotificationsPushServerRegistration_Ocs, NotificationsPushServerRegistration_OcsBuilder> {
-  factory NotificationsPushServerRegistration_Ocs([
-    final void Function(NotificationsPushServerRegistration_OcsBuilder)? b,
-  ]) = _$NotificationsPushServerRegistration_Ocs;
+        NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterface,
+        Built<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs,
+            NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder> {
+  factory NotificationsPushRegisterDeviceResponseApplicationJson_Ocs([
+    final void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const NotificationsPushServerRegistration_Ocs._();
+  const NotificationsPushRegisterDeviceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsPushServerRegistration_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsPushRegisterDeviceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsPushServerRegistration_Ocs> get serializer =>
-      _$notificationsPushServerRegistrationOcsSerializer;
+  static Serializer<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsPushRegisterDeviceResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationsPushServerRegistrationInterface {
-  NotificationsPushServerRegistration_Ocs get ocs;
-  NotificationsPushServerRegistrationInterface rebuild(
-    final void Function(NotificationsPushServerRegistrationInterfaceBuilder) updates,
+abstract interface class NotificationsPushRegisterDeviceResponseApplicationJsonInterface {
+  NotificationsPushRegisterDeviceResponseApplicationJson_Ocs get ocs;
+  NotificationsPushRegisterDeviceResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsPushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  NotificationsPushServerRegistrationInterfaceBuilder toBuilder();
+  NotificationsPushRegisterDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class NotificationsPushServerRegistration
+abstract class NotificationsPushRegisterDeviceResponseApplicationJson
     implements
-        NotificationsPushServerRegistrationInterface,
-        Built<NotificationsPushServerRegistration, NotificationsPushServerRegistrationBuilder> {
-  factory NotificationsPushServerRegistration([final void Function(NotificationsPushServerRegistrationBuilder)? b]) =
-      _$NotificationsPushServerRegistration;
+        NotificationsPushRegisterDeviceResponseApplicationJsonInterface,
+        Built<NotificationsPushRegisterDeviceResponseApplicationJson,
+            NotificationsPushRegisterDeviceResponseApplicationJsonBuilder> {
+  factory NotificationsPushRegisterDeviceResponseApplicationJson([
+    final void Function(NotificationsPushRegisterDeviceResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsPushRegisterDeviceResponseApplicationJson;
 
   // coverage:ignore-start
-  const NotificationsPushServerRegistration._();
+  const NotificationsPushRegisterDeviceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsPushServerRegistration.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsPushRegisterDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<NotificationsPushServerRegistration> get serializer =>
-      _$notificationsPushServerRegistrationSerializer;
+  static Serializer<NotificationsPushRegisterDeviceResponseApplicationJson> get serializer =>
+      _$notificationsPushRegisterDeviceResponseApplicationJsonSerializer;
+}
+
+class NotificationsPushRemoveDeviceApiVersion extends EnumClass {
+  const NotificationsPushRemoveDeviceApiVersion._(super.name);
+
+  static const NotificationsPushRemoveDeviceApiVersion v2 = _$notificationsPushRemoveDeviceApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsPushRemoveDeviceApiVersion> get values =>
+      _$notificationsPushRemoveDeviceApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsPushRemoveDeviceApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsPushRemoveDeviceApiVersion(name);
+  static Serializer<NotificationsPushRemoveDeviceApiVersion> get serializer =>
+      _$notificationsPushRemoveDeviceApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  JsonObject get data;
+  NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsPushRemoveDeviceResponseApplicationJson_Ocs
+    implements
+        NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterface,
+        Built<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs,
+            NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder> {
+  factory NotificationsPushRemoveDeviceResponseApplicationJson_Ocs([
+    final void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsPushRemoveDeviceResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsPushRemoveDeviceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsPushRemoveDeviceResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsPushRemoveDeviceResponseApplicationJsonInterface {
+  NotificationsPushRemoveDeviceResponseApplicationJson_Ocs get ocs;
+  NotificationsPushRemoveDeviceResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsPushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsPushRemoveDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsPushRemoveDeviceResponseApplicationJson
+    implements
+        NotificationsPushRemoveDeviceResponseApplicationJsonInterface,
+        Built<NotificationsPushRemoveDeviceResponseApplicationJson,
+            NotificationsPushRemoveDeviceResponseApplicationJsonBuilder> {
+  factory NotificationsPushRemoveDeviceResponseApplicationJson([
+    final void Function(NotificationsPushRemoveDeviceResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsPushRemoveDeviceResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsPushRemoveDeviceResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsPushRemoveDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsPushRemoveDeviceResponseApplicationJson> get serializer =>
+      _$notificationsPushRemoveDeviceResponseApplicationJsonSerializer;
+}
+
+class NotificationsSettingsPersonalApiVersion extends EnumClass {
+  const NotificationsSettingsPersonalApiVersion._(super.name);
+
+  static const NotificationsSettingsPersonalApiVersion v2 = _$notificationsSettingsPersonalApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsSettingsPersonalApiVersion> get values =>
+      _$notificationsSettingsPersonalApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsSettingsPersonalApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsSettingsPersonalApiVersion(name);
+  static Serializer<NotificationsSettingsPersonalApiVersion> get serializer =>
+      _$notificationsSettingsPersonalApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsSettingsPersonalResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  JsonObject get data;
+  NotificationsSettingsPersonalResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsSettingsPersonalResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsSettingsPersonalResponseApplicationJson_Ocs
+    implements
+        NotificationsSettingsPersonalResponseApplicationJson_OcsInterface,
+        Built<NotificationsSettingsPersonalResponseApplicationJson_Ocs,
+            NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder> {
+  factory NotificationsSettingsPersonalResponseApplicationJson_Ocs([
+    final void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsSettingsPersonalResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsSettingsPersonalResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsSettingsPersonalResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsSettingsPersonalResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsSettingsPersonalResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsSettingsPersonalResponseApplicationJsonInterface {
+  NotificationsSettingsPersonalResponseApplicationJson_Ocs get ocs;
+  NotificationsSettingsPersonalResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsSettingsPersonalResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsSettingsPersonalResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsSettingsPersonalResponseApplicationJson
+    implements
+        NotificationsSettingsPersonalResponseApplicationJsonInterface,
+        Built<NotificationsSettingsPersonalResponseApplicationJson,
+            NotificationsSettingsPersonalResponseApplicationJsonBuilder> {
+  factory NotificationsSettingsPersonalResponseApplicationJson([
+    final void Function(NotificationsSettingsPersonalResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsSettingsPersonalResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsSettingsPersonalResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsSettingsPersonalResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsSettingsPersonalResponseApplicationJson> get serializer =>
+      _$notificationsSettingsPersonalResponseApplicationJsonSerializer;
+}
+
+class NotificationsSettingsAdminApiVersion extends EnumClass {
+  const NotificationsSettingsAdminApiVersion._(super.name);
+
+  static const NotificationsSettingsAdminApiVersion v2 = _$notificationsSettingsAdminApiVersionV2;
+
+  // coverage:ignore-start
+  static BuiltSet<NotificationsSettingsAdminApiVersion> get values => _$notificationsSettingsAdminApiVersionValues;
+  // coverage:ignore-end
+  static NotificationsSettingsAdminApiVersion valueOf(final String name) =>
+      _$valueOfNotificationsSettingsAdminApiVersion(name);
+  static Serializer<NotificationsSettingsAdminApiVersion> get serializer =>
+      _$notificationsSettingsAdminApiVersionSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsSettingsAdminResponseApplicationJson_OcsInterface {
+  NotificationsOCSMeta get meta;
+  JsonObject get data;
+  NotificationsSettingsAdminResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NotificationsSettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+  NotificationsSettingsAdminResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsSettingsAdminResponseApplicationJson_Ocs
+    implements
+        NotificationsSettingsAdminResponseApplicationJson_OcsInterface,
+        Built<NotificationsSettingsAdminResponseApplicationJson_Ocs,
+            NotificationsSettingsAdminResponseApplicationJson_OcsBuilder> {
+  factory NotificationsSettingsAdminResponseApplicationJson_Ocs([
+    final void Function(NotificationsSettingsAdminResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NotificationsSettingsAdminResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const NotificationsSettingsAdminResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsSettingsAdminResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsSettingsAdminResponseApplicationJson_Ocs> get serializer =>
+      _$notificationsSettingsAdminResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class NotificationsSettingsAdminResponseApplicationJsonInterface {
+  NotificationsSettingsAdminResponseApplicationJson_Ocs get ocs;
+  NotificationsSettingsAdminResponseApplicationJsonInterface rebuild(
+    final void Function(NotificationsSettingsAdminResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  NotificationsSettingsAdminResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class NotificationsSettingsAdminResponseApplicationJson
+    implements
+        NotificationsSettingsAdminResponseApplicationJsonInterface,
+        Built<NotificationsSettingsAdminResponseApplicationJson,
+            NotificationsSettingsAdminResponseApplicationJsonBuilder> {
+  factory NotificationsSettingsAdminResponseApplicationJson([
+    final void Function(NotificationsSettingsAdminResponseApplicationJsonBuilder)? b,
+  ]) = _$NotificationsSettingsAdminResponseApplicationJson;
+
+  // coverage:ignore-start
+  const NotificationsSettingsAdminResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NotificationsSettingsAdminResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<NotificationsSettingsAdminResponseApplicationJson> get serializer =>
+      _$notificationsSettingsAdminResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class NotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
-  BuiltList<String>? get ocsEndpoints;
-  BuiltList<String>? get push;
+  BuiltList<String> get ocsEndpoints;
+  BuiltList<String> get push;
   @BuiltValueField(wireName: 'admin-notifications')
-  BuiltList<String>? get adminNotifications;
+  BuiltList<String> get adminNotifications;
   NotificationsCapabilities_NotificationsInterface rebuild(
     final void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates,
   );
@@ -744,54 +1704,37 @@ abstract class NotificationsCapabilities
   static Serializer<NotificationsCapabilities> get serializer => _$notificationsCapabilitiesSerializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class NotificationsNotificationDecryptedSubjectInterface {
-  int? get nid;
-  String? get app;
-  String? get subject;
-  String? get type;
-  String? get id;
-  bool? get delete;
-  @BuiltValueField(wireName: 'delete-all')
-  bool? get deleteAll;
-  NotificationsNotificationDecryptedSubjectInterface rebuild(
-    final void Function(NotificationsNotificationDecryptedSubjectInterfaceBuilder) updates,
-  );
-  NotificationsNotificationDecryptedSubjectInterfaceBuilder toBuilder();
-}
-
-abstract class NotificationsNotificationDecryptedSubject
-    implements
-        NotificationsNotificationDecryptedSubjectInterface,
-        Built<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder> {
-  factory NotificationsNotificationDecryptedSubject([
-    final void Function(NotificationsNotificationDecryptedSubjectBuilder)? b,
-  ]) = _$NotificationsNotificationDecryptedSubject;
-
-  // coverage:ignore-start
-  const NotificationsNotificationDecryptedSubject._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NotificationsNotificationDecryptedSubject.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  static Serializer<NotificationsNotificationDecryptedSubject> get serializer =>
-      _$notificationsNotificationDecryptedSubjectSerializer;
-}
-
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(NotificationsListNotifications), NotificationsListNotifications.new)
-      ..add(NotificationsListNotifications.serializer)
-      ..addBuilderFactory(const FullType(NotificationsListNotifications_Ocs), NotificationsListNotifications_Ocs.new)
-      ..add(NotificationsListNotifications_Ocs.serializer)
+      ..add(NotificationsApiGenerateNotificationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsApiGenerateNotificationResponseApplicationJson),
+        NotificationsApiGenerateNotificationResponseApplicationJson.new,
+      )
+      ..add(NotificationsApiGenerateNotificationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsApiGenerateNotificationResponseApplicationJson_Ocs),
+        NotificationsApiGenerateNotificationResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsApiGenerateNotificationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NotificationsOCSMeta), NotificationsOCSMeta.new)
       ..add(NotificationsOCSMeta.serializer)
+      ..add(NotificationsEndpointListNotificationsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointEndpointListNotificationsHeaders),
+        NotificationsEndpointEndpointListNotificationsHeaders.new,
+      )
+      ..add(NotificationsEndpointEndpointListNotificationsHeaders.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointListNotificationsResponseApplicationJson),
+        NotificationsEndpointListNotificationsResponseApplicationJson.new,
+      )
+      ..add(NotificationsEndpointListNotificationsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointListNotificationsResponseApplicationJson_Ocs),
+        NotificationsEndpointListNotificationsResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsEndpointListNotificationsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NotificationsNotification), NotificationsNotification.new)
       ..add(NotificationsNotification.serializer)
       ..addBuilderFactory(const FullType(NotificationsNotificationAction), NotificationsNotificationAction.new)
@@ -801,27 +1744,104 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<NotificationsNotificationAction>.new,
       )
       ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        MapBuilder<String, JsonObject>.new,
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NotificationsNotification)]),
         ListBuilder<NotificationsNotification>.new,
       )
-      ..addBuilderFactory(const FullType(NotificationsGetNotification), NotificationsGetNotification.new)
-      ..add(NotificationsGetNotification.serializer)
-      ..addBuilderFactory(const FullType(NotificationsGetNotification_Ocs), NotificationsGetNotification_Ocs.new)
-      ..add(NotificationsGetNotification_Ocs.serializer)
-      ..addBuilderFactory(const FullType(NotificationsEmptyOCS), NotificationsEmptyOCS.new)
-      ..add(NotificationsEmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(NotificationsEmptyOCS_Ocs), NotificationsEmptyOCS_Ocs.new)
-      ..add(NotificationsEmptyOCS_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(NotificationsPushServerRegistration), NotificationsPushServerRegistration.new)
-      ..add(NotificationsPushServerRegistration.serializer)
+      ..add(NotificationsEndpointDeleteAllNotificationsApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(NotificationsPushServerRegistration_Ocs),
-        NotificationsPushServerRegistration_Ocs.new,
+        const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson),
+        NotificationsEndpointDeleteAllNotificationsResponseApplicationJson.new,
       )
-      ..add(NotificationsPushServerRegistration_Ocs.serializer)
-      ..addBuilderFactory(const FullType(NotificationsPushServerSubscription), NotificationsPushServerSubscription.new)
-      ..add(NotificationsPushServerSubscription.serializer)
+      ..add(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs),
+        NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs.serializer)
+      ..add(NotificationsEndpointGetNotificationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointGetNotificationResponseApplicationJson),
+        NotificationsEndpointGetNotificationResponseApplicationJson.new,
+      )
+      ..add(NotificationsEndpointGetNotificationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointGetNotificationResponseApplicationJson_Ocs),
+        NotificationsEndpointGetNotificationResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsEndpointGetNotificationResponseApplicationJson_Ocs.serializer)
+      ..add(NotificationsEndpointDeleteNotificationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson),
+        NotificationsEndpointDeleteNotificationResponseApplicationJson.new,
+      )
+      ..add(NotificationsEndpointDeleteNotificationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs),
+        NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..add(NotificationsEndpointConfirmIdsForUserApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson),
+        NotificationsEndpointConfirmIdsForUserResponseApplicationJson.new,
+      )
+      ..add(NotificationsEndpointConfirmIdsForUserResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs),
+        NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs.serializer)
+      ..add(NotificationsPushRegisterDeviceApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsPushRegisterDeviceResponseApplicationJson),
+        NotificationsPushRegisterDeviceResponseApplicationJson.new,
+      )
+      ..add(NotificationsPushRegisterDeviceResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsPushRegisterDeviceResponseApplicationJson_Ocs),
+        NotificationsPushRegisterDeviceResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsPushRegisterDeviceResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(NotificationsPushDevice), NotificationsPushDevice.new)
+      ..add(NotificationsPushDevice.serializer)
+      ..add(NotificationsPushRemoveDeviceApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsPushRemoveDeviceResponseApplicationJson),
+        NotificationsPushRemoveDeviceResponseApplicationJson.new,
+      )
+      ..add(NotificationsPushRemoveDeviceResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsPushRemoveDeviceResponseApplicationJson_Ocs),
+        NotificationsPushRemoveDeviceResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsPushRemoveDeviceResponseApplicationJson_Ocs.serializer)
+      ..add(NotificationsSettingsPersonalApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsSettingsPersonalResponseApplicationJson),
+        NotificationsSettingsPersonalResponseApplicationJson.new,
+      )
+      ..add(NotificationsSettingsPersonalResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsSettingsPersonalResponseApplicationJson_Ocs),
+        NotificationsSettingsPersonalResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsSettingsPersonalResponseApplicationJson_Ocs.serializer)
+      ..add(NotificationsSettingsAdminApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsSettingsAdminResponseApplicationJson),
+        NotificationsSettingsAdminResponseApplicationJson.new,
+      )
+      ..add(NotificationsSettingsAdminResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsSettingsAdminResponseApplicationJson_Ocs),
+        NotificationsSettingsAdminResponseApplicationJson_Ocs.new,
+      )
+      ..add(NotificationsSettingsAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilities.new)
       ..add(NotificationsCapabilities.serializer)
       ..addBuilderFactory(
@@ -829,12 +1849,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         NotificationsCapabilities_Notifications.new,
       )
       ..add(NotificationsCapabilities_Notifications.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(NotificationsNotificationDecryptedSubject),
-        NotificationsNotificationDecryptedSubject.new,
-      )
-      ..add(NotificationsNotificationDecryptedSubject.serializer))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
 Serializers get notificationsSerializers => _serializers;

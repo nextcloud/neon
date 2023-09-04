@@ -4664,10 +4664,10 @@ abstract class CoreNotesCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class CoreNotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
-  BuiltList<String>? get ocsEndpoints;
-  BuiltList<String>? get push;
+  BuiltList<String> get ocsEndpoints;
+  BuiltList<String> get push;
   @BuiltValueField(wireName: 'admin-notifications')
-  BuiltList<String>? get adminNotifications;
+  BuiltList<String> get adminNotifications;
   CoreNotificationsCapabilities_NotificationsInterface rebuild(
     final void Function(CoreNotificationsCapabilities_NotificationsInterfaceBuilder) updates,
   );
