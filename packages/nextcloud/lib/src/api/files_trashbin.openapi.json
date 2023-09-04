@@ -110,6 +110,22 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Getting preview is not possible",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Preview not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }

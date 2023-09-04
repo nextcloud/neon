@@ -1205,6 +1205,14 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Avatar not found",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           }
         }
       }
@@ -1265,6 +1273,14 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Avatar not found",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           }
         }
       }
@@ -1316,6 +1332,20 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "Avatar returned",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
           }
         }
       }
@@ -1377,6 +1407,20 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "Avatar returned",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
           }
         }
       }
@@ -1416,6 +1460,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/LoginFlowV2Credentials"
                 }
+              }
+            }
+          },
+          "404": {
+            "description": "Login flow not found or completed",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           }
@@ -1546,6 +1598,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Getting preview is not possible",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Getting preview is not allowed",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Preview not found",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "303": {
+            "description": "Redirect to the mime icon url if mimeFallback is true",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -1643,6 +1729,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Getting preview is not possible",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Getting preview is not allowed",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Preview not found",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "303": {
+            "description": "Redirect to the mime icon url if mimeFallback is true",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -1682,6 +1802,16 @@
                 "schema": {
                   "type": "string",
                   "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Reference not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -1734,6 +1864,14 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Device should not be wiped",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
           }
         }
       }
@@ -1768,6 +1906,14 @@
         "responses": {
           "200": {
             "description": "Wipe finished successfully",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Device should not be wiped",
             "content": {
               "application/json": {
                 "schema": {}
@@ -1993,6 +2139,34 @@
                 }
               }
             }
+          },
+          "304": {
+            "description": "No apps navigation changed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2059,6 +2233,34 @@
                             "$ref": "#/components/schemas/NavigationEntry"
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "No apps navigation changed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
                       }
                     }
                   }
@@ -2283,6 +2485,34 @@
                 }
               }
             }
+          },
+          "204": {
+            "description": "No changes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2345,6 +2575,16 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -2416,6 +2656,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Creating app password is not allowed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -2484,6 +2734,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Rotating app password is not allowed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -2539,6 +2799,16 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Deleting app password is not allowed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -2630,6 +2900,34 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2702,6 +3000,34 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Collection not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2766,6 +3092,62 @@
                         "data": {
                           "$ref": "#/components/schemas/Collection"
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
                       }
                     }
                   }
@@ -2843,6 +3225,62 @@
                         "data": {
                           "$ref": "#/components/schemas/Collection"
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Collection not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
                       }
                     }
                   }
@@ -2935,6 +3373,62 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Collection not found or resource inaccessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3015,6 +3509,62 @@
                         "data": {
                           "$ref": "#/components/schemas/Collection"
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Collection or resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
                       }
                     }
                   }
@@ -3102,6 +3652,34 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Resource not accessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3183,6 +3761,90 @@
                         "data": {
                           "$ref": "#/components/schemas/Collection"
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Creating collection is not possible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource inaccessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {}
                       }
                     }
                   }
@@ -3711,6 +4373,36 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Updating visibility is not possible",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not allowed to edit other users visibility",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -3913,6 +4605,36 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Searching is not possible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "nullable": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4096,6 +4818,132 @@
                           ],
                           "properties": {
                             "text": {
+                              "type": "string"
+                            },
+                            "from": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Language not detected or unable to translate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            },
+                            "from": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Translating is not possible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            },
+                            "from": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
                               "type": "string"
                             },
                             "from": {
@@ -4303,6 +5151,82 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Scheduling task is not possible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Scheduling task is not possible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4382,6 +5306,82 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Task not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4449,6 +5449,82 @@
                           "properties": {
                             "task": {
                               "$ref": "#/components/schemas/TextProcessingTask"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
                             }
                           }
                         }
@@ -4538,6 +5614,44 @@
                               "items": {
                                 "$ref": "#/components/schemas/TextProcessingTask"
                               }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
                             }
                           }
                         }
