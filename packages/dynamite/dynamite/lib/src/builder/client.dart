@@ -8,6 +8,7 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/path_item.dart';
+import 'package:dynamite/src/models/response.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
 
@@ -297,13 +298,28 @@ Iterable<Method> buildTags(
             b.annotations.add(refer('Deprecated').call([refer("''")]));
           }
 
-          final acceptHeader = operation.responses?.values
-                  .map((final response) => response.content?.keys)
-                  .whereNotNull()
-                  .expand((final element) => element)
-                  .toSet()
-                  .join(',') ??
-              '';
+          var responses = <Response, List<int>>{};
+          if (operation.responses != null) {
+            for (final responseEntry in operation.responses!.entries) {
+              final statusCode = int.parse(responseEntry.key);
+              final response = responseEntry.value;
+
+              responses[response] ??= [];
+              responses[response]!.add(statusCode);
+            }
+
+            if (responses.length > 1) {
+              print('$operationId uses more than one response schema but we only generate the first one');
+              responses = Map.fromEntries([responses.entries.first]);
+            }
+          }
+
+          final acceptHeader = responses.keys
+              .map((final response) => response.content?.keys)
+              .whereNotNull()
+              .expand((final element) => element)
+              .toSet()
+              .join(',');
           final code = StringBuffer('''
 var _path = '${pathEntry.key}';
 final _queryParameters = <String, dynamic>{};
@@ -497,111 +513,107 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
 ''',
           );
 
-          if (operation.responses != null) {
-            if (operation.responses!.length > 1) {
-              throw Exception('Can not work with multiple status codes right now');
-            }
-            for (final responseEntry in operation.responses!.entries) {
-              final statusCode = responseEntry.key;
-              final response = responseEntry.value;
-              code.write('if (_response.statusCode == $statusCode) {');
+          for (final responseEntry in responses.entries) {
+            final response = responseEntry.key;
+            final statusCodes = responseEntry.value;
+            code.write(
+              'if (${statusCodes.map((final statusCode) => '_response.statusCode == $statusCode').join(' || ')}) {',
+            );
 
-              String? headersType;
-              String? headersValue;
-              if (response.headers != null) {
-                final identifier =
-                    '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
-                final result = resolveObject(
-                  spec,
-                  state,
-                  identifier,
-                  Schema(
-                    properties: response.headers!.map(
-                      (final headerName, final value) => MapEntry(
-                        headerName.toLowerCase(),
-                        value.schema!,
-                      ),
+            String? headersType;
+            String? headersValue;
+            if (response.headers != null) {
+              final identifier =
+                  '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
+              final result = resolveObject(
+                spec,
+                state,
+                identifier,
+                Schema(
+                  properties: response.headers!.map(
+                    (final headerName, final value) => MapEntry(
+                      headerName.toLowerCase(),
+                      value.schema!,
                     ),
                   ),
-                  isHeader: true,
-                );
-                headersType = result.name;
-                headersValue = result.deserialize('_response.responseHeaders');
+                ),
+                isHeader: true,
+              );
+              headersType = result.name;
+              headersValue = result.deserialize('_response.responseHeaders');
+            }
+
+            String? dataType;
+            String? dataValue;
+            bool? dataNeedsAwait;
+            if (response.content != null) {
+              if (response.content!.length > 1) {
+                throw Exception('Can not work with multiple mime types right now');
               }
+              for (final content in response.content!.entries) {
+                final mimeType = content.key;
+                final mediaType = content.value;
 
-              String? dataType;
-              String? dataValue;
-              bool? dataNeedsAwait;
-              if (response.content != null) {
-                if (response.content!.length > 1) {
-                  throw Exception('Can not work with multiple mime types right now');
-                }
-                for (final content in response.content!.entries) {
-                  final mimeType = content.key;
-                  final mediaType = content.value;
+                final result = resolveType(
+                  spec,
+                  state,
+                  toDartName(
+                    '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}-$mimeType',
+                    uppercaseFirstCharacter: true,
+                  ),
+                  mediaType.schema!,
+                );
 
-                  final result = resolveType(
-                    spec,
-                    state,
-                    toDartName(
-                      '$operationId-response-$statusCode-$mimeType',
-                      uppercaseFirstCharacter: true,
-                    ),
-                    mediaType.schema!,
-                  );
-
-                  if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
-                    dataType = 'Uint8List';
-                    dataValue = '_response.bodyBytes';
-                    dataNeedsAwait = true;
-                  } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
-                    dataType = 'String';
+                if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
+                  dataType = 'Uint8List';
+                  dataValue = '_response.bodyBytes';
+                  dataNeedsAwait = true;
+                } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
+                  dataType = 'String';
+                  dataValue = '_response.body';
+                  dataNeedsAwait = true;
+                } else if (mimeType == 'application/json') {
+                  dataType = result.name;
+                  if (result.name == 'dynamic') {
+                    dataValue = '';
+                  } else if (result.name == 'String') {
                     dataValue = '_response.body';
                     dataNeedsAwait = true;
-                  } else if (mimeType == 'application/json') {
-                    dataType = result.name;
-                    if (result.name == 'dynamic') {
-                      dataValue = '';
-                    } else if (result.name == 'String') {
-                      dataValue = '_response.body';
-                      dataNeedsAwait = true;
-                    } else if (result is TypeResultEnum || result is TypeResultBase) {
-                      dataValue = result.deserialize(result.decode('await _response.body'));
-                      dataNeedsAwait = false;
-                    } else {
-                      dataValue = result.deserialize('await _response.jsonBody');
-                      dataNeedsAwait = false;
-                    }
+                  } else if (result is TypeResultEnum || result is TypeResultBase) {
+                    dataValue = result.deserialize(result.decode('await _response.body'));
+                    dataNeedsAwait = false;
                   } else {
-                    throw Exception('Can not parse mime type "$mimeType"');
+                    dataValue = result.deserialize('await _response.jsonBody');
+                    dataNeedsAwait = false;
                   }
+                } else {
+                  throw Exception('Can not parse mime type "$mimeType"');
                 }
               }
-
-              if (headersType != null && dataType != null) {
-                b.returns = refer('Future<${state.classPrefix}Response<$dataType, $headersType>>');
-                code.write(
-                  'return ${state.classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
-                );
-              } else if (headersType != null) {
-                b.returns = refer('Future<$headersType>');
-                code.write('return $headersValue;');
-              } else if (dataType != null) {
-                b.returns = refer('Future<$dataType>');
-                code.write('return $dataValue;');
-              } else {
-                b.returns = refer('Future');
-                code.write('return;');
-              }
-
-              code.write('}');
             }
-            code.write(
-              'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
-            );
-          } else {
-            b.returns = refer('Future');
+
+            if (headersType != null && dataType != null) {
+              b.returns = refer('Future<${state.classPrefix}Response<$dataType, $headersType>>');
+              code.write(
+                'return ${state.classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
+              );
+            } else if (headersType != null) {
+              b.returns = refer('Future<$headersType>');
+              code.write('return $headersValue;');
+            } else if (dataType != null) {
+              b.returns = refer('Future<$dataType>');
+              code.write('return $dataValue;');
+            } else {
+              b.returns = refer('Future');
+              code.write('return;');
+            }
+
+            code.write('}');
           }
+          code.write(
+            'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
+          );
+
           b.body = Code(code.toString());
         },
       );
