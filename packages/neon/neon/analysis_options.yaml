@@ -1,4 +1,9 @@
-include: package:neon_lints/flutter.yaml
+include: package:neon_lints/flutter_package.yaml
+
+linter:
+  rules:
+    # should be enabled for release. https://github.com/nextcloud/neon/issues/692
+    public_member_api_docs: false
 
 analyzer:
   exclude:

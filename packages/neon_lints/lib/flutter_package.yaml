@@ -2,6 +2,4 @@ include: package:neon_lints/src/base.yaml
 
 linter:
   rules:
-    public_member_api_docs: false
-    library_private_types_in_public_api: false
     avoid_print: true

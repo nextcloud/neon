@@ -21,6 +21,8 @@ import 'package:nextcloud/nextcloud.dart';
 @internal
 @immutable
 class PushUtils {
+  const PushUtils._();
+
   static Future<RSAKeypair> loadRSAKeypair() async {
     const storage = AppStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
