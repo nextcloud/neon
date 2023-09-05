@@ -17,11 +17,19 @@ class Info {
   factory Info.fromJson(final Map<String, dynamic> json) => _$InfoFromJson(json);
   Map<String, dynamic> toJson() => _$InfoToJson(this);
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String title;
 
   final String version;
 
   final License license;
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
+
+  @override
+  bool operator ==(final Object other) => other is Info && version == other.version && license == other.license;
+
+  @override
+  int get hashCode => version.hashCode + license.hashCode;
 }

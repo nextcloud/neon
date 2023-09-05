@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/discriminator.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -46,6 +47,7 @@ class Schema {
 
   List<Schema>? get ofs => oneOf ?? anyOf ?? allOf;
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
 
   final bool? deprecated;
@@ -88,6 +90,53 @@ class Schema {
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
+
+  @override
+  bool operator ==(final Object other) =>
+      other is Schema &&
+      ref == other.ref &&
+      const ListEquality().equals(oneOf, other.oneOf) &&
+      const ListEquality().equals(anyOf, other.anyOf) &&
+      const ListEquality().equals(allOf, other.allOf) &&
+      deprecated == other.deprecated &&
+      type == other.type &&
+      format == other.format &&
+      default_ == other.default_ &&
+      const ListEquality().equals(enum_, other.enum_) &&
+      const MapEquality().equals(properties, other.properties) &&
+      const ListEquality().equals(required, other.required) &&
+      items == other.items &&
+      additionalProperties == other.additionalProperties &&
+      contentMediaType == other.contentMediaType &&
+      contentSchema == other.contentSchema &&
+      discriminator == other.discriminator &&
+      pattern == other.pattern &&
+      minLength == other.minLength &&
+      maxLength == other.maxLength &&
+      nullable == other.nullable;
+
+  @override
+  int get hashCode =>
+      ref.hashCode +
+      const ListEquality().hash(oneOf) +
+      const ListEquality().hash(anyOf) +
+      const ListEquality().hash(allOf) +
+      deprecated.hashCode +
+      type.hashCode +
+      format.hashCode +
+      default_.hashCode +
+      const ListEquality().hash(enum_) +
+      const MapEquality().hash(properties) +
+      const ListEquality().hash(required) +
+      items.hashCode +
+      additionalProperties.hashCode +
+      contentMediaType.hashCode +
+      contentSchema.hashCode +
+      discriminator.hashCode +
+      pattern.hashCode +
+      minLength.hashCode +
+      maxLength.hashCode +
+      nullable.hashCode;
 }
 
 class EmptySchema extends Schema {

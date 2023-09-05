@@ -1,8 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:dynamite/src/models/components.dart';
 import 'package:dynamite/src/models/info.dart';
 import 'package:dynamite/src/models/path_item.dart';
-import 'package:dynamite/src/models/paths.dart';
-import 'package:dynamite/src/models/security_requirement.dart';
 import 'package:dynamite/src/models/server.dart';
 import 'package:dynamite/src/models/tag.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -33,13 +32,13 @@ class OpenAPI {
 
   final List<Server>? servers;
 
-  final List<SecurityRequirement>? security;
+  final List<Map<String, List<String>>>? security;
 
   final List<Tag>? tags;
 
   final Components? components;
 
-  final Paths? paths;
+  final Map<String, PathItem>? paths;
 
   bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
 
@@ -50,4 +49,23 @@ class OpenAPI {
       yield* matchedTags.single.formattedDescription;
     }
   }
+
+  @override
+  bool operator ==(final Object other) =>
+      other is OpenAPI &&
+      info == other.info &&
+      const ListEquality().equals(servers, other.servers) &&
+      const DeepCollectionEquality().equals(security, other.security) &&
+      const ListEquality().equals(tags, other.tags) &&
+      components == other.components &&
+      const MapEquality().equals(paths, other.paths);
+
+  @override
+  int get hashCode =>
+      info.hashCode +
+      const ListEquality().hash(servers) +
+      const DeepCollectionEquality().hash(security) +
+      const ListEquality().hash(tags) +
+      components.hashCode +
+      const MapEquality().hash(paths);
 }

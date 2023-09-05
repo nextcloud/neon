@@ -15,4 +15,10 @@ class MediaType {
   Map<String, dynamic> toJson() => _$MediaTypeToJson(this);
 
   final Schema? schema;
+
+  @override
+  bool operator ==(final Object other) => other is MediaType && schema == other.schema;
+
+  @override
+  int get hashCode => schema.hashCode;
 }

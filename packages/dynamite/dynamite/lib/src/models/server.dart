@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:dynamite/src/models/server_variable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -18,4 +19,11 @@ class Server {
   final String url;
 
   final Map<String, ServerVariable>? variables;
+
+  @override
+  bool operator ==(final Object other) =>
+      other is Server && url == other.url && const MapEquality().equals(variables, other.variables);
+
+  @override
+  int get hashCode => url.hashCode + const MapEquality().hash(variables);
 }

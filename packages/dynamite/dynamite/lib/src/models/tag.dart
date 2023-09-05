@@ -17,7 +17,14 @@ class Tag {
 
   final String name;
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
+
+  @override
+  bool operator ==(final Object other) => other is Tag && name == other.name;
+
+  @override
+  int get hashCode => name.hashCode;
 }
