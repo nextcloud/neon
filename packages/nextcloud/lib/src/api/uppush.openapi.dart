@@ -70,7 +70,7 @@ class UppushClient extends DynamiteClient {
         );
 
   /// Check if the UnifiedPush provider is present
-  Future<UppushCheckResponse200ApplicationJson> check() async {
+  Future<UppushCheckResponseApplicationJson> check() async {
     const path = '/index.php/apps/uppush';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -93,8 +93,8 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushCheckResponse200ApplicationJson),
-      )! as UppushCheckResponse200ApplicationJson;
+        specifiedType: const FullType(UppushCheckResponseApplicationJson),
+      )! as UppushCheckResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -102,7 +102,7 @@ class UppushClient extends DynamiteClient {
   /// Set keepalive interval
   ///
   /// This endpoint requires admin access
-  Future<UppushSetKeepaliveResponse200ApplicationJson> setKeepalive({required final int keepalive}) async {
+  Future<UppushSetKeepaliveResponseApplicationJson> setKeepalive({required final int keepalive}) async {
     const path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -126,14 +126,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushSetKeepaliveResponse200ApplicationJson),
-      )! as UppushSetKeepaliveResponse200ApplicationJson;
+        specifiedType: const FullType(UppushSetKeepaliveResponseApplicationJson),
+      )! as UppushSetKeepaliveResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to create a new deviceId
-  Future<UppushCreateDeviceResponse200ApplicationJson> createDevice({required final String deviceName}) async {
+  Future<UppushCreateDeviceResponseApplicationJson> createDevice({required final String deviceName}) async {
     const path = '/index.php/apps/uppush/device';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -157,8 +157,8 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushCreateDeviceResponse200ApplicationJson),
-      )! as UppushCreateDeviceResponse200ApplicationJson;
+        specifiedType: const FullType(UppushCreateDeviceResponseApplicationJson),
+      )! as UppushCreateDeviceResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -166,7 +166,7 @@ class UppushClient extends DynamiteClient {
   /// Request to get push messages
   ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
-  Future<UppushSyncDeviceResponse401ApplicationJson> syncDevice({required final String deviceId}) async {
+  Future<UppushSyncDeviceResponseApplicationJson> syncDevice({required final String deviceId}) async {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -190,14 +190,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 401) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushSyncDeviceResponse401ApplicationJson),
-      )! as UppushSyncDeviceResponse401ApplicationJson;
+        specifiedType: const FullType(UppushSyncDeviceResponseApplicationJson),
+      )! as UppushSyncDeviceResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a device
-  Future<UppushDeleteDeviceResponse200ApplicationJson> deleteDevice({required final String deviceId}) async {
+  Future<UppushDeleteDeviceResponseApplicationJson> deleteDevice({required final String deviceId}) async {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -221,14 +221,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteDeviceResponse200ApplicationJson),
-      )! as UppushDeleteDeviceResponse200ApplicationJson;
+        specifiedType: const FullType(UppushDeleteDeviceResponseApplicationJson),
+      )! as UppushDeleteDeviceResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create an authorization token for a new 3rd party service
-  Future<UppushCreateAppResponse200ApplicationJson> createApp({
+  Future<UppushCreateAppResponseApplicationJson> createApp({
     required final String deviceId,
     required final String appName,
   }) async {
@@ -256,14 +256,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushCreateAppResponse200ApplicationJson),
-      )! as UppushCreateAppResponse200ApplicationJson;
+        specifiedType: const FullType(UppushCreateAppResponseApplicationJson),
+      )! as UppushCreateAppResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete an authorization token
-  Future<UppushDeleteAppResponse200ApplicationJson> deleteApp({required final String token}) async {
+  Future<UppushDeleteAppResponseApplicationJson> deleteApp({required final String token}) async {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -287,16 +287,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteAppResponse200ApplicationJson),
-      )! as UppushDeleteAppResponse200ApplicationJson;
+        specifiedType: const FullType(UppushDeleteAppResponseApplicationJson),
+      )! as UppushDeleteAppResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unifiedpush discovery Following specifications
-  Future<UppushUnifiedpushDiscoveryResponse200ApplicationJson> unifiedpushDiscovery({
-    required final String token,
-  }) async {
+  Future<UppushUnifiedpushDiscoveryResponseApplicationJson> unifiedpushDiscovery({required final String token}) async {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -320,14 +318,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushUnifiedpushDiscoveryResponse200ApplicationJson),
-      )! as UppushUnifiedpushDiscoveryResponse200ApplicationJson;
+        specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
+      )! as UppushUnifiedpushDiscoveryResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Receive notifications from 3rd parties
-  Future<UppushPushResponse201ApplicationJson> push({required final String token}) async {
+  Future<UppushPushResponseApplicationJson> push({required final String token}) async {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -351,14 +349,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 201) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushPushResponse201ApplicationJson),
-      )! as UppushPushResponse201ApplicationJson;
+        specifiedType: const FullType(UppushPushResponseApplicationJson),
+      )! as UppushPushResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway discovery
-  Future<UppushGatewayMatrixDiscoveryResponse200ApplicationJson> gatewayMatrixDiscovery() async {
+  Future<UppushGatewayMatrixDiscoveryResponseApplicationJson> gatewayMatrixDiscovery() async {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -381,14 +379,14 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponse200ApplicationJson),
-      )! as UppushGatewayMatrixDiscoveryResponse200ApplicationJson;
+        specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
+      )! as UppushGatewayMatrixDiscoveryResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway
-  Future<UppushGatewayMatrixResponse200ApplicationJson> gatewayMatrix() async {
+  Future<UppushGatewayMatrixResponseApplicationJson> gatewayMatrix() async {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -411,516 +409,506 @@ class UppushClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixResponse200ApplicationJson),
-      )! as UppushGatewayMatrixResponse200ApplicationJson;
+        specifiedType: const FullType(UppushGatewayMatrixResponseApplicationJson),
+      )! as UppushGatewayMatrixResponseApplicationJson;
     }
     throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushCheckResponse200ApplicationJsonInterface {
+abstract interface class UppushCheckResponseApplicationJsonInterface {
   bool get success;
-  UppushCheckResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushCheckResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushCheckResponseApplicationJsonInterface rebuild(
+    final void Function(UppushCheckResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushCheckResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushCheckResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushCheckResponse200ApplicationJson
+abstract class UppushCheckResponseApplicationJson
     implements
-        UppushCheckResponse200ApplicationJsonInterface,
-        Built<UppushCheckResponse200ApplicationJson, UppushCheckResponse200ApplicationJsonBuilder> {
-  factory UppushCheckResponse200ApplicationJson([
-    final void Function(UppushCheckResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushCheckResponse200ApplicationJson;
+        UppushCheckResponseApplicationJsonInterface,
+        Built<UppushCheckResponseApplicationJson, UppushCheckResponseApplicationJsonBuilder> {
+  factory UppushCheckResponseApplicationJson([final void Function(UppushCheckResponseApplicationJsonBuilder)? b]) =
+      _$UppushCheckResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushCheckResponse200ApplicationJson._();
+  const UppushCheckResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushCheckResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushCheckResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushCheckResponse200ApplicationJson> get serializer =>
-      _$uppushCheckResponse200ApplicationJsonSerializer;
+  static Serializer<UppushCheckResponseApplicationJson> get serializer =>
+      _$uppushCheckResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushSetKeepaliveResponse200ApplicationJsonInterface {
+abstract interface class UppushSetKeepaliveResponseApplicationJsonInterface {
   bool get success;
-  UppushSetKeepaliveResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushSetKeepaliveResponseApplicationJsonInterface rebuild(
+    final void Function(UppushSetKeepaliveResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushSetKeepaliveResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushSetKeepaliveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushSetKeepaliveResponse200ApplicationJson
+abstract class UppushSetKeepaliveResponseApplicationJson
     implements
-        UppushSetKeepaliveResponse200ApplicationJsonInterface,
-        Built<UppushSetKeepaliveResponse200ApplicationJson, UppushSetKeepaliveResponse200ApplicationJsonBuilder> {
-  factory UppushSetKeepaliveResponse200ApplicationJson([
-    final void Function(UppushSetKeepaliveResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushSetKeepaliveResponse200ApplicationJson;
+        UppushSetKeepaliveResponseApplicationJsonInterface,
+        Built<UppushSetKeepaliveResponseApplicationJson, UppushSetKeepaliveResponseApplicationJsonBuilder> {
+  factory UppushSetKeepaliveResponseApplicationJson([
+    final void Function(UppushSetKeepaliveResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushSetKeepaliveResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushSetKeepaliveResponse200ApplicationJson._();
+  const UppushSetKeepaliveResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushSetKeepaliveResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushSetKeepaliveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushSetKeepaliveResponse200ApplicationJson> get serializer =>
-      _$uppushSetKeepaliveResponse200ApplicationJsonSerializer;
+  static Serializer<UppushSetKeepaliveResponseApplicationJson> get serializer =>
+      _$uppushSetKeepaliveResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushCreateDeviceResponse200ApplicationJsonInterface {
+abstract interface class UppushCreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
-  UppushCreateDeviceResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushCreateDeviceResponseApplicationJsonInterface rebuild(
+    final void Function(UppushCreateDeviceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushCreateDeviceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushCreateDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushCreateDeviceResponse200ApplicationJson
+abstract class UppushCreateDeviceResponseApplicationJson
     implements
-        UppushCreateDeviceResponse200ApplicationJsonInterface,
-        Built<UppushCreateDeviceResponse200ApplicationJson, UppushCreateDeviceResponse200ApplicationJsonBuilder> {
-  factory UppushCreateDeviceResponse200ApplicationJson([
-    final void Function(UppushCreateDeviceResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushCreateDeviceResponse200ApplicationJson;
+        UppushCreateDeviceResponseApplicationJsonInterface,
+        Built<UppushCreateDeviceResponseApplicationJson, UppushCreateDeviceResponseApplicationJsonBuilder> {
+  factory UppushCreateDeviceResponseApplicationJson([
+    final void Function(UppushCreateDeviceResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushCreateDeviceResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushCreateDeviceResponse200ApplicationJson._();
+  const UppushCreateDeviceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushCreateDeviceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushCreateDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushCreateDeviceResponse200ApplicationJson> get serializer =>
-      _$uppushCreateDeviceResponse200ApplicationJsonSerializer;
+  static Serializer<UppushCreateDeviceResponseApplicationJson> get serializer =>
+      _$uppushCreateDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushSyncDeviceResponse401ApplicationJsonInterface {
+abstract interface class UppushSyncDeviceResponseApplicationJsonInterface {
   bool get success;
-  UppushSyncDeviceResponse401ApplicationJsonInterface rebuild(
-    final void Function(UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder) updates,
+  UppushSyncDeviceResponseApplicationJsonInterface rebuild(
+    final void Function(UppushSyncDeviceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushSyncDeviceResponse401ApplicationJsonInterfaceBuilder toBuilder();
+  UppushSyncDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushSyncDeviceResponse401ApplicationJson
+abstract class UppushSyncDeviceResponseApplicationJson
     implements
-        UppushSyncDeviceResponse401ApplicationJsonInterface,
-        Built<UppushSyncDeviceResponse401ApplicationJson, UppushSyncDeviceResponse401ApplicationJsonBuilder> {
-  factory UppushSyncDeviceResponse401ApplicationJson([
-    final void Function(UppushSyncDeviceResponse401ApplicationJsonBuilder)? b,
-  ]) = _$UppushSyncDeviceResponse401ApplicationJson;
+        UppushSyncDeviceResponseApplicationJsonInterface,
+        Built<UppushSyncDeviceResponseApplicationJson, UppushSyncDeviceResponseApplicationJsonBuilder> {
+  factory UppushSyncDeviceResponseApplicationJson([
+    final void Function(UppushSyncDeviceResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushSyncDeviceResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushSyncDeviceResponse401ApplicationJson._();
+  const UppushSyncDeviceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushSyncDeviceResponse401ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushSyncDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushSyncDeviceResponse401ApplicationJson> get serializer =>
-      _$uppushSyncDeviceResponse401ApplicationJsonSerializer;
+  static Serializer<UppushSyncDeviceResponseApplicationJson> get serializer =>
+      _$uppushSyncDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushDeleteDeviceResponse200ApplicationJsonInterface {
+abstract interface class UppushDeleteDeviceResponseApplicationJsonInterface {
   bool get success;
-  UppushDeleteDeviceResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushDeleteDeviceResponseApplicationJsonInterface rebuild(
+    final void Function(UppushDeleteDeviceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushDeleteDeviceResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushDeleteDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushDeleteDeviceResponse200ApplicationJson
+abstract class UppushDeleteDeviceResponseApplicationJson
     implements
-        UppushDeleteDeviceResponse200ApplicationJsonInterface,
-        Built<UppushDeleteDeviceResponse200ApplicationJson, UppushDeleteDeviceResponse200ApplicationJsonBuilder> {
-  factory UppushDeleteDeviceResponse200ApplicationJson([
-    final void Function(UppushDeleteDeviceResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushDeleteDeviceResponse200ApplicationJson;
+        UppushDeleteDeviceResponseApplicationJsonInterface,
+        Built<UppushDeleteDeviceResponseApplicationJson, UppushDeleteDeviceResponseApplicationJsonBuilder> {
+  factory UppushDeleteDeviceResponseApplicationJson([
+    final void Function(UppushDeleteDeviceResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushDeleteDeviceResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushDeleteDeviceResponse200ApplicationJson._();
+  const UppushDeleteDeviceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushDeleteDeviceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushDeleteDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushDeleteDeviceResponse200ApplicationJson> get serializer =>
-      _$uppushDeleteDeviceResponse200ApplicationJsonSerializer;
+  static Serializer<UppushDeleteDeviceResponseApplicationJson> get serializer =>
+      _$uppushDeleteDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushCreateAppResponse200ApplicationJsonInterface {
+abstract interface class UppushCreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
-  UppushCreateAppResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushCreateAppResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushCreateAppResponseApplicationJsonInterface rebuild(
+    final void Function(UppushCreateAppResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushCreateAppResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushCreateAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushCreateAppResponse200ApplicationJson
+abstract class UppushCreateAppResponseApplicationJson
     implements
-        UppushCreateAppResponse200ApplicationJsonInterface,
-        Built<UppushCreateAppResponse200ApplicationJson, UppushCreateAppResponse200ApplicationJsonBuilder> {
-  factory UppushCreateAppResponse200ApplicationJson([
-    final void Function(UppushCreateAppResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushCreateAppResponse200ApplicationJson;
+        UppushCreateAppResponseApplicationJsonInterface,
+        Built<UppushCreateAppResponseApplicationJson, UppushCreateAppResponseApplicationJsonBuilder> {
+  factory UppushCreateAppResponseApplicationJson([
+    final void Function(UppushCreateAppResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushCreateAppResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushCreateAppResponse200ApplicationJson._();
+  const UppushCreateAppResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushCreateAppResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushCreateAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushCreateAppResponse200ApplicationJson> get serializer =>
-      _$uppushCreateAppResponse200ApplicationJsonSerializer;
+  static Serializer<UppushCreateAppResponseApplicationJson> get serializer =>
+      _$uppushCreateAppResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushDeleteAppResponse200ApplicationJsonInterface {
+abstract interface class UppushDeleteAppResponseApplicationJsonInterface {
   bool get success;
-  UppushDeleteAppResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushDeleteAppResponseApplicationJsonInterface rebuild(
+    final void Function(UppushDeleteAppResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushDeleteAppResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushDeleteAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushDeleteAppResponse200ApplicationJson
+abstract class UppushDeleteAppResponseApplicationJson
     implements
-        UppushDeleteAppResponse200ApplicationJsonInterface,
-        Built<UppushDeleteAppResponse200ApplicationJson, UppushDeleteAppResponse200ApplicationJsonBuilder> {
-  factory UppushDeleteAppResponse200ApplicationJson([
-    final void Function(UppushDeleteAppResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushDeleteAppResponse200ApplicationJson;
+        UppushDeleteAppResponseApplicationJsonInterface,
+        Built<UppushDeleteAppResponseApplicationJson, UppushDeleteAppResponseApplicationJsonBuilder> {
+  factory UppushDeleteAppResponseApplicationJson([
+    final void Function(UppushDeleteAppResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushDeleteAppResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushDeleteAppResponse200ApplicationJson._();
+  const UppushDeleteAppResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushDeleteAppResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushDeleteAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushDeleteAppResponse200ApplicationJson> get serializer =>
-      _$uppushDeleteAppResponse200ApplicationJsonSerializer;
+  static Serializer<UppushDeleteAppResponseApplicationJson> get serializer =>
+      _$uppushDeleteAppResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface {
+abstract interface class UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface rebuild(
-    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
+    final void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
   );
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
+  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
 }
 
-abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
+abstract class UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
     implements
-        UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushInterface,
-        Built<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
-            UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
-  factory UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush([
-    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)? b,
-  ]) = _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush;
+        UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface,
+        Built<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+            UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
+  factory UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush([
+    final void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
+  ]) = _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush;
 
   // coverage:ignore-start
-  const UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush._();
+  const UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
+  factory UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
-      _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
+  static Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
+      _$uppushUnifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface {
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
-  UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UppushUnifiedpushDiscoveryResponseApplicationJsonInterface {
+  UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+  UppushUnifiedpushDiscoveryResponseApplicationJsonInterface rebuild(
+    final void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushUnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson
+abstract class UppushUnifiedpushDiscoveryResponseApplicationJson
     implements
-        UppushUnifiedpushDiscoveryResponse200ApplicationJsonInterface,
-        Built<UppushUnifiedpushDiscoveryResponse200ApplicationJson,
-            UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder> {
-  factory UppushUnifiedpushDiscoveryResponse200ApplicationJson([
-    final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushUnifiedpushDiscoveryResponse200ApplicationJson;
+        UppushUnifiedpushDiscoveryResponseApplicationJsonInterface,
+        Built<UppushUnifiedpushDiscoveryResponseApplicationJson,
+            UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder> {
+  factory UppushUnifiedpushDiscoveryResponseApplicationJson([
+    final void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushUnifiedpushDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushUnifiedpushDiscoveryResponse200ApplicationJson._();
+  const UppushUnifiedpushDiscoveryResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushUnifiedpushDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson> get serializer =>
-      _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonSerializer;
+  static Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson> get serializer =>
+      _$uppushUnifiedpushDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushPushResponse201ApplicationJsonInterface {
+abstract interface class UppushPushResponseApplicationJsonInterface {
   bool get success;
-  UppushPushResponse201ApplicationJsonInterface rebuild(
-    final void Function(UppushPushResponse201ApplicationJsonInterfaceBuilder) updates,
+  UppushPushResponseApplicationJsonInterface rebuild(
+    final void Function(UppushPushResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushPushResponse201ApplicationJsonInterfaceBuilder toBuilder();
+  UppushPushResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushPushResponse201ApplicationJson
+abstract class UppushPushResponseApplicationJson
     implements
-        UppushPushResponse201ApplicationJsonInterface,
-        Built<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder> {
-  factory UppushPushResponse201ApplicationJson([final void Function(UppushPushResponse201ApplicationJsonBuilder)? b]) =
-      _$UppushPushResponse201ApplicationJson;
+        UppushPushResponseApplicationJsonInterface,
+        Built<UppushPushResponseApplicationJson, UppushPushResponseApplicationJsonBuilder> {
+  factory UppushPushResponseApplicationJson([final void Function(UppushPushResponseApplicationJsonBuilder)? b]) =
+      _$UppushPushResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushPushResponse201ApplicationJson._();
+  const UppushPushResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushPushResponse201ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushPushResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushPushResponse201ApplicationJson> get serializer =>
-      _$uppushPushResponse201ApplicationJsonSerializer;
+  static Serializer<UppushPushResponseApplicationJson> get serializer => _$uppushPushResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface {
+abstract interface class UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface rebuild(
-    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
+    final void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
   );
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
+  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
 }
 
-abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
+abstract class UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
     implements
-        UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushInterface,
-        Built<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
-            UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
-  factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush([
-    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)? b,
-  ]) = _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush;
+        UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface,
+        Built<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+            UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
+  factory UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush([
+    final void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
+  ]) = _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush;
 
   // coverage:ignore-start
-  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush._();
+  const UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
-      _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
+  static Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
+      _$uppushGatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface {
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UppushGatewayMatrixDiscoveryResponseApplicationJsonInterface {
+  UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+  UppushGatewayMatrixDiscoveryResponseApplicationJsonInterface rebuild(
+    final void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushGatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson
+abstract class UppushGatewayMatrixDiscoveryResponseApplicationJson
     implements
-        UppushGatewayMatrixDiscoveryResponse200ApplicationJsonInterface,
-        Built<UppushGatewayMatrixDiscoveryResponse200ApplicationJson,
-            UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder> {
-  factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson([
-    final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson;
+        UppushGatewayMatrixDiscoveryResponseApplicationJsonInterface,
+        Built<UppushGatewayMatrixDiscoveryResponseApplicationJson,
+            UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder> {
+  factory UppushGatewayMatrixDiscoveryResponseApplicationJson([
+    final void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushGatewayMatrixDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson._();
+  const UppushGatewayMatrixDiscoveryResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushGatewayMatrixDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson> get serializer =>
-      _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonSerializer;
+  static Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson> get serializer =>
+      _$uppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UppushGatewayMatrixResponse200ApplicationJsonInterface {
+abstract interface class UppushGatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
-  UppushGatewayMatrixResponse200ApplicationJsonInterface rebuild(
-    final void Function(UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder) updates,
+  UppushGatewayMatrixResponseApplicationJsonInterface rebuild(
+    final void Function(UppushGatewayMatrixResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UppushGatewayMatrixResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UppushGatewayMatrixResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UppushGatewayMatrixResponse200ApplicationJson
+abstract class UppushGatewayMatrixResponseApplicationJson
     implements
-        UppushGatewayMatrixResponse200ApplicationJsonInterface,
-        Built<UppushGatewayMatrixResponse200ApplicationJson, UppushGatewayMatrixResponse200ApplicationJsonBuilder> {
-  factory UppushGatewayMatrixResponse200ApplicationJson([
-    final void Function(UppushGatewayMatrixResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UppushGatewayMatrixResponse200ApplicationJson;
+        UppushGatewayMatrixResponseApplicationJsonInterface,
+        Built<UppushGatewayMatrixResponseApplicationJson, UppushGatewayMatrixResponseApplicationJsonBuilder> {
+  factory UppushGatewayMatrixResponseApplicationJson([
+    final void Function(UppushGatewayMatrixResponseApplicationJsonBuilder)? b,
+  ]) = _$UppushGatewayMatrixResponseApplicationJson;
 
   // coverage:ignore-start
-  const UppushGatewayMatrixResponse200ApplicationJson._();
+  const UppushGatewayMatrixResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UppushGatewayMatrixResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UppushGatewayMatrixResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UppushGatewayMatrixResponse200ApplicationJson> get serializer =>
-      _$uppushGatewayMatrixResponse200ApplicationJsonSerializer;
+  static Serializer<UppushGatewayMatrixResponseApplicationJson> get serializer =>
+      _$uppushGatewayMatrixResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(UppushCheckResponseApplicationJson), UppushCheckResponseApplicationJson.new)
+      ..add(UppushCheckResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushCheckResponse200ApplicationJson),
-        UppushCheckResponse200ApplicationJson.new,
+        const FullType(UppushSetKeepaliveResponseApplicationJson),
+        UppushSetKeepaliveResponseApplicationJson.new,
       )
-      ..add(UppushCheckResponse200ApplicationJson.serializer)
+      ..add(UppushSetKeepaliveResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushSetKeepaliveResponse200ApplicationJson),
-        UppushSetKeepaliveResponse200ApplicationJson.new,
+        const FullType(UppushCreateDeviceResponseApplicationJson),
+        UppushCreateDeviceResponseApplicationJson.new,
       )
-      ..add(UppushSetKeepaliveResponse200ApplicationJson.serializer)
+      ..add(UppushCreateDeviceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushCreateDeviceResponse200ApplicationJson),
-        UppushCreateDeviceResponse200ApplicationJson.new,
+        const FullType(UppushSyncDeviceResponseApplicationJson),
+        UppushSyncDeviceResponseApplicationJson.new,
       )
-      ..add(UppushCreateDeviceResponse200ApplicationJson.serializer)
+      ..add(UppushSyncDeviceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushSyncDeviceResponse401ApplicationJson),
-        UppushSyncDeviceResponse401ApplicationJson.new,
+        const FullType(UppushDeleteDeviceResponseApplicationJson),
+        UppushDeleteDeviceResponseApplicationJson.new,
       )
-      ..add(UppushSyncDeviceResponse401ApplicationJson.serializer)
+      ..add(UppushDeleteDeviceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushDeleteDeviceResponse200ApplicationJson),
-        UppushDeleteDeviceResponse200ApplicationJson.new,
+        const FullType(UppushCreateAppResponseApplicationJson),
+        UppushCreateAppResponseApplicationJson.new,
       )
-      ..add(UppushDeleteDeviceResponse200ApplicationJson.serializer)
+      ..add(UppushCreateAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushCreateAppResponse200ApplicationJson),
-        UppushCreateAppResponse200ApplicationJson.new,
+        const FullType(UppushDeleteAppResponseApplicationJson),
+        UppushDeleteAppResponseApplicationJson.new,
       )
-      ..add(UppushCreateAppResponse200ApplicationJson.serializer)
+      ..add(UppushDeleteAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushDeleteAppResponse200ApplicationJson),
-        UppushDeleteAppResponse200ApplicationJson.new,
+        const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
+        UppushUnifiedpushDiscoveryResponseApplicationJson.new,
       )
-      ..add(UppushDeleteAppResponse200ApplicationJson.serializer)
+      ..add(UppushUnifiedpushDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushUnifiedpushDiscoveryResponse200ApplicationJson),
-        UppushUnifiedpushDiscoveryResponse200ApplicationJson.new,
+        const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
+        UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.new,
       )
-      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson.serializer)
+      ..add(UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.serializer)
+      ..addBuilderFactory(const FullType(UppushPushResponseApplicationJson), UppushPushResponseApplicationJson.new)
+      ..add(UppushPushResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush),
-        UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.new,
+        const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
+        UppushGatewayMatrixDiscoveryResponseApplicationJson.new,
       )
-      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
+      ..add(UppushGatewayMatrixDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UppushPushResponse201ApplicationJson),
-        UppushPushResponse201ApplicationJson.new,
+        const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
+        UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.new,
       )
-      ..add(UppushPushResponse201ApplicationJson.serializer)
+      ..add(UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.serializer)
       ..addBuilderFactory(
-        const FullType(UppushGatewayMatrixDiscoveryResponse200ApplicationJson),
-        UppushGatewayMatrixDiscoveryResponse200ApplicationJson.new,
+        const FullType(UppushGatewayMatrixResponseApplicationJson),
+        UppushGatewayMatrixResponseApplicationJson.new,
       )
-      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush),
-        UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.new,
-      )
-      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
-      ..addBuilderFactory(
-        const FullType(UppushGatewayMatrixResponse200ApplicationJson),
-        UppushGatewayMatrixResponse200ApplicationJson.new,
-      )
-      ..add(UppushGatewayMatrixResponse200ApplicationJson.serializer)
+      ..add(UppushGatewayMatrixResponseApplicationJson.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 

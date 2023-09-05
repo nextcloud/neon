@@ -77,7 +77,7 @@ class DavDirectClient {
   final DavClient _rootClient;
 
   /// Get a direct link to a file
-  Future<DavDirectGetUrlResponse200ApplicationJson> getUrl({
+  Future<DavDirectGetUrlResponseApplicationJson> getUrl({
     required final int fileId,
     final int? expirationTime,
     final String oCSAPIRequest = 'true',
@@ -115,8 +115,8 @@ class DavDirectClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(DavDirectGetUrlResponse200ApplicationJson),
-      )! as DavDirectGetUrlResponse200ApplicationJson;
+        specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson),
+      )! as DavDirectGetUrlResponseApplicationJson;
     }
     throw await DavApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -151,104 +151,103 @@ abstract class DavOCSMeta implements DavOCSMetaInterface, Built<DavOCSMeta, DavO
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponse200ApplicationJson_Ocs_Data
+abstract class DavDirectGetUrlResponseApplicationJson_Ocs_Data
     implements
-        DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterface,
-        Built<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data,
-            DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory DavDirectGetUrlResponse200ApplicationJson_Ocs_Data([
-    final void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data;
+        DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface,
+        Built<DavDirectGetUrlResponseApplicationJson_Ocs_Data, DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
+  factory DavDirectGetUrlResponseApplicationJson_Ocs_Data([
+    final void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DavDirectGetUrlResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponse200ApplicationJson_Ocs_Data._();
+  const DavDirectGetUrlResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DavDirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$davDirectGetUrlResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
+      _$davDirectGetUrlResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponse200ApplicationJson_OcsInterface {
+abstract interface class DavDirectGetUrlResponseApplicationJson_OcsInterface {
   DavOCSMeta get meta;
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_Data get data;
-  DavDirectGetUrlResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  DavDirectGetUrlResponseApplicationJson_Ocs_Data get data;
+  DavDirectGetUrlResponseApplicationJson_OcsInterface rebuild(
+    final void Function(DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponse200ApplicationJson_Ocs
+abstract class DavDirectGetUrlResponseApplicationJson_Ocs
     implements
-        DavDirectGetUrlResponse200ApplicationJson_OcsInterface,
-        Built<DavDirectGetUrlResponse200ApplicationJson_Ocs, DavDirectGetUrlResponse200ApplicationJson_OcsBuilder> {
-  factory DavDirectGetUrlResponse200ApplicationJson_Ocs([
-    final void Function(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$DavDirectGetUrlResponse200ApplicationJson_Ocs;
+        DavDirectGetUrlResponseApplicationJson_OcsInterface,
+        Built<DavDirectGetUrlResponseApplicationJson_Ocs, DavDirectGetUrlResponseApplicationJson_OcsBuilder> {
+  factory DavDirectGetUrlResponseApplicationJson_Ocs([
+    final void Function(DavDirectGetUrlResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DavDirectGetUrlResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponse200ApplicationJson_Ocs._();
+  const DavDirectGetUrlResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DavDirectGetUrlResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<DavDirectGetUrlResponse200ApplicationJson_Ocs> get serializer =>
-      _$davDirectGetUrlResponse200ApplicationJsonOcsSerializer;
+  static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs> get serializer =>
+      _$davDirectGetUrlResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponse200ApplicationJsonInterface {
-  DavDirectGetUrlResponse200ApplicationJson_Ocs get ocs;
-  DavDirectGetUrlResponse200ApplicationJsonInterface rebuild(
-    final void Function(DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class DavDirectGetUrlResponseApplicationJsonInterface {
+  DavDirectGetUrlResponseApplicationJson_Ocs get ocs;
+  DavDirectGetUrlResponseApplicationJsonInterface rebuild(
+    final void Function(DavDirectGetUrlResponseApplicationJsonInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  DavDirectGetUrlResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponse200ApplicationJson
+abstract class DavDirectGetUrlResponseApplicationJson
     implements
-        DavDirectGetUrlResponse200ApplicationJsonInterface,
-        Built<DavDirectGetUrlResponse200ApplicationJson, DavDirectGetUrlResponse200ApplicationJsonBuilder> {
-  factory DavDirectGetUrlResponse200ApplicationJson([
-    final void Function(DavDirectGetUrlResponse200ApplicationJsonBuilder)? b,
-  ]) = _$DavDirectGetUrlResponse200ApplicationJson;
+        DavDirectGetUrlResponseApplicationJsonInterface,
+        Built<DavDirectGetUrlResponseApplicationJson, DavDirectGetUrlResponseApplicationJsonBuilder> {
+  factory DavDirectGetUrlResponseApplicationJson([
+    final void Function(DavDirectGetUrlResponseApplicationJsonBuilder)? b,
+  ]) = _$DavDirectGetUrlResponseApplicationJson;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponse200ApplicationJson._();
+  const DavDirectGetUrlResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DavDirectGetUrlResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<DavDirectGetUrlResponse200ApplicationJson> get serializer =>
-      _$davDirectGetUrlResponse200ApplicationJsonSerializer;
+  static Serializer<DavDirectGetUrlResponseApplicationJson> get serializer =>
+      _$davDirectGetUrlResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -306,22 +305,22 @@ abstract class DavCapabilities implements DavCapabilitiesInterface, Built<DavCap
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponse200ApplicationJson),
-        DavDirectGetUrlResponse200ApplicationJson.new,
+        const FullType(DavDirectGetUrlResponseApplicationJson),
+        DavDirectGetUrlResponseApplicationJson.new,
       )
-      ..add(DavDirectGetUrlResponse200ApplicationJson.serializer)
+      ..add(DavDirectGetUrlResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs),
-        DavDirectGetUrlResponse200ApplicationJson_Ocs.new,
+        const FullType(DavDirectGetUrlResponseApplicationJson_Ocs),
+        DavDirectGetUrlResponseApplicationJson_Ocs.new,
       )
-      ..add(DavDirectGetUrlResponse200ApplicationJson_Ocs.serializer)
+      ..add(DavDirectGetUrlResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(DavOCSMeta), DavOCSMeta.new)
       ..add(DavOCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs_Data),
-        DavDirectGetUrlResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(DavDirectGetUrlResponseApplicationJson_Ocs_Data),
+        DavDirectGetUrlResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(DavDirectGetUrlResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(DavDirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilities.new)
       ..add(DavCapabilities.serializer)
       ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_Dav.new)

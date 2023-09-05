@@ -272,7 +272,7 @@ class ThemingThemingClient {
   }
 
   /// Get the manifest for an app
-  Future<ThemingThemingGetManifestResponse200ApplicationJson> getManifest({required final String app}) async {
+  Future<ThemingThemingGetManifestResponseApplicationJson> getManifest({required final String app}) async {
     var path = '/index.php/apps/theming/manifest/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -300,8 +300,8 @@ class ThemingThemingClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(ThemingThemingGetManifestResponse200ApplicationJson),
-      )! as ThemingThemingGetManifestResponse200ApplicationJson;
+        specifiedType: const FullType(ThemingThemingGetManifestResponseApplicationJson),
+      )! as ThemingThemingGetManifestResponseApplicationJson;
     }
     throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -429,7 +429,7 @@ class ThemingUserThemeClient {
   }
 
   /// Enable theme
-  Future<ThemingUserThemeEnableThemeResponse200ApplicationJson> enableTheme({
+  Future<ThemingUserThemeEnableThemeResponseApplicationJson> enableTheme({
     required final String themeId,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -463,14 +463,14 @@ class ThemingUserThemeClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(ThemingUserThemeEnableThemeResponse200ApplicationJson),
-      )! as ThemingUserThemeEnableThemeResponse200ApplicationJson;
+        specifiedType: const FullType(ThemingUserThemeEnableThemeResponseApplicationJson),
+      )! as ThemingUserThemeEnableThemeResponseApplicationJson;
     }
     throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable theme
-  Future<ThemingUserThemeDisableThemeResponse200ApplicationJson> disableTheme({
+  Future<ThemingUserThemeDisableThemeResponseApplicationJson> disableTheme({
     required final String themeId,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -504,51 +504,51 @@ class ThemingUserThemeClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(ThemingUserThemeDisableThemeResponse200ApplicationJson),
-      )! as ThemingUserThemeDisableThemeResponse200ApplicationJson;
+        specifiedType: const FullType(ThemingUserThemeDisableThemeResponseApplicationJson),
+      )! as ThemingUserThemeDisableThemeResponseApplicationJson;
     }
     throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface {
+abstract interface class ThemingThemingGetManifestResponseApplicationJson_IconsInterface {
   String get src;
   String get type;
   String get sizes;
-  ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface rebuild(
-    final void Function(ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder) updates,
+  ThemingThemingGetManifestResponseApplicationJson_IconsInterface rebuild(
+    final void Function(ThemingThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder) updates,
   );
-  ThemingThemingGetManifestResponse200ApplicationJson_IconsInterfaceBuilder toBuilder();
+  ThemingThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingThemingGetManifestResponse200ApplicationJson_Icons
+abstract class ThemingThemingGetManifestResponseApplicationJson_Icons
     implements
-        ThemingThemingGetManifestResponse200ApplicationJson_IconsInterface,
-        Built<ThemingThemingGetManifestResponse200ApplicationJson_Icons,
-            ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder> {
-  factory ThemingThemingGetManifestResponse200ApplicationJson_Icons([
-    final void Function(ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder)? b,
-  ]) = _$ThemingThemingGetManifestResponse200ApplicationJson_Icons;
+        ThemingThemingGetManifestResponseApplicationJson_IconsInterface,
+        Built<ThemingThemingGetManifestResponseApplicationJson_Icons,
+            ThemingThemingGetManifestResponseApplicationJson_IconsBuilder> {
+  factory ThemingThemingGetManifestResponseApplicationJson_Icons([
+    final void Function(ThemingThemingGetManifestResponseApplicationJson_IconsBuilder)? b,
+  ]) = _$ThemingThemingGetManifestResponseApplicationJson_Icons;
 
   // coverage:ignore-start
-  const ThemingThemingGetManifestResponse200ApplicationJson_Icons._();
+  const ThemingThemingGetManifestResponseApplicationJson_Icons._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingThemingGetManifestResponse200ApplicationJson_Icons.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingThemingGetManifestResponseApplicationJson_Icons.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get serializer =>
-      _$themingThemingGetManifestResponse200ApplicationJsonIconsSerializer;
+  static Serializer<ThemingThemingGetManifestResponseApplicationJson_Icons> get serializer =>
+      _$themingThemingGetManifestResponseApplicationJsonIconsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingThemingGetManifestResponse200ApplicationJsonInterface {
+abstract interface class ThemingThemingGetManifestResponseApplicationJsonInterface {
   String get name;
   @BuiltValueField(wireName: 'short_name')
   String get shortName;
@@ -559,37 +559,37 @@ abstract interface class ThemingThemingGetManifestResponse200ApplicationJsonInte
   @BuiltValueField(wireName: 'background_color')
   String get backgroundColor;
   String get description;
-  BuiltList<ThemingThemingGetManifestResponse200ApplicationJson_Icons> get icons;
+  BuiltList<ThemingThemingGetManifestResponseApplicationJson_Icons> get icons;
   String get display;
-  ThemingThemingGetManifestResponse200ApplicationJsonInterface rebuild(
-    final void Function(ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder) updates,
+  ThemingThemingGetManifestResponseApplicationJsonInterface rebuild(
+    final void Function(ThemingThemingGetManifestResponseApplicationJsonInterfaceBuilder) updates,
   );
-  ThemingThemingGetManifestResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  ThemingThemingGetManifestResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingThemingGetManifestResponse200ApplicationJson
+abstract class ThemingThemingGetManifestResponseApplicationJson
     implements
-        ThemingThemingGetManifestResponse200ApplicationJsonInterface,
-        Built<ThemingThemingGetManifestResponse200ApplicationJson,
-            ThemingThemingGetManifestResponse200ApplicationJsonBuilder> {
-  factory ThemingThemingGetManifestResponse200ApplicationJson([
-    final void Function(ThemingThemingGetManifestResponse200ApplicationJsonBuilder)? b,
-  ]) = _$ThemingThemingGetManifestResponse200ApplicationJson;
+        ThemingThemingGetManifestResponseApplicationJsonInterface,
+        Built<ThemingThemingGetManifestResponseApplicationJson,
+            ThemingThemingGetManifestResponseApplicationJsonBuilder> {
+  factory ThemingThemingGetManifestResponseApplicationJson([
+    final void Function(ThemingThemingGetManifestResponseApplicationJsonBuilder)? b,
+  ]) = _$ThemingThemingGetManifestResponseApplicationJson;
 
   // coverage:ignore-start
-  const ThemingThemingGetManifestResponse200ApplicationJson._();
+  const ThemingThemingGetManifestResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingThemingGetManifestResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingThemingGetManifestResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingThemingGetManifestResponse200ApplicationJson> get serializer =>
-      _$themingThemingGetManifestResponse200ApplicationJsonSerializer;
+  static Serializer<ThemingThemingGetManifestResponseApplicationJson> get serializer =>
+      _$themingThemingGetManifestResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -650,141 +650,141 @@ abstract class ThemingOCSMeta implements ThemingOCSMetaInterface, Built<ThemingO
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface {
+abstract interface class ThemingUserThemeEnableThemeResponseApplicationJson_OcsInterface {
   ThemingOCSMeta get meta;
   JsonObject get data;
-  ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  ThemingUserThemeEnableThemeResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ThemingUserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  ThemingUserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
+abstract class ThemingUserThemeEnableThemeResponseApplicationJson_Ocs
     implements
-        ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsInterface,
-        Built<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs,
-            ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder> {
-  factory ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs([
-    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs;
+        ThemingUserThemeEnableThemeResponseApplicationJson_OcsInterface,
+        Built<ThemingUserThemeEnableThemeResponseApplicationJson_Ocs,
+            ThemingUserThemeEnableThemeResponseApplicationJson_OcsBuilder> {
+  factory ThemingUserThemeEnableThemeResponseApplicationJson_Ocs([
+    final void Function(ThemingUserThemeEnableThemeResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ThemingUserThemeEnableThemeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs._();
+  const ThemingUserThemeEnableThemeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingUserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs> get serializer =>
-      _$themingUserThemeEnableThemeResponse200ApplicationJsonOcsSerializer;
+  static Serializer<ThemingUserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
+      _$themingUserThemeEnableThemeResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface {
-  ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs get ocs;
-  ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface rebuild(
-    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class ThemingUserThemeEnableThemeResponseApplicationJsonInterface {
+  ThemingUserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
+  ThemingUserThemeEnableThemeResponseApplicationJsonInterface rebuild(
+    final void Function(ThemingUserThemeEnableThemeResponseApplicationJsonInterfaceBuilder) updates,
   );
-  ThemingUserThemeEnableThemeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  ThemingUserThemeEnableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson
+abstract class ThemingUserThemeEnableThemeResponseApplicationJson
     implements
-        ThemingUserThemeEnableThemeResponse200ApplicationJsonInterface,
-        Built<ThemingUserThemeEnableThemeResponse200ApplicationJson,
-            ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder> {
-  factory ThemingUserThemeEnableThemeResponse200ApplicationJson([
-    final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder)? b,
-  ]) = _$ThemingUserThemeEnableThemeResponse200ApplicationJson;
+        ThemingUserThemeEnableThemeResponseApplicationJsonInterface,
+        Built<ThemingUserThemeEnableThemeResponseApplicationJson,
+            ThemingUserThemeEnableThemeResponseApplicationJsonBuilder> {
+  factory ThemingUserThemeEnableThemeResponseApplicationJson([
+    final void Function(ThemingUserThemeEnableThemeResponseApplicationJsonBuilder)? b,
+  ]) = _$ThemingUserThemeEnableThemeResponseApplicationJson;
 
   // coverage:ignore-start
-  const ThemingUserThemeEnableThemeResponse200ApplicationJson._();
+  const ThemingUserThemeEnableThemeResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingUserThemeEnableThemeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingUserThemeEnableThemeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson> get serializer =>
-      _$themingUserThemeEnableThemeResponse200ApplicationJsonSerializer;
+  static Serializer<ThemingUserThemeEnableThemeResponseApplicationJson> get serializer =>
+      _$themingUserThemeEnableThemeResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface {
+abstract interface class ThemingUserThemeDisableThemeResponseApplicationJson_OcsInterface {
   ThemingOCSMeta get meta;
   JsonObject get data;
-  ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  ThemingUserThemeDisableThemeResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ThemingUserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  ThemingUserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
+abstract class ThemingUserThemeDisableThemeResponseApplicationJson_Ocs
     implements
-        ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsInterface,
-        Built<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs,
-            ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder> {
-  factory ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs([
-    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs;
+        ThemingUserThemeDisableThemeResponseApplicationJson_OcsInterface,
+        Built<ThemingUserThemeDisableThemeResponseApplicationJson_Ocs,
+            ThemingUserThemeDisableThemeResponseApplicationJson_OcsBuilder> {
+  factory ThemingUserThemeDisableThemeResponseApplicationJson_Ocs([
+    final void Function(ThemingUserThemeDisableThemeResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ThemingUserThemeDisableThemeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs._();
+  const ThemingUserThemeDisableThemeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingUserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs> get serializer =>
-      _$themingUserThemeDisableThemeResponse200ApplicationJsonOcsSerializer;
+  static Serializer<ThemingUserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
+      _$themingUserThemeDisableThemeResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface {
-  ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs get ocs;
-  ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface rebuild(
-    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class ThemingUserThemeDisableThemeResponseApplicationJsonInterface {
+  ThemingUserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
+  ThemingUserThemeDisableThemeResponseApplicationJsonInterface rebuild(
+    final void Function(ThemingUserThemeDisableThemeResponseApplicationJsonInterfaceBuilder) updates,
   );
-  ThemingUserThemeDisableThemeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  ThemingUserThemeDisableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson
+abstract class ThemingUserThemeDisableThemeResponseApplicationJson
     implements
-        ThemingUserThemeDisableThemeResponse200ApplicationJsonInterface,
-        Built<ThemingUserThemeDisableThemeResponse200ApplicationJson,
-            ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder> {
-  factory ThemingUserThemeDisableThemeResponse200ApplicationJson([
-    final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder)? b,
-  ]) = _$ThemingUserThemeDisableThemeResponse200ApplicationJson;
+        ThemingUserThemeDisableThemeResponseApplicationJsonInterface,
+        Built<ThemingUserThemeDisableThemeResponseApplicationJson,
+            ThemingUserThemeDisableThemeResponseApplicationJsonBuilder> {
+  factory ThemingUserThemeDisableThemeResponseApplicationJson([
+    final void Function(ThemingUserThemeDisableThemeResponseApplicationJsonBuilder)? b,
+  ]) = _$ThemingUserThemeDisableThemeResponseApplicationJson;
 
   // coverage:ignore-start
-  const ThemingUserThemeDisableThemeResponse200ApplicationJson._();
+  const ThemingUserThemeDisableThemeResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingUserThemeDisableThemeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingUserThemeDisableThemeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson> get serializer =>
-      _$themingUserThemeDisableThemeResponse200ApplicationJsonSerializer;
+  static Serializer<ThemingUserThemeDisableThemeResponseApplicationJson> get serializer =>
+      _$themingUserThemeDisableThemeResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -867,43 +867,43 @@ abstract class ThemingPublicCapabilities
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(ThemingThemingGetManifestResponse200ApplicationJson),
-        ThemingThemingGetManifestResponse200ApplicationJson.new,
+        const FullType(ThemingThemingGetManifestResponseApplicationJson),
+        ThemingThemingGetManifestResponseApplicationJson.new,
       )
-      ..add(ThemingThemingGetManifestResponse200ApplicationJson.serializer)
+      ..add(ThemingThemingGetManifestResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(ThemingThemingGetManifestResponse200ApplicationJson_Icons),
-        ThemingThemingGetManifestResponse200ApplicationJson_Icons.new,
+        const FullType(ThemingThemingGetManifestResponseApplicationJson_Icons),
+        ThemingThemingGetManifestResponseApplicationJson_Icons.new,
       )
-      ..add(ThemingThemingGetManifestResponse200ApplicationJson_Icons.serializer)
+      ..add(ThemingThemingGetManifestResponseApplicationJson_Icons.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ThemingThemingGetManifestResponse200ApplicationJson_Icons)]),
-        ListBuilder<ThemingThemingGetManifestResponse200ApplicationJson_Icons>.new,
+        const FullType(BuiltList, [FullType(ThemingThemingGetManifestResponseApplicationJson_Icons)]),
+        ListBuilder<ThemingThemingGetManifestResponseApplicationJson_Icons>.new,
       )
       ..addBuilderFactory(const FullType(ThemingBackground), ThemingBackground.new)
       ..add(ThemingBackground.serializer)
       ..addBuilderFactory(
-        const FullType(ThemingUserThemeEnableThemeResponse200ApplicationJson),
-        ThemingUserThemeEnableThemeResponse200ApplicationJson.new,
+        const FullType(ThemingUserThemeEnableThemeResponseApplicationJson),
+        ThemingUserThemeEnableThemeResponseApplicationJson.new,
       )
-      ..add(ThemingUserThemeEnableThemeResponse200ApplicationJson.serializer)
+      ..add(ThemingUserThemeEnableThemeResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs),
-        ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs.new,
+        const FullType(ThemingUserThemeEnableThemeResponseApplicationJson_Ocs),
+        ThemingUserThemeEnableThemeResponseApplicationJson_Ocs.new,
       )
-      ..add(ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs.serializer)
+      ..add(ThemingUserThemeEnableThemeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ThemingOCSMeta), ThemingOCSMeta.new)
       ..add(ThemingOCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(ThemingUserThemeDisableThemeResponse200ApplicationJson),
-        ThemingUserThemeDisableThemeResponse200ApplicationJson.new,
+        const FullType(ThemingUserThemeDisableThemeResponseApplicationJson),
+        ThemingUserThemeDisableThemeResponseApplicationJson.new,
       )
-      ..add(ThemingUserThemeDisableThemeResponse200ApplicationJson.serializer)
+      ..add(ThemingUserThemeDisableThemeResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs),
-        ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs.new,
+        const FullType(ThemingUserThemeDisableThemeResponseApplicationJson_Ocs),
+        ThemingUserThemeDisableThemeResponseApplicationJson_Ocs.new,
       )
-      ..add(ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs.serializer)
+      ..add(ThemingUserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilities.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities_Theming), ThemingPublicCapabilities_Theming.new)

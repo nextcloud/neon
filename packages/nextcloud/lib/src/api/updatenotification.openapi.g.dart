@@ -27,15 +27,15 @@ Serializer<UpdatenotificationApiGetAppListApiVersion> _$updatenotificationApiGet
     _$UpdatenotificationApiGetAppListApiVersionSerializer();
 Serializer<UpdatenotificationOCSMeta> _$updatenotificationOCSMetaSerializer = _$UpdatenotificationOCSMetaSerializer();
 Serializer<UpdatenotificationApp> _$updatenotificationAppSerializer = _$UpdatenotificationAppSerializer();
-Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data>
-    _$updatenotificationApiGetAppListResponse200ApplicationJsonOcsDataSerializer =
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs>
-    _$updatenotificationApiGetAppListResponse200ApplicationJsonOcsSerializer =
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsSerializer();
-Serializer<UpdatenotificationApiGetAppListResponse200ApplicationJson>
-    _$updatenotificationApiGetAppListResponse200ApplicationJsonSerializer =
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJsonSerializer();
+Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data>
+    _$updatenotificationApiGetAppListResponseApplicationJsonOcsDataSerializer =
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataSerializer();
+Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs>
+    _$updatenotificationApiGetAppListResponseApplicationJsonOcsSerializer =
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_OcsSerializer();
+Serializer<UpdatenotificationApiGetAppListResponseApplicationJson>
+    _$updatenotificationApiGetAppListResponseApplicationJsonSerializer =
+    _$UpdatenotificationApiGetAppListResponseApplicationJsonSerializer();
 
 class _$UpdatenotificationApiGetAppListApiVersionSerializer
     implements PrimitiveSerializer<UpdatenotificationApiGetAppListApiVersion> {
@@ -168,19 +168,19 @@ class _$UpdatenotificationAppSerializer implements StructuredSerializer<Updateno
   }
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data> {
+class _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data,
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
+    UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data,
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'missing',
@@ -195,10 +195,10 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataSerial
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data deserialize(
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -221,36 +221,36 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataSerial
   }
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs> {
+class _$UpdatenotificationApiGetAppListResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs,
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
+    UpdatenotificationApiGetAppListResponseApplicationJson_Ocs,
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs';
+  final String wireName = 'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs object,
+      Serializers serializers, UpdatenotificationApiGetAppListResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(UpdatenotificationOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs deserialize(
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder();
+    final result = UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -264,8 +264,8 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data))!
-              as UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data))!
+              as UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -274,33 +274,33 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<UpdatenotificationApiGetAppListResponse200ApplicationJson> {
+class _$UpdatenotificationApiGetAppListResponseApplicationJsonSerializer
+    implements StructuredSerializer<UpdatenotificationApiGetAppListResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    UpdatenotificationApiGetAppListResponse200ApplicationJson,
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson
+    UpdatenotificationApiGetAppListResponseApplicationJson,
+    _$UpdatenotificationApiGetAppListResponseApplicationJson
   ];
   @override
-  final String wireName = 'UpdatenotificationApiGetAppListResponse200ApplicationJson';
+  final String wireName = 'UpdatenotificationApiGetAppListResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UpdatenotificationApiGetAppListResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, UpdatenotificationApiGetAppListResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson deserialize(
+  UpdatenotificationApiGetAppListResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder();
+    final result = UpdatenotificationApiGetAppListResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -310,8 +310,8 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs))!
-              as UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs))!
+              as UpdatenotificationApiGetAppListResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -574,10 +574,9 @@ class UpdatenotificationAppBuilder
   }
 }
 
-abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(
-      void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   ListBuilder<UpdatenotificationApp> get missing;
   set missing(ListBuilder<UpdatenotificationApp>? missing);
 
@@ -585,39 +584,38 @@ abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJson_O
   set available(ListBuilder<UpdatenotificationApp>? available);
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
-    extends UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data {
+class _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data
+    extends UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data {
   @override
   final BuiltList<UpdatenotificationApp> missing;
   @override
   final BuiltList<UpdatenotificationApp> available;
 
-  factory _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data(
-          [void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data(
+          [void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data._(
-      {required this.missing, required this.available})
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data._({required this.missing, required this.available})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        missing, r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data', 'missing');
+        missing, r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data', 'missing');
     BuiltValueNullFieldError.checkNotNull(
-        available, r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data', 'available');
+        available, r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data', 'available');
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data rebuild(
+          void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data &&
+    return other is UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data &&
         missing == other.missing &&
         available == other.available;
   }
@@ -633,19 +631,19 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data')
           ..add('missing', missing)
           ..add('available', available))
         .toString();
   }
 }
 
-class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
+class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data,
-            UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder>,
-        UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data,
+            UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder>,
+        UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<UpdatenotificationApp>? _missing;
   ListBuilder<UpdatenotificationApp> get missing => _$this._missing ??= ListBuilder<UpdatenotificationApp>();
@@ -655,9 +653,9 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
   ListBuilder<UpdatenotificationApp> get available => _$this._available ??= ListBuilder<UpdatenotificationApp>();
   set available(covariant ListBuilder<UpdatenotificationApp>? available) => _$this._available = available;
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder();
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder();
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _missing = $v.missing.toBuilder();
@@ -668,24 +666,24 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data build() => _build();
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data _build() {
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data _$result;
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data _build() {
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data._(
+          _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data._(
               missing: missing.build(), available: available.build());
     } catch (_) {
       late String _$failedField;
@@ -696,7 +694,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
         available.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -705,48 +703,45 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterface other);
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterfaceBuilder) updates);
   UpdatenotificationOCSMetaBuilder get meta;
   set meta(UpdatenotificationOCSMetaBuilder? meta);
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? data);
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
-    extends UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs {
+class _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs
+    extends UpdatenotificationApiGetAppListResponseApplicationJson_Ocs {
   @override
   final UpdatenotificationOCSMeta meta;
   @override
-  final UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_Data data;
+  final UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data data;
 
-  factory _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs(
-          [void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs(
+          [void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder)? updates]) =>
+      (UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs', 'data');
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs rebuild(
-          void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder) updates) =>
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs rebuild(
+          void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder()..replace(this);
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder toBuilder() =>
+      UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs &&
+    return other is UpdatenotificationApiGetAppListResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -762,33 +757,33 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
+class UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder
     implements
-        Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs,
-            UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder>,
-        UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs? _$v;
+        Builder<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs,
+            UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder>,
+        UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterfaceBuilder {
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs? _$v;
 
   UpdatenotificationOCSMetaBuilder? _meta;
   UpdatenotificationOCSMetaBuilder get meta => _$this._meta ??= UpdatenotificationOCSMetaBuilder();
   set meta(covariant UpdatenotificationOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder? _data;
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder();
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder();
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder get _$this {
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -799,24 +794,24 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs;
+    _$v = other as _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs build() => _build();
+  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs build() => _build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs _build() {
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs _$result;
+  _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs _build() {
+    _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -826,7 +821,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'UpdatenotificationApiGetAppListResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -835,39 +830,39 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder {
-  void replace(UpdatenotificationApiGetAppListResponse200ApplicationJsonInterface other);
-  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder) updates);
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class UpdatenotificationApiGetAppListResponseApplicationJsonInterfaceBuilder {
+  void replace(UpdatenotificationApiGetAppListResponseApplicationJsonInterface other);
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJsonInterfaceBuilder) updates);
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$UpdatenotificationApiGetAppListResponse200ApplicationJson
-    extends UpdatenotificationApiGetAppListResponse200ApplicationJson {
+class _$UpdatenotificationApiGetAppListResponseApplicationJson
+    extends UpdatenotificationApiGetAppListResponseApplicationJson {
   @override
-  final UpdatenotificationApiGetAppListResponse200ApplicationJson_Ocs ocs;
+  final UpdatenotificationApiGetAppListResponseApplicationJson_Ocs ocs;
 
-  factory _$UpdatenotificationApiGetAppListResponse200ApplicationJson(
-          [void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder)? updates]) =>
-      (UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$UpdatenotificationApiGetAppListResponseApplicationJson(
+          [void Function(UpdatenotificationApiGetAppListResponseApplicationJsonBuilder)? updates]) =>
+      (UpdatenotificationApiGetAppListResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UpdatenotificationApiGetAppListResponse200ApplicationJson', 'ocs');
+  _$UpdatenotificationApiGetAppListResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UpdatenotificationApiGetAppListResponseApplicationJson', 'ocs');
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson rebuild(
-          void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder) updates) =>
+  UpdatenotificationApiGetAppListResponseApplicationJson rebuild(
+          void Function(UpdatenotificationApiGetAppListResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder toBuilder() =>
-      UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder()..replace(this);
+  UpdatenotificationApiGetAppListResponseApplicationJsonBuilder toBuilder() =>
+      UpdatenotificationApiGetAppListResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UpdatenotificationApiGetAppListResponse200ApplicationJson && ocs == other.ocs;
+    return other is UpdatenotificationApiGetAppListResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -880,26 +875,26 @@ class _$UpdatenotificationApiGetAppListResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'UpdatenotificationApiGetAppListResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder
+class UpdatenotificationApiGetAppListResponseApplicationJsonBuilder
     implements
-        Builder<UpdatenotificationApiGetAppListResponse200ApplicationJson,
-            UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder>,
-        UpdatenotificationApiGetAppListResponse200ApplicationJsonInterfaceBuilder {
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson? _$v;
+        Builder<UpdatenotificationApiGetAppListResponseApplicationJson,
+            UpdatenotificationApiGetAppListResponseApplicationJsonBuilder>,
+        UpdatenotificationApiGetAppListResponseApplicationJsonInterfaceBuilder {
+  _$UpdatenotificationApiGetAppListResponseApplicationJson? _$v;
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? _ocs;
-  UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder? _ocs;
+  UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder();
+  set ocs(covariant UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder();
+  UpdatenotificationApiGetAppListResponseApplicationJsonBuilder();
 
-  UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder get _$this {
+  UpdatenotificationApiGetAppListResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -909,23 +904,23 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UpdatenotificationApiGetAppListResponse200ApplicationJson other) {
+  void replace(covariant UpdatenotificationApiGetAppListResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UpdatenotificationApiGetAppListResponse200ApplicationJson;
+    _$v = other as _$UpdatenotificationApiGetAppListResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(UpdatenotificationApiGetAppListResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UpdatenotificationApiGetAppListResponse200ApplicationJson build() => _build();
+  UpdatenotificationApiGetAppListResponseApplicationJson build() => _build();
 
-  _$UpdatenotificationApiGetAppListResponse200ApplicationJson _build() {
-    _$UpdatenotificationApiGetAppListResponse200ApplicationJson _$result;
+  _$UpdatenotificationApiGetAppListResponseApplicationJson _build() {
+    _$UpdatenotificationApiGetAppListResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UpdatenotificationApiGetAppListResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$UpdatenotificationApiGetAppListResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -933,7 +928,7 @@ class UpdatenotificationApiGetAppListResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UpdatenotificationApiGetAppListResponse200ApplicationJson', _$failedField, e.toString());
+            r'UpdatenotificationApiGetAppListResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

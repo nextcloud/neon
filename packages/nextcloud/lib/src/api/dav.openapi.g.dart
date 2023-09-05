@@ -7,13 +7,12 @@ part of 'dav.openapi.dart';
 // **************************************************************************
 
 Serializer<DavOCSMeta> _$davOCSMetaSerializer = _$DavOCSMetaSerializer();
-Serializer<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data>
-    _$davDirectGetUrlResponse200ApplicationJsonOcsDataSerializer =
-    _$DavDirectGetUrlResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<DavDirectGetUrlResponse200ApplicationJson_Ocs> _$davDirectGetUrlResponse200ApplicationJsonOcsSerializer =
-    _$DavDirectGetUrlResponse200ApplicationJson_OcsSerializer();
-Serializer<DavDirectGetUrlResponse200ApplicationJson> _$davDirectGetUrlResponse200ApplicationJsonSerializer =
-    _$DavDirectGetUrlResponse200ApplicationJsonSerializer();
+Serializer<DavDirectGetUrlResponseApplicationJson_Ocs_Data> _$davDirectGetUrlResponseApplicationJsonOcsDataSerializer =
+    _$DavDirectGetUrlResponseApplicationJson_Ocs_DataSerializer();
+Serializer<DavDirectGetUrlResponseApplicationJson_Ocs> _$davDirectGetUrlResponseApplicationJsonOcsSerializer =
+    _$DavDirectGetUrlResponseApplicationJson_OcsSerializer();
+Serializer<DavDirectGetUrlResponseApplicationJson> _$davDirectGetUrlResponseApplicationJsonSerializer =
+    _$DavDirectGetUrlResponseApplicationJsonSerializer();
 Serializer<DavCapabilities_Dav> _$davCapabilitiesDavSerializer = _$DavCapabilities_DavSerializer();
 Serializer<DavCapabilities> _$davCapabilitiesSerializer = _$DavCapabilitiesSerializer();
 
@@ -87,18 +86,18 @@ class _$DavOCSMetaSerializer implements StructuredSerializer<DavOCSMeta> {
   }
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data> {
+class _$DavDirectGetUrlResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<DavDirectGetUrlResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    DavDirectGetUrlResponse200ApplicationJson_Ocs_Data,
-    _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data
+    DavDirectGetUrlResponseApplicationJson_Ocs_Data,
+    _$DavDirectGetUrlResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'DavDirectGetUrlResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'DavDirectGetUrlResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
@@ -109,9 +108,9 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DavDirectGetUrlResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -129,34 +128,34 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<DavDirectGetUrlResponse200ApplicationJson_Ocs> {
+class _$DavDirectGetUrlResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DavDirectGetUrlResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    DavDirectGetUrlResponse200ApplicationJson_Ocs,
-    _$DavDirectGetUrlResponse200ApplicationJson_Ocs
+    DavDirectGetUrlResponseApplicationJson_Ocs,
+    _$DavDirectGetUrlResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'DavDirectGetUrlResponse200ApplicationJson_Ocs';
+  final String wireName = 'DavDirectGetUrlResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(DavOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DavDirectGetUrlResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DavDirectGetUrlResponse200ApplicationJson_OcsBuilder();
+    final result = DavDirectGetUrlResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -169,8 +168,8 @@ class _$DavDirectGetUrlResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs_Data))!
-              as DavDirectGetUrlResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson_Ocs_Data))!
+              as DavDirectGetUrlResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -179,31 +178,28 @@ class _$DavDirectGetUrlResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<DavDirectGetUrlResponse200ApplicationJson> {
+class _$DavDirectGetUrlResponseApplicationJsonSerializer
+    implements StructuredSerializer<DavDirectGetUrlResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    DavDirectGetUrlResponse200ApplicationJson,
-    _$DavDirectGetUrlResponse200ApplicationJson
-  ];
+  final Iterable<Type> types = const [DavDirectGetUrlResponseApplicationJson, _$DavDirectGetUrlResponseApplicationJson];
   @override
-  final String wireName = 'DavDirectGetUrlResponse200ApplicationJson';
+  final String wireName = 'DavDirectGetUrlResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DavDirectGetUrlResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DavDirectGetUrlResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DavDirectGetUrlResponse200ApplicationJsonBuilder();
+    final result = DavDirectGetUrlResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -212,9 +208,9 @@ class _$DavDirectGetUrlResponse200ApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DavDirectGetUrlResponse200ApplicationJson_Ocs))!
-              as DavDirectGetUrlResponse200ApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson_Ocs))!
+                  as DavDirectGetUrlResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -454,38 +450,38 @@ class DavOCSMetaBuilder implements Builder<DavOCSMeta, DavOCSMetaBuilder>, DavOC
   }
 }
 
-abstract mixin class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data extends DavDirectGetUrlResponse200ApplicationJson_Ocs_Data {
+class _$DavDirectGetUrlResponseApplicationJson_Ocs_Data extends DavDirectGetUrlResponseApplicationJson_Ocs_Data {
   @override
   final String url;
 
-  factory _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data(
-          [void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DavDirectGetUrlResponseApplicationJson_Ocs_Data(
+          [void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'DavDirectGetUrlResponse200ApplicationJson_Ocs_Data', 'url');
+  _$DavDirectGetUrlResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(url, r'DavDirectGetUrlResponseApplicationJson_Ocs_Data', 'url');
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  DavDirectGetUrlResponseApplicationJson_Ocs_Data rebuild(
+          void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DavDirectGetUrlResponse200ApplicationJson_Ocs_Data && url == other.url;
+    return other is DavDirectGetUrlResponseApplicationJson_Ocs_Data && url == other.url;
   }
 
   @override
@@ -498,25 +494,25 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data extends DavDirectGetU
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponse200ApplicationJson_Ocs_Data')..add('url', url))
+    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponseApplicationJson_Ocs_Data')..add('url', url))
         .toString();
   }
 }
 
-class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder
+class DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DavDirectGetUrlResponse200ApplicationJson_Ocs_Data,
-            DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder>,
-        DavDirectGetUrlResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<DavDirectGetUrlResponseApplicationJson_Ocs_Data,
+            DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder>,
+        DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$DavDirectGetUrlResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder();
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
 
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _url = $v.url;
@@ -526,67 +522,66 @@ class DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant DavDirectGetUrlResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$DavDirectGetUrlResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_Data build() => _build();
+  DavDirectGetUrlResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data _build() {
+  _$DavDirectGetUrlResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$DavDirectGetUrlResponse200ApplicationJson_Ocs_Data._(
-            url: BuiltValueNullFieldError.checkNotNull(
-                url, r'DavDirectGetUrlResponse200ApplicationJson_Ocs_Data', 'url'));
+        _$DavDirectGetUrlResponseApplicationJson_Ocs_Data._(
+            url: BuiltValueNullFieldError.checkNotNull(url, r'DavDirectGetUrlResponseApplicationJson_Ocs_Data', 'url'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(DavDirectGetUrlResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DavDirectGetUrlResponseApplicationJson_OcsInterface other);
+  void update(void Function(DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates);
   DavOCSMetaBuilder get meta;
   set meta(DavOCSMetaBuilder? meta);
 
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? data);
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJson_Ocs extends DavDirectGetUrlResponse200ApplicationJson_Ocs {
+class _$DavDirectGetUrlResponseApplicationJson_Ocs extends DavDirectGetUrlResponseApplicationJson_Ocs {
   @override
   final DavOCSMeta meta;
   @override
-  final DavDirectGetUrlResponse200ApplicationJson_Ocs_Data data;
+  final DavDirectGetUrlResponseApplicationJson_Ocs_Data data;
 
-  factory _$DavDirectGetUrlResponse200ApplicationJson_Ocs(
-          [void Function(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (DavDirectGetUrlResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DavDirectGetUrlResponseApplicationJson_Ocs(
+          [void Function(DavDirectGetUrlResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DavDirectGetUrlResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DavDirectGetUrlResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DavDirectGetUrlResponse200ApplicationJson_Ocs', 'data');
+  _$DavDirectGetUrlResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DavDirectGetUrlResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DavDirectGetUrlResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs rebuild(
-          void Function(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder) updates) =>
+  DavDirectGetUrlResponseApplicationJson_Ocs rebuild(
+          void Function(DavDirectGetUrlResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      DavDirectGetUrlResponse200ApplicationJson_OcsBuilder()..replace(this);
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder toBuilder() =>
+      DavDirectGetUrlResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DavDirectGetUrlResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DavDirectGetUrlResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -600,31 +595,31 @@ class _$DavDirectGetUrlResponse200ApplicationJson_Ocs extends DavDirectGetUrlRes
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
+class DavDirectGetUrlResponseApplicationJson_OcsBuilder
     implements
-        Builder<DavDirectGetUrlResponse200ApplicationJson_Ocs, DavDirectGetUrlResponse200ApplicationJson_OcsBuilder>,
-        DavDirectGetUrlResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs? _$v;
+        Builder<DavDirectGetUrlResponseApplicationJson_Ocs, DavDirectGetUrlResponseApplicationJson_OcsBuilder>,
+        DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
+  _$DavDirectGetUrlResponseApplicationJson_Ocs? _$v;
 
   DavOCSMetaBuilder? _meta;
   DavOCSMetaBuilder get meta => _$this._meta ??= DavOCSMetaBuilder();
   set meta(covariant DavOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder? _data;
+  DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder();
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder();
 
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder get _$this {
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -635,23 +630,23 @@ class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant DavDirectGetUrlResponse200ApplicationJson_Ocs other) {
+  void replace(covariant DavDirectGetUrlResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$DavDirectGetUrlResponse200ApplicationJson_Ocs;
+    _$v = other as _$DavDirectGetUrlResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DavDirectGetUrlResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson_Ocs build() => _build();
+  DavDirectGetUrlResponseApplicationJson_Ocs build() => _build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson_Ocs _build() {
-    _$DavDirectGetUrlResponse200ApplicationJson_Ocs _$result;
+  _$DavDirectGetUrlResponseApplicationJson_Ocs _build() {
+    _$DavDirectGetUrlResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DavDirectGetUrlResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DavDirectGetUrlResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -660,7 +655,7 @@ class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DavDirectGetUrlResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DavDirectGetUrlResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -669,38 +664,38 @@ class DavDirectGetUrlResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder {
-  void replace(DavDirectGetUrlResponse200ApplicationJsonInterface other);
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder) updates);
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class DavDirectGetUrlResponseApplicationJsonInterfaceBuilder {
+  void replace(DavDirectGetUrlResponseApplicationJsonInterface other);
+  void update(void Function(DavDirectGetUrlResponseApplicationJsonInterfaceBuilder) updates);
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DavDirectGetUrlResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$DavDirectGetUrlResponse200ApplicationJson extends DavDirectGetUrlResponse200ApplicationJson {
+class _$DavDirectGetUrlResponseApplicationJson extends DavDirectGetUrlResponseApplicationJson {
   @override
-  final DavDirectGetUrlResponse200ApplicationJson_Ocs ocs;
+  final DavDirectGetUrlResponseApplicationJson_Ocs ocs;
 
-  factory _$DavDirectGetUrlResponse200ApplicationJson(
-          [void Function(DavDirectGetUrlResponse200ApplicationJsonBuilder)? updates]) =>
-      (DavDirectGetUrlResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$DavDirectGetUrlResponseApplicationJson(
+          [void Function(DavDirectGetUrlResponseApplicationJsonBuilder)? updates]) =>
+      (DavDirectGetUrlResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DavDirectGetUrlResponse200ApplicationJson', 'ocs');
+  _$DavDirectGetUrlResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DavDirectGetUrlResponseApplicationJson', 'ocs');
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson rebuild(
-          void Function(DavDirectGetUrlResponse200ApplicationJsonBuilder) updates) =>
+  DavDirectGetUrlResponseApplicationJson rebuild(
+          void Function(DavDirectGetUrlResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DavDirectGetUrlResponse200ApplicationJsonBuilder toBuilder() =>
-      DavDirectGetUrlResponse200ApplicationJsonBuilder()..replace(this);
+  DavDirectGetUrlResponseApplicationJsonBuilder toBuilder() =>
+      DavDirectGetUrlResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DavDirectGetUrlResponse200ApplicationJson && ocs == other.ocs;
+    return other is DavDirectGetUrlResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -713,24 +708,24 @@ class _$DavDirectGetUrlResponse200ApplicationJson extends DavDirectGetUrlRespons
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponse200ApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'DavDirectGetUrlResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class DavDirectGetUrlResponse200ApplicationJsonBuilder
+class DavDirectGetUrlResponseApplicationJsonBuilder
     implements
-        Builder<DavDirectGetUrlResponse200ApplicationJson, DavDirectGetUrlResponse200ApplicationJsonBuilder>,
-        DavDirectGetUrlResponse200ApplicationJsonInterfaceBuilder {
-  _$DavDirectGetUrlResponse200ApplicationJson? _$v;
+        Builder<DavDirectGetUrlResponseApplicationJson, DavDirectGetUrlResponseApplicationJsonBuilder>,
+        DavDirectGetUrlResponseApplicationJsonInterfaceBuilder {
+  _$DavDirectGetUrlResponseApplicationJson? _$v;
 
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? _ocs;
-  DavDirectGetUrlResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DavDirectGetUrlResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant DavDirectGetUrlResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder? _ocs;
+  DavDirectGetUrlResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DavDirectGetUrlResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DavDirectGetUrlResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DavDirectGetUrlResponse200ApplicationJsonBuilder();
+  DavDirectGetUrlResponseApplicationJsonBuilder();
 
-  DavDirectGetUrlResponse200ApplicationJsonBuilder get _$this {
+  DavDirectGetUrlResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -740,30 +735,30 @@ class DavDirectGetUrlResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant DavDirectGetUrlResponse200ApplicationJson other) {
+  void replace(covariant DavDirectGetUrlResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$DavDirectGetUrlResponse200ApplicationJson;
+    _$v = other as _$DavDirectGetUrlResponseApplicationJson;
   }
 
   @override
-  void update(void Function(DavDirectGetUrlResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(DavDirectGetUrlResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  DavDirectGetUrlResponse200ApplicationJson build() => _build();
+  DavDirectGetUrlResponseApplicationJson build() => _build();
 
-  _$DavDirectGetUrlResponse200ApplicationJson _build() {
-    _$DavDirectGetUrlResponse200ApplicationJson _$result;
+  _$DavDirectGetUrlResponseApplicationJson _build() {
+    _$DavDirectGetUrlResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DavDirectGetUrlResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DavDirectGetUrlResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DavDirectGetUrlResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DavDirectGetUrlResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

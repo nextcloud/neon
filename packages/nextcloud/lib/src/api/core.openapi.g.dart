@@ -8,36 +8,35 @@ part of 'core.openapi.dart';
 
 Serializer<CoreStatus> _$coreStatusSerializer = _$CoreStatusSerializer();
 Serializer<CoreOCSMeta> _$coreOCSMetaSerializer = _$CoreOCSMetaSerializer();
-Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data>
-    _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs>
-    _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonOcsSerializer =
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson>
-    _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer =
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer();
-Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data>
-    _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs>
-    _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonOcsSerializer =
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson>
-    _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer =
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer();
-Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs>
-    _$coreAppPasswordDeleteAppPasswordResponse200ApplicationJsonOcsSerializer =
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson>
-    _$coreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer =
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer();
+Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data>
+    _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsDataSerializer =
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs>
+    _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsSerializer =
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsSerializer();
+Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson>
+    _$coreAppPasswordGetAppPasswordResponseApplicationJsonSerializer =
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJsonSerializer();
+Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data>
+    _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsDataSerializer =
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs>
+    _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsSerializer =
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsSerializer();
+Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson>
+    _$coreAppPasswordRotateAppPasswordResponseApplicationJsonSerializer =
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJsonSerializer();
+Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs>
+    _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer =
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer();
+Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson>
+    _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer =
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer();
 Serializer<CoreAutocompleteResult> _$coreAutocompleteResultSerializer = _$CoreAutocompleteResultSerializer();
-Serializer<CoreAutoCompleteGetResponse200ApplicationJson_Ocs>
-    _$coreAutoCompleteGetResponse200ApplicationJsonOcsSerializer =
-    _$CoreAutoCompleteGetResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreAutoCompleteGetResponse200ApplicationJson> _$coreAutoCompleteGetResponse200ApplicationJsonSerializer =
-    _$CoreAutoCompleteGetResponse200ApplicationJsonSerializer();
+Serializer<CoreAutoCompleteGetResponseApplicationJson_Ocs> _$coreAutoCompleteGetResponseApplicationJsonOcsSerializer =
+    _$CoreAutoCompleteGetResponseApplicationJson_OcsSerializer();
+Serializer<CoreAutoCompleteGetResponseApplicationJson> _$coreAutoCompleteGetResponseApplicationJsonSerializer =
+    _$CoreAutoCompleteGetResponseApplicationJsonSerializer();
 Serializer<CoreLoginFlowV2Credentials> _$coreLoginFlowV2CredentialsSerializer =
     _$CoreLoginFlowV2CredentialsSerializer();
 Serializer<CoreLoginFlowV2_Poll> _$coreLoginFlowV2PollSerializer = _$CoreLoginFlowV2_PollSerializer();
@@ -46,73 +45,72 @@ Serializer<CoreOpenGraphObject_OpenGraphObject> _$coreOpenGraphObjectOpenGraphOb
     _$CoreOpenGraphObject_OpenGraphObjectSerializer();
 Serializer<CoreOpenGraphObject> _$coreOpenGraphObjectSerializer = _$CoreOpenGraphObjectSerializer();
 Serializer<CoreCollection> _$coreCollectionSerializer = _$CoreCollectionSerializer();
-Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson>
-    _$coreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesListCollectionResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson>
-    _$coreCollaborationResourcesListCollectionResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesRenameCollectionResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson>
-    _$coreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesAddResourceResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson>
-    _$coreCollaborationResourcesAddResourceResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesRemoveResourceResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson>
-    _$coreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson>
-    _$coreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonSerializer();
-Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs>
-    _$coreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonOcsSerializer =
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson>
-    _$coreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonSerializer =
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson>
+    _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesListCollectionResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson>
+    _$coreCollaborationResourcesListCollectionResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson>
+    _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesAddResourceResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson>
+    _$coreCollaborationResourcesAddResourceResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson>
+    _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson>
+    _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer();
+Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs>
+    _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonOcsSerializer =
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsSerializer();
+Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson>
+    _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer =
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer();
 Serializer<CoreContactsAction> _$coreContactsActionSerializer = _$CoreContactsActionSerializer();
-Serializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data>
-    _$coreHoverCardGetUserResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs>
-    _$coreHoverCardGetUserResponse200ApplicationJsonOcsSerializer =
-    _$CoreHoverCardGetUserResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreHoverCardGetUserResponse200ApplicationJson> _$coreHoverCardGetUserResponse200ApplicationJsonSerializer =
-    _$CoreHoverCardGetUserResponse200ApplicationJsonSerializer();
+Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data>
+    _$coreHoverCardGetUserResponseApplicationJsonOcsDataSerializer =
+    _$CoreHoverCardGetUserResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs> _$coreHoverCardGetUserResponseApplicationJsonOcsSerializer =
+    _$CoreHoverCardGetUserResponseApplicationJson_OcsSerializer();
+Serializer<CoreHoverCardGetUserResponseApplicationJson> _$coreHoverCardGetUserResponseApplicationJsonSerializer =
+    _$CoreHoverCardGetUserResponseApplicationJsonSerializer();
 Serializer<CoreNavigationEntry> _$coreNavigationEntrySerializer = _$CoreNavigationEntrySerializer();
-Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs>
-    _$coreNavigationGetAppsNavigationResponse200ApplicationJsonOcsSerializer =
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson>
-    _$coreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer =
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer();
-Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs>
-    _$coreNavigationGetSettingsNavigationResponse200ApplicationJsonOcsSerializer =
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson>
-    _$coreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer =
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSerializer();
+Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs>
+    _$coreNavigationGetAppsNavigationResponseApplicationJsonOcsSerializer =
+    _$CoreNavigationGetAppsNavigationResponseApplicationJson_OcsSerializer();
+Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson>
+    _$coreNavigationGetAppsNavigationResponseApplicationJsonSerializer =
+    _$CoreNavigationGetAppsNavigationResponseApplicationJsonSerializer();
+Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs>
+    _$coreNavigationGetSettingsNavigationResponseApplicationJsonOcsSerializer =
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsSerializer();
+Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson>
+    _$coreNavigationGetSettingsNavigationResponseApplicationJsonSerializer =
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJsonSerializer();
+Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version>
+    _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer =
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer();
 Serializer<CoreCommentsCapabilities_Files> _$coreCommentsCapabilitiesFilesSerializer =
     _$CoreCommentsCapabilities_FilesSerializer();
 Serializer<CoreCommentsCapabilities> _$coreCommentsCapabilitiesSerializer = _$CoreCommentsCapabilitiesSerializer();
@@ -211,168 +209,162 @@ Serializer<CoreWeatherStatusCapabilities_WeatherStatus> _$coreWeatherStatusCapab
     _$CoreWeatherStatusCapabilities_WeatherStatusSerializer();
 Serializer<CoreWeatherStatusCapabilities> _$coreWeatherStatusCapabilitiesSerializer =
     _$CoreWeatherStatusCapabilitiesSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJsonSerializer();
-Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs>
-    _$coreProfileApiSetVisibilityResponse200ApplicationJsonOcsSerializer =
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson>
-    _$coreProfileApiSetVisibilityResponse200ApplicationJsonSerializer =
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJsonSerializer();
+Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>
+    _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataSerializer =
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs>
+    _$coreOcsGetCapabilitiesResponseApplicationJsonOcsSerializer =
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_OcsSerializer();
+Serializer<CoreOcsGetCapabilitiesResponseApplicationJson> _$coreOcsGetCapabilitiesResponseApplicationJsonSerializer =
+    _$CoreOcsGetCapabilitiesResponseApplicationJsonSerializer();
+Serializer<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs>
+    _$coreProfileApiSetVisibilityResponseApplicationJsonOcsSerializer =
+    _$CoreProfileApiSetVisibilityResponseApplicationJson_OcsSerializer();
+Serializer<CoreProfileApiSetVisibilityResponseApplicationJson>
+    _$coreProfileApiSetVisibilityResponseApplicationJsonSerializer =
+    _$CoreProfileApiSetVisibilityResponseApplicationJsonSerializer();
 Serializer<CoreReference> _$coreReferenceSerializer = _$CoreReferenceSerializer();
-Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data>
-    _$coreReferenceApiResolveOneResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs>
-    _$coreReferenceApiResolveOneResponse200ApplicationJsonOcsSerializer =
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson>
-    _$coreReferenceApiResolveOneResponse200ApplicationJsonSerializer =
-    _$CoreReferenceApiResolveOneResponse200ApplicationJsonSerializer();
-Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data>
-    _$coreReferenceApiResolveResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs>
-    _$coreReferenceApiResolveResponse200ApplicationJsonOcsSerializer =
-    _$CoreReferenceApiResolveResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreReferenceApiResolveResponse200ApplicationJson>
-    _$coreReferenceApiResolveResponse200ApplicationJsonSerializer =
-    _$CoreReferenceApiResolveResponse200ApplicationJsonSerializer();
-Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data>
-    _$coreReferenceApiExtractResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs>
-    _$coreReferenceApiExtractResponse200ApplicationJsonOcsSerializer =
-    _$CoreReferenceApiExtractResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreReferenceApiExtractResponse200ApplicationJson>
-    _$coreReferenceApiExtractResponse200ApplicationJsonSerializer =
-    _$CoreReferenceApiExtractResponse200ApplicationJsonSerializer();
+Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data>
+    _$coreReferenceApiResolveOneResponseApplicationJsonOcsDataSerializer =
+    _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs>
+    _$coreReferenceApiResolveOneResponseApplicationJsonOcsSerializer =
+    _$CoreReferenceApiResolveOneResponseApplicationJson_OcsSerializer();
+Serializer<CoreReferenceApiResolveOneResponseApplicationJson>
+    _$coreReferenceApiResolveOneResponseApplicationJsonSerializer =
+    _$CoreReferenceApiResolveOneResponseApplicationJsonSerializer();
+Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data>
+    _$coreReferenceApiResolveResponseApplicationJsonOcsDataSerializer =
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs>
+    _$coreReferenceApiResolveResponseApplicationJsonOcsSerializer =
+    _$CoreReferenceApiResolveResponseApplicationJson_OcsSerializer();
+Serializer<CoreReferenceApiResolveResponseApplicationJson> _$coreReferenceApiResolveResponseApplicationJsonSerializer =
+    _$CoreReferenceApiResolveResponseApplicationJsonSerializer();
+Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data>
+    _$coreReferenceApiExtractResponseApplicationJsonOcsDataSerializer =
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs>
+    _$coreReferenceApiExtractResponseApplicationJsonOcsSerializer =
+    _$CoreReferenceApiExtractResponseApplicationJson_OcsSerializer();
+Serializer<CoreReferenceApiExtractResponseApplicationJson> _$coreReferenceApiExtractResponseApplicationJsonSerializer =
+    _$CoreReferenceApiExtractResponseApplicationJsonSerializer();
 Serializer<CoreReferenceProvider> _$coreReferenceProviderSerializer = _$CoreReferenceProviderSerializer();
-Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs>
-    _$coreReferenceApiGetProvidersInfoResponse200ApplicationJsonOcsSerializer =
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson>
-    _$coreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer =
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer();
-Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data>
-    _$coreReferenceApiTouchProviderResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs>
-    _$coreReferenceApiTouchProviderResponse200ApplicationJsonOcsSerializer =
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson>
-    _$coreReferenceApiTouchProviderResponse200ApplicationJsonSerializer =
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJsonSerializer();
-Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>
-    _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsDataTypesSerializer =
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesSerializer();
-Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data>
-    _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs>
-    _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsSerializer =
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson>
-    _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer =
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer();
+Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs>
+    _$coreReferenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer =
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsSerializer();
+Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson>
+    _$coreReferenceApiGetProvidersInfoResponseApplicationJsonSerializer =
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJsonSerializer();
+Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data>
+    _$coreReferenceApiTouchProviderResponseApplicationJsonOcsDataSerializer =
+    _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs>
+    _$coreReferenceApiTouchProviderResponseApplicationJsonOcsSerializer =
+    _$CoreReferenceApiTouchProviderResponseApplicationJson_OcsSerializer();
+Serializer<CoreReferenceApiTouchProviderResponseApplicationJson>
+    _$coreReferenceApiTouchProviderResponseApplicationJsonSerializer =
+    _$CoreReferenceApiTouchProviderResponseApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>
+    _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataTypesSerializer =
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesSerializer();
+Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs>
+    _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson>
+    _$coreTextProcessingApiTaskTypesResponseApplicationJsonSerializer =
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJsonSerializer();
 Serializer<CoreTextProcessingTask> _$coreTextProcessingTaskSerializer = _$CoreTextProcessingTaskSerializer();
-Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data>
-    _$coreTextProcessingApiScheduleResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs>
-    _$coreTextProcessingApiScheduleResponse200ApplicationJsonOcsSerializer =
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson>
-    _$coreTextProcessingApiScheduleResponse200ApplicationJsonSerializer =
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJsonSerializer();
-Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data>
-    _$coreTextProcessingApiGetTaskResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs>
-    _$coreTextProcessingApiGetTaskResponse200ApplicationJsonOcsSerializer =
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson>
-    _$coreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer =
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer();
-Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data>
-    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs>
-    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsSerializer =
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson>
-    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer =
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer();
-Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data>
-    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs>
-    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsSerializer =
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson>
-    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer =
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer();
-Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>
-    _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsDataLanguagesSerializer =
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesSerializer();
-Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data>
-    _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs>
-    _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsSerializer =
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson>
-    _$coreTranslationApiLanguagesResponse200ApplicationJsonSerializer =
-    _$CoreTranslationApiLanguagesResponse200ApplicationJsonSerializer();
-Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data>
-    _$coreTranslationApiTranslateResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs>
-    _$coreTranslationApiTranslateResponse200ApplicationJsonOcsSerializer =
-    _$CoreTranslationApiTranslateResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreTranslationApiTranslateResponse200ApplicationJson>
-    _$coreTranslationApiTranslateResponse200ApplicationJsonSerializer =
-    _$CoreTranslationApiTranslateResponse200ApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiScheduleResponseApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs>
+    _$coreTextProcessingApiScheduleResponseApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiScheduleResponseApplicationJson>
+    _$coreTextProcessingApiScheduleResponseApplicationJsonSerializer =
+    _$CoreTextProcessingApiScheduleResponseApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs>
+    _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson>
+    _$coreTextProcessingApiGetTaskResponseApplicationJsonSerializer =
+    _$CoreTextProcessingApiGetTaskResponseApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs>
+    _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson>
+    _$coreTextProcessingApiDeleteTaskResponseApplicationJsonSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs>
+    _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson>
+    _$coreTextProcessingApiListTasksByAppResponseApplicationJsonSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJsonSerializer();
+Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>
+    _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataLanguagesSerializer =
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesSerializer();
+Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data>
+    _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataSerializer =
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs>
+    _$coreTranslationApiLanguagesResponseApplicationJsonOcsSerializer =
+    _$CoreTranslationApiLanguagesResponseApplicationJson_OcsSerializer();
+Serializer<CoreTranslationApiLanguagesResponseApplicationJson>
+    _$coreTranslationApiLanguagesResponseApplicationJsonSerializer =
+    _$CoreTranslationApiLanguagesResponseApplicationJsonSerializer();
+Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data>
+    _$coreTranslationApiTranslateResponseApplicationJsonOcsDataSerializer =
+    _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs>
+    _$coreTranslationApiTranslateResponseApplicationJsonOcsSerializer =
+    _$CoreTranslationApiTranslateResponseApplicationJson_OcsSerializer();
+Serializer<CoreTranslationApiTranslateResponseApplicationJson>
+    _$coreTranslationApiTranslateResponseApplicationJsonSerializer =
+    _$CoreTranslationApiTranslateResponseApplicationJsonSerializer();
 Serializer<CoreUnifiedSearchProvider> _$coreUnifiedSearchProviderSerializer = _$CoreUnifiedSearchProviderSerializer();
-Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs>
-    _$coreUnifiedSearchGetProvidersResponse200ApplicationJsonOcsSerializer =
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson>
-    _$coreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer =
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer();
+Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs>
+    _$coreUnifiedSearchGetProvidersResponseApplicationJsonOcsSerializer =
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsSerializer();
+Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson>
+    _$coreUnifiedSearchGetProvidersResponseApplicationJsonSerializer =
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJsonSerializer();
 Serializer<CoreUnifiedSearchResultEntry> _$coreUnifiedSearchResultEntrySerializer =
     _$CoreUnifiedSearchResultEntrySerializer();
 Serializer<CoreUnifiedSearchResult> _$coreUnifiedSearchResultSerializer = _$CoreUnifiedSearchResultSerializer();
-Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs>
-    _$coreUnifiedSearchSearchResponse200ApplicationJsonOcsSerializer =
-    _$CoreUnifiedSearchSearchResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson>
-    _$coreUnifiedSearchSearchResponse200ApplicationJsonSerializer =
-    _$CoreUnifiedSearchSearchResponse200ApplicationJsonSerializer();
-Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew>
-    _$coreWhatsNewGetResponse200ApplicationJsonOcsDataWhatsNewSerializer =
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewSerializer();
-Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data>
-    _$coreWhatsNewGetResponse200ApplicationJsonOcsDataSerializer =
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataSerializer();
-Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs> _$coreWhatsNewGetResponse200ApplicationJsonOcsSerializer =
-    _$CoreWhatsNewGetResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreWhatsNewGetResponse200ApplicationJson> _$coreWhatsNewGetResponse200ApplicationJsonSerializer =
-    _$CoreWhatsNewGetResponse200ApplicationJsonSerializer();
-Serializer<CoreWhatsNewDismissResponse200ApplicationJson_Ocs>
-    _$coreWhatsNewDismissResponse200ApplicationJsonOcsSerializer =
-    _$CoreWhatsNewDismissResponse200ApplicationJson_OcsSerializer();
-Serializer<CoreWhatsNewDismissResponse200ApplicationJson> _$coreWhatsNewDismissResponse200ApplicationJsonSerializer =
-    _$CoreWhatsNewDismissResponse200ApplicationJsonSerializer();
-Serializer<CoreWipeCheckWipeResponse200ApplicationJson> _$coreWipeCheckWipeResponse200ApplicationJsonSerializer =
-    _$CoreWipeCheckWipeResponse200ApplicationJsonSerializer();
+Serializer<CoreUnifiedSearchSearchResponseApplicationJson_Ocs>
+    _$coreUnifiedSearchSearchResponseApplicationJsonOcsSerializer =
+    _$CoreUnifiedSearchSearchResponseApplicationJson_OcsSerializer();
+Serializer<CoreUnifiedSearchSearchResponseApplicationJson> _$coreUnifiedSearchSearchResponseApplicationJsonSerializer =
+    _$CoreUnifiedSearchSearchResponseApplicationJsonSerializer();
+Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew>
+    _$coreWhatsNewGetResponseApplicationJsonOcsDataWhatsNewSerializer =
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewSerializer();
+Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data> _$coreWhatsNewGetResponseApplicationJsonOcsDataSerializer =
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_DataSerializer();
+Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs> _$coreWhatsNewGetResponseApplicationJsonOcsSerializer =
+    _$CoreWhatsNewGetResponseApplicationJson_OcsSerializer();
+Serializer<CoreWhatsNewGetResponseApplicationJson> _$coreWhatsNewGetResponseApplicationJsonSerializer =
+    _$CoreWhatsNewGetResponseApplicationJsonSerializer();
+Serializer<CoreWhatsNewDismissResponseApplicationJson_Ocs> _$coreWhatsNewDismissResponseApplicationJsonOcsSerializer =
+    _$CoreWhatsNewDismissResponseApplicationJson_OcsSerializer();
+Serializer<CoreWhatsNewDismissResponseApplicationJson> _$coreWhatsNewDismissResponseApplicationJsonSerializer =
+    _$CoreWhatsNewDismissResponseApplicationJsonSerializer();
+Serializer<CoreWipeCheckWipeResponseApplicationJson> _$coreWipeCheckWipeResponseApplicationJsonSerializer =
+    _$CoreWipeCheckWipeResponseApplicationJsonSerializer();
 
 class _$CoreStatusSerializer implements StructuredSerializer<CoreStatus> {
   @override
@@ -517,19 +509,19 @@ class _$CoreOCSMetaSerializer implements StructuredSerializer<CoreOCSMeta> {
   }
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data> {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data,
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
+    CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'apppassword',
@@ -540,10 +532,10 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataSerializ
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -561,36 +553,35 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataSerializ
   }
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs> {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs,
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
+    CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs,
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs deserialize(
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder();
+    final result = CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -604,8 +595,8 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data))!
-              as CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data))!
+              as CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -614,33 +605,33 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson> {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreAppPasswordGetAppPasswordResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordGetAppPasswordResponse200ApplicationJson,
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson
+    CoreAppPasswordGetAppPasswordResponseApplicationJson,
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreAppPasswordGetAppPasswordResponse200ApplicationJson';
+  final String wireName = 'CoreAppPasswordGetAppPasswordResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreAppPasswordGetAppPasswordResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAppPasswordGetAppPasswordResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson deserialize(
+  CoreAppPasswordGetAppPasswordResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder();
+    final result = CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -650,8 +641,8 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs))!
-              as CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs))!
+              as CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -660,19 +651,19 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data> {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data,
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
+    CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'apppassword',
@@ -683,10 +674,10 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataSeria
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -704,36 +695,36 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataSeria
   }
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs> {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs,
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
+    CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs deserialize(
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder();
+    final result = CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -747,8 +738,8 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data))!
-              as CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data))!
+              as CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -757,34 +748,33 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson> {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordRotateAppPasswordResponse200ApplicationJson,
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
+    CoreAppPasswordRotateAppPasswordResponseApplicationJson,
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson';
+  final String wireName = 'CoreAppPasswordRotateAppPasswordResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordRotateAppPasswordResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAppPasswordRotateAppPasswordResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson deserialize(
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder();
+    final result = CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -794,8 +784,8 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs))!
-              as CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs))!
+              as CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -804,19 +794,19 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs> {
+class _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs,
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
+    CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -829,10 +819,10 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs deserialize(
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder();
+    final result = CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -854,34 +844,33 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson> {
+class _$CoreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson,
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
+    CoreAppPasswordDeleteAppPasswordResponseApplicationJson,
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson';
+  final String wireName = 'CoreAppPasswordDeleteAppPasswordResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAppPasswordDeleteAppPasswordResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson deserialize(
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder();
+    final result = CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -891,8 +880,8 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs))!
-              as CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs))!
+              as CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -970,18 +959,18 @@ class _$CoreAutocompleteResultSerializer implements StructuredSerializer<CoreAut
   }
 }
 
-class _$CoreAutoCompleteGetResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreAutoCompleteGetResponse200ApplicationJson_Ocs> {
+class _$CoreAutoCompleteGetResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreAutoCompleteGetResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreAutoCompleteGetResponse200ApplicationJson_Ocs,
-    _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs
+    CoreAutoCompleteGetResponseApplicationJson_Ocs,
+    _$CoreAutoCompleteGetResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreAutoCompleteGetResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreAutoCompleteGetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreAutoCompleteGetResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAutoCompleteGetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -994,9 +983,9 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreAutoCompleteGetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder();
+    final result = CoreAutoCompleteGetResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1019,32 +1008,31 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreAutoCompleteGetResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreAutoCompleteGetResponse200ApplicationJson> {
+class _$CoreAutoCompleteGetResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreAutoCompleteGetResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreAutoCompleteGetResponse200ApplicationJson,
-    _$CoreAutoCompleteGetResponse200ApplicationJson
+    CoreAutoCompleteGetResponseApplicationJson,
+    _$CoreAutoCompleteGetResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreAutoCompleteGetResponse200ApplicationJson';
+  final String wireName = 'CoreAutoCompleteGetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreAutoCompleteGetResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreAutoCompleteGetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreAutoCompleteGetResponse200ApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(CoreAutoCompleteGetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreAutoCompleteGetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreAutoCompleteGetResponse200ApplicationJsonBuilder();
+    final result = CoreAutoCompleteGetResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1054,8 +1042,8 @@ class _$CoreAutoCompleteGetResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreAutoCompleteGetResponse200ApplicationJson_Ocs))!
-              as CoreAutoCompleteGetResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreAutoCompleteGetResponseApplicationJson_Ocs))!
+              as CoreAutoCompleteGetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1373,19 +1361,19 @@ class _$CoreCollectionSerializer implements StructuredSerializer<CoreCollection>
   }
 }
 
-class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1398,10 +1386,10 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Oc
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1424,34 +1412,34 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Oc
   }
 }
 
-class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson,
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
+    CoreCollaborationResourcesSearchCollectionsResponseApplicationJson,
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesSearchCollectionsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1462,8 +1450,8 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSer
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs);
+                      const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1472,19 +1460,19 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSer
   }
 }
 
-class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1497,10 +1485,10 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsSe
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1523,34 +1511,34 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsSe
   }
 }
 
-class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesListCollectionResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesListCollectionResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesListCollectionResponse200ApplicationJson,
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson
+    CoreCollaborationResourcesListCollectionResponseApplicationJson,
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesListCollectionResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesListCollectionResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesListCollectionResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesListCollectionResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesListCollectionResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1560,9 +1548,8 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJsonSerial
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1571,19 +1558,19 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJsonSerial
   }
 }
 
-class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1596,10 +1583,10 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1622,34 +1609,34 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
   }
 }
 
-class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesRenameCollectionResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson,
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
+    CoreCollaborationResourcesRenameCollectionResponseApplicationJson,
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesRenameCollectionResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesRenameCollectionResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1659,9 +1646,8 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSeri
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1670,19 +1656,19 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSeri
   }
 }
 
-class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1695,10 +1681,10 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsSeria
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1721,34 +1707,34 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsSeria
   }
 }
 
-class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesAddResourceResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesAddResourceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesAddResourceResponse200ApplicationJson,
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson
+    CoreCollaborationResourcesAddResourceResponseApplicationJson,
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesAddResourceResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesAddResourceResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesAddResourceResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesAddResourceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesAddResourceResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1758,8 +1744,8 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJsonSerialize
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1768,19 +1754,19 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJsonSerialize
   }
 }
 
-class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1793,10 +1779,10 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsSe
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1819,34 +1805,34 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsSe
   }
 }
 
-class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesRemoveResourceResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson,
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
+    CoreCollaborationResourcesRemoveResourceResponseApplicationJson,
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesRemoveResourceResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesRemoveResourceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1856,9 +1842,8 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerial
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1867,19 +1852,19 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerial
   }
 }
 
-class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1892,10 +1877,10 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1918,35 +1903,34 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
   }
 }
 
-class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson,
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson
+    CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType:
-              const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1957,8 +1941,8 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs);
+                      const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1967,20 +1951,19 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
   }
 }
 
-class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsSerializer
-    implements
-        StructuredSerializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs> {
+class _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs,
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs
+    CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -1993,10 +1976,10 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs deserialize(
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder();
+    final result = CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2019,35 +2002,35 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
   }
 }
 
-class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson> {
+class _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson,
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson
+    CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson';
+  final String wireName = 'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson object,
+      Serializers serializers, CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
           specifiedType:
-              const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs)),
+              const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson deserialize(
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder();
+    final result = CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2057,9 +2040,9 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs))!
-              as CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs);
+                  specifiedType:
+                      const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs))!
+              as CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2121,18 +2104,18 @@ class _$CoreContactsActionSerializer implements StructuredSerializer<CoreContact
   }
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data> {
+class _$CoreHoverCardGetUserResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data,
-    _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
+    CoreHoverCardGetUserResponseApplicationJson_Ocs_Data,
+    _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
@@ -2147,10 +2130,10 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2175,34 +2158,34 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs> {
+class _$CoreHoverCardGetUserResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreHoverCardGetUserResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreHoverCardGetUserResponse200ApplicationJson_Ocs,
-    _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs
+    CoreHoverCardGetUserResponseApplicationJson_Ocs,
+    _$CoreHoverCardGetUserResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreHoverCardGetUserResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreHoverCardGetUserResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreHoverCardGetUserResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder();
+    final result = CoreHoverCardGetUserResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2216,8 +2199,8 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data))!
-              as CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs_Data))!
+              as CoreHoverCardGetUserResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -2226,32 +2209,31 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreHoverCardGetUserResponse200ApplicationJson> {
+class _$CoreHoverCardGetUserResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreHoverCardGetUserResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreHoverCardGetUserResponse200ApplicationJson,
-    _$CoreHoverCardGetUserResponse200ApplicationJson
+    CoreHoverCardGetUserResponseApplicationJson,
+    _$CoreHoverCardGetUserResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreHoverCardGetUserResponse200ApplicationJson';
+  final String wireName = 'CoreHoverCardGetUserResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreHoverCardGetUserResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreHoverCardGetUserResponse200ApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreHoverCardGetUserResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreHoverCardGetUserResponse200ApplicationJsonBuilder();
+    final result = CoreHoverCardGetUserResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2261,8 +2243,8 @@ class _$CoreHoverCardGetUserResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreHoverCardGetUserResponse200ApplicationJson_Ocs))!
-              as CoreHoverCardGetUserResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs))!
+              as CoreHoverCardGetUserResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2350,19 +2332,19 @@ class _$CoreNavigationEntrySerializer implements StructuredSerializer<CoreNaviga
   }
 }
 
-class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs> {
+class _$CoreNavigationGetAppsNavigationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs,
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
+    CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs,
+    _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -2375,10 +2357,10 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs deserialize(
+  CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder();
+    final result = CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2401,33 +2383,33 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson> {
+class _$CoreNavigationGetAppsNavigationResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreNavigationGetAppsNavigationResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreNavigationGetAppsNavigationResponse200ApplicationJson,
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJson
+    CoreNavigationGetAppsNavigationResponseApplicationJson,
+    _$CoreNavigationGetAppsNavigationResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreNavigationGetAppsNavigationResponse200ApplicationJson';
+  final String wireName = 'CoreNavigationGetAppsNavigationResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreNavigationGetAppsNavigationResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreNavigationGetAppsNavigationResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson deserialize(
+  CoreNavigationGetAppsNavigationResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder();
+    final result = CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2437,8 +2419,8 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs))!
-              as CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs))!
+              as CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2447,19 +2429,19 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs> {
+class _$CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs,
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
+    CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs,
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -2472,10 +2454,10 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsSeriali
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs deserialize(
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder();
+    final result = CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2498,34 +2480,34 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsSeriali
   }
 }
 
-class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson> {
+class _$CoreNavigationGetSettingsNavigationResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreNavigationGetSettingsNavigationResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreNavigationGetSettingsNavigationResponse200ApplicationJson,
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson
+    CoreNavigationGetSettingsNavigationResponseApplicationJson,
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreNavigationGetSettingsNavigationResponse200ApplicationJson';
+  final String wireName = 'CoreNavigationGetSettingsNavigationResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreNavigationGetSettingsNavigationResponse200ApplicationJson object,
+      Serializers serializers, CoreNavigationGetSettingsNavigationResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson deserialize(
+  CoreNavigationGetSettingsNavigationResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder();
+    final result = CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2535,8 +2517,8 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs))!
-              as CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs))!
+              as CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2545,19 +2527,19 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version> {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer
+    implements StructuredSerializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
+    CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version';
+  final String wireName = 'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version object,
+      Serializers serializers, CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'major',
@@ -2578,10 +2560,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSeriali
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version deserialize(
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder();
+    final result = CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4906,36 +4888,36 @@ class _$CoreWeatherStatusCapabilitiesSerializer implements StructuredSerializer<
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data> {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
+    CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'version',
       serializers.serialize(object.version,
-          specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version)),
+          specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version)),
       'capabilities',
       serializers.serialize(object.capabilities,
-          specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities)),
+          specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities)),
     ];
 
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4945,14 +4927,13 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'version':
           result.version.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version);
+                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version))!
+              as CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version);
           break;
         case 'capabilities':
           result.capabilities.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities);
+                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities))!
+              as CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities);
           break;
       }
     }
@@ -4961,35 +4942,34 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs> {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
+    CoreOcsGetCapabilitiesResponseApplicationJson_Ocs,
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder();
+    final result = CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5003,8 +4983,8 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data))!
+              as CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -5013,32 +4993,32 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson> {
+class _$CoreOcsGetCapabilitiesResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreOcsGetCapabilitiesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson
+    CoreOcsGetCapabilitiesResponseApplicationJson,
+    _$CoreOcsGetCapabilitiesResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson';
+  final String wireName = 'CoreOcsGetCapabilitiesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreOcsGetCapabilitiesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreOcsGetCapabilitiesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder();
+    final result = CoreOcsGetCapabilitiesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5048,8 +5028,8 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs))!
+              as CoreOcsGetCapabilitiesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5058,18 +5038,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs> {
+class _$CoreProfileApiSetVisibilityResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs,
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
+    CoreProfileApiSetVisibilityResponseApplicationJson_Ocs,
+    _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreProfileApiSetVisibilityResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -5082,10 +5062,10 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs deserialize(
+  CoreProfileApiSetVisibilityResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder();
+    final result = CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5107,33 +5087,32 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreProfileApiSetVisibilityResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreProfileApiSetVisibilityResponse200ApplicationJson> {
+class _$CoreProfileApiSetVisibilityResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreProfileApiSetVisibilityResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreProfileApiSetVisibilityResponse200ApplicationJson,
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJson
+    CoreProfileApiSetVisibilityResponseApplicationJson,
+    _$CoreProfileApiSetVisibilityResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreProfileApiSetVisibilityResponse200ApplicationJson';
+  final String wireName = 'CoreProfileApiSetVisibilityResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreProfileApiSetVisibilityResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreProfileApiSetVisibilityResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreProfileApiSetVisibilityResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder();
+    final result = CoreProfileApiSetVisibilityResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5143,8 +5122,8 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs))!
-              as CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson_Ocs))!
+              as CoreProfileApiSetVisibilityResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5209,19 +5188,19 @@ class _$CoreReferenceSerializer implements StructuredSerializer<CoreReference> {
   }
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data> {
+class _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data,
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
+    CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
+    _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'references',
@@ -5233,10 +5212,10 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5255,35 +5234,35 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs> {
+class _$CoreReferenceApiResolveOneResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs,
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
+    CoreReferenceApiResolveOneResponseApplicationJson_Ocs,
+    _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreReferenceApiResolveOneResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveOneResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs deserialize(
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder();
+    final result = CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5297,8 +5276,8 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data))!
-              as CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data))!
+              as CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -5307,33 +5286,32 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveOneResponse200ApplicationJson> {
+class _$CoreReferenceApiResolveOneResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveOneResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveOneResponse200ApplicationJson,
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson
+    CoreReferenceApiResolveOneResponseApplicationJson,
+    _$CoreReferenceApiResolveOneResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveOneResponse200ApplicationJson';
+  final String wireName = 'CoreReferenceApiResolveOneResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveOneResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveOneResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreReferenceApiResolveOneResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder();
+    final result = CoreReferenceApiResolveOneResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5343,8 +5321,8 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs))!
-              as CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs))!
+              as CoreReferenceApiResolveOneResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5353,35 +5331,34 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data> {
+class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data,
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
+    CoreReferenceApiResolveResponseApplicationJson_Ocs_Data,
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
           specifiedType: const FullType(BuiltMap,
-              [FullType(String), FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References)])),
+              [FullType(String), FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References)])),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5391,10 +5368,8 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References)
-              ]))!);
+              specifiedType: const FullType(BuiltMap,
+                  [FullType(String), FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References)]))!);
           break;
       }
     }
@@ -5403,35 +5378,34 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs> {
+class _$CoreReferenceApiResolveResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveResponse200ApplicationJson_Ocs,
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs
+    CoreReferenceApiResolveResponseApplicationJson_Ocs,
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreReferenceApiResolveResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreReferenceApiResolveResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder();
+    final result = CoreReferenceApiResolveResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5445,8 +5419,8 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data))!
-              as CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data))!
+              as CoreReferenceApiResolveResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -5455,32 +5429,32 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreReferenceApiResolveResponse200ApplicationJson> {
+class _$CoreReferenceApiResolveResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreReferenceApiResolveResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiResolveResponse200ApplicationJson,
-    _$CoreReferenceApiResolveResponse200ApplicationJson
+    CoreReferenceApiResolveResponseApplicationJson,
+    _$CoreReferenceApiResolveResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreReferenceApiResolveResponse200ApplicationJson';
+  final String wireName = 'CoreReferenceApiResolveResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiResolveResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreReferenceApiResolveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiResolveResponse200ApplicationJsonBuilder();
+    final result = CoreReferenceApiResolveResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5490,8 +5464,8 @@ class _$CoreReferenceApiResolveResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiResolveResponse200ApplicationJson_Ocs))!
-              as CoreReferenceApiResolveResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs))!
+              as CoreReferenceApiResolveResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5500,35 +5474,34 @@ class _$CoreReferenceApiResolveResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data> {
+class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data,
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
+    CoreReferenceApiExtractResponseApplicationJson_Ocs_Data,
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
           specifiedType: const FullType(BuiltMap,
-              [FullType(String), FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References)])),
+              [FullType(String), FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References)])),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5538,10 +5511,8 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References)
-              ]))!);
+              specifiedType: const FullType(BuiltMap,
+                  [FullType(String), FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References)]))!);
           break;
       }
     }
@@ -5550,35 +5521,34 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs> {
+class _$CoreReferenceApiExtractResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreReferenceApiExtractResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiExtractResponse200ApplicationJson_Ocs,
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs
+    CoreReferenceApiExtractResponseApplicationJson_Ocs,
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreReferenceApiExtractResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreReferenceApiExtractResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiExtractResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiExtractResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreReferenceApiExtractResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder();
+    final result = CoreReferenceApiExtractResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5592,8 +5562,8 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data))!
-              as CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data))!
+              as CoreReferenceApiExtractResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -5602,32 +5572,32 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreReferenceApiExtractResponse200ApplicationJson> {
+class _$CoreReferenceApiExtractResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreReferenceApiExtractResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiExtractResponse200ApplicationJson,
-    _$CoreReferenceApiExtractResponse200ApplicationJson
+    CoreReferenceApiExtractResponseApplicationJson,
+    _$CoreReferenceApiExtractResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreReferenceApiExtractResponse200ApplicationJson';
+  final String wireName = 'CoreReferenceApiExtractResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiExtractResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiExtractResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreReferenceApiExtractResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiExtractResponse200ApplicationJsonBuilder();
+    final result = CoreReferenceApiExtractResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5637,8 +5607,8 @@ class _$CoreReferenceApiExtractResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiExtractResponse200ApplicationJson_Ocs))!
-              as CoreReferenceApiExtractResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs))!
+              as CoreReferenceApiExtractResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5710,19 +5680,19 @@ class _$CoreReferenceProviderSerializer implements StructuredSerializer<CoreRefe
   }
 }
 
-class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs> {
+class _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs,
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
+    CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -5735,10 +5705,10 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs deserialize(
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder();
+    final result = CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5761,34 +5731,33 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson> {
+class _$CoreReferenceApiGetProvidersInfoResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiGetProvidersInfoResponse200ApplicationJson,
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
+    CoreReferenceApiGetProvidersInfoResponseApplicationJson,
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson';
+  final String wireName = 'CoreReferenceApiGetProvidersInfoResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiGetProvidersInfoResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiGetProvidersInfoResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson deserialize(
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder();
+    final result = CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5798,8 +5767,8 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs))!
-              as CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs))!
+              as CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5808,19 +5777,19 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data> {
+class _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data,
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
+    CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
+    _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -5831,10 +5800,10 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataSerializ
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5852,36 +5821,35 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataSerializ
   }
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs> {
+class _$CoreReferenceApiTouchProviderResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs,
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
+    CoreReferenceApiTouchProviderResponseApplicationJson_Ocs,
+    _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiTouchProviderResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs deserialize(
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder();
+    final result = CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5895,8 +5863,8 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data))!
-              as CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data))!
+              as CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -5905,33 +5873,33 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreReferenceApiTouchProviderResponse200ApplicationJson> {
+class _$CoreReferenceApiTouchProviderResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreReferenceApiTouchProviderResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreReferenceApiTouchProviderResponse200ApplicationJson,
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson
+    CoreReferenceApiTouchProviderResponseApplicationJson,
+    _$CoreReferenceApiTouchProviderResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreReferenceApiTouchProviderResponse200ApplicationJson';
+  final String wireName = 'CoreReferenceApiTouchProviderResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiTouchProviderResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreReferenceApiTouchProviderResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson deserialize(
+  CoreReferenceApiTouchProviderResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder();
+    final result = CoreReferenceApiTouchProviderResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5941,8 +5909,8 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs))!
-              as CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs))!
+              as CoreReferenceApiTouchProviderResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5951,19 +5919,19 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesSerializer
-    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesSerializer
+    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types,
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
+    CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types';
+  final String wireName = 'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types object,
+      Serializers serializers, CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -5978,10 +5946,10 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesS
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types deserialize(
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder();
+    final result = CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6005,35 +5973,35 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesS
   }
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data,
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
+    CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'types',
       serializers.serialize(object.types,
           specifiedType: const FullType(
-              BuiltList, [FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types)])),
+              BuiltList, [FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)])),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6044,7 +6012,7 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataSeriali
         case 'types':
           result.types.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, [FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types)]))!
+                      BuiltList, [FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)]))!
               as BuiltList<Object?>);
           break;
       }
@@ -6054,36 +6022,35 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataSeriali
   }
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs> {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs,
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
+    CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs,
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs deserialize(
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6097,8 +6064,8 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data))!
-              as CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6107,33 +6074,33 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson> {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiTaskTypesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiTaskTypesResponse200ApplicationJson,
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson
+    CoreTextProcessingApiTaskTypesResponseApplicationJson,
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiTaskTypesResponse200ApplicationJson';
+  final String wireName = 'CoreTextProcessingApiTaskTypesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiTaskTypesResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiTaskTypesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson deserialize(
+  CoreTextProcessingApiTaskTypesResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder();
+    final result = CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6143,8 +6110,8 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs))!
-              as CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs))!
+              as CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6238,19 +6205,19 @@ class _$CoreTextProcessingTaskSerializer implements StructuredSerializer<CoreTex
   }
 }
 
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data,
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
+    CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'task',
@@ -6261,10 +6228,10 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataSerializ
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6283,36 +6250,35 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataSerializ
   }
 }
 
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs> {
+class _$CoreTextProcessingApiScheduleResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs,
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
+    CoreTextProcessingApiScheduleResponseApplicationJson_Ocs,
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiScheduleResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs deserialize(
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6326,8 +6292,8 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data))!
-              as CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6336,33 +6302,33 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTextProcessingApiScheduleResponse200ApplicationJson> {
+class _$CoreTextProcessingApiScheduleResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiScheduleResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiScheduleResponse200ApplicationJson,
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson
+    CoreTextProcessingApiScheduleResponseApplicationJson,
+    _$CoreTextProcessingApiScheduleResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiScheduleResponse200ApplicationJson';
+  final String wireName = 'CoreTextProcessingApiScheduleResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiScheduleResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiScheduleResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson deserialize(
+  CoreTextProcessingApiScheduleResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder();
+    final result = CoreTextProcessingApiScheduleResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6372,8 +6338,8 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs))!
-              as CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs))!
+              as CoreTextProcessingApiScheduleResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6382,19 +6348,19 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data,
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
+    CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'task',
@@ -6405,10 +6371,10 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataSerialize
   }
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6427,36 +6393,35 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataSerialize
   }
 }
 
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs> {
+class _$CoreTextProcessingApiGetTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs,
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
+    CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs,
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs deserialize(
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6470,8 +6435,8 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data))!
-              as CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6480,33 +6445,32 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson> {
+class _$CoreTextProcessingApiGetTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiGetTaskResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiGetTaskResponse200ApplicationJson,
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson
+    CoreTextProcessingApiGetTaskResponseApplicationJson,
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiGetTaskResponse200ApplicationJson';
+  final String wireName = 'CoreTextProcessingApiGetTaskResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiGetTaskResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiGetTaskResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreTextProcessingApiGetTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder();
+    final result = CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6516,8 +6480,8 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs))!
-              as CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs))!
+              as CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6526,19 +6490,19 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
+    CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'task',
@@ -6549,10 +6513,10 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerial
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6571,36 +6535,36 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerial
   }
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs> {
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
+    CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs deserialize(
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6614,8 +6578,8 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data))!
-              as CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6624,33 +6588,33 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson> {
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
+    CoreTextProcessingApiDeleteTaskResponseApplicationJson,
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson';
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiDeleteTaskResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson deserialize(
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder();
+    final result = CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6660,8 +6624,8 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs))!
-              as CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs))!
+              as CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6670,19 +6634,19 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
+    CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'tasks',
@@ -6693,10 +6657,10 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSe
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6715,36 +6679,36 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSe
   }
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs> {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
+    CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs object,
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs deserialize(
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6758,9 +6722,8 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSeriali
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data))!
-              as CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6769,34 +6732,34 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSeriali
   }
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson> {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
+    CoreTextProcessingApiListTasksByAppResponseApplicationJson,
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson';
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponseApplicationJson';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson object,
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson deserialize(
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder();
+    final result = CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6806,8 +6769,8 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs))!
-              as CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs))!
+              as CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6816,19 +6779,19 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesSerializer
-    implements StructuredSerializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesSerializer
+    implements StructuredSerializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages,
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
+    CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
   ];
   @override
-  final String wireName = 'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages';
+  final String wireName = 'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages object,
+      Serializers serializers, CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'from',
@@ -6845,10 +6808,10 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages deserialize(
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder();
+    final result = CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6875,25 +6838,25 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
   }
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data,
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
+    CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data,
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'languages',
       serializers.serialize(object.languages,
           specifiedType: const FullType(
-              BuiltList, [FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages)])),
+              BuiltList, [FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)])),
       'languageDetection',
       serializers.serialize(object.languageDetection, specifiedType: const FullType(bool)),
     ];
@@ -6902,10 +6865,10 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6916,7 +6879,7 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataSerializer
         case 'languages':
           result.languages.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, [FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages)]))!
+                      BuiltList, [FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)]))!
               as BuiltList<Object?>);
           break;
         case 'languageDetection':
@@ -6929,35 +6892,35 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs> {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs,
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
+    CoreTranslationApiLanguagesResponseApplicationJson_Ocs,
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTranslationApiLanguagesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiLanguagesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs deserialize(
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6971,8 +6934,8 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data))!
-              as CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data))!
+              as CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -6981,33 +6944,32 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTranslationApiLanguagesResponse200ApplicationJson> {
+class _$CoreTranslationApiLanguagesResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTranslationApiLanguagesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiLanguagesResponse200ApplicationJson,
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson
+    CoreTranslationApiLanguagesResponseApplicationJson,
+    _$CoreTranslationApiLanguagesResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTranslationApiLanguagesResponse200ApplicationJson';
+  final String wireName = 'CoreTranslationApiLanguagesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiLanguagesResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiLanguagesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreTranslationApiLanguagesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder();
+    final result = CoreTranslationApiLanguagesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7017,8 +6979,8 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs))!
-              as CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs))!
+              as CoreTranslationApiLanguagesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7027,19 +6989,19 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data> {
+class _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data,
-    _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
+    CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data,
+    _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data object,
+      Serializers serializers, CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'text',
@@ -7056,10 +7018,10 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data deserialize(
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7080,35 +7042,35 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs> {
+class _$CoreTranslationApiTranslateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiTranslateResponse200ApplicationJson_Ocs,
-    _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
+    CoreTranslationApiTranslateResponseApplicationJson_Ocs,
+    _$CoreTranslationApiTranslateResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreTranslationApiTranslateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiTranslateResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiTranslateResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs deserialize(
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder();
+    final result = CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7122,8 +7084,8 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data))!
-              as CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data))!
+              as CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -7132,33 +7094,32 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreTranslationApiTranslateResponse200ApplicationJson> {
+class _$CoreTranslationApiTranslateResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreTranslationApiTranslateResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreTranslationApiTranslateResponse200ApplicationJson,
-    _$CoreTranslationApiTranslateResponse200ApplicationJson
+    CoreTranslationApiTranslateResponseApplicationJson,
+    _$CoreTranslationApiTranslateResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreTranslationApiTranslateResponse200ApplicationJson';
+  final String wireName = 'CoreTranslationApiTranslateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiTranslateResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreTranslationApiTranslateResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreTranslationApiTranslateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreTranslationApiTranslateResponse200ApplicationJsonBuilder();
+    final result = CoreTranslationApiTranslateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7168,8 +7129,8 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs))!
-              as CoreTranslationApiTranslateResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs))!
+              as CoreTranslationApiTranslateResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7226,19 +7187,18 @@ class _$CoreUnifiedSearchProviderSerializer implements StructuredSerializer<Core
   }
 }
 
-class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs> {
+class _$CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs,
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
+    CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs,
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -7252,10 +7212,10 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs deserialize(
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder();
+    final result = CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7278,33 +7238,33 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson> {
+class _$CoreUnifiedSearchGetProvidersResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreUnifiedSearchGetProvidersResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreUnifiedSearchGetProvidersResponse200ApplicationJson,
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson
+    CoreUnifiedSearchGetProvidersResponseApplicationJson,
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreUnifiedSearchGetProvidersResponse200ApplicationJson';
+  final String wireName = 'CoreUnifiedSearchGetProvidersResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchGetProvidersResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchGetProvidersResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson deserialize(
+  CoreUnifiedSearchGetProvidersResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder();
+    final result = CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7314,8 +7274,8 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs))!
-              as CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs))!
+              as CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7454,18 +7414,18 @@ class _$CoreUnifiedSearchResultSerializer implements StructuredSerializer<CoreUn
   }
 }
 
-class _$CoreUnifiedSearchSearchResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs> {
+class _$CoreUnifiedSearchSearchResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreUnifiedSearchSearchResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs,
-    _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
+    CoreUnifiedSearchSearchResponseApplicationJson_Ocs,
+    _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreUnifiedSearchSearchResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchSearchResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -7478,10 +7438,9 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreUnifiedSearchSearchResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder();
+    final result = CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7504,32 +7463,32 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreUnifiedSearchSearchResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreUnifiedSearchSearchResponse200ApplicationJson> {
+class _$CoreUnifiedSearchSearchResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreUnifiedSearchSearchResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreUnifiedSearchSearchResponse200ApplicationJson,
-    _$CoreUnifiedSearchSearchResponse200ApplicationJson
+    CoreUnifiedSearchSearchResponseApplicationJson,
+    _$CoreUnifiedSearchSearchResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreUnifiedSearchSearchResponse200ApplicationJson';
+  final String wireName = 'CoreUnifiedSearchSearchResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchSearchResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchSearchResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreUnifiedSearchSearchResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder();
+    final result = CoreUnifiedSearchSearchResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7539,8 +7498,8 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs))!
-              as CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson_Ocs))!
+              as CoreUnifiedSearchSearchResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7549,19 +7508,18 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewSerializer
-    implements StructuredSerializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew> {
+class _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewSerializer
+    implements StructuredSerializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew> {
   @override
   final Iterable<Type> types = const [
-    CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew,
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
+    CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
   ];
   @override
-  final String wireName = 'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew';
+  final String wireName = 'CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'regular',
@@ -7574,10 +7532,10 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewSerializer
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew deserialize(
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder();
+    final result = CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7600,18 +7558,18 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewSerializer
   }
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data> {
+class _$CoreWhatsNewGetResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data,
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data
+    CoreWhatsNewGetResponseApplicationJson_Ocs_Data,
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'CoreWhatsNewGetResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'changelogURL',
@@ -7627,15 +7585,15 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataSerializer
       result
         ..add('whatsNew')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew)));
+            specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew)));
     }
     return result;
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder();
+    final result = CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7654,8 +7612,8 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataSerializer
           break;
         case 'whatsNew':
           result.whatsNew.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew))!
-              as CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew);
+                  specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew))!
+              as CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew);
           break;
       }
     }
@@ -7664,34 +7622,34 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs> {
+class _$CoreWhatsNewGetResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreWhatsNewGetResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreWhatsNewGetResponse200ApplicationJson_Ocs,
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs
+    CoreWhatsNewGetResponseApplicationJson_Ocs,
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreWhatsNewGetResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreWhatsNewGetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWhatsNewGetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder();
+    final result = CoreWhatsNewGetResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7705,8 +7663,8 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data))!
-              as CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data))!
+              as CoreWhatsNewGetResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -7715,31 +7673,28 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreWhatsNewGetResponse200ApplicationJson> {
+class _$CoreWhatsNewGetResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreWhatsNewGetResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    CoreWhatsNewGetResponse200ApplicationJson,
-    _$CoreWhatsNewGetResponse200ApplicationJson
-  ];
+  final Iterable<Type> types = const [CoreWhatsNewGetResponseApplicationJson, _$CoreWhatsNewGetResponseApplicationJson];
   @override
-  final String wireName = 'CoreWhatsNewGetResponse200ApplicationJson';
+  final String wireName = 'CoreWhatsNewGetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewGetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWhatsNewGetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewGetResponse200ApplicationJsonBuilder();
+    final result = CoreWhatsNewGetResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7748,9 +7703,9 @@ class _$CoreWhatsNewGetResponse200ApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreWhatsNewGetResponse200ApplicationJson_Ocs))!
-              as CoreWhatsNewGetResponse200ApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs))!
+                  as CoreWhatsNewGetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7759,18 +7714,18 @@ class _$CoreWhatsNewGetResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreWhatsNewDismissResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<CoreWhatsNewDismissResponse200ApplicationJson_Ocs> {
+class _$CoreWhatsNewDismissResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreWhatsNewDismissResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    CoreWhatsNewDismissResponse200ApplicationJson_Ocs,
-    _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs
+    CoreWhatsNewDismissResponseApplicationJson_Ocs,
+    _$CoreWhatsNewDismissResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'CoreWhatsNewDismissResponse200ApplicationJson_Ocs';
+  final String wireName = 'CoreWhatsNewDismissResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewDismissResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewDismissResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -7783,9 +7738,9 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWhatsNewDismissResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder();
+    final result = CoreWhatsNewDismissResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7807,32 +7762,31 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$CoreWhatsNewDismissResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreWhatsNewDismissResponse200ApplicationJson> {
+class _$CoreWhatsNewDismissResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreWhatsNewDismissResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreWhatsNewDismissResponse200ApplicationJson,
-    _$CoreWhatsNewDismissResponse200ApplicationJson
+    CoreWhatsNewDismissResponseApplicationJson,
+    _$CoreWhatsNewDismissResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreWhatsNewDismissResponse200ApplicationJson';
+  final String wireName = 'CoreWhatsNewDismissResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewDismissResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWhatsNewDismissResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(CoreWhatsNewDismissResponse200ApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(CoreWhatsNewDismissResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWhatsNewDismissResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWhatsNewDismissResponse200ApplicationJsonBuilder();
+    final result = CoreWhatsNewDismissResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7842,8 +7796,8 @@ class _$CoreWhatsNewDismissResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CoreWhatsNewDismissResponse200ApplicationJson_Ocs))!
-              as CoreWhatsNewDismissResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(CoreWhatsNewDismissResponseApplicationJson_Ocs))!
+              as CoreWhatsNewDismissResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7852,18 +7806,18 @@ class _$CoreWhatsNewDismissResponse200ApplicationJsonSerializer
   }
 }
 
-class _$CoreWipeCheckWipeResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<CoreWipeCheckWipeResponse200ApplicationJson> {
+class _$CoreWipeCheckWipeResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreWipeCheckWipeResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    CoreWipeCheckWipeResponse200ApplicationJson,
-    _$CoreWipeCheckWipeResponse200ApplicationJson
+    CoreWipeCheckWipeResponseApplicationJson,
+    _$CoreWipeCheckWipeResponseApplicationJson
   ];
   @override
-  final String wireName = 'CoreWipeCheckWipeResponse200ApplicationJson';
+  final String wireName = 'CoreWipeCheckWipeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreWipeCheckWipeResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CoreWipeCheckWipeResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'wipe',
@@ -7874,9 +7828,9 @@ class _$CoreWipeCheckWipeResponse200ApplicationJsonSerializer
   }
 
   @override
-  CoreWipeCheckWipeResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreWipeCheckWipeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreWipeCheckWipeResponse200ApplicationJsonBuilder();
+    final result = CoreWipeCheckWipeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -8241,41 +8195,40 @@ class CoreOCSMetaBuilder implements Builder<CoreOCSMeta, CoreOCSMetaBuilder>, Co
   }
 }
 
-abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get apppassword;
   set apppassword(String? apppassword);
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
-    extends CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
+    extends CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data {
   @override
   final String apppassword;
 
-  factory _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data(
+          [void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data._({required this.apppassword}) : super._() {
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._({required this.apppassword}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        apppassword, r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data', 'apppassword');
+        apppassword, r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword');
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data &&
-        apppassword == other.apppassword;
+    return other is CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data && apppassword == other.apppassword;
   }
 
   @override
@@ -8288,26 +8241,26 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data')
           ..add('apppassword', apppassword))
         .toString();
   }
 }
 
-class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
+class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
+            CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder>,
+        CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data? _$v;
 
   String? _apppassword;
   String? get apppassword => _$this._apppassword;
   set apppassword(covariant String? apppassword) => _$this._apppassword = apppassword;
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apppassword = $v.apppassword;
@@ -8317,69 +8270,68 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data _build() {
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data._(
+        _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._(
             apppassword: BuiltValueNullFieldError.checkNotNull(
-                apppassword, r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data', 'apppassword'));
+                apppassword, r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
-    extends CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs
+    extends CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data data;
+  final CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs(
-          [void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs(
+          [void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs', 'data');
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs rebuild(
+          void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs &&
+    return other is CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -8395,33 +8347,32 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
+class CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder>,
-        CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs,
+            CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder>,
+        CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder();
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder();
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -8432,24 +8383,24 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs build() => _build();
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs _build() {
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs _$result;
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs _build() {
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8459,7 +8410,7 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8468,39 +8419,39 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreAppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordGetAppPasswordResponseApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson
-    extends CoreAppPasswordGetAppPasswordResponse200ApplicationJson {
+class _$CoreAppPasswordGetAppPasswordResponseApplicationJson
+    extends CoreAppPasswordGetAppPasswordResponseApplicationJson {
   @override
-  final CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs ocs;
+  final CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson(
-          [void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordGetAppPasswordResponseApplicationJson(
+          [void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson', 'ocs');
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordGetAppPasswordResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson rebuild(
-          void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder) updates) =>
+  CoreAppPasswordGetAppPasswordResponseApplicationJson rebuild(
+          void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder()..replace(this);
+  CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder toBuilder() =>
+      CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordGetAppPasswordResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreAppPasswordGetAppPasswordResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -8513,26 +8464,26 @@ class _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordGetAppPasswordResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
+class CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder
     implements
-        Builder<CoreAppPasswordGetAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder>,
-        CoreAppPasswordGetAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson? _$v;
+        Builder<CoreAppPasswordGetAppPasswordResponseApplicationJson,
+            CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder>,
+        CoreAppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder {
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson? _$v;
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder? _ocs;
+  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder();
+  CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder();
 
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder get _$this {
+  CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -8542,23 +8493,23 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordGetAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordGetAppPasswordResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson;
+    _$v = other as _$CoreAppPasswordGetAppPasswordResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordGetAppPasswordResponse200ApplicationJson build() => _build();
+  CoreAppPasswordGetAppPasswordResponseApplicationJson build() => _build();
 
-  _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson _build() {
-    _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson _$result;
+  _$CoreAppPasswordGetAppPasswordResponseApplicationJson _build() {
+    _$CoreAppPasswordGetAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreAppPasswordGetAppPasswordResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8566,7 +8517,7 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordGetAppPasswordResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreAppPasswordGetAppPasswordResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8575,41 +8526,40 @@ class CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(
-      void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get apppassword;
   set apppassword(String? apppassword);
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
-    extends CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
+    extends CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data {
   @override
   final String apppassword;
 
-  factory _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data(
+          [void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data._({required this.apppassword}) : super._() {
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._({required this.apppassword}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        apppassword, r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data', 'apppassword');
+        apppassword, r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword');
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data &&
         apppassword == other.apppassword;
   }
 
@@ -8623,26 +8573,26 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data')
           ..add('apppassword', apppassword))
         .toString();
   }
 }
 
-class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
+class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
+            CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder>,
+        CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data? _$v;
 
   String? _apppassword;
   String? get apppassword => _$this._apppassword;
   set apppassword(covariant String? apppassword) => _$this._apppassword = apppassword;
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apppassword = $v.apppassword;
@@ -8652,71 +8602,69 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data _build() {
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data._(
+        _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._(
             apppassword: BuiltValueNullFieldError.checkNotNull(
-                apppassword, r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data', 'apppassword'));
+                apppassword, r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
-    extends CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs
+    extends CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data data;
+  final CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs(
-          [void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs(
+          [void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs', 'data');
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs rebuild(
+          void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs &&
+    return other is CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -8732,33 +8680,33 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
+class CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder>,
-        CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
+            CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder>,
+        CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder();
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -8769,24 +8717,24 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs build() => _build();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs _build() {
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs _$result;
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs _build() {
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8796,7 +8744,7 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8805,39 +8753,39 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
-    extends CoreAppPasswordRotateAppPasswordResponse200ApplicationJson {
+class _$CoreAppPasswordRotateAppPasswordResponseApplicationJson
+    extends CoreAppPasswordRotateAppPasswordResponseApplicationJson {
   @override
-  final CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs ocs;
+  final CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson(
-          [void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordRotateAppPasswordResponseApplicationJson(
+          [void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson', 'ocs');
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordRotateAppPasswordResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson rebuild(
-          void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder) updates) =>
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson rebuild(
+          void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder()..replace(this);
+  CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder toBuilder() =>
+      CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordRotateAppPasswordResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreAppPasswordRotateAppPasswordResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -8850,26 +8798,26 @@ class _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordRotateAppPasswordResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
+class CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder
     implements
-        Builder<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder>,
-        CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson? _$v;
+        Builder<CoreAppPasswordRotateAppPasswordResponseApplicationJson,
+            CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder>,
+        CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder {
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson? _$v;
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder? _ocs;
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder();
 
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder get _$this {
+  CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -8879,23 +8827,23 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordRotateAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordRotateAppPasswordResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson;
+    _$v = other as _$CoreAppPasswordRotateAppPasswordResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordRotateAppPasswordResponse200ApplicationJson build() => _build();
+  CoreAppPasswordRotateAppPasswordResponseApplicationJson build() => _build();
 
-  _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson _build() {
-    _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson _$result;
+  _$CoreAppPasswordRotateAppPasswordResponseApplicationJson _build() {
+    _$CoreAppPasswordRotateAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreAppPasswordRotateAppPasswordResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8903,7 +8851,7 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordRotateAppPasswordResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreAppPasswordRotateAppPasswordResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8912,9 +8860,9 @@ class CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -8922,38 +8870,36 @@ abstract mixin class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_
   set data(JsonObject? data);
 }
 
-class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
-    extends CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs {
+class _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+    extends CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs(
-          [void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs(
+          [void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs', 'data');
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs rebuild(
+          void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs &&
+    return other is CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -8969,19 +8915,19 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
+class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs,
-            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder>,
-        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+            CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder>,
+        CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -8991,9 +8937,9 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder();
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
 
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9004,27 +8950,27 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs build() => _build();
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs _build() {
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs _$result;
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _build() {
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs._(
+          _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs', 'data'));
+                  data, r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -9032,7 +8978,7 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9041,39 +8987,39 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterface other);
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
-    extends CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson {
+class _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson
+    extends CoreAppPasswordDeleteAppPasswordResponseApplicationJson {
   @override
-  final CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs ocs;
+  final CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson(
-          [void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson(
+          [void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson', 'ocs');
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson rebuild(
-          void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder) updates) =>
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson rebuild(
+          void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder()..replace(this);
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder toBuilder() =>
+      CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreAppPasswordDeleteAppPasswordResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9086,26 +9032,26 @@ class _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
+class CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
     implements
-        Builder<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson,
-            CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder>,
-        CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson? _$v;
+        Builder<CoreAppPasswordDeleteAppPasswordResponseApplicationJson,
+            CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder>,
+        CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson? _$v;
 
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? _ocs;
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder();
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder();
 
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder get _$this {
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9115,23 +9061,23 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson other) {
+  void replace(covariant CoreAppPasswordDeleteAppPasswordResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson;
+    _$v = other as _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson build() => _build();
+  CoreAppPasswordDeleteAppPasswordResponseApplicationJson build() => _build();
 
-  _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson _build() {
-    _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson _$result;
+  _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson _build() {
+    _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9139,7 +9085,7 @@ class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreAppPasswordDeleteAppPasswordResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9339,9 +9285,9 @@ class CoreAutocompleteResultBuilder
   }
 }
 
-abstract mixin class CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreAutoCompleteGetResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreAutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreAutoCompleteGetResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreAutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -9349,34 +9295,34 @@ abstract mixin class CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceB
   set data(ListBuilder<CoreAutocompleteResult>? data);
 }
 
-class _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs extends CoreAutoCompleteGetResponse200ApplicationJson_Ocs {
+class _$CoreAutoCompleteGetResponseApplicationJson_Ocs extends CoreAutoCompleteGetResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreAutocompleteResult> data;
 
-  factory _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs(
-          [void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreAutoCompleteGetResponseApplicationJson_Ocs(
+          [void Function(CoreAutoCompleteGetResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreAutoCompleteGetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAutoCompleteGetResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreAutoCompleteGetResponse200ApplicationJson_Ocs', 'data');
+  _$CoreAutoCompleteGetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreAutoCompleteGetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreAutoCompleteGetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreAutoCompleteGetResponseApplicationJson_Ocs rebuild(
+          void Function(CoreAutoCompleteGetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreAutoCompleteGetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAutoCompleteGetResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreAutoCompleteGetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -9390,19 +9336,18 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs extends CoreAutoComple
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAutoCompleteGetResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreAutoCompleteGetResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
+class CoreAutoCompleteGetResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreAutoCompleteGetResponse200ApplicationJson_Ocs,
-            CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder>,
-        CoreAutoCompleteGetResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreAutoCompleteGetResponseApplicationJson_Ocs, CoreAutoCompleteGetResponseApplicationJson_OcsBuilder>,
+        CoreAutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreAutoCompleteGetResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -9412,9 +9357,9 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
   ListBuilder<CoreAutocompleteResult> get data => _$this._data ??= ListBuilder<CoreAutocompleteResult>();
   set data(covariant ListBuilder<CoreAutocompleteResult>? data) => _$this._data = data;
 
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder();
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder();
 
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9425,23 +9370,23 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreAutoCompleteGetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreAutoCompleteGetResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreAutoCompleteGetResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreAutoCompleteGetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson_Ocs build() => _build();
+  CoreAutoCompleteGetResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs _build() {
-    _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs _$result;
+  _$CoreAutoCompleteGetResponseApplicationJson_Ocs _build() {
+    _$CoreAutoCompleteGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreAutoCompleteGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9451,7 +9396,7 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreAutoCompleteGetResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreAutoCompleteGetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9460,38 +9405,38 @@ class CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreAutoCompleteGetResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreAutoCompleteGetResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreAutoCompleteGetResponseApplicationJsonInterface other);
+  void update(void Function(CoreAutoCompleteGetResponseApplicationJsonInterfaceBuilder) updates);
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreAutoCompleteGetResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreAutoCompleteGetResponse200ApplicationJson extends CoreAutoCompleteGetResponse200ApplicationJson {
+class _$CoreAutoCompleteGetResponseApplicationJson extends CoreAutoCompleteGetResponseApplicationJson {
   @override
-  final CoreAutoCompleteGetResponse200ApplicationJson_Ocs ocs;
+  final CoreAutoCompleteGetResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreAutoCompleteGetResponse200ApplicationJson(
-          [void Function(CoreAutoCompleteGetResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreAutoCompleteGetResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreAutoCompleteGetResponseApplicationJson(
+          [void Function(CoreAutoCompleteGetResponseApplicationJsonBuilder)? updates]) =>
+      (CoreAutoCompleteGetResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreAutoCompleteGetResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAutoCompleteGetResponse200ApplicationJson', 'ocs');
+  _$CoreAutoCompleteGetResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreAutoCompleteGetResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson rebuild(
-          void Function(CoreAutoCompleteGetResponse200ApplicationJsonBuilder) updates) =>
+  CoreAutoCompleteGetResponseApplicationJson rebuild(
+          void Function(CoreAutoCompleteGetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreAutoCompleteGetResponse200ApplicationJsonBuilder()..replace(this);
+  CoreAutoCompleteGetResponseApplicationJsonBuilder toBuilder() =>
+      CoreAutoCompleteGetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreAutoCompleteGetResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreAutoCompleteGetResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9504,24 +9449,24 @@ class _$CoreAutoCompleteGetResponse200ApplicationJson extends CoreAutoCompleteGe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreAutoCompleteGetResponse200ApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'CoreAutoCompleteGetResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreAutoCompleteGetResponse200ApplicationJsonBuilder
+class CoreAutoCompleteGetResponseApplicationJsonBuilder
     implements
-        Builder<CoreAutoCompleteGetResponse200ApplicationJson, CoreAutoCompleteGetResponse200ApplicationJsonBuilder>,
-        CoreAutoCompleteGetResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreAutoCompleteGetResponse200ApplicationJson? _$v;
+        Builder<CoreAutoCompleteGetResponseApplicationJson, CoreAutoCompleteGetResponseApplicationJsonBuilder>,
+        CoreAutoCompleteGetResponseApplicationJsonInterfaceBuilder {
+  _$CoreAutoCompleteGetResponseApplicationJson? _$v;
 
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder? _ocs;
+  CoreAutoCompleteGetResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreAutoCompleteGetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreAutoCompleteGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreAutoCompleteGetResponse200ApplicationJsonBuilder();
+  CoreAutoCompleteGetResponseApplicationJsonBuilder();
 
-  CoreAutoCompleteGetResponse200ApplicationJsonBuilder get _$this {
+  CoreAutoCompleteGetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9531,30 +9476,30 @@ class CoreAutoCompleteGetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreAutoCompleteGetResponse200ApplicationJson other) {
+  void replace(covariant CoreAutoCompleteGetResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreAutoCompleteGetResponse200ApplicationJson;
+    _$v = other as _$CoreAutoCompleteGetResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreAutoCompleteGetResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreAutoCompleteGetResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreAutoCompleteGetResponse200ApplicationJson build() => _build();
+  CoreAutoCompleteGetResponseApplicationJson build() => _build();
 
-  _$CoreAutoCompleteGetResponse200ApplicationJson _build() {
-    _$CoreAutoCompleteGetResponse200ApplicationJson _$result;
+  _$CoreAutoCompleteGetResponseApplicationJson _build() {
+    _$CoreAutoCompleteGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreAutoCompleteGetResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreAutoCompleteGetResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CoreAutoCompleteGetResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreAutoCompleteGetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10512,10 +10457,10 @@ class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBui
   }
 }
 
-abstract mixin class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+      void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -10523,39 +10468,38 @@ abstract mixin class CoreCollaborationResourcesSearchCollectionsResponse200Appli
   set data(ListBuilder<CoreCollection>? data);
 }
 
-class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreCollection> data;
 
-  factory _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs._(
-      {required this.meta, required this.data})
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -10571,19 +10515,19 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Oc
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -10593,9 +10537,9 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
   ListBuilder<CoreCollection> get data => _$this._data ??= ListBuilder<CoreCollection>();
   set data(covariant ListBuilder<CoreCollection>? data) => _$this._data = data;
 
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -10606,25 +10550,24 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(
-      void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -10635,7 +10578,7 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10644,41 +10587,41 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsB
   }
 }
 
-abstract mixin class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterface other);
+abstract mixin class CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterface other);
   void update(
-      void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? ocs);
+      void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
-    extends CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson {
+class _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson
+    extends CoreCollaborationResourcesSearchCollectionsResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesSearchCollectionsResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -10691,28 +10634,28 @@ class _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson,
-            CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson,
+            CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -10722,23 +10665,23 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuild
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesSearchCollectionsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10746,7 +10689,7 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuild
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreCollaborationResourcesSearchCollectionsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10755,10 +10698,10 @@ class CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuild
   }
 }
 
-abstract mixin class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+      void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -10766,38 +10709,38 @@ abstract mixin class CoreCollaborationResourcesListCollectionResponse200Applicat
   set data(CoreCollectionBuilder? data);
 }
 
-class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreCollection data;
 
-  factory _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -10813,19 +10756,19 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -10835,9 +10778,9 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
   set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -10848,24 +10791,24 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -10876,7 +10819,7 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10885,41 +10828,40 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuil
   }
 }
 
-abstract mixin class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterface other);
-  void update(
-      void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreCollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesListCollectionResponseApplicationJsonInterface other);
+  void update(void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson
-    extends CoreCollaborationResourcesListCollectionResponse200ApplicationJson {
+class _$CoreCollaborationResourcesListCollectionResponseApplicationJson
+    extends CoreCollaborationResourcesListCollectionResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesListCollectionResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesListCollectionResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesListCollectionResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesListCollectionResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesListCollectionResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -10932,28 +10874,28 @@ class _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesListCollectionResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesListCollectionResponse200ApplicationJson,
-            CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesListCollectionResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesListCollectionResponseApplicationJson,
+            CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -10963,23 +10905,23 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesListCollectionResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesListCollectionResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesListCollectionResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesListCollectionResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesListCollectionResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesListCollectionResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesListCollectionResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesListCollectionResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10987,7 +10929,7 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesListCollectionResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreCollaborationResourcesListCollectionResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10996,10 +10938,10 @@ class CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+      void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -11007,38 +10949,38 @@ abstract mixin class CoreCollaborationResourcesRenameCollectionResponse200Applic
   set data(CoreCollectionBuilder? data);
 }
 
-class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreCollection data;
 
-  factory _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -11054,19 +10996,19 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -11076,9 +11018,9 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
   set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -11089,24 +11031,24 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -11117,7 +11059,7 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11126,41 +11068,40 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBu
   }
 }
 
-abstract mixin class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterface other);
-  void update(
-      void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterface other);
+  void update(void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
-    extends CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson {
+class _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson
+    extends CoreCollaborationResourcesRenameCollectionResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesRenameCollectionResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -11173,28 +11114,28 @@ class _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson,
-            CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesRenameCollectionResponseApplicationJson,
+            CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -11204,23 +11145,23 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilde
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesRenameCollectionResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesRenameCollectionResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11228,7 +11169,7 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilde
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreCollaborationResourcesRenameCollectionResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11237,10 +11178,9 @@ class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilde
   }
 }
 
-abstract mixin class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterface other);
-  void update(
-      void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -11248,38 +11188,38 @@ abstract mixin class CoreCollaborationResourcesAddResourceResponse200Application
   set data(CoreCollectionBuilder? data);
 }
 
-class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreCollection data;
 
-  factory _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -11295,19 +11235,19 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -11317,9 +11257,9 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
   set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -11330,25 +11270,24 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs._(
-              meta: meta.build(), data: data.build());
+          _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11358,7 +11297,7 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11367,40 +11306,39 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreCollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesAddResourceResponseApplicationJsonInterface other);
+  void update(void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson
-    extends CoreCollaborationResourcesAddResourceResponse200ApplicationJson {
+class _$CoreCollaborationResourcesAddResourceResponseApplicationJson
+    extends CoreCollaborationResourcesAddResourceResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesAddResourceResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson', 'ocs');
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreCollaborationResourcesAddResourceResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesAddResourceResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesAddResourceResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesAddResourceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -11413,28 +11351,27 @@ class _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesAddResourceResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesAddResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesAddResourceResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesAddResourceResponseApplicationJson,
+            CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
-      _$this._ocs = ocs;
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -11444,23 +11381,23 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesAddResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesAddResourceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesAddResourceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesAddResourceResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesAddResourceResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesAddResourceResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesAddResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesAddResourceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11468,7 +11405,7 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesAddResourceResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreCollaborationResourcesAddResourceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11477,10 +11414,10 @@ class CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+      void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -11488,38 +11425,38 @@ abstract mixin class CoreCollaborationResourcesRemoveResourceResponse200Applicat
   set data(CoreCollectionBuilder? data);
 }
 
-class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreCollection data;
 
-  factory _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -11535,19 +11472,19 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -11557,9 +11494,9 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
   set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -11570,24 +11507,24 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -11598,7 +11535,7 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11607,41 +11544,40 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuil
   }
 }
 
-abstract mixin class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterface other);
-  void update(
-      void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterface other);
+  void update(void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
-    extends CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson {
+class _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson
+    extends CoreCollaborationResourcesRemoveResourceResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesRemoveResourceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -11654,28 +11590,28 @@ class _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesRemoveResourceResponseApplicationJson,
+            CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -11685,23 +11621,23 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesRemoveResourceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesRemoveResourceResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11709,7 +11645,7 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreCollaborationResourcesRemoveResourceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11718,10 +11654,10 @@ class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder)
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder)
           updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
@@ -11730,42 +11666,42 @@ abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponse2
   set data(ListBuilder<CoreCollection>? data);
 }
 
-class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreCollection> data;
 
-  factory _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder)?
+  factory _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)?
               updates]) =>
-      (CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder()..update(updates))
+      (CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder()..update(updates))
           ._build();
 
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs._(
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs._(
       {required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder)
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -11782,19 +11718,19 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs')
+            r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -11804,9 +11740,9 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   ListBuilder<CoreCollection> get data => _$this._data ??= ListBuilder<CoreCollection>();
   set data(covariant ListBuilder<CoreCollection>? data) => _$this._data = data;
 
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -11817,25 +11753,25 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs;
   }
 
   @override
   void update(
-      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder)? updates) {
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -11846,7 +11782,7 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs',
+            r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs',
             _$failedField,
             e.toString());
       }
@@ -11857,43 +11793,41 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 }
 
-abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterface other);
+abstract mixin class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface other);
   void update(
-      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder)
-          updates);
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? ocs);
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder) updates);
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson
-    extends CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson {
+class _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson
+    extends CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder)?
-              updates]) =>
-      (CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? updates]) =>
+      (CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder) updates) =>
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -11906,28 +11840,28 @@ class _$CoreCollaborationResourcesGetCollectionsByResourceResponse200Application
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
+            CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -11937,25 +11871,24 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
   }
 
   @override
   void update(
-      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder)? updates) {
+      void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson _$result;
     try {
-      _$result =
-          _$v ?? _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11963,9 +11896,7 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson',
-            _$failedField,
-            e.toString());
+            r'CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11974,10 +11905,10 @@ class CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJs
   }
 }
 
-abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterface other);
+abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface other);
   void update(
-      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder)
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder)
           updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
@@ -11986,42 +11917,42 @@ abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceRespons
   set data(CoreCollectionBuilder? data);
 }
 
-class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs
-    extends CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs {
+class _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
+    extends CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreCollection data;
 
-  factory _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs(
-          [void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder)?
+  factory _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs(
+          [void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)?
               updates]) =>
-      (CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder()..update(updates))
+      (CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder()..update(updates))
           ._build();
 
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs._(
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs._(
       {required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder)
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs rebuild(
+          void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs &&
+    return other is CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -12038,19 +11969,19 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs')
+            r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder
+class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder>,
-        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
+            CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder>,
+        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -12060,9 +11991,9 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   CoreCollectionBuilder get data => _$this._data ??= CoreCollectionBuilder();
   set data(covariant CoreCollectionBuilder? data) => _$this._data = data;
 
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder();
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder();
 
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -12073,26 +12004,25 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs;
   }
 
   @override
   void update(
-      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder)?
-          updates) {
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs build() => _build();
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs _build() {
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs _$result;
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs _build() {
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs._(
+          _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs._(
               meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
@@ -12103,7 +12033,7 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs',
+            r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs',
             _$failedField,
             e.toString());
       }
@@ -12114,45 +12044,43 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   }
 }
 
-abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterface other);
+abstract mixin class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface other);
   void update(
-      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder)
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder)
           updates);
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? ocs);
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson
-    extends CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson {
+class _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
+    extends CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson {
   @override
-  final CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs ocs;
+  final CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson(
-          [void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder)?
+  factory _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson(
+          [void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)?
               updates]) =>
-      (CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder()..update(updates))
-          ._build();
+      (CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson._({required this.ocs}) : super._() {
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson', 'ocs');
+        ocs, r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson rebuild(
-          void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder)
-              updates) =>
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson rebuild(
+          void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder()..replace(this);
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder toBuilder() =>
+      CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -12165,29 +12093,28 @@ class _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200Applicati
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson')
+    return (newBuiltValueToStringHelper(r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder
+class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder
     implements
-        Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder>,
-        CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson? _$v;
+        Builder<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
+            CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder>,
+        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder {
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson? _$v;
 
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder? ocs) =>
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder? _ocs;
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder();
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder();
 
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder get _$this {
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -12197,35 +12124,33 @@ class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Application
   }
 
   @override
-  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson other) {
+  void replace(covariant CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson;
+    _$v = other as _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
   }
 
   @override
   void update(
-      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder)? updates) {
+      void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson build() => _build();
+  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson build() => _build();
 
-  _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson _build() {
-    _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson _$result;
+  _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson _build() {
+    _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson _$result;
     try {
       _$result =
-          _$v ?? _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson._(ocs: ocs.build());
+          _$v ?? _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson',
+            _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12370,9 +12295,9 @@ class CoreContactsActionBuilder
   }
 }
 
-abstract mixin class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -12383,8 +12308,8 @@ abstract mixin class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInte
   set actions(ListBuilder<CoreContactsAction>? actions);
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
-    extends CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data {
+class _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data
+    extends CoreHoverCardGetUserResponseApplicationJson_Ocs_Data {
   @override
   final String userId;
   @override
@@ -12392,33 +12317,32 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
   @override
   final BuiltList<CoreContactsAction> actions;
 
-  factory _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data(
+          [void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data._(
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data._(
       {required this.userId, required this.displayName, required this.actions})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', 'userId');
+    BuiltValueNullFieldError.checkNotNull(userId, r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', 'userId');
     BuiltValueNullFieldError.checkNotNull(
-        displayName, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', 'displayName');
-    BuiltValueNullFieldError.checkNotNull(
-        actions, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', 'actions');
+        displayName, r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', 'displayName');
+    BuiltValueNullFieldError.checkNotNull(actions, r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', 'actions');
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreHoverCardGetUserResponseApplicationJson_Ocs_Data &&
         userId == other.userId &&
         displayName == other.displayName &&
         actions == other.actions;
@@ -12436,7 +12360,7 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data')
           ..add('userId', userId)
           ..add('displayName', displayName)
           ..add('actions', actions))
@@ -12444,12 +12368,12 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
   }
 }
 
-class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
+class CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data,
-            CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data,
+            CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder>,
+        CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -12463,9 +12387,9 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
   ListBuilder<CoreContactsAction> get actions => _$this._actions ??= ListBuilder<CoreContactsAction>();
   set actions(covariant ListBuilder<CoreContactsAction>? actions) => _$this._actions = actions;
 
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _userId = $v.userId;
@@ -12477,28 +12401,28 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreHoverCardGetUserResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data _build() {
+    _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data._(
+          _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data._(
               userId: BuiltValueNullFieldError.checkNotNull(
-                  userId, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', 'userId'),
+                  userId, r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', 'userId'),
               displayName: BuiltValueNullFieldError.checkNotNull(
-                  displayName, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', 'displayName'),
+                  displayName, r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', 'displayName'),
               actions: actions.build());
     } catch (_) {
       late String _$failedField;
@@ -12507,7 +12431,7 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
         actions.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreHoverCardGetUserResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12516,44 +12440,44 @@ class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreHoverCardGetUserResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreHoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs extends CoreHoverCardGetUserResponse200ApplicationJson_Ocs {
+class _$CoreHoverCardGetUserResponseApplicationJson_Ocs extends CoreHoverCardGetUserResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data data;
+  final CoreHoverCardGetUserResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs(
-          [void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreHoverCardGetUserResponseApplicationJson_Ocs(
+          [void Function(CoreHoverCardGetUserResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreHoverCardGetUserResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs', 'data');
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreHoverCardGetUserResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreHoverCardGetUserResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreHoverCardGetUserResponseApplicationJson_Ocs rebuild(
+          void Function(CoreHoverCardGetUserResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreHoverCardGetUserResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreHoverCardGetUserResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreHoverCardGetUserResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -12567,32 +12491,32 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs extends CoreHoverCard
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
+class CoreHoverCardGetUserResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreHoverCardGetUserResponse200ApplicationJson_Ocs,
-            CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder>,
-        CoreHoverCardGetUserResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreHoverCardGetUserResponseApplicationJson_Ocs,
+            CoreHoverCardGetUserResponseApplicationJson_OcsBuilder>,
+        CoreHoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder();
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder();
 
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -12603,23 +12527,23 @@ class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreHoverCardGetUserResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreHoverCardGetUserResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson_Ocs build() => _build();
+  CoreHoverCardGetUserResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs _build() {
-    _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs _$result;
+  _$CoreHoverCardGetUserResponseApplicationJson_Ocs _build() {
+    _$CoreHoverCardGetUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreHoverCardGetUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -12629,7 +12553,7 @@ class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreHoverCardGetUserResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreHoverCardGetUserResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12638,38 +12562,38 @@ class CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreHoverCardGetUserResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreHoverCardGetUserResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreHoverCardGetUserResponseApplicationJsonInterface other);
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJsonInterfaceBuilder) updates);
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreHoverCardGetUserResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreHoverCardGetUserResponse200ApplicationJson extends CoreHoverCardGetUserResponse200ApplicationJson {
+class _$CoreHoverCardGetUserResponseApplicationJson extends CoreHoverCardGetUserResponseApplicationJson {
   @override
-  final CoreHoverCardGetUserResponse200ApplicationJson_Ocs ocs;
+  final CoreHoverCardGetUserResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreHoverCardGetUserResponse200ApplicationJson(
-          [void Function(CoreHoverCardGetUserResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreHoverCardGetUserResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreHoverCardGetUserResponseApplicationJson(
+          [void Function(CoreHoverCardGetUserResponseApplicationJsonBuilder)? updates]) =>
+      (CoreHoverCardGetUserResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreHoverCardGetUserResponse200ApplicationJson', 'ocs');
+  _$CoreHoverCardGetUserResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreHoverCardGetUserResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson rebuild(
-          void Function(CoreHoverCardGetUserResponse200ApplicationJsonBuilder) updates) =>
+  CoreHoverCardGetUserResponseApplicationJson rebuild(
+          void Function(CoreHoverCardGetUserResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreHoverCardGetUserResponse200ApplicationJsonBuilder()..replace(this);
+  CoreHoverCardGetUserResponseApplicationJsonBuilder toBuilder() =>
+      CoreHoverCardGetUserResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreHoverCardGetUserResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreHoverCardGetUserResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -12682,24 +12606,24 @@ class _$CoreHoverCardGetUserResponse200ApplicationJson extends CoreHoverCardGetU
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponse200ApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'CoreHoverCardGetUserResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreHoverCardGetUserResponse200ApplicationJsonBuilder
+class CoreHoverCardGetUserResponseApplicationJsonBuilder
     implements
-        Builder<CoreHoverCardGetUserResponse200ApplicationJson, CoreHoverCardGetUserResponse200ApplicationJsonBuilder>,
-        CoreHoverCardGetUserResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreHoverCardGetUserResponse200ApplicationJson? _$v;
+        Builder<CoreHoverCardGetUserResponseApplicationJson, CoreHoverCardGetUserResponseApplicationJsonBuilder>,
+        CoreHoverCardGetUserResponseApplicationJsonInterfaceBuilder {
+  _$CoreHoverCardGetUserResponseApplicationJson? _$v;
 
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder? _ocs;
+  CoreHoverCardGetUserResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreHoverCardGetUserResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreHoverCardGetUserResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreHoverCardGetUserResponse200ApplicationJsonBuilder();
+  CoreHoverCardGetUserResponseApplicationJsonBuilder();
 
-  CoreHoverCardGetUserResponse200ApplicationJsonBuilder get _$this {
+  CoreHoverCardGetUserResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -12709,31 +12633,30 @@ class CoreHoverCardGetUserResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreHoverCardGetUserResponse200ApplicationJson other) {
+  void replace(covariant CoreHoverCardGetUserResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreHoverCardGetUserResponse200ApplicationJson;
+    _$v = other as _$CoreHoverCardGetUserResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreHoverCardGetUserResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreHoverCardGetUserResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreHoverCardGetUserResponse200ApplicationJson build() => _build();
+  CoreHoverCardGetUserResponseApplicationJson build() => _build();
 
-  _$CoreHoverCardGetUserResponse200ApplicationJson _build() {
-    _$CoreHoverCardGetUserResponse200ApplicationJson _$result;
+  _$CoreHoverCardGetUserResponseApplicationJson _build() {
+    _$CoreHoverCardGetUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreHoverCardGetUserResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreHoverCardGetUserResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreHoverCardGetUserResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreHoverCardGetUserResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13075,9 +12998,9 @@ class CoreNavigationEntryBuilder
   }
 }
 
-abstract mixin class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -13085,38 +13008,35 @@ abstract mixin class CoreNavigationGetAppsNavigationResponse200ApplicationJson_O
   set data(ListBuilder<CoreNavigationEntry>? data);
 }
 
-class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
-    extends CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs {
+class _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs
+    extends CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreNavigationEntry> data;
 
-  factory _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs(
-          [void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs(
+          [void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs', 'data');
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs rebuild(
+          void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs &&
+    return other is CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -13132,19 +13052,19 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
+class CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs,
-            CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder>,
-        CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs,
+            CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder>,
+        CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -13154,9 +13074,9 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
   ListBuilder<CoreNavigationEntry> get data => _$this._data ??= ListBuilder<CoreNavigationEntry>();
   set data(covariant ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
 
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder();
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder();
 
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -13167,24 +13087,24 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs build() => _build();
+  CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs _build() {
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs _$result;
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs _build() {
+    _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -13194,7 +13114,7 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13203,39 +13123,39 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreNavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreNavigationGetAppsNavigationResponseApplicationJsonInterface other);
+  void update(void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder) updates);
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson
-    extends CoreNavigationGetAppsNavigationResponse200ApplicationJson {
+class _$CoreNavigationGetAppsNavigationResponseApplicationJson
+    extends CoreNavigationGetAppsNavigationResponseApplicationJson {
   @override
-  final CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs ocs;
+  final CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreNavigationGetAppsNavigationResponse200ApplicationJson(
-          [void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreNavigationGetAppsNavigationResponseApplicationJson(
+          [void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder)? updates]) =>
+      (CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreNavigationGetAppsNavigationResponse200ApplicationJson', 'ocs');
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreNavigationGetAppsNavigationResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson rebuild(
-          void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder) updates) =>
+  CoreNavigationGetAppsNavigationResponseApplicationJson rebuild(
+          void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder()..replace(this);
+  CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder toBuilder() =>
+      CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreNavigationGetAppsNavigationResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreNavigationGetAppsNavigationResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -13248,26 +13168,26 @@ class _$CoreNavigationGetAppsNavigationResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreNavigationGetAppsNavigationResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreNavigationGetAppsNavigationResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
+class CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder
     implements
-        Builder<CoreNavigationGetAppsNavigationResponse200ApplicationJson,
-            CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder>,
-        CoreNavigationGetAppsNavigationResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson? _$v;
+        Builder<CoreNavigationGetAppsNavigationResponseApplicationJson,
+            CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder>,
+        CoreNavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder {
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson? _$v;
 
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder? _ocs;
+  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder();
+  CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder();
 
-  CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder get _$this {
+  CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -13277,23 +13197,23 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreNavigationGetAppsNavigationResponse200ApplicationJson other) {
+  void replace(covariant CoreNavigationGetAppsNavigationResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreNavigationGetAppsNavigationResponse200ApplicationJson;
+    _$v = other as _$CoreNavigationGetAppsNavigationResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreNavigationGetAppsNavigationResponse200ApplicationJson build() => _build();
+  CoreNavigationGetAppsNavigationResponseApplicationJson build() => _build();
 
-  _$CoreNavigationGetAppsNavigationResponse200ApplicationJson _build() {
-    _$CoreNavigationGetAppsNavigationResponse200ApplicationJson _$result;
+  _$CoreNavigationGetAppsNavigationResponseApplicationJson _build() {
+    _$CoreNavigationGetAppsNavigationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreNavigationGetAppsNavigationResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreNavigationGetAppsNavigationResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -13301,7 +13221,7 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreNavigationGetAppsNavigationResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreNavigationGetAppsNavigationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13310,9 +13230,9 @@ class CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -13320,38 +13240,38 @@ abstract mixin class CoreNavigationGetSettingsNavigationResponse200ApplicationJs
   set data(ListBuilder<CoreNavigationEntry>? data);
 }
 
-class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
-    extends CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs {
+class _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs
+    extends CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreNavigationEntry> data;
 
-  factory _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs(
-          [void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs(
+          [void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs rebuild(
+          void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs &&
+    return other is CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -13367,19 +13287,19 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
+class CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs,
-            CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder>,
-        CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs,
+            CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder>,
+        CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -13389,9 +13309,9 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
   ListBuilder<CoreNavigationEntry> get data => _$this._data ??= ListBuilder<CoreNavigationEntry>();
   set data(covariant ListBuilder<CoreNavigationEntry>? data) => _$this._data = data;
 
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder();
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder();
 
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -13402,24 +13322,24 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs build() => _build();
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs _build() {
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs _$result;
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs _build() {
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -13429,7 +13349,7 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13438,39 +13358,39 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreNavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreNavigationGetSettingsNavigationResponseApplicationJsonInterface other);
+  void update(void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder) updates);
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson
-    extends CoreNavigationGetSettingsNavigationResponse200ApplicationJson {
+class _$CoreNavigationGetSettingsNavigationResponseApplicationJson
+    extends CoreNavigationGetSettingsNavigationResponseApplicationJson {
   @override
-  final CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs ocs;
+  final CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson(
-          [void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreNavigationGetSettingsNavigationResponseApplicationJson(
+          [void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder)? updates]) =>
+      (CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson', 'ocs');
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreNavigationGetSettingsNavigationResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson rebuild(
-          void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder) updates) =>
+  CoreNavigationGetSettingsNavigationResponseApplicationJson rebuild(
+          void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder()..replace(this);
+  CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder toBuilder() =>
+      CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreNavigationGetSettingsNavigationResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreNavigationGetSettingsNavigationResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -13483,27 +13403,26 @@ class _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreNavigationGetSettingsNavigationResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
+class CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder
     implements
-        Builder<CoreNavigationGetSettingsNavigationResponse200ApplicationJson,
-            CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder>,
-        CoreNavigationGetSettingsNavigationResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson? _$v;
+        Builder<CoreNavigationGetSettingsNavigationResponseApplicationJson,
+            CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder>,
+        CoreNavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder {
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson? _$v;
 
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder? _ocs;
+  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder();
+  CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder();
 
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder get _$this {
+  CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -13513,23 +13432,23 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreNavigationGetSettingsNavigationResponse200ApplicationJson other) {
+  void replace(covariant CoreNavigationGetSettingsNavigationResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson;
+    _$v = other as _$CoreNavigationGetSettingsNavigationResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreNavigationGetSettingsNavigationResponse200ApplicationJson build() => _build();
+  CoreNavigationGetSettingsNavigationResponseApplicationJson build() => _build();
 
-  _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson _build() {
-    _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson _$result;
+  _$CoreNavigationGetSettingsNavigationResponseApplicationJson _build() {
+    _$CoreNavigationGetSettingsNavigationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreNavigationGetSettingsNavigationResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -13537,7 +13456,7 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreNavigationGetSettingsNavigationResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreNavigationGetSettingsNavigationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13546,9 +13465,9 @@ class CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder {
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterface other);
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates);
+abstract mixin class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates);
   int? get major;
   set major(int? major);
 
@@ -13568,8 +13487,8 @@ abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_V
   set extendedSupport(bool? extendedSupport);
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
+    extends CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version {
   @override
   final int major;
   @override
@@ -13583,11 +13502,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
   @override
   final bool extendedSupport;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder)? updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder()..update(updates))._build();
+  factory _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version(
+          [void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? updates]) =>
+      (CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version._(
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._(
       {required this.major,
       required this.minor,
       required this.micro,
@@ -13596,32 +13515,32 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
       required this.extendedSupport})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        major, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'major');
+        major, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'major');
     BuiltValueNullFieldError.checkNotNull(
-        minor, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'minor');
+        minor, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'minor');
     BuiltValueNullFieldError.checkNotNull(
-        micro, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'micro');
+        micro, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'micro');
     BuiltValueNullFieldError.checkNotNull(
-        string, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'string');
+        string, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'string');
     BuiltValueNullFieldError.checkNotNull(
-        edition, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'edition');
+        edition, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'edition');
     BuiltValueNullFieldError.checkNotNull(
-        extendedSupport, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'extendedSupport');
+        extendedSupport, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'extendedSupport');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder) updates) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version rebuild(
+          void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder()..replace(this);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version &&
+    return other is CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version &&
         major == other.major &&
         minor == other.minor &&
         micro == other.micro &&
@@ -13645,7 +13564,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version')
+    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version')
           ..add('major', major)
           ..add('minor', minor)
           ..add('micro', micro)
@@ -13656,12 +13575,12 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
+class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder>,
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionInterfaceBuilder {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version? _$v;
+        Builder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
+            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder>,
+        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version? _$v;
 
   int? _major;
   int? get major => _$this._major;
@@ -13687,9 +13606,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   bool? get extendedSupport => _$this._extendedSupport;
   set extendedSupport(covariant bool? extendedSupport) => _$this._extendedSupport = extendedSupport;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder get _$this {
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _major = $v.major;
@@ -13704,34 +13623,34 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   }
 
   @override
-  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version;
+    _$v = other as _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version;
   }
 
   @override
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder)? updates) {
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version build() => _build();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version _build() {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version._(
+        _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._(
             major: BuiltValueNullFieldError.checkNotNull(
-                major, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'major'),
+                major, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'major'),
             minor: BuiltValueNullFieldError.checkNotNull(
-                minor, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'minor'),
+                minor, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'minor'),
             micro: BuiltValueNullFieldError.checkNotNull(
-                micro, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'micro'),
+                micro, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'micro'),
             string: BuiltValueNullFieldError.checkNotNull(
-                string, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'string'),
+                string, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'string'),
             edition: BuiltValueNullFieldError.checkNotNull(
-                edition, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'edition'),
-            extendedSupport: BuiltValueNullFieldError.checkNotNull(extendedSupport,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version', 'extendedSupport'));
+                edition, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'edition'),
+            extendedSupport: BuiltValueNullFieldError.checkNotNull(
+                extendedSupport, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'extendedSupport'));
     replace(_$result);
     return _$result;
   }
@@ -19235,8 +19154,8 @@ class CoreWeatherStatusCapabilitiesBuilder
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
+    extends CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
   @override
   final JsonObject data;
   @override
@@ -19266,11 +19185,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   @override
   final CoreWeatherStatusCapabilities? weatherStatusCapabilities;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()..update(updates))._build();
+  factory _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities(
+          [void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates]) =>
+      (CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._(
       {required this.data,
       this.commentsCapabilities,
       this.davCapabilities,
@@ -19287,22 +19206,22 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
       this.weatherStatusCapabilities})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data');
+        data, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', 'data');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder) updates) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities rebuild(
+          void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()..replace(this);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities &&
+    return other is CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities &&
         data == other.data &&
         commentsCapabilities == other.commentsCapabilities &&
         davCapabilities == other.davCapabilities &&
@@ -19342,7 +19261,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities')
+    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities')
           ..add('data', data)
           ..add('commentsCapabilities', commentsCapabilities)
           ..add('davCapabilities', davCapabilities)
@@ -19361,11 +19280,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder
+class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities? _$v;
+        Builder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
+            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -19445,9 +19364,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   set weatherStatusCapabilities(CoreWeatherStatusCapabilitiesBuilder? weatherStatusCapabilities) =>
       _$this._weatherStatusCapabilities = weatherStatusCapabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -19470,26 +19389,26 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities other) {
+  void replace(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities;
+    _$v = other as _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
   }
 
   @override
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates) {
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities build() => _build();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities _$result;
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _build() {
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
+          _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._(
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data'),
+                  data, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', 'data'),
               commentsCapabilities: _commentsCapabilities?.build(),
               davCapabilities: _davCapabilities?.build(),
               filesCapabilities: _filesCapabilities?.build(),
@@ -19534,7 +19453,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
         _weatherStatusCapabilities?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', _$failedField, e.toString());
+            r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19543,48 +19462,48 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   }
 }
 
-abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder get version;
-  set version(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? version);
+abstract mixin class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder get version;
+  set version(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder? version);
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities;
-  set capabilities(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities;
+  set capabilities(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities);
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data
+    extends CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data {
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version version;
+  final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version version;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities capabilities;
+  final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities capabilities;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
+          [void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data._({required this.version, required this.capabilities})
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data._({required this.version, required this.capabilities})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        version, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data', 'version');
+        version, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data', 'version');
     BuiltValueNullFieldError.checkNotNull(
-        capabilities, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data', 'capabilities');
+        capabilities, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data', 'capabilities');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data &&
         version == other.version &&
         capabilities == other.capabilities;
   }
@@ -19600,36 +19519,36 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data')
           ..add('version', version)
           ..add('capabilities', capabilities))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
+class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
+            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder>,
+        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data? _$v;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? _version;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder get version =>
-      _$this._version ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder();
-  set version(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder? version) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder? _version;
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder get version =>
+      _$this._version ??= CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder();
+  set version(covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder? version) =>
       _$this._version = version;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? _capabilities;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities =>
-      _$this._capabilities ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? _capabilities;
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities =>
+      _$this._capabilities ??= CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder();
   set capabilities(
-          covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities) =>
+          covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities) =>
       _$this._capabilities = capabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _version = $v.version.toBuilder();
@@ -19640,24 +19559,24 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data _build() {
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data._(
+          _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data._(
               version: version.build(), capabilities: capabilities.build());
     } catch (_) {
       late String _$failedField;
@@ -19668,7 +19587,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
         capabilities.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19677,45 +19596,44 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs extends CoreOcsGetCapabilitiesResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data data;
+  final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs(
+          [void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs', 'data');
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs rebuild(
+          void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreOcsGetCapabilitiesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -19729,32 +19647,32 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
+class CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder>,
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs,
+            CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder>,
+        CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -19765,24 +19683,23 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs build() => _build();
+  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs _$result;
+  _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs _build() {
+    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19792,7 +19709,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19801,38 +19718,38 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreOcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreOcsGetCapabilitiesResponseApplicationJsonInterface other);
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder) updates);
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson extends CoreOcsGetCapabilitiesResponse200ApplicationJson {
+class _$CoreOcsGetCapabilitiesResponseApplicationJson extends CoreOcsGetCapabilitiesResponseApplicationJson {
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs ocs;
+  final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreOcsGetCapabilitiesResponseApplicationJson(
+          [void Function(CoreOcsGetCapabilitiesResponseApplicationJsonBuilder)? updates]) =>
+      (CoreOcsGetCapabilitiesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreOcsGetCapabilitiesResponse200ApplicationJson', 'ocs');
+  _$CoreOcsGetCapabilitiesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreOcsGetCapabilitiesResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder) updates) =>
+  CoreOcsGetCapabilitiesResponseApplicationJson rebuild(
+          void Function(CoreOcsGetCapabilitiesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder()..replace(this);
+  CoreOcsGetCapabilitiesResponseApplicationJsonBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreOcsGetCapabilitiesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -19845,26 +19762,24 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson extends CoreOcsGetCapab
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
+class CoreOcsGetCapabilitiesResponseApplicationJsonBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson,
-            CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder>,
-        CoreOcsGetCapabilitiesResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson? _$v;
+        Builder<CoreOcsGetCapabilitiesResponseApplicationJson, CoreOcsGetCapabilitiesResponseApplicationJsonBuilder>,
+        CoreOcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder {
+  _$CoreOcsGetCapabilitiesResponseApplicationJson? _$v;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder? _ocs;
+  CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder();
+  CoreOcsGetCapabilitiesResponseApplicationJsonBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder get _$this {
+  CoreOcsGetCapabilitiesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -19874,31 +19789,30 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreOcsGetCapabilitiesResponse200ApplicationJson other) {
+  void replace(covariant CoreOcsGetCapabilitiesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson;
+    _$v = other as _$CoreOcsGetCapabilitiesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreOcsGetCapabilitiesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson build() => _build();
+  CoreOcsGetCapabilitiesResponseApplicationJson build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson _$result;
+  _$CoreOcsGetCapabilitiesResponseApplicationJson _build() {
+    _$CoreOcsGetCapabilitiesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreOcsGetCapabilitiesResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreOcsGetCapabilitiesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreOcsGetCapabilitiesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19907,9 +19821,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -19917,37 +19831,35 @@ abstract mixin class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsIn
   set data(JsonObject? data);
 }
 
-class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
-    extends CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs {
+class _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs
+    extends CoreProfileApiSetVisibilityResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs(
-          [void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs(
+          [void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs', 'data');
+  _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreProfileApiSetVisibilityResponseApplicationJson_Ocs rebuild(
+          void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is CoreProfileApiSetVisibilityResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -19961,19 +19873,19 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
+class CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs,
-            CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder>,
-        CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs,
+            CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder>,
+        CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -19983,9 +19895,9 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder();
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder();
 
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -19996,27 +19908,27 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreProfileApiSetVisibilityResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs build() => _build();
+  CoreProfileApiSetVisibilityResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs _build() {
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs _$result;
+  _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs _build() {
+    _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs._(
+          _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs', 'data'));
+                  data, r'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -20024,7 +19936,7 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreProfileApiSetVisibilityResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20033,39 +19945,38 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreProfileApiSetVisibilityResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreProfileApiSetVisibilityResponseApplicationJsonInterface other);
+  void update(void Function(CoreProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder) updates);
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreProfileApiSetVisibilityResponse200ApplicationJson
-    extends CoreProfileApiSetVisibilityResponse200ApplicationJson {
+class _$CoreProfileApiSetVisibilityResponseApplicationJson extends CoreProfileApiSetVisibilityResponseApplicationJson {
   @override
-  final CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs ocs;
+  final CoreProfileApiSetVisibilityResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreProfileApiSetVisibilityResponse200ApplicationJson(
-          [void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreProfileApiSetVisibilityResponseApplicationJson(
+          [void Function(CoreProfileApiSetVisibilityResponseApplicationJsonBuilder)? updates]) =>
+      (CoreProfileApiSetVisibilityResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreProfileApiSetVisibilityResponse200ApplicationJson', 'ocs');
+  _$CoreProfileApiSetVisibilityResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreProfileApiSetVisibilityResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson rebuild(
-          void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder) updates) =>
+  CoreProfileApiSetVisibilityResponseApplicationJson rebuild(
+          void Function(CoreProfileApiSetVisibilityResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder()..replace(this);
+  CoreProfileApiSetVisibilityResponseApplicationJsonBuilder toBuilder() =>
+      CoreProfileApiSetVisibilityResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreProfileApiSetVisibilityResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreProfileApiSetVisibilityResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -20078,26 +19989,26 @@ class _$CoreProfileApiSetVisibilityResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreProfileApiSetVisibilityResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreProfileApiSetVisibilityResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
+class CoreProfileApiSetVisibilityResponseApplicationJsonBuilder
     implements
-        Builder<CoreProfileApiSetVisibilityResponse200ApplicationJson,
-            CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder>,
-        CoreProfileApiSetVisibilityResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson? _$v;
+        Builder<CoreProfileApiSetVisibilityResponseApplicationJson,
+            CoreProfileApiSetVisibilityResponseApplicationJsonBuilder>,
+        CoreProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder {
+  _$CoreProfileApiSetVisibilityResponseApplicationJson? _$v;
 
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder? _ocs;
+  CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder();
+  CoreProfileApiSetVisibilityResponseApplicationJsonBuilder();
 
-  CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder get _$this {
+  CoreProfileApiSetVisibilityResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -20107,23 +20018,23 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreProfileApiSetVisibilityResponse200ApplicationJson other) {
+  void replace(covariant CoreProfileApiSetVisibilityResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreProfileApiSetVisibilityResponse200ApplicationJson;
+    _$v = other as _$CoreProfileApiSetVisibilityResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreProfileApiSetVisibilityResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreProfileApiSetVisibilityResponse200ApplicationJson build() => _build();
+  CoreProfileApiSetVisibilityResponseApplicationJson build() => _build();
 
-  _$CoreProfileApiSetVisibilityResponse200ApplicationJson _build() {
-    _$CoreProfileApiSetVisibilityResponse200ApplicationJson _$result;
+  _$CoreProfileApiSetVisibilityResponseApplicationJson _build() {
+    _$CoreProfileApiSetVisibilityResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreProfileApiSetVisibilityResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreProfileApiSetVisibilityResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20131,7 +20042,7 @@ class CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreProfileApiSetVisibilityResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreProfileApiSetVisibilityResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20290,40 +20201,40 @@ class CoreReferenceBuilder implements Builder<CoreReference, CoreReferenceBuilde
   }
 }
 
-abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   MapBuilder<String, CoreReference> get references;
   set references(MapBuilder<String, CoreReference>? references);
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
-    extends CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data {
+class _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data
+    extends CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data {
   @override
   final BuiltMap<String, CoreReference> references;
 
-  factory _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data(
+          [void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data._({required this.references}) : super._() {
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        references, r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data', 'references');
+        references, r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data', 'references');
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data && references == other.references;
+    return other is CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data && references == other.references;
   }
 
   @override
@@ -20336,26 +20247,26 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data')
           ..add('references', references))
         .toString();
   }
 }
 
-class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
+class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
+            CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, CoreReference>? _references;
   MapBuilder<String, CoreReference> get references => _$this._references ??= MapBuilder<String, CoreReference>();
   set references(covariant MapBuilder<String, CoreReference>? references) => _$this._references = references;
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _references = $v.references.toBuilder();
@@ -20365,24 +20276,23 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data _build() {
+    _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result =
-          _$v ?? _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ?? _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data._(references: references.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20390,7 +20300,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
         references.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20399,47 +20309,45 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
-    extends CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs {
+class _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs
+    extends CoreReferenceApiResolveOneResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data data;
+  final CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs(
-          [void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs(
+          [void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs', 'data');
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs rebuild(
+          void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is CoreReferenceApiResolveOneResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -20453,32 +20361,32 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
+class CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs,
-            CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder>,
-        CoreReferenceApiResolveOneResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreReferenceApiResolveOneResponseApplicationJson_Ocs,
+            CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder>,
+        CoreReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder();
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder();
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -20489,24 +20397,24 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiResolveOneResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs build() => _build();
+  CoreReferenceApiResolveOneResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs _build() {
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs _$result;
+  _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs _build() {
+    _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs _$result;
     try {
       _$result =
-          _$v ?? _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$v ?? _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20516,7 +20424,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreReferenceApiResolveOneResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20525,39 +20433,38 @@ class CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreReferenceApiResolveOneResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiResolveOneResponseApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreReferenceApiResolveOneResponse200ApplicationJson
-    extends CoreReferenceApiResolveOneResponse200ApplicationJson {
+class _$CoreReferenceApiResolveOneResponseApplicationJson extends CoreReferenceApiResolveOneResponseApplicationJson {
   @override
-  final CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs ocs;
+  final CoreReferenceApiResolveOneResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreReferenceApiResolveOneResponse200ApplicationJson(
-          [void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveOneResponseApplicationJson(
+          [void Function(CoreReferenceApiResolveOneResponseApplicationJsonBuilder)? updates]) =>
+      (CoreReferenceApiResolveOneResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiResolveOneResponse200ApplicationJson', 'ocs');
+  _$CoreReferenceApiResolveOneResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiResolveOneResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson rebuild(
-          void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder) updates) =>
+  CoreReferenceApiResolveOneResponseApplicationJson rebuild(
+          void Function(CoreReferenceApiResolveOneResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder()..replace(this);
+  CoreReferenceApiResolveOneResponseApplicationJsonBuilder toBuilder() =>
+      CoreReferenceApiResolveOneResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveOneResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreReferenceApiResolveOneResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -20570,26 +20477,26 @@ class _$CoreReferenceApiResolveOneResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveOneResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
+class CoreReferenceApiResolveOneResponseApplicationJsonBuilder
     implements
-        Builder<CoreReferenceApiResolveOneResponse200ApplicationJson,
-            CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder>,
-        CoreReferenceApiResolveOneResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson? _$v;
+        Builder<CoreReferenceApiResolveOneResponseApplicationJson,
+            CoreReferenceApiResolveOneResponseApplicationJsonBuilder>,
+        CoreReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder {
+  _$CoreReferenceApiResolveOneResponseApplicationJson? _$v;
 
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder? _ocs;
+  CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder();
+  CoreReferenceApiResolveOneResponseApplicationJsonBuilder();
 
-  CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder get _$this {
+  CoreReferenceApiResolveOneResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -20599,23 +20506,23 @@ class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveOneResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiResolveOneResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveOneResponse200ApplicationJson;
+    _$v = other as _$CoreReferenceApiResolveOneResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveOneResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveOneResponse200ApplicationJson build() => _build();
+  CoreReferenceApiResolveOneResponseApplicationJson build() => _build();
 
-  _$CoreReferenceApiResolveOneResponse200ApplicationJson _build() {
-    _$CoreReferenceApiResolveOneResponse200ApplicationJson _$result;
+  _$CoreReferenceApiResolveOneResponseApplicationJson _build() {
+    _$CoreReferenceApiResolveOneResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiResolveOneResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreReferenceApiResolveOneResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20623,7 +20530,7 @@ class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveOneResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreReferenceApiResolveOneResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20632,8 +20539,8 @@ class CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder
   }
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References
-    extends CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References {
+class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References
+    extends CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References {
   @override
   final JsonObject data;
   @override
@@ -20641,30 +20548,30 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References
   @override
   final JsonObject? jsonObject;
 
-  factory _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References(
-          [void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
-      (CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References(
+          [void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
+      (CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References._(
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References._(
       {required this.data, this.reference, this.jsonObject})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References', 'data');
+        data, r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', 'data');
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References rebuild(
-          void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References rebuild(
+          void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
-      CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
+      CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References &&
+    return other is CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References &&
         data == other.data &&
         reference == other.reference &&
         jsonObject == other.jsonObject;
@@ -20682,7 +20589,7 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References')
           ..add('data', data)
           ..add('reference', reference)
           ..add('jsonObject', jsonObject))
@@ -20690,11 +20597,11 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References
   }
 }
 
-class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder
+class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder
     implements
-        Builder<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References,
-            CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References? _$v;
+        Builder<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References,
+            CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -20708,9 +20615,9 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   JsonObject? get jsonObject => _$this._jsonObject;
   set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder();
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder();
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -20722,26 +20629,26 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 
   @override
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References other) {
+  void replace(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References;
+    _$v = other as _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References build() => _build();
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References build() => _build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References _build() {
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References _$result;
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References _build() {
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References _$result;
     try {
       _$result = _$v ??
-          _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References._(
+          _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References._(
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References', 'data'),
+                  data, r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', 'data'),
               reference: _reference?.build(),
               jsonObject: jsonObject);
     } catch (_) {
@@ -20751,7 +20658,7 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuild
         _reference?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References', _$failedField, e.toString());
+            r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20760,40 +20667,40 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 }
 
-abstract mixin class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references;
-  set references(MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>? references);
+abstract mixin class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get references;
+  set references(MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>? references);
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
-    extends CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data {
+class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
+    extends CoreReferenceApiResolveResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> references;
+  final BuiltMap<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> references;
 
-  factory _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data(
+          [void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data._({required this.references}) : super._() {
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        references, r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data', 'references');
+        references, r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data', 'references');
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data && references == other.references;
+    return other is CoreReferenceApiResolveResponseApplicationJson_Ocs_Data && references == other.references;
   }
 
   @override
@@ -20806,31 +20713,30 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data')
           ..add('references', references))
         .toString();
   }
 }
 
-class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
+class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data,
+            CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>? _references;
-  MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references =>
-      _$this._references ??=
-          MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>();
+  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>? _references;
+  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get references =>
+      _$this._references ??= MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>();
   set references(
-          covariant MapBuilder<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References>?
+          covariant MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>?
               references) =>
       _$this._references = references;
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _references = $v.references.toBuilder();
@@ -20840,23 +20746,23 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiResolveResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data _build() {
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ?? _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data._(references: references.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20864,7 +20770,7 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
         references.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20873,45 +20779,44 @@ class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreReferenceApiResolveResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs
-    extends CoreReferenceApiResolveResponse200ApplicationJson_Ocs {
+class _$CoreReferenceApiResolveResponseApplicationJson_Ocs extends CoreReferenceApiResolveResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data data;
+  final CoreReferenceApiResolveResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs(
-          [void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveResponseApplicationJson_Ocs(
+          [void Function(CoreReferenceApiResolveResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreReferenceApiResolveResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs', 'data');
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiResolveResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiResolveResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreReferenceApiResolveResponseApplicationJson_Ocs rebuild(
+          void Function(CoreReferenceApiResolveResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreReferenceApiResolveResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreReferenceApiResolveResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -20925,32 +20830,32 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
+class CoreReferenceApiResolveResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreReferenceApiResolveResponse200ApplicationJson_Ocs,
-            CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder>,
-        CoreReferenceApiResolveResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreReferenceApiResolveResponseApplicationJson_Ocs,
+            CoreReferenceApiResolveResponseApplicationJson_OcsBuilder>,
+        CoreReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder();
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder();
 
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -20961,24 +20866,23 @@ class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiResolveResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreReferenceApiResolveResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson_Ocs build() => _build();
+  CoreReferenceApiResolveResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs _build() {
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs _$result;
+  _$CoreReferenceApiResolveResponseApplicationJson_Ocs _build() {
+    _$CoreReferenceApiResolveResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreReferenceApiResolveResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20988,7 +20892,7 @@ class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreReferenceApiResolveResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20997,38 +20901,38 @@ class CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreReferenceApiResolveResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreReferenceApiResolveResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiResolveResponseApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiResolveResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreReferenceApiResolveResponse200ApplicationJson extends CoreReferenceApiResolveResponse200ApplicationJson {
+class _$CoreReferenceApiResolveResponseApplicationJson extends CoreReferenceApiResolveResponseApplicationJson {
   @override
-  final CoreReferenceApiResolveResponse200ApplicationJson_Ocs ocs;
+  final CoreReferenceApiResolveResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreReferenceApiResolveResponse200ApplicationJson(
-          [void Function(CoreReferenceApiResolveResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreReferenceApiResolveResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiResolveResponseApplicationJson(
+          [void Function(CoreReferenceApiResolveResponseApplicationJsonBuilder)? updates]) =>
+      (CoreReferenceApiResolveResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiResolveResponse200ApplicationJson', 'ocs');
+  _$CoreReferenceApiResolveResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiResolveResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson rebuild(
-          void Function(CoreReferenceApiResolveResponse200ApplicationJsonBuilder) updates) =>
+  CoreReferenceApiResolveResponseApplicationJson rebuild(
+          void Function(CoreReferenceApiResolveResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreReferenceApiResolveResponse200ApplicationJsonBuilder()..replace(this);
+  CoreReferenceApiResolveResponseApplicationJsonBuilder toBuilder() =>
+      CoreReferenceApiResolveResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreReferenceApiResolveResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -21041,26 +20945,24 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson extends CoreReferenceA
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponse200ApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
+class CoreReferenceApiResolveResponseApplicationJsonBuilder
     implements
-        Builder<CoreReferenceApiResolveResponse200ApplicationJson,
-            CoreReferenceApiResolveResponse200ApplicationJsonBuilder>,
-        CoreReferenceApiResolveResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreReferenceApiResolveResponse200ApplicationJson? _$v;
+        Builder<CoreReferenceApiResolveResponseApplicationJson, CoreReferenceApiResolveResponseApplicationJsonBuilder>,
+        CoreReferenceApiResolveResponseApplicationJsonInterfaceBuilder {
+  _$CoreReferenceApiResolveResponseApplicationJson? _$v;
 
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder? _ocs;
+  CoreReferenceApiResolveResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreReferenceApiResolveResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreReferenceApiResolveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreReferenceApiResolveResponse200ApplicationJsonBuilder();
+  CoreReferenceApiResolveResponseApplicationJsonBuilder();
 
-  CoreReferenceApiResolveResponse200ApplicationJsonBuilder get _$this {
+  CoreReferenceApiResolveResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -21070,23 +20972,23 @@ class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiResolveResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiResolveResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveResponse200ApplicationJson;
+    _$v = other as _$CoreReferenceApiResolveResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreReferenceApiResolveResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreReferenceApiResolveResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiResolveResponse200ApplicationJson build() => _build();
+  CoreReferenceApiResolveResponseApplicationJson build() => _build();
 
-  _$CoreReferenceApiResolveResponse200ApplicationJson _build() {
-    _$CoreReferenceApiResolveResponse200ApplicationJson _$result;
+  _$CoreReferenceApiResolveResponseApplicationJson _build() {
+    _$CoreReferenceApiResolveResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiResolveResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreReferenceApiResolveResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21094,7 +20996,7 @@ class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreReferenceApiResolveResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21103,8 +21005,8 @@ class CoreReferenceApiResolveResponse200ApplicationJsonBuilder
   }
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References
-    extends CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References {
+class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References
+    extends CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References {
   @override
   final JsonObject data;
   @override
@@ -21112,30 +21014,30 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References
   @override
   final JsonObject? jsonObject;
 
-  factory _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References(
-          [void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
-      (CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References(
+          [void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
+      (CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References._(
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References._(
       {required this.data, this.reference, this.jsonObject})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References', 'data');
+        data, r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', 'data');
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References rebuild(
-          void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References rebuild(
+          void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
-      CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
+      CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References &&
+    return other is CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References &&
         data == other.data &&
         reference == other.reference &&
         jsonObject == other.jsonObject;
@@ -21153,7 +21055,7 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References')
           ..add('data', data)
           ..add('reference', reference)
           ..add('jsonObject', jsonObject))
@@ -21161,11 +21063,11 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References
   }
 }
 
-class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder
+class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder
     implements
-        Builder<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References,
-            CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References? _$v;
+        Builder<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References,
+            CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -21179,9 +21081,9 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   JsonObject? get jsonObject => _$this._jsonObject;
   set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder();
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder();
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -21193,26 +21095,26 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 
   @override
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References other) {
+  void replace(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References;
+    _$v = other as _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References;
   }
 
   @override
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References build() => _build();
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References build() => _build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References _build() {
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References _$result;
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References _build() {
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References _$result;
     try {
       _$result = _$v ??
-          _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References._(
+          _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References._(
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References', 'data'),
+                  data, r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', 'data'),
               reference: _reference?.build(),
               jsonObject: jsonObject);
     } catch (_) {
@@ -21222,7 +21124,7 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuild
         _reference?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References', _$failedField, e.toString());
+            r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21231,40 +21133,40 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuild
   }
 }
 
-abstract mixin class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references;
-  set references(MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>? references);
+abstract mixin class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get references;
+  set references(MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>? references);
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
-    extends CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data {
+class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
+    extends CoreReferenceApiExtractResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> references;
+  final BuiltMap<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> references;
 
-  factory _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data(
+          [void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data._({required this.references}) : super._() {
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        references, r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data', 'references');
+        references, r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data', 'references');
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data && references == other.references;
+    return other is CoreReferenceApiExtractResponseApplicationJson_Ocs_Data && references == other.references;
   }
 
   @override
@@ -21277,31 +21179,30 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data')
           ..add('references', references))
         .toString();
   }
 }
 
-class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
+class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data,
+            CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>? _references;
-  MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references =>
-      _$this._references ??=
-          MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>();
+  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>? _references;
+  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get references =>
+      _$this._references ??= MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>();
   set references(
-          covariant MapBuilder<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References>?
+          covariant MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>?
               references) =>
       _$this._references = references;
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _references = $v.references.toBuilder();
@@ -21311,23 +21212,23 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiExtractResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data _build() {
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ?? _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data._(references: references.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21335,7 +21236,7 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
         references.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21344,45 +21245,44 @@ class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreReferenceApiExtractResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs
-    extends CoreReferenceApiExtractResponse200ApplicationJson_Ocs {
+class _$CoreReferenceApiExtractResponseApplicationJson_Ocs extends CoreReferenceApiExtractResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data data;
+  final CoreReferenceApiExtractResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs(
-          [void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiExtractResponseApplicationJson_Ocs(
+          [void Function(CoreReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreReferenceApiExtractResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs', 'data');
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiExtractResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiExtractResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreReferenceApiExtractResponseApplicationJson_Ocs rebuild(
+          void Function(CoreReferenceApiExtractResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreReferenceApiExtractResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiExtractResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreReferenceApiExtractResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -21396,32 +21296,32 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
+class CoreReferenceApiExtractResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreReferenceApiExtractResponse200ApplicationJson_Ocs,
-            CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder>,
-        CoreReferenceApiExtractResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreReferenceApiExtractResponseApplicationJson_Ocs,
+            CoreReferenceApiExtractResponseApplicationJson_OcsBuilder>,
+        CoreReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder();
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder();
 
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -21432,24 +21332,23 @@ class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiExtractResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreReferenceApiExtractResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson_Ocs build() => _build();
+  CoreReferenceApiExtractResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs _build() {
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs _$result;
+  _$CoreReferenceApiExtractResponseApplicationJson_Ocs _build() {
+    _$CoreReferenceApiExtractResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreReferenceApiExtractResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21459,7 +21358,7 @@ class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiExtractResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreReferenceApiExtractResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21468,38 +21367,38 @@ class CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreReferenceApiExtractResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiExtractResponseApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreReferenceApiExtractResponse200ApplicationJson extends CoreReferenceApiExtractResponse200ApplicationJson {
+class _$CoreReferenceApiExtractResponseApplicationJson extends CoreReferenceApiExtractResponseApplicationJson {
   @override
-  final CoreReferenceApiExtractResponse200ApplicationJson_Ocs ocs;
+  final CoreReferenceApiExtractResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreReferenceApiExtractResponse200ApplicationJson(
-          [void Function(CoreReferenceApiExtractResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreReferenceApiExtractResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiExtractResponseApplicationJson(
+          [void Function(CoreReferenceApiExtractResponseApplicationJsonBuilder)? updates]) =>
+      (CoreReferenceApiExtractResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiExtractResponse200ApplicationJson', 'ocs');
+  _$CoreReferenceApiExtractResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiExtractResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson rebuild(
-          void Function(CoreReferenceApiExtractResponse200ApplicationJsonBuilder) updates) =>
+  CoreReferenceApiExtractResponseApplicationJson rebuild(
+          void Function(CoreReferenceApiExtractResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreReferenceApiExtractResponse200ApplicationJsonBuilder()..replace(this);
+  CoreReferenceApiExtractResponseApplicationJsonBuilder toBuilder() =>
+      CoreReferenceApiExtractResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiExtractResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreReferenceApiExtractResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -21512,26 +21411,24 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson extends CoreReferenceA
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponse200ApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
+class CoreReferenceApiExtractResponseApplicationJsonBuilder
     implements
-        Builder<CoreReferenceApiExtractResponse200ApplicationJson,
-            CoreReferenceApiExtractResponse200ApplicationJsonBuilder>,
-        CoreReferenceApiExtractResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreReferenceApiExtractResponse200ApplicationJson? _$v;
+        Builder<CoreReferenceApiExtractResponseApplicationJson, CoreReferenceApiExtractResponseApplicationJsonBuilder>,
+        CoreReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
+  _$CoreReferenceApiExtractResponseApplicationJson? _$v;
 
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder? _ocs;
+  CoreReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreReferenceApiExtractResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreReferenceApiExtractResponse200ApplicationJsonBuilder();
+  CoreReferenceApiExtractResponseApplicationJsonBuilder();
 
-  CoreReferenceApiExtractResponse200ApplicationJsonBuilder get _$this {
+  CoreReferenceApiExtractResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -21541,23 +21438,23 @@ class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiExtractResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiExtractResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiExtractResponse200ApplicationJson;
+    _$v = other as _$CoreReferenceApiExtractResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreReferenceApiExtractResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreReferenceApiExtractResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiExtractResponse200ApplicationJson build() => _build();
+  CoreReferenceApiExtractResponseApplicationJson build() => _build();
 
-  _$CoreReferenceApiExtractResponse200ApplicationJson _build() {
-    _$CoreReferenceApiExtractResponse200ApplicationJson _$result;
+  _$CoreReferenceApiExtractResponseApplicationJson _build() {
+    _$CoreReferenceApiExtractResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiExtractResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreReferenceApiExtractResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21565,7 +21462,7 @@ class CoreReferenceApiExtractResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiExtractResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreReferenceApiExtractResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21738,9 +21635,9 @@ class CoreReferenceProviderBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -21748,38 +21645,36 @@ abstract mixin class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_
   set data(ListBuilder<CoreReferenceProvider>? data);
 }
 
-class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
-    extends CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs {
+class _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
+    extends CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreReferenceProvider> data;
 
-  factory _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs(
-          [void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs(
+          [void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs', 'data');
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs rebuild(
+          void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs &&
+    return other is CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -21795,19 +21690,19 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
+class CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs,
-            CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder>,
-        CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
+            CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder>,
+        CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -21817,9 +21712,9 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
   ListBuilder<CoreReferenceProvider> get data => _$this._data ??= ListBuilder<CoreReferenceProvider>();
   set data(covariant ListBuilder<CoreReferenceProvider>? data) => _$this._data = data;
 
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder();
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder();
 
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -21830,24 +21725,24 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs build() => _build();
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs _build() {
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs _$result;
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs _build() {
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21857,7 +21752,7 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21866,39 +21761,39 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
-    extends CoreReferenceApiGetProvidersInfoResponse200ApplicationJson {
+class _$CoreReferenceApiGetProvidersInfoResponseApplicationJson
+    extends CoreReferenceApiGetProvidersInfoResponseApplicationJson {
   @override
-  final CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs ocs;
+  final CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson(
-          [void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiGetProvidersInfoResponseApplicationJson(
+          [void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? updates]) =>
+      (CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson', 'ocs');
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiGetProvidersInfoResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson rebuild(
-          void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder) updates) =>
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson rebuild(
+          void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder()..replace(this);
+  CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder toBuilder() =>
+      CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiGetProvidersInfoResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreReferenceApiGetProvidersInfoResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -21911,26 +21806,26 @@ class _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiGetProvidersInfoResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
+class CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder
     implements
-        Builder<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson,
-            CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder>,
-        CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson? _$v;
+        Builder<CoreReferenceApiGetProvidersInfoResponseApplicationJson,
+            CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder>,
+        CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder {
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson? _$v;
 
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder? _ocs;
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder();
+  CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder();
 
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder get _$this {
+  CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -21940,23 +21835,23 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiGetProvidersInfoResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiGetProvidersInfoResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson;
+    _$v = other as _$CoreReferenceApiGetProvidersInfoResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiGetProvidersInfoResponse200ApplicationJson build() => _build();
+  CoreReferenceApiGetProvidersInfoResponseApplicationJson build() => _build();
 
-  _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson _build() {
-    _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson _$result;
+  _$CoreReferenceApiGetProvidersInfoResponseApplicationJson _build() {
+    _$CoreReferenceApiGetProvidersInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreReferenceApiGetProvidersInfoResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21964,7 +21859,7 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiGetProvidersInfoResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreReferenceApiGetProvidersInfoResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21973,40 +21868,40 @@ class CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
-    extends CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data {
+class _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
+    extends CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data {
   @override
   final bool success;
 
-  factory _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data(
+          [void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data._({required this.success}) : super._() {
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        success, r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data', 'success');
+        success, r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data', 'success');
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data && success == other.success;
+    return other is CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data && success == other.success;
   }
 
   @override
@@ -22019,26 +21914,26 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data')
           ..add('success', success))
         .toString();
   }
 }
 
-class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder
+class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data,
-            CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
+            CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder>,
+        CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -22048,69 +21943,68 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data _build() {
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data._(
+        _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._(
             success: BuiltValueNullFieldError.checkNotNull(
-                success, r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data', 'success'));
+                success, r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
-    extends CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs {
+class _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs
+    extends CoreReferenceApiTouchProviderResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data data;
+  final CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs(
-          [void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs(
+          [void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs', 'data');
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs rebuild(
+          void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs &&
+    return other is CoreReferenceApiTouchProviderResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -22126,33 +22020,32 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
+class CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs,
-            CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder>,
-        CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs,
+            CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder>,
+        CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder();
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder();
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -22163,24 +22056,24 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs build() => _build();
+  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs _build() {
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs _$result;
+  _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs _build() {
+    _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22190,7 +22083,7 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreReferenceApiTouchProviderResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22199,39 +22092,39 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreReferenceApiTouchProviderResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreReferenceApiTouchProviderResponseApplicationJsonInterface other);
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder) updates);
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreReferenceApiTouchProviderResponse200ApplicationJson
-    extends CoreReferenceApiTouchProviderResponse200ApplicationJson {
+class _$CoreReferenceApiTouchProviderResponseApplicationJson
+    extends CoreReferenceApiTouchProviderResponseApplicationJson {
   @override
-  final CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs ocs;
+  final CoreReferenceApiTouchProviderResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreReferenceApiTouchProviderResponse200ApplicationJson(
-          [void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreReferenceApiTouchProviderResponseApplicationJson(
+          [void Function(CoreReferenceApiTouchProviderResponseApplicationJsonBuilder)? updates]) =>
+      (CoreReferenceApiTouchProviderResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiTouchProviderResponse200ApplicationJson', 'ocs');
+  _$CoreReferenceApiTouchProviderResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreReferenceApiTouchProviderResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson rebuild(
-          void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder) updates) =>
+  CoreReferenceApiTouchProviderResponseApplicationJson rebuild(
+          void Function(CoreReferenceApiTouchProviderResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder()..replace(this);
+  CoreReferenceApiTouchProviderResponseApplicationJsonBuilder toBuilder() =>
+      CoreReferenceApiTouchProviderResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreReferenceApiTouchProviderResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreReferenceApiTouchProviderResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -22244,26 +22137,26 @@ class _$CoreReferenceApiTouchProviderResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreReferenceApiTouchProviderResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
+class CoreReferenceApiTouchProviderResponseApplicationJsonBuilder
     implements
-        Builder<CoreReferenceApiTouchProviderResponse200ApplicationJson,
-            CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder>,
-        CoreReferenceApiTouchProviderResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson? _$v;
+        Builder<CoreReferenceApiTouchProviderResponseApplicationJson,
+            CoreReferenceApiTouchProviderResponseApplicationJsonBuilder>,
+        CoreReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder {
+  _$CoreReferenceApiTouchProviderResponseApplicationJson? _$v;
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder? _ocs;
+  CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder();
+  CoreReferenceApiTouchProviderResponseApplicationJsonBuilder();
 
-  CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder get _$this {
+  CoreReferenceApiTouchProviderResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -22273,23 +22166,23 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreReferenceApiTouchProviderResponse200ApplicationJson other) {
+  void replace(covariant CoreReferenceApiTouchProviderResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiTouchProviderResponse200ApplicationJson;
+    _$v = other as _$CoreReferenceApiTouchProviderResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreReferenceApiTouchProviderResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreReferenceApiTouchProviderResponse200ApplicationJson build() => _build();
+  CoreReferenceApiTouchProviderResponseApplicationJson build() => _build();
 
-  _$CoreReferenceApiTouchProviderResponse200ApplicationJson _build() {
-    _$CoreReferenceApiTouchProviderResponse200ApplicationJson _$result;
+  _$CoreReferenceApiTouchProviderResponseApplicationJson _build() {
+    _$CoreReferenceApiTouchProviderResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreReferenceApiTouchProviderResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreReferenceApiTouchProviderResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22297,7 +22190,7 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiTouchProviderResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreReferenceApiTouchProviderResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22306,10 +22199,10 @@ class CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder {
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterface other);
+abstract mixin class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface other);
   void update(
-      void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates);
+      void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -22320,8 +22213,8 @@ abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Oc
   set description(String? description);
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
-    extends CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
+    extends CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types {
   @override
   final String id;
   @override
@@ -22329,34 +22222,34 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
   @override
   final String description;
 
-  factory _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types(
-          [void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder)? updates]) =>
-      (CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types(
+          [void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? updates]) =>
+      (CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types._(
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._(
       {required this.id, required this.name, required this.description})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        id, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'id');
+        id, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'name');
+        name, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        description, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'description');
+        description, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'description');
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types rebuild(
-          void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder) updates) =>
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types rebuild(
+          void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder toBuilder() =>
-      CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder()..replace(this);
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder toBuilder() =>
+      CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types &&
+    return other is CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types &&
         id == other.id &&
         name == other.name &&
         description == other.description;
@@ -22374,7 +22267,7 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types')
           ..add('id', id)
           ..add('name', name)
           ..add('description', description))
@@ -22382,12 +22275,12 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types
   }
 }
 
-class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder
+class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder
     implements
-        Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder>,
-        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesInterfaceBuilder {
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types? _$v;
+        Builder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
+            CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder>,
+        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -22401,9 +22294,9 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBui
   String? get description => _$this._description;
   set description(covariant String? description) => _$this._description = description;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder();
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder get _$this {
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -22415,67 +22308,67 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBui
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types;
+    _$v = other as _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types build() => _build();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types build() => _build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types _build() {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types _build() {
     final _$result = _$v ??
-        _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types._(
+        _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'id'),
+                id, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'name'),
-            description: BuiltValueNullFieldError.checkNotNull(description,
-                r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types', 'description'));
+                name, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'name'),
+            description: BuiltValueNullFieldError.checkNotNull(
+                description, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'description'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types;
-  set types(ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? types);
+abstract mixin class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types;
+  set types(ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>? types);
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
-    extends CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltList<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> types;
+  final BuiltList<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> types;
 
-  factory _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data._({required this.types}) : super._() {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._({required this.types}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        types, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data', 'types');
+        types, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data', 'types');
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data && types == other.types;
+    return other is CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data && types == other.types;
   }
 
   @override
@@ -22488,28 +22381,28 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data')
           ..add('types', types))
         .toString();
   }
 }
 
-class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+            CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data? _$v;
 
-  ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? _types;
-  ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types =>
-      _$this._types ??= ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>();
-  set types(covariant ListBuilder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types>? types) =>
+  ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>? _types;
+  ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types =>
+      _$this._types ??= ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>();
+  set types(covariant ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>? types) =>
       _$this._types = types;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _types = $v.types.toBuilder();
@@ -22519,23 +22412,23 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data._(types: types.build());
+      _$result = _$v ?? _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(types: types.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22543,7 +22436,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
         types.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22552,48 +22445,45 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
-    extends CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs
+    extends CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data data;
+  final CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs(
-          [void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs', 'data');
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs &&
+    return other is CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -22609,33 +22499,33 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
+class CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder>,
-        CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs,
+            CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder();
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -22646,24 +22536,24 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs build() => _build();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs _build() {
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs _$result;
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22673,7 +22563,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22682,39 +22572,39 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiTaskTypesResponseApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson
-    extends CoreTextProcessingApiTaskTypesResponse200ApplicationJson {
+class _$CoreTextProcessingApiTaskTypesResponseApplicationJson
+    extends CoreTextProcessingApiTaskTypesResponseApplicationJson {
   @override
-  final CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs ocs;
+  final CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson(
-          [void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiTaskTypesResponseApplicationJson(
+          [void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson', 'ocs');
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiTaskTypesResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson rebuild(
-          void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder) updates) =>
+  CoreTextProcessingApiTaskTypesResponseApplicationJson rebuild(
+          void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiTaskTypesResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTextProcessingApiTaskTypesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -22727,26 +22617,26 @@ class _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiTaskTypesResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
+class CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder
     implements
-        Builder<CoreTextProcessingApiTaskTypesResponse200ApplicationJson,
-            CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder>,
-        CoreTextProcessingApiTaskTypesResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson? _$v;
+        Builder<CoreTextProcessingApiTaskTypesResponseApplicationJson,
+            CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder>,
+        CoreTextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder {
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson? _$v;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder();
+  CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder();
 
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder get _$this {
+  CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -22756,23 +22646,23 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiTaskTypesResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiTaskTypesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson;
+    _$v = other as _$CoreTextProcessingApiTaskTypesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiTaskTypesResponse200ApplicationJson build() => _build();
+  CoreTextProcessingApiTaskTypesResponseApplicationJson build() => _build();
 
-  _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson _build() {
-    _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson _$result;
+  _$CoreTextProcessingApiTaskTypesResponseApplicationJson _build() {
+    _$CoreTextProcessingApiTaskTypesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTextProcessingApiTaskTypesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22780,7 +22670,7 @@ class CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiTaskTypesResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTextProcessingApiTaskTypesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22990,40 +22880,40 @@ class CoreTextProcessingTaskBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   CoreTextProcessingTaskBuilder get task;
   set task(CoreTextProcessingTaskBuilder? task);
 }
 
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
-    extends CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data {
+class _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data {
   @override
   final CoreTextProcessingTask task;
 
-  factory _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data._({required this.task}) : super._() {
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        task, r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data', 'task');
+        task, r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data', 'task');
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data && task == other.task;
+    return other is CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data && task == other.task;
   }
 
   @override
@@ -23036,26 +22926,26 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data')
           ..add('task', task))
         .toString();
   }
 }
 
-class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+            CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data? _$v;
 
   CoreTextProcessingTaskBuilder? _task;
   CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
   set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _task = $v.task.toBuilder();
@@ -23065,23 +22955,23 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ?? _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23089,7 +22979,7 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
         task.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -23098,46 +22988,45 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
-    extends CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs {
+class _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs
+    extends CoreTextProcessingApiScheduleResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data data;
+  final CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs(
-          [void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs', 'data');
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs &&
+    return other is CoreTextProcessingApiScheduleResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -23153,33 +23042,32 @@ class _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder
+class CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder>,
-        CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs,
+            CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder();
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder();
 
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -23190,366 +23078,24 @@ class CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs build() => _build();
+  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs _build() {
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ??
-          _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTextProcessingApiScheduleResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? ocs);
-}
-
-class _$CoreTextProcessingApiScheduleResponse200ApplicationJson
-    extends CoreTextProcessingApiScheduleResponse200ApplicationJson {
-  @override
-  final CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs ocs;
-
-  factory _$CoreTextProcessingApiScheduleResponse200ApplicationJson(
-          [void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder()..update(updates))._build();
-
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiScheduleResponse200ApplicationJson', 'ocs');
-  }
-
-  @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson rebuild(
-          void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiScheduleResponse200ApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponse200ApplicationJson')..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder
-    implements
-        Builder<CoreTextProcessingApiScheduleResponse200ApplicationJson,
-            CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder>,
-        CoreTextProcessingApiScheduleResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson? _$v;
-
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder();
-
-  CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CoreTextProcessingApiScheduleResponse200ApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiScheduleResponse200ApplicationJson;
-  }
-
-  @override
-  void update(void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreTextProcessingApiScheduleResponse200ApplicationJson build() => _build();
-
-  _$CoreTextProcessingApiScheduleResponse200ApplicationJson _build() {
-    _$CoreTextProcessingApiScheduleResponse200ApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$CoreTextProcessingApiScheduleResponse200ApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiScheduleResponse200ApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  CoreTextProcessingTaskBuilder get task;
-  set task(CoreTextProcessingTaskBuilder? task);
-}
-
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
-    extends CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data {
-  @override
-  final CoreTextProcessingTask task;
-
-  factory _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
-
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data._({required this.task}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        task, r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data', 'task');
-  }
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data && task == other.task;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, task.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data')
-          ..add('task', task))
-        .toString();
-  }
-}
-
-class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data? _$v;
-
-  CoreTextProcessingTaskBuilder? _task;
-  CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
-  set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder();
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _task = $v.task.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data build() => _build();
-
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data _$result;
-    try {
-      _$result = _$v ?? _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data._(task: task.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'task';
-        task.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates);
-  CoreOCSMetaBuilder get meta;
-  set meta(CoreOCSMetaBuilder? meta);
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? data);
-}
-
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
-    extends CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs {
-  @override
-  final CoreOCSMeta meta;
-  @override
-  final CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data data;
-
-  factory _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs(
-          [void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
-    implements
-        Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder>,
-        CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs? _$v;
-
-  CoreOCSMetaBuilder? _meta;
-  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
-  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder();
-
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs build() => _build();
-
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs _build() {
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs _$result;
+  _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs _$result;
     try {
       _$result =
-          _$v ?? _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$v ?? _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23559,7 +23105,7 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTextProcessingApiScheduleResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -23568,39 +23114,39 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiScheduleResponseApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson
-    extends CoreTextProcessingApiGetTaskResponse200ApplicationJson {
+class _$CoreTextProcessingApiScheduleResponseApplicationJson
+    extends CoreTextProcessingApiScheduleResponseApplicationJson {
   @override
-  final CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs ocs;
+  final CoreTextProcessingApiScheduleResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTextProcessingApiGetTaskResponse200ApplicationJson(
-          [void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiScheduleResponseApplicationJson(
+          [void Function(CoreTextProcessingApiScheduleResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiScheduleResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiGetTaskResponse200ApplicationJson', 'ocs');
+  _$CoreTextProcessingApiScheduleResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiScheduleResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson rebuild(
-          void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder) updates) =>
+  CoreTextProcessingApiScheduleResponseApplicationJson rebuild(
+          void Function(CoreTextProcessingApiScheduleResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTextProcessingApiScheduleResponseApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiScheduleResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiGetTaskResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTextProcessingApiScheduleResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -23613,26 +23159,26 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiScheduleResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
+class CoreTextProcessingApiScheduleResponseApplicationJsonBuilder
     implements
-        Builder<CoreTextProcessingApiGetTaskResponse200ApplicationJson,
-            CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder>,
-        CoreTextProcessingApiGetTaskResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson? _$v;
+        Builder<CoreTextProcessingApiScheduleResponseApplicationJson,
+            CoreTextProcessingApiScheduleResponseApplicationJsonBuilder>,
+        CoreTextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder {
+  _$CoreTextProcessingApiScheduleResponseApplicationJson? _$v;
 
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder();
+  CoreTextProcessingApiScheduleResponseApplicationJsonBuilder();
 
-  CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder get _$this {
+  CoreTextProcessingApiScheduleResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -23642,23 +23188,23 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiGetTaskResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiScheduleResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiGetTaskResponse200ApplicationJson;
+    _$v = other as _$CoreTextProcessingApiScheduleResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiScheduleResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiGetTaskResponse200ApplicationJson build() => _build();
+  CoreTextProcessingApiScheduleResponseApplicationJson build() => _build();
 
-  _$CoreTextProcessingApiGetTaskResponse200ApplicationJson _build() {
-    _$CoreTextProcessingApiGetTaskResponse200ApplicationJson _$result;
+  _$CoreTextProcessingApiScheduleResponseApplicationJson _build() {
+    _$CoreTextProcessingApiScheduleResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiGetTaskResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTextProcessingApiScheduleResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23666,7 +23212,7 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiGetTaskResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTextProcessingApiScheduleResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -23675,41 +23221,40 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(
-      void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   CoreTextProcessingTaskBuilder get task;
   set task(CoreTextProcessingTaskBuilder? task);
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
-    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data {
+class _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data {
   @override
   final CoreTextProcessingTask task;
 
-  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data._({required this.task}) : super._() {
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        task, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data', 'task');
+        task, r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data', 'task');
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data && task == other.task;
+    return other is CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data && task == other.task;
   }
 
   @override
@@ -23722,26 +23267,26 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data')
           ..add('task', task))
         .toString();
   }
 }
 
-class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+            CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data? _$v;
 
   CoreTextProcessingTaskBuilder? _task;
   CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
   set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _task = $v.task.toBuilder();
@@ -23751,23 +23296,23 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ?? _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23775,7 +23320,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
         task.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -23784,48 +23329,384 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
-    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs {
+class _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs
+    extends CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data data;
+  final CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs(
-          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', 'data');
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs &&
+    return other is CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs,
+            CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs? _$v;
+
+  CoreOCSMetaBuilder? _meta;
+  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
+  set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder();
+
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreTextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiGetTaskResponseApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$CoreTextProcessingApiGetTaskResponseApplicationJson
+    extends CoreTextProcessingApiGetTaskResponseApplicationJson {
+  @override
+  final CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$CoreTextProcessingApiGetTaskResponseApplicationJson(
+          [void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiGetTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  CoreTextProcessingApiGetTaskResponseApplicationJson rebuild(
+          void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiGetTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiGetTaskResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder
+    implements
+        Builder<CoreTextProcessingApiGetTaskResponseApplicationJson,
+            CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder>,
+        CoreTextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson? _$v;
+
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder();
+
+  CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreTextProcessingApiGetTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiGetTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiGetTaskResponseApplicationJson build() => _build();
+
+  _$CoreTextProcessingApiGetTaskResponseApplicationJson _build() {
+    _$CoreTextProcessingApiGetTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CoreTextProcessingApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiGetTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  CoreTextProcessingTaskBuilder get task;
+  set task(CoreTextProcessingTaskBuilder? task);
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final CoreTextProcessingTask task;
+
+  factory _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        task, r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
+            CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  CoreTextProcessingTaskBuilder? _task;
+  CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
+  set task(covariant CoreTextProcessingTaskBuilder? task) => _$this._task = task;
+
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
+
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  CoreOCSMetaBuilder get meta;
+  set meta(CoreOCSMetaBuilder? meta);
+
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs
+    extends CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs {
+  @override
+  final CoreOCSMeta meta;
+  @override
+  final CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -23841,33 +23722,33 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
+class CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder>,
-        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+            CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder();
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -23878,24 +23759,24 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs build() => _build();
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs _build() {
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs _$result;
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23905,7 +23786,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -23914,39 +23795,39 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
-    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson {
+class _$CoreTextProcessingApiDeleteTaskResponseApplicationJson
+    extends CoreTextProcessingApiDeleteTaskResponseApplicationJson {
   @override
-  final CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs ocs;
+  final CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson(
-          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiDeleteTaskResponseApplicationJson(
+          [void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson', 'ocs');
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiDeleteTaskResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson rebuild(
-          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder) updates) =>
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTextProcessingApiDeleteTaskResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -23959,26 +23840,26 @@ class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
+class CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder
     implements
-        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
-            CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder>,
-        CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson? _$v;
+        Builder<CoreTextProcessingApiDeleteTaskResponseApplicationJson,
+            CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder>,
+        CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson? _$v;
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder();
+  CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder();
 
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder get _$this {
+  CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -23988,23 +23869,23 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiDeleteTaskResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiDeleteTaskResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson;
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson build() => _build();
+  CoreTextProcessingApiDeleteTaskResponseApplicationJson build() => _build();
 
-  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson _build() {
-    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson _$result;
+  _$CoreTextProcessingApiDeleteTaskResponseApplicationJson _build() {
+    _$CoreTextProcessingApiDeleteTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24012,7 +23893,7 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTextProcessingApiDeleteTaskResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24021,41 +23902,41 @@ class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterface other);
+abstract mixin class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface other);
   void update(
-      void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+      void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   ListBuilder<CoreTextProcessingTask> get tasks;
   set tasks(ListBuilder<CoreTextProcessingTask>? tasks);
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
-    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data {
   @override
   final BuiltList<CoreTextProcessingTask> tasks;
 
-  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        tasks, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data', 'tasks');
+        tasks, r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data', 'tasks');
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data && tasks == other.tasks;
+    return other is CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data && tasks == other.tasks;
   }
 
   @override
@@ -24068,26 +23949,26 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data')
           ..add('tasks', tasks))
         .toString();
   }
 }
 
-class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<CoreTextProcessingTask>? _tasks;
   ListBuilder<CoreTextProcessingTask> get tasks => _$this._tasks ??= ListBuilder<CoreTextProcessingTask>();
   set tasks(covariant ListBuilder<CoreTextProcessingTask>? tasks) => _$this._tasks = tasks;
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _tasks = $v.tasks.toBuilder();
@@ -24097,24 +23978,23 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuil
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result =
-          _$v ?? _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data._(tasks: tasks.build());
+      _$result = _$v ?? _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24122,7 +24002,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuil
         tasks.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24131,48 +24011,48 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuil
   }
 }
 
-abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
-    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs
+    extends CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data data;
+  final CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs(
-          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs._({required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', 'meta');
+        meta, r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs', 'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', 'data');
+        data, r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs &&
+    return other is CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -24188,33 +24068,33 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
+class CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder>,
-        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+            CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder>,
+        CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data) =>
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder();
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -24225,24 +24105,24 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs build() => _build();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs _build() {
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs _$result;
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24252,7 +24132,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24261,39 +24141,39 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterface other);
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
-    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson {
+class _$CoreTextProcessingApiListTasksByAppResponseApplicationJson
+    extends CoreTextProcessingApiListTasksByAppResponseApplicationJson {
   @override
-  final CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs ocs;
+  final CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson(
-          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTextProcessingApiListTasksByAppResponseApplicationJson(
+          [void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson', 'ocs');
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiListTasksByAppResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson rebuild(
-          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder) updates) =>
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTextProcessingApiListTasksByAppResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -24306,27 +24186,26 @@ class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
+class CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder
     implements
-        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
-            CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder>,
-        CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson? _$v;
+        Builder<CoreTextProcessingApiListTasksByAppResponseApplicationJson,
+            CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder>,
+        CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson? _$v;
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder();
 
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder get _$this {
+  CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -24336,23 +24215,23 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTextProcessingApiListTasksByAppResponse200ApplicationJson other) {
+  void replace(covariant CoreTextProcessingApiListTasksByAppResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson;
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson build() => _build();
+  CoreTextProcessingApiListTasksByAppResponseApplicationJson build() => _build();
 
-  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson _build() {
-    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson _$result;
+  _$CoreTextProcessingApiListTasksByAppResponseApplicationJson _build() {
+    _$CoreTextProcessingApiListTasksByAppResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTextProcessingApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24360,7 +24239,7 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTextProcessingApiListTasksByAppResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24369,10 +24248,10 @@ class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterface other);
+abstract mixin class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface other);
   void update(
-      void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates);
+      void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates);
   String? get from;
   set from(String? from);
 
@@ -24386,8 +24265,8 @@ abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_D
   set toLabel(String? toLabel);
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
-    extends CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
+    extends CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages {
   @override
   final String from;
   @override
@@ -24397,36 +24276,36 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
   @override
   final String toLabel;
 
-  factory _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages(
-          [void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder)? updates]) =>
-      (CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages(
+          [void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? updates]) =>
+      (CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages._(
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._(
       {required this.from, required this.fromLabel, required this.to, required this.toLabel})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        from, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'from');
+        from, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'from');
     BuiltValueNullFieldError.checkNotNull(
-        fromLabel, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'fromLabel');
+        fromLabel, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'fromLabel');
     BuiltValueNullFieldError.checkNotNull(
-        to, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'to');
+        to, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'to');
     BuiltValueNullFieldError.checkNotNull(
-        toLabel, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'toLabel');
+        toLabel, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'toLabel');
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages rebuild(
-          void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder) updates) =>
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages rebuild(
+          void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder toBuilder() =>
-      CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder()..replace(this);
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder toBuilder() =>
+      CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages &&
+    return other is CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages &&
         from == other.from &&
         fromLabel == other.fromLabel &&
         to == other.to &&
@@ -24446,7 +24325,7 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages')
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages')
           ..add('from', from)
           ..add('fromLabel', fromLabel)
           ..add('to', to)
@@ -24455,12 +24334,12 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
   }
 }
 
-class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder
+class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder
     implements
-        Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder>,
-        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages? _$v;
+        Builder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
+            CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder>,
+        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder {
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages? _$v;
 
   String? _from;
   String? get from => _$this._from;
@@ -24478,9 +24357,9 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBu
   String? get toLabel => _$this._toLabel;
   set toLabel(covariant String? toLabel) => _$this._toLabel = toLabel;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder();
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder();
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder get _$this {
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _from = $v.from;
@@ -24493,78 +24372,78 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBu
   }
 
   @override
-  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages other) {
+  void replace(covariant CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages;
+    _$v = other as _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages;
   }
 
   @override
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder)? updates) {
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages build() => _build();
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages build() => _build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages _build() {
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages _build() {
     final _$result = _$v ??
-        _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages._(
+        _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._(
             from: BuiltValueNullFieldError.checkNotNull(
-                from, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'from'),
+                from, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'from'),
             fromLabel: BuiltValueNullFieldError.checkNotNull(
-                fromLabel, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'fromLabel'),
+                fromLabel, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'fromLabel'),
             to: BuiltValueNullFieldError.checkNotNull(
-                to, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'to'),
+                to, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'to'),
             toLabel: BuiltValueNullFieldError.checkNotNull(
-                toLabel, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages', 'toLabel'));
+                toLabel, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'toLabel'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages;
-  set languages(ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? languages);
+abstract mixin class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages;
+  set languages(ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>? languages);
 
   bool? get languageDetection;
   set languageDetection(bool? languageDetection);
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
-    extends CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data
+    extends CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltList<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> languages;
+  final BuiltList<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> languages;
   @override
   final bool languageDetection;
 
-  factory _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data._(
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data._(
       {required this.languages, required this.languageDetection})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        languages, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data', 'languages');
+        languages, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data', 'languages');
     BuiltValueNullFieldError.checkNotNull(
-        languageDetection, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data', 'languageDetection');
+        languageDetection, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data', 'languageDetection');
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data &&
         languages == other.languages &&
         languageDetection == other.languageDetection;
   }
@@ -24580,34 +24459,34 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data')
           ..add('languages', languages)
           ..add('languageDetection', languageDetection))
         .toString();
   }
 }
 
-class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data,
+            CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data? _$v;
 
-  ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? _languages;
-  ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages =>
-      _$this._languages ??= ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>();
+  ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>? _languages;
+  ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages =>
+      _$this._languages ??= ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>();
   set languages(
-          covariant ListBuilder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>? languages) =>
+          covariant ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>? languages) =>
       _$this._languages = languages;
 
   bool? _languageDetection;
   bool? get languageDetection => _$this._languageDetection;
   set languageDetection(covariant bool? languageDetection) => _$this._languageDetection = languageDetection;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _languages = $v.languages.toBuilder();
@@ -24618,27 +24497,27 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data _build() {
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data._(
+          _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data._(
               languages: languages.build(),
               languageDetection: BuiltValueNullFieldError.checkNotNull(languageDetection,
-                  r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data', 'languageDetection'));
+                  r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data', 'languageDetection'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -24646,7 +24525,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
         languages.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24655,47 +24534,45 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
-    extends CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs {
+class _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs
+    extends CoreTranslationApiLanguagesResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data data;
+  final CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs(
-          [void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs(
+          [void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs', 'data');
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is CoreTranslationApiLanguagesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -24709,33 +24586,32 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
+class CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs,
-            CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder>,
-        CoreTranslationApiLanguagesResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs,
+            CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder>,
+        CoreTranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder();
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder();
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -24746,24 +24622,24 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTranslationApiLanguagesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs build() => _build();
+  CoreTranslationApiLanguagesResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs _build() {
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs _$result;
+  _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs _build() {
+    _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs _$result;
     try {
       _$result =
-          _$v ?? _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$v ?? _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24773,7 +24649,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTranslationApiLanguagesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24782,39 +24658,38 @@ class CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTranslationApiLanguagesResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTranslationApiLanguagesResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTranslationApiLanguagesResponseApplicationJsonInterface other);
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTranslationApiLanguagesResponse200ApplicationJson
-    extends CoreTranslationApiLanguagesResponse200ApplicationJson {
+class _$CoreTranslationApiLanguagesResponseApplicationJson extends CoreTranslationApiLanguagesResponseApplicationJson {
   @override
-  final CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs ocs;
+  final CoreTranslationApiLanguagesResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTranslationApiLanguagesResponse200ApplicationJson(
-          [void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiLanguagesResponseApplicationJson(
+          [void Function(CoreTranslationApiLanguagesResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTranslationApiLanguagesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTranslationApiLanguagesResponse200ApplicationJson', 'ocs');
+  _$CoreTranslationApiLanguagesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTranslationApiLanguagesResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson rebuild(
-          void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder) updates) =>
+  CoreTranslationApiLanguagesResponseApplicationJson rebuild(
+          void Function(CoreTranslationApiLanguagesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTranslationApiLanguagesResponseApplicationJsonBuilder toBuilder() =>
+      CoreTranslationApiLanguagesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiLanguagesResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTranslationApiLanguagesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -24827,26 +24702,26 @@ class _$CoreTranslationApiLanguagesResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiLanguagesResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
+class CoreTranslationApiLanguagesResponseApplicationJsonBuilder
     implements
-        Builder<CoreTranslationApiLanguagesResponse200ApplicationJson,
-            CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder>,
-        CoreTranslationApiLanguagesResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson? _$v;
+        Builder<CoreTranslationApiLanguagesResponseApplicationJson,
+            CoreTranslationApiLanguagesResponseApplicationJsonBuilder>,
+        CoreTranslationApiLanguagesResponseApplicationJsonInterfaceBuilder {
+  _$CoreTranslationApiLanguagesResponseApplicationJson? _$v;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder();
+  CoreTranslationApiLanguagesResponseApplicationJsonBuilder();
 
-  CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder get _$this {
+  CoreTranslationApiLanguagesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -24856,23 +24731,23 @@ class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiLanguagesResponse200ApplicationJson other) {
+  void replace(covariant CoreTranslationApiLanguagesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiLanguagesResponse200ApplicationJson;
+    _$v = other as _$CoreTranslationApiLanguagesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTranslationApiLanguagesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiLanguagesResponse200ApplicationJson build() => _build();
+  CoreTranslationApiLanguagesResponseApplicationJson build() => _build();
 
-  _$CoreTranslationApiLanguagesResponse200ApplicationJson _build() {
-    _$CoreTranslationApiLanguagesResponse200ApplicationJson _$result;
+  _$CoreTranslationApiLanguagesResponseApplicationJson _build() {
+    _$CoreTranslationApiLanguagesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTranslationApiLanguagesResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTranslationApiLanguagesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -24880,7 +24755,7 @@ class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTranslationApiLanguagesResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTranslationApiLanguagesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -24889,9 +24764,9 @@ class CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get text;
   set text(String? text);
 
@@ -24899,35 +24774,34 @@ abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_D
   set from(String? from);
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
-    extends CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data {
+class _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data
+    extends CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data {
   @override
   final String text;
   @override
   final String? from;
 
-  factory _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data(
+          [void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data._({required this.text, this.from}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        text, r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data', 'text');
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data._({required this.text, this.from}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(text, r'CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data', 'text');
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data &&
         text == other.text &&
         from == other.from;
   }
@@ -24943,19 +24817,19 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data')
           ..add('text', text)
           ..add('from', from))
         .toString();
   }
 }
 
-class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
+class CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data,
-            CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data,
+            CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder>,
+        CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _text;
   String? get text => _$this._text;
@@ -24965,9 +24839,9 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
   String? get from => _$this._from;
   set from(covariant String? from) => _$this._from = from;
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _text = $v.text;
@@ -24978,71 +24852,69 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data _build() {
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data._(
+        _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data._(
             text: BuiltValueNullFieldError.checkNotNull(
-                text, r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data', 'text'),
+                text, r'CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data', 'text'),
             from: from);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreTranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
-    extends CoreTranslationApiTranslateResponse200ApplicationJson_Ocs {
+class _$CoreTranslationApiTranslateResponseApplicationJson_Ocs
+    extends CoreTranslationApiTranslateResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data data;
+  final CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs(
-          [void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiTranslateResponseApplicationJson_Ocs(
+          [void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs', 'data');
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreTranslationApiTranslateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreTranslationApiTranslateResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs rebuild(
+          void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiTranslateResponse200ApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is CoreTranslationApiTranslateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -25056,33 +24928,32 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
+class CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs,
-            CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder>,
-        CoreTranslationApiTranslateResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreTranslationApiTranslateResponseApplicationJson_Ocs,
+            CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder>,
+        CoreTranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder? data) =>
-      _$this._data = data;
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder();
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder();
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -25093,24 +24964,24 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreTranslationApiTranslateResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreTranslationApiTranslateResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson_Ocs build() => _build();
+  CoreTranslationApiTranslateResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs _build() {
-    _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs _$result;
+  _$CoreTranslationApiTranslateResponseApplicationJson_Ocs _build() {
+    _$CoreTranslationApiTranslateResponseApplicationJson_Ocs _$result;
     try {
       _$result =
-          _$v ?? _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$v ?? _$CoreTranslationApiTranslateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -25120,7 +24991,7 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTranslationApiTranslateResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreTranslationApiTranslateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -25129,39 +25000,38 @@ class CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreTranslationApiTranslateResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreTranslationApiTranslateResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreTranslationApiTranslateResponseApplicationJsonInterface other);
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJsonInterfaceBuilder) updates);
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreTranslationApiTranslateResponse200ApplicationJson
-    extends CoreTranslationApiTranslateResponse200ApplicationJson {
+class _$CoreTranslationApiTranslateResponseApplicationJson extends CoreTranslationApiTranslateResponseApplicationJson {
   @override
-  final CoreTranslationApiTranslateResponse200ApplicationJson_Ocs ocs;
+  final CoreTranslationApiTranslateResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreTranslationApiTranslateResponse200ApplicationJson(
-          [void Function(CoreTranslationApiTranslateResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreTranslationApiTranslateResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreTranslationApiTranslateResponseApplicationJson(
+          [void Function(CoreTranslationApiTranslateResponseApplicationJsonBuilder)? updates]) =>
+      (CoreTranslationApiTranslateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTranslationApiTranslateResponse200ApplicationJson', 'ocs');
+  _$CoreTranslationApiTranslateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTranslationApiTranslateResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson rebuild(
-          void Function(CoreTranslationApiTranslateResponse200ApplicationJsonBuilder) updates) =>
+  CoreTranslationApiTranslateResponseApplicationJson rebuild(
+          void Function(CoreTranslationApiTranslateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreTranslationApiTranslateResponse200ApplicationJsonBuilder()..replace(this);
+  CoreTranslationApiTranslateResponseApplicationJsonBuilder toBuilder() =>
+      CoreTranslationApiTranslateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreTranslationApiTranslateResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreTranslationApiTranslateResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -25174,26 +25044,26 @@ class _$CoreTranslationApiTranslateResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreTranslationApiTranslateResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
+class CoreTranslationApiTranslateResponseApplicationJsonBuilder
     implements
-        Builder<CoreTranslationApiTranslateResponse200ApplicationJson,
-            CoreTranslationApiTranslateResponse200ApplicationJsonBuilder>,
-        CoreTranslationApiTranslateResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreTranslationApiTranslateResponse200ApplicationJson? _$v;
+        Builder<CoreTranslationApiTranslateResponseApplicationJson,
+            CoreTranslationApiTranslateResponseApplicationJsonBuilder>,
+        CoreTranslationApiTranslateResponseApplicationJsonInterfaceBuilder {
+  _$CoreTranslationApiTranslateResponseApplicationJson? _$v;
 
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder? _ocs;
+  CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreTranslationApiTranslateResponse200ApplicationJsonBuilder();
+  CoreTranslationApiTranslateResponseApplicationJsonBuilder();
 
-  CoreTranslationApiTranslateResponse200ApplicationJsonBuilder get _$this {
+  CoreTranslationApiTranslateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -25203,23 +25073,23 @@ class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreTranslationApiTranslateResponse200ApplicationJson other) {
+  void replace(covariant CoreTranslationApiTranslateResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreTranslationApiTranslateResponse200ApplicationJson;
+    _$v = other as _$CoreTranslationApiTranslateResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreTranslationApiTranslateResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreTranslationApiTranslateResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreTranslationApiTranslateResponse200ApplicationJson build() => _build();
+  CoreTranslationApiTranslateResponseApplicationJson build() => _build();
 
-  _$CoreTranslationApiTranslateResponse200ApplicationJson _build() {
-    _$CoreTranslationApiTranslateResponse200ApplicationJson _$result;
+  _$CoreTranslationApiTranslateResponseApplicationJson _build() {
+    _$CoreTranslationApiTranslateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreTranslationApiTranslateResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreTranslationApiTranslateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -25227,7 +25097,7 @@ class CoreTranslationApiTranslateResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreTranslationApiTranslateResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreTranslationApiTranslateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -25355,9 +25225,9 @@ class CoreUnifiedSearchProviderBuilder
   }
 }
 
-abstract mixin class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -25365,36 +25235,35 @@ abstract mixin class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
   set data(ListBuilder<CoreUnifiedSearchProvider>? data);
 }
 
-class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
-    extends CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs {
+class _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs
+    extends CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final BuiltList<CoreUnifiedSearchProvider> data;
 
-  factory _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs(
-          [void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs(
+          [void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs', 'data');
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs rebuild(
+          void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs &&
+    return other is CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -25410,19 +25279,19 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
+class CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs,
-            CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder>,
-        CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs,
+            CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder>,
+        CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -25432,9 +25301,9 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
   ListBuilder<CoreUnifiedSearchProvider> get data => _$this._data ??= ListBuilder<CoreUnifiedSearchProvider>();
   set data(covariant ListBuilder<CoreUnifiedSearchProvider>? data) => _$this._data = data;
 
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder();
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder();
 
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -25445,24 +25314,24 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs build() => _build();
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs _build() {
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs _$result;
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs _build() {
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -25472,7 +25341,7 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -25481,39 +25350,39 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreUnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreUnifiedSearchGetProvidersResponseApplicationJsonInterface other);
+  void update(void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder) updates);
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson
-    extends CoreUnifiedSearchGetProvidersResponse200ApplicationJson {
+class _$CoreUnifiedSearchGetProvidersResponseApplicationJson
+    extends CoreUnifiedSearchGetProvidersResponseApplicationJson {
   @override
-  final CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs ocs;
+  final CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson(
-          [void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreUnifiedSearchGetProvidersResponseApplicationJson(
+          [void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder)? updates]) =>
+      (CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson', 'ocs');
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchGetProvidersResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson rebuild(
-          void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder) updates) =>
+  CoreUnifiedSearchGetProvidersResponseApplicationJson rebuild(
+          void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder()..replace(this);
+  CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder toBuilder() =>
+      CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreUnifiedSearchGetProvidersResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreUnifiedSearchGetProvidersResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -25526,26 +25395,26 @@ class _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchGetProvidersResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder
+class CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder
     implements
-        Builder<CoreUnifiedSearchGetProvidersResponse200ApplicationJson,
-            CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder>,
-        CoreUnifiedSearchGetProvidersResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson? _$v;
+        Builder<CoreUnifiedSearchGetProvidersResponseApplicationJson,
+            CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder>,
+        CoreUnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder {
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson? _$v;
 
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder? _ocs;
+  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder();
+  CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder();
 
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder get _$this {
+  CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -25555,23 +25424,23 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreUnifiedSearchGetProvidersResponse200ApplicationJson other) {
+  void replace(covariant CoreUnifiedSearchGetProvidersResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson;
+    _$v = other as _$CoreUnifiedSearchGetProvidersResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreUnifiedSearchGetProvidersResponse200ApplicationJson build() => _build();
+  CoreUnifiedSearchGetProvidersResponseApplicationJson build() => _build();
 
-  _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson _build() {
-    _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson _$result;
+  _$CoreUnifiedSearchGetProvidersResponseApplicationJson _build() {
+    _$CoreUnifiedSearchGetProvidersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreUnifiedSearchGetProvidersResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -25579,7 +25448,7 @@ class CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreUnifiedSearchGetProvidersResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreUnifiedSearchGetProvidersResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26152,9 +26021,9 @@ class CoreUnifiedSearchResultBuilder
   }
 }
 
-abstract mixin class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreUnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreUnifiedSearchSearchResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -26162,35 +26031,34 @@ abstract mixin class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterf
   set data(CoreUnifiedSearchResultBuilder? data);
 }
 
-class _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
-    extends CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs {
+class _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs extends CoreUnifiedSearchSearchResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final CoreUnifiedSearchResult data;
 
-  factory _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs(
-          [void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs(
+          [void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs', 'data');
+  _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchSearchResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchSearchResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreUnifiedSearchSearchResponseApplicationJson_Ocs rebuild(
+          void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreUnifiedSearchSearchResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -26204,19 +26072,19 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchSearchResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
+class CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs,
-            CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder>,
-        CoreUnifiedSearchSearchResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreUnifiedSearchSearchResponseApplicationJson_Ocs,
+            CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder>,
+        CoreUnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -26226,9 +26094,9 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
   CoreUnifiedSearchResultBuilder get data => _$this._data ??= CoreUnifiedSearchResultBuilder();
   set data(covariant CoreUnifiedSearchResultBuilder? data) => _$this._data = data;
 
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder();
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder();
 
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -26239,24 +26107,23 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreUnifiedSearchSearchResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs build() => _build();
+  CoreUnifiedSearchSearchResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs _build() {
-    _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs _$result;
+  _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs _build() {
+    _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -26266,7 +26133,7 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreUnifiedSearchSearchResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26275,38 +26142,38 @@ class CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreUnifiedSearchSearchResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreUnifiedSearchSearchResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreUnifiedSearchSearchResponseApplicationJsonInterface other);
+  void update(void Function(CoreUnifiedSearchSearchResponseApplicationJsonInterfaceBuilder) updates);
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreUnifiedSearchSearchResponse200ApplicationJson extends CoreUnifiedSearchSearchResponse200ApplicationJson {
+class _$CoreUnifiedSearchSearchResponseApplicationJson extends CoreUnifiedSearchSearchResponseApplicationJson {
   @override
-  final CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs ocs;
+  final CoreUnifiedSearchSearchResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreUnifiedSearchSearchResponse200ApplicationJson(
-          [void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreUnifiedSearchSearchResponseApplicationJson(
+          [void Function(CoreUnifiedSearchSearchResponseApplicationJsonBuilder)? updates]) =>
+      (CoreUnifiedSearchSearchResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchSearchResponse200ApplicationJson', 'ocs');
+  _$CoreUnifiedSearchSearchResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchSearchResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson rebuild(
-          void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder) updates) =>
+  CoreUnifiedSearchSearchResponseApplicationJson rebuild(
+          void Function(CoreUnifiedSearchSearchResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder()..replace(this);
+  CoreUnifiedSearchSearchResponseApplicationJsonBuilder toBuilder() =>
+      CoreUnifiedSearchSearchResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreUnifiedSearchSearchResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreUnifiedSearchSearchResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -26319,26 +26186,24 @@ class _$CoreUnifiedSearchSearchResponse200ApplicationJson extends CoreUnifiedSea
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchSearchResponse200ApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchSearchResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
+class CoreUnifiedSearchSearchResponseApplicationJsonBuilder
     implements
-        Builder<CoreUnifiedSearchSearchResponse200ApplicationJson,
-            CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder>,
-        CoreUnifiedSearchSearchResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson? _$v;
+        Builder<CoreUnifiedSearchSearchResponseApplicationJson, CoreUnifiedSearchSearchResponseApplicationJsonBuilder>,
+        CoreUnifiedSearchSearchResponseApplicationJsonInterfaceBuilder {
+  _$CoreUnifiedSearchSearchResponseApplicationJson? _$v;
 
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder? _ocs;
+  CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder();
+  CoreUnifiedSearchSearchResponseApplicationJsonBuilder();
 
-  CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder get _$this {
+  CoreUnifiedSearchSearchResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -26348,23 +26213,23 @@ class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreUnifiedSearchSearchResponse200ApplicationJson other) {
+  void replace(covariant CoreUnifiedSearchSearchResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreUnifiedSearchSearchResponse200ApplicationJson;
+    _$v = other as _$CoreUnifiedSearchSearchResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreUnifiedSearchSearchResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreUnifiedSearchSearchResponse200ApplicationJson build() => _build();
+  CoreUnifiedSearchSearchResponseApplicationJson build() => _build();
 
-  _$CoreUnifiedSearchSearchResponse200ApplicationJson _build() {
-    _$CoreUnifiedSearchSearchResponse200ApplicationJson _$result;
+  _$CoreUnifiedSearchSearchResponseApplicationJson _build() {
+    _$CoreUnifiedSearchSearchResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreUnifiedSearchSearchResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreUnifiedSearchSearchResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -26372,7 +26237,7 @@ class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreUnifiedSearchSearchResponse200ApplicationJson', _$failedField, e.toString());
+            r'CoreUnifiedSearchSearchResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26381,9 +26246,9 @@ class CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterface other);
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates);
+abstract mixin class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface other);
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates);
   ListBuilder<String> get regular;
   set regular(ListBuilder<String>? regular);
 
@@ -26391,38 +26256,37 @@ abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
   set admin(ListBuilder<String>? admin);
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
-    extends CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew {
+class _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
+    extends CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew {
   @override
   final BuiltList<String> regular;
   @override
   final BuiltList<String> admin;
 
-  factory _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew(
-          [void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder)? updates]) =>
-      (CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew(
+          [void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? updates]) =>
+      (CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew._({required this.regular, required this.admin})
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._({required this.regular, required this.admin})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        regular, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew', 'regular');
-    BuiltValueNullFieldError.checkNotNull(
-        admin, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew', 'admin');
+        regular, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew', 'regular');
+    BuiltValueNullFieldError.checkNotNull(admin, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew', 'admin');
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew rebuild(
-          void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder) updates) =>
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew rebuild(
+          void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder toBuilder() =>
-      CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder()..replace(this);
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder toBuilder() =>
+      CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew &&
+    return other is CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew &&
         regular == other.regular &&
         admin == other.admin;
   }
@@ -26438,19 +26302,19 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew')
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew')
           ..add('regular', regular)
           ..add('admin', admin))
         .toString();
   }
 }
 
-class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
+class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder
     implements
-        Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew,
-            CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder>,
-        CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew? _$v;
+        Builder<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
+            CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder>,
+        CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder {
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew? _$v;
 
   ListBuilder<String>? _regular;
   ListBuilder<String> get regular => _$this._regular ??= ListBuilder<String>();
@@ -26460,9 +26324,9 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
   ListBuilder<String> get admin => _$this._admin ??= ListBuilder<String>();
   set admin(covariant ListBuilder<String>? admin) => _$this._admin = admin;
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder();
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder();
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder get _$this {
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _regular = $v.regular.toBuilder();
@@ -26473,25 +26337,24 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew other) {
+  void replace(covariant CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew;
+    _$v = other as _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew;
   }
 
   @override
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder)? updates) {
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew build() => _build();
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew build() => _build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew _build() {
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew _$result;
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew _build() {
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew _$result;
     try {
       _$result = _$v ??
-          _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew._(
-              regular: regular.build(), admin: admin.build());
+          _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._(regular: regular.build(), admin: admin.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -26501,7 +26364,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
         admin.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew', _$failedField, e.toString());
+            r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26510,9 +26373,9 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface other);
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get changelogURL;
   set changelogURL(String? changelogURL);
 
@@ -26522,11 +26385,11 @@ abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterface
   String? get version;
   set version(String? version);
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew;
-  set whatsNew(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew);
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew;
+  set whatsNew(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew);
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data {
+class _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data extends CoreWhatsNewGetResponseApplicationJson_Ocs_Data {
   @override
   final String changelogURL;
   @override
@@ -26534,34 +26397,34 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewG
   @override
   final String version;
   @override
-  final CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew? whatsNew;
+  final CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew? whatsNew;
 
-  factory _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data(
-          [void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data(
+          [void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data._(
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data._(
       {required this.changelogURL, required this.product, required this.version, this.whatsNew})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        changelogURL, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'changelogURL');
-    BuiltValueNullFieldError.checkNotNull(product, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'product');
-    BuiltValueNullFieldError.checkNotNull(version, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'version');
+        changelogURL, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'changelogURL');
+    BuiltValueNullFieldError.checkNotNull(product, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'product');
+    BuiltValueNullFieldError.checkNotNull(version, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'version');
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data rebuild(
-          void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data rebuild(
+          void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
-      CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data &&
+    return other is CoreWhatsNewGetResponseApplicationJson_Ocs_Data &&
         changelogURL == other.changelogURL &&
         product == other.product &&
         version == other.version &&
@@ -26581,7 +26444,7 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewG
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data')
           ..add('changelogURL', changelogURL)
           ..add('product', product)
           ..add('version', version)
@@ -26590,12 +26453,12 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data extends CoreWhatsNewG
   }
 }
 
-class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
+class CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data,
-            CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder>,
-        CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataInterfaceBuilder {
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data? _$v;
+        Builder<CoreWhatsNewGetResponseApplicationJson_Ocs_Data,
+            CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder>,
+        CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data? _$v;
 
   String? _changelogURL;
   String? get changelogURL => _$this._changelogURL;
@@ -26609,15 +26472,15 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
   String? get version => _$this._version;
   set version(covariant String? version) => _$this._version = version;
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? _whatsNew;
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew =>
-      _$this._whatsNew ??= CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder();
-  set whatsNew(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew) =>
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder? _whatsNew;
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder get whatsNew =>
+      _$this._whatsNew ??= CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder();
+  set whatsNew(covariant CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder? whatsNew) =>
       _$this._whatsNew = whatsNew;
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder();
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder();
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _changelogURL = $v.changelogURL;
@@ -26630,30 +26493,30 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data other) {
+  void replace(covariant CoreWhatsNewGetResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data;
+    _$v = other as _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data build() => _build();
+  CoreWhatsNewGetResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data _build() {
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data _$result;
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data _build() {
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data._(
+          _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data._(
               changelogURL: BuiltValueNullFieldError.checkNotNull(
-                  changelogURL, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'changelogURL'),
+                  changelogURL, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'changelogURL'),
               product: BuiltValueNullFieldError.checkNotNull(
-                  product, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'product'),
+                  product, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'product'),
               version: BuiltValueNullFieldError.checkNotNull(
-                  version, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', 'version'),
+                  version, r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', 'version'),
               whatsNew: _whatsNew?.build());
     } catch (_) {
       late String _$failedField;
@@ -26662,7 +26525,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
         _whatsNew?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'CoreWhatsNewGetResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26671,44 +26534,44 @@ class CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreWhatsNewGetResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreWhatsNewGetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder get data;
-  set data(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? data);
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs extends CoreWhatsNewGetResponse200ApplicationJson_Ocs {
+class _$CoreWhatsNewGetResponseApplicationJson_Ocs extends CoreWhatsNewGetResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
-  final CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data data;
+  final CoreWhatsNewGetResponseApplicationJson_Ocs_Data data;
 
-  factory _$CoreWhatsNewGetResponse200ApplicationJson_Ocs(
-          [void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewGetResponseApplicationJson_Ocs(
+          [void Function(CoreWhatsNewGetResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreWhatsNewGetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreWhatsNewGetResponse200ApplicationJson_Ocs', 'data');
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreWhatsNewGetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreWhatsNewGetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreWhatsNewGetResponseApplicationJson_Ocs rebuild(
+          void Function(CoreWhatsNewGetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreWhatsNewGetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewGetResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreWhatsNewGetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -26722,31 +26585,31 @@ class _$CoreWhatsNewGetResponse200ApplicationJson_Ocs extends CoreWhatsNewGetRes
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
+class CoreWhatsNewGetResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreWhatsNewGetResponse200ApplicationJson_Ocs, CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder>,
-        CoreWhatsNewGetResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreWhatsNewGetResponseApplicationJson_Ocs, CoreWhatsNewGetResponseApplicationJson_OcsBuilder>,
+        CoreWhatsNewGetResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
   set meta(covariant CoreOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? _data;
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder();
-  set data(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder? _data;
+  CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder();
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder();
 
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -26757,23 +26620,23 @@ class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreWhatsNewGetResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreWhatsNewGetResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreWhatsNewGetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson_Ocs build() => _build();
+  CoreWhatsNewGetResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson_Ocs _build() {
-    _$CoreWhatsNewGetResponse200ApplicationJson_Ocs _$result;
+  _$CoreWhatsNewGetResponseApplicationJson_Ocs _build() {
+    _$CoreWhatsNewGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$CoreWhatsNewGetResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$CoreWhatsNewGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -26782,7 +26645,7 @@ class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CoreWhatsNewGetResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreWhatsNewGetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26791,38 +26654,38 @@ class CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreWhatsNewGetResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreWhatsNewGetResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreWhatsNewGetResponseApplicationJsonInterface other);
+  void update(void Function(CoreWhatsNewGetResponseApplicationJsonInterfaceBuilder) updates);
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreWhatsNewGetResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreWhatsNewGetResponse200ApplicationJson extends CoreWhatsNewGetResponse200ApplicationJson {
+class _$CoreWhatsNewGetResponseApplicationJson extends CoreWhatsNewGetResponseApplicationJson {
   @override
-  final CoreWhatsNewGetResponse200ApplicationJson_Ocs ocs;
+  final CoreWhatsNewGetResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreWhatsNewGetResponse200ApplicationJson(
-          [void Function(CoreWhatsNewGetResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreWhatsNewGetResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewGetResponseApplicationJson(
+          [void Function(CoreWhatsNewGetResponseApplicationJsonBuilder)? updates]) =>
+      (CoreWhatsNewGetResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreWhatsNewGetResponse200ApplicationJson', 'ocs');
+  _$CoreWhatsNewGetResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreWhatsNewGetResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson rebuild(
-          void Function(CoreWhatsNewGetResponse200ApplicationJsonBuilder) updates) =>
+  CoreWhatsNewGetResponseApplicationJson rebuild(
+          void Function(CoreWhatsNewGetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreWhatsNewGetResponse200ApplicationJsonBuilder()..replace(this);
+  CoreWhatsNewGetResponseApplicationJsonBuilder toBuilder() =>
+      CoreWhatsNewGetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewGetResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreWhatsNewGetResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -26835,24 +26698,24 @@ class _$CoreWhatsNewGetResponse200ApplicationJson extends CoreWhatsNewGetRespons
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponse200ApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewGetResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreWhatsNewGetResponse200ApplicationJsonBuilder
+class CoreWhatsNewGetResponseApplicationJsonBuilder
     implements
-        Builder<CoreWhatsNewGetResponse200ApplicationJson, CoreWhatsNewGetResponse200ApplicationJsonBuilder>,
-        CoreWhatsNewGetResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreWhatsNewGetResponse200ApplicationJson? _$v;
+        Builder<CoreWhatsNewGetResponseApplicationJson, CoreWhatsNewGetResponseApplicationJsonBuilder>,
+        CoreWhatsNewGetResponseApplicationJsonInterfaceBuilder {
+  _$CoreWhatsNewGetResponseApplicationJson? _$v;
 
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder? _ocs;
+  CoreWhatsNewGetResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreWhatsNewGetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreWhatsNewGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreWhatsNewGetResponse200ApplicationJsonBuilder();
+  CoreWhatsNewGetResponseApplicationJsonBuilder();
 
-  CoreWhatsNewGetResponse200ApplicationJsonBuilder get _$this {
+  CoreWhatsNewGetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -26862,30 +26725,30 @@ class CoreWhatsNewGetResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewGetResponse200ApplicationJson other) {
+  void replace(covariant CoreWhatsNewGetResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewGetResponse200ApplicationJson;
+    _$v = other as _$CoreWhatsNewGetResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreWhatsNewGetResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreWhatsNewGetResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewGetResponse200ApplicationJson build() => _build();
+  CoreWhatsNewGetResponseApplicationJson build() => _build();
 
-  _$CoreWhatsNewGetResponse200ApplicationJson _build() {
-    _$CoreWhatsNewGetResponse200ApplicationJson _$result;
+  _$CoreWhatsNewGetResponseApplicationJson _build() {
+    _$CoreWhatsNewGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreWhatsNewGetResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreWhatsNewGetResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CoreWhatsNewGetResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreWhatsNewGetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26894,9 +26757,9 @@ class CoreWhatsNewGetResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(CoreWhatsNewDismissResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class CoreWhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(CoreWhatsNewDismissResponseApplicationJson_OcsInterface other);
+  void update(void Function(CoreWhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder) updates);
   CoreOCSMetaBuilder get meta;
   set meta(CoreOCSMetaBuilder? meta);
 
@@ -26904,34 +26767,34 @@ abstract mixin class CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceB
   set data(JsonObject? data);
 }
 
-class _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs extends CoreWhatsNewDismissResponse200ApplicationJson_Ocs {
+class _$CoreWhatsNewDismissResponseApplicationJson_Ocs extends CoreWhatsNewDismissResponseApplicationJson_Ocs {
   @override
   final CoreOCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs(
-          [void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewDismissResponseApplicationJson_Ocs(
+          [void Function(CoreWhatsNewDismissResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CoreWhatsNewDismissResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'CoreWhatsNewDismissResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'CoreWhatsNewDismissResponse200ApplicationJson_Ocs', 'data');
+  _$CoreWhatsNewDismissResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreWhatsNewDismissResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreWhatsNewDismissResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson_Ocs rebuild(
-          void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder) updates) =>
+  CoreWhatsNewDismissResponseApplicationJson_Ocs rebuild(
+          void Function(CoreWhatsNewDismissResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder()..replace(this);
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder toBuilder() =>
+      CoreWhatsNewDismissResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewDismissResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is CoreWhatsNewDismissResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -26945,19 +26808,18 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs extends CoreWhatsNewDi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewDismissResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewDismissResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
+class CoreWhatsNewDismissResponseApplicationJson_OcsBuilder
     implements
-        Builder<CoreWhatsNewDismissResponse200ApplicationJson_Ocs,
-            CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder>,
-        CoreWhatsNewDismissResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs? _$v;
+        Builder<CoreWhatsNewDismissResponseApplicationJson_Ocs, CoreWhatsNewDismissResponseApplicationJson_OcsBuilder>,
+        CoreWhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder {
+  _$CoreWhatsNewDismissResponseApplicationJson_Ocs? _$v;
 
   CoreOCSMetaBuilder? _meta;
   CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
@@ -26967,9 +26829,9 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder();
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder();
 
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder get _$this {
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -26980,27 +26842,27 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewDismissResponse200ApplicationJson_Ocs other) {
+  void replace(covariant CoreWhatsNewDismissResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs;
+    _$v = other as _$CoreWhatsNewDismissResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(CoreWhatsNewDismissResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson_Ocs build() => _build();
+  CoreWhatsNewDismissResponseApplicationJson_Ocs build() => _build();
 
-  _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs _build() {
-    _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs _$result;
+  _$CoreWhatsNewDismissResponseApplicationJson_Ocs _build() {
+    _$CoreWhatsNewDismissResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs._(
+          _$CoreWhatsNewDismissResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreWhatsNewDismissResponse200ApplicationJson_Ocs', 'data'));
+                  data, r'CoreWhatsNewDismissResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -27008,7 +26870,7 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreWhatsNewDismissResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'CoreWhatsNewDismissResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -27017,38 +26879,38 @@ class CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreWhatsNewDismissResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder) updates);
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class CoreWhatsNewDismissResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreWhatsNewDismissResponseApplicationJsonInterface other);
+  void update(void Function(CoreWhatsNewDismissResponseApplicationJsonInterfaceBuilder) updates);
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CoreWhatsNewDismissResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$CoreWhatsNewDismissResponse200ApplicationJson extends CoreWhatsNewDismissResponse200ApplicationJson {
+class _$CoreWhatsNewDismissResponseApplicationJson extends CoreWhatsNewDismissResponseApplicationJson {
   @override
-  final CoreWhatsNewDismissResponse200ApplicationJson_Ocs ocs;
+  final CoreWhatsNewDismissResponseApplicationJson_Ocs ocs;
 
-  factory _$CoreWhatsNewDismissResponse200ApplicationJson(
-          [void Function(CoreWhatsNewDismissResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreWhatsNewDismissResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreWhatsNewDismissResponseApplicationJson(
+          [void Function(CoreWhatsNewDismissResponseApplicationJsonBuilder)? updates]) =>
+      (CoreWhatsNewDismissResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreWhatsNewDismissResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreWhatsNewDismissResponse200ApplicationJson', 'ocs');
+  _$CoreWhatsNewDismissResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreWhatsNewDismissResponseApplicationJson', 'ocs');
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson rebuild(
-          void Function(CoreWhatsNewDismissResponse200ApplicationJsonBuilder) updates) =>
+  CoreWhatsNewDismissResponseApplicationJson rebuild(
+          void Function(CoreWhatsNewDismissResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreWhatsNewDismissResponse200ApplicationJsonBuilder()..replace(this);
+  CoreWhatsNewDismissResponseApplicationJsonBuilder toBuilder() =>
+      CoreWhatsNewDismissResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWhatsNewDismissResponse200ApplicationJson && ocs == other.ocs;
+    return other is CoreWhatsNewDismissResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -27061,24 +26923,24 @@ class _$CoreWhatsNewDismissResponse200ApplicationJson extends CoreWhatsNewDismis
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWhatsNewDismissResponse200ApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'CoreWhatsNewDismissResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
+class CoreWhatsNewDismissResponseApplicationJsonBuilder
     implements
-        Builder<CoreWhatsNewDismissResponse200ApplicationJson, CoreWhatsNewDismissResponse200ApplicationJsonBuilder>,
-        CoreWhatsNewDismissResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreWhatsNewDismissResponse200ApplicationJson? _$v;
+        Builder<CoreWhatsNewDismissResponseApplicationJson, CoreWhatsNewDismissResponseApplicationJsonBuilder>,
+        CoreWhatsNewDismissResponseApplicationJsonInterfaceBuilder {
+  _$CoreWhatsNewDismissResponseApplicationJson? _$v;
 
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? _ocs;
-  CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder? _ocs;
+  CoreWhatsNewDismissResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreWhatsNewDismissResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CoreWhatsNewDismissResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CoreWhatsNewDismissResponse200ApplicationJsonBuilder();
+  CoreWhatsNewDismissResponseApplicationJsonBuilder();
 
-  CoreWhatsNewDismissResponse200ApplicationJsonBuilder get _$this {
+  CoreWhatsNewDismissResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -27088,30 +26950,30 @@ class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreWhatsNewDismissResponse200ApplicationJson other) {
+  void replace(covariant CoreWhatsNewDismissResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWhatsNewDismissResponse200ApplicationJson;
+    _$v = other as _$CoreWhatsNewDismissResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreWhatsNewDismissResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreWhatsNewDismissResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWhatsNewDismissResponse200ApplicationJson build() => _build();
+  CoreWhatsNewDismissResponseApplicationJson build() => _build();
 
-  _$CoreWhatsNewDismissResponse200ApplicationJson _build() {
-    _$CoreWhatsNewDismissResponse200ApplicationJson _$result;
+  _$CoreWhatsNewDismissResponseApplicationJson _build() {
+    _$CoreWhatsNewDismissResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CoreWhatsNewDismissResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$CoreWhatsNewDismissResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CoreWhatsNewDismissResponse200ApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreWhatsNewDismissResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -27120,38 +26982,38 @@ class CoreWhatsNewDismissResponse200ApplicationJsonBuilder
   }
 }
 
-abstract mixin class CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder {
-  void replace(CoreWipeCheckWipeResponse200ApplicationJsonInterface other);
-  void update(void Function(CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder) updates);
+abstract mixin class CoreWipeCheckWipeResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreWipeCheckWipeResponseApplicationJsonInterface other);
+  void update(void Function(CoreWipeCheckWipeResponseApplicationJsonInterfaceBuilder) updates);
   bool? get wipe;
   set wipe(bool? wipe);
 }
 
-class _$CoreWipeCheckWipeResponse200ApplicationJson extends CoreWipeCheckWipeResponse200ApplicationJson {
+class _$CoreWipeCheckWipeResponseApplicationJson extends CoreWipeCheckWipeResponseApplicationJson {
   @override
   final bool wipe;
 
-  factory _$CoreWipeCheckWipeResponse200ApplicationJson(
-          [void Function(CoreWipeCheckWipeResponse200ApplicationJsonBuilder)? updates]) =>
-      (CoreWipeCheckWipeResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$CoreWipeCheckWipeResponseApplicationJson(
+          [void Function(CoreWipeCheckWipeResponseApplicationJsonBuilder)? updates]) =>
+      (CoreWipeCheckWipeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$CoreWipeCheckWipeResponse200ApplicationJson._({required this.wipe}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(wipe, r'CoreWipeCheckWipeResponse200ApplicationJson', 'wipe');
+  _$CoreWipeCheckWipeResponseApplicationJson._({required this.wipe}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(wipe, r'CoreWipeCheckWipeResponseApplicationJson', 'wipe');
   }
 
   @override
-  CoreWipeCheckWipeResponse200ApplicationJson rebuild(
-          void Function(CoreWipeCheckWipeResponse200ApplicationJsonBuilder) updates) =>
+  CoreWipeCheckWipeResponseApplicationJson rebuild(
+          void Function(CoreWipeCheckWipeResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreWipeCheckWipeResponse200ApplicationJsonBuilder toBuilder() =>
-      CoreWipeCheckWipeResponse200ApplicationJsonBuilder()..replace(this);
+  CoreWipeCheckWipeResponseApplicationJsonBuilder toBuilder() =>
+      CoreWipeCheckWipeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreWipeCheckWipeResponse200ApplicationJson && wipe == other.wipe;
+    return other is CoreWipeCheckWipeResponseApplicationJson && wipe == other.wipe;
   }
 
   @override
@@ -27164,23 +27026,23 @@ class _$CoreWipeCheckWipeResponse200ApplicationJson extends CoreWipeCheckWipeRes
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreWipeCheckWipeResponse200ApplicationJson')..add('wipe', wipe)).toString();
+    return (newBuiltValueToStringHelper(r'CoreWipeCheckWipeResponseApplicationJson')..add('wipe', wipe)).toString();
   }
 }
 
-class CoreWipeCheckWipeResponse200ApplicationJsonBuilder
+class CoreWipeCheckWipeResponseApplicationJsonBuilder
     implements
-        Builder<CoreWipeCheckWipeResponse200ApplicationJson, CoreWipeCheckWipeResponse200ApplicationJsonBuilder>,
-        CoreWipeCheckWipeResponse200ApplicationJsonInterfaceBuilder {
-  _$CoreWipeCheckWipeResponse200ApplicationJson? _$v;
+        Builder<CoreWipeCheckWipeResponseApplicationJson, CoreWipeCheckWipeResponseApplicationJsonBuilder>,
+        CoreWipeCheckWipeResponseApplicationJsonInterfaceBuilder {
+  _$CoreWipeCheckWipeResponseApplicationJson? _$v;
 
   bool? _wipe;
   bool? get wipe => _$this._wipe;
   set wipe(covariant bool? wipe) => _$this._wipe = wipe;
 
-  CoreWipeCheckWipeResponse200ApplicationJsonBuilder();
+  CoreWipeCheckWipeResponseApplicationJsonBuilder();
 
-  CoreWipeCheckWipeResponse200ApplicationJsonBuilder get _$this {
+  CoreWipeCheckWipeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _wipe = $v.wipe;
@@ -27190,23 +27052,23 @@ class CoreWipeCheckWipeResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant CoreWipeCheckWipeResponse200ApplicationJson other) {
+  void replace(covariant CoreWipeCheckWipeResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreWipeCheckWipeResponse200ApplicationJson;
+    _$v = other as _$CoreWipeCheckWipeResponseApplicationJson;
   }
 
   @override
-  void update(void Function(CoreWipeCheckWipeResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(CoreWipeCheckWipeResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreWipeCheckWipeResponse200ApplicationJson build() => _build();
+  CoreWipeCheckWipeResponseApplicationJson build() => _build();
 
-  _$CoreWipeCheckWipeResponse200ApplicationJson _build() {
+  _$CoreWipeCheckWipeResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$CoreWipeCheckWipeResponse200ApplicationJson._(
-            wipe: BuiltValueNullFieldError.checkNotNull(wipe, r'CoreWipeCheckWipeResponse200ApplicationJson', 'wipe'));
+        _$CoreWipeCheckWipeResponseApplicationJson._(
+            wipe: BuiltValueNullFieldError.checkNotNull(wipe, r'CoreWipeCheckWipeResponseApplicationJson', 'wipe'));
     replace(_$result);
     return _$result;
   }
