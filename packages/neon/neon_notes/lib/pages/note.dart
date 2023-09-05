@@ -15,8 +15,8 @@ class NotesNotePage extends StatefulWidget {
 }
 
 class _NotesNotePageState extends State<NotesNotePage> {
-  late final _contentController = TextEditingController()..text = widget.bloc.initialContent;
-  late final _titleController = TextEditingController()..text = widget.bloc.initialTitle;
+  final _contentController = TextEditingController();
+  final _titleController = TextEditingController();
   final _contentFocusNode = FocusNode();
   final _titleFocusNode = FocusNode();
   bool _showEditor = false;
@@ -35,6 +35,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
     widget.bloc.errors.listen((final error) {
       handleNotesException(context, error);
     });
+
+    _contentController.text = widget.bloc.initialContent;
+    _titleController.text = widget.bloc.initialTitle;
 
     _contentStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateContent);
     _titleStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateTitle);
@@ -56,6 +59,10 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
   @override
   void dispose() {
+    _contentController.dispose();
+    _titleController.dispose();
+    _contentFocusNode.dispose();
+    _titleFocusNode.dispose();
     unawaited(_contentStreamController.close());
     unawaited(_titleStreamController.close());
     super.dispose();

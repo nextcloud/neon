@@ -55,6 +55,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
 
   @override
   void dispose() {
+    _searchBarFocusNode.dispose();
     unawaited(_searchTermSubscription.cancel());
     unawaited(_searchTermController.close());
     super.dispose();

@@ -48,6 +48,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
     options.uploadQueueParallelism.removeListener(_uploadParallelismListener);
     options.downloadQueueParallelism.removeListener(_downloadParallelismListener);
+
+    super.dispose();
   }
 
   @override

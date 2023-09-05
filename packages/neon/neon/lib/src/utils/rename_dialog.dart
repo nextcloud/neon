@@ -34,7 +34,19 @@ class _RenameDialog extends StatefulWidget {
 class _RenameDialogState extends State<_RenameDialog> {
   final formKey = GlobalKey<FormState>();
 
-  late final controller = TextEditingController()..text = widget.value;
+  final controller = TextEditingController();
+
+  @override
+  void initState() {
+    controller.text = widget.value;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   void submit() {
     if (formKey.currentState!.validate()) {

@@ -19,6 +19,12 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   final controller = TextEditingController();
   String? selectedCategory;
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   void submit() {
     if (formKey.currentState!.validate()) {
       Navigator.of(context).pop((controller.text, widget.category ?? selectedCategory));

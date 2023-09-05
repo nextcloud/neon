@@ -14,6 +14,12 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
 
   final controller = TextEditingController();
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   void submit() {
     if (formKey.currentState!.validate()) {
       Navigator.of(context).pop(controller.text.split('/'));

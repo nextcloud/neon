@@ -43,6 +43,12 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(final BuildContext context) => ResultBuilder<List<NewsFolder>>.behaviorSubject(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(

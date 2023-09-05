@@ -14,6 +14,12 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
 
   final controller = TextEditingController();
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   void submit() {
     if (formKey.currentState!.validate()) {
       Navigator.of(context).pop(controller.text);

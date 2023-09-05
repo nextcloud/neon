@@ -67,21 +67,31 @@ Future runNeon({
       providers: [
         Provider<GlobalOptions>(
           create: (final _) => globalOptions,
+          dispose: (final _, final globalOptions) => globalOptions.dispose(),
         ),
         Provider<AccountsBloc>(
           create: (final _) => accountsBloc,
+          dispose: (final _, final accountsBloc) => accountsBloc.dispose(),
         ),
         Provider<PushNotificationsBloc>(
           create: (final _) => pushNotificationsBloc,
+          dispose: (final _, final pushNotificationsBloc) => pushNotificationsBloc.dispose(),
         ),
         Provider<FirstLaunchBloc>(
           create: (final _) => firstLaunchBloc,
+          dispose: (final _, final firstLaunchBloc) => firstLaunchBloc.dispose(),
         ),
         Provider<NextPushBloc>(
           create: (final _) => nextPushBloc,
+          dispose: (final _, final nextPushBloc) => nextPushBloc.dispose(),
         ),
         Provider<Iterable<AppImplementation>>(
           create: (final _) => appImplementations,
+          dispose: (final _, final appImplementations) {
+            for (final app in appImplementations) {
+              app.dispose();
+            }
+          },
         ),
         Provider<PackageInfo>(
           create: (final _) => packageInfo,
