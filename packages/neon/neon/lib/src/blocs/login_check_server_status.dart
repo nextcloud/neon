@@ -25,6 +25,8 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
   @override
   void dispose() {
     unawaited(state.close());
+
+    super.dispose();
   }
 
   @override

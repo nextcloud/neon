@@ -32,6 +32,8 @@ class LoginCheckAccountBloc extends InteractiveBloc
   @override
   void dispose() {
     unawaited(state.close());
+
+    super.dispose();
   }
 
   @override

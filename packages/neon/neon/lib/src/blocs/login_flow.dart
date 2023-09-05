@@ -34,6 +34,8 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
     _cancelPollTimer();
     unawaited(init.close());
     unawaited(_resultController.close());
+
+    super.dispose();
   }
 
   @override

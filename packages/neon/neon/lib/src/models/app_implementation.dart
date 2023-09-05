@@ -105,11 +105,10 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
         ),
       );
 
+  @mustCallSuper
   void dispose() {
     options.dispose();
-    for (final bloc in _blocs.values) {
-      bloc.dispose();
-    }
+    _blocs.disposeAll();
   }
 
   /// A custom theme that will be injected into the widget tree.
