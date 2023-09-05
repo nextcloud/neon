@@ -61,6 +61,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
   void dispose() {
     _contentController.dispose();
     _titleController.dispose();
+    _contentFocusNode.dispose();
+    _titleFocusNode.dispose();
     unawaited(_contentStreamController.close());
     unawaited(_titleStreamController.close());
     super.dispose();
