@@ -190,7 +190,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   @override
   Future refresh() async {
     await RequestManager.instance
-        .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponse200ApplicationJson>(
+        .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponseApplicationJson>(
       _account.id,
       'apps-apps',
       apps,
