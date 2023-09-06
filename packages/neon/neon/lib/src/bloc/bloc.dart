@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/utils/request_manager.dart';
 
-abstract class Bloc {
+abstract class Bloc implements Disposable {
+  @override
   @mustCallSuper
   void dispose();
 }
@@ -42,19 +44,5 @@ abstract class InteractiveBloc extends Bloc {
       debugPrint(stacktrace.toString());
       addError(error);
     }
-  }
-}
-
-extension DisposeableIterableBloc on Iterable<Bloc> {
-  void disposeAll() {
-    for (final bloc in this) {
-      bloc.dispose();
-    }
-  }
-}
-
-extension DisposeableMapBloc on Map<dynamic, Bloc> {
-  void disposeAll() {
-    values.disposeAll();
   }
 }
