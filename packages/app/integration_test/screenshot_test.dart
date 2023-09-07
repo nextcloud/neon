@@ -279,7 +279,7 @@ Future main() async {
   });
 
   testWidgets('notifications', (final tester) async {
-    await (await getAccount('admin')).client.notifications.sendAdminNotification(
+    await (await getAccount('admin')).client.notifications.api.generateNotification(
           userId: account.username,
           shortMessage: 'Notifications demo',
           longMessage: 'This is a notifications demo of the Neon app',

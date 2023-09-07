@@ -103,7 +103,9 @@ class PushUtils {
           account = accounts.tryFind(instance);
           if (account != null) {
             notification =
-                (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;
+                (await account.client.notifications.endpoint.getNotification(id: pushNotification.subject.nid!))
+                    .ocs
+                    .data;
             if (notification.icon?.endsWith('.svg') ?? false) {
               // Only SVG icons are supported right now (should be most of them)
 

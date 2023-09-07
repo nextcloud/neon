@@ -898,7 +898,11 @@
         "properties": {
           "notifications": {
             "type": "object",
-            "additionalProperties": true,
+            "required": [
+              "ocs-endpoints",
+              "push",
+              "admin-notifications"
+            ],
             "properties": {
               "ocs-endpoints": {
                 "type": "array",

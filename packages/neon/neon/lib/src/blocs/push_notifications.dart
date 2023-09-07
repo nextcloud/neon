@@ -85,7 +85,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
         debugPrint('Registering account $instance for push notifications on $endpoint');
 
-        final subscription = await account.client.notifications.registerDevice(
+        final subscription = await account.client.notifications.push.registerDevice(
           pushTokenHash: generatePushTokenHash(endpoint),
           devicePublicKey: keypair.publicKey.toFormattedPEM(),
           proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
@@ -121,7 +121,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   Future _unregisterUnifiedPushInstances(final List<Account> accounts) async {
     for (final account in accounts) {
       try {
-        await account.client.notifications.removeDevice();
+        await account.client.notifications.push.removeDevice();
         await UnifiedPush.unregister(account.id);
         await _storage.remove(_keyLastEndpoint(account));
       } catch (e) {
