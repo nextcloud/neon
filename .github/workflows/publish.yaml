@@ -75,17 +75,17 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
           name: Android arm64-v8a
           path: packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
           name: Android armeabi-v7a
           path: packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
           name: Android x86_64
           path: packages/app/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
@@ -134,7 +134,7 @@ jobs:
       - name: Build
         run: cd packages/app && flutter build linux --build-number="${{ needs.setup.outputs.build_number }}"
 
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
           name: Linux x86_64
           path: packages/app/build/linux/x64/release/bundle/*
@@ -167,7 +167,7 @@ jobs:
           FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
         run: ./tool/build-app.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
 
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
           name: Linux arm64
           path: packages/app/build/linux/arm64/release/bundle/*
