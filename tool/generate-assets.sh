@@ -41,6 +41,11 @@ function export_mipmap_icon_all() {
     wait
 }
 
+function precompile_assets() {
+  fvm dart run vector_graphics_compiler --input-dir assets/
+  find assets/ -name "*.svg" -exec rm {} \;
+}
+
 wget https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/cable-data.svg -O assets/logo.svg
 sed -i "s/<path /<path fill=\"$color\" /g" assets/logo.svg
 
@@ -60,8 +65,7 @@ done
 
 (
   cd packages/neon/neon
-  fvm dart run vector_graphics_compiler --input-dir assets/icons/server
-  rm -rf assets/icons/server/*.svg
+  precompile_assets
 )
 
 copy_app_svg files external/nextcloud-server/apps/files
@@ -72,6 +76,8 @@ copy_app_svg notifications external/nextcloud-notifications
 (
   cd packages/app
 
+  cp ../../assets/logo.svg assets/logo.svg
+
   # Splash screens
   inkscape assets/logo.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
   convert -size 1152x1152 xc:none img/splash_icon.png -gravity center -composite img/splash_icon_android_12.png # 1152px at xxxhdpi is 288dp
@@ -79,10 +85,19 @@ copy_app_svg notifications external/nextcloud-notifications
 
   # Android launcher icons
   export_mipmap_icon_all "assets/logo.svg" "ic_launcher" &
-  for id in files news notes notifications; do
-    export_mipmap_icon_all "../neon/neon_$id/assets/app.svg" "app_$id" &
+  for path in ../neon/neon_*; do
+    export_mipmap_icon_all "$path/assets/app.svg" "app_$(basename "$path" | sed "s/^neon_//")" &
   done
   wait
 
   fvm dart run flutter_native_splash:create
+
+  precompile_assets
 )
+
+for path in packages/neon/neon_*; do
+  (
+    cd "$path"
+    precompile_assets
+  )
+done
