@@ -58,7 +58,7 @@ class AccountSettingsPage extends StatelessWidget {
             }
           },
           tooltip: AppLocalizations.of(context).accountOptionsRemove,
-          icon: Icon(MdiIcons.delete),
+          icon: const Icon(Icons.logout),
         ),
         IconButton(
           onPressed: () async {
