@@ -32,11 +32,11 @@ dependencies:
       path: packages/neon/neon_notifications
 
 dev_dependencies:
+  flutter_material_design_icons: ^1.1.7296
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
-  material_design_icons_flutter: ^7.0.7296
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon

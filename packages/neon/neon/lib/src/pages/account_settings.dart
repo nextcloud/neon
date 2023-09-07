@@ -1,6 +1,6 @@
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -70,7 +70,7 @@ class AccountSettingsPage extends StatelessWidget {
             }
           },
           tooltip: AppLocalizations.of(context).settingsResetFor(name),
-          icon: Icon(MdiIcons.cogRefresh),
+          icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
     );

@@ -10,9 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_html: ^3.0.0-beta.2
+  flutter_material_design_icons: ^1.1.7296
   go_router: ^10.1.2
   html: ^0.15.4
-  material_design_icons_flutter: ^7.0.7296
   neon:
     git:
       url: https://github.com/nextcloud/neon

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/select_option.dart';
@@ -34,7 +34,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
             }
           },
           tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
-          icon: Icon(MdiIcons.cogRefresh),
+          icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
     );

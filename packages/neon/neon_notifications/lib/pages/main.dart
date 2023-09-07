@@ -33,7 +33,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               bloc.deleteAllNotifications();
             },
             tooltip: AppLocalizations.of(context).notificationsDismissAll,
-            child: Icon(MdiIcons.checkAll),
+            child: const Icon(MdiIcons.checkAll),
           ),
           body: NeonListView<NotificationsNotification>(
             scrollKey: 'notifications-notifications',
