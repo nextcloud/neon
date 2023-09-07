@@ -55,7 +55,7 @@ class _NotesMainPageState extends State<NotesMainPage> {
             label: AppLocalizations.of(context).notes,
           ),
           BottomNavigationBarItem(
-            icon: Icon(MdiIcons.tag),
+            icon: const Icon(MdiIcons.tag),
             label: AppLocalizations.of(context).categories,
           ),
         ],

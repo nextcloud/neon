@@ -1,6 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -73,7 +73,7 @@ class _SettingsPageState extends State<SettingsPage> {
             }
           },
           tooltip: AppLocalizations.of(context).settingsResetAll,
-          icon: Icon(MdiIcons.cogRefresh),
+          icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
     );
@@ -210,7 +210,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 CustomSettingsTile(
                   title: ElevatedButton.icon(
                     onPressed: () async => const LoginRoute().push(context),
-                    icon: Icon(MdiIcons.accountPlus),
+                    icon: const Icon(MdiIcons.accountPlus),
                     label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
                   ),
                 ),
