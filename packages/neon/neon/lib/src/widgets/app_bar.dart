@@ -13,7 +13,6 @@ import 'package:neon/src/widgets/account_switcher_button.dart';
 import 'package:neon/src/widgets/app_implementation_icon.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -131,7 +130,6 @@ class _NeonAppBarState extends State<NeonAppBar> {
                             tooltip: AppLocalizations.of(context).searchCancel,
                             icon: const Icon(
                               Icons.close,
-                              size: kAvatarSize * 2 / 3,
                             ),
                           ),
                         ],
@@ -164,7 +162,6 @@ class SearchIconButton extends StatelessWidget {
         tooltip: AppLocalizations.of(context).search,
         icon: const Icon(
           Icons.search,
-          size: kAvatarSize * 2 / 3,
         ),
       );
 }
@@ -269,7 +266,6 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
                   color: unreadCount > 0
                       ? Theme.of(context).colorScheme.primary
                       : Theme.of(context).colorScheme.onBackground,
-                  size: const Size.square(kAvatarSize * 2 / 3),
                 ),
               );
             },

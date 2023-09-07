@@ -50,7 +50,7 @@ class NotesView extends StatelessWidget {
               ),
               Icon(
                 MdiIcons.tag,
-                size: 14,
+                size: smallIconSize,
                 color: NotesCategoryColor.compute(note.category),
               ),
               const SizedBox(

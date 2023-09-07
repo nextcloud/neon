@@ -1,6 +1,7 @@
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/theme.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_files/l10n/localizations.dart';
@@ -75,7 +76,7 @@ class FileListTile extends StatelessWidget {
         trailing: !details.hasTask && mode != FilesBrowserMode.noActions
             ? FileActions(details: details)
             : const SizedBox.square(
-                dimension: 48,
+                dimension: largeIconSize,
               ),
       );
 }
@@ -126,7 +127,7 @@ class _FileIcon extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: Icon(
               Icons.star,
-              size: 14,
+              size: smallIconSize,
               color: Colors.yellow,
             ),
           ),
@@ -135,7 +136,7 @@ class _FileIcon extends StatelessWidget {
     }
 
     return SizedBox.square(
-      dimension: 40,
+      dimension: largeIconSize,
       child: icon,
     );
   }

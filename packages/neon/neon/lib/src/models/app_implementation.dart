@@ -91,20 +91,23 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   }
 
   Widget buildIcon({
-    final Size size = const Size.square(32),
+    final double? size,
     final Color? color,
   }) =>
       Builder(
-        builder: (final context) => VectorGraphic(
-          width: size.width,
-          height: size.height,
-          colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-          loader: AssetBytesLoader(
-            'assets/app.svg.vec',
-            packageName: 'neon_$id',
-          ),
-          semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
-        ),
+        builder: (final context) {
+          final realSize = size ?? IconTheme.of(context).size;
+          return VectorGraphic(
+            width: realSize,
+            height: realSize,
+            colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+            loader: AssetBytesLoader(
+              'assets/app.svg.vec',
+              packageName: 'neon_$id',
+            ),
+            semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
+          );
+        },
       );
 
   @mustCallSuper

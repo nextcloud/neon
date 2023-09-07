@@ -74,13 +74,13 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       ),
       leading: app != null
           ? app.buildIcon(
-              size: const Size.square(40),
+              size: largeIconSize,
             )
           : SizedBox.fromSize(
-              size: const Size.square(40),
+              size: const Size.square(largeIconSize),
               child: NeonCachedImage.url(
                 url: notification.icon!,
-                size: const Size.square(40),
+                size: const Size.square(largeIconSize),
                 svgColor: Theme.of(context).colorScheme.primary,
               ),
             ),

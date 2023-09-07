@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/widgets/user_avatar.dart';
 
 @internal
 class NeonAppImplementationIcon extends StatelessWidget {
@@ -9,7 +8,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
     required this.appImplementation,
     this.unreadCount = 0,
     this.color,
-    this.size = const Size.square(kAvatarSize),
+    this.size,
     super.key,
   });
 
@@ -19,7 +18,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
 
   final Color? color;
 
-  final Size size;
+  final double? size;
 
   @override
   Widget build(final BuildContext context) => Stack(

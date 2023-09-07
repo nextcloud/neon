@@ -4,7 +4,7 @@ class FilePreview extends StatelessWidget {
   const FilePreview({
     required this.bloc,
     required this.details,
-    this.size = const Size.square(40),
+    this.size = const Size.square(largeIconSize),
     this.color,
     this.borderRadius,
     this.withBackground = false,

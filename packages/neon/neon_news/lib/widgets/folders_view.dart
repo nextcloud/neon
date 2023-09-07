@@ -53,12 +53,12 @@ class NewsFoldersView extends StatelessWidget {
       ),
       subtitle: unreadCount > 0 ? Text(AppLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
       leading: SizedBox.square(
-        dimension: 48,
+        dimension: largeIconSize,
         child: Stack(
           children: [
             Icon(
               Icons.folder,
-              size: 48,
+              size: largeIconSize,
               color: Theme.of(context).colorScheme.primary,
             ),
             Center(
