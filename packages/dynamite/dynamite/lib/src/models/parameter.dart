@@ -24,6 +24,7 @@ class Parameter {
   @JsonKey(name: 'in')
   final String in_;
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
 
   final bool? required;
@@ -31,4 +32,15 @@ class Parameter {
   final Schema? schema;
 
   bool get isDartRequired => isRequired(required, schema?.default_);
+
+  @override
+  bool operator ==(final Object other) =>
+      other is Parameter &&
+      name == other.name &&
+      in_ == other.in_ &&
+      required == other.required &&
+      schema == other.schema;
+
+  @override
+  int get hashCode => name.hashCode + in_.hashCode + required.hashCode + schema.hashCode;
 }

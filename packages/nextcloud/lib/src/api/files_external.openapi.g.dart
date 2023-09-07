@@ -72,12 +72,12 @@ Serializer<FilesExternalStorageConfig_Type> _$filesExternalStorageConfigTypeSeri
 Serializer<FilesExternalStorageConfig> _$filesExternalStorageConfigSerializer =
     _$FilesExternalStorageConfigSerializer();
 Serializer<FilesExternalMount> _$filesExternalMountSerializer = _$FilesExternalMountSerializer();
-Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs>
-    _$filesExternalApiGetUserMountsResponse200ApplicationJsonOcsSerializer =
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsSerializer();
-Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson>
-    _$filesExternalApiGetUserMountsResponse200ApplicationJsonSerializer =
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJsonSerializer();
+Serializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs>
+    _$filesExternalApiGetUserMountsResponseApplicationJsonOcsSerializer =
+    _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer();
+Serializer<FilesExternalApiGetUserMountsResponseApplicationJson>
+    _$filesExternalApiGetUserMountsResponseApplicationJsonSerializer =
+    _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer();
 
 class _$FilesExternalOCSMetaSerializer implements StructuredSerializer<FilesExternalOCSMeta> {
   @override
@@ -414,19 +414,18 @@ class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExtern
   }
 }
 
-class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs> {
+class _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs,
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
+    FilesExternalApiGetUserMountsResponseApplicationJson_Ocs,
+    _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs';
+  final String wireName = 'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, FilesExternalApiGetUserMountsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -439,10 +438,10 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsSerializer
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs deserialize(
+  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder();
+    final result = FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -465,33 +464,33 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesExternalApiGetUserMountsResponse200ApplicationJsonSerializer
-    implements StructuredSerializer<FilesExternalApiGetUserMountsResponse200ApplicationJson> {
+class _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer
+    implements StructuredSerializer<FilesExternalApiGetUserMountsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesExternalApiGetUserMountsResponse200ApplicationJson,
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJson
+    FilesExternalApiGetUserMountsResponseApplicationJson,
+    _$FilesExternalApiGetUserMountsResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesExternalApiGetUserMountsResponse200ApplicationJson';
+  final String wireName = 'FilesExternalApiGetUserMountsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalApiGetUserMountsResponse200ApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, FilesExternalApiGetUserMountsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs)),
+          specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson deserialize(
+  FilesExternalApiGetUserMountsResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder();
+    final result = FilesExternalApiGetUserMountsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -501,8 +500,8 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs))!
-              as FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs);
+                  specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs))!
+              as FilesExternalApiGetUserMountsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1195,9 +1194,9 @@ class FilesExternalMountBuilder
   }
 }
 
-abstract mixin class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface other);
-  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterface other);
+  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
   FilesExternalOCSMetaBuilder get meta;
   set meta(FilesExternalOCSMetaBuilder? meta);
 
@@ -1205,36 +1204,35 @@ abstract mixin class FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
   set data(ListBuilder<FilesExternalMount>? data);
 }
 
-class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
-    extends FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs {
+class _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
+    extends FilesExternalApiGetUserMountsResponseApplicationJson_Ocs {
   @override
   final FilesExternalOCSMeta meta;
   @override
   final BuiltList<FilesExternalMount> data;
 
-  factory _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs(
-          [void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder)? updates]) =>
-      (FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs(
+          [void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs', 'data');
+  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs rebuild(
-          void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder) updates) =>
+  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs rebuild(
+          void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder toBuilder() =>
-      FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder()..replace(this);
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder toBuilder() =>
+      FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs &&
+    return other is FilesExternalApiGetUserMountsResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -1250,19 +1248,19 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
+class FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs,
-            FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder>,
-        FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder {
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs? _$v;
+        Builder<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs,
+            FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder>,
+        FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
   FilesExternalOCSMetaBuilder? _meta;
   FilesExternalOCSMetaBuilder get meta => _$this._meta ??= FilesExternalOCSMetaBuilder();
@@ -1272,9 +1270,9 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
   ListBuilder<FilesExternalMount> get data => _$this._data ??= ListBuilder<FilesExternalMount>();
   set data(covariant ListBuilder<FilesExternalMount>? data) => _$this._data = data;
 
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder();
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder get _$this {
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -1285,24 +1283,24 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs other) {
+  void replace(covariant FilesExternalApiGetUserMountsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs;
+    _$v = other as _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs build() => _build();
+  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs _build() {
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs _$result;
+  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs _build() {
+    _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1312,7 +1310,7 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+            r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1321,39 +1319,39 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder {
-  void replace(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface other);
-  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder) updates);
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? ocs);
+abstract mixin class FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+  void replace(FilesExternalApiGetUserMountsResponseApplicationJsonInterface other);
+  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesExternalApiGetUserMountsResponse200ApplicationJson
-    extends FilesExternalApiGetUserMountsResponse200ApplicationJson {
+class _$FilesExternalApiGetUserMountsResponseApplicationJson
+    extends FilesExternalApiGetUserMountsResponseApplicationJson {
   @override
-  final FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs ocs;
+  final FilesExternalApiGetUserMountsResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesExternalApiGetUserMountsResponse200ApplicationJson(
-          [void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder)? updates]) =>
-      (FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder()..update(updates))._build();
+  factory _$FilesExternalApiGetUserMountsResponseApplicationJson(
+          [void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
+      (FilesExternalApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesExternalApiGetUserMountsResponse200ApplicationJson', 'ocs');
+  _$FilesExternalApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesExternalApiGetUserMountsResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson rebuild(
-          void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder) updates) =>
+  FilesExternalApiGetUserMountsResponseApplicationJson rebuild(
+          void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder toBuilder() =>
-      FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder()..replace(this);
+  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder toBuilder() =>
+      FilesExternalApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalApiGetUserMountsResponse200ApplicationJson && ocs == other.ocs;
+    return other is FilesExternalApiGetUserMountsResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -1366,26 +1364,26 @@ class _$FilesExternalApiGetUserMountsResponse200ApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponse200ApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder
+class FilesExternalApiGetUserMountsResponseApplicationJsonBuilder
     implements
-        Builder<FilesExternalApiGetUserMountsResponse200ApplicationJson,
-            FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder>,
-        FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder {
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson? _$v;
+        Builder<FilesExternalApiGetUserMountsResponseApplicationJson,
+            FilesExternalApiGetUserMountsResponseApplicationJsonBuilder>,
+        FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+  _$FilesExternalApiGetUserMountsResponseApplicationJson? _$v;
 
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? _ocs;
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder();
-  set ocs(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder();
+  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder();
 
-  FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder get _$this {
+  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -1395,23 +1393,23 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesExternalApiGetUserMountsResponse200ApplicationJson other) {
+  void replace(covariant FilesExternalApiGetUserMountsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalApiGetUserMountsResponse200ApplicationJson;
+    _$v = other as _$FilesExternalApiGetUserMountsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder)? updates) {
+  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalApiGetUserMountsResponse200ApplicationJson build() => _build();
+  FilesExternalApiGetUserMountsResponseApplicationJson build() => _build();
 
-  _$FilesExternalApiGetUserMountsResponse200ApplicationJson _build() {
-    _$FilesExternalApiGetUserMountsResponse200ApplicationJson _$result;
+  _$FilesExternalApiGetUserMountsResponseApplicationJson _build() {
+    _$FilesExternalApiGetUserMountsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesExternalApiGetUserMountsResponse200ApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$FilesExternalApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1419,7 +1417,7 @@ class FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesExternalApiGetUserMountsResponse200ApplicationJson', _$failedField, e.toString());
+            r'FilesExternalApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -82,7 +82,7 @@ class UserStatusHeartbeatClient {
   final UserStatusClient _rootClient;
 
   /// Keep the status alive
-  Future<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> heartbeat({
+  Future<UserStatusHeartbeatHeartbeatResponseApplicationJson> heartbeat({
     required final String status,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -116,8 +116,8 @@ class UserStatusHeartbeatClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson),
-      )! as UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponseApplicationJson),
+      )! as UserStatusHeartbeatHeartbeatResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -129,7 +129,7 @@ class UserStatusPredefinedStatusClient {
   final UserStatusClient _rootClient;
 
   /// Get all predefined messages
-  Future<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> findAll({
+  Future<UserStatusPredefinedStatusFindAllResponseApplicationJson> findAll({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
@@ -161,8 +161,8 @@ class UserStatusPredefinedStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson),
-      )! as UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponseApplicationJson),
+      )! as UserStatusPredefinedStatusFindAllResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -174,7 +174,7 @@ class UserStatusStatusesClient {
   final UserStatusClient _rootClient;
 
   /// Find statuses of users
-  Future<UserStatusStatusesFindAllResponse200ApplicationJson> findAll({
+  Future<UserStatusStatusesFindAllResponseApplicationJson> findAll({
     final int? limit,
     final int? offset,
     final String oCSAPIRequest = 'true',
@@ -214,14 +214,14 @@ class UserStatusStatusesClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusStatusesFindAllResponse200ApplicationJson),
-      )! as UserStatusStatusesFindAllResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusStatusesFindAllResponseApplicationJson),
+      )! as UserStatusStatusesFindAllResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Find the status of a user
-  Future<UserStatusStatusesFindResponse200ApplicationJson> find({
+  Future<UserStatusStatusesFindResponseApplicationJson> find({
     required final String userId,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -255,8 +255,8 @@ class UserStatusStatusesClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusStatusesFindResponse200ApplicationJson),
-      )! as UserStatusStatusesFindResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusStatusesFindResponseApplicationJson),
+      )! as UserStatusStatusesFindResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -268,9 +268,7 @@ class UserStatusUserStatusClient {
   final UserStatusClient _rootClient;
 
   /// Get the status of the current user
-  Future<UserStatusUserStatusGetStatusResponse200ApplicationJson> getStatus({
-    final String oCSAPIRequest = 'true',
-  }) async {
+  Future<UserStatusUserStatusGetStatusResponseApplicationJson> getStatus({final String oCSAPIRequest = 'true'}) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -300,14 +298,14 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson),
-      )! as UserStatusUserStatusGetStatusResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusGetStatusResponseApplicationJson),
+      )! as UserStatusUserStatusGetStatusResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update the status type of the current user
-  Future<UserStatusUserStatusSetStatusResponse200ApplicationJson> setStatus({
+  Future<UserStatusUserStatusSetStatusResponseApplicationJson> setStatus({
     required final String statusType,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -341,14 +339,14 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson),
-      )! as UserStatusUserStatusSetStatusResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusSetStatusResponseApplicationJson),
+      )! as UserStatusUserStatusSetStatusResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the message to a predefined message for the current user
-  Future<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> setPredefinedMessage({
+  Future<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson> setPredefinedMessage({
     required final String messageId,
     final int? clearAt,
     final String oCSAPIRequest = 'true',
@@ -386,14 +384,14 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson),
-      )! as UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson),
+      )! as UserStatusUserStatusSetPredefinedMessageResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the message to a custom message for the current user
-  Future<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> setCustomMessage({
+  Future<UserStatusUserStatusSetCustomMessageResponseApplicationJson> setCustomMessage({
     final String? statusIcon,
     final String? message,
     final int? clearAt,
@@ -437,14 +435,14 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson),
-      )! as UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponseApplicationJson),
+      )! as UserStatusUserStatusSetCustomMessageResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Clear the message of the current user
-  Future<UserStatusUserStatusClearMessageResponse200ApplicationJson> clearMessage({
+  Future<UserStatusUserStatusClearMessageResponseApplicationJson> clearMessage({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
@@ -476,14 +474,14 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson),
-      )! as UserStatusUserStatusClearMessageResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusClearMessageResponseApplicationJson),
+      )! as UserStatusUserStatusClearMessageResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Revert the status to the previous status
-  Future<UserStatusUserStatusRevertStatusResponse200ApplicationJson> revertStatus({
+  Future<UserStatusUserStatusRevertStatusResponseApplicationJson> revertStatus({
     required final String messageId,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -517,8 +515,8 @@ class UserStatusUserStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson),
-      )! as UserStatusUserStatusRevertStatusResponse200ApplicationJson;
+        specifiedType: const FullType(UserStatusUserStatusRevertStatusResponseApplicationJson),
+      )! as UserStatusUserStatusRevertStatusResponseApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -615,72 +613,72 @@ abstract class UserStatusPrivate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
-  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs
+abstract class UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs
     implements
-        UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs,
-            UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs;
+        UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsInterface,
+        Built<UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs,
+            UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsBuilder> {
+  factory UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs([
+    final void Function(UserStatusHeartbeatHeartbeatResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._();
+  const UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusHeartbeatHeartbeatResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusHeartbeatHeartbeatResponse200ApplicationJsonInterface {
-  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs get ocs;
-  UserStatusHeartbeatHeartbeatResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusHeartbeatHeartbeatResponseApplicationJsonInterface {
+  UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs get ocs;
+  UserStatusHeartbeatHeartbeatResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusHeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusHeartbeatHeartbeatResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusHeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson
+abstract class UserStatusHeartbeatHeartbeatResponseApplicationJson
     implements
-        UserStatusHeartbeatHeartbeatResponse200ApplicationJsonInterface,
-        Built<UserStatusHeartbeatHeartbeatResponse200ApplicationJson,
-            UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder> {
-  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson([
-    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
+        UserStatusHeartbeatHeartbeatResponseApplicationJsonInterface,
+        Built<UserStatusHeartbeatHeartbeatResponseApplicationJson,
+            UserStatusHeartbeatHeartbeatResponseApplicationJsonBuilder> {
+  factory UserStatusHeartbeatHeartbeatResponseApplicationJson([
+    final void Function(UserStatusHeartbeatHeartbeatResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusHeartbeatHeartbeatResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson._();
+  const UserStatusHeartbeatHeartbeatResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusHeartbeatHeartbeatResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> get serializer =>
-      _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusHeartbeatHeartbeatResponseApplicationJson> get serializer =>
+      _$userStatusHeartbeatHeartbeatResponseApplicationJsonSerializer;
 }
 
 class UserStatusClearAt_Type extends EnumClass {
@@ -831,375 +829,374 @@ abstract class UserStatusPredefined
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   BuiltList<UserStatusPredefined> get data;
-  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs
+abstract class UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs
     implements
-        UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs,
-            UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs;
+        UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsInterface,
+        Built<UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs,
+            UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsBuilder> {
+  factory UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs([
+    final void Function(UserStatusPredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._();
+  const UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusPredefinedStatusFindAllResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusPredefinedStatusFindAllResponse200ApplicationJsonInterface {
-  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs get ocs;
-  UserStatusPredefinedStatusFindAllResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusPredefinedStatusFindAllResponseApplicationJsonInterface {
+  UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs get ocs;
+  UserStatusPredefinedStatusFindAllResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusPredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusPredefinedStatusFindAllResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusPredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson
+abstract class UserStatusPredefinedStatusFindAllResponseApplicationJson
     implements
-        UserStatusPredefinedStatusFindAllResponse200ApplicationJsonInterface,
-        Built<UserStatusPredefinedStatusFindAllResponse200ApplicationJson,
-            UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder> {
-  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson([
-    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
+        UserStatusPredefinedStatusFindAllResponseApplicationJsonInterface,
+        Built<UserStatusPredefinedStatusFindAllResponseApplicationJson,
+            UserStatusPredefinedStatusFindAllResponseApplicationJsonBuilder> {
+  factory UserStatusPredefinedStatusFindAllResponseApplicationJson([
+    final void Function(UserStatusPredefinedStatusFindAllResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusPredefinedStatusFindAllResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson._();
+  const UserStatusPredefinedStatusFindAllResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusPredefinedStatusFindAllResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> get serializer =>
-      _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusPredefinedStatusFindAllResponseApplicationJson> get serializer =>
+      _$userStatusPredefinedStatusFindAllResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusStatusesFindAllResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusStatusesFindAllResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   BuiltList<UserStatusPublic> get data;
-  UserStatusStatusesFindAllResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusStatusesFindAllResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusStatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusStatusesFindAllResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusStatusesFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusStatusesFindAllResponse200ApplicationJson_Ocs
+abstract class UserStatusStatusesFindAllResponseApplicationJson_Ocs
     implements
-        UserStatusStatusesFindAllResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs,
-            UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs;
+        UserStatusStatusesFindAllResponseApplicationJson_OcsInterface,
+        Built<UserStatusStatusesFindAllResponseApplicationJson_Ocs,
+            UserStatusStatusesFindAllResponseApplicationJson_OcsBuilder> {
+  factory UserStatusStatusesFindAllResponseApplicationJson_Ocs([
+    final void Function(UserStatusStatusesFindAllResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusStatusesFindAllResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._();
+  const UserStatusStatusesFindAllResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusStatusesFindAllResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusStatusesFindAllResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusStatusesFindAllResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusStatusesFindAllResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusStatusesFindAllResponse200ApplicationJsonInterface {
-  UserStatusStatusesFindAllResponse200ApplicationJson_Ocs get ocs;
-  UserStatusStatusesFindAllResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusStatusesFindAllResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusStatusesFindAllResponseApplicationJsonInterface {
+  UserStatusStatusesFindAllResponseApplicationJson_Ocs get ocs;
+  UserStatusStatusesFindAllResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusStatusesFindAllResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusStatusesFindAllResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusStatusesFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusStatusesFindAllResponse200ApplicationJson
+abstract class UserStatusStatusesFindAllResponseApplicationJson
     implements
-        UserStatusStatusesFindAllResponse200ApplicationJsonInterface,
-        Built<UserStatusStatusesFindAllResponse200ApplicationJson,
-            UserStatusStatusesFindAllResponse200ApplicationJsonBuilder> {
-  factory UserStatusStatusesFindAllResponse200ApplicationJson([
-    final void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson;
+        UserStatusStatusesFindAllResponseApplicationJsonInterface,
+        Built<UserStatusStatusesFindAllResponseApplicationJson,
+            UserStatusStatusesFindAllResponseApplicationJsonBuilder> {
+  factory UserStatusStatusesFindAllResponseApplicationJson([
+    final void Function(UserStatusStatusesFindAllResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusStatusesFindAllResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusStatusesFindAllResponse200ApplicationJson._();
+  const UserStatusStatusesFindAllResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusStatusesFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusStatusesFindAllResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson> get serializer =>
-      _$userStatusStatusesFindAllResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusStatusesFindAllResponseApplicationJson> get serializer =>
+      _$userStatusStatusesFindAllResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusStatusesFindResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusStatusesFindResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPublic get data;
-  UserStatusStatusesFindResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusStatusesFindResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusStatusesFindResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusStatusesFindResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusStatusesFindResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusStatusesFindResponse200ApplicationJson_Ocs
+abstract class UserStatusStatusesFindResponseApplicationJson_Ocs
     implements
-        UserStatusStatusesFindResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusStatusesFindResponse200ApplicationJson_Ocs,
-            UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusStatusesFindResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusStatusesFindResponse200ApplicationJson_Ocs;
+        UserStatusStatusesFindResponseApplicationJson_OcsInterface,
+        Built<UserStatusStatusesFindResponseApplicationJson_Ocs,
+            UserStatusStatusesFindResponseApplicationJson_OcsBuilder> {
+  factory UserStatusStatusesFindResponseApplicationJson_Ocs([
+    final void Function(UserStatusStatusesFindResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusStatusesFindResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusStatusesFindResponse200ApplicationJson_Ocs._();
+  const UserStatusStatusesFindResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusStatusesFindResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusStatusesFindResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusStatusesFindResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusStatusesFindResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusStatusesFindResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusStatusesFindResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusStatusesFindResponse200ApplicationJsonInterface {
-  UserStatusStatusesFindResponse200ApplicationJson_Ocs get ocs;
-  UserStatusStatusesFindResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusStatusesFindResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusStatusesFindResponseApplicationJsonInterface {
+  UserStatusStatusesFindResponseApplicationJson_Ocs get ocs;
+  UserStatusStatusesFindResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusStatusesFindResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusStatusesFindResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusStatusesFindResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusStatusesFindResponse200ApplicationJson
+abstract class UserStatusStatusesFindResponseApplicationJson
     implements
-        UserStatusStatusesFindResponse200ApplicationJsonInterface,
-        Built<UserStatusStatusesFindResponse200ApplicationJson,
-            UserStatusStatusesFindResponse200ApplicationJsonBuilder> {
-  factory UserStatusStatusesFindResponse200ApplicationJson([
-    final void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusStatusesFindResponse200ApplicationJson;
+        UserStatusStatusesFindResponseApplicationJsonInterface,
+        Built<UserStatusStatusesFindResponseApplicationJson, UserStatusStatusesFindResponseApplicationJsonBuilder> {
+  factory UserStatusStatusesFindResponseApplicationJson([
+    final void Function(UserStatusStatusesFindResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusStatusesFindResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusStatusesFindResponse200ApplicationJson._();
+  const UserStatusStatusesFindResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusStatusesFindResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusStatusesFindResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusStatusesFindResponse200ApplicationJson> get serializer =>
-      _$userStatusStatusesFindResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusStatusesFindResponseApplicationJson> get serializer =>
+      _$userStatusStatusesFindResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusGetStatusResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
-  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusGetStatusResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusGetStatusResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusGetStatusResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusGetStatusResponseApplicationJson_Ocs,
+            UserStatusUserStatusGetStatusResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusGetStatusResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusGetStatusResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusGetStatusResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusGetStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusGetStatusResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusGetStatusResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusGetStatusResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusGetStatusResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusGetStatusResponse200ApplicationJsonInterface {
-  UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusGetStatusResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusGetStatusResponseApplicationJsonInterface {
+  UserStatusUserStatusGetStatusResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusGetStatusResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusGetStatusResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusGetStatusResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusGetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson
+abstract class UserStatusUserStatusGetStatusResponseApplicationJson
     implements
-        UserStatusUserStatusGetStatusResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusGetStatusResponse200ApplicationJson,
-            UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusGetStatusResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson;
+        UserStatusUserStatusGetStatusResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusGetStatusResponseApplicationJson,
+            UserStatusUserStatusGetStatusResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusGetStatusResponseApplicationJson([
+    final void Function(UserStatusUserStatusGetStatusResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusGetStatusResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusGetStatusResponse200ApplicationJson._();
+  const UserStatusUserStatusGetStatusResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusGetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusGetStatusResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusGetStatusResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusGetStatusResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusGetStatusResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusSetStatusResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
-  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusSetStatusResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusSetStatusResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusSetStatusResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusSetStatusResponseApplicationJson_Ocs,
+            UserStatusUserStatusSetStatusResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetStatusResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetStatusResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetStatusResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusSetStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusSetStatusResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusSetStatusResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusSetStatusResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetStatusResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetStatusResponse200ApplicationJsonInterface {
-  UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusSetStatusResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusSetStatusResponseApplicationJsonInterface {
+  UserStatusUserStatusSetStatusResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusSetStatusResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusSetStatusResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetStatusResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson
+abstract class UserStatusUserStatusSetStatusResponseApplicationJson
     implements
-        UserStatusUserStatusSetStatusResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusSetStatusResponse200ApplicationJson,
-            UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusSetStatusResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson;
+        UserStatusUserStatusSetStatusResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusSetStatusResponseApplicationJson,
+            UserStatusUserStatusSetStatusResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetStatusResponseApplicationJson([
+    final void Function(UserStatusUserStatusSetStatusResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetStatusResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetStatusResponse200ApplicationJson._();
+  const UserStatusUserStatusSetStatusResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusSetStatusResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusSetStatusResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusSetStatusResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusSetStatusResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
-  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
+            UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.fromJson(
+  factory UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -1208,202 +1205,196 @@ abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonInterface {
-  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonInterface {
+  UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson
+abstract class UserStatusUserStatusSetPredefinedMessageResponseApplicationJson
     implements
-        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson,
-            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
+        UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson,
+            UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetPredefinedMessageResponseApplicationJson([
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetPredefinedMessageResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._();
+  const UserStatusUserStatusSetPredefinedMessageResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory UserStatusUserStatusSetPredefinedMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusSetPredefinedMessageResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
-  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs,
+            UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetCustomMessageResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonInterface {
-  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusSetCustomMessageResponseApplicationJsonInterface {
+  UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusSetCustomMessageResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson
+abstract class UserStatusUserStatusSetCustomMessageResponseApplicationJson
     implements
-        UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson,
-            UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
+        UserStatusUserStatusSetCustomMessageResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusSetCustomMessageResponseApplicationJson,
+            UserStatusUserStatusSetCustomMessageResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetCustomMessageResponseApplicationJson([
+    final void Function(UserStatusUserStatusSetCustomMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetCustomMessageResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._();
+  const UserStatusUserStatusSetCustomMessageResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusSetCustomMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusSetCustomMessageResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusSetCustomMessageResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusClearMessageResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
   JsonObject get data;
-  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusClearMessageResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusClearMessageResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusClearMessageResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusClearMessageResponseApplicationJson_Ocs,
+            UserStatusUserStatusClearMessageResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusClearMessageResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusClearMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusClearMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusClearMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusClearMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusClearMessageResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusClearMessageResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusClearMessageResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusClearMessageResponse200ApplicationJsonInterface {
-  UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusClearMessageResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusClearMessageResponseApplicationJsonInterface {
+  UserStatusUserStatusClearMessageResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusClearMessageResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusClearMessageResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusClearMessageResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusClearMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson
+abstract class UserStatusUserStatusClearMessageResponseApplicationJson
     implements
-        UserStatusUserStatusClearMessageResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusClearMessageResponse200ApplicationJson,
-            UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusClearMessageResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson;
+        UserStatusUserStatusClearMessageResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusClearMessageResponseApplicationJson,
+            UserStatusUserStatusClearMessageResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusClearMessageResponseApplicationJson([
+    final void Function(UserStatusUserStatusClearMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusClearMessageResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusClearMessageResponse200ApplicationJson._();
+  const UserStatusUserStatusClearMessageResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusClearMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusClearMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusClearMessageResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusClearMessageResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusClearMessageResponseApplicationJsonSerializer;
 }
 
-abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data
+abstract class UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data
     implements
-        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
-            UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data([
-    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data;
+        Built<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data,
+            UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder> {
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data([
+    final void Function(UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._();
+  const UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1414,37 +1405,36 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Da
   UserStatusPrivate? get private;
   JsonObject? get jsonObject;
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer();
+  static Serializer<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
+      _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer();
 }
 
-class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer
-    implements PrimitiveSerializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> {
+class _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
+    implements PrimitiveSerializer<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
-    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
+    UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data,
+    _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data,
   ];
 
   @override
-  final String wireName = 'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data';
+  final String wireName = 'UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data object, {
+    final UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data deserialize(
+  UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder()
-      ..data = JsonObject(data);
+    final result = UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..data = JsonObject(data);
     try {
       result._private =
           (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate)
@@ -1462,72 +1452,72 @@ class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSeria
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsInterface {
+abstract interface class UserStatusUserStatusRevertStatusResponseApplicationJson_OcsInterface {
   UserStatusOCSMeta get meta;
-  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data get data;
-  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data get data;
+  UserStatusUserStatusRevertStatusResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UserStatusUserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  UserStatusUserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs
+abstract class UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs
     implements
-        UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsInterface,
-        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs,
-            UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder> {
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs([
-    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs;
+        UserStatusUserStatusRevertStatusResponseApplicationJson_OcsInterface,
+        Built<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs,
+            UserStatusUserStatusRevertStatusResponseApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusRevertStatusResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._();
+  const UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs> get serializer =>
-      _$userStatusUserStatusRevertStatusResponse200ApplicationJsonOcsSerializer;
+  static Serializer<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusRevertStatusResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserStatusUserStatusRevertStatusResponse200ApplicationJsonInterface {
-  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs get ocs;
-  UserStatusUserStatusRevertStatusResponse200ApplicationJsonInterface rebuild(
-    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class UserStatusUserStatusRevertStatusResponseApplicationJsonInterface {
+  UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs get ocs;
+  UserStatusUserStatusRevertStatusResponseApplicationJsonInterface rebuild(
+    final void Function(UserStatusUserStatusRevertStatusResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UserStatusUserStatusRevertStatusResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  UserStatusUserStatusRevertStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson
+abstract class UserStatusUserStatusRevertStatusResponseApplicationJson
     implements
-        UserStatusUserStatusRevertStatusResponse200ApplicationJsonInterface,
-        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson,
-            UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder> {
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson([
-    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder)? b,
-  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson;
+        UserStatusUserStatusRevertStatusResponseApplicationJsonInterface,
+        Built<UserStatusUserStatusRevertStatusResponseApplicationJson,
+            UserStatusUserStatusRevertStatusResponseApplicationJsonBuilder> {
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson([
+    final void Function(UserStatusUserStatusRevertStatusResponseApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponseApplicationJson;
 
   // coverage:ignore-start
-  const UserStatusUserStatusRevertStatusResponse200ApplicationJson._();
+  const UserStatusUserStatusRevertStatusResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusRevertStatusResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson> get serializer =>
-      _$userStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer;
+  static Serializer<UserStatusUserStatusRevertStatusResponseApplicationJson> get serializer =>
+      _$userStatusUserStatusRevertStatusResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1594,15 +1584,15 @@ abstract class UserStatusCapabilities
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson),
-        UserStatusHeartbeatHeartbeatResponse200ApplicationJson.new,
+        const FullType(UserStatusHeartbeatHeartbeatResponseApplicationJson),
+        UserStatusHeartbeatHeartbeatResponseApplicationJson.new,
       )
-      ..add(UserStatusHeartbeatHeartbeatResponse200ApplicationJson.serializer)
+      ..add(UserStatusHeartbeatHeartbeatResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs),
-        UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs),
+        UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(UserStatusOCSMeta), UserStatusOCSMeta.new)
       ..add(UserStatusOCSMeta.serializer)
       ..addBuilderFactory(const FullType(UserStatusPrivate), UserStatusPrivate.new)
@@ -1610,15 +1600,15 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(UserStatusPublic), UserStatusPublic.new)
       ..add(UserStatusPublic.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson),
-        UserStatusPredefinedStatusFindAllResponse200ApplicationJson.new,
+        const FullType(UserStatusPredefinedStatusFindAllResponseApplicationJson),
+        UserStatusPredefinedStatusFindAllResponseApplicationJson.new,
       )
-      ..add(UserStatusPredefinedStatusFindAllResponse200ApplicationJson.serializer)
+      ..add(UserStatusPredefinedStatusFindAllResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs),
-        UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs),
+        UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(UserStatusPredefined), UserStatusPredefined.new)
       ..add(UserStatusPredefined.serializer)
       ..addBuilderFactory(const FullType(UserStatusClearAt), UserStatusClearAt.new)
@@ -1632,91 +1622,91 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<UserStatusPredefined>.new,
       )
       ..addBuilderFactory(
-        const FullType(UserStatusStatusesFindAllResponse200ApplicationJson),
-        UserStatusStatusesFindAllResponse200ApplicationJson.new,
+        const FullType(UserStatusStatusesFindAllResponseApplicationJson),
+        UserStatusStatusesFindAllResponseApplicationJson.new,
       )
-      ..add(UserStatusStatusesFindAllResponse200ApplicationJson.serializer)
+      ..add(UserStatusStatusesFindAllResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs),
-        UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusStatusesFindAllResponseApplicationJson_Ocs),
+        UserStatusStatusesFindAllResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusStatusesFindAllResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(UserStatusPublic)]), ListBuilder<UserStatusPublic>.new)
       ..addBuilderFactory(
-        const FullType(UserStatusStatusesFindResponse200ApplicationJson),
-        UserStatusStatusesFindResponse200ApplicationJson.new,
+        const FullType(UserStatusStatusesFindResponseApplicationJson),
+        UserStatusStatusesFindResponseApplicationJson.new,
       )
-      ..add(UserStatusStatusesFindResponse200ApplicationJson.serializer)
+      ..add(UserStatusStatusesFindResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusStatusesFindResponse200ApplicationJson_Ocs),
-        UserStatusStatusesFindResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusStatusesFindResponseApplicationJson_Ocs),
+        UserStatusStatusesFindResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusStatusesFindResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusStatusesFindResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson),
-        UserStatusUserStatusGetStatusResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusGetStatusResponseApplicationJson),
+        UserStatusUserStatusGetStatusResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusGetStatusResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusGetStatusResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusGetStatusResponseApplicationJson_Ocs),
+        UserStatusUserStatusGetStatusResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusGetStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson),
-        UserStatusUserStatusSetStatusResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusSetStatusResponseApplicationJson),
+        UserStatusUserStatusSetStatusResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusSetStatusResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusSetStatusResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusSetStatusResponseApplicationJson_Ocs),
+        UserStatusUserStatusSetStatusResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusSetStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson),
-        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson),
+        UserStatusUserStatusSetPredefinedMessageResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs),
+        UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson),
-        UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusSetCustomMessageResponseApplicationJson),
+        UserStatusUserStatusSetCustomMessageResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusSetCustomMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs),
+        UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson),
-        UserStatusUserStatusClearMessageResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusClearMessageResponseApplicationJson),
+        UserStatusUserStatusClearMessageResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusClearMessageResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusClearMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusClearMessageResponseApplicationJson_Ocs),
+        UserStatusUserStatusClearMessageResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusClearMessageResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson),
-        UserStatusUserStatusRevertStatusResponse200ApplicationJson.new,
+        const FullType(UserStatusUserStatusRevertStatusResponseApplicationJson),
+        UserStatusUserStatusRevertStatusResponseApplicationJson.new,
       )
-      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson.serializer)
+      ..add(UserStatusUserStatusRevertStatusResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs),
-        UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.new,
+        const FullType(UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs),
+        UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs.new,
       )
-      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.serializer)
+      ..add(UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data),
-        UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data),
+        UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilities.new)
       ..add(UserStatusCapabilities.serializer)
       ..addBuilderFactory(const FullType(UserStatusCapabilities_UserStatus), UserStatusCapabilities_UserStatus.new)

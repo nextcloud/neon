@@ -16,6 +16,15 @@ class SecurityScheme {
   Map<String, dynamic> toJson() => _$SecuritySchemeToJson(this);
 
   final String type;
+
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
+
   final String? scheme;
+
+  @override
+  bool operator ==(final Object other) => other is SecurityScheme && type == other.type && scheme == other.scheme;
+
+  @override
+  int get hashCode => type.hashCode + scheme.hashCode;
 }

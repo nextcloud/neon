@@ -121,7 +121,7 @@ class NeonDrawerHeader extends StatelessWidget {
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
-    final branding = ResultBuilder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>.behaviorSubject(
+    final branding = ResultBuilder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(
       stream: capabilitiesBloc.capabilities,
       builder: (final context, final capabilities) {
         if (!capabilities.hasData) {

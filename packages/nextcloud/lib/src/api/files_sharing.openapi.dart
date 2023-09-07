@@ -84,7 +84,7 @@ class FilesSharingDeletedShareapiClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of all deleted shares
-  Future<FilesSharingDeletedShareapiListResponse200ApplicationJson> list({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesSharingDeletedShareapiListResponseApplicationJson> list({final String oCSAPIRequest = 'true'}) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -114,14 +114,14 @@ class FilesSharingDeletedShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingDeletedShareapiListResponse200ApplicationJson),
-      )! as FilesSharingDeletedShareapiListResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson),
+      )! as FilesSharingDeletedShareapiListResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Undelete a deleted share
-  Future<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson> undelete({
+  Future<FilesSharingDeletedShareapiUndeleteResponseApplicationJson> undelete({
     required final String id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -155,8 +155,8 @@ class FilesSharingDeletedShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson),
-      )! as FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson),
+      )! as FilesSharingDeletedShareapiUndeleteResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -262,7 +262,7 @@ class FilesSharingRemoteClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of accepted remote shares
-  Future<FilesSharingRemoteGetSharesResponse200ApplicationJson> getShares({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesSharingRemoteGetSharesResponseApplicationJson> getShares({final String oCSAPIRequest = 'true'}) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -292,14 +292,14 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetSharesResponse200ApplicationJson),
-      )! as FilesSharingRemoteGetSharesResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson),
+      )! as FilesSharingRemoteGetSharesResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get list of pending remote shares
-  Future<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson> getOpenShares({
+  Future<FilesSharingRemoteGetOpenSharesResponseApplicationJson> getOpenShares({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
@@ -331,14 +331,14 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson),
-      )! as FilesSharingRemoteGetOpenSharesResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson),
+      )! as FilesSharingRemoteGetOpenSharesResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a remote share
-  Future<FilesSharingRemoteAcceptShareResponse200ApplicationJson> acceptShare({
+  Future<FilesSharingRemoteAcceptShareResponseApplicationJson> acceptShare({
     required final int id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -372,14 +372,14 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteAcceptShareResponse200ApplicationJson),
-      )! as FilesSharingRemoteAcceptShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson),
+      )! as FilesSharingRemoteAcceptShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Decline a remote share
-  Future<FilesSharingRemoteDeclineShareResponse200ApplicationJson> declineShare({
+  Future<FilesSharingRemoteDeclineShareResponseApplicationJson> declineShare({
     required final int id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -413,14 +413,14 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteDeclineShareResponse200ApplicationJson),
-      )! as FilesSharingRemoteDeclineShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson),
+      )! as FilesSharingRemoteDeclineShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get info of a remote share
-  Future<FilesSharingRemoteGetShareResponse200ApplicationJson> getShare({
+  Future<FilesSharingRemoteGetShareResponseApplicationJson> getShare({
     required final int id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -454,14 +454,14 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetShareResponse200ApplicationJson),
-      )! as FilesSharingRemoteGetShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson),
+      )! as FilesSharingRemoteGetShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unshare a remote share
-  Future<FilesSharingRemoteUnshareResponse200ApplicationJson> unshare({
+  Future<FilesSharingRemoteUnshareResponseApplicationJson> unshare({
     required final int id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -495,8 +495,8 @@ class FilesSharingRemoteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteUnshareResponse200ApplicationJson),
-      )! as FilesSharingRemoteUnshareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson),
+      )! as FilesSharingRemoteUnshareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -563,7 +563,7 @@ class FilesSharingShareapiClient {
   final FilesSharingClient _rootClient;
 
   /// Get shares of the current user
-  Future<FilesSharingShareapiGetSharesResponse200ApplicationJson> getShares({
+  Future<FilesSharingShareapiGetSharesResponseApplicationJson> getShares({
     final String sharedWithMe = 'false',
     final String reshares = 'false',
     final String subfiles = 'false',
@@ -615,14 +615,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetSharesResponse200ApplicationJson),
-      )! as FilesSharingShareapiGetSharesResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson),
+      )! as FilesSharingShareapiGetSharesResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a share
-  Future<FilesSharingShareapiCreateShareResponse200ApplicationJson> createShare({
+  Future<FilesSharingShareapiCreateShareResponseApplicationJson> createShare({
     final String? path,
     final int? permissions,
     final int shareType = -1,
@@ -698,14 +698,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiCreateShareResponse200ApplicationJson),
-      )! as FilesSharingShareapiCreateShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson),
+      )! as FilesSharingShareapiCreateShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares relative to a file, including parent folders shares rights
-  Future<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson> getInheritedShares({
+  Future<FilesSharingShareapiGetInheritedSharesResponseApplicationJson> getInheritedShares({
     required final String path,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -739,14 +739,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson),
-      )! as FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson),
+      )! as FilesSharingShareapiGetInheritedSharesResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares that are still pending
-  Future<FilesSharingShareapiPendingSharesResponse200ApplicationJson> pendingShares({
+  Future<FilesSharingShareapiPendingSharesResponseApplicationJson> pendingShares({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
@@ -778,14 +778,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiPendingSharesResponse200ApplicationJson),
-      )! as FilesSharingShareapiPendingSharesResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson),
+      )! as FilesSharingShareapiPendingSharesResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a specific share by id
-  Future<FilesSharingShareapiGetShareResponse200ApplicationJson> getShare({
+  Future<FilesSharingShareapiGetShareResponseApplicationJson> getShare({
     required final String id,
     final int includeTags = 0,
     final String oCSAPIRequest = 'true',
@@ -823,14 +823,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetShareResponse200ApplicationJson),
-      )! as FilesSharingShareapiGetShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson),
+      )! as FilesSharingShareapiGetShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a share
-  Future<FilesSharingShareapiUpdateShareResponse200ApplicationJson> updateShare({
+  Future<FilesSharingShareapiUpdateShareResponseApplicationJson> updateShare({
     required final String id,
     final int? permissions,
     final String? password,
@@ -900,14 +900,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiUpdateShareResponse200ApplicationJson),
-      )! as FilesSharingShareapiUpdateShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson),
+      )! as FilesSharingShareapiUpdateShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a share
-  Future<FilesSharingShareapiDeleteShareResponse200ApplicationJson> deleteShare({
+  Future<FilesSharingShareapiDeleteShareResponseApplicationJson> deleteShare({
     required final String id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -941,14 +941,14 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiDeleteShareResponse200ApplicationJson),
-      )! as FilesSharingShareapiDeleteShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson),
+      )! as FilesSharingShareapiDeleteShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a share
-  Future<FilesSharingShareapiAcceptShareResponse200ApplicationJson> acceptShare({
+  Future<FilesSharingShareapiAcceptShareResponseApplicationJson> acceptShare({
     required final String id,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -982,8 +982,8 @@ class FilesSharingShareapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiAcceptShareResponse200ApplicationJson),
-      )! as FilesSharingShareapiAcceptShareResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson),
+      )! as FilesSharingShareapiAcceptShareResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -996,7 +996,7 @@ class FilesSharingShareesapiClient {
 
   /// Search for sharees
   Future<
-      FilesSharingResponse<FilesSharingShareesapiSearchResponse200ApplicationJson,
+      FilesSharingResponse<FilesSharingShareesapiSearchResponseApplicationJson,
           FilesSharingShareesapiShareesapiSearchHeaders>> search({
     final String search = '',
     final String? itemType,
@@ -1054,12 +1054,12 @@ class FilesSharingShareesapiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return FilesSharingResponse<FilesSharingShareesapiSearchResponse200ApplicationJson,
+      return FilesSharingResponse<FilesSharingShareesapiSearchResponseApplicationJson,
           FilesSharingShareesapiShareesapiSearchHeaders>(
         _jsonSerializers.deserialize(
           await response.jsonBody,
-          specifiedType: const FullType(FilesSharingShareesapiSearchResponse200ApplicationJson),
-        )! as FilesSharingShareesapiSearchResponse200ApplicationJson,
+          specifiedType: const FullType(FilesSharingShareesapiSearchResponseApplicationJson),
+        )! as FilesSharingShareesapiSearchResponseApplicationJson,
         _jsonSerializers.deserialize(
           response.responseHeaders,
           specifiedType: const FullType(FilesSharingShareesapiShareesapiSearchHeaders),
@@ -1070,7 +1070,7 @@ class FilesSharingShareesapiClient {
   }
 
   /// Find recommended sharees
-  Future<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson> findRecommended({
+  Future<FilesSharingShareesapiFindRecommendedResponseApplicationJson> findRecommended({
     required final String itemType,
     final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,
     final String oCSAPIRequest = 'true',
@@ -1111,8 +1111,8 @@ class FilesSharingShareesapiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson),
-      )! as FilesSharingShareesapiFindRecommendedResponse200ApplicationJson;
+        specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson),
+      )! as FilesSharingShareesapiFindRecommendedResponseApplicationJson;
     }
     throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1208,141 +1208,141 @@ abstract class FilesSharingDeletedShare
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingDeletedShare> get data;
-  FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs
+abstract class FilesSharingDeletedShareapiListResponseApplicationJson_Ocs
     implements
-        FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs,
-            FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs;
+        FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterface,
+        Built<FilesSharingDeletedShareapiListResponseApplicationJson_Ocs,
+            FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingDeletedShareapiListResponseApplicationJson_Ocs([
+    final void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs._();
+  const FilesSharingDeletedShareapiListResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingDeletedShareapiListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingDeletedShareapiListResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingDeletedShareapiListResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingDeletedShareapiListResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface {
-  FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingDeletedShareapiListResponseApplicationJsonInterface {
+  FilesSharingDeletedShareapiListResponseApplicationJson_Ocs get ocs;
+  FilesSharingDeletedShareapiListResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingDeletedShareapiListResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingDeletedShareapiListResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson
+abstract class FilesSharingDeletedShareapiListResponseApplicationJson
     implements
-        FilesSharingDeletedShareapiListResponse200ApplicationJsonInterface,
-        Built<FilesSharingDeletedShareapiListResponse200ApplicationJson,
-            FilesSharingDeletedShareapiListResponse200ApplicationJsonBuilder> {
-  factory FilesSharingDeletedShareapiListResponse200ApplicationJson([
-    final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingDeletedShareapiListResponse200ApplicationJson;
+        FilesSharingDeletedShareapiListResponseApplicationJsonInterface,
+        Built<FilesSharingDeletedShareapiListResponseApplicationJson,
+            FilesSharingDeletedShareapiListResponseApplicationJsonBuilder> {
+  factory FilesSharingDeletedShareapiListResponseApplicationJson([
+    final void Function(FilesSharingDeletedShareapiListResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingDeletedShareapiListResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingDeletedShareapiListResponse200ApplicationJson._();
+  const FilesSharingDeletedShareapiListResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingDeletedShareapiListResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingDeletedShareapiListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson> get serializer =>
-      _$filesSharingDeletedShareapiListResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingDeletedShareapiListResponseApplicationJson> get serializer =>
+      _$filesSharingDeletedShareapiListResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs
+abstract class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs
     implements
-        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs,
-            FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs;
+        FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterface,
+        Built<FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs,
+            FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs([
+    final void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs._();
+  const FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingDeletedShareapiUndeleteResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingDeletedShareapiUndeleteResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface {
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterface {
+  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs get ocs;
+  FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson
+abstract class FilesSharingDeletedShareapiUndeleteResponseApplicationJson
     implements
-        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonInterface,
-        Built<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson,
-            FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonBuilder> {
-  factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson([
-    final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson;
+        FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterface,
+        Built<FilesSharingDeletedShareapiUndeleteResponseApplicationJson,
+            FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder> {
+  factory FilesSharingDeletedShareapiUndeleteResponseApplicationJson([
+    final void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson._();
+  const FilesSharingDeletedShareapiUndeleteResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingDeletedShareapiUndeleteResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson> get serializer =>
-      _$filesSharingDeletedShareapiUndeleteResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson> get serializer =>
+      _$filesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1391,417 +1391,417 @@ abstract class FilesSharingRemoteShare
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingRemoteShare> get data;
-  FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteGetSharesResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteGetSharesResponseApplicationJson_Ocs,
+            FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteGetSharesResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteGetSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteGetSharesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteGetSharesResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteGetSharesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface {
-  FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteGetSharesResponseApplicationJsonInterface {
+  FilesSharingRemoteGetSharesResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetSharesResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson
+abstract class FilesSharingRemoteGetSharesResponseApplicationJson
     implements
-        FilesSharingRemoteGetSharesResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteGetSharesResponse200ApplicationJson,
-            FilesSharingRemoteGetSharesResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteGetSharesResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteGetSharesResponse200ApplicationJson;
+        FilesSharingRemoteGetSharesResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteGetSharesResponseApplicationJson,
+            FilesSharingRemoteGetSharesResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteGetSharesResponseApplicationJson([
+    final void Function(FilesSharingRemoteGetSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteGetSharesResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetSharesResponse200ApplicationJson._();
+  const FilesSharingRemoteGetSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteGetSharesResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteGetSharesResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteGetSharesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingRemoteShare> get data;
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs,
+            FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteGetOpenSharesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteGetOpenSharesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface {
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterface {
+  FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson
+abstract class FilesSharingRemoteGetOpenSharesResponseApplicationJson
     implements
-        FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson,
-            FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteGetOpenSharesResponse200ApplicationJson;
+        FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteGetOpenSharesResponseApplicationJson,
+            FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteGetOpenSharesResponseApplicationJson([
+    final void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteGetOpenSharesResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson._();
+  const FilesSharingRemoteGetOpenSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetOpenSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteGetOpenSharesResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs,
+            FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteAcceptShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteAcceptShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface {
-  FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteAcceptShareResponseApplicationJsonInterface {
+  FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteAcceptShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson
+abstract class FilesSharingRemoteAcceptShareResponseApplicationJson
     implements
-        FilesSharingRemoteAcceptShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteAcceptShareResponse200ApplicationJson,
-            FilesSharingRemoteAcceptShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteAcceptShareResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteAcceptShareResponse200ApplicationJson;
+        FilesSharingRemoteAcceptShareResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteAcceptShareResponseApplicationJson,
+            FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteAcceptShareResponseApplicationJson([
+    final void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteAcceptShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteAcceptShareResponse200ApplicationJson._();
+  const FilesSharingRemoteAcceptShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteAcceptShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteAcceptShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteAcceptShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteAcceptShareResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteAcceptShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs,
+            FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteDeclineShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteDeclineShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface {
-  FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteDeclineShareResponseApplicationJsonInterface {
+  FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteDeclineShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteDeclineShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson
+abstract class FilesSharingRemoteDeclineShareResponseApplicationJson
     implements
-        FilesSharingRemoteDeclineShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteDeclineShareResponse200ApplicationJson,
-            FilesSharingRemoteDeclineShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteDeclineShareResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteDeclineShareResponse200ApplicationJson;
+        FilesSharingRemoteDeclineShareResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteDeclineShareResponseApplicationJson,
+            FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteDeclineShareResponseApplicationJson([
+    final void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteDeclineShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteDeclineShareResponse200ApplicationJson._();
+  const FilesSharingRemoteDeclineShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteDeclineShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteDeclineShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteDeclineShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteDeclineShareResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteDeclineShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteGetShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingRemoteShare get data;
-  FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteGetShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteGetShareResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteGetShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteGetShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteGetShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteGetShareResponseApplicationJson_Ocs,
+            FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteGetShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteGetShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteGetShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteGetShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteGetShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteGetShareResponse200ApplicationJsonInterface {
-  FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteGetShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteGetShareResponseApplicationJsonInterface {
+  FilesSharingRemoteGetShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteGetShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteGetShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteGetShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteGetShareResponse200ApplicationJson
+abstract class FilesSharingRemoteGetShareResponseApplicationJson
     implements
-        FilesSharingRemoteGetShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteGetShareResponse200ApplicationJson,
-            FilesSharingRemoteGetShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteGetShareResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteGetShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteGetShareResponse200ApplicationJson;
+        FilesSharingRemoteGetShareResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteGetShareResponseApplicationJson,
+            FilesSharingRemoteGetShareResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteGetShareResponseApplicationJson([
+    final void Function(FilesSharingRemoteGetShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteGetShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteGetShareResponse200ApplicationJson._();
+  const FilesSharingRemoteGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteGetShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteGetShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteGetShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteGetShareResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteGetShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingRemoteUnshareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingRemoteUnshareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingRemoteUnshareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs
+abstract class FilesSharingRemoteUnshareResponseApplicationJson_Ocs
     implements
-        FilesSharingRemoteUnshareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs,
-            FilesSharingRemoteUnshareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs;
+        FilesSharingRemoteUnshareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingRemoteUnshareResponseApplicationJson_Ocs,
+            FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingRemoteUnshareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs._();
+  const FilesSharingRemoteUnshareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteUnshareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingRemoteUnshareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingRemoteUnshareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingRemoteUnshareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingRemoteUnshareResponse200ApplicationJsonInterface {
-  FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingRemoteUnshareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingRemoteUnshareResponseApplicationJsonInterface {
+  FilesSharingRemoteUnshareResponseApplicationJson_Ocs get ocs;
+  FilesSharingRemoteUnshareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingRemoteUnshareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingRemoteUnshareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingRemoteUnshareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingRemoteUnshareResponse200ApplicationJson
+abstract class FilesSharingRemoteUnshareResponseApplicationJson
     implements
-        FilesSharingRemoteUnshareResponse200ApplicationJsonInterface,
-        Built<FilesSharingRemoteUnshareResponse200ApplicationJson,
-            FilesSharingRemoteUnshareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingRemoteUnshareResponse200ApplicationJson([
-    final void Function(FilesSharingRemoteUnshareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingRemoteUnshareResponse200ApplicationJson;
+        FilesSharingRemoteUnshareResponseApplicationJsonInterface,
+        Built<FilesSharingRemoteUnshareResponseApplicationJson,
+            FilesSharingRemoteUnshareResponseApplicationJsonBuilder> {
+  factory FilesSharingRemoteUnshareResponseApplicationJson([
+    final void Function(FilesSharingRemoteUnshareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingRemoteUnshareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingRemoteUnshareResponse200ApplicationJson._();
+  const FilesSharingRemoteUnshareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingRemoteUnshareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingRemoteUnshareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson> get serializer =>
-      _$filesSharingRemoteUnshareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingRemoteUnshareResponseApplicationJson> get serializer =>
+      _$filesSharingRemoteUnshareResponseApplicationJsonSerializer;
 }
 
 abstract class FilesSharingShareInfo_Size
@@ -2090,557 +2090,555 @@ abstract class FilesSharingShare
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
-  FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiGetSharesResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiGetSharesResponseApplicationJson_Ocs,
+            FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiGetSharesResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiGetSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiGetSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiGetSharesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiGetSharesResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiGetSharesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface {
-  FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiGetSharesResponseApplicationJsonInterface {
+  FilesSharingShareapiGetSharesResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetSharesResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson
+abstract class FilesSharingShareapiGetSharesResponseApplicationJson
     implements
-        FilesSharingShareapiGetSharesResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiGetSharesResponse200ApplicationJson,
-            FilesSharingShareapiGetSharesResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiGetSharesResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiGetSharesResponse200ApplicationJson;
+        FilesSharingShareapiGetSharesResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiGetSharesResponseApplicationJson,
+            FilesSharingShareapiGetSharesResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiGetSharesResponseApplicationJson([
+    final void Function(FilesSharingShareapiGetSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiGetSharesResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetSharesResponse200ApplicationJson._();
+  const FilesSharingShareapiGetSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiGetSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiGetSharesResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiGetSharesResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiGetSharesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
-  FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiCreateShareResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiCreateShareResponseApplicationJson_Ocs,
+            FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiCreateShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiCreateShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiCreateShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiCreateShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiCreateShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiCreateShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface {
-  FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiCreateShareResponseApplicationJsonInterface {
+  FilesSharingShareapiCreateShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiCreateShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiCreateShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiCreateShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson
+abstract class FilesSharingShareapiCreateShareResponseApplicationJson
     implements
-        FilesSharingShareapiCreateShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiCreateShareResponse200ApplicationJson,
-            FilesSharingShareapiCreateShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiCreateShareResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiCreateShareResponse200ApplicationJson;
+        FilesSharingShareapiCreateShareResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiCreateShareResponseApplicationJson,
+            FilesSharingShareapiCreateShareResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiCreateShareResponseApplicationJson([
+    final void Function(FilesSharingShareapiCreateShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiCreateShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiCreateShareResponse200ApplicationJson._();
+  const FilesSharingShareapiCreateShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiCreateShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiCreateShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiCreateShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiCreateShareResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiCreateShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+            FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiGetInheritedSharesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiGetInheritedSharesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface {
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterface {
+  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson
+abstract class FilesSharingShareapiGetInheritedSharesResponseApplicationJson
     implements
-        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson,
-            FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson;
+        FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiGetInheritedSharesResponseApplicationJson,
+            FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiGetInheritedSharesResponseApplicationJson([
+    final void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson._();
+  const FilesSharingShareapiGetInheritedSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiGetInheritedSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiGetInheritedSharesResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
-  FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs,
+            FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiPendingSharesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiPendingSharesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface {
-  FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiPendingSharesResponseApplicationJsonInterface {
+  FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiPendingSharesResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiPendingSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson
+abstract class FilesSharingShareapiPendingSharesResponseApplicationJson
     implements
-        FilesSharingShareapiPendingSharesResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiPendingSharesResponse200ApplicationJson,
-            FilesSharingShareapiPendingSharesResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiPendingSharesResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiPendingSharesResponse200ApplicationJson;
+        FilesSharingShareapiPendingSharesResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiPendingSharesResponseApplicationJson,
+            FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiPendingSharesResponseApplicationJson([
+    final void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiPendingSharesResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiPendingSharesResponse200ApplicationJson._();
+  const FilesSharingShareapiPendingSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiPendingSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiPendingSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiPendingSharesResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiPendingSharesResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiPendingSharesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiGetShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
-  FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiGetShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiGetShareResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiGetShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiGetShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiGetShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiGetShareResponseApplicationJson_Ocs,
+            FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiGetShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiGetShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiGetShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiGetShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiGetShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiGetShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiGetShareResponse200ApplicationJsonInterface {
-  FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiGetShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiGetShareResponseApplicationJsonInterface {
+  FilesSharingShareapiGetShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiGetShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiGetShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiGetShareResponse200ApplicationJson
+abstract class FilesSharingShareapiGetShareResponseApplicationJson
     implements
-        FilesSharingShareapiGetShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiGetShareResponse200ApplicationJson,
-            FilesSharingShareapiGetShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiGetShareResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiGetShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiGetShareResponse200ApplicationJson;
+        FilesSharingShareapiGetShareResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiGetShareResponseApplicationJson,
+            FilesSharingShareapiGetShareResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiGetShareResponseApplicationJson([
+    final void Function(FilesSharingShareapiGetShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiGetShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiGetShareResponse200ApplicationJson._();
+  const FilesSharingShareapiGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiGetShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiGetShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiGetShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiGetShareResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiGetShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
-  FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs,
+            FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiUpdateShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiUpdateShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface {
-  FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiUpdateShareResponseApplicationJsonInterface {
+  FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiUpdateShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiUpdateShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson
+abstract class FilesSharingShareapiUpdateShareResponseApplicationJson
     implements
-        FilesSharingShareapiUpdateShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiUpdateShareResponse200ApplicationJson,
-            FilesSharingShareapiUpdateShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiUpdateShareResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiUpdateShareResponse200ApplicationJson;
+        FilesSharingShareapiUpdateShareResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiUpdateShareResponseApplicationJson,
+            FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiUpdateShareResponseApplicationJson([
+    final void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiUpdateShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiUpdateShareResponse200ApplicationJson._();
+  const FilesSharingShareapiUpdateShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiUpdateShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiUpdateShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiUpdateShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiUpdateShareResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiUpdateShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs,
+            FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiDeleteShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiDeleteShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface {
-  FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiDeleteShareResponseApplicationJsonInterface {
+  FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiDeleteShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiDeleteShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson
+abstract class FilesSharingShareapiDeleteShareResponseApplicationJson
     implements
-        FilesSharingShareapiDeleteShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiDeleteShareResponse200ApplicationJson,
-            FilesSharingShareapiDeleteShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiDeleteShareResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiDeleteShareResponse200ApplicationJson;
+        FilesSharingShareapiDeleteShareResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiDeleteShareResponseApplicationJson,
+            FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiDeleteShareResponseApplicationJson([
+    final void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiDeleteShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiDeleteShareResponse200ApplicationJson._();
+  const FilesSharingShareapiDeleteShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiDeleteShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiDeleteShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiDeleteShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiDeleteShareResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiDeleteShareResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   JsonObject get data;
-  FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs
     implements
-        FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs,
-            FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs;
+        FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs,
+            FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareapiAcceptShareResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareapiAcceptShareResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface {
-  FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareapiAcceptShareResponseApplicationJsonInterface {
+  FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareapiAcceptShareResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareapiAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson
+abstract class FilesSharingShareapiAcceptShareResponseApplicationJson
     implements
-        FilesSharingShareapiAcceptShareResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareapiAcceptShareResponse200ApplicationJson,
-            FilesSharingShareapiAcceptShareResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareapiAcceptShareResponse200ApplicationJson([
-    final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareapiAcceptShareResponse200ApplicationJson;
+        FilesSharingShareapiAcceptShareResponseApplicationJsonInterface,
+        Built<FilesSharingShareapiAcceptShareResponseApplicationJson,
+            FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder> {
+  factory FilesSharingShareapiAcceptShareResponseApplicationJson([
+    final void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareapiAcceptShareResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareapiAcceptShareResponse200ApplicationJson._();
+  const FilesSharingShareapiAcceptShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareapiAcceptShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareapiAcceptShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareapiAcceptShareResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareapiAcceptShareResponseApplicationJson> get serializer =>
+      _$filesSharingShareapiAcceptShareResponseApplicationJsonSerializer;
 }
 
 abstract class FilesSharingShareesapiSearchShareType
@@ -3351,72 +3349,72 @@ abstract class FilesSharingShareesSearchResult
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareesapiSearchResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingShareesSearchResult get data;
-  FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareesapiSearchResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareesapiSearchResponseApplicationJson_Ocs
     implements
-        FilesSharingShareesapiSearchResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs,
-            FilesSharingShareesapiSearchResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs;
+        FilesSharingShareesapiSearchResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareesapiSearchResponseApplicationJson_Ocs,
+            FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareesapiSearchResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareesapiSearchResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareesapiSearchResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareesapiSearchResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareesapiSearchResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareesapiSearchResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareesapiSearchResponse200ApplicationJsonInterface {
-  FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareesapiSearchResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareesapiSearchResponseApplicationJsonInterface {
+  FilesSharingShareesapiSearchResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareesapiSearchResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareesapiSearchResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareesapiSearchResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareesapiSearchResponse200ApplicationJson
+abstract class FilesSharingShareesapiSearchResponseApplicationJson
     implements
-        FilesSharingShareesapiSearchResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareesapiSearchResponse200ApplicationJson,
-            FilesSharingShareesapiSearchResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareesapiSearchResponse200ApplicationJson([
-    final void Function(FilesSharingShareesapiSearchResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareesapiSearchResponse200ApplicationJson;
+        FilesSharingShareesapiSearchResponseApplicationJsonInterface,
+        Built<FilesSharingShareesapiSearchResponseApplicationJson,
+            FilesSharingShareesapiSearchResponseApplicationJsonBuilder> {
+  factory FilesSharingShareesapiSearchResponseApplicationJson([
+    final void Function(FilesSharingShareesapiSearchResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareesapiSearchResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareesapiSearchResponse200ApplicationJson._();
+  const FilesSharingShareesapiSearchResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareesapiSearchResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareesapiSearchResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareesapiSearchResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareesapiSearchResponseApplicationJson> get serializer =>
+      _$filesSharingShareesapiSearchResponseApplicationJsonSerializer;
 }
 
 abstract class FilesSharingShareesapiFindRecommendedShareType
@@ -3567,74 +3565,72 @@ abstract class FilesSharingShareesRecommendedResult
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterface {
   FilesSharingOCSMeta get meta;
   FilesSharingShareesRecommendedResult get data;
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs
+abstract class FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs
     implements
-        FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsInterface,
-        Built<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs,
-            FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsBuilder> {
-  factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs([
-    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs;
+        FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterface,
+        Built<FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs,
+            FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder> {
+  factory FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs([
+    final void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs._();
+  const FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesSharingShareesapiFindRecommendedResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs> get serializer =>
+      _$filesSharingShareesapiFindRecommendedResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface {
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs get ocs;
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterface {
+  FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs get ocs;
+  FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterface rebuild(
+    final void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson
+abstract class FilesSharingShareesapiFindRecommendedResponseApplicationJson
     implements
-        FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonInterface,
-        Built<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson,
-            FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonBuilder> {
-  factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson([
-    final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesSharingShareesapiFindRecommendedResponse200ApplicationJson;
+        FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterface,
+        Built<FilesSharingShareesapiFindRecommendedResponseApplicationJson,
+            FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder> {
+  factory FilesSharingShareesapiFindRecommendedResponseApplicationJson([
+    final void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesSharingShareesapiFindRecommendedResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson._();
+  const FilesSharingShareesapiFindRecommendedResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingShareesapiFindRecommendedResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson> get serializer =>
-      _$filesSharingShareesapiFindRecommendedResponse200ApplicationJsonSerializer;
+  static Serializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson> get serializer =>
+      _$filesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -4186,15 +4182,15 @@ abstract class FilesSharingCapabilities
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(FilesSharingDeletedShareapiListResponse200ApplicationJson),
-        FilesSharingDeletedShareapiListResponse200ApplicationJson.new,
+        const FullType(FilesSharingDeletedShareapiListResponseApplicationJson),
+        FilesSharingDeletedShareapiListResponseApplicationJson.new,
       )
-      ..add(FilesSharingDeletedShareapiListResponse200ApplicationJson.serializer)
+      ..add(FilesSharingDeletedShareapiListResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs),
-        FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingDeletedShareapiListResponseApplicationJson_Ocs),
+        FilesSharingDeletedShareapiListResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingDeletedShareapiListResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesSharingOCSMeta), FilesSharingOCSMeta.new)
       ..add(FilesSharingOCSMeta.serializer)
       ..addBuilderFactory(const FullType(FilesSharingDeletedShare), FilesSharingDeletedShare.new)
@@ -4204,25 +4200,25 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<FilesSharingDeletedShare>.new,
       )
       ..addBuilderFactory(
-        const FullType(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson),
-        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson.new,
+        const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson),
+        FilesSharingDeletedShareapiUndeleteResponseApplicationJson.new,
       )
-      ..add(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson.serializer)
+      ..add(FilesSharingDeletedShareapiUndeleteResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs),
-        FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs),
+        FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetSharesResponse200ApplicationJson),
-        FilesSharingRemoteGetSharesResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteGetSharesResponseApplicationJson),
+        FilesSharingRemoteGetSharesResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteGetSharesResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteGetSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteGetSharesResponseApplicationJson_Ocs),
+        FilesSharingRemoteGetSharesResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteGetSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesSharingRemoteShare), FilesSharingRemoteShare.new)
       ..add(FilesSharingRemoteShare.serializer)
       ..addBuilderFactory(
@@ -4230,55 +4226,55 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<FilesSharingRemoteShare>.new,
       )
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson),
-        FilesSharingRemoteGetOpenSharesResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson),
+        FilesSharingRemoteGetOpenSharesResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteGetOpenSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs),
+        FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteAcceptShareResponse200ApplicationJson),
-        FilesSharingRemoteAcceptShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson),
+        FilesSharingRemoteAcceptShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteAcceptShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteAcceptShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs),
+        FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteDeclineShareResponse200ApplicationJson),
-        FilesSharingRemoteDeclineShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson),
+        FilesSharingRemoteDeclineShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteDeclineShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteDeclineShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs),
+        FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetShareResponse200ApplicationJson),
-        FilesSharingRemoteGetShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteGetShareResponseApplicationJson),
+        FilesSharingRemoteGetShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteGetShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteGetShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteGetShareResponseApplicationJson_Ocs),
+        FilesSharingRemoteGetShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteGetShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteUnshareResponse200ApplicationJson),
-        FilesSharingRemoteUnshareResponse200ApplicationJson.new,
+        const FullType(FilesSharingRemoteUnshareResponseApplicationJson),
+        FilesSharingRemoteUnshareResponseApplicationJson.new,
       )
-      ..add(FilesSharingRemoteUnshareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingRemoteUnshareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs),
-        FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingRemoteUnshareResponseApplicationJson_Ocs),
+        FilesSharingRemoteUnshareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingRemoteUnshareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShareInfo), FilesSharingShareInfo.new)
       ..add(FilesSharingShareInfo.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShareInfo_Size), FilesSharingShareInfo_Size.new)
@@ -4294,15 +4290,15 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<BuiltMap>.new,
       )
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetSharesResponse200ApplicationJson),
-        FilesSharingShareapiGetSharesResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiGetSharesResponseApplicationJson),
+        FilesSharingShareapiGetSharesResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiGetSharesResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiGetSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiGetSharesResponseApplicationJson_Ocs),
+        FilesSharingShareapiGetSharesResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiGetSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShare), FilesSharingShare.new)
       ..add(FilesSharingShare.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShare_ItemSize), FilesSharingShare_ItemSize.new)
@@ -4312,75 +4308,75 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesSharingShare_Status.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(FilesSharingShare)]), ListBuilder<FilesSharingShare>.new)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiCreateShareResponse200ApplicationJson),
-        FilesSharingShareapiCreateShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiCreateShareResponseApplicationJson),
+        FilesSharingShareapiCreateShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiCreateShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiCreateShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiCreateShareResponseApplicationJson_Ocs),
+        FilesSharingShareapiCreateShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiCreateShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson),
-        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson),
+        FilesSharingShareapiGetInheritedSharesResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiGetInheritedSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs),
+        FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiPendingSharesResponse200ApplicationJson),
-        FilesSharingShareapiPendingSharesResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson),
+        FilesSharingShareapiPendingSharesResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiPendingSharesResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiPendingSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs),
+        FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetShareResponse200ApplicationJson),
-        FilesSharingShareapiGetShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiGetShareResponseApplicationJson),
+        FilesSharingShareapiGetShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiGetShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiGetShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiGetShareResponseApplicationJson_Ocs),
+        FilesSharingShareapiGetShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiGetShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiUpdateShareResponse200ApplicationJson),
-        FilesSharingShareapiUpdateShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson),
+        FilesSharingShareapiUpdateShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiUpdateShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiUpdateShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs),
+        FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiDeleteShareResponse200ApplicationJson),
-        FilesSharingShareapiDeleteShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson),
+        FilesSharingShareapiDeleteShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiDeleteShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiDeleteShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs),
+        FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiAcceptShareResponse200ApplicationJson),
-        FilesSharingShareapiAcceptShareResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson),
+        FilesSharingShareapiAcceptShareResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareapiAcceptShareResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareapiAcceptShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs),
-        FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs),
+        FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingShareesapiSearchShareType),
         FilesSharingShareesapiSearchShareType.new,
@@ -4398,15 +4394,15 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(FilesSharingShareesapiShareesapiSearchHeaders.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareesapiSearchResponse200ApplicationJson),
-        FilesSharingShareesapiSearchResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareesapiSearchResponseApplicationJson),
+        FilesSharingShareesapiSearchResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareesapiSearchResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareesapiSearchResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs),
-        FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareesapiSearchResponseApplicationJson_Ocs),
+        FilesSharingShareesapiSearchResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareesapiSearchResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesSharingShareesSearchResult), FilesSharingShareesSearchResult.new)
       ..add(FilesSharingShareesSearchResult.serializer)
       ..addBuilderFactory(
@@ -4485,15 +4481,15 @@ final Serializers _serializers = (Serializers().toBuilder()
         ContentString<FilesSharingShareesapiFindRecommendedShareType>.new,
       )
       ..addBuilderFactory(
-        const FullType(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson),
-        FilesSharingShareesapiFindRecommendedResponse200ApplicationJson.new,
+        const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson),
+        FilesSharingShareesapiFindRecommendedResponseApplicationJson.new,
       )
-      ..add(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson.serializer)
+      ..add(FilesSharingShareesapiFindRecommendedResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs),
-        FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs),
+        FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingShareesRecommendedResult),
         FilesSharingShareesRecommendedResult.new,

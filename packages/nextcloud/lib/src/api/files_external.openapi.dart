@@ -79,7 +79,7 @@ class FilesExternalApiClient {
   final FilesExternalClient _rootClient;
 
   /// Get the mount points visible for this user
-  Future<FilesExternalApiGetUserMountsResponse200ApplicationJson> getUserMounts({
+  Future<FilesExternalApiGetUserMountsResponseApplicationJson> getUserMounts({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
@@ -111,8 +111,8 @@ class FilesExternalApiClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(FilesExternalApiGetUserMountsResponse200ApplicationJson),
-      )! as FilesExternalApiGetUserMountsResponse200ApplicationJson;
+        specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson),
+      )! as FilesExternalApiGetUserMountsResponseApplicationJson;
     }
     throw await FilesExternalApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -265,86 +265,86 @@ abstract class FilesExternalMount
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface {
+abstract interface class FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterface {
   FilesExternalOCSMeta get meta;
   BuiltList<FilesExternalMount> get data;
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs
+abstract class FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
     implements
-        FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsInterface,
-        Built<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs,
-            FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder> {
-  factory FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs([
-    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs;
+        FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterface,
+        Built<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs,
+            FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder> {
+  factory FilesExternalApiGetUserMountsResponseApplicationJson_Ocs([
+    final void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs._();
+  const FilesExternalApiGetUserMountsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesExternalApiGetUserMountsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs> get serializer =>
-      _$filesExternalApiGetUserMountsResponse200ApplicationJsonOcsSerializer;
+  static Serializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs> get serializer =>
+      _$filesExternalApiGetUserMountsResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface {
-  FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs get ocs;
-  FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface rebuild(
-    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class FilesExternalApiGetUserMountsResponseApplicationJsonInterface {
+  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs get ocs;
+  FilesExternalApiGetUserMountsResponseApplicationJsonInterface rebuild(
+    final void Function(FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesExternalApiGetUserMountsResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesExternalApiGetUserMountsResponse200ApplicationJson
+abstract class FilesExternalApiGetUserMountsResponseApplicationJson
     implements
-        FilesExternalApiGetUserMountsResponse200ApplicationJsonInterface,
-        Built<FilesExternalApiGetUserMountsResponse200ApplicationJson,
-            FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder> {
-  factory FilesExternalApiGetUserMountsResponse200ApplicationJson([
-    final void Function(FilesExternalApiGetUserMountsResponse200ApplicationJsonBuilder)? b,
-  ]) = _$FilesExternalApiGetUserMountsResponse200ApplicationJson;
+        FilesExternalApiGetUserMountsResponseApplicationJsonInterface,
+        Built<FilesExternalApiGetUserMountsResponseApplicationJson,
+            FilesExternalApiGetUserMountsResponseApplicationJsonBuilder> {
+  factory FilesExternalApiGetUserMountsResponseApplicationJson([
+    final void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder)? b,
+  ]) = _$FilesExternalApiGetUserMountsResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesExternalApiGetUserMountsResponse200ApplicationJson._();
+  const FilesExternalApiGetUserMountsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesExternalApiGetUserMountsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesExternalApiGetUserMountsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<FilesExternalApiGetUserMountsResponse200ApplicationJson> get serializer =>
-      _$filesExternalApiGetUserMountsResponse200ApplicationJsonSerializer;
+  static Serializer<FilesExternalApiGetUserMountsResponseApplicationJson> get serializer =>
+      _$filesExternalApiGetUserMountsResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(FilesExternalApiGetUserMountsResponse200ApplicationJson),
-        FilesExternalApiGetUserMountsResponse200ApplicationJson.new,
+        const FullType(FilesExternalApiGetUserMountsResponseApplicationJson),
+        FilesExternalApiGetUserMountsResponseApplicationJson.new,
       )
-      ..add(FilesExternalApiGetUserMountsResponse200ApplicationJson.serializer)
+      ..add(FilesExternalApiGetUserMountsResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs),
-        FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs.new,
+        const FullType(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs),
+        FilesExternalApiGetUserMountsResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesExternalApiGetUserMountsResponse200ApplicationJson_Ocs.serializer)
+      ..add(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FilesExternalOCSMeta), FilesExternalOCSMeta.new)
       ..add(FilesExternalOCSMeta.serializer)
       ..addBuilderFactory(const FullType(FilesExternalMount), FilesExternalMount.new)

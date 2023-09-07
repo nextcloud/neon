@@ -16,9 +16,16 @@ class Header {
   factory Header.fromJson(final Map<String, dynamic> json) => _$HeaderFromJson(json);
   Map<String, dynamic> toJson() => _$HeaderToJson(this);
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
 
   final bool? required;
 
   final Schema? schema;
+
+  @override
+  bool operator ==(final Object other) => other is Header && required == other.required && schema == other.schema;
+
+  @override
+  int get hashCode => Object.hashAll([required, schema]);
 }

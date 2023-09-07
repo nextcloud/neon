@@ -17,7 +17,7 @@ extension CoreVersionSupported on CoreClient {
   /// Check if the core/Server version is supported by this client
   ///
   /// Also returns the supported version number
-  (bool, int) isSupported(final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data capabilities) => (
+  (bool, int) isSupported(final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) => (
         capabilities.version.major == coreSupportedVersion,
         coreSupportedVersion,
       );
@@ -48,7 +48,7 @@ extension NotesVersionSupported on NotesClient {
   /// Check if the notes app version is supported by this client
   ///
   /// Also returns the supported API version number
-  (bool, int) isSupported(final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data capabilities) => (
+  (bool, int) isSupported(final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) => (
         capabilities.capabilities.notesCapabilities?.notes.apiVersion
                 ?.map(Version.parse)
                 .where((final version) => version.major == notesSupportedVersion)

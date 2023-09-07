@@ -11,7 +11,7 @@ import 'package:rxdart/rxdart.dart';
 abstract class CapabilitiesBlocEvents {}
 
 abstract class CapabilitiesBlocStates {
-  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>> get capabilities;
+  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 
 @internal
@@ -31,13 +31,13 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
   }
 
   @override
-  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>> capabilities =
-      BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>>();
+  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities =
+      BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
 
   @override
   Future refresh() async {
-    await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
-        CoreOcsGetCapabilitiesResponse200ApplicationJson>(
+    await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
+        CoreOcsGetCapabilitiesResponseApplicationJson>(
       _account.id,
       'capabilities',
       capabilities,

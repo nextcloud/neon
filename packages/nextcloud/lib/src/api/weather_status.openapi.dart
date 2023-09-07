@@ -78,7 +78,7 @@ class WeatherStatusWeatherStatusClient {
   final WeatherStatusClient _rootClient;
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
-  Future<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson> setMode({
+  Future<WeatherStatusWeatherStatusSetModeResponseApplicationJson> setMode({
     required final int mode,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -112,14 +112,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusSetModeResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusSetModeResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Try to use the address set in user personal settings as weather location
-  Future<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson> usePersonalAddress({
+  Future<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson> usePersonalAddress({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
@@ -151,14 +151,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get stored user location
-  Future<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson> getLocation({
+  Future<WeatherStatusWeatherStatusGetLocationResponseApplicationJson> getLocation({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
@@ -190,14 +190,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusGetLocationResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
-  Future<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson> setLocation({
+  Future<WeatherStatusWeatherStatusSetLocationResponseApplicationJson> setLocation({
     final String? address,
     final num? lat,
     final num? lon,
@@ -241,14 +241,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusSetLocationResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get forecast for current location
-  Future<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson> getForecast({
+  Future<WeatherStatusWeatherStatusGetForecastResponseApplicationJson> getForecast({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
@@ -280,14 +280,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusGetForecastResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get favorites list
-  Future<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson> getFavorites({
+  Future<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson> getFavorites({
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
@@ -319,14 +319,14 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set favorites list
-  Future<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson> setFavorites({
+  Future<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson> setFavorites({
     required final List<String> favorites,
     final String oCSAPIRequest = 'true',
   }) async {
@@ -360,8 +360,8 @@ class WeatherStatusWeatherStatusClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson),
-      )! as WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson;
+        specifiedType: const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson),
+      )! as WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson;
     }
     throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -398,138 +398,136 @@ abstract class WeatherStatusOCSMeta
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data
+abstract class WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data;
+        WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface,
+        Built<WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data,
+            WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder> {
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data([
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data._();
+  const WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusWeatherStatusSetModeResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data> get serializer =>
+      _$weatherStatusWeatherStatusSetModeResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data get data;
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data get data;
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusSetModeResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusSetModeResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusSetModeResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusSetModeResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetModeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetModeResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusSetModeResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusSetModeResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetModeResponse200ApplicationJson;
+        WeatherStatusWeatherStatusSetModeResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusSetModeResponseApplicationJson,
+            WeatherStatusWeatherStatusSetModeResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusSetModeResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetModeResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetModeResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusSetModeResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetModeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusSetModeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetModeResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusSetModeResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetModeResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusSetModeResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface {
   bool get success;
   num? get lat;
   num? get lon;
   String? get address;
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder)
         updates,
   );
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data
+abstract class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data;
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface,
+        Built<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data,
+            WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder> {
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data([
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data._();
+  const WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data.fromJson(
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -538,36 +536,36 @@ abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200Applicatio
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data> get serializer =>
+      _$weatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data get data;
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterfaceBuilder)
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data get data;
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder)
         updates,
   );
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs.fromJson(
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -576,34 +574,34 @@ abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200Applicatio
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson,
-            WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson;
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson,
+            WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson.fromJson(
+  factory WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -612,38 +610,37 @@ abstract class WeatherStatusWeatherStatusUsePersonalAddressResponse200Applicatio
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusUsePersonalAddressResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface {
   num get lat;
   num get lon;
   String get address;
   int get mode;
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
-        updates,
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data
+abstract class WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data;
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface,
+        Built<WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data,
+            WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder> {
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data([
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data._();
+  const WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data.fromJson(
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -652,109 +649,106 @@ abstract class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusWeatherStatusGetLocationResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data> get serializer =>
+      _$weatherStatusWeatherStatusGetLocationResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data get data;
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data get data;
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusGetLocationResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusGetLocationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusGetLocationResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusGetLocationResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson;
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusGetLocationResponseApplicationJson,
+            WeatherStatusWeatherStatusGetLocationResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusGetLocationResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetLocationResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusGetLocationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusGetLocationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusGetLocationResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetLocationResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusGetLocationResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface {
   bool get success;
   num? get lat;
   num? get lon;
   String? get address;
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
-        updates,
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data
+abstract class WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data;
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface,
+        Built<WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data,
+            WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder> {
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data([
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data._();
+  const WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data.fromJson(
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -763,79 +757,77 @@ abstract class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusWeatherStatusSetLocationResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data> get serializer =>
+      _$weatherStatusWeatherStatusSetLocationResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data get data;
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data get data;
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusSetLocationResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusSetLocationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusSetLocationResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusSetLocationResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson;
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusSetLocationResponseApplicationJson,
+            WeatherStatusWeatherStatusSetLocationResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusSetLocationResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetLocationResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusSetLocationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusSetLocationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusSetLocationResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetLocationResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusSetLocationResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1314,172 +1306,167 @@ abstract class WeatherStatusForecast
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
   BuiltList<WeatherStatusForecast> get data;
-  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusGetForecastResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusGetForecastResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusGetForecastResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusGetForecastResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusGetForecastResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusGetForecastResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson;
+        WeatherStatusWeatherStatusGetForecastResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusGetForecastResponseApplicationJson,
+            WeatherStatusWeatherStatusGetForecastResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusGetForecastResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusGetForecastResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetForecastResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusGetForecastResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusGetForecastResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusGetForecastResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetForecastResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusGetForecastResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
   BuiltList<String> get data;
-  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusGetFavoritesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson,
-            WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson;
+        WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson,
+            WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusGetFavoritesResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusGetFavoritesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterface {
+abstract interface class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterfaceBuilder)
-        updates,
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data
+abstract class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder> {
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data;
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface,
+        Built<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data,
+            WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder> {
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data([
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data._();
+  const WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data.fromJson(
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -1488,79 +1475,77 @@ abstract class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonOcsDataSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$weatherStatusWeatherStatusSetFavoritesResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterface {
+abstract interface class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   WeatherStatusOCSMeta get meta;
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data get data;
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder) updates,
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data get data;
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs
+abstract class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs
     implements
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsInterface,
-        Built<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder> {
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs([
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_OcsBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs;
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsInterface,
+        Built<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs,
+            WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder> {
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs([
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs._();
+  const WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs> get serializer =>
-      _$weatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonOcsSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs> get serializer =>
+      _$weatherStatusWeatherStatusSetFavoritesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterface {
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs get ocs;
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterfaceBuilder) updates,
+abstract interface class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonInterface {
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs get ocs;
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonInterface rebuild(
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterfaceBuilder toBuilder();
+  WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson
+abstract class WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson
     implements
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonInterface,
-        Built<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson,
-            WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder> {
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson([
-    final void Function(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonBuilder)? b,
-  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson;
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonInterface,
+        Built<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson,
+            WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonBuilder> {
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson([
+    final void Function(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
-  const WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson._();
+  const WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson> get serializer =>
-      _$weatherStatusWeatherStatusSetFavoritesResponse200ApplicationJsonSerializer;
+  static Serializer<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson> get serializer =>
+      _$weatherStatusWeatherStatusSetFavoritesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1627,77 +1612,77 @@ abstract class WeatherStatusCapabilities
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson),
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson),
+        WeatherStatusWeatherStatusSetModeResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusSetModeResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(WeatherStatusOCSMeta), WeatherStatusOCSMeta.new)
       ..add(WeatherStatusOCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data),
-        WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data),
+        WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(WeatherStatusWeatherStatusSetModeResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(WeatherStatusWeatherStatusSetModeResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson),
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson),
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data),
-        WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data),
+        WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson),
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson),
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusGetLocationResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data),
-        WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data),
+        WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(WeatherStatusWeatherStatusGetLocationResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(WeatherStatusWeatherStatusGetLocationResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson),
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson),
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusSetLocationResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data),
-        WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data),
+        WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(WeatherStatusWeatherStatusSetLocationResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(WeatherStatusWeatherStatusSetLocationResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson),
-        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson),
+        WeatherStatusWeatherStatusGetForecastResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusGetForecastResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusGetForecastResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusGetForecastResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(WeatherStatusForecast), WeatherStatusForecast.new)
       ..add(WeatherStatusForecast.serializer)
       ..addBuilderFactory(const FullType(WeatherStatusForecast_Data), WeatherStatusForecast_Data.new)
@@ -1759,31 +1744,31 @@ final Serializers _serializers = (Serializers().toBuilder()
         ListBuilder<WeatherStatusForecast>.new,
       )
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson),
-        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson),
+        WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusGetFavoritesResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson),
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson.new,
+        const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson),
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson.new,
       )
-      ..add(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson.serializer)
+      ..add(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs),
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs.new,
+        const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs),
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs.new,
       )
-      ..add(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs.serializer)
+      ..add(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data),
-        WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data.new,
+        const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data),
+        WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(WeatherStatusWeatherStatusSetFavoritesResponse200ApplicationJson_Ocs_Data.serializer)
+      ..add(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilities.new)
       ..add(WeatherStatusCapabilities.serializer)
       ..addBuilderFactory(

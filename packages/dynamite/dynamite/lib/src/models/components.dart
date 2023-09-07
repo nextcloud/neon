@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/models/security_scheme.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -19,4 +20,13 @@ class Components {
   final Map<String, SecurityScheme>? securitySchemes;
 
   final Map<String, Schema>? schemas;
+
+  @override
+  bool operator ==(final Object other) =>
+      other is Components &&
+      const MapEquality().equals(securitySchemes, other.securitySchemes) &&
+      const MapEquality().equals(schemas, other.schemas);
+
+  @override
+  int get hashCode => const MapEquality().hash(securitySchemes) + const MapEquality().hash(schemas);
 }

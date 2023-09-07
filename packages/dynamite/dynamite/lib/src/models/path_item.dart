@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:dynamite/src/models/operation.dart';
 import 'package:dynamite/src/models/parameter.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -24,6 +25,7 @@ class PathItem {
   factory PathItem.fromJson(final Map<String, dynamic> json) => _$PathItemFromJson(json);
   Map<String, dynamic> toJson() => _$PathItemToJson(this);
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
 
   final List<Parameter>? parameters;
@@ -67,4 +69,29 @@ class PathItem {
         patch: operations['patch'] ?? patch,
         trace: operations['trace'] ?? trace,
       );
+
+  @override
+  bool operator ==(final Object other) =>
+      other is PathItem &&
+      const ListEquality().equals(parameters, other.parameters) &&
+      get == other.get &&
+      put == other.put &&
+      post == other.post &&
+      delete == other.delete &&
+      options == other.options &&
+      head == other.head &&
+      patch == other.patch &&
+      trace == other.trace;
+
+  @override
+  int get hashCode =>
+      const ListEquality().hash(parameters) +
+      get.hashCode +
+      put.hashCode +
+      post.hashCode +
+      delete.hashCode +
+      options.hashCode +
+      head.hashCode +
+      patch.hashCode +
+      trace.hashCode;
 }

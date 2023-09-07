@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -21,5 +22,13 @@ class ServerVariable {
   @JsonKey(name: 'enum')
   final List<String>? enum_;
 
+  // Ignored in the comparison as it doesn't affect the generated code
   final String? description;
+
+  @override
+  bool operator ==(final Object other) =>
+      other is ServerVariable && default_ == other.default_ && const ListEquality().equals(enum_, other.enum_);
+
+  @override
+  int get hashCode => default_.hashCode + const ListEquality().hash(enum_);
 }

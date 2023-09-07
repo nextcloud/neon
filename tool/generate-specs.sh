@@ -34,7 +34,7 @@ for path in \
   codename="$(echo $path | sed "s/^apps\///")"
   (
     cd external/nextcloud-server
-    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-status-code --first-content-type --openapi-version 3.1.0
+    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
   )
 done
 

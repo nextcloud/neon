@@ -20,4 +20,11 @@ class License {
   final String? identifier;
 
   final String? url;
+
+  @override
+  bool operator ==(final Object other) =>
+      other is License && name == other.name && identifier == other.identifier && url == other.url;
+
+  @override
+  int get hashCode => name.hashCode + identifier.hashCode + url.hashCode;
 }
