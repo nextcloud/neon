@@ -34,7 +34,9 @@ mkdir -p "$icons_dir"
 shopt -s extglob
 for file in external/nextcloud-server/{core/img/*,apps/*/img}/!(app|app-dark).svg; do
   name="$(basename "$file" | sed "s/.svg$//" | sed "s/-dark$//" | sed "s/-white$//").svg"
-  cp -u "$file" "$icons_dir/$name"
+  if ! grep "<image " "$file"; then
+    cp -u "$file" "$icons_dir/$name"
+  fi
 done
 
 (
