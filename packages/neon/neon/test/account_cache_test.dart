@@ -55,5 +55,20 @@ void main() {
       verify(disposable0.dispose).called(1);
       verify(disposable1.dispose).called(1);
     });
+
+    test('remove', () {
+      final cache = AccountCache<DisposableMock>();
+      cache[account0] = disposable0;
+      cache[account1] = disposable1;
+
+      cache.remove(null);
+
+      expect(cache[account0], disposable0);
+      expect(cache[account1], disposable1);
+
+      cache.remove(account0);
+      expect(cache[account0], isNull);
+      verify(disposable0.dispose).called(1);
+    });
   });
 }

@@ -58,6 +58,13 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
         return;
       }
 
+      // dispose unsupported apps
+      for (final app in _allAppImplementations) {
+        if (result.requireData.tryFind(app.id) == null) {
+          app.blocsCache.remove(_account);
+        }
+      }
+
       final options = _accountsBloc.getOptionsFor(_account);
       final initialApp = options.initialApp.value ?? _getInitialAppFallback();
       if (initialApp != null) {

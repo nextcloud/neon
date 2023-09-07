@@ -30,6 +30,14 @@ class AccountCache<T extends Disposable> implements Disposable {
     });
   }
 
+  /// Removes [account] and its associated value, if present, from the cache.
+  ///
+  /// If present the value associated with `account` is disposed.
+  void remove(final Account? account) {
+    final removed = _cache.remove(account?.id);
+    removed?.dispose();
+  }
+
   /// The value for the given [account], or `null` if [account] is not in the cache.
   T? operator [](final Account account) => _cache[account.id];
 
