@@ -20,7 +20,7 @@ class DockerContainer {
 
   final int port;
 
-  Future runOccCommand(final List<String> args) async {
+  Future<void> runOccCommand(final List<String> args) async {
     final result = await runExecutableArguments(
       'docker',
       [

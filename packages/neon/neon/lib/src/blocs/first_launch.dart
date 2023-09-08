@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 abstract class FirstLaunchBlocEvents {}
 
 abstract class FirstLaunchBlocStates {
-  BehaviorSubject get onFirstLaunch;
+  BehaviorSubject<void> get onFirstLaunch;
 }
 
 @immutable
@@ -31,5 +31,5 @@ class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunch
   }
 
   @override
-  final BehaviorSubject onFirstLaunch = BehaviorSubject();
+  final BehaviorSubject<void> onFirstLaunch = BehaviorSubject();
 }

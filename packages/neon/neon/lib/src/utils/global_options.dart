@@ -68,7 +68,7 @@ class GlobalOptions extends OptionsCollection {
   };
 
   @override
-  late final List<Option> options = [
+  late final List<Option<dynamic>> options = [
     themeMode,
     themeOLEDAsDark,
     themeKeepOriginalAccentColor,
@@ -101,7 +101,7 @@ class GlobalOptions extends OptionsCollection {
     }
   }
 
-  Future updateDistributors(final List<String> distributors) async {
+  Future<void> updateDistributors(final List<String> distributors) async {
     pushNotificationsDistributor.values = {
       for (final distributor in distributors) ...{
         distributor: _distributorsMap[distributor] ?? (final _) => distributor,

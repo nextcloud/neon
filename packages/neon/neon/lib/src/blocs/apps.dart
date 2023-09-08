@@ -33,7 +33,7 @@ abstract class AppsBlocStates {
 
   BehaviorSubject<AppImplementation> get activeApp;
 
-  BehaviorSubject get openNotifications;
+  BehaviorSubject<void> get openNotifications;
 
   BehaviorSubject<Iterable<(String, Object?)>?> get appVersions;
 }
@@ -182,13 +182,13 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       BehaviorSubject<Result<NotificationsAppInterface?>>();
 
   @override
-  BehaviorSubject openNotifications = BehaviorSubject();
+  BehaviorSubject<void> openNotifications = BehaviorSubject();
 
   @override
   BehaviorSubject<List<(String, Object?)>?> appVersions = BehaviorSubject();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await RequestManager.instance
         .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponseApplicationJson>(
       _account.id,
@@ -200,7 +200,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  Future setActiveApp(final String appID, {final bool skipAlreadySet = false}) async {
+  Future<void> setActiveApp(final String appID, {final bool skipAlreadySet = false}) async {
     if (appID == AppIDs.notifications) {
       openNotifications.add(null);
       return;
@@ -220,6 +220,6 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
       appImplementation.getBloc(_account);
 
-  List<Provider> get appBlocProviders =>
+  List<Provider<Bloc>> get appBlocProviders =>
       _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
 }

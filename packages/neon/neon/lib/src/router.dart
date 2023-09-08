@@ -62,7 +62,7 @@ class AppRouter extends GoRouter {
           routes: $appRoutes,
         );
 
-  static Page _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
+  static Page<void> _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
         child: RouteNotFoundPage(
           uri: state.uri,
         ),

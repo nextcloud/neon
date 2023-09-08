@@ -5,10 +5,10 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden
-class OptionMock extends Mock implements Option {}
+class OptionMock extends Mock implements Option<Object> {}
 
 class Collection extends NextcloudAppOptions {
-  Collection(final List<Option> options) : super(const AppStorage(StorageKeys.apps)) {
+  Collection(final List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
     super.options = options;
   }
 }

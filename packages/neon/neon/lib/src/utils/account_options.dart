@@ -30,7 +30,7 @@ class AccountSpecificOptions extends OptionsCollection {
   final AppsBloc _appsBloc;
 
   @override
-  late final List<Option> options = [
+  late final List<Option<dynamic>> options = [
     initialApp,
   ];
 

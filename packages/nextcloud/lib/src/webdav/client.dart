@@ -214,7 +214,7 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
-  Future getFile(
+  Future<void> getFile(
     final Uri path,
     final File file, {
     final Function(double progress)? onProgress,

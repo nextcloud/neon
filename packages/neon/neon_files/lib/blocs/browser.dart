@@ -37,7 +37,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   BehaviorSubject<List<String>> path = BehaviorSubject<List<String>>.seeded([]);
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
       account.id,
       'files-${path.value.join('/')}',

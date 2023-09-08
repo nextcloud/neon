@@ -14,7 +14,7 @@ abstract class OptionsCollection implements Exportable {
 
   /// Collection of options.
   @protected
-  Iterable<Option> get options;
+  Iterable<Option<dynamic>> get options;
 
   /// Resets all [options].
   ///
@@ -61,5 +61,5 @@ abstract class NextcloudAppOptions extends OptionsCollection {
   late final Iterable<OptionsCategory> categories;
 
   @override
-  late final Iterable<Option> options;
+  late final Iterable<Option<dynamic>> options;
 }

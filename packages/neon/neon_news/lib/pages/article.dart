@@ -63,7 +63,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     super.dispose();
   }
 
-  Future _startMarkAsReadTimer() async {
+  Future<void> _startMarkAsReadTimer() async {
     if (await widget.bloc.unread.first) {
       if (widget.articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead();

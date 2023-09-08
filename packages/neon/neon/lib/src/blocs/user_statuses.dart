@@ -43,14 +43,14 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
       BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     for (final username in _statuses.keys) {
       await load(username, force: true);
     }
   }
 
   @override
-  Future load(final String username, {final bool force = false}) async {
+  Future<void> load(final String username, {final bool force = false}) async {
     if (!force && _statuses.containsKey(username)) {
       return;
     }

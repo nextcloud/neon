@@ -45,7 +45,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   late Stream<CoreLoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     try {
       init.add(Result.loading());
 

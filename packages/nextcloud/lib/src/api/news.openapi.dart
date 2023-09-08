@@ -154,7 +154,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future renameFolder({
+  Future<void> renameFolder({
     required final int folderId,
     required final String name,
   }) async {
@@ -183,7 +183,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future deleteFolder({required final int folderId}) async {
+  Future<void> deleteFolder({required final int folderId}) async {
     var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -208,7 +208,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future markFolderAsRead({
+  Future<void> markFolderAsRead({
     required final int folderId,
     required final int newestItemId,
   }) async {
@@ -298,7 +298,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future deleteFeed({required final int feedId}) async {
+  Future<void> deleteFeed({required final int feedId}) async {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -323,7 +323,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future moveFeed({
+  Future<void> moveFeed({
     required final int feedId,
     final int? folderId,
   }) async {
@@ -354,7 +354,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future renameFeed({
+  Future<void> renameFeed({
     required final int feedId,
     required final String feedTitle,
   }) async {
@@ -383,7 +383,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future markFeedAsRead({
+  Future<void> markFeedAsRead({
     required final int feedId,
     required final int newestItemId,
   }) async {
@@ -504,7 +504,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future markArticleAsRead({required final int itemId}) async {
+  Future<void> markArticleAsRead({required final int itemId}) async {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -529,7 +529,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future markArticleAsUnread({required final int itemId}) async {
+  Future<void> markArticleAsUnread({required final int itemId}) async {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -554,7 +554,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future starArticle({required final int itemId}) async {
+  Future<void> starArticle({required final int itemId}) async {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -579,7 +579,7 @@ class NewsClient extends DynamiteClient {
     throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future unstarArticle({required final int itemId}) async {
+  Future<void> unstarArticle({required final int itemId}) async {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};

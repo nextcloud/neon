@@ -103,7 +103,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await browser.refresh();
   }
 
@@ -164,7 +164,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     );
   }
 
-  Future _downloadFile(
+  Future<void> _downloadFile(
     final List<String> path,
     final File file,
   ) async {

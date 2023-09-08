@@ -62,7 +62,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   BehaviorSubject<String> category = BehaviorSubject<String>();
 
   @override
-  Future refresh() async {}
+  Future<void> refresh() async {}
 
   @override
   void updateCategory(final String category) {

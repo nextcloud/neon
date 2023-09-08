@@ -43,8 +43,8 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
   BehaviorSubject<Result<List<NotesNote>>> notes = BehaviorSubject<Result<List<NotesNote>>>();
 
   @override
-  Future refresh() async {
-    await RequestManager.instance.wrapNextcloud<List<NotesNote>, BuiltList>(
+  Future<void> refresh() async {
+    await RequestManager.instance.wrapNextcloud<List<NotesNote>, BuiltList<NotesNote>>(
       account.id,
       'notes-notes',
       notes,

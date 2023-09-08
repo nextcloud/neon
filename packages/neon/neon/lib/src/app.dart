@@ -196,7 +196,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   @override
-  Future onWindowClose() async {
+  Future<void> onWindowClose() async {
     if (_globalOptions.startupMinimizeInsteadOfExit.value) {
       await _saveAndMinimizeWindow();
     } else {
@@ -205,11 +205,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   @override
-  Future onWindowMinimize() async {
+  Future<void> onWindowMinimize() async {
     await _saveAndMinimizeWindow();
   }
 
-  Future _handleShortcut(final String shortcutType) async {
+  Future<void> _handleShortcut(final String shortcutType) async {
     if (shortcutType == 'show_hide') {
       if (NeonPlatform.instance.canUseWindowManager) {
         if (await windowManager.isVisible()) {
@@ -231,13 +231,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     }
   }
 
-  Future _openAppFromExternal(final Account account, final String id) async {
+  Future<void> _openAppFromExternal(final Account account, final String id) async {
     await _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
     _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
     await _showAndRestoreWindow();
   }
 
-  Future _saveAndMinimizeWindow() async {
+  Future<void> _saveAndMinimizeWindow() async {
     _lastBounds = await windowManager.getBounds();
     if (_globalOptions.systemTrayEnabled.value && _globalOptions.systemTrayHideToTrayWhenMinimized.value) {
       await windowManager.hide();
@@ -246,7 +246,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     }
   }
 
-  Future _showAndRestoreWindow() async {
+  Future<void> _showAndRestoreWindow() async {
     if (!NeonPlatform.instance.canUseWindowManager) {
       return;
     }

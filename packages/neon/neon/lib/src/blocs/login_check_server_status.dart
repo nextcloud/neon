@@ -33,7 +33,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
   BehaviorSubject<Result<CoreStatus>> state = BehaviorSubject();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     state.add(Result.loading());
 
     try {

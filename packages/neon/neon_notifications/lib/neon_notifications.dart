@@ -29,7 +29,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final String id = AppIDs.notifications;
 
   @override
-  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = AppLocalizations.supportedLocales;

@@ -21,7 +21,7 @@ void main() {
     });
     tearDown(() => container.destroy());
 
-    Future sendTestNotification() async {
+    Future<void> sendTestNotification() async {
       await client.notifications.api.generateNotification(
         userId: 'admin',
         shortMessage: '123',

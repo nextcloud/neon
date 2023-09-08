@@ -27,7 +27,7 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
     unawaited(_checkLaunchable());
   }
 
-  Future _checkLaunchable() async {
+  Future<void> _checkLaunchable() async {
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     if (!accountsBloc.hasAccounts) {
       return;

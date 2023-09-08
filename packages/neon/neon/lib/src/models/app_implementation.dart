@@ -18,7 +18,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   AppImplementation();
 
   String get id;
-  LocalizationsDelegate get localizationsDelegate;
+  LocalizationsDelegate<Object> get localizationsDelegate;
   List<Locale> get supportedLocales;
 
   String nameFromLocalization(final AppLocalizations localizations) => localizations.appImplementationName(id);

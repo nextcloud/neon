@@ -49,7 +49,7 @@ class NotificationsBloc extends InteractiveBloc
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await RequestManager.instance
         .wrapNextcloud<List<NotificationsNotification>, NotificationsEndpointListNotificationsResponseApplicationJson>(
       _account.id,

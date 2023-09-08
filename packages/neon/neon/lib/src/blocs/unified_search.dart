@@ -56,12 +56,12 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
   }
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await _search();
   }
 
   @override
-  Future search(final String term) async {
+  Future<void> search(final String term) async {
     _term = term.trim();
     await _search();
   }
@@ -78,7 +78,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
     _term = '';
   }
 
-  Future _search() async {
+  Future<void> _search() async {
     if (_term.isEmpty) {
       results.add(Result.success(null));
       return;
@@ -108,7 +108,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
     }
   }
 
-  Future _searchProvider(final CoreUnifiedSearchProvider provider) async {
+  Future<void> _searchProvider(final CoreUnifiedSearchProvider provider) async {
     _updateResults(provider, Result.loading());
     try {
       final response = await _account.client.core.unifiedSearch.search(

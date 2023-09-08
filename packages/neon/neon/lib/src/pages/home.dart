@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late StreamSubscription _versionCheckSubscription;
+  late StreamSubscription<List<(String, Object?)>?> _versionCheckSubscription;
 
   @override
   void initState() {
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  Future _checkMaintenanceMode() async {
+  Future<void> _checkMaintenanceMode() async {
     try {
       final status = await _account.client.core.getStatus();
       if (status.maintenance && mounted) {
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future _showProblem(final String title) async {
+  Future<void> _showProblem(final String title) async {
     final colorScheme = Theme.of(context).colorScheme;
 
     await showDialog(

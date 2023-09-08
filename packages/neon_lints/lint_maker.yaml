@@ -19,6 +19,7 @@ dart:
     analyzer:
       language:
         strict-casts: true
+        strict-raw-types: true
       errors:
         flutter_style_todos: ignore
         todo: ignore

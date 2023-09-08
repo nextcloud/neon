@@ -22,14 +22,14 @@ class RequestManager {
   // ignore: prefer_constructors_over_static_methods
   static RequestManager get instance => _requestManager ??= RequestManager();
 
-  Future initCache() async {
+  Future<void> initCache() async {
     _cache = Cache();
     await _cache!.init();
   }
 
   Cache? _cache;
 
-  Future wrapNextcloud<T, R>(
+  Future<void> wrapNextcloud<T, R>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
@@ -51,7 +51,7 @@ class RequestManager {
         0,
       );
 
-  Future wrapWebDav<T>(
+  Future<void> wrapWebDav<T>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
@@ -73,7 +73,7 @@ class RequestManager {
         0,
       );
 
-  Future _wrap<T, R>(
+  Future<void> _wrap<T, R>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
@@ -189,7 +189,7 @@ class RequestManager {
 class Cache {
   Database? _database;
 
-  Future init() async {
+  Future<void> init() async {
     if (_database != null) {
       return;
     }
@@ -210,7 +210,7 @@ class Cache {
   Future<String?> get(final String key) async =>
       (await _database!.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
 
-  Future set(final String key, final String value) async => _database!.rawQuery(
+  Future<void> set(final String key, final String value) async => _database!.rawQuery(
         'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
         [key, value],
       );

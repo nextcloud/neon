@@ -75,14 +75,14 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   BehaviorSubject<FilterType> filterType = BehaviorSubject<FilterType>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     if (this is! NewsMainArticlesBloc) {
       await reload();
     }
     await _newsBloc.refresh();
   }
 
-  Future reload() async {
+  Future<void> reload() async {
     // The API for pagination is pretty useless in this case sadly. So no pagination for us :(
     // https://github.com/nextcloud/news/blob/master/docs/api/api-v1-2.md#get-items
 

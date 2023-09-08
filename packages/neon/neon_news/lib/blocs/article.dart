@@ -44,7 +44,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   BehaviorSubject<bool> unread = BehaviorSubject<bool>();
 
   @override
-  Future refresh() async {}
+  Future<void> refresh() async {}
 
   @override
   void markArticleAsRead() {
@@ -78,7 +78,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
     });
   }
 
-  void _wrapArticleAction(final Future Function() call) => wrapAction(
+  void _wrapArticleAction(final Future<void> Function() call) => wrapAction(
         call,
         refresh: () async {
           await _newsArticlesBloc.refresh();

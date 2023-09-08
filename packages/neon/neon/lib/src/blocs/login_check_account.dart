@@ -40,7 +40,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
   BehaviorSubject<Result<Account>> state = BehaviorSubject();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     state.add(Result.loading());
 
     try {

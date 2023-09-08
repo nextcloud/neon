@@ -11,7 +11,7 @@ import 'package:rxdart/rxdart.dart';
 abstract class NextPushBlocEvents {}
 
 abstract class NextPushBlocStates {
-  BehaviorSubject get onNextPushSupported;
+  BehaviorSubject<void> get onNextPushSupported;
 }
 
 @internal
@@ -78,5 +78,5 @@ class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocState
   }
 
   @override
-  BehaviorSubject onNextPushSupported = BehaviorSubject();
+  BehaviorSubject<void> onNextPushSupported = BehaviorSubject();
 }

@@ -90,7 +90,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   late BehaviorSubject<FilterType> filterType = mainArticlesBloc.filterType;
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await Future.wait([
       RequestManager.instance.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
         account.id,
@@ -187,7 +187,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   }
 
   @override
-  Future reload() async {
+  Future<void> reload() async {
     await mainArticlesBloc.reload();
   }
 }

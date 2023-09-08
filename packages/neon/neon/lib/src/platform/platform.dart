@@ -16,7 +16,7 @@ abstract interface class NeonPlatform {
   /// Infers and configures the platform automatically.
   ///
   /// Required to be called before accessing [NeonPlatform.instance].
-  static Future setup() async {
+  static Future<void> setup() async {
     if (Platform.isAndroid) {
       _platform = const AndroidNeonPlatform();
     } else if (Platform.isLinux) {
@@ -55,5 +55,5 @@ abstract interface class NeonPlatform {
 
   FutureOr<String> get userAccessibleAppDataPath;
 
-  FutureOr init();
+  FutureOr<void> init();
 }
