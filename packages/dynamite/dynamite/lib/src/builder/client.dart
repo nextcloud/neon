@@ -604,7 +604,7 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
               b.returns = refer('Future<$dataType>');
               code.write('return $dataValue;');
             } else {
-              b.returns = refer('Future');
+              b.returns = refer('Future<void>');
               code.write('return;');
             }
 

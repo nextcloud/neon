@@ -14,7 +14,7 @@ import 'package:neon/settings.dart';
 import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future runTestApp(
+Future<void> runTestApp(
   final WidgetTester tester,
   final IntegrationTestWidgetsFlutterBinding binding, {
   final Account? account,
@@ -30,18 +30,18 @@ Future runTestApp(
   await tester.pumpAndSettle();
 }
 
-Future openDrawer(final WidgetTester tester) async {
+Future<void> openDrawer(final WidgetTester tester) async {
   await tester.tap(find.byTooltip('Open navigation menu'));
   await tester.pumpAndSettle();
 }
 
-Future switchPage(final WidgetTester tester, final String name) async {
+Future<void> switchPage(final WidgetTester tester, final String name) async {
   await openDrawer(tester);
   await tester.tap(find.text(name).last);
   await tester.pumpAndSettle();
 }
 
-Future prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgetsFlutterBinding binding) async {
+Future<void> prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgetsFlutterBinding binding) async {
   await binding.convertFlutterSurfaceToImage();
   await tester.pumpAndSettle();
 }
@@ -63,7 +63,7 @@ Future<Account> getAccount(final String username) async {
   );
 }
 
-Future main() async {
+Future<void> main() async {
   // The screenshots are pretty annoying on Android. See https://github.com/flutter/flutter/issues/92381
 
   assert(Platform.isAndroid, 'Screenshots need to be taken on Android');

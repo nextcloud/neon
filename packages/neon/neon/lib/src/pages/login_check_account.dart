@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
@@ -14,6 +15,7 @@ import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
 import 'package:provider/provider.dart';
 
+@internal
 class LoginCheckAccountPage extends StatefulWidget {
   const LoginCheckAccountPage({
     required this.serverURL,

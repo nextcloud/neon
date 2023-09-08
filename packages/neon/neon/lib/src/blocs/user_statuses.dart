@@ -11,11 +11,13 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
-abstract class UserStatusesBlocEvents {
+@internal
+abstract interface class UserStatusesBlocEvents {
   void load(final String username, {final bool force = false});
 }
 
-abstract class UserStatusesBlocStates {
+@internal
+abstract interface class UserStatusesBlocStates {
   BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> get statuses;
 }
 
@@ -43,14 +45,14 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
       BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     for (final username in _statuses.keys) {
       await load(username, force: true);
     }
   }
 
   @override
-  Future load(final String username, {final bool force = false}) async {
+  Future<void> load(final String username, {final bool force = false}) async {
     if (!force && _statuses.containsKey(username)) {
       return;
     }

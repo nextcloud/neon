@@ -9,7 +9,7 @@ class NewsFolderSelect extends StatelessWidget {
   });
 
   final List<NewsFolder> folders;
-  final void Function(NewsFolder?) onChanged;
+  final ValueChanged<NewsFolder?> onChanged;
   final NewsFolder? value;
 
   @override

@@ -1,20 +1,24 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class LoginFlowBlocEvents {}
+@internal
+abstract interface class LoginFlowBlocEvents {}
 
-abstract class LoginFlowBlocStates {
+@internal
+abstract interface class LoginFlowBlocStates {
   BehaviorSubject<Result<CoreLoginFlowV2>> get init;
 
   Stream<CoreLoginFlowV2Credentials> get result;
 }
 
+@internal
 class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, LoginFlowBlocStates {
   LoginFlowBloc(this.serverURL) {
     unawaited(refresh());
@@ -45,7 +49,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   late Stream<CoreLoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     try {
       init.add(Result.loading());
 

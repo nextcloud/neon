@@ -1,5 +1,5 @@
 /// Signature of a function returning a [Comparable].
-typedef ComparableGetter<T> = Comparable Function(T);
+typedef ComparableGetter<T> = Comparable<Object> Function(T);
 
 /// Sorting Box to sort [List]s on multiple properties.
 class SortBox<T extends Enum, R> {

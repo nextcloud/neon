@@ -5,10 +5,12 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class FirstLaunchBlocEvents {}
+@internal
+abstract interface class FirstLaunchBlocEvents {}
 
-abstract class FirstLaunchBlocStates {
-  BehaviorSubject get onFirstLaunch;
+@internal
+abstract interface class FirstLaunchBlocStates {
+  BehaviorSubject<void> get onFirstLaunch;
 }
 
 @immutable
@@ -31,5 +33,5 @@ class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunch
   }
 
   @override
-  final BehaviorSubject onFirstLaunch = BehaviorSubject();
+  final BehaviorSubject<void> onFirstLaunch = BehaviorSubject();
 }

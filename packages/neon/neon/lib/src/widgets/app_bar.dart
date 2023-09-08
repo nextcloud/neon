@@ -36,7 +36,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
 
   final _searchBarFocusNode = FocusNode();
   final _searchTermController = StreamController<String>();
-  late final StreamSubscription _searchTermSubscription;
+  late final StreamSubscription<String> _searchTermSubscription;
 
   @override
   void initState() {
@@ -181,7 +181,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   late AppsBloc _appsBloc;
   late List<Account> _accounts;
   late Account _account;
-  late StreamSubscription notificationSubscription;
+  late StreamSubscription<void> notificationSubscription;
 
   @override
   void initState() {

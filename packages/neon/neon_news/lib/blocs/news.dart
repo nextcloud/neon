@@ -1,6 +1,6 @@
 part of '../neon_news.dart';
 
-abstract class NewsBlocEvents {
+abstract interface class NewsBlocEvents {
   void addFeed(final String url, final int? folderId);
 
   void removeFeed(final int feedId);
@@ -20,7 +20,7 @@ abstract class NewsBlocEvents {
   void markFolderAsRead(final int folderId);
 }
 
-abstract class NewsBlocStates {
+abstract interface class NewsBlocStates {
   BehaviorSubject<Result<List<NewsFolder>>> get folders;
 
   BehaviorSubject<Result<List<NewsFeed>>> get feeds;
@@ -90,7 +90,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   late BehaviorSubject<FilterType> filterType = mainArticlesBloc.filterType;
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await Future.wait([
       RequestManager.instance.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
         account.id,
@@ -187,7 +187,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   }
 
   @override
-  Future reload() async {
+  Future<void> reload() async {
     await mainArticlesBloc.reload();
   }
 }

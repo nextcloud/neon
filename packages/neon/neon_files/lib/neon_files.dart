@@ -52,7 +52,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   final String id = AppIDs.files;
 
   @override
-  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = AppLocalizations.supportedLocales;

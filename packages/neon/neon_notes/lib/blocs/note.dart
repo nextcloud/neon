@@ -1,6 +1,6 @@
 part of '../neon_notes.dart';
 
-abstract class NotesNoteBlocEvents {
+abstract interface class NotesNoteBlocEvents {
   void updateContent(final String content);
 
   void updateTitle(final String title);
@@ -8,7 +8,7 @@ abstract class NotesNoteBlocEvents {
   void updateCategory(final String category);
 }
 
-abstract class NotesNoteBlocStates {
+abstract interface class NotesNoteBlocStates {
   BehaviorSubject<String> get category;
 }
 
@@ -62,7 +62,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   BehaviorSubject<String> category = BehaviorSubject<String>();
 
   @override
-  Future refresh() async {}
+  Future<void> refresh() async {}
 
   @override
   void updateCategory(final String category) {

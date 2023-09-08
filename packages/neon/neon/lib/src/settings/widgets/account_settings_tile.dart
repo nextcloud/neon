@@ -17,7 +17,7 @@ class AccountSettingsTile extends SettingsTile {
   final Account account;
   final Color? color;
   final Widget? trailing;
-  final VoidCallback? onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(final BuildContext context) => NeonAccountTile(

@@ -15,7 +15,7 @@ class FilesChooseCreateDialog extends StatefulWidget {
 }
 
 class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
-  Future uploadFromPick(final FileType type) async {
+  Future<void> uploadFromPick(final FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
       type: type,
@@ -27,7 +27,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
     }
   }
 
-  Future upload(final File file) async {
+  Future<void> upload(final File file) async {
     final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
     if (sizeWarning != null) {
       final stat = file.statSync();

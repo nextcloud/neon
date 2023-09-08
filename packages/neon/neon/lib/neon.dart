@@ -18,7 +18,7 @@ import 'package:neon/src/utils/user_agent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
-Future runNeon({
+Future<void> runNeon({
   required final Iterable<AppImplementation> appImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,

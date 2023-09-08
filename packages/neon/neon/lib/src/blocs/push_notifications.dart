@@ -14,9 +14,11 @@ import 'package:neon/src/utils/push_utils.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 
-abstract class PushNotificationsBlocEvents {}
+@internal
+abstract interface class PushNotificationsBlocEvents {}
 
-abstract class PushNotificationsBlocStates {
+@internal
+abstract interface class PushNotificationsBlocStates {
   Stream<PushNotification> get notifications;
 }
 
@@ -40,7 +42,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   final GlobalOptions _globalOptions;
 
   final _notificationsController = StreamController<PushNotification>();
-  StreamSubscription? _accountsListener;
+  StreamSubscription<List<Account>>? _accountsListener;
 
   @override
   void dispose() {
@@ -66,7 +68,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     }
   }
 
-  Future _setupUnifiedPush() async {
+  Future<void> _setupUnifiedPush() async {
     // We just use a single RSA keypair for all accounts
     final keypair = await PushUtils.loadRSAKeypair();
 
@@ -118,7 +120,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     }
   }
 
-  Future _unregisterUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> _unregisterUnifiedPushInstances(final List<Account> accounts) async {
     for (final account in accounts) {
       try {
         await account.client.notifications.push.removeDevice();
@@ -130,7 +132,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     }
   }
 
-  Future _registerUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> _registerUnifiedPushInstances(final List<Account> accounts) async {
     // Notifications will only work on accounts with app password
     for (final account in accounts.where((final a) => a.password != null)) {
       await UnifiedPush.registerApp(account.id);

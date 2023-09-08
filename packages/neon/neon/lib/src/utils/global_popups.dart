@@ -26,7 +26,7 @@ class GlobalPopups {
 
   bool _registered = false;
   late BuildContext _context;
-  final _subscriptions = <StreamSubscription>[];
+  final _subscriptions = <StreamSubscription<dynamic>>[];
 
   void dispose() {
     for (final subscription in _subscriptions) {

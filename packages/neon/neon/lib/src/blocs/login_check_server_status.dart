@@ -1,19 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class LoginCheckServerStatusBlocEvents {}
 
+@internal
 abstract interface class LoginCheckServerStatusBlocStates {
   /// Contains the current server connection state
   BehaviorSubject<Result<CoreStatus>> get state;
 }
 
+@internal
 class LoginCheckServerStatusBloc extends InteractiveBloc
     implements LoginCheckServerStatusBlocEvents, LoginCheckServerStatusBlocStates {
   LoginCheckServerStatusBloc(this.serverURL) {
@@ -33,7 +37,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
   BehaviorSubject<Result<CoreStatus>> state = BehaviorSubject();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     state.add(Result.loading());
 
     try {

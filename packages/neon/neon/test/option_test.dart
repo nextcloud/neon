@@ -45,7 +45,7 @@ void main() {
     late SelectOption<SelectValues> option;
 
     setUp(() {
-      when(() => storage.setString(key.value, any())).thenAnswer((final _) async {});
+      when(() => storage.setString(key.value, any())).thenAnswer((final _) async => true);
       when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
 
       option = SelectOption<SelectValues>(
@@ -209,7 +209,7 @@ void main() {
     late ToggleOption option;
 
     setUp(() {
-      when(() => storage.setBool(key.value, any())).thenAnswer((final _) async {});
+      when(() => storage.setBool(key.value, any())).thenAnswer((final _) async => true);
       when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
 
       option = ToggleOption(

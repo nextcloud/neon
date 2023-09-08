@@ -30,7 +30,7 @@ class AccountSpecificOptions extends OptionsCollection {
   final AppsBloc _appsBloc;
 
   @override
-  late final List<Option> options = [
+  late final List<Option<dynamic>> options = [
     initialApp,
   ];
 
@@ -43,6 +43,7 @@ class AccountSpecificOptions extends OptionsCollection {
   );
 }
 
+@internal
 enum AccountOptionKeys implements Storable {
   initialApp._('initial-app');
 

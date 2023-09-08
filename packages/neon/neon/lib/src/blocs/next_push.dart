@@ -8,10 +8,12 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class NextPushBlocEvents {}
+@internal
+abstract interface class NextPushBlocEvents {}
 
-abstract class NextPushBlocStates {
-  BehaviorSubject get onNextPushSupported;
+@internal
+abstract interface class NextPushBlocStates {
+  BehaviorSubject<void> get onNextPushSupported;
 }
 
 @internal
@@ -78,5 +80,5 @@ class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocState
   }
 
   @override
-  BehaviorSubject onNextPushSupported = BehaviorSubject();
+  BehaviorSubject<void> onNextPushSupported = BehaviorSubject();
 }

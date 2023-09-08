@@ -8,9 +8,11 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class CapabilitiesBlocEvents {}
+@internal
+abstract interface class CapabilitiesBlocEvents {}
 
-abstract class CapabilitiesBlocStates {
+@internal
+abstract interface class CapabilitiesBlocStates {
   BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 
@@ -35,7 +37,7 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
       BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
         CoreOcsGetCapabilitiesResponseApplicationJson>(
       _account.id,

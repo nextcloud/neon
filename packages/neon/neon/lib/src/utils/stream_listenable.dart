@@ -14,17 +14,17 @@ class StreamListenable extends ChangeNotifier {
       notifyListeners();
     }
 
-    addSubscription(stream);
+    _addSubscription(stream);
   }
 
   /// Listenable for multiple Streams.
   ///
   /// Notifies it's listeners on every event emitted by any of the streams.
   StreamListenable.multiListenable(final Iterable<Stream<dynamic>> streams) {
-    streams.forEach(addSubscription);
+    streams.forEach(_addSubscription);
   }
 
-  void addSubscription(final Stream<dynamic> stream) {
+  void _addSubscription(final Stream<dynamic> stream) {
     _subscriptions.add(
       stream.asBroadcastStream().listen((final _) {
         notifyListeners();

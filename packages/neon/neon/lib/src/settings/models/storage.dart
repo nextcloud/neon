@@ -6,12 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract interface class SettingsStorage {
   String? getString(final String key);
 
-  Future setString(final String key, final String value);
+  Future<bool> setString(final String key, final String value);
 
   bool? getBool(final String key);
 
   // ignore: avoid_positional_boolean_parameters
-  Future setBool(final String key, final bool value);
+  Future<bool> setBool(final String key, final bool value);
 
   Future<bool> remove(final String key);
 }
@@ -53,7 +53,7 @@ final class NeonStorage {
   /// Sets up the [SharedPreferences] instance.
   ///
   /// Required to be called before accessing [database].
-  static Future init() async {
+  static Future<void> init() async {
     if (_sharedPreferences != null) {
       return;
     }
@@ -86,16 +86,16 @@ final class SingleValueStorage {
 
   String? getString() => NeonStorage.database.getString(key.value);
 
-  Future setString(final String value) => NeonStorage.database.setString(key.value, value);
+  Future<bool> setString(final String value) => NeonStorage.database.setString(key.value, value);
 
   bool? getBool() => NeonStorage.database.getBool(key.value);
 
   // ignore: avoid_positional_boolean_parameters
-  Future setBool(final bool value) => NeonStorage.database.setBool(key.value, value);
+  Future<bool> setBool(final bool value) => NeonStorage.database.setBool(key.value, value);
 
   List<String>? getStringList() => NeonStorage.database.getStringList(key.value);
 
-  Future setStringList(final List<String> value) => NeonStorage.database.setStringList(key.value, value);
+  Future<bool> setStringList(final List<String> value) => NeonStorage.database.setStringList(key.value, value);
 }
 
 @immutable
@@ -130,16 +130,16 @@ final class AppStorage implements SettingsStorage {
   String? getString(final String key) => NeonStorage.database.getString(formatKey(key));
 
   @override
-  Future setString(final String key, final String value) => NeonStorage.database.setString(formatKey(key), value);
+  Future<bool> setString(final String key, final String value) => NeonStorage.database.setString(formatKey(key), value);
 
   @override
   bool? getBool(final String key) => NeonStorage.database.getBool(formatKey(key));
 
   @override
-  Future setBool(final String key, final bool value) => NeonStorage.database.setBool(formatKey(key), value);
+  Future<bool> setBool(final String key, final bool value) => NeonStorage.database.setBool(formatKey(key), value);
 
   List<String>? getStringList(final String key) => NeonStorage.database.getStringList(formatKey(key));
 
-  Future setStringList(final String key, final List<String> value) =>
+  Future<bool> setStringList(final String key, final List<String> value) =>
       NeonStorage.database.setStringList(formatKey(key), value);
 }

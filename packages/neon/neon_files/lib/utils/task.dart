@@ -23,7 +23,7 @@ class FilesDownloadTask extends FilesTask {
     required super.file,
   });
 
-  Future execute(final NextcloudClient client) async {
+  Future<void> execute(final NextcloudClient client) async {
     await client.webdav.getFile(
       Uri(pathSegments: path),
       file,
@@ -43,7 +43,7 @@ class FilesUploadTask extends FilesTask {
   FileStat? _stat;
   FileStat get stat => _stat ??= file.statSync();
 
-  Future execute(final NextcloudClient client) async {
+  Future<void> execute(final NextcloudClient client) async {
     await client.webdav.putFile(
       file,
       stat,

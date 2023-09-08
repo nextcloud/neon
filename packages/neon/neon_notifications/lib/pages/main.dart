@@ -89,6 +89,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           return;
         }
         if (app != null) {
+          // TODO: use go_router once implemented
           final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
           await accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {

@@ -1,6 +1,6 @@
 part of '../neon_news.dart';
 
-abstract class NewsArticleBlocEvents {
+abstract interface class NewsArticleBlocEvents {
   void markArticleAsRead();
 
   void markArticleAsUnread();
@@ -10,7 +10,7 @@ abstract class NewsArticleBlocEvents {
   void unstarArticle();
 }
 
-abstract class NewsArticleBlocStates {
+abstract interface class NewsArticleBlocStates {
   BehaviorSubject<bool> get unread;
 
   BehaviorSubject<bool> get starred;
@@ -44,7 +44,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   BehaviorSubject<bool> unread = BehaviorSubject<bool>();
 
   @override
-  Future refresh() async {}
+  Future<void> refresh() async {}
 
   @override
   void markArticleAsRead() {
@@ -78,7 +78,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
     });
   }
 
-  void _wrapArticleAction(final Future Function() call) => wrapAction(
+  void _wrapArticleAction(final AsyncCallback call) => wrapAction(
         call,
         refresh: () async {
           await _newsArticlesBloc.refresh();

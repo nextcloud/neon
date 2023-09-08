@@ -17,7 +17,7 @@ abstract class InteractiveBloc extends Bloc {
   final _errorsStreamController = StreamController<Object>();
   late Stream<Object> errors = _errorsStreamController.stream.asBroadcastStream();
 
-  Future refresh();
+  Future<void> refresh();
 
   void addError(final Object error) {
     _errorsStreamController.add(error);
@@ -25,9 +25,9 @@ abstract class InteractiveBloc extends Bloc {
 
   // ignore: avoid_void_async
   void wrapAction(
-    final Future Function() call, {
+    final AsyncCallback call, {
     final bool disableTimeout = false,
-    final Future Function()? refresh,
+    final AsyncCallback? refresh,
   }) async {
     try {
       if (disableTimeout) {

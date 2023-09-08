@@ -74,6 +74,7 @@ class SettingsExportHelper {
 }
 
 /// Helper class to export [AppImplementation]s implementing the [Exportable] interface.
+@internal
 @immutable
 class AppImplementationsExporter implements Exportable {
   const AppImplementationsExporter(this.appImplementations);
@@ -109,6 +110,7 @@ class AppImplementationsExporter implements Exportable {
 }
 
 /// Helper class to export [Account]s implementing the [Exportable] interface.
+@internal
 @immutable
 class AccountsBlocExporter implements Exportable {
   const AccountsBlocExporter(this.accountsBloc);

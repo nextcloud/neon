@@ -25,7 +25,7 @@ class NeonAccountTile extends StatelessWidget {
   final Account account;
   final Color? color;
   final Widget? trailing;
-  final VoidCallback? onTap;
+  final GestureTapCallback? onTap;
   final Color? textColor;
   final bool dense;
   final bool showStatus;

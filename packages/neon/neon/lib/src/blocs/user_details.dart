@@ -8,9 +8,11 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class UserDetailsBlocEvents {}
+@internal
+abstract interface class UserDetailsBlocEvents {}
 
-abstract class UserDetailsBlocStates {
+@internal
+abstract interface class UserDetailsBlocStates {
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
 }
 
@@ -35,7 +37,7 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
       BehaviorSubject<Result<ProvisioningApiUserDetails>>();
 
   @override
-  Future refresh() async {
+  Future<void> refresh() async {
     await RequestManager.instance
         .wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUsersGetCurrentUserResponseApplicationJson>(
       _account.id,

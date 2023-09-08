@@ -17,7 +17,7 @@ class CustomSettingsTile extends SettingsTile {
   final Widget? subtitle;
   final Widget? leading;
   final Widget? trailing;
-  final Function()? onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(final BuildContext context) => ListTile(

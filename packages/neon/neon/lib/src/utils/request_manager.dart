@@ -10,6 +10,11 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
 
+typedef UnwrapCallback<T, R> = T Function(R);
+typedef SerializeCallback<T> = String Function(T);
+typedef DeserializeCallback<T> = T Function(String);
+typedef NextcloudApiCallback<T> = Future<T> Function();
+
 class RequestManager {
   RequestManager();
 
@@ -22,19 +27,19 @@ class RequestManager {
   // ignore: prefer_constructors_over_static_methods
   static RequestManager get instance => _requestManager ??= RequestManager();
 
-  Future initCache() async {
+  Future<void> initCache() async {
     _cache = Cache();
     await _cache!.init();
   }
 
   Cache? _cache;
 
-  Future wrapNextcloud<T, R>(
+  Future<void> wrapNextcloud<T, R>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<R> Function() call,
-    final T Function(R) unwrap, {
+    final NextcloudApiCallback<R> call,
+    final UnwrapCallback<T, R> unwrap, {
     final bool disableTimeout = false,
     final bool emitEmptyCache = false,
   }) async =>
@@ -51,12 +56,12 @@ class RequestManager {
         0,
       );
 
-  Future wrapWebDav<T>(
+  Future<void> wrapWebDav<T>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<WebDavMultistatus> Function() call,
-    final T Function(WebDavMultistatus) unwrap, {
+    final NextcloudApiCallback<WebDavMultistatus> call,
+    final UnwrapCallback<T, WebDavMultistatus> unwrap, {
     final bool disableTimeout = false,
     final bool emitEmptyCache = false,
   }) async =>
@@ -73,14 +78,14 @@ class RequestManager {
         0,
       );
 
-  Future _wrap<T, R>(
+  Future<void> _wrap<T, R>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<R> Function() call,
-    final T Function(R) unwrap,
-    final String Function(R) serialize,
-    final R Function(String) deserialize,
+    final NextcloudApiCallback<R> call,
+    final UnwrapCallback<T, R> unwrap,
+    final SerializeCallback<R> serialize,
+    final DeserializeCallback<R> deserialize,
     final bool disableTimeout,
     final bool emitEmptyCache,
     final int retries,
@@ -150,8 +155,8 @@ class RequestManager {
   Future<bool> _emitCached<T, R>(
     final String key,
     final BehaviorSubject<Result<T>> subject,
-    final T Function(R) unwrap,
-    final R Function(String) deserialize,
+    final UnwrapCallback<T, R> unwrap,
+    final DeserializeCallback<R> deserialize,
     final bool emitEmptyCache,
     final bool loading,
     final Object? error,
@@ -180,7 +185,7 @@ class RequestManager {
   }
 
   Future<T> timeout<T>(
-    final Future<T> Function() call,
+    final NextcloudApiCallback<T> call,
   ) =>
       call().timeout(const Duration(seconds: 30));
 }
@@ -189,7 +194,7 @@ class RequestManager {
 class Cache {
   Database? _database;
 
-  Future init() async {
+  Future<void> init() async {
     if (_database != null) {
       return;
     }
@@ -210,7 +215,7 @@ class Cache {
   Future<String?> get(final String key) async =>
       (await _database!.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
 
-  Future set(final String key, final String value) async => _database!.rawQuery(
+  Future<void> set(final String key, final String value) async => _database!.rawQuery(
         'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
         [key, value],
       );

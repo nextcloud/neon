@@ -2,6 +2,7 @@ library neon_news;
 
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -59,7 +60,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   final String id = AppIDs.news;
 
   @override
-  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = AppLocalizations.supportedLocales;

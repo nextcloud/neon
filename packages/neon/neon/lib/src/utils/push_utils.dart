@@ -58,7 +58,7 @@ class PushUtils {
     return localNotificationsPlugin;
   }
 
-  static Future onMessage(final Uint8List messages, final String instance) async {
+  static Future<void> onMessage(final Uint8List messages, final String instance) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final localNotificationsPlugin = await initLocalNotifications(
