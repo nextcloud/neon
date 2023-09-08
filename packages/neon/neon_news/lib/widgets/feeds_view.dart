@@ -61,7 +61,7 @@ class NewsFeedsView extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (feed.updateErrorCount > 0) ...[
+            if (feed.updateErrorCount > 0)
               IconButton(
                 onPressed: () async {
                   await showDialog(
@@ -80,7 +80,6 @@ class NewsFeedsView extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
             PopupMenuButton<NewsFeedAction>(
               itemBuilder: (final context) => [
                 PopupMenuItem(
@@ -95,12 +94,11 @@ class NewsFeedsView extends StatelessWidget {
                   value: NewsFeedAction.rename,
                   child: Text(AppLocalizations.of(context).actionRename),
                 ),
-                if (folders.isNotEmpty) ...[
+                if (folders.isNotEmpty)
                   PopupMenuItem(
                     value: NewsFeedAction.move,
                     child: Text(AppLocalizations.of(context).actionMove),
                   ),
-                ],
               ],
               onSelected: (final action) async {
                 switch (action) {

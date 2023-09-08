@@ -54,7 +54,7 @@ class NeonAccountTile extends StatelessWidget {
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [
-            if (userDetails.hasData) ...[
+            if (userDetails.hasData)
               Flexible(
                 child: Text(
                   userDetails.requireData.displayname,
@@ -64,7 +64,6 @@ class NeonAccountTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-            ],
             if (userDetails.isLoading) ...[
               const SizedBox(
                 width: 5,

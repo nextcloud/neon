@@ -32,7 +32,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
               color: color,
             ),
           ),
-          if (unreadCount > 0) ...[
+          if (unreadCount > 0)
             Text(
               unreadCount.toString(),
               style: TextStyle(
@@ -40,7 +40,6 @@ class NeonAppImplementationIcon extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ],
         ],
       );
 }

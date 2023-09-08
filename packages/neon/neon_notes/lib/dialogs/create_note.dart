@@ -65,7 +65,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                         visible: notes.isLoading,
                       ),
                     ),
-                    if (notes.hasData) ...[
+                    if (notes.hasData)
                       NotesCategorySelect(
                         categories: notes.requireData.map((final note) => note.category).toSet().toList(),
                         onChanged: (final category) {
@@ -73,7 +73,6 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                         },
                         onSubmitted: submit,
                       ),
-                    ],
                   ],
                   ElevatedButton(
                     onPressed: submit,

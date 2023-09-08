@@ -67,9 +67,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     label: (final context) => AppLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
-      for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (final _) => i.toString(),
-      },
+      for (var i = 1; i <= 16; i = i * 2) i: (final _) => i.toString(),
     },
   );
 
@@ -80,9 +78,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     label: (final context) => AppLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
-      for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (final _) => i.toString(),
-      },
+      for (var i = 1; i <= 16; i = i * 2) i: (final _) => i.toString(),
     },
   );
 
@@ -96,9 +92,8 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
       2 * 2024,
       6 * 1024,
       10 * 1024,
-    ]) ...{
+    ])
       _mb(i): (final _) => filesize(_mb(i)),
-    },
   };
 
   int _mb(final int i) => i * 1024 * 1024;

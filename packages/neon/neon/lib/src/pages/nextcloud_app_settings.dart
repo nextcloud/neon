@@ -41,29 +41,25 @@ class NextcloudAppSettingsPage extends StatelessWidget {
 
     final body = SettingsList(
       categories: [
-        for (final category in [...appImplementation.options.categories, null]) ...[
-          if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty) ...[
+        for (final category in [...appImplementation.options.categories, null])
+          if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty)
             SettingsCategory(
               title: Text(
                 category != null ? category.name(context) : AppLocalizations.of(context).optionsCategoryOther,
               ),
               tiles: [
                 for (final option
-                    in appImplementation.options.options.where((final option) => option.category == category)) ...[
-                  if (option is ToggleOption) ...[
+                    in appImplementation.options.options.where((final option) => option.category == category))
+                  if (option is ToggleOption)
                     CheckBoxSettingsTile(
                       option: option,
-                    ),
-                  ] else if (option is SelectOption) ...[
+                    )
+                  else if (option is SelectOption)
                     DropdownButtonSettingsTile(
                       option: option,
                     ),
-                  ],
-                ],
               ],
             ),
-          ],
-        ],
       ],
     );
 

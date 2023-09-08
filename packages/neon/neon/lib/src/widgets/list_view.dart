@@ -51,11 +51,8 @@ class NeonListView<T> extends StatelessWidget {
                       error,
                       onRetry: onRefresh,
                     ),
-                    if (items != null) ...[
-                      for (final item in items!) ...[
-                        builder(context, item),
-                      ],
-                    ],
+                    if (items != null)
+                      for (final item in items!) builder(context, item),
                   ],
                 ),
               ),

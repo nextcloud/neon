@@ -103,9 +103,7 @@ class GlobalOptions extends OptionsCollection {
 
   Future updateDistributors(final List<String> distributors) async {
     pushNotificationsDistributor.values = {
-      for (final distributor in distributors) ...{
-        distributor: _distributorsMap[distributor] ?? (final _) => distributor,
-      },
+      for (final distributor in distributors) distributor: _distributorsMap[distributor] ?? (final _) => distributor,
     };
 
     final allowed = distributors.isNotEmpty;
@@ -210,10 +208,9 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: {
       NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
-      if (!Platform.isAndroid && !Platform.isIOS) ...{
+      if (!Platform.isAndroid && !Platform.isIOS)
         NavigationMode.drawerAlwaysVisible: (final context) =>
             AppLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
-      },
       // ignore: deprecated_member_use_from_same_package
       NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
     },

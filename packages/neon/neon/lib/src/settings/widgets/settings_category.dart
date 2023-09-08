@@ -18,9 +18,7 @@ class SettingsCategory extends StatelessWidget {
   Widget build(final BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[
-            title!,
-          ],
+          if (title != null) title!,
           ...tiles,
         ]
             .intersperse(

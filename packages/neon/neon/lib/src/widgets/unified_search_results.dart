@@ -73,7 +73,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
             NeonLinearProgressIndicator(
               visible: result.isLoading,
             ),
-            if (entries.isEmpty) ...[
+            if (entries.isEmpty)
               ListTile(
                 leading: const Icon(
                   Icons.close,
@@ -81,8 +81,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
                 ),
                 title: Text(AppLocalizations.of(context).searchNoResults),
               ),
-            ],
-            for (final entry in entries) ...[
+            for (final entry in entries)
               ListTile(
                 leading: NeonImageWrapper(
                   size: const Size.square(kAvatarSize),
@@ -95,7 +94,6 @@ class NeonUnifiedSearchResults extends StatelessWidget {
                   context.go(entry.resourceUrl);
                 },
               ),
-            ],
           ],
         ),
       ),

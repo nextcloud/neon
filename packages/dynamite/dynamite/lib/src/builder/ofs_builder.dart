@@ -239,33 +239,25 @@ TypeResult resolveOfs(
                                 (final entry) =>
                                     entry.value.endsWith('/${result.name.replaceFirst(state.classPrefix, '')}'),
                               )
-                              .map((final entry) => entry.key)) ...[
+                              .map((final entry) => entry.key))
                             " ||  discriminator == '$key'",
-                          ],
                           ') {',
                         ],
                       ],
                       'try {',
-                      if (result is TypeResultBase || result is TypeResultEnum) ...[
-                        'result._${fields[result.name]!} = ${result.deserialize('data')};',
-                      ] else ...[
+                      if (result is TypeResultBase || result is TypeResultEnum)
+                        'result._${fields[result.name]!} = ${result.deserialize('data')};'
+                      else
                         'result._${fields[result.name]!} = ${result.deserialize('data')}.toBuilder();',
-                      ],
                       '} catch (_) {',
-                      if (schema.discriminator != null) ...[
-                        'rethrow;',
-                      ],
+                      if (schema.discriminator != null) 'rethrow;',
                       '}',
-                      if (schema.discriminator != null) ...[
-                        '}',
-                      ],
+                      if (schema.discriminator != null) '}',
                     ],
-                    if (schema.oneOf != null) ...[
+                    if (schema.oneOf != null)
                       "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \${result._data}');",
-                    ],
-                    if (schema.anyOf != null) ...[
+                    if (schema.anyOf != null)
                       "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need anyOf for \${result._data}');",
-                    ],
                     'return result.build();',
                   ].join(),
                 );

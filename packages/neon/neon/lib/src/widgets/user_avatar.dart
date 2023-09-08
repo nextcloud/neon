@@ -84,12 +84,11 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                   ),
                 ),
               ),
-              if (widget.showStatus) ...[
+              if (widget.showStatus)
                 ResultBuilder<UserStatusPublicInterface?>(
                   stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                   builder: _userStatusIconBuilder,
                 ),
-              ],
             ],
           );
         },

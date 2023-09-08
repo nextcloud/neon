@@ -83,7 +83,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                         visible: folders.isLoading,
                       ),
                     ),
-                    if (folders.hasData) ...[
+                    if (folders.hasData)
                       NewsFolderSelect(
                         folders: folders.requireData,
                         value: folder,
@@ -93,7 +93,6 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                           });
                         },
                       ),
-                    ],
                   ],
                   ElevatedButton(
                     onPressed: folders.hasData ? submit : null,

@@ -75,7 +75,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                             for (final uploadTask in tasksSnapshot.requireData.whereType<FilesUploadTask>().where(
                                   (final task) =>
                                       sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
-                                )) ...[
+                                ))
                               FileListTile(
                                 bloc: widget.filesBloc,
                                 browserBloc: widget.bloc,
@@ -84,10 +84,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                 ),
                                 mode: widget.mode,
                               ),
-                            ],
-                            for (final file in sorted) ...[
+                            for (final file in sorted)
                               if ((widget.mode != FilesBrowserMode.selectDirectory || file.isDirectory) &&
-                                  (!file.isHidden || showHiddenFiles)) ...[
+                                  (!file.isHidden || showHiddenFiles))
                                 Builder(
                                   builder: (final context) {
                                     final matchingTask = tasksSnapshot.requireData
@@ -111,8 +110,6 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                     );
                                   },
                                 ),
-                              ],
-                            ],
                           ],
                           isLoading: files.isLoading,
                           error: files.error,
@@ -143,7 +140,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         widget.bloc.setPath([]);
                                       },
                                     ),
-                                    for (var i = 0; i < pathSnapshot.requireData.length; i++) ...[
+                                    for (var i = 0; i < pathSnapshot.requireData.length; i++)
                                       Builder(
                                         builder: (final context) {
                                           final path = pathSnapshot.requireData.sublist(0, i + 1);
@@ -162,7 +159,6 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                           );
                                         },
                                       ),
-                                    ],
                                   ]
                                       .intersperse(
                                         const Icon(

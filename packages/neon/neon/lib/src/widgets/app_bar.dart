@@ -78,13 +78,12 @@ class _NeonAppBarState extends State<NeonAppBar> {
                         children: [
                           Row(
                             children: [
-                              if (activeAppSnapshot.hasData) ...[
+                              if (activeAppSnapshot.hasData)
                                 Flexible(
                                   child: Text(
                                     activeAppSnapshot.requireData.name(context),
                                   ),
                                 ),
-                              ],
                               if (appImplementations.hasError) ...[
                                 const SizedBox(
                                   width: 8,
@@ -107,16 +106,15 @@ class _NeonAppBarState extends State<NeonAppBar> {
                               ],
                             ],
                           ),
-                          if (accounts.length > 1) ...[
+                          if (accounts.length > 1)
                             Text(
                               account.humanReadableID,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
-                          ],
                         ],
                       ),
                 actions: [
-                  if (unifiedSearchEnabled) ...[
+                  if (unifiedSearchEnabled)
                     Flexible(
                       child: SearchBar(
                         focusNode: _searchBarFocusNode,
@@ -136,10 +134,9 @@ class _NeonAppBarState extends State<NeonAppBar> {
                           ),
                         ],
                       ),
-                    ),
-                  ] else ...[
+                    )
+                  else
                     const SearchIconButton(),
-                  ],
                   const NotificationIconButton(),
                   const AccountSwitcherButton(),
                 ],
@@ -220,12 +217,11 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(app.name(context)),
-            if (_accounts.length > 1) ...[
+            if (_accounts.length > 1)
               Text(
                 _account.humanReadableID,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-            ],
           ],
         ),
       ),

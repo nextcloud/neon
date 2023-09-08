@@ -100,14 +100,11 @@ void generateData() {
     '// Code points',
     // This filters unused codepoints.
     for (final type in codePoints.keys
-        .where((final type) => iconSet.keys.map((final pattern) => iconSet[pattern]![0] == type).contains(true))) ...[
+        .where((final type) => iconSet.keys.map((final pattern) => iconSet[pattern]![0] == type).contains(true)))
       'const ${_toVariableName(type)} = ${codePoints[type]};',
-    ],
     '',
     '// Colors',
-    for (final colorName in colors.keys) ...[
-      'const ${_toVariableName(colorName)} = ${colors[colorName]};',
-    ],
+    for (final colorName in colors.keys) 'const ${_toVariableName(colorName)} = ${colors[colorName]};',
     '',
     "const _fontFamily = 'Seti';",
     "const _fontPackage = 'file_icons';",

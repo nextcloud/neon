@@ -19,17 +19,15 @@ class NextcloudClient extends DynamiteClient {
           baseHeaders: language != null ? {'Accept-Language': language} : null,
           userAgent: userAgentOverride ?? appType.userAgent,
           authentications: [
-            if (appPassword != null) ...[
+            if (appPassword != null)
               DynamiteHttpBearerAuthentication(
                 token: appPassword,
               ),
-            ],
-            if (loginName != null && (password ?? appPassword) != null) ...[
+            if (loginName != null && (password ?? appPassword) != null)
               DynamiteHttpBasicAuthentication(
                 username: loginName,
                 password: (password ?? appPassword)!,
               ),
-            ],
           ],
         );
 

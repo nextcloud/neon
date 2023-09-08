@@ -118,7 +118,7 @@ class FileActions extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => PopupMenuButton<FilesFileAction>(
         itemBuilder: (final context) => [
-          if (details.isFavorite != null) ...[
+          if (details.isFavorite != null)
             PopupMenuItem(
               value: FilesFileAction.toggleFavorite,
               child: Text(
@@ -127,7 +127,6 @@ class FileActions extends StatelessWidget {
                     : AppLocalizations.of(context).addToFavorites,
               ),
             ),
-          ],
           PopupMenuItem(
             value: FilesFileAction.details,
             child: Text(AppLocalizations.of(context).details),
@@ -145,12 +144,11 @@ class FileActions extends StatelessWidget {
             child: Text(AppLocalizations.of(context).actionCopy),
           ),
           // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
-          if (!details.isDirectory) ...[
+          if (!details.isDirectory)
             PopupMenuItem(
               value: FilesFileAction.sync,
               child: Text(AppLocalizations.of(context).actionSync),
             ),
-          ],
           PopupMenuItem(
             value: FilesFileAction.delete,
             child: Text(AppLocalizations.of(context).actionDelete),

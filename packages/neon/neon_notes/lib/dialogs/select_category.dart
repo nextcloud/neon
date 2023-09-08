@@ -47,7 +47,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                       visible: notes.isLoading,
                     ),
                   ),
-                  if (notes.hasData) ...[
+                  if (notes.hasData)
                     NotesCategorySelect(
                       categories: notes.requireData.map((final note) => note.category).toSet().toList(),
                       initialValue: widget.initialCategory,
@@ -56,7 +56,6 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                       },
                       onSubmitted: submit,
                     ),
-                  ],
                   ElevatedButton(
                     onPressed: submit,
                     child: Text(AppLocalizations.of(context).noteSetCategory),

@@ -98,8 +98,8 @@ class _SettingsPageState extends State<SettingsPage> {
               title: Text(AppLocalizations.of(context).settingsApps),
               key: ValueKey(SettingsCategories.apps.name),
               tiles: <SettingsTile>[
-                for (final appImplementation in appImplementations) ...[
-                  if (appImplementation.options.options.isNotEmpty) ...[
+                for (final appImplementation in appImplementations)
+                  if (appImplementation.options.options.isNotEmpty)
                     CustomSettingsTile(
                       leading: appImplementation.buildIcon(),
                       title: Text(appImplementation.name(context)),
@@ -107,8 +107,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
                       },
                     ),
-                  ],
-                ],
               ],
             ),
             SettingsCategory(
@@ -135,12 +133,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ],
             ),
-            if (NeonPlatform.instance.canUsePushNotifications) ...[
+            if (NeonPlatform.instance.canUsePushNotifications)
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
                 key: ValueKey(SettingsCategories.pushNotifications.name),
                 tiles: [
-                  if (!globalOptions.pushNotificationsEnabled.enabled) ...[
+                  if (!globalOptions.pushNotificationsEnabled.enabled)
                     TextSettingsTile(
                       text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                       style: TextStyle(
@@ -149,7 +147,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         color: Theme.of(context).colorScheme.error,
                       ),
                     ),
-                  ],
                   CheckBoxSettingsTile(
                     option: globalOptions.pushNotificationsEnabled,
                   ),
@@ -158,8 +155,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               ),
-            ],
-            if (NeonPlatform.instance.canUseWindowManager) ...[
+            if (NeonPlatform.instance.canUseWindowManager)
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategoryStartup),
                 key: ValueKey(SettingsCategories.startup.name),
@@ -172,8 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               ),
-            ],
-            if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray) ...[
+            if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray)
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
                 key: ValueKey(SettingsCategories.systemTray.name),
@@ -186,7 +181,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               ),
-            ],
             SettingsCategory(
               title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
               key: ValueKey(SettingsCategories.accounts.name),
@@ -199,14 +193,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     option: globalOptions.initialAccount,
                   ),
                 ],
-                for (final account in accountsSnapshot.requireData) ...[
+                for (final account in accountsSnapshot.requireData)
                   AccountSettingsTile(
                     account: account,
                     onTap: () {
                       AccountSettingsRoute(accountid: account.id).go(context);
                     },
                   ),
-                ],
                 CustomSettingsTile(
                   title: ElevatedButton.icon(
                     onPressed: () async => const LoginRoute().push(context),
