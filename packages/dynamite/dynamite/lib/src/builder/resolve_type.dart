@@ -89,12 +89,12 @@ TypeResult resolveType(
               'Uint8List',
               nullable: nullable,
             ),
+          'date' || 'date-time' => TypeResultBase('DateTime'),
           _ => TypeResultBase(
               'String',
               nullable: nullable,
             ),
         };
-
       case openapi.SchemaType.array:
         if (schema.items != null) {
           final subResult = resolveType(

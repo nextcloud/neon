@@ -1,0 +1,26 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "nested ofs test",
+        "version": "0.0.1"
+    },
+    "components": {
+        "schemas": {
+            "DateTime": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "date-time": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {},
+    "tags": []
+}

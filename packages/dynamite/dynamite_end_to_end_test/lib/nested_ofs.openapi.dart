@@ -4,6 +4,7 @@
 // ignore_for_file: unreachable_switch_case
 
 import 'package:built_value/built_value.dart';
+import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -522,6 +523,7 @@ final Serializers _serializers = (Serializers().toBuilder()
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
+      ..add(Iso8601DateTimeSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();

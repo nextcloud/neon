@@ -15,14 +15,16 @@ String toDartName(
     }
   }
 
-  if (_dartKeywords.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
+  if (_dartKeywords.contains(result) ||
+      _dartTypes.contains(result) ||
+      RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
     return '\$$result';
   }
 
   return result;
 }
 
-final _dartKeywords = [
+const _dartKeywords = [
   'assert',
   'break',
   'case',
@@ -82,6 +84,10 @@ final _dartKeywords = [
   'set',
   'static',
   'typedef',
+];
+
+const _dartTypes = [
+  'DateTime',
 ];
 
 bool _isNonAlphaNumericString(final String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);

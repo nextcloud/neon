@@ -12,6 +12,7 @@ List<Spec> generateImports(final AssetId outputId) => [
       const Code(''),
       Directive.import('package:built_collection/built_collection.dart'),
       Directive.import('package:built_value/built_value.dart'),
+      Directive.import('package:built_value/iso_8601_date_time_serializer.dart'),
       Directive.import('package:built_value/json_object.dart'),
       Directive.import('package:built_value/serializer.dart'),
       Directive.import('package:built_value/standard_json_plugin.dart'),
