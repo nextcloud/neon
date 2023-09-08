@@ -1,6 +1,6 @@
 part of '../neon_files.dart';
 
-abstract class FilesBlocEvents {
+abstract interface class FilesBlocEvents {
   void uploadFile(final List<String> path, final String localPath);
 
   void syncFile(final List<String> path);
@@ -20,7 +20,7 @@ abstract class FilesBlocEvents {
   void removeFavorite(final List<String> path);
 }
 
-abstract class FilesBlocStates {
+abstract interface class FilesBlocStates {
   BehaviorSubject<List<FilesTask>> get tasks;
 }
 

@@ -14,9 +14,9 @@ import 'package:neon/src/utils/push_utils.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 
-abstract class PushNotificationsBlocEvents {}
+abstract interface class PushNotificationsBlocEvents {}
 
-abstract class PushNotificationsBlocStates {
+abstract interface class PushNotificationsBlocStates {
   Stream<PushNotification> get notifications;
 }
 

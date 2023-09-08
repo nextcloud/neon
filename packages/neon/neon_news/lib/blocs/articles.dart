@@ -11,7 +11,7 @@ enum ListType {
   folder,
 }
 
-abstract class NewsArticlesBlocEvents {
+abstract interface class NewsArticlesBlocEvents {
   void setFilterType(final FilterType type);
 
   void markArticleAsRead(final NewsArticle article);
@@ -23,7 +23,7 @@ abstract class NewsArticlesBlocEvents {
   void unstarArticle(final NewsArticle article);
 }
 
-abstract class NewsArticlesBlocStates {
+abstract interface class NewsArticlesBlocStates {
   BehaviorSubject<Result<List<NewsArticle>>> get articles;
 
   BehaviorSubject<FilterType> get filterType;

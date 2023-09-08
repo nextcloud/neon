@@ -16,7 +16,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class AppsBlocEvents {
+abstract interface class AppsBlocEvents {
   /// Sets the active app using the [appID].
   ///
   /// If the app is already the active app nothing will happen.
@@ -24,7 +24,7 @@ abstract class AppsBlocEvents {
   void setActiveApp(final String appID, {final bool skipAlreadySet = false});
 }
 
-abstract class AppsBlocStates {
+abstract interface class AppsBlocStates {
   BehaviorSubject<Result<List<CoreNavigationEntry>>> get apps;
 
   BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;

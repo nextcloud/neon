@@ -8,9 +8,9 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class NextPushBlocEvents {}
+abstract interface class NextPushBlocEvents {}
 
-abstract class NextPushBlocStates {
+abstract interface class NextPushBlocStates {
   BehaviorSubject<void> get onNextPushSupported;
 }
 

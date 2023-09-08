@@ -11,11 +11,11 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
-abstract class UserStatusesBlocEvents {
+abstract interface class UserStatusesBlocEvents {
   void load(final String username, {final bool force = false});
 }
 
-abstract class UserStatusesBlocStates {
+abstract interface class UserStatusesBlocStates {
   BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> get statuses;
 }
 

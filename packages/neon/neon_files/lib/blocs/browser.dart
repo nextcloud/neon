@@ -1,12 +1,12 @@
 part of '../neon_files.dart';
 
-abstract class FilesBrowserBlocEvents {
+abstract interface class FilesBrowserBlocEvents {
   void setPath(final List<String> path);
 
   void createFolder(final List<String> path);
 }
 
-abstract class FilesBrowserBlocStates {
+abstract interface class FilesBrowserBlocStates {
   BehaviorSubject<Result<List<WebDavFile>>> get files;
 
   BehaviorSubject<List<String>> get path;

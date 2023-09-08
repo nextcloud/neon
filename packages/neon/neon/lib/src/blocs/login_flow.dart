@@ -7,9 +7,9 @@ import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class LoginFlowBlocEvents {}
+abstract interface class LoginFlowBlocEvents {}
 
-abstract class LoginFlowBlocStates {
+abstract interface class LoginFlowBlocStates {
   BehaviorSubject<Result<CoreLoginFlowV2>> get init;
 
   Stream<CoreLoginFlowV2Credentials> get result;

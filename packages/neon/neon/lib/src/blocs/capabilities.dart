@@ -8,9 +8,9 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class CapabilitiesBlocEvents {}
+abstract interface class CapabilitiesBlocEvents {}
 
-abstract class CapabilitiesBlocStates {
+abstract interface class CapabilitiesBlocStates {
   BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 

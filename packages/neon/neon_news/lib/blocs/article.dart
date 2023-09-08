@@ -1,6 +1,6 @@
 part of '../neon_news.dart';
 
-abstract class NewsArticleBlocEvents {
+abstract interface class NewsArticleBlocEvents {
   void markArticleAsRead();
 
   void markArticleAsUnread();
@@ -10,7 +10,7 @@ abstract class NewsArticleBlocEvents {
   void unstarArticle();
 }
 
-abstract class NewsArticleBlocStates {
+abstract interface class NewsArticleBlocStates {
   BehaviorSubject<bool> get unread;
 
   BehaviorSubject<bool> get starred;

@@ -5,9 +5,9 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class FirstLaunchBlocEvents {}
+abstract interface class FirstLaunchBlocEvents {}
 
-abstract class FirstLaunchBlocStates {
+abstract interface class FirstLaunchBlocStates {
   BehaviorSubject<void> get onFirstLaunch;
 }
 
