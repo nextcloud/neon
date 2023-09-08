@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^2.0.7
   neon:
     git:
       url: https://github.com/nextcloud/neon
@@ -30,6 +29,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon/neon_notifications
+  vector_graphics: ^1.1.7
 
 dev_dependencies:
   flutter_material_design_icons: ^1.1.7296

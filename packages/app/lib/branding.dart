@@ -1,19 +1,21 @@
 import 'dart:ui';
 
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neon/theme.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
-final neonTheme = NeonTheme(
+const neonTheme = NeonTheme(
   branding: branding,
   colorScheme: colorScheme,
 );
 
-final branding = Branding(
+const branding = Branding(
   name: 'Nextcloud Neon',
-  logo: SvgPicture.asset(
-    'assets/logo.svg',
+  logo: VectorGraphic(
     width: 100,
     height: 100,
+    loader: AssetBytesLoader(
+      'assets/logo.svg.vec',
+    ),
   ),
   legalese: 'Copyright © 2023, provokateurin\nUnder GPLv3 license',
 );

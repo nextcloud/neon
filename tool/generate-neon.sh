@@ -4,6 +4,11 @@ cd "$(dirname "$0")/.."
 
 color="#f37736"
 
+function precompile_assets() {
+  fvm dart run vector_graphics_compiler --input-dir assets/
+  find assets/ -name "*.svg" -exec rm {} \;
+}
+
 function copy_app_svg() {
   id="$1"
   path="$2"
@@ -17,6 +22,10 @@ function copy_app_svg() {
     exit 1
   fi
   sed -i "s/fill=\"#[^\"]*\"/fill=\"$color\"/g" "$target"
+  (
+    cd "packages/neon/neon_$id"
+    precompile_assets
+  )
 }
 
 rm -rf /tmp/nextcloud-neon
@@ -42,11 +51,10 @@ done
 (
   cd packages/neon/neon
 
-  fvm dart run vector_graphics_compiler --input-dir assets/icons/server
-  rm -rf assets/icons/server/*.svg
-
   # Nextcloud logo
   wget https://raw.githubusercontent.com/nextcloud/promo/master/nextcloud-logo-inverted.svg -O assets/logo_nextcloud.svg
+
+  precompile_assets
 
   melos run generate:neon:build_runner
   melos run generate:neon:l10n

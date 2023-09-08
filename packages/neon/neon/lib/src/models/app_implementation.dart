@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
@@ -12,6 +11,7 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 @immutable
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
@@ -95,13 +95,15 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
     final Color? color,
   }) =>
       Builder(
-        builder: (final context) => SizedBox.fromSize(
-          size: size,
-          child: SvgPicture.asset(
-            'assets/app.svg',
-            package: 'neon_$id',
-            colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+        builder: (final context) => VectorGraphic(
+          width: size.width,
+          height: size.height,
+          colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+          loader: AssetBytesLoader(
+            'assets/app.svg.vec',
+            packageName: 'neon_$id',
           ),
+          semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
         ),
       );
 
