@@ -1,11 +1,10 @@
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/settings.dart';
-import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden
-class OptionMock extends Mock implements Option<Object> {}
+class OptionMock extends Mock implements ToggleOption {}
 
 class Collection extends NextcloudAppOptions {
   Collection(final List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
@@ -48,15 +47,15 @@ void main() {
 
     test('export', () {
       when(() => option1.key).thenReturn(Keys.key1);
-      when(option1.serialize).thenReturn('value1');
+      when(option1.serialize).thenReturn(true);
       when(() => option1.enabled).thenReturn(true);
 
       when(() => option2.key).thenReturn(Keys.key2);
-      when(option2.serialize).thenReturn('value2');
+      when(option2.serialize).thenReturn(true);
       when(() => option2.enabled).thenReturn(false);
 
       const json = {
-        'app': {'key1': 'value1'},
+        'app': {'key1': true},
       };
 
       final export = collection.export();
@@ -70,14 +69,14 @@ void main() {
 
       const json = {
         'app': {
-          'key1': 'value1',
+          'key1': false,
           'key2': null,
         },
       };
 
       collection.import(json);
 
-      verify(() => option1.load('value1')).called(1);
+      verify(() => option1.load(false)).called(1);
       verify(option2.reset).called(1);
     });
   });

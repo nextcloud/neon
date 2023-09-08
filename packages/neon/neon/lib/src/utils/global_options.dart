@@ -7,9 +7,7 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/label_builder.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
-import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/models/storage.dart';
-import 'package:neon/src/settings/models/toggle_option.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 

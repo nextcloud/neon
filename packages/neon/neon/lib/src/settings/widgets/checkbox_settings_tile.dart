@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon/src/settings/models/toggle_option.dart';
+import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 @internal

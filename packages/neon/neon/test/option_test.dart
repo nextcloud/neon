@@ -4,9 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/storage.dart';
-import 'package:neon/src/settings/models/toggle_option.dart';
 import 'package:test/test.dart';
 
 class MockStorage extends Mock implements SettingsStorage {}
