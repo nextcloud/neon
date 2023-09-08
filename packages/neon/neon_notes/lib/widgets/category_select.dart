@@ -22,7 +22,7 @@ class NotesCategorySelect extends StatelessWidget {
   final List<String> categories;
   final String? initialValue;
   final Function(String category) onChanged;
-  final Function() onSubmitted;
+  final VoidCallback onSubmitted;
 
   @override
   Widget build(final BuildContext context) => Autocomplete<String>(

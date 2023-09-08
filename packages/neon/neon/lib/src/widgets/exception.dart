@@ -22,7 +22,7 @@ class NeonException extends StatelessWidget {
   });
 
   final dynamic exception;
-  final Function() onRetry;
+  final VoidCallback onRetry;
   final bool onlyIcon;
   final double? iconSize;
   final Color? color;

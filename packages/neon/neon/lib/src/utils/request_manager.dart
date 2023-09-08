@@ -10,6 +10,11 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
 
+typedef UnwrapCallback<T, R> = T Function(R);
+typedef SerializeCallback<T> = String Function(T);
+typedef DeserializeCallback<T> = T Function(String);
+typedef NextcloudApiCallback<T> = Future<T> Function();
+
 class RequestManager {
   RequestManager();
 
@@ -33,8 +38,8 @@ class RequestManager {
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<R> Function() call,
-    final T Function(R) unwrap, {
+    final NextcloudApiCallback<R> call,
+    final UnwrapCallback<T, R> unwrap, {
     final bool disableTimeout = false,
     final bool emitEmptyCache = false,
   }) async =>
@@ -55,8 +60,8 @@ class RequestManager {
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<WebDavMultistatus> Function() call,
-    final T Function(WebDavMultistatus) unwrap, {
+    final NextcloudApiCallback<WebDavMultistatus> call,
+    final UnwrapCallback<T, WebDavMultistatus> unwrap, {
     final bool disableTimeout = false,
     final bool emitEmptyCache = false,
   }) async =>
@@ -77,10 +82,10 @@ class RequestManager {
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final Future<R> Function() call,
-    final T Function(R) unwrap,
-    final String Function(R) serialize,
-    final R Function(String) deserialize,
+    final NextcloudApiCallback<R> call,
+    final UnwrapCallback<T, R> unwrap,
+    final SerializeCallback<R> serialize,
+    final DeserializeCallback<R> deserialize,
     final bool disableTimeout,
     final bool emitEmptyCache,
     final int retries,
@@ -150,8 +155,8 @@ class RequestManager {
   Future<bool> _emitCached<T, R>(
     final String key,
     final BehaviorSubject<Result<T>> subject,
-    final T Function(R) unwrap,
-    final R Function(String) deserialize,
+    final UnwrapCallback<T, R> unwrap,
+    final DeserializeCallback<R> deserialize,
     final bool emitEmptyCache,
     final bool loading,
     final Object? error,
@@ -180,7 +185,7 @@ class RequestManager {
   }
 
   Future<T> timeout<T>(
-    final Future<T> Function() call,
+    final NextcloudApiCallback<T> call,
   ) =>
       call().timeout(const Duration(seconds: 30));
 }

@@ -25,9 +25,9 @@ abstract class InteractiveBloc extends Bloc {
 
   // ignore: avoid_void_async
   void wrapAction(
-    final Future<void> Function() call, {
+    final AsyncCallback call, {
     final bool disableTimeout = false,
-    final Future<void> Function()? refresh,
+    final AsyncCallback? refresh,
   }) async {
     try {
       if (disableTimeout) {

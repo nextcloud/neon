@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/label_builder.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/select_option.dart';
@@ -51,7 +52,7 @@ class GlobalOptions extends OptionsCollection {
 
   final PackageInfo _packageInfo;
 
-  late final _distributorsMap = <String, String Function(BuildContext)>{
+  late final _distributorsMap = <String, LabelBuilder>{
     _packageInfo.packageName: (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
     'com.github.gotify.up': (final context) =>

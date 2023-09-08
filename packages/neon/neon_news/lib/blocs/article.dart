@@ -78,7 +78,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
     });
   }
 
-  void _wrapArticleAction(final Future<void> Function() call) => wrapAction(
+  void _wrapArticleAction(final AsyncCallback call) => wrapAction(
         call,
         refresh: () async {
           await _newsArticlesBloc.refresh();

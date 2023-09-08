@@ -86,7 +86,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     },
   );
 
-  late final _sizeWarningValues = <int?, String Function(BuildContext)>{
+  late final _sizeWarningValues = <int?, LabelBuilder>{
     null: (final context) => AppLocalizations.of(context).optionsSizeWarningDisabled,
     for (final i in [
       1,
