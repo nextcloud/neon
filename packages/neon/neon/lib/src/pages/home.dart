@@ -14,10 +14,7 @@ import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/unified_search_results.dart';
-import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
-
-const kQuickBarWidth = kAvatarSize + 20;
 
 class HomePage extends StatefulWidget {
   const HomePage({

@@ -3,7 +3,7 @@ part of '../neon_news.dart';
 class NewsFeedIcon extends StatelessWidget {
   const NewsFeedIcon({
     required this.feed,
-    this.size = 48,
+    this.size = largeIconSize,
     this.borderRadius,
     super.key,
   });

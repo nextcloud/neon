@@ -130,14 +130,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                   children: <Widget>[
                                     IconButton(
                                       padding: EdgeInsets.zero,
-                                      visualDensity: const VisualDensity(
-                                        horizontal: VisualDensity.minimumDensity,
-                                        vertical: VisualDensity.minimumDensity,
-                                      ),
                                       tooltip: AppLocalizations.of(context).goToPath(''),
                                       icon: const Icon(
                                         Icons.house,
-                                        size: 30,
                                       ),
                                       onPressed: () {
                                         widget.bloc.setPath([]);
@@ -167,7 +162,6 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                       .intersperse(
                                         const Icon(
                                           Icons.keyboard_arrow_right,
-                                          size: 30,
                                         ),
                                       )
                                       .toList(),

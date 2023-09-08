@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:rxdart/subjects.dart';
 
 @internal
-typedef DestinationIconBuilder = Widget Function({Size size, Color color});
+typedef DestinationIconBuilder = Widget Function({double? size, Color color});
 
 @internal
 class NeonNavigationDestination {
@@ -34,18 +33,17 @@ extension NavigationDestinationExtension on NavigationDestination {
 @internal
 extension NavigationRailDestinationExtension on NavigationRailDestination {
   static NavigationRailDestination fromNeonDestination(final NeonNavigationDestination neonDestination) {
-    final iconWIdget = StreamBuilder(
+    final iconWidget = StreamBuilder(
       stream: neonDestination.notificationCount,
       initialData: 0,
       builder: (final context, final snapshot) {
         final colorScheme = Theme.of(context).colorScheme;
 
         final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onBackground;
-        const size = Size.square(kAvatarSize * 2 / 3);
 
         final icon = Container(
           margin: const EdgeInsets.all(5),
-          child: neonDestination.icon(size: size, color: color),
+          child: neonDestination.icon(color: color),
         );
 
         if (snapshot.requireData <= 0) {
@@ -78,7 +76,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
 
     return NavigationRailDestination(
       label: Text(neonDestination.label),
-      icon: iconWIdget,
+      icon: iconWidget,
       selectedIcon: neonDestination.selectedIcon,
     );
   }

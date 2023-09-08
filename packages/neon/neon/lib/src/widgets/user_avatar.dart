@@ -8,20 +8,19 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/server_icon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
-const kAvatarSize = 40.0;
-
 class NeonUserAvatar extends StatefulWidget {
   NeonUserAvatar({
     required this.account,
     final String? username,
     this.showStatus = true,
-    this.size = kAvatarSize,
+    this.size,
     this.backgroundColor,
     this.foregroundColor,
     super.key,
@@ -30,7 +29,7 @@ class NeonUserAvatar extends StatefulWidget {
   final Account account;
   final String username;
   final bool showStatus;
-  final double size;
+  final double? size;
   final Color? backgroundColor;
   final Color? foregroundColor;
 
@@ -55,7 +54,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   Widget build(final BuildContext context) => LayoutBuilder(
         builder: (final context, final constraints) {
           final brightness = Theme.of(context).brightness;
-          size = constraints.constrain(Size.square(widget.size)).shortestSide;
+          size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
           final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
           return Stack(
             alignment: Alignment.center,

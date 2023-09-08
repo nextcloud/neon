@@ -15,6 +15,7 @@ import 'package:neon/nextcloud.dart';
 import 'package:neon/platform.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
+import 'package:neon/theme.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';

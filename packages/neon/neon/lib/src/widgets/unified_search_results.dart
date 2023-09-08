@@ -7,13 +7,13 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/image_wrapper.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/list_view.dart';
 import 'package:neon/src/widgets/server_icon.dart';
-import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 
@@ -77,7 +77,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
               ListTile(
                 leading: const Icon(
                   Icons.close,
-                  size: kAvatarSize,
+                  size: largeIconSize,
                 ),
                 title: Text(AppLocalizations.of(context).searchNoResults),
               ),
@@ -85,7 +85,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
             for (final entry in entries) ...[
               ListTile(
                 leading: NeonImageWrapper(
-                  size: const Size.square(kAvatarSize),
+                  size: const Size.square(largeIconSize),
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                   child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
                 ),
@@ -105,7 +105,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   Widget _buildThumbnail(final BuildContext context, final Account account, final CoreUnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonCachedImage.url(
-        size: const Size.square(kAvatarSize),
+        size: const Size.square(largeIconSize),
         url: entry.thumbnailUrl,
         account: account,
         // The thumbnail URL might be set but a 404 is returned because there is no preview available
@@ -121,7 +121,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final Account account,
     final CoreUnifiedSearchResultEntry entry,
   ) {
-    const size = Size.square(kAvatarSize * 2 / 3);
+    final size = Size.square(IconTheme.of(context).size!);
     if (entry.icon.startsWith('/')) {
       return NeonCachedImage.url(
         size: size,

@@ -46,10 +46,10 @@ class NotesCategoriesView extends StatelessWidget {
         leading: category.name.isNotEmpty
             ? Icon(
                 MdiIcons.tag,
-                size: 40,
+                size: largeIconSize,
                 color: NotesCategoryColor.compute(category.name),
               )
-            : const SizedBox.square(dimension: 40),
+            : const SizedBox.square(dimension: largeIconSize),
         onTap: () async {
           await Navigator.of(context).push(
             MaterialPageRoute(
