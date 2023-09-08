@@ -3,6 +3,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 late String? _userAgent;
 
+@internal
 void buildUserAgent(final PackageInfo packageInfo) {
   var buildNumber = packageInfo.buildNumber;
   if (buildNumber.isEmpty) {

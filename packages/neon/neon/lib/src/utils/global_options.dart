@@ -221,6 +221,7 @@ class GlobalOptions extends OptionsCollection {
   );
 }
 
+@internal
 enum GlobalOptionKeys implements Storable {
   themeMode._('theme-mode'),
   themeOledAsDark._('theme-oled-as-dark'),
@@ -241,6 +242,7 @@ enum GlobalOptionKeys implements Storable {
   final String value;
 }
 
+@internal
 enum NavigationMode {
   drawer,
   drawerAlwaysVisible,

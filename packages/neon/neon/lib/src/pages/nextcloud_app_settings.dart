@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/select_option.dart';
@@ -11,6 +12,7 @@ import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 
+@internal
 class NextcloudAppSettingsPage extends StatelessWidget {
   const NextcloudAppSettingsPage({
     required this.appImplementation,

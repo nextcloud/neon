@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:neon/blocs.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/router.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+@internal
 class RouteNotFoundPage extends StatefulWidget {
   const RouteNotFoundPage({
     required this.uri,

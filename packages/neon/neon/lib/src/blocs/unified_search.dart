@@ -10,6 +10,7 @@ import 'package:neon/src/blocs/apps.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class UnifiedSearchBlocEvents {
   void search(final String term);
 
@@ -18,6 +19,7 @@ abstract interface class UnifiedSearchBlocEvents {
   void disable();
 }
 
+@internal
 abstract interface class UnifiedSearchBlocStates {
   BehaviorSubject<bool> get enabled;
 

@@ -16,6 +16,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class AppsBlocEvents {
   /// Sets the active app using the [appID].
   ///
@@ -24,6 +25,7 @@ abstract interface class AppsBlocEvents {
   void setActiveApp(final String appID, {final bool skipAlreadySet = false});
 }
 
+@internal
 abstract interface class AppsBlocStates {
   BehaviorSubject<Result<List<CoreNavigationEntry>>> get apps;
 

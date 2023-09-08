@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/widgets/exception.dart';
 
+@internal
 class LoginQrcodePage extends StatefulWidget {
   const LoginQrcodePage({
     super.key,

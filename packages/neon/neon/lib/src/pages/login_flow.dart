@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_flow.dart';
@@ -7,6 +8,7 @@ import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+@internal
 class LoginFlowPage extends StatefulWidget {
   const LoginFlowPage({
     required this.serverURL,

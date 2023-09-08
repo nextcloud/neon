@@ -8,8 +8,10 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class CapabilitiesBlocEvents {}
 
+@internal
 abstract interface class CapabilitiesBlocStates {
   BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }

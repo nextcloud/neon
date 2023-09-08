@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
@@ -7,6 +8,7 @@ import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
 
+@internal
 class LoginPage extends StatefulWidget {
   const LoginPage({
     super.key,

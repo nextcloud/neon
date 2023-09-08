@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -16,6 +17,7 @@ import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/unified_search_results.dart';
 import 'package:provider/provider.dart';
 
+@internal
 class HomePage extends StatefulWidget {
   const HomePage({
     super.key,

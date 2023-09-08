@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/models/account.dart';
@@ -8,13 +9,16 @@ import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class LoginCheckAccountBlocEvents {}
 
+@internal
 abstract interface class LoginCheckAccountBlocStates {
   /// Contains the account for the user
   BehaviorSubject<Result<Account>> get state;
 }
 
+@internal
 class LoginCheckAccountBloc extends InteractiveBloc
     implements LoginCheckAccountBlocEvents, LoginCheckAccountBlocStates {
   LoginCheckAccountBloc(

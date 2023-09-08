@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 
+@internal
 abstract interface class TimerBlocEvents {
   /// Register a [callback] that will be called periodically.
   /// The time between the executions is defined by the [duration].
@@ -14,6 +15,7 @@ abstract interface class TimerBlocEvents {
   void unregisterTimer(final NeonTimer timer);
 }
 
+@internal
 abstract interface class TimerBlocStates {}
 
 /// Execute callbacks at defined periodic intervals.

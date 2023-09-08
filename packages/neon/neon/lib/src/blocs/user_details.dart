@@ -8,8 +8,10 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class UserDetailsBlocEvents {}
 
+@internal
 abstract interface class UserDetailsBlocStates {
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
 }

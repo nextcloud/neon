@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -26,6 +27,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+@internal
 enum SettingsCategories {
   apps,
   theme,
@@ -37,6 +39,7 @@ enum SettingsCategories {
   other,
 }
 
+@internal
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
     this.initialCategory,

@@ -8,8 +8,10 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 abstract interface class NextPushBlocEvents {}
 
+@internal
 abstract interface class NextPushBlocStates {
   BehaviorSubject<void> get onNextPushSupported;
 }

@@ -43,6 +43,7 @@ class AccountSpecificOptions extends OptionsCollection {
   );
 }
 
+@internal
 enum AccountOptionKeys implements Storable {
   initialApp._('initial-app');
 
