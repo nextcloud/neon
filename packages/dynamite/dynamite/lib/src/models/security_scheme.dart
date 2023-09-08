@@ -1,30 +1,19 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'security_scheme.g.dart';
 
-@JsonSerializable()
-@immutable
-class SecurityScheme {
-  const SecurityScheme({
-    required this.type,
-    this.description,
-    this.scheme,
-  });
+abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBuilder> {
+  factory SecurityScheme([final void Function(SecuritySchemeBuilder) updates]) = _$SecurityScheme;
 
-  factory SecurityScheme.fromJson(final Map<String, dynamic> json) => _$SecuritySchemeFromJson(json);
-  Map<String, dynamic> toJson() => _$SecuritySchemeToJson(this);
+  const SecurityScheme._();
 
-  final String type;
+  static Serializer<SecurityScheme> get serializer => _$securitySchemeSerializer;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  String get type;
 
-  final String? scheme;
+  @BuiltValueField(compare: false)
+  String? get description;
 
-  @override
-  bool operator ==(final Object other) => other is SecurityScheme && type == other.type && scheme == other.scheme;
-
-  @override
-  int get hashCode => type.hashCode + scheme.hashCode;
+  String? get scheme;
 }

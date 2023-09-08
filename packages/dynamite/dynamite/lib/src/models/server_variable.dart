@@ -1,34 +1,22 @@
-import 'package:collection/collection.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'server_variable.g.dart';
 
-@JsonSerializable()
-@immutable
-class ServerVariable {
-  const ServerVariable({
-    required this.default_,
-    this.enum_,
-    this.description,
-  });
+abstract class ServerVariable implements Built<ServerVariable, ServerVariableBuilder> {
+  factory ServerVariable([final void Function(ServerVariableBuilder) updates]) = _$ServerVariable;
 
-  factory ServerVariable.fromJson(final Map<String, dynamic> json) => _$ServerVariableFromJson(json);
-  Map<String, dynamic> toJson() => _$ServerVariableToJson(this);
+  const ServerVariable._();
 
-  @JsonKey(name: 'default')
-  final String default_;
+  static Serializer<ServerVariable> get serializer => _$serverVariableSerializer;
 
-  @JsonKey(name: 'enum')
-  final List<String>? enum_;
+  @BuiltValueField(wireName: 'default')
+  String get $default;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  @BuiltValueField(wireName: 'enum')
+  BuiltList<String>? get $enum;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is ServerVariable && default_ == other.default_ && const ListEquality().equals(enum_, other.enum_);
-
-  @override
-  int get hashCode => default_.hashCode + const ListEquality().hash(enum_);
+  @BuiltValueField(compare: false)
+  String? get description;
 }

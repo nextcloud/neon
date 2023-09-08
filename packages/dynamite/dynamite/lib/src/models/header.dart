@@ -1,31 +1,20 @@
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/schema.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'header.g.dart';
 
-@JsonSerializable()
-@immutable
-class Header {
-  const Header({
-    this.description,
-    this.required,
-    this.schema,
-  });
+abstract class Header implements Built<Header, HeaderBuilder> {
+  factory Header([final void Function(HeaderBuilder) updates]) = _$Header;
 
-  factory Header.fromJson(final Map<String, dynamic> json) => _$HeaderFromJson(json);
-  Map<String, dynamic> toJson() => _$HeaderToJson(this);
+  const Header._();
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  static Serializer<Header> get serializer => _$headerSerializer;
 
-  final bool? required;
+  @BuiltValueField(compare: false)
+  String? get description;
 
-  final Schema? schema;
+  bool? get required;
 
-  @override
-  bool operator ==(final Object other) => other is Header && required == other.required && schema == other.schema;
-
-  @override
-  int get hashCode => Object.hashAll([required, schema]);
+  Schema? get schema;
 }

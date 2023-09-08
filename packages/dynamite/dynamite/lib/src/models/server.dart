@@ -1,29 +1,18 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/server_variable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'server.g.dart';
 
-@JsonSerializable()
-@immutable
-class Server {
-  const Server({
-    required this.url,
-    this.variables,
-  });
+abstract class Server implements Built<Server, ServerBuilder> {
+  factory Server([final void Function(ServerBuilder) updates]) = _$Server;
 
-  factory Server.fromJson(final Map<String, dynamic> json) => _$ServerFromJson(json);
-  Map<String, dynamic> toJson() => _$ServerToJson(this);
+  const Server._();
 
-  final String url;
+  static Serializer<Server> get serializer => _$serverSerializer;
 
-  final Map<String, ServerVariable>? variables;
+  String get url;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is Server && url == other.url && const MapEquality().equals(variables, other.variables);
-
-  @override
-  int get hashCode => url.hashCode + const MapEquality().hash(variables);
+  BuiltMap<String, ServerVariable>? get variables;
 }

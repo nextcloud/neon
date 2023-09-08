@@ -1,24 +1,15 @@
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/schema.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'media_type.g.dart';
 
-@JsonSerializable()
-@immutable
-class MediaType {
-  const MediaType({
-    this.schema,
-  });
+abstract class MediaType implements Built<MediaType, MediaTypeBuilder> {
+  factory MediaType([final void Function(MediaTypeBuilder) updates]) = _$MediaType;
 
-  factory MediaType.fromJson(final Map<String, dynamic> json) => _$MediaTypeFromJson(json);
-  Map<String, dynamic> toJson() => _$MediaTypeToJson(this);
+  const MediaType._();
 
-  final Schema? schema;
+  static Serializer<MediaType> get serializer => _$mediaTypeSerializer;
 
-  @override
-  bool operator ==(final Object other) => other is MediaType && schema == other.schema;
-
-  @override
-  int get hashCode => schema.hashCode;
+  Schema? get schema;
 }

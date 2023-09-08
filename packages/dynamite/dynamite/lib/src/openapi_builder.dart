@@ -11,6 +11,7 @@ import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/open_api.dart';
+import 'package:dynamite/src/models/serializers.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
 
 class OpenAPIBuilder implements Builder {
@@ -30,11 +31,10 @@ class OpenAPIBuilder implements Builder {
         useNullSafetySyntax: true,
       );
 
-      final spec = OpenAPI.fromJson(
-        json.decode(
-          await buildStep.readAsString(inputId),
-        ) as Map<String, dynamic>,
-      );
+      final spec = serializers.deserializeWith(
+        OpenAPI.serializer,
+        json.decode(await buildStep.readAsString(inputId)),
+      )!;
 
       final supportedVersions = ['3.0.3', '3.1.0'];
       if (!supportedVersions.contains(spec.version)) {

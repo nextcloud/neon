@@ -1,36 +1,22 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/header.dart';
 import 'package:dynamite/src/models/media_type.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'response.g.dart';
 
-@JsonSerializable()
-@immutable
-class Response {
-  const Response({
-    required this.description,
-    this.content,
-    this.headers,
-  });
+abstract class Response implements Built<Response, ResponseBuilder> {
+  factory Response([final void Function(ResponseBuilder) updates]) = _$Response;
 
-  factory Response.fromJson(final Map<String, dynamic> json) => _$ResponseFromJson(json);
-  Map<String, dynamic> toJson() => _$ResponseToJson(this);
+  const Response._();
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String description;
+  static Serializer<Response> get serializer => _$responseSerializer;
 
-  final Map<String, MediaType>? content;
+  @BuiltValueField(compare: false)
+  String get description;
 
-  final Map<String, Header>? headers;
+  BuiltMap<String, MediaType>? get content;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is Response &&
-      const MapEquality().equals(content, other.content) &&
-      const MapEquality().equals(headers, other.headers);
-
-  @override
-  int get hashCode => const MapEquality().hash(content) + const MapEquality().hash(headers);
+  BuiltMap<String, Header>? get headers;
 }

@@ -1,35 +1,23 @@
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/license.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'info.g.dart';
 
-@JsonSerializable()
-@immutable
-class Info {
-  const Info({
-    required this.title,
-    required this.version,
-    required this.license,
-    this.description,
-  });
+abstract class Info implements Built<Info, InfoBuilder> {
+  factory Info([final void Function(InfoBuilder) updates]) = _$Info;
 
-  factory Info.fromJson(final Map<String, dynamic> json) => _$InfoFromJson(json);
-  Map<String, dynamic> toJson() => _$InfoToJson(this);
+  const Info._();
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String title;
+  static Serializer<Info> get serializer => _$infoSerializer;
 
-  final String version;
+  @BuiltValueField(compare: false)
+  String get title;
 
-  final License license;
+  String get version;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  License get license;
 
-  @override
-  bool operator ==(final Object other) => other is Info && version == other.version && license == other.license;
-
-  @override
-  int get hashCode => version.hashCode + license.hashCode;
+  @BuiltValueField(compare: false)
+  String? get description;
 }

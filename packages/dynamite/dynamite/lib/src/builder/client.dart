@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
@@ -283,7 +284,7 @@ Iterable<Method> buildTags(
     for (final operationEntry in pathEntry.value.operations.entries) {
       yield Method(
         (final b) {
-          final httpMethod = operationEntry.key;
+          final httpMethod = operationEntry.key.name;
           final operation = operationEntry.value;
           final operationId = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
           final parameters = [
@@ -327,7 +328,7 @@ final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$accep
 Uint8List? _body;
 ''');
 
-          final security = operation.security ?? spec.security ?? [];
+          final security = operation.security ?? spec.security ?? BuiltList();
           final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
           final isOptionalSecurity = securityRequirements.length != security.length;
           code.write('    // coverage:ignore-start\n');
@@ -392,8 +393,8 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
               }
             }
 
-            final defaultValueCode = parameter.schema?.default_ != null
-                ? valueToEscapedValue(result, parameter.schema!.default_.toString())
+            final defaultValueCode = parameter.schema?.$default != null
+                ? valueToEscapedValue(result, parameter.schema!.$default.toString())
                 : null;
 
             b.optionalParameters.add(
@@ -418,12 +419,12 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
             }
             final value = result.encode(
               toDartName(parameter.name),
-              onlyChildren: result is TypeResultList && parameter.in_ == 'query',
+              onlyChildren: result is TypeResultList && parameter.$in == 'query',
             );
-            if (defaultValueCode != null && parameter.in_ == 'query') {
+            if (defaultValueCode != null && parameter.$in == 'query') {
               code.write('if (${toDartName(parameter.name)} != $defaultValueCode) {');
             }
-            switch (parameter.in_) {
+            switch (parameter.$in) {
               case 'path':
                 code.write(
                   "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
@@ -437,9 +438,9 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
                   "_headers['${parameter.name}'] = $value;",
                 );
               default:
-                throw Exception('Can not work with parameter in "${parameter.in_}"');
+                throw Exception('Can not work with parameter in "${parameter.$in}"');
             }
-            if (defaultValueCode != null && parameter.in_ == 'query') {
+            if (defaultValueCode != null && parameter.$in == 'query') {
               code.write('}');
             }
             if (dartParameterNullable) {
@@ -475,7 +476,7 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
                 case 'application/x-www-form-urlencoded':
                   final dartParameterRequired = isRequired(
                     operation.requestBody!.required,
-                    mediaType.schema?.default_,
+                    mediaType.schema?.$default,
                   );
                   b.optionalParameters.add(
                     Parameter(
@@ -530,12 +531,15 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
                 state,
                 identifier,
                 Schema(
-                  properties: response.headers!.map(
-                    (final headerName, final value) => MapEntry(
-                      headerName.toLowerCase(),
-                      value.schema!,
+                  (final b) => b
+                    ..properties.replace(
+                      response.headers!.map(
+                        (final headerName, final value) => MapEntry(
+                          headerName.toLowerCase(),
+                          value.schema!,
+                        ),
+                      ),
                     ),
-                  ),
                 ),
                 isHeader: true,
               );
@@ -630,11 +634,27 @@ Map<String, PathItem> generatePaths(final OpenAPI spec, final String? tag) {
         final operation = operationEntry.value;
         if ((operation.tags != null && operation.tags!.contains(tag)) ||
             (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
-          paths[path.key] ??= PathItem(
-            description: path.value.description,
-            parameters: path.value.parameters,
-          );
-          paths[path.key] = paths[path.key]!.copyWithOperations({operationEntry.key: operation});
+          paths[path.key] ??= path.value;
+          paths[path.key]!.rebuild((final b) {
+            switch (operationEntry.key) {
+              case PathItemOperation.get:
+                b.get.replace(operation);
+              case PathItemOperation.put:
+                b.put.replace(operation);
+              case PathItemOperation.post:
+                b.post.replace(operation);
+              case PathItemOperation.delete:
+                b.delete.replace(operation);
+              case PathItemOperation.options:
+                b.options.replace(operation);
+              case PathItemOperation.head:
+                b.head.replace(operation);
+              case PathItemOperation.patch:
+                b.patch.replace(operation);
+              case PathItemOperation.trace:
+                b.trace.replace(operation);
+            }
+          });
         }
       }
     }

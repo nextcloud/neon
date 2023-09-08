@@ -1,32 +1,19 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/models/security_scheme.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'components.g.dart';
 
-@JsonSerializable()
-@immutable
-class Components {
-  const Components({
-    this.securitySchemes,
-    this.schemas,
-  });
+abstract class Components implements Built<Components, ComponentsBuilder> {
+  factory Components([final void Function(ComponentsBuilder) updates]) = _$Components;
 
-  factory Components.fromJson(final Map<String, dynamic> json) => _$ComponentsFromJson(json);
-  Map<String, dynamic> toJson() => _$ComponentsToJson(this);
+  const Components._();
 
-  final Map<String, SecurityScheme>? securitySchemes;
+  static Serializer<Components> get serializer => _$componentsSerializer;
 
-  final Map<String, Schema>? schemas;
+  BuiltMap<String, SecurityScheme>? get securitySchemes;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is Components &&
-      const MapEquality().equals(securitySchemes, other.securitySchemes) &&
-      const MapEquality().equals(schemas, other.schemas);
-
-  @override
-  int get hashCode => const MapEquality().hash(securitySchemes) + const MapEquality().hash(schemas);
+  BuiltMap<String, Schema>? get schemas;
 }

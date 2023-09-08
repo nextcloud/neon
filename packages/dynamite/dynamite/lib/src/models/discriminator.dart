@@ -1,30 +1,17 @@
-import 'package:collection/collection.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'discriminator.g.dart';
 
-@JsonSerializable()
-@immutable
-class Discriminator {
-  const Discriminator({
-    required this.propertyName,
-    this.mapping,
-  });
+abstract class Discriminator implements Built<Discriminator, DiscriminatorBuilder> {
+  factory Discriminator([final void Function(DiscriminatorBuilder) updates]) = _$Discriminator;
 
-  factory Discriminator.fromJson(final Map<String, dynamic> json) => _$DiscriminatorFromJson(json);
-  Map<String, dynamic> toJson() => _$DiscriminatorToJson(this);
+  const Discriminator._();
 
-  final String propertyName;
+  static Serializer<Discriminator> get serializer => _$discriminatorSerializer;
 
-  final Map<String, String>? mapping;
+  String get propertyName;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is Discriminator &&
-      propertyName == other.propertyName &&
-      const MapEquality().equals(mapping, other.mapping);
-
-  @override
-  int get hashCode => propertyName.hashCode + const MapEquality().hash(mapping);
+  BuiltMap<String, String>? get mapping;
 }
