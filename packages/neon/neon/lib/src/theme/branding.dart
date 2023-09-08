@@ -12,6 +12,8 @@ class Branding {
   const Branding({
     required this.name,
     required this.logo,
+    this.sourceCodeURL,
+    this.issueTrackerURL,
     this.legalese,
     this.showLoginWithNextcloud = true,
   });
@@ -21,6 +23,12 @@ class Branding {
 
   /// Logo of the app shown on various places in the app.
   final Widget logo;
+
+  /// The URL where the source code can be seen
+  final String? sourceCodeURL;
+
+  /// The URL where users can report bugs and request features
+  final String? issueTrackerURL;
 
   /// A string to show in small print.
   ///

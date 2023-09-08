@@ -180,5 +180,7 @@
   },
   "accountOptionsInitialApp": "App to show initially",
   "accountOptionsAutomatic": "Automatic",
-  "licenses": "Licenses"
+  "licenses": "Licenses",
+  "sourceCode": "Source code",
+  "issueTracker": "Report a bug or request a feature"
 }

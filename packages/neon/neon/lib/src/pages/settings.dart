@@ -24,6 +24,7 @@ import 'package:neon/src/utils/save_file.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 enum SettingsCategories {
   apps,
@@ -54,6 +55,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final globalOptions = Provider.of<GlobalOptions>(context);
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final appImplementations = Provider.of<Iterable<AppImplementation>>(context);
+    final branding = Branding.of(context);
 
     final appBar = AppBar(
       title: Text(AppLocalizations.of(context).settings),
@@ -220,6 +222,34 @@ class _SettingsPageState extends State<SettingsPage> {
               title: Text(AppLocalizations.of(context).optionsCategoryOther),
               key: ValueKey(SettingsCategories.other.name),
               tiles: <SettingsTile>[
+                if (branding.sourceCodeURL != null)
+                  CustomSettingsTile(
+                    leading: Icon(
+                      Icons.code,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(AppLocalizations.of(context).sourceCode),
+                    onTap: () async {
+                      await launchUrlString(
+                        branding.sourceCodeURL!,
+                        mode: LaunchMode.externalApplication,
+                      );
+                    },
+                  ),
+                if (branding.issueTrackerURL != null)
+                  CustomSettingsTile(
+                    leading: Icon(
+                      MdiIcons.textBoxEditOutline,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(AppLocalizations.of(context).issueTracker),
+                    onTap: () async {
+                      await launchUrlString(
+                        branding.issueTrackerURL!,
+                        mode: LaunchMode.externalApplication,
+                      );
+                    },
+                  ),
                 CustomSettingsTile(
                   leading: Icon(
                     MdiIcons.scriptText,
@@ -227,7 +257,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   title: Text(AppLocalizations.of(context).licenses),
                   onTap: () async {
-                    final branding = Branding.of(context);
                     showLicensePage(
                       context: context,
                       applicationName: branding.name,

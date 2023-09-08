@@ -17,6 +17,8 @@ const branding = Branding(
       'assets/logo.svg.vec',
     ),
   ),
+  sourceCodeURL: 'https://github.com/nextcloud/neon',
+  issueTrackerURL: 'https://github.com/nextcloud/neon/issues',
   legalese: 'Copyright © 2023, provokateurin\nUnder GPLv3 license',
 );
 
