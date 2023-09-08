@@ -344,4 +344,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get licenses => 'Licenses';
+
+  @override
+  String get sourceCode => 'Source code';
+
+  @override
+  String get issueTracker => 'Report a bug or request a feature';
 }
