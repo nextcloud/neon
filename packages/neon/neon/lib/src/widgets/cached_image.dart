@@ -5,14 +5,19 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon/nextcloud.dart';
+import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:provider/provider.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
 typedef ImageDownloader = FutureOr<Uint8List> Function();
 typedef CacheWriter = Future<void> Function(CacheManager cacheManager, Uint8List image);
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext, dynamic);
+
+typedef ApiImageDownloader = FutureOr<Uint8List> Function(NextcloudClient client);
 
 class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage({
@@ -185,4 +190,41 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
         onlyIcon: true,
         iconSize: widget.size?.shortestSide,
       );
+}
+
+class NeonApiImage extends StatelessWidget {
+  const NeonApiImage({
+    required this.getImage,
+    required this.cacheKey,
+    this.reviver,
+    this.writeCache,
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
+    this.svgColor,
+    this.iconColor,
+    this.errorBuilder,
+    super.key,
+  });
+
+  final ApiImageDownloader getImage;
+  final String cacheKey;
+  final CacheReviver? reviver;
+  final CacheWriter? writeCache;
+  final bool isSvgHint;
+  final Size? size;
+  final BoxFit? fit;
+  final Color? svgColor;
+  final Color? iconColor;
+  final ErrorWidgetBuilder? errorBuilder;
+
+  @override
+  Widget build(final BuildContext context) {
+    final account = Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!;
+
+    return NeonCachedImage.custom(
+      getImage: () async => getImage(account.client),
+      cacheKey: '${account.id}-$cacheKey',
+    );
+  }
 }

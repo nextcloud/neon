@@ -41,9 +41,7 @@ class FilePreview extends StatelessWidget {
             valueListenable: bloc.options.showPreviewsOption,
             builder: (final context, final showPreviews, final child) {
               if (showPreviews && (details.hasPreview ?? false)) {
-                final account = Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!;
                 final preview = FilePreviewImage(
-                  account: account,
                   file: details,
                   size: size,
                 );
@@ -72,19 +70,17 @@ class FilePreview extends StatelessWidget {
   }
 }
 
-class FilePreviewImage extends NeonCachedImage {
+class FilePreviewImage extends NeonApiImage {
   factory FilePreviewImage({
-    required final Account account,
     required final FileDetails file,
     required final Size size,
   }) {
     final width = size.width.toInt();
     final height = size.height.toInt();
     final path = file.path.join('/');
-    final cacheKey = '${account.id}-preview-$path-$width-$height';
+    final cacheKey = 'preview-$path-$width-$height';
 
     return FilePreviewImage._(
-      account: account,
       file: file,
       size: size,
       cacheKey: cacheKey,
@@ -95,15 +91,14 @@ class FilePreviewImage extends NeonCachedImage {
   }
 
   FilePreviewImage._({
-    required final Account account,
     required final FileDetails file,
     required Size super.size,
     required super.cacheKey,
     required final String path,
     required final int width,
     required final int height,
-  }) : super.custom(
-          getImage: () async => account.client.core.preview.getPreview(
+  }) : super(
+          getImage: (final client) async => client.core.preview.getPreview(
             file: path,
             x: width,
             y: height,

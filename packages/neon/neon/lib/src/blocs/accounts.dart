@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
@@ -17,6 +18,7 @@ import 'package:rxdart/rxdart.dart';
 
 const _keyAccounts = 'accounts';
 
+@internal
 abstract interface class AccountsBlocEvents {
   /// Logs in the given [account].
   ///
@@ -40,6 +42,7 @@ abstract interface class AccountsBlocEvents {
   void setActiveAccount(final Account account);
 }
 
+@internal
 abstract interface class AccountsBlocStates {
   /// All registered accounts.
   ///
