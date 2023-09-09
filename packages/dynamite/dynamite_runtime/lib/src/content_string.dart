@@ -28,7 +28,7 @@ class ContentStringPlugin implements SerializerPlugin {
     }
 
     if (object is! Map<String, dynamic>) {
-      throw ArgumentError('ContentStringPlugin can only be applied to Map<String, dynamic>. '
+      throw StateError('ContentStringPlugin can only be applied to Map<String, dynamic>. '
           'Please ensure the StandardJsonPlugin is applied and run before.');
     }
 
@@ -44,7 +44,7 @@ class ContentStringPlugin implements SerializerPlugin {
     }
 
     if (object is! String) {
-      throw ArgumentError('The serialized ContentString must be of type String. '
+      throw StateError('The serialized ContentString must be of type String. '
           'Please ensure the StandardJsonPlugin is applied and run before.');
     }
 
