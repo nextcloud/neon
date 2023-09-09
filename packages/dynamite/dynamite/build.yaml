@@ -1,16 +1,3 @@
-targets:
-  $default:
-    builders:
-      json_serializable:
-        options:
-          disallow_unrecognized_keys: true
-          explicit_to_json: true
-          create_factory: true
-          create_to_json: true
-          include_if_null: false
-      dynamite:
-        enabled: true
-
 builders:
   dynamite:
     import: "package:dynamite/builder.dart"

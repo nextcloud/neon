@@ -1,30 +1,18 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'license.g.dart';
 
-@JsonSerializable()
-@immutable
-class License {
-  const License({
-    required this.name,
-    this.identifier,
-    this.url,
-  });
+abstract class License implements Built<License, LicenseBuilder> {
+  factory License([final void Function(LicenseBuilder) updates]) = _$License;
 
-  factory License.fromJson(final Map<String, dynamic> json) => _$LicenseFromJson(json);
-  Map<String, dynamic> toJson() => _$LicenseToJson(this);
+  const License._();
 
-  final String name;
+  static Serializer<License> get serializer => _$licenseSerializer;
 
-  final String? identifier;
+  String get name;
 
-  final String? url;
+  String? get identifier;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is License && name == other.name && identifier == other.identifier && url == other.url;
-
-  @override
-  int get hashCode => name.hashCode + identifier.hashCode + url.hashCode;
+  String? get url;
 }

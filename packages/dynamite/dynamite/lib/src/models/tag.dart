@@ -1,30 +1,20 @@
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'tag.g.dart';
 
-@JsonSerializable()
-@immutable
-class Tag {
-  const Tag({
-    required this.name,
-    this.description,
-  });
+abstract class Tag implements Built<Tag, TagBuilder> {
+  factory Tag([final void Function(TagBuilder) updates]) = _$Tag;
 
-  factory Tag.fromJson(final Map<String, dynamic> json) => _$TagFromJson(json);
-  Map<String, dynamic> toJson() => _$TagToJson(this);
+  Tag._();
 
-  final String name;
+  static Serializer<Tag> get serializer => _$tagSerializer;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  String get name;
+
+  @BuiltValueField(compare: false)
+  String? get description;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
-
-  @override
-  bool operator ==(final Object other) => other is Tag && name == other.name;
-
-  @override
-  int get hashCode => name.hashCode;
 }

@@ -25,8 +25,8 @@ TypeResultObject resolveObject(
     final defaults = <String>[];
     for (final property in schema.properties!.entries) {
       final propertySchema = property.value;
-      if (propertySchema.default_ != null) {
-        final value = propertySchema.default_!.toString();
+      if (propertySchema.$default != null) {
+        final value = propertySchema.$default!.toString();
         final result = resolveType(
           spec,
           state,

@@ -116,12 +116,6 @@ TypeResult resolveType(
               'JsonObject',
               nullable: nullable,
             );
-          } else if (schema.additionalProperties is EmptySchema) {
-            result = TypeResultMap(
-              'BuiltMap',
-              TypeResultBase('JsonObject'),
-              nullable: nullable,
-            );
           } else {
             final subResult = resolveType(
               spec,
@@ -154,7 +148,7 @@ TypeResult resolveType(
   }
 
   if (result != null) {
-    if (!ignoreEnum && schema.enum_ != null) {
+    if (!ignoreEnum && schema.$enum != null) {
       result = resolveEnum(
         spec,
         state,
@@ -169,5 +163,5 @@ TypeResult resolveType(
     return result;
   }
 
-  throw Exception('Can not convert OpenAPI type "${schema.toJson()}" to a Dart type');
+  throw Exception('Can not convert OpenAPI type "$schema" to a Dart type');
 }

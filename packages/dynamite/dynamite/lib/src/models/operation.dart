@@ -1,50 +1,39 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/parameter.dart';
 import 'package:dynamite/src/models/request_body.dart';
 import 'package:dynamite/src/models/response.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'operation.g.dart';
 
-@JsonSerializable()
-@immutable
-class Operation {
-  const Operation({
-    this.operationId,
-    this.summary,
-    this.description,
-    this.deprecated,
-    this.tags,
-    this.parameters,
-    this.requestBody,
-    this.responses,
-    this.security,
-  });
+abstract class Operation implements Built<Operation, OperationBuilder> {
+  factory Operation([final void Function(OperationBuilder) updates]) = _$Operation;
 
-  factory Operation.fromJson(final Map<String, dynamic> json) => _$OperationFromJson(json);
-  Map<String, dynamic> toJson() => _$OperationToJson(this);
+  const Operation._();
 
-  final String? operationId;
+  static Serializer<Operation> get serializer => _$operationSerializer;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? summary;
+  String? get operationId;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  @BuiltValueField(compare: false)
+  String? get summary;
 
-  final bool? deprecated;
+  @BuiltValueField(compare: false)
+  String? get description;
 
-  final List<String>? tags;
+  bool? get deprecated;
 
-  final List<Parameter>? parameters;
+  BuiltList<String>? get tags;
 
-  final RequestBody? requestBody;
+  BuiltList<Parameter>? get parameters;
 
-  final Map<String, Response>? responses;
+  RequestBody? get requestBody;
 
-  final List<Map<String, List<String>>>? security;
+  BuiltMap<String, Response>? get responses;
+
+  BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
   Iterable<String> get formattedDescription sync* {
     yield* descriptionToDocs(summary);
@@ -55,25 +44,4 @@ class Operation {
 
     yield* descriptionToDocs(description);
   }
-
-  @override
-  bool operator ==(final Object other) =>
-      other is Operation &&
-      operationId == other.operationId &&
-      deprecated == other.deprecated &&
-      const ListEquality().equals(tags, other.tags) &&
-      const ListEquality().equals(parameters, other.parameters) &&
-      requestBody == other.requestBody &&
-      const MapEquality().equals(responses, other.responses) &&
-      const DeepCollectionEquality().equals(security, other.security);
-
-  @override
-  int get hashCode =>
-      operationId.hashCode +
-      deprecated.hashCode +
-      const ListEquality().hash(tags) +
-      const ListEquality().hash(parameters) +
-      requestBody.hashCode +
-      const MapEquality().hash(responses) +
-      const DeepCollectionEquality().hash(security);
 }

@@ -37,26 +37,26 @@ TypeResult resolveEnum(
             ),
           )
           ..fields.addAll(
-            schema.enum_!.map(
+            schema.$enum!.map(
               (final value) => Field(
                 (final b) {
                   final result = resolveType(
                     spec,
                     state,
-                    '$identifier${toDartName(value.toString(), uppercaseFirstCharacter: true)}',
+                    '$identifier${toDartName(value, uppercaseFirstCharacter: true)}',
                     schema,
                     ignoreEnum: true,
                   );
                   b
-                    ..name = toDartName(value.toString())
+                    ..name = toDartName(value)
                     ..static = true
                     ..modifier = FieldModifier.constant
                     ..type = refer('${state.classPrefix}$identifier')
                     ..assignment = Code(
-                      '_\$${toCamelCase('${state.classPrefix}$identifier')}${toDartName(value.toString(), uppercaseFirstCharacter: true)}',
+                      '_\$${toCamelCase('${state.classPrefix}$identifier')}${toDartName(value, uppercaseFirstCharacter: true)}',
                     );
 
-                  if (toDartName(value.toString()) != value.toString()) {
+                  if (toDartName(value) != value) {
                     if (result.name != 'String' && result.name != 'int') {
                       throw Exception(
                         'Sorry enum values are a bit broken. '
@@ -66,7 +66,7 @@ TypeResult resolveEnum(
                     }
                     b.annotations.add(
                       refer('BuiltValueEnumConst').call([], {
-                        'wireName': refer(valueToEscapedValue(result, value.toString())),
+                        'wireName': refer(valueToEscapedValue(result, value)),
                       }),
                     );
                   }

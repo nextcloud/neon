@@ -3,34 +3,175 @@
 part of 'request_body.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
+// BuiltValueGenerator
 // **************************************************************************
 
-RequestBody _$RequestBodyFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['description', 'content', 'required'],
-  );
-  return RequestBody(
-    description: json['description'] as String?,
-    content: (json['content'] as Map<String, dynamic>?)?.map(
-      (k, e) => MapEntry(k, MediaType.fromJson(e as Map<String, dynamic>)),
-    ),
-    required: json['required'] as bool?,
-  );
-}
+Serializer<RequestBody> _$requestBodySerializer = _$RequestBodySerializer();
 
-Map<String, dynamic> _$RequestBodyToJson(RequestBody instance) {
-  final val = <String, dynamic>{};
+class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
+  @override
+  final Iterable<Type> types = const [RequestBody, _$RequestBody];
+  @override
+  final String wireName = 'RequestBody';
 
-  void writeNotNull(String key, dynamic value) {
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RequestBody object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.description;
     if (value != null) {
-      val[key] = value;
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.content;
+    if (value != null) {
+      result
+        ..add('content')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
+    }
+    value = object.required;
+    if (value != null) {
+      result
+        ..add('required')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
   }
 
-  writeNotNull('description', instance.description);
-  writeNotNull('content', instance.content?.map((k, e) => MapEntry(k, e.toJson())));
-  writeNotNull('required', instance.required);
-  return val;
+  @override
+  RequestBody deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RequestBodyBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'content':
+          result.content.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+          break;
+        case 'required':
+          result.required = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
+
+class _$RequestBody extends RequestBody {
+  @override
+  final String? description;
+  @override
+  final BuiltMap<String, MediaType>? content;
+  @override
+  final bool? required;
+
+  factory _$RequestBody([void Function(RequestBodyBuilder)? updates]) =>
+      (RequestBodyBuilder()..update(updates))._build();
+
+  _$RequestBody._({this.description, this.content, this.required}) : super._();
+
+  @override
+  RequestBody rebuild(void Function(RequestBodyBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  RequestBodyBuilder toBuilder() => RequestBodyBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RequestBody && content == other.content && required == other.required;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, content.hashCode);
+    _$hash = $jc(_$hash, required.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RequestBody')
+          ..add('description', description)
+          ..add('content', content)
+          ..add('required', required))
+        .toString();
+  }
+}
+
+class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
+  _$RequestBody? _$v;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
+  MapBuilder<String, MediaType>? _content;
+  MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
+  set content(MapBuilder<String, MediaType>? content) => _$this._content = content;
+
+  bool? _required;
+  bool? get required => _$this._required;
+  set required(bool? required) => _$this._required = required;
+
+  RequestBodyBuilder();
+
+  RequestBodyBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _description = $v.description;
+      _content = $v.content?.toBuilder();
+      _required = $v.required;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(RequestBody other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RequestBody;
+  }
+
+  @override
+  void update(void Function(RequestBodyBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RequestBody build() => _build();
+
+  _$RequestBody _build() {
+    _$RequestBody _$result;
+    try {
+      _$result = _$v ?? _$RequestBody._(description: description, content: _content?.build(), required: required);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'content';
+        _content?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RequestBody', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

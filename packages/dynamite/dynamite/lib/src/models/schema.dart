@@ -1,160 +1,68 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/discriminator.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'schema.g.dart';
 
-@JsonSerializable()
-@immutable
-class Schema {
-  const Schema({
-    this.ref,
-    this.oneOf,
-    this.anyOf,
-    this.allOf,
-    this.description,
-    this.deprecated,
-    this.type,
-    this.format,
-    this.default_,
-    this.enum_,
-    this.properties,
-    this.required,
-    this.items,
-    this.additionalProperties,
-    this.contentMediaType,
-    this.contentSchema,
-    this.discriminator,
-    this.pattern,
-    this.minLength,
-    this.maxLength,
-    this.nullable,
-  });
+abstract class Schema implements Built<Schema, SchemaBuilder> {
+  factory Schema([final void Function(SchemaBuilder) updates]) = _$Schema;
 
-  factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
-  Map<String, dynamic> toJson() => _$SchemaToJson(this);
+  const Schema._();
 
-  @JsonKey(name: r'$ref')
-  final String? ref;
+  static Serializer<Schema> get serializer => _$schemaSerializer;
 
-  final List<Schema>? oneOf;
+  @BuiltValueField(wireName: r'$ref')
+  String? get ref;
 
-  final List<Schema>? anyOf;
+  BuiltList<Schema>? get oneOf;
 
-  final List<Schema>? allOf;
+  BuiltList<Schema>? get anyOf;
 
-  List<Schema>? get ofs => oneOf ?? anyOf ?? allOf;
+  BuiltList<Schema>? get allOf;
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  BuiltList<Schema>? get ofs => oneOf ?? anyOf ?? allOf;
 
-  final bool? deprecated;
+  @BuiltValueField(compare: false)
+  String? get description;
 
-  final String? type;
+  bool? get deprecated;
 
-  final String? format;
+  String? get type;
 
-  @JsonKey(name: 'default')
-  final dynamic default_;
+  String? get format;
 
-  @JsonKey(name: 'enum')
-  final List<dynamic>? enum_;
+  @BuiltValueField(wireName: 'default')
+  JsonObject? get $default;
 
-  final Map<String, Schema>? properties;
+  @BuiltValueField(wireName: 'enum')
+  BuiltList<String>? get $enum;
 
-  final List<String>? required;
+  BuiltMap<String, Schema>? get properties;
 
-  final Schema? items;
+  BuiltList<String>? get required;
 
-  @JsonKey(
-    fromJson: _parseAdditionalProperties,
-  )
-  final Schema? additionalProperties;
+  Schema? get items;
 
-  final String? contentMediaType;
+  Schema? get additionalProperties;
 
-  final Schema? contentSchema;
+  String? get contentMediaType;
 
-  final Discriminator? discriminator;
+  Schema? get contentSchema;
 
-  final String? pattern;
+  Discriminator? get discriminator;
 
-  final int? minLength;
+  String? get pattern;
 
-  final int? maxLength;
+  int? get minLength;
 
-  final bool? nullable;
+  int? get maxLength;
+
+  bool? get nullable;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
-
-  @override
-  bool operator ==(final Object other) =>
-      other is Schema &&
-      ref == other.ref &&
-      const ListEquality().equals(oneOf, other.oneOf) &&
-      const ListEquality().equals(anyOf, other.anyOf) &&
-      const ListEquality().equals(allOf, other.allOf) &&
-      deprecated == other.deprecated &&
-      type == other.type &&
-      format == other.format &&
-      default_ == other.default_ &&
-      const ListEquality().equals(enum_, other.enum_) &&
-      const MapEquality().equals(properties, other.properties) &&
-      const ListEquality().equals(required, other.required) &&
-      items == other.items &&
-      additionalProperties == other.additionalProperties &&
-      contentMediaType == other.contentMediaType &&
-      contentSchema == other.contentSchema &&
-      discriminator == other.discriminator &&
-      pattern == other.pattern &&
-      minLength == other.minLength &&
-      maxLength == other.maxLength &&
-      nullable == other.nullable;
-
-  @override
-  int get hashCode =>
-      ref.hashCode +
-      const ListEquality().hash(oneOf) +
-      const ListEquality().hash(anyOf) +
-      const ListEquality().hash(allOf) +
-      deprecated.hashCode +
-      type.hashCode +
-      format.hashCode +
-      default_.hashCode +
-      const ListEquality().hash(enum_) +
-      const MapEquality().hash(properties) +
-      const ListEquality().hash(required) +
-      items.hashCode +
-      additionalProperties.hashCode +
-      contentMediaType.hashCode +
-      contentSchema.hashCode +
-      discriminator.hashCode +
-      pattern.hashCode +
-      minLength.hashCode +
-      maxLength.hashCode +
-      nullable.hashCode;
-}
-
-class EmptySchema extends Schema {
-  const EmptySchema();
-}
-
-Schema? _parseAdditionalProperties(final dynamic data) {
-  if (data == null) {
-    return null;
-  }
-
-  if (data is bool) {
-    return data ? const EmptySchema() : null;
-  }
-
-  if (data is Map<String, dynamic>) {
-    return Schema.fromJson(data);
-  }
-
-  throw Exception('Can not parse additionalProperties from $data');
 }

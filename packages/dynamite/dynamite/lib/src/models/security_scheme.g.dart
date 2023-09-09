@@ -3,33 +3,164 @@
 part of 'security_scheme.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
+// BuiltValueGenerator
 // **************************************************************************
 
-SecurityScheme _$SecuritySchemeFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['type', 'description', 'scheme'],
-  );
-  return SecurityScheme(
-    type: json['type'] as String,
-    description: json['description'] as String?,
-    scheme: json['scheme'] as String?,
-  );
-}
+Serializer<SecurityScheme> _$securitySchemeSerializer = _$SecuritySchemeSerializer();
 
-Map<String, dynamic> _$SecuritySchemeToJson(SecurityScheme instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
+class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme> {
+  @override
+  final Iterable<Type> types = const [SecurityScheme, _$SecurityScheme];
+  @override
+  final String wireName = 'SecurityScheme';
 
-  void writeNotNull(String key, dynamic value) {
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SecurityScheme object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.description;
     if (value != null) {
-      val[key] = value;
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.scheme;
+    if (value != null) {
+      result
+        ..add('scheme')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
   }
 
-  writeNotNull('description', instance.description);
-  writeNotNull('scheme', instance.scheme);
-  return val;
+  @override
+  SecurityScheme deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SecuritySchemeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'scheme':
+          result.scheme = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
+
+class _$SecurityScheme extends SecurityScheme {
+  @override
+  final String type;
+  @override
+  final String? description;
+  @override
+  final String? scheme;
+
+  factory _$SecurityScheme([void Function(SecuritySchemeBuilder)? updates]) =>
+      (SecuritySchemeBuilder()..update(updates))._build();
+
+  _$SecurityScheme._({required this.type, this.description, this.scheme}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type');
+  }
+
+  @override
+  SecurityScheme rebuild(void Function(SecuritySchemeBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  SecuritySchemeBuilder toBuilder() => SecuritySchemeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SecurityScheme && type == other.type && scheme == other.scheme;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, scheme.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SecurityScheme')
+          ..add('type', type)
+          ..add('description', description)
+          ..add('scheme', scheme))
+        .toString();
+  }
+}
+
+class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBuilder> {
+  _$SecurityScheme? _$v;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(String? type) => _$this._type = type;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
+  String? _scheme;
+  String? get scheme => _$this._scheme;
+  set scheme(String? scheme) => _$this._scheme = scheme;
+
+  SecuritySchemeBuilder();
+
+  SecuritySchemeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _type = $v.type;
+      _description = $v.description;
+      _scheme = $v.scheme;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(SecurityScheme other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SecurityScheme;
+  }
+
+  @override
+  void update(void Function(SecuritySchemeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SecurityScheme build() => _build();
+
+  _$SecurityScheme _build() {
+    final _$result = _$v ??
+        _$SecurityScheme._(
+            type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
+            description: description,
+            scheme: scheme);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

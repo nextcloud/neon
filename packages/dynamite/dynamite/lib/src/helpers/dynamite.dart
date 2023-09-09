@@ -22,7 +22,7 @@ bool isDartParameterNullable(
   final bool? required,
   final Schema? schema,
 ) =>
-    (!(required ?? false) && schema?.default_ == null) || (schema?.nullable ?? false);
+    (!(required ?? false) && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(
   final bool? required,

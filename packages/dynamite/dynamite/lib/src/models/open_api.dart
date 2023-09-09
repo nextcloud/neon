@@ -1,44 +1,35 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/components.dart';
 import 'package:dynamite/src/models/info.dart';
 import 'package:dynamite/src/models/path_item.dart';
 import 'package:dynamite/src/models/server.dart';
 import 'package:dynamite/src/models/tag.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'open_api.g.dart';
 
-@JsonSerializable()
-@immutable
-class OpenAPI {
-  const OpenAPI({
-    required this.version,
-    required this.info,
-    this.servers,
-    this.security,
-    this.tags,
-    this.components,
-    this.paths,
-  });
+abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
+  factory OpenAPI([final void Function(OpenAPIBuilder) updates]) = _$OpenAPI;
 
-  factory OpenAPI.fromJson(final Map<String, dynamic> json) => _$OpenAPIFromJson(json);
-  Map<String, dynamic> toJson() => _$OpenAPIToJson(this);
+  const OpenAPI._();
 
-  @JsonKey(name: 'openapi')
-  final String version;
+  static Serializer<OpenAPI> get serializer => _$openAPISerializer;
 
-  final Info info;
+  @BuiltValueField(wireName: 'openapi')
+  String get version;
 
-  final List<Server>? servers;
+  Info get info;
 
-  final List<Map<String, List<String>>>? security;
+  BuiltList<Server>? get servers;
 
-  final List<Tag>? tags;
+  BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
-  final Components? components;
+  BuiltList<Tag>? get tags;
 
-  final Map<String, PathItem>? paths;
+  Components? get components;
+
+  BuiltMap<String, PathItem>? get paths;
 
   bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
 
@@ -49,23 +40,4 @@ class OpenAPI {
       yield* matchedTags.single.formattedDescription;
     }
   }
-
-  @override
-  bool operator ==(final Object other) =>
-      other is OpenAPI &&
-      info == other.info &&
-      const ListEquality().equals(servers, other.servers) &&
-      const DeepCollectionEquality().equals(security, other.security) &&
-      const ListEquality().equals(tags, other.tags) &&
-      components == other.components &&
-      const MapEquality().equals(paths, other.paths);
-
-  @override
-  int get hashCode =>
-      info.hashCode +
-      const ListEquality().hash(servers) +
-      const DeepCollectionEquality().hash(security) +
-      const ListEquality().hash(tags) +
-      components.hashCode +
-      const MapEquality().hash(paths);
 }

@@ -1,33 +1,21 @@
-import 'package:collection/collection.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/models/media_type.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'request_body.g.dart';
 
-@JsonSerializable()
-@immutable
-class RequestBody {
-  const RequestBody({
-    this.description,
-    this.content,
-    this.required,
-  });
+abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
+  factory RequestBody([final void Function(RequestBodyBuilder) updates]) = _$RequestBody;
 
-  factory RequestBody.fromJson(final Map<String, dynamic> json) => _$RequestBodyFromJson(json);
-  Map<String, dynamic> toJson() => _$RequestBodyToJson(this);
+  const RequestBody._();
 
-  // Ignored in the comparison as it doesn't affect the generated code
-  final String? description;
+  static Serializer<RequestBody> get serializer => _$requestBodySerializer;
 
-  final Map<String, MediaType>? content;
+  @BuiltValueField(compare: false)
+  String? get description;
 
-  final bool? required;
+  BuiltMap<String, MediaType>? get content;
 
-  @override
-  bool operator ==(final Object other) =>
-      other is RequestBody && const MapEquality().equals(content, other.content) && required == other.required;
-
-  @override
-  int get hashCode => const MapEquality().hash(content) + required.hashCode;
+  bool? get required;
 }
