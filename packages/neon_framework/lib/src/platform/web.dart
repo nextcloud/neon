@@ -8,11 +8,21 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'package:web/web.dart';
 
+/// Android specific platform information.
+///
+/// See:
+///   * [NeonPlatform] to initialize and acquire an instance
+///   * `LinuxNeonPlatform` for the Linux implementation
+///   * `IOSNeonPlatform` for the IOS implementation
+///   * `AndroidNeonPlatform` for the Android implementation
 @immutable
 @internal
-class WebNeonPlatform implements NeonPlatform {
+final class WebNeonPlatform implements NeonPlatform {
+  /// Creates a new Web Neon platform.
   const WebNeonPlatform();
 
+  /// Registers this platform.
+  @visibleForTesting
   static void registerWith(dynamic registrar) {
     NeonPlatform.instance = const WebNeonPlatform();
   }

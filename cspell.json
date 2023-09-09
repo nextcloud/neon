@@ -21,7 +21,8 @@
     "packages/file_icons/lib/src/data.dart",
     "packages/neon_lints/lib",
     "packages/nextcloud/test/fixtures",
-    "packages/nextcloud_test/docker/static"
+    "packages/nextcloud_test/docker/static",
+    "packages/app/ios"
   ],
   "dictionaries": [
     "bash",

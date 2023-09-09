@@ -11,12 +11,15 @@ import 'package:universal_io/io.dart';
 /// See:
 ///   * [NeonPlatform] to initialize and acquire an instance
 ///   * `AndroidNeonPlatform` for the Android implementation
+///   * `WebNeonPlatform` for the Web implementation
+///   * `IOSNeonPlatform` for the IOS implementation
 @immutable
-class LinuxNeonPlatform implements NeonPlatform {
+final class LinuxNeonPlatform implements NeonPlatform {
   /// Creates a new Linux Neon platform.
   const LinuxNeonPlatform();
 
   /// Registers this platform.
+  @visibleForTesting
   static void registerWith() {
     NeonPlatform.instance = const LinuxNeonPlatform();
   }

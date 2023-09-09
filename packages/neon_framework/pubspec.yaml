@@ -86,6 +86,8 @@ flutter:
         dartPluginClass: LinuxNeonPlatform
       android:
         dartPluginClass: AndroidNeonPlatform
+      ios:
+        dartPluginClass: IOSNeonPlatform
       web:
         pluginClass: WebNeonPlatform
         fileName: src/platform/web.dart

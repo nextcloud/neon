@@ -4,29 +4,29 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 
-/// Android specific platform information.
+/// IOS specific platform information.
 ///
 /// See:
 ///   * [NeonPlatform] to initialize and acquire an instance
 ///   * `LinuxNeonPlatform` for the Linux implementation
+///   * `AndroidNeonPlatform` for the Android implementation
 ///   * `WebNeonPlatform` for the Web implementation
-///   * `IOSNeonPlatform` for the IOS implementation
 @immutable
-final class AndroidNeonPlatform implements NeonPlatform {
-  /// Creates a new Android Neon platform.
-  const AndroidNeonPlatform();
+final class IOSNeonPlatform implements NeonPlatform {
+  /// Creates a new IOS Neon platform.
+  const IOSNeonPlatform();
 
   /// Registers this platform.
   @visibleForTesting
   static void registerWith() {
-    NeonPlatform.instance = const AndroidNeonPlatform();
+    NeonPlatform.instance = const IOSNeonPlatform();
   }
 
   @override
   bool get canUseCamera => true;
 
   @override
-  bool get canUsePushNotifications => true;
+  bool get canUsePushNotifications => false;
 
   @override
   bool get canUseQuickActions => true;

@@ -8,10 +8,14 @@ import 'package:meta/meta.dart';
 /// See:
 ///   * `AndroidNeonPlatform` for the Android implementation
 ///   * `LinuxNeonPlatform` for the Linux implementation
+///   * `IOSNeonPlatform` for the IOS implementation
+///   * `WebNeonPlatform` for the Web implementation
 @immutable
 abstract interface class NeonPlatform {
   static NeonPlatform? _instance;
 
+  @visibleForTesting
+  @protected
   static set instance(NeonPlatform instance) => _instance = instance;
 
   /// Gets the current instance of [NeonPlatform].
