@@ -875,7 +875,6 @@
         "properties": {
           "notes": {
             "type": "object",
-            "additionalProperties": true,
             "properties": {
               "api_version": {
                 "type": "array",
