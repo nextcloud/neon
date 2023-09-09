@@ -12,7 +12,6 @@ dependencies:
   collection: ^1.17.2
   dart_style: ^2.3.2
   intersperse: ^2.0.0
-  json_annotation: ^4.8.1
   meta: ^1.9.1
   path: ^1.8.3
 
