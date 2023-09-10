@@ -7,5 +7,5 @@ for package in $(yq -r ".dev_dependencies | keys | .[]" pubspec.yaml); do
   dart pub global activate "$package" "$version"
 done
 echo "y" | fvm install
-melos exec --concurrency=1 flutter pub get
+melos bootstrap
 dart run husky install
