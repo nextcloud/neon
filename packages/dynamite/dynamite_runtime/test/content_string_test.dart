@@ -42,6 +42,11 @@ final Serializers serializers = (_$serializers.toBuilder()
       ))
     .build();
 
+final Serializers invalidSerializers = (_$serializers.toBuilder()
+      ..addPlugin(const ContentStringPlugin())
+      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new))
+    .build();
+
 void main() {
   group('ContentString with known specifiedType holding bool', () {
     final data = ContentString<bool>((final b) => b..content = true);
@@ -308,6 +313,23 @@ void main() {
 
     test('can be deserialized', () {
       expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+    });
+  });
+
+  group('Serialize without registered StandardJsonPlugin', () {
+    final data = ContentString<bool>((final b) => b..content = true);
+    const serialized = true;
+    const specifiedType = FullType(ContentString, [FullType(bool)]);
+
+    test('serialization error', () {
+      expect(() => invalidSerializers.serialize(data, specifiedType: specifiedType), throwsA(isA<StateError>()));
+    });
+
+    test('deserialization error', () {
+      expect(
+        () => invalidSerializers.deserialize(serialized, specifiedType: specifiedType),
+        throwsA(isA<StateError>()),
+      );
     });
   });
 }
