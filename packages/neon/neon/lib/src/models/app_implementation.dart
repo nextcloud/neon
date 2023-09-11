@@ -7,6 +7,7 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/account_cache.dart';
+import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
@@ -15,7 +16,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 @immutable
-abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
+abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable {
   AppImplementation();
 
   String get id;
@@ -111,6 +112,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
         },
       );
 
+  @override
   @mustCallSuper
   void dispose() {
     options.dispose();
