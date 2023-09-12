@@ -10,9 +10,9 @@ class NewsFoldersView extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
-        stream: bloc.folders,
+        subject: bloc.folders,
         builder: (final context, final folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
-          stream: bloc.feeds,
+          subject: bloc.feeds,
           builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
             sortBox: foldersSortBox,
             sortProperty: bloc.options.foldersSortPropertyOption,

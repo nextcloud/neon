@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_check_server_status.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
@@ -58,7 +57,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
             child: ConstrainedBox(
               constraints: NeonDialogTheme.of(context).constraints,
               child: ResultBuilder.behaviorSubject(
-                stream: bloc.state,
+                subject: bloc.state,
                 builder: (final context, final state) {
                   final success = state.hasData && state.requireData.isSupported && !state.requireData.maintenance;
 

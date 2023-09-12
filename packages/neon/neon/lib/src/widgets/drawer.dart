@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/app_implementation.dart';
@@ -27,7 +27,7 @@ class NeonDrawer extends StatelessWidget {
     final appsBloc = accountsBloc.activeAppsBloc;
 
     return ResultBuilder.behaviorSubject(
-      stream: appsBloc.appImplementations,
+      subject: appsBloc.appImplementations,
       builder: (final context, final snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
@@ -122,7 +122,7 @@ class NeonDrawerHeader extends StatelessWidget {
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
     final branding = ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(
-      stream: capabilitiesBloc.capabilities,
+      subject: capabilitiesBloc.capabilities,
       builder: (final context, final capabilities) {
         if (!capabilities.hasData) {
           return NeonLinearProgressIndicator(

@@ -26,9 +26,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<news.Feed>>.behaviorSubject(
-        stream: widget.newsBloc.feeds,
+        subject: widget.newsBloc.feeds,
         builder: (final context, final feeds) => ResultBuilder<List<news.Article>>.behaviorSubject(
-          stream: widget.bloc.articles,
+          subject: widget.bloc.articles,
           builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,

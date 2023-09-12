@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/provider.dart';
@@ -37,7 +37,7 @@ class NeonAccountTile extends StatelessWidget {
       ),
       trailing: trailing,
       title: ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
-        stream: userDetailsBloc.userDetails,
+        subject: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [
             if (userDetails.hasData)

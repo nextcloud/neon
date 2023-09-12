@@ -17,7 +17,7 @@ class DashboardMainPage extends StatelessWidget {
     final bloc = NeonProvider.of<DashboardBloc>(context);
 
     return ResultBuilder.behaviorSubject(
-      stream: bloc.widgets,
+      subject: bloc.widgets,
       builder: (final context, final snapshot) {
         Widget? child;
         if (snapshot.hasData) {

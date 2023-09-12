@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
@@ -78,7 +78,7 @@ class AccountSettingsPage extends StatelessWidget {
     );
 
     final body = ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
-      stream: userDetailsBloc.userDetails,
+      subject: userDetailsBloc.userDetails,
       builder: (final context, final userDetails) {
         final quotaRelative = userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$double ?? 0;
         final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$double ?? 0;

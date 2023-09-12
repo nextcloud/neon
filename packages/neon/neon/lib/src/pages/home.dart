@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
           return const NeonUnifiedSearchResults();
         }
         return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-          stream: _appsBloc.appImplementations,
+          subject: _appsBloc.appImplementations,
           builder: (final context, final appImplementations) {
             if (!appImplementations.hasData) {
               return const SizedBox();
