@@ -38,7 +38,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
   Iterable<String> get formattedDescription sync* {
     yield* descriptionToDocs(summary);
 
-    if (summary != null && description != null) {
+    if (summary != null && summary!.isNotEmpty && description != null && description!.isNotEmpty) {
       yield docsSeparator;
     }
 
