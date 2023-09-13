@@ -13,6 +13,7 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/serializers.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:pub_semver/pub_semver.dart';
 
 class OpenAPIBuilder implements Builder {
   @override
@@ -36,9 +37,8 @@ class OpenAPIBuilder implements Builder {
         json.decode(await buildStep.readAsString(inputId)),
       )!;
 
-      final supportedVersions = ['3.0.3', '3.1.0'];
-      if (!supportedVersions.contains(spec.version)) {
-        throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
+      if (Version.parse(spec.version).major != 3) {
+        throw Exception('Only OpenAPI 3.0.0 and later are supported');
       }
 
       final state = State(spec.info.title);
