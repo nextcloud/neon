@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite/src/builder/resolve_mime_type.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
@@ -302,7 +303,11 @@ Iterable<Method> buildTags(
           var responses = <Response, List<int>>{};
           if (operation.responses != null) {
             for (final responseEntry in operation.responses!.entries) {
-              final statusCode = int.parse(responseEntry.key);
+              final statusCode = int.tryParse(responseEntry.key);
+              if (statusCode == null) {
+                print('Default responses are not supported right now. Skipping it for $operationId');
+                continue;
+              }
               final response = responseEntry.value;
 
               responses[response] ??= [];
@@ -448,64 +453,18 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
             }
           }
 
-          if (operation.requestBody != null) {
-            if (operation.requestBody!.content!.length > 1) {
-              throw Exception('Can not work with multiple mime types right now');
-            }
-            for (final content in operation.requestBody!.content!.entries) {
-              final mimeType = content.key;
-              final mediaType = content.value;
-
-              code.write("_headers['Content-Type'] = '$mimeType';");
-
-              final dartParameterNullable = isDartParameterNullable(
-                operation.requestBody!.required,
-                mediaType.schema,
-              );
-
-              final result = resolveType(
-                spec,
-                state,
-                toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
-                mediaType.schema!,
-                nullable: dartParameterNullable,
-              );
-              final parameterName = toDartName(result.name.replaceFirst(state.classPrefix, ''));
-              switch (mimeType) {
-                case 'application/json':
-                case 'application/x-www-form-urlencoded':
-                  final dartParameterRequired = isRequired(
-                    operation.requestBody!.required,
-                    mediaType.schema?.$default,
-                  );
-                  b.optionalParameters.add(
-                    Parameter(
-                      (final b) => b
-                        ..name = parameterName
-                        ..type = refer(result.nullableName)
-                        ..named = true
-                        ..required = dartParameterRequired,
-                    ),
-                  );
-
-                  if (dartParameterNullable) {
-                    code.write('if ($parameterName != null) {');
-                  }
-                  code.write(
-                    '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)}) as Uint8List;',
-                  );
-                  if (dartParameterNullable) {
-                    code.write('}');
-                  }
-                default:
-                  throw Exception('Can not parse mime type "$mimeType"');
-              }
-            }
-          }
+          resolveMimeTypeEncode(
+            operation,
+            spec,
+            state,
+            operationId,
+            b,
+            code,
+          );
 
           code.write(
             '''
-final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
+${responses.values.isNotEmpty ? 'final _response =' : ''} await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
   '$httpMethod',
   Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null),
   _headers,
@@ -547,54 +506,15 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
               headersValue = result.deserialize('_response.responseHeaders');
             }
 
-            String? dataType;
-            String? dataValue;
-            bool? dataNeedsAwait;
-            if (response.content != null) {
-              if (response.content!.length > 1) {
-                throw Exception('Can not work with multiple mime types right now');
-              }
-              for (final content in response.content!.entries) {
-                final mimeType = content.key;
-                final mediaType = content.value;
-
-                final result = resolveType(
-                  spec,
-                  state,
-                  toDartName(
-                    '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}-$mimeType',
-                    uppercaseFirstCharacter: true,
-                  ),
-                  mediaType.schema!,
-                );
-
-                if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
-                  dataType = 'Uint8List';
-                  dataValue = '_response.bodyBytes';
-                  dataNeedsAwait = true;
-                } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
-                  dataType = 'String';
-                  dataValue = '_response.body';
-                  dataNeedsAwait = true;
-                } else if (mimeType == 'application/json') {
-                  dataType = result.name;
-                  if (result.name == 'dynamic') {
-                    dataValue = '';
-                  } else if (result.name == 'String') {
-                    dataValue = '_response.body';
-                    dataNeedsAwait = true;
-                  } else if (result is TypeResultEnum || result is TypeResultBase) {
-                    dataValue = result.deserialize(result.decode('await _response.body'));
-                    dataNeedsAwait = false;
-                  } else {
-                    dataValue = result.deserialize('await _response.jsonBody');
-                    dataNeedsAwait = false;
-                  }
-                } else {
-                  throw Exception('Can not parse mime type "$mimeType"');
-                }
-              }
-            }
+            final (dataType, dataValue, dataNeedsAwait) = resolveMimeTypeDecode(
+              response,
+              spec,
+              state,
+              toDartName(
+                '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}',
+                uppercaseFirstCharacter: true,
+              ),
+            );
 
             if (headersType != null && dataType != null) {
               b.returns = refer('Future<${state.classPrefix}Response<$dataType, $headersType>>');
@@ -614,9 +534,14 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
 
             code.write('}');
           }
-          code.write(
-            'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
-          );
+
+          if (responses.values.isNotEmpty) {
+            code.write(
+              'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
+            );
+          } else {
+            b.returns = refer('Future<void>');
+          }
 
           b.body = Code(code.toString());
         },

@@ -21,8 +21,22 @@ class TypeResultBase extends TypeResult {
     final String object, {
     final bool onlyChildren = false,
     final String? mimeType,
-  }) =>
-      name == 'String' ? object : '$object.toString()';
+  }) {
+    switch (mimeType) {
+      case null:
+      case 'application/json':
+      case 'application/x-www-form-urlencoded':
+        if (className == 'String') {
+          return object;
+        } else {
+          return '$object.toString()';
+        }
+      case 'application/octet-stream':
+        return 'utf8.encode($object) as Uint8List';
+      default:
+        throw Exception('Can not encode mime type "$mimeType"');
+    }
+  }
 
   @override
   String deserialize(final String object, {final bool toBuilder = false}) => '($object as $nullableName)';
