@@ -14,7 +14,6 @@ import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:neon_notifications/routes.dart';
-import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'blocs/notifications.dart';

@@ -17,7 +17,7 @@ class _NotesMainPageState extends State<NotesMainPage> {
   void initState() {
     super.initState();
 
-    bloc = Provider.of<NotesBloc>(context, listen: false);
+    bloc = NeonProvider.of<NotesBloc>(context);
 
     bloc.errors.listen((final error) {
       handleNotesException(context, error);

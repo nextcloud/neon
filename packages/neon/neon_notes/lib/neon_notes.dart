@@ -19,7 +19,6 @@ import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/routes.dart';
-import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher_string.dart';

@@ -10,6 +10,7 @@ import 'package:neon/src/models/account_cache.dart';
 import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -41,7 +42,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   Provider<T> get blocProvider => Provider<T>(
         create: (final context) {
-          final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+          final accountsBloc = NeonProvider.of<AccountsBloc>(context);
           final account = accountsBloc.activeAccount.value!;
 
           return getBloc(account);
@@ -53,7 +54,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   Widget get page;
 
   NeonNavigationDestination destination(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
     final bloc = getBloc(account);
 

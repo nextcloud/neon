@@ -8,9 +8,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neon/nextcloud.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:provider/provider.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
 typedef ImageDownloader = FutureOr<Uint8List> Function();
@@ -220,7 +220,7 @@ class NeonApiImage extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final account = Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!;
+    final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     return NeonCachedImage.custom(
       getImage: () async => getImage(account.client),

@@ -19,8 +19,8 @@ import 'package:neon/src/pages/login_qrcode.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/route_not_found.dart';
 import 'package:neon/src/pages/settings.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/stream_listenable.dart';
-import 'package:provider/provider.dart';
 
 part 'router.g.dart';
 
@@ -79,7 +79,7 @@ class AccountSettingsRoute extends GoRouteData {
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final bloc = Provider.of<AccountsBloc>(context, listen: false);
+    final bloc = NeonProvider.of<AccountsBloc>(context);
     final account = bloc.accounts.value.find(accountid);
 
     return AccountSettingsPage(
@@ -133,7 +133,7 @@ class HomeRoute extends GoRouteData {
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.valueOrNull!;
 
     return HomePage(key: Key(account.id));
@@ -167,7 +167,7 @@ class LoginRoute extends GoRouteData {
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
-    final hasAccounts = Provider.of<AccountsBloc>(context, listen: false).hasAccounts;
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
       return const _AddAccountRoute().location;
@@ -190,7 +190,7 @@ class LoginFlowRoute extends GoRouteData {
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
-    final hasAccounts = Provider.of<AccountsBloc>(context, listen: false).hasAccounts;
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
       return _AddAccountFlowRoute(serverUrl: serverUrl).location;
@@ -209,7 +209,7 @@ class LoginQrcodeRoute extends GoRouteData {
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
-    final hasAccounts = Provider.of<AccountsBloc>(context, listen: false).hasAccounts;
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
       return const _AddAccountQrcodeRoute().location;
@@ -254,7 +254,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
-    final hasAccounts = Provider.of<AccountsBloc>(context, listen: false).hasAccounts;
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
       if (loginName != null && password != null) {
@@ -295,7 +295,7 @@ class LoginCheckAccountRoute extends GoRouteData {
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
-    final hasAccounts = Provider.of<AccountsBloc>(context, listen: false).hasAccounts;
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
       return _AddAccountCheckAccountRoute(
@@ -375,7 +375,7 @@ class NextcloudAppSettingsRoute extends GoRouteData {
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
+    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
     final appImplementation = appImplementations.tryFind(appid)!;
 
     return NextcloudAppSettingsPage(appImplementation: appImplementation);

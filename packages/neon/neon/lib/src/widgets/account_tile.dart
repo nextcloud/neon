@@ -3,11 +3,11 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class NeonAccountTile extends StatelessWidget {
@@ -32,7 +32,7 @@ class NeonAccountTile extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final userDetailsBloc = Provider.of<AccountsBloc>(context, listen: false).getUserDetailsBlocFor(account);
+    final userDetailsBloc = NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
 
     return ListTile(
       textColor: textColor,

@@ -10,10 +10,10 @@ import 'package:neon/src/blocs/login_check_account.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class LoginCheckAccountPage extends StatefulWidget {
@@ -84,7 +84,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                       child: ElevatedButton(
                         onPressed: state.hasData
                             ? () {
-                                Provider.of<AccountsBloc>(context, listen: false)
+                                NeonProvider.of<AccountsBloc>(context)
                                   ..updateAccount(state.requireData)
                                   ..setActiveAccount(state.requireData);
 
