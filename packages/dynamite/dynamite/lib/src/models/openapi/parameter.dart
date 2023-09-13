@@ -1,5 +1,7 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi/schema.dart';
 
@@ -25,4 +27,18 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   Schema? get schema;
 
   bool get isDartRequired => isRequired(required, schema?.$default);
+
+  String get formattedDescription {
+    final name = toDartName(this.name);
+
+    final buffer = StringBuffer()
+      ..write('$docsSeparator   * ')
+      ..write('[$name]');
+
+    if (description != null) {
+      buffer.write(' $description');
+    }
+
+    return buffer.toString();
+  }
 }

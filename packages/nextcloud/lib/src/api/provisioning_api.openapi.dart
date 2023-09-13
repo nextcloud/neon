@@ -13,6 +13,8 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -53,9 +55,21 @@ class ProvisioningApiAppConfigClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of apps
+  /// Get a list of apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///
+  /// See:
+  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void>> getApps({
     final bool oCSAPIRequest = true,
   }) async {
@@ -66,9 +80,24 @@ class ProvisioningApiAppConfigClient {
     return rawResponse.future;
   }
 
-  /// Get a list of apps
+  /// Get a list of apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///
+  /// See:
+  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void> getAppsRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -112,9 +141,23 @@ class ProvisioningApiAppConfigClient {
     );
   }
 
-  /// Get the config keys of an app
+  /// Get the config keys of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Keys returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getKeysRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void>> getKeys({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -127,9 +170,26 @@ class ProvisioningApiAppConfigClient {
     return rawResponse.future;
   }
 
-  /// Get the config keys of an app
+  /// Get the config keys of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Keys returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getKeys] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -175,9 +235,25 @@ class ProvisioningApiAppConfigClient {
     );
   }
 
-  /// Get a the config value of an app
+  /// Get a the config value of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [defaultValue] Default returned value if the value is empty
+  ///   * [app] ID of the app
+  ///   * [key] Key
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void>> getValue({
     required final String app,
     required final String key,
@@ -194,9 +270,28 @@ class ProvisioningApiAppConfigClient {
     return rawResponse.future;
   }
 
-  /// Get a the config value of an app
+  /// Get a the config value of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [defaultValue] Default returned value if the value is empty
+  ///   * [app] ID of the app
+  ///   * [key] Key
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void> getValueRaw({
     required final String app,
     required final String key,
@@ -248,7 +343,23 @@ class ProvisioningApiAppConfigClient {
     );
   }
 
-  /// Update the config value of an app
+  /// Update the config value of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] New value for the key
+  ///   * [app] ID of the app
+  ///   * [key] Key to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value updated successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [setValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void>> setValue({
     required final String value,
     required final String app,
@@ -265,7 +376,26 @@ class ProvisioningApiAppConfigClient {
     return rawResponse.future;
   }
 
-  /// Update the config value of an app
+  /// Update the config value of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] New value for the key
+  ///   * [app] ID of the app
+  ///   * [key] Key to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value updated successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [setValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void> setValueRaw({
     required final String value,
     required final String app,
@@ -315,9 +445,24 @@ class ProvisioningApiAppConfigClient {
     );
   }
 
-  /// Delete a config key of an app
+  /// Delete a config key of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [key] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Key deleted successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [deleteKeyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
     required final String app,
     required final String key,
@@ -332,9 +477,27 @@ class ProvisioningApiAppConfigClient {
     return rawResponse.future;
   }
 
-  /// Delete a config key of an app
+  /// Delete a config key of an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [key] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Key deleted successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [deleteKey] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
     required final String app,
     required final String key,
@@ -388,9 +551,22 @@ class ProvisioningApiAppsClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of installed apps
+  /// Get a list of installed apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter for enabled or disabled apps
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Installed apps returned
+  ///
+  /// See:
+  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void>> getApps({
     final String? filter,
     final bool oCSAPIRequest = true,
@@ -403,9 +579,25 @@ class ProvisioningApiAppsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of installed apps
+  /// Get a list of installed apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter for enabled or disabled apps
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Installed apps returned
+  ///
+  /// See:
+  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void> getAppsRaw({
     final String? filter,
     final bool oCSAPIRequest = true,
@@ -453,9 +645,22 @@ class ProvisioningApiAppsClient {
     );
   }
 
-  /// Get the app info for an app
+  /// Get the app info for an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App info returned
+  ///
+  /// See:
+  ///  * [getAppInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -468,9 +673,25 @@ class ProvisioningApiAppsClient {
     return rawResponse.future;
   }
 
-  /// Get the app info for an app
+  /// Get the app info for an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App info returned
+  ///
+  /// See:
+  ///  * [getAppInfo] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -516,9 +737,22 @@ class ProvisioningApiAppsClient {
     );
   }
 
-  /// Enable an app
+  /// Enable an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App enabled successfully
+  ///
+  /// See:
+  ///  * [enableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppsEnableResponseApplicationJson, void>> enable({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -531,9 +765,25 @@ class ProvisioningApiAppsClient {
     return rawResponse.future;
   }
 
-  /// Enable an app
+  /// Enable an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App enabled successfully
+  ///
+  /// See:
+  ///  * [enable] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppsEnableResponseApplicationJson, void> enableRaw({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -579,9 +829,22 @@ class ProvisioningApiAppsClient {
     );
   }
 
-  /// Disable an app
+  /// Disable an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App disabled successfully
+  ///
+  /// See:
+  ///  * [disableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiAppsDisableResponseApplicationJson, void>> disable({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -594,9 +857,25 @@ class ProvisioningApiAppsClient {
     return rawResponse.future;
   }
 
-  /// Disable an app
+  /// Disable an app.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App disabled successfully
+  ///
+  /// See:
+  ///  * [disable] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiAppsDisableResponseApplicationJson, void> disableRaw({
     required final String app,
     final bool oCSAPIRequest = true,
@@ -648,7 +927,22 @@ class ProvisioningApiGroupsClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of groups
+  /// Get a list of groups.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups returned
+  ///
+  /// See:
+  ///  * [getGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void>> getGroups({
     final String search = '',
     final int? limit,
@@ -665,7 +959,25 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of groups
+  /// Get a list of groups.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups returned
+  ///
+  /// See:
+  ///  * [getGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
     final String search = '',
     final int? limit,
@@ -721,9 +1033,23 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Create a new group
+  /// Create a new group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [displayname] Display name of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group created successfully
+  ///
+  /// See:
+  ///  * [addGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void>> addGroup({
     required final String groupid,
     final String displayname = '',
@@ -738,9 +1064,26 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Create a new group
+  /// Create a new group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [displayname] Display name of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group created successfully
+  ///
+  /// See:
+  ///  * [addGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void> addGroupRaw({
     required final String groupid,
     final String displayname = '',
@@ -790,7 +1133,22 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Get a list of groups details
+  /// Get a list of groups details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups details returned
+  ///
+  /// See:
+  ///  * [getGroupsDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
     final String search = '',
     final int? limit,
@@ -807,7 +1165,25 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of groups details
+  /// Get a list of groups details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups details returned
+  ///
+  /// See:
+  ///  * [getGroupsDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
     final String search = '',
     final int? limit,
@@ -863,7 +1239,22 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Get a list of users in the specified group
+  /// Get a list of users in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User IDs returned
+  ///   * 404: Group not found
+  ///   * 403: Missing permissions to get users in the group
+  ///
+  /// See:
+  ///  * [getGroupUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -876,7 +1267,25 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of users in the specified group
+  /// Get a list of users in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User IDs returned
+  ///   * 404: Group not found
+  ///   * 403: Missing permissions to get users in the group
+  ///
+  /// See:
+  ///  * [getGroupUsers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -923,7 +1332,23 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Get a list of users details in the specified group
+  /// Get a list of users details in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users details returned
+  ///
+  /// See:
+  ///  * [getGroupUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void>>
       getGroupUsersDetails({
     required final String groupId,
@@ -943,7 +1368,26 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of users details in the specified group
+  /// Get a list of users details in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users details returned
+  ///
+  /// See:
+  ///  * [getGroupUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
     required final String groupId,
     final String search = '',
@@ -1002,9 +1446,22 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Get the list of user IDs that are a subadmin of the group
+  /// Get the list of user IDs that are a subadmin of the group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -1017,9 +1474,25 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get the list of user IDs that are a subadmin of the group
+  /// Get the list of user IDs that are a subadmin of the group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -1066,7 +1539,20 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Get a list of users in the specified group
+  /// Get a list of users in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users returned
+  ///
+  /// See:
+  ///  * [getGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   @Deprecated('')
   Future<DynamiteResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void>> getGroup({
     required final String groupId,
@@ -1080,7 +1566,23 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Get a list of users in the specified group
+  /// Get a list of users in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users returned
+  ///
+  /// See:
+  ///  * [getGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   @Deprecated('')
   DynamiteRawResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void> getGroupRaw({
     required final String groupId,
@@ -1128,9 +1630,24 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Update a group
+  /// Update a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update, only 'displayname'
+  ///   * [value] New value for the key
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group updated successfully
+  ///
+  /// See:
+  ///  * [updateGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
     required final String key,
     required final String value,
@@ -1147,9 +1664,27 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Update a group
+  /// Update a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update, only 'displayname'
+  ///   * [value] New value for the key
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group updated successfully
+  ///
+  /// See:
+  ///  * [updateGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
     required final String key,
     required final String value,
@@ -1200,9 +1735,22 @@ class ProvisioningApiGroupsClient {
     );
   }
 
-  /// Delete a group
+  /// Delete a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group deleted successfully
+  ///
+  /// See:
+  ///  * [deleteGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -1215,9 +1763,25 @@ class ProvisioningApiGroupsClient {
     return rawResponse.future;
   }
 
-  /// Delete a group
+  /// Delete a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group deleted successfully
+  ///
+  /// See:
+  ///  * [deleteGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
     required final String groupId,
     final bool oCSAPIRequest = true,
@@ -1270,7 +1834,23 @@ class ProvisioningApiPreferencesClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Update a preference value of an app
+  /// Update a preference value of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configValue] New value
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key of the preference
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setPreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
     required final String configValue,
     required final String appId,
@@ -1287,7 +1867,26 @@ class ProvisioningApiPreferencesClient {
     return rawResponse.future;
   }
 
-  /// Update a preference value of an app
+  /// Update a preference value of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configValue] New value
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key of the preference
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setPreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
     required final String configValue,
     required final String appId,
@@ -1337,7 +1936,22 @@ class ProvisioningApiPreferencesClient {
     );
   }
 
-  /// Delete a preference for an app
+  /// Delete a preference for an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deletePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
     required final String appId,
     required final String configKey,
@@ -1352,7 +1966,25 @@ class ProvisioningApiPreferencesClient {
     return rawResponse.future;
   }
 
-  /// Delete a preference for an app
+  /// Delete a preference for an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deletePreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
     required final String appId,
     required final String configKey,
@@ -1400,7 +2032,22 @@ class ProvisioningApiPreferencesClient {
     );
   }
 
-  /// Update multiple preference values of an app
+  /// Update multiple preference values of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configs] Key-value pairs of the preferences
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setMultiplePreferencesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>>
       setMultiplePreferences({
     required final ContentString<BuiltMap<String, String>> configs,
@@ -1416,7 +2063,25 @@ class ProvisioningApiPreferencesClient {
     return rawResponse.future;
   }
 
-  /// Update multiple preference values of an app
+  /// Update multiple preference values of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configs] Key-value pairs of the preferences
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setMultiplePreferences] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>
       setMultiplePreferencesRaw({
     required final ContentString<BuiltMap<String, String>> configs,
@@ -1470,7 +2135,22 @@ class ProvisioningApiPreferencesClient {
     );
   }
 
-  /// Delete multiple preferences for an app
+  /// Delete multiple preferences for an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configKeys] Keys to delete
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deleteMultiplePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>>
       deleteMultiplePreference({
     required final List<String> configKeys,
@@ -1486,7 +2166,25 @@ class ProvisioningApiPreferencesClient {
     return rawResponse.future;
   }
 
-  /// Delete multiple preferences for an app
+  /// Delete multiple preferences for an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configKeys] Keys to delete
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deleteMultiplePreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
       deleteMultiplePreferenceRaw({
     required final List<String> configKeys,
@@ -1541,7 +2239,22 @@ class ProvisioningApiUsersClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of users
+  /// Get a list of users.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///
+  /// See:
+  ///  * [getUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void>> getUsers({
     final String search = '',
     final int? limit,
@@ -1558,7 +2271,25 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get a list of users
+  /// Get a list of users.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///
+  /// See:
+  ///  * [getUsers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void> getUsersRaw({
     final String search = '',
     final int? limit,
@@ -1614,7 +2345,29 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Create a new user
+  /// Create a new user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userid] ID of the user
+  ///   * [password] Password of the user
+  ///   * [displayName] Display name of the user
+  ///   * [email] Email of the user
+  ///   * [groups] Groups of the user
+  ///   * [subadmin] Groups where the user is subadmin
+  ///   * [quota] Quota of the user
+  ///   * [language] Language of the user
+  ///   * [manager] Manager of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added successfully
+  ///   * 403: Missing permissions to make user subadmin
+  ///
+  /// See:
+  ///  * [addUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void>> addUser({
     required final String userid,
     final String password = '',
@@ -1643,7 +2396,32 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Create a new user
+  /// Create a new user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userid] ID of the user
+  ///   * [password] Password of the user
+  ///   * [displayName] Display name of the user
+  ///   * [email] Email of the user
+  ///   * [groups] Groups of the user
+  ///   * [subadmin] Groups where the user is subadmin
+  ///   * [quota] Quota of the user
+  ///   * [language] Language of the user
+  ///   * [manager] Manager of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added successfully
+  ///   * 403: Missing permissions to make user subadmin
+  ///
+  /// See:
+  ///  * [addUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void> addUserRaw({
     required final String userid,
     final String password = '',
@@ -1721,7 +2499,22 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get a list of users and their details
+  /// Get a list of users and their details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned
+  ///
+  /// See:
+  ///  * [getUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
     final String search = '',
     final int? limit,
@@ -1738,7 +2531,25 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get a list of users and their details
+  /// Get a list of users and their details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned
+  ///
+  /// See:
+  ///  * [getUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
     final String search = '',
     final int? limit,
@@ -1794,7 +2605,22 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Search users by their phone numbers
+  /// Search users by their phone numbers.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] Location of the phone number (for country code)
+  ///   * [search] Phone numbers to search for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///   * 400: Invalid location
+  ///
+  /// See:
+  ///  * [searchByPhoneNumbersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
@@ -1809,7 +2635,25 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Search users by their phone numbers
+  /// Search users by their phone numbers.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] Location of the phone number (for country code)
+  ///   * [search] Phone numbers to search for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///   * 400: Invalid location
+  ///
+  /// See:
+  ///  * [searchByPhoneNumbers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
@@ -1865,7 +2709,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get the details of a user
+  /// Get the details of a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User returned
+  ///
+  /// See:
+  ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -1878,7 +2735,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get the details of a user
+  /// Get the details of a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User returned
+  ///
+  /// See:
+  ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -1924,7 +2797,22 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Update a value of the user's details
+  /// Update a value of the user's details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User value edited successfully
+  ///
+  /// See:
+  ///  * [editUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void>> editUser({
     required final String key,
     required final String value,
@@ -1941,7 +2829,25 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Update a value of the user's details
+  /// Update a value of the user's details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User value edited successfully
+  ///
+  /// See:
+  ///  * [editUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void> editUserRaw({
     required final String key,
     required final String value,
@@ -1991,7 +2897,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Delete a user
+  /// Delete a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User deleted successfully
+  ///
+  /// See:
+  ///  * [deleteUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void>> deleteUser({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2004,7 +2923,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Delete a user
+  /// Delete a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User deleted successfully
+  ///
+  /// See:
+  ///  * [deleteUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2050,7 +2985,19 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get the details of the current user
+  /// Get the details of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Current user returned
+  ///
+  /// See:
+  ///  * [getCurrentUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
     final bool oCSAPIRequest = true,
   }) async {
@@ -2061,7 +3008,22 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get the details of the current user
+  /// Get the details of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Current user returned
+  ///
+  /// See:
+  ///  * [getCurrentUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -2105,7 +3067,19 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get a list of fields that are editable for the current user
+  /// Get a list of fields that are editable for the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
     final bool oCSAPIRequest = true,
   }) async {
@@ -2116,7 +3090,22 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get a list of fields that are editable for the current user
+  /// Get a list of fields that are editable for the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields returned
+  ///
+  /// See:
+  ///  * [getEditableFields] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -2160,7 +3149,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get a list of fields that are editable for a user
+  /// Get a list of fields that are editable for a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields for user returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>>
       getEditableFieldsForUser({
     required final String userId,
@@ -2174,7 +3176,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get a list of fields that are editable for a user
+  /// Get a list of fields that are editable for a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields for user returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>
       getEditableFieldsForUserRaw({
     required final String userId,
@@ -2221,7 +3239,23 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Update multiple values of the user's details
+  /// Update multiple values of the user's details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [collectionName] Collection to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User values edited successfully
+  ///
+  /// See:
+  ///  * [editUserMultiValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
     required final String key,
     required final String value,
@@ -2240,7 +3274,26 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Update multiple values of the user's details
+  /// Update multiple values of the user's details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [collectionName] Collection to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User values edited successfully
+  ///
+  /// See:
+  ///  * [editUserMultiValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
     required final String key,
     required final String value,
@@ -2297,7 +3350,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Wipe all devices of a user
+  /// Wipe all devices of a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Wiped all user devices successfully
+  ///
+  /// See:
+  ///  * [wipeUserDevicesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2310,7 +3376,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Wipe all devices of a user
+  /// Wipe all devices of a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Wiped all user devices successfully
+  ///
+  /// See:
+  ///  * [wipeUserDevices] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2356,7 +3438,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Enable a user
+  /// Enable a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User enabled successfully
+  ///
+  /// See:
+  ///  * [enableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void>> enableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2369,7 +3464,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Enable a user
+  /// Enable a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User enabled successfully
+  ///
+  /// See:
+  ///  * [enableUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void> enableUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2415,7 +3526,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Disable a user
+  /// Disable a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User disabled successfully
+  ///
+  /// See:
+  ///  * [disableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void>> disableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2428,7 +3552,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Disable a user
+  /// Disable a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User disabled successfully
+  ///
+  /// See:
+  ///  * [disableUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void> disableUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2474,7 +3614,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get a list of groups the user belongs to
+  /// Get a list of groups the user belongs to.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users groups returned
+  ///
+  /// See:
+  ///  * [getUsersGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2487,7 +3640,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get a list of groups the user belongs to
+  /// Get a list of groups the user belongs to.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users groups returned
+  ///
+  /// See:
+  ///  * [getUsersGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2533,7 +3702,21 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Add a user to a group
+  /// Add a user to a group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added to group successfully
+  ///
+  /// See:
+  ///  * [addToGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required final String userId,
     final String groupid = '',
@@ -2548,7 +3731,24 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Add a user to a group
+  /// Add a user to a group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added to group successfully
+  ///
+  /// See:
+  ///  * [addToGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
     required final String userId,
     final String groupid = '',
@@ -2598,7 +3798,21 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Remove a user from a group
+  /// Remove a user from a group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed from group successfully
+  ///
+  /// See:
+  ///  * [removeFromGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
     required final String groupid,
     required final String userId,
@@ -2613,7 +3827,24 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Remove a user from a group
+  /// Remove a user from a group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed from group successfully
+  ///
+  /// See:
+  ///  * [removeFromGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
     required final String groupid,
     required final String userId,
@@ -2661,9 +3892,22 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Get the groups a user is a subadmin of
+  /// Get the groups a user is a subadmin of.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void>>
       getUserSubAdminGroups({
     required final String userId,
@@ -2677,9 +3921,25 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Get the groups a user is a subadmin of
+  /// Get the groups a user is a subadmin of.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2725,9 +3985,23 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Make a user a subadmin of a group
+  /// Make a user a subadmin of a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
     required final String groupid,
     required final String userId,
@@ -2742,9 +4016,26 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Make a user a subadmin of a group
+  /// Make a user a subadmin of a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
     required final String groupid,
     required final String userId,
@@ -2792,9 +4083,23 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Remove a user from the subadmins of a group
+  /// Remove a user from the subadmins of a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
     required final String groupid,
     required final String userId,
@@ -2809,9 +4114,26 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Remove a user from the subadmins of a group
+  /// Remove a user from the subadmins of a group.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
     required final String groupid,
     required final String userId,
@@ -2859,7 +4181,20 @@ class ProvisioningApiUsersClient {
     );
   }
 
-  /// Resend the welcome message
+  /// Resend the welcome message.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Resent welcome message successfully
+  ///
+  /// See:
+  ///  * [resendWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -2872,7 +4207,23 @@ class ProvisioningApiUsersClient {
     return rawResponse.future;
   }
 
-  /// Resend the welcome message
+  /// Resend the welcome message.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Resent welcome message successfully
+  ///
+  /// See:
+  ///  * [resendWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
     required final String userId,
     final bool oCSAPIRequest = true,

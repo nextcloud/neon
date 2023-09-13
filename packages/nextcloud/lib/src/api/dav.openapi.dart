@@ -10,6 +10,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -42,7 +44,24 @@ class DavDirectClient {
 
   final DavClient _rootClient;
 
-  /// Get a direct link to a file
+  /// Get a direct link to a file.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [expirationTime] Duration until the link expires
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Direct link returned
+  ///   * 404: File not found
+  ///   * 400: Getting direct link is not possible
+  ///   * 403: Missing permissions to get direct link
+  ///
+  /// See:
+  ///  * [getUrlRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DavDirectGetUrlResponseApplicationJson, void>> getUrl({
     required final int fileId,
     final int? expirationTime,
@@ -57,7 +76,27 @@ class DavDirectClient {
     return rawResponse.future;
   }
 
-  /// Get a direct link to a file
+  /// Get a direct link to a file.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [expirationTime] Duration until the link expires
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Direct link returned
+  ///   * 404: File not found
+  ///   * 400: Getting direct link is not possible
+  ///   * 403: Missing permissions to get direct link
+  ///
+  /// See:
+  ///  * [getUrl] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<DavDirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required final int fileId,
     final int? expirationTime,

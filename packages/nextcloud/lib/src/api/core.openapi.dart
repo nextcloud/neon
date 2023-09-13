@@ -13,6 +13,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -75,12 +77,31 @@ class CoreClient extends DynamiteClient {
 
   CoreWipeClient get wipe => CoreWipeClient(this);
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///
+  /// See:
+  ///  * [getStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreStatus, void>> getStatus() async {
     final rawResponse = getStatusRaw();
 
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///
+  /// See:
+  ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreStatus, void> getStatusRaw() {
     const path = '/status.php';
     final queryParameters = <String, dynamic>{};
@@ -110,7 +131,20 @@ class CoreAppPasswordClient {
 
   final CoreClient _rootClient;
 
-  /// Create app password
+  /// Create app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Creating app password is not allowed
+  ///
+  /// See:
+  ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
@@ -121,7 +155,23 @@ class CoreAppPasswordClient {
     return rawResponse.future;
   }
 
-  /// Create app password
+  /// Create app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Creating app password is not allowed
+  ///
+  /// See:
+  ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -165,7 +215,20 @@ class CoreAppPasswordClient {
     );
   }
 
-  /// Rotate app password
+  /// Rotate app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Rotating app password is not allowed
+  ///
+  /// See:
+  ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
@@ -176,7 +239,23 @@ class CoreAppPasswordClient {
     return rawResponse.future;
   }
 
-  /// Rotate app password
+  /// Rotate app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Rotating app password is not allowed
+  ///
+  /// See:
+  ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -220,7 +299,20 @@ class CoreAppPasswordClient {
     );
   }
 
-  /// Delete app password
+  /// Delete app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
@@ -231,7 +323,23 @@ class CoreAppPasswordClient {
     return rawResponse.future;
   }
 
-  /// Delete app password
+  /// Delete app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -281,7 +389,25 @@ class CoreAutoCompleteClient {
 
   final CoreClient _rootClient;
 
-  /// Autocomplete a query
+  /// Autocomplete a query.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Type of the items to search for
+  ///   * [itemId] ID of the items to search for
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
+  ///   * [shareTypes] Types of shares to search for
+  ///   * [limit] Maximum number of results to return
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Autocomplete results returned
+  ///
+  /// See:
+  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreAutoCompleteGetResponseApplicationJson, void>> $get({
     required final String search,
     final String? itemType,
@@ -304,7 +430,28 @@ class CoreAutoCompleteClient {
     return rawResponse.future;
   }
 
-  /// Autocomplete a query
+  /// Autocomplete a query.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Type of the items to search for
+  ///   * [itemId] ID of the items to search for
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
+  ///   * [shareTypes] Types of shares to search for
+  ///   * [limit] Maximum number of results to return
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Autocomplete results returned
+  ///
+  /// See:
+  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void> $getRaw({
     required final String search,
     final String? itemType,
@@ -371,13 +518,27 @@ class CoreAutoCompleteClient {
   }
 }
 
-/// Class AvatarController
+/// Class AvatarController.
 class CoreAvatarClient {
   CoreAvatarClient(this._rootClient);
 
   final CoreClient _rootClient;
 
-  /// Get the dark avatar
+  /// Get the dark avatar.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required final String userId,
     required final int size,
@@ -390,7 +551,24 @@ class CoreAvatarClient {
     return rawResponse.future;
   }
 
-  /// Get the dark avatar
+  /// Get the dark avatar.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
     required final String userId,
     required final int size,
@@ -434,7 +612,21 @@ class CoreAvatarClient {
     );
   }
 
-  /// Get the avatar
+  /// Get the avatar.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
     required final String userId,
     required final int size,
@@ -447,7 +639,24 @@ class CoreAvatarClient {
     return rawResponse.future;
   }
 
-  /// Get the avatar
+  /// Get the avatar.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders> getAvatarRaw({
     required final String userId,
     required final int size,
@@ -497,7 +706,20 @@ class CoreClientFlowLoginV2Client {
 
   final CoreClient _rootClient;
 
-  /// Poll the login flow credentials
+  /// Poll the login flow credentials.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the flow
+  ///
+  /// Status codes:
+  ///   * 200: Login flow credentials returned
+  ///   * 404: Login flow not found or completed
+  ///
+  /// See:
+  ///  * [pollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreLoginFlowV2Credentials, void>> poll({required final String token}) async {
     final rawResponse = pollRaw(
       token: token,
@@ -506,7 +728,23 @@ class CoreClientFlowLoginV2Client {
     return rawResponse.future;
   }
 
-  /// Poll the login flow credentials
+  /// Poll the login flow credentials.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the flow
+  ///
+  /// Status codes:
+  ///   * 200: Login flow credentials returned
+  ///   * 404: Login flow not found or completed
+  ///
+  /// See:
+  ///  * [poll] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreLoginFlowV2Credentials, void> pollRaw({required final String token}) {
     const path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
@@ -546,14 +784,35 @@ class CoreClientFlowLoginV2Client {
     );
   }
 
-  /// Init a login flow
+  /// Init a login flow.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Login flow init returned
+  ///
+  /// See:
+  ///  * [initRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreLoginFlowV2, void>> init() async {
     final rawResponse = initRaw();
 
     return rawResponse.future;
   }
 
-  /// Init a login flow
+  /// Init a login flow.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Login flow init returned
+  ///
+  /// See:
+  ///  * [init] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreLoginFlowV2, void> initRaw() {
     const path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
@@ -598,7 +857,21 @@ class CoreCollaborationResourcesClient {
 
   final CoreClient _rootClient;
 
-  /// Search for collections
+  /// Search for collections.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
     final bool oCSAPIRequest = true,
@@ -611,7 +884,24 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Search for collections
+  /// Search for collections.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [searchCollections] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
     required final String filter,
     final bool oCSAPIRequest = true,
@@ -657,7 +947,22 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Get a collection
+  /// Get a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
     final bool oCSAPIRequest = true,
@@ -670,7 +975,25 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Get a collection
+  /// Get a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listCollection] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
     required final int collectionId,
     final bool oCSAPIRequest = true,
@@ -716,7 +1039,23 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Rename a collection
+  /// Rename a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionName] New name
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [renameCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
@@ -731,7 +1070,26 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Rename a collection
+  /// Rename a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionName] New name
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [renameCollection] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
     required final String collectionName,
     required final int collectionId,
@@ -779,7 +1137,24 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Add a resource to a collection
+  /// Add a resource to a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found or resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [addResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
     required final String resourceType,
     required final String resourceId,
@@ -796,7 +1171,27 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Add a resource to a collection
+  /// Add a resource to a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found or resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [addResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
     required final String resourceType,
     required final String resourceId,
@@ -846,7 +1241,24 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Remove a resource from a collection
+  /// Remove a resource from a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection or resource not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [removeResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
     required final String resourceType,
     required final String resourceId,
@@ -863,7 +1275,27 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Remove a resource from a collection
+  /// Remove a resource from a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection or resource not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [removeResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
     required final String resourceType,
     required final String resourceId,
@@ -913,7 +1345,22 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Get collections by resource
+  /// Get collections by resource.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Type of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Resource not accessible
+  ///
+  /// See:
+  ///  * [getCollectionsByResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
       getCollectionsByResource({
     required final String resourceType,
@@ -929,7 +1376,25 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Get collections by resource
+  /// Get collections by resource.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Type of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Resource not accessible
+  ///
+  /// See:
+  ///  * [getCollectionsByResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
       getCollectionsByResourceRaw({
     required final String resourceType,
@@ -978,7 +1443,25 @@ class CoreCollaborationResourcesClient {
     );
   }
 
-  /// Create a collection for a resource
+  /// Create a collection for a resource.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name] Name of the collection
+  ///   * [baseResourceType] Type of the base resource
+  ///   * [baseResourceId] ID of the base resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 400: Creating collection is not possible
+  ///   * 404: Resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createCollectionOnResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
       createCollectionOnResource({
     required final String name,
@@ -996,7 +1479,28 @@ class CoreCollaborationResourcesClient {
     return rawResponse.future;
   }
 
-  /// Create a collection for a resource
+  /// Create a collection for a resource.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name] Name of the collection
+  ///   * [baseResourceType] Type of the base resource
+  ///   * [baseResourceId] ID of the base resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 400: Creating collection is not possible
+  ///   * 404: Resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createCollectionOnResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
       createCollectionOnResourceRaw({
     required final String name,
@@ -1054,7 +1558,22 @@ class CoreGuestAvatarClient {
 
   final CoreClient _rootClient;
 
-  /// Returns a dark guest avatar image response
+  /// Returns a dark guest avatar image response.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
     required final String guestName,
     required final String size,
@@ -1067,7 +1586,25 @@ class CoreGuestAvatarClient {
     return rawResponse.future;
   }
 
-  /// Returns a dark guest avatar image response
+  /// Returns a dark guest avatar image response.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
     required final String guestName,
     required final String size,
@@ -1111,7 +1648,23 @@ class CoreGuestAvatarClient {
     );
   }
 
-  /// Returns a guest avatar image response
+  /// Returns a guest avatar image response.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [darkTheme] Return dark avatar
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String guestName,
     required final String size,
@@ -1126,7 +1679,26 @@ class CoreGuestAvatarClient {
     return rawResponse.future;
   }
 
-  /// Returns a guest avatar image response
+  /// Returns a guest avatar image response.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [darkTheme] Return dark avatar
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required final String guestName,
     required final String size,
@@ -1182,7 +1754,21 @@ class CoreHoverCardClient {
 
   final CoreClient _rootClient;
 
-  /// Get the user details for a hovercard
+  /// Get the user details for a hovercard.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User details returned
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreHoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -1195,7 +1781,24 @@ class CoreHoverCardClient {
     return rawResponse.future;
   }
 
-  /// Get the user details for a hovercard
+  /// Get the user details for a hovercard.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User details returned
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -1247,7 +1850,21 @@ class CoreNavigationClient {
 
   final CoreClient _rootClient;
 
-  /// Get the apps navigation
+  /// Get the apps navigation.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
@@ -1260,7 +1877,24 @@ class CoreNavigationClient {
     return rawResponse.future;
   }
 
-  /// Get the apps navigation
+  /// Get the apps navigation.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
@@ -1308,7 +1942,21 @@ class CoreNavigationClient {
     );
   }
 
-  /// Get the settings navigation
+  /// Get the settings navigation.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
@@ -1321,7 +1969,24 @@ class CoreNavigationClient {
     return rawResponse.future;
   }
 
-  /// Get the settings navigation
+  /// Get the settings navigation.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
@@ -1370,20 +2035,43 @@ class CoreNavigationClient {
   }
 }
 
-/// Controller about the endpoint /ocm-provider/
+/// Controller about the endpoint /ocm-provider/.
 class CoreOcmClient {
   CoreOcmClient(this._rootClient);
 
   final CoreClient _rootClient;
 
-  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: OCM Provider details returned
+  ///   * 500: OCM not supported
+  ///
+  /// See:
+  ///  * [discoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
     final rawResponse = discoveryRaw();
 
     return rawResponse.future;
   }
 
-  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: OCM Provider details returned
+  ///   * 500: OCM not supported
+  ///
+  /// See:
+  ///  * [discovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders> discoveryRaw() {
     const path = '/index.php/ocm-provider';
     final queryParameters = <String, dynamic>{};
@@ -1428,7 +2116,19 @@ class CoreOcsClient {
 
   final CoreClient _rootClient;
 
-  /// Get the capabilities
+  /// Get the capabilities.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Capabilities returned
+  ///
+  /// See:
+  ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
     final bool oCSAPIRequest = true,
   }) async {
@@ -1439,7 +2139,22 @@ class CoreOcsClient {
     return rawResponse.future;
   }
 
-  /// Get the capabilities
+  /// Get the capabilities.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Capabilities returned
+  ///
+  /// See:
+  ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -1487,7 +2202,29 @@ class CorePreviewClient {
 
   final CoreClient _rootClient;
 
-  /// Get a preview by file ID
+  /// Get a preview by file ID.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
     final int fileId = -1,
     final int x = 32,
@@ -1510,7 +2247,32 @@ class CorePreviewClient {
     return rawResponse.future;
   }
 
-  /// Get a preview by file ID
+  /// Get a preview by file ID.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
     final int fileId = -1,
     final int x = 32,
@@ -1580,7 +2342,29 @@ class CorePreviewClient {
     );
   }
 
-  /// Get a preview by file path
+  /// Get a preview by file path.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
     final String file = '',
     final int x = 32,
@@ -1603,7 +2387,32 @@ class CorePreviewClient {
     return rawResponse.future;
   }
 
-  /// Get a preview by file path
+  /// Get a preview by file path.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     final String file = '',
     final int x = 32,
@@ -1679,7 +2488,25 @@ class CoreProfileApiClient {
 
   final CoreClient _rootClient;
 
-  /// Update the visibility of a parameter
+  /// Update the visibility of a parameter.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [paramId] ID of the parameter
+  ///   * [visibility] New visibility
+  ///   * [targetUserId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Visibility updated successfully
+  ///   * 400: Updating visibility is not possible
+  ///   * 403: Not allowed to edit other users visibility
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [setVisibilityRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
     required final String paramId,
     required final String visibility,
@@ -1696,7 +2523,28 @@ class CoreProfileApiClient {
     return rawResponse.future;
   }
 
-  /// Update the visibility of a parameter
+  /// Update the visibility of a parameter.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [paramId] ID of the parameter
+  ///   * [visibility] New visibility
+  ///   * [targetUserId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Visibility updated successfully
+  ///   * 400: Updating visibility is not possible
+  ///   * 403: Not allowed to edit other users visibility
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [setVisibility] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
     required final String paramId,
     required final String visibility,
@@ -1752,7 +2600,20 @@ class CoreReferenceClient {
 
   final CoreClient _rootClient;
 
-  /// Get a preview for a reference
+  /// Get a preview for a reference.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [referenceId] the reference cache key
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 404: Reference not found
+  ///
+  /// See:
+  ///  * [previewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> preview({required final String referenceId}) async {
     final rawResponse = previewRaw(
       referenceId: referenceId,
@@ -1761,7 +2622,23 @@ class CoreReferenceClient {
     return rawResponse.future;
   }
 
-  /// Get a preview for a reference
+  /// Get a preview for a reference.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [referenceId] the reference cache key
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 404: Reference not found
+  ///
+  /// See:
+  ///  * [preview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> previewRaw({required final String referenceId}) {
     var path = '/index.php/core/references/preview/{referenceId}';
     final queryParameters = <String, dynamic>{};
@@ -1807,7 +2684,20 @@ class CoreReferenceApiClient {
 
   final CoreClient _rootClient;
 
-  /// Resolve a reference
+  /// Resolve a reference.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
     final bool oCSAPIRequest = true,
@@ -1820,7 +2710,23 @@ class CoreReferenceApiClient {
     return rawResponse.future;
   }
 
-  /// Resolve a reference
+  /// Resolve a reference.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [resolveOne] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
     required final String reference,
     final bool oCSAPIRequest = true,
@@ -1866,7 +2772,21 @@ class CoreReferenceApiClient {
     );
   }
 
-  /// Resolve multiple references
+  /// Resolve multiple references.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [references] References to resolve
+  ///   * [limit] Maximum amount of references to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreReferenceApiResolveResponseApplicationJson, void>> resolve({
     required final List<String> references,
     final int limit = 1,
@@ -1881,7 +2801,24 @@ class CoreReferenceApiClient {
     return rawResponse.future;
   }
 
-  /// Resolve multiple references
+  /// Resolve multiple references.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [references] References to resolve
+  ///   * [limit] Maximum amount of references to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [resolve] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void> resolveRaw({
     required final List<String> references,
     final int limit = 1,
@@ -1931,7 +2868,22 @@ class CoreReferenceApiClient {
     );
   }
 
-  /// Extract references from a text
+  /// Extract references from a text.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from
+  ///   * [resolve] Resolve the references
+  ///   * [limit] Maximum amount of references to extract
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
     final int resolve = 0,
@@ -1948,7 +2900,25 @@ class CoreReferenceApiClient {
     return rawResponse.future;
   }
 
-  /// Extract references from a text
+  /// Extract references from a text.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from
+  ///   * [resolve] Resolve the references
+  ///   * [limit] Maximum amount of references to extract
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extract] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required final String text,
     final int resolve = 0,
@@ -2002,7 +2972,19 @@ class CoreReferenceApiClient {
     );
   }
 
-  /// Get the providers
+  /// Get the providers.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
     final bool oCSAPIRequest = true,
   }) async {
@@ -2013,7 +2995,22 @@ class CoreReferenceApiClient {
     return rawResponse.future;
   }
 
-  /// Get the providers
+  /// Get the providers.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -2057,7 +3054,21 @@ class CoreReferenceApiClient {
     );
   }
 
-  /// Touch a provider
+  /// Touch a provider.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [timestamp] Timestamp of the last usage
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Provider touched
+  ///
+  /// See:
+  ///  * [touchProviderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
@@ -2072,7 +3083,24 @@ class CoreReferenceApiClient {
     return rawResponse.future;
   }
 
-  /// Touch a provider
+  /// Touch a provider.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [timestamp] Timestamp of the last usage
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Provider touched
+  ///
+  /// See:
+  ///  * [touchProvider] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
     required final String providerId,
     final int? timestamp,
@@ -2128,7 +3156,19 @@ class CoreTextProcessingApiClient {
 
   final CoreClient _rootClient;
 
-  /// This endpoint returns all available LanguageModel task types
+  /// This endpoint returns all available LanguageModel task types.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
     final bool oCSAPIRequest = true,
   }) async {
@@ -2139,7 +3179,22 @@ class CoreTextProcessingApiClient {
     return rawResponse.future;
   }
 
-  /// This endpoint returns all available LanguageModel task types
+  /// This endpoint returns all available LanguageModel task types.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -2181,7 +3236,25 @@ class CoreTextProcessingApiClient {
     );
   }
 
-  /// This endpoint allows scheduling a language model task
+  /// This endpoint allows scheduling a language model task.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text
+  ///   * [type] Type of the task
+  ///   * [appId] ID of the app that will execute the task
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///
+  /// See:
+  ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>> schedule({
     required final String input,
     required final String type,
@@ -2200,7 +3273,28 @@ class CoreTextProcessingApiClient {
     return rawResponse.future;
   }
 
-  /// This endpoint allows scheduling a language model task
+  /// This endpoint allows scheduling a language model task.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text
+  ///   * [type] Type of the task
+  ///   * [appId] ID of the app that will execute the task
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///
+  /// See:
+  ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
     required final String input,
     required final String type,
@@ -2253,6 +3347,21 @@ class CoreTextProcessingApiClient {
   }
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -2266,6 +3375,24 @@ class CoreTextProcessingApiClient {
   }
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -2309,7 +3436,22 @@ class CoreTextProcessingApiClient {
     );
   }
 
-  /// This endpoint allows to delete a scheduled task for a user
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -2322,7 +3464,25 @@ class CoreTextProcessingApiClient {
     return rawResponse.future;
   }
 
-  /// This endpoint allows to delete a scheduled task for a user
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -2368,7 +3528,22 @@ class CoreTextProcessingApiClient {
     );
   }
 
-  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
@@ -2383,7 +3558,25 @@ class CoreTextProcessingApiClient {
     return rawResponse.future;
   }
 
-  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required final String appId,
     final String? identifier,
@@ -2439,7 +3632,19 @@ class CoreTranslationApiClient {
 
   final CoreClient _rootClient;
 
-  /// Get the list of supported languages
+  /// Get the list of supported languages.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Supported languages returned
+  ///
+  /// See:
+  ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>> languages({
     final bool oCSAPIRequest = true,
   }) async {
@@ -2450,7 +3655,22 @@ class CoreTranslationApiClient {
     return rawResponse.future;
   }
 
-  /// Get the list of supported languages
+  /// Get the list of supported languages.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Supported languages returned
+  ///
+  /// See:
+  ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -2492,7 +3712,25 @@ class CoreTranslationApiClient {
     );
   }
 
-  /// Translate a text
+  /// Translate a text.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to be translated
+  ///   * [fromLanguage] Language to translate from
+  ///   * [toLanguage] Language to translate to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Translated text returned
+  ///   * 400: Language not detected or unable to translate
+  ///   * 412: Translating is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [translateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreTranslationApiTranslateResponseApplicationJson, void>> translate({
     required final String text,
     required final String toLanguage,
@@ -2509,7 +3747,28 @@ class CoreTranslationApiClient {
     return rawResponse.future;
   }
 
-  /// Translate a text
+  /// Translate a text.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to be translated
+  ///   * [fromLanguage] Language to translate from
+  ///   * [toLanguage] Language to translate to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Translated text returned
+  ///   * 400: Language not detected or unable to translate
+  ///   * 412: Translating is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [translate] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void> translateRaw({
     required final String text,
     required final String toLanguage,
@@ -2565,7 +3824,20 @@ class CoreUnifiedSearchClient {
 
   final CoreClient _rootClient;
 
-  /// Get the providers for unified search
+  /// Get the providers for unified search.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [from] the url the user is currently at
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
     final String from = '',
     final bool oCSAPIRequest = true,
@@ -2578,7 +3850,23 @@ class CoreUnifiedSearchClient {
     return rawResponse.future;
   }
 
-  /// Get the providers for unified search
+  /// Get the providers for unified search.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [from] the url the user is currently at
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
     final String from = '',
     final bool oCSAPIRequest = true,
@@ -2626,7 +3914,26 @@ class CoreUnifiedSearchClient {
     );
   }
 
-  /// Search
+  /// Search.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [term] Term to search
+  ///   * [sortOrder] Order of entries
+  ///   * [limit] Maximum amount of entries
+  ///   * [cursor] Offset for searching
+  ///   * [from] The current user URL
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Search entries returned
+  ///   * 400: Searching is not possible
+  ///
+  /// See:
+  ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
     final String term = '',
@@ -2649,7 +3956,29 @@ class CoreUnifiedSearchClient {
     return rawResponse.future;
   }
 
-  /// Search
+  /// Search.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [term] Term to search
+  ///   * [sortOrder] Order of entries
+  ///   * [limit] Maximum amount of entries
+  ///   * [cursor] Offset for searching
+  ///   * [from] The current user URL
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Search entries returned
+  ///   * 400: Searching is not possible
+  ///
+  /// See:
+  ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void> searchRaw({
     required final String providerId,
     final String term = '',
@@ -2724,7 +4053,20 @@ class CoreWhatsNewClient {
 
   final CoreClient _rootClient;
 
-  /// Get the changes
+  /// Get the changes.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes returned
+  ///   * 204: No changes
+  ///
+  /// See:
+  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreWhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
     final rawResponse = $getRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -2733,7 +4075,23 @@ class CoreWhatsNewClient {
     return rawResponse.future;
   }
 
-  /// Get the changes
+  /// Get the changes.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes returned
+  ///   * 204: No changes
+  ///
+  /// See:
+  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
@@ -2775,7 +4133,21 @@ class CoreWhatsNewClient {
     );
   }
 
-  /// Dismiss the changes
+  /// Dismiss the changes.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] Version to dismiss the changes for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes dismissed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreWhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
     final bool oCSAPIRequest = true,
@@ -2788,7 +4160,24 @@ class CoreWhatsNewClient {
     return rawResponse.future;
   }
 
-  /// Dismiss the changes
+  /// Dismiss the changes.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] Version to dismiss the changes for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes dismissed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [dismiss] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void> dismissRaw({
     required final String version,
     final bool oCSAPIRequest = true,
@@ -2840,7 +4229,20 @@ class CoreWipeClient {
 
   final CoreClient _rootClient;
 
-  /// Check if the device should be wiped
+  /// Check if the device should be wiped.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Device should be wiped
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [checkWipeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CoreWipeCheckWipeResponseApplicationJson, void>> checkWipe({
     required final String token,
   }) async {
@@ -2851,7 +4253,23 @@ class CoreWipeClient {
     return rawResponse.future;
   }
 
-  /// Check if the device should be wiped
+  /// Check if the device should be wiped.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Device should be wiped
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [checkWipe] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
     const path = '/index.php/core/wipe/check';
     final queryParameters = <String, dynamic>{};
@@ -2891,7 +4309,20 @@ class CoreWipeClient {
     );
   }
 
-  /// Finish the wipe
+  /// Finish the wipe.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Wipe finished successfully
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [wipeDoneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<JsonObject, void>> wipeDone({required final String token}) async {
     final rawResponse = wipeDoneRaw(
       token: token,
@@ -2900,7 +4331,23 @@ class CoreWipeClient {
     return rawResponse.future;
   }
 
-  /// Finish the wipe
+  /// Finish the wipe.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Wipe finished successfully
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [wipeDone] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required final String token}) {
     const path = '/index.php/core/wipe/success';
     final queryParameters = <String, dynamic>{};

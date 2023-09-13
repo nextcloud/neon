@@ -35,13 +35,66 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
 
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
-  Iterable<String> get formattedDescription sync* {
-    yield* descriptionToDocs(summary);
-
-    if (summary != null && summary!.isNotEmpty && description != null && description!.isNotEmpty) {
+  Iterable<String> formattedDescription(
+    final String methodName, {
+    final bool isRawRequest = false,
+    final bool requiresAuth = false,
+  }) sync* {
+    if (summary != null && summary!.isNotEmpty) {
+      yield* descriptionToDocs(summary);
       yield docsSeparator;
     }
 
-    yield* descriptionToDocs(description);
+    if (description != null && description!.isNotEmpty) {
+      yield* descriptionToDocs(description);
+      yield docsSeparator;
+    }
+
+    if (isRawRequest) {
+      yield '''
+$docsSeparator This method and the response it returns is experimental. The API might change without a major version bump.
+$docsSeparator
+$docsSeparator Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.''';
+    } else {
+      yield '$docsSeparator Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.';
+    }
+    yield '$docsSeparator Throws a [DynamiteApiException] if the API call does not return an expected status code.';
+    yield docsSeparator;
+
+    if (parameters != null && parameters!.isNotEmpty) {
+      yield '$docsSeparator Parameters:';
+      for (final parameter in parameters!) {
+        yield parameter.formattedDescription;
+      }
+      yield docsSeparator;
+    }
+
+    if (responses != null && responses!.isNotEmpty) {
+      yield '$docsSeparator Status codes:';
+      for (final response in responses!.entries) {
+        final statusCode = response.key;
+        final description = response.value.description;
+
+        final buffer = StringBuffer()
+          ..write('$docsSeparator ')
+          ..write('  * $statusCode');
+
+        if (description.isNotEmpty) {
+          buffer
+            ..write(': ')
+            ..write(description);
+        }
+
+        yield buffer.toString();
+      }
+      yield docsSeparator;
+    }
+
+    yield '$docsSeparator See:';
+    if (isRawRequest) {
+      yield '$docsSeparator  * [$methodName] for an operation that returns a [DynamiteResponse] with a stable API.';
+    } else {
+      yield '$docsSeparator  * [${methodName}Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.';
+    }
   }
 }

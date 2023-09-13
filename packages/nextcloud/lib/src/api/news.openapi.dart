@@ -12,6 +12,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -36,12 +38,31 @@ class NewsClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsSupportedAPIVersions, void>> getSupportedApiVersions() async {
     final rawResponse = getSupportedApiVersionsRaw();
 
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsSupportedAPIVersions, void> getSupportedApiVersionsRaw() {
     const path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
@@ -82,12 +103,31 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFoldersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListFolders, void>> listFolders() async {
     final rawResponse = listFoldersRaw();
 
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListFolders, void> listFoldersRaw() {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
@@ -128,6 +168,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListFolders, void>> createFolder({required final String name}) async {
     final rawResponse = createFolderRaw(
       name: name,
@@ -136,6 +187,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListFolders, void> createFolderRaw({required final String name}) {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
@@ -177,6 +242,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> renameFolder({
     required final int folderId,
     required final String name,
@@ -189,6 +265,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> renameFolderRaw({
     required final int folderId,
     required final String name,
@@ -232,6 +322,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> deleteFolder({required final int folderId}) async {
     final rawResponse = deleteFolderRaw(
       folderId: folderId,
@@ -240,6 +338,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> deleteFolderRaw({required final int folderId}) {
     var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
@@ -279,6 +388,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFolderAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markFolderAsRead({
     required final int folderId,
     required final int newestItemId,
@@ -291,6 +411,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFolderAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> markFolderAsReadRaw({
     required final int folderId,
     required final int newestItemId,
@@ -334,12 +468,31 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFeedsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListFeeds, void>> listFeeds() async {
     final rawResponse = listFeedsRaw();
 
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListFeeds, void> listFeedsRaw() {
     const path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
@@ -380,6 +533,18 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [url]
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [addFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListFeeds, void>> addFeed({
     required final String url,
     final int? folderId,
@@ -392,6 +557,21 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [url]
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [addFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListFeeds, void> addFeedRaw({
     required final String url,
     final int? folderId,
@@ -439,6 +619,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> deleteFeed({required final int feedId}) async {
     final rawResponse = deleteFeedRaw(
       feedId: feedId,
@@ -447,6 +635,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> deleteFeedRaw({required final int feedId}) {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
     final queryParameters = <String, dynamic>{};
@@ -486,6 +685,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [moveFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> moveFeed({
     required final int feedId,
     final int? folderId,
@@ -498,6 +708,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [moveFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> moveFeedRaw({
     required final int feedId,
     final int? folderId,
@@ -543,6 +767,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [feedTitle]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> renameFeed({
     required final int feedId,
     required final String feedTitle,
@@ -555,6 +790,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [feedTitle]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> renameFeedRaw({
     required final int feedId,
     required final String feedTitle,
@@ -598,6 +847,17 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFeedAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markFeedAsRead({
     required final int feedId,
     required final int newestItemId,
@@ -610,6 +870,20 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFeedAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> markFeedAsReadRaw({
     required final int feedId,
     required final int newestItemId,
@@ -653,6 +927,22 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [getRead]
+  ///   * [batchSize]
+  ///   * [offset]
+  ///   * [oldestFirst]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListArticles, void>> listArticles({
     final int type = 3,
     final int id = 0,
@@ -673,6 +963,25 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [getRead]
+  ///   * [batchSize]
+  ///   * [offset]
+  ///   * [oldestFirst]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListArticles, void> listArticlesRaw({
     final int type = 3,
     final int id = 0,
@@ -738,6 +1047,19 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [lastModified]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NewsListArticles, void>> listUpdatedArticles({
     final int type = 3,
     final int id = 0,
@@ -752,6 +1074,22 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [lastModified]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NewsListArticles, void> listUpdatedArticlesRaw({
     final int type = 3,
     final int id = 0,
@@ -805,6 +1143,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markArticleAsRead({required final int itemId}) async {
     final rawResponse = markArticleAsReadRaw(
       itemId: itemId,
@@ -813,6 +1159,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> markArticleAsReadRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
     final queryParameters = <String, dynamic>{};
@@ -852,6 +1209,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markArticleAsUnread({required final int itemId}) async {
     final rawResponse = markArticleAsUnreadRaw(
       itemId: itemId,
@@ -860,6 +1225,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
     final queryParameters = <String, dynamic>{};
@@ -899,6 +1275,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> starArticle({required final int itemId}) async {
     final rawResponse = starArticleRaw(
       itemId: itemId,
@@ -907,6 +1291,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> starArticleRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
     final queryParameters = <String, dynamic>{};
@@ -946,6 +1341,14 @@ class NewsClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> unstarArticle({required final int itemId}) async {
     final rawResponse = unstarArticleRaw(
       itemId: itemId,
@@ -954,6 +1357,17 @@ class NewsClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<void, void> unstarArticleRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
     final queryParameters = <String, dynamic>{};
@@ -1109,7 +1523,7 @@ abstract interface class NewsFolderInterface {
   String get name;
   bool get opened;
 
-  /// This seems to be broken. In testing it is always empty
+  /// This seems to be broken. In testing it is always empty.
   BuiltList<NewsFeed> get feeds;
   NewsFolderInterface rebuild(final void Function(NewsFolderInterfaceBuilder) updates);
   NewsFolderInterfaceBuilder toBuilder();

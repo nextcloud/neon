@@ -119,7 +119,7 @@ super(
           );
         }
 
-        b.methods.addAll(buildTags(spec, state, tags, null));
+        b.methods.addAll(buildTags(spec, state, null));
       },
     );
 
@@ -167,14 +167,13 @@ Class buildClient(
           );
         }
 
-        b.methods.addAll(buildTags(spec, state, tags, tag));
+        b.methods.addAll(buildTags(spec, state, tag));
       },
     );
 
 Iterable<Method> buildTags(
   final openapi.OpenAPI spec,
   final State state,
-  final List<String> tags,
   final String? tag,
 ) sync* {
   final client = tag == null ? 'this' : '_rootClient';
@@ -231,7 +230,6 @@ Iterable<Method> buildTags(
       ).forEach(code.writeln);
 
       final operationParameters = ListBuilder<Parameter>();
-      final docs = operation.formattedDescription;
       final annotations = operation.deprecated ?? false ? refer('Deprecated').call([refer("''")]) : null;
       var returnDataType = 'void';
       var returnHeadersType = 'void';
@@ -386,7 +384,7 @@ Iterable<Method> buildTags(
         b
           ..name = name
           ..modifier = MethodModifier.async
-          ..docs.addAll(docs);
+          ..docs.addAll(operation.formattedDescription(name));
 
         if (annotations != null) {
           b.annotations.add(annotations);
@@ -411,7 +409,8 @@ return rawResponse.future;
         (final b) {
           b
             ..name = '${name}Raw'
-            ..docs.addAll(docs);
+            ..docs.addAll(operation.formattedDescription(name, isRawRequest: true))
+            ..annotations.add(refer('experimental'));
 
           if (annotations != null) {
             b.annotations.add(annotations);

@@ -12,6 +12,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -54,7 +56,19 @@ class FilesSharingDeletedShareapiClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Get a list of all deleted shares
+  /// Get a list of all deleted shares.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Deleted shares returned
+  ///
+  /// See:
+  ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingDeletedShareapiListResponseApplicationJson, void>> list({
     final bool oCSAPIRequest = true,
   }) async {
@@ -65,7 +79,22 @@ class FilesSharingDeletedShareapiClient {
     return rawResponse.future;
   }
 
-  /// Get a list of all deleted shares
+  /// Get a list of all deleted shares.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Deleted shares returned
+  ///
+  /// See:
+  ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingDeletedShareapiListResponseApplicationJson, void> listRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -109,7 +138,21 @@ class FilesSharingDeletedShareapiClient {
     );
   }
 
-  /// Undelete a deleted share
+  /// Undelete a deleted share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share undeleted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [undeleteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingDeletedShareapiUndeleteResponseApplicationJson, void>> undelete({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -122,7 +165,24 @@ class FilesSharingDeletedShareapiClient {
     return rawResponse.future;
   }
 
-  /// Undelete a deleted share
+  /// Undelete a deleted share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share undeleted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [undelete] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingDeletedShareapiUndeleteResponseApplicationJson, void> undeleteRaw({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -174,7 +234,23 @@ class FilesSharingPublicPreviewClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Get a direct link preview for a shared file
+  /// Get a direct link preview for a shared file.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [directLinkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> directLink({
     required final String token,
     final bool oCSAPIRequest = true,
@@ -187,7 +263,26 @@ class FilesSharingPublicPreviewClient {
     return rawResponse.future;
   }
 
-  /// Get a direct link preview for a shared file
+  /// Get a direct link preview for a shared file.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [directLink] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> directLinkRaw({
     required final String token,
     final bool oCSAPIRequest = true,
@@ -231,7 +326,27 @@ class FilesSharingPublicPreviewClient {
     );
   }
 
-  /// Get a preview for a shared file
+  /// Get a preview for a shared file.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] File in the share
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [token] Token of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
     required final String token,
     final String file = '',
@@ -252,7 +367,30 @@ class FilesSharingPublicPreviewClient {
     return rawResponse.future;
   }
 
-  /// Get a preview for a shared file
+  /// Get a preview for a shared file.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] File in the share
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [token] Token of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     required final String token,
     final String file = '',
@@ -318,7 +456,19 @@ class FilesSharingRemoteClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Get a list of accepted remote shares
+  /// Get a list of accepted remote shares.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Accepted remote shares returned
+  ///
+  /// See:
+  ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteGetSharesResponseApplicationJson, void>> getShares({
     final bool oCSAPIRequest = true,
   }) async {
@@ -329,7 +479,22 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Get a list of accepted remote shares
+  /// Get a list of accepted remote shares.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Accepted remote shares returned
+  ///
+  /// See:
+  ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteGetSharesResponseApplicationJson, void> getSharesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -373,7 +538,19 @@ class FilesSharingRemoteClient {
     );
   }
 
-  /// Get list of pending remote shares
+  /// Get list of pending remote shares.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Pending remote shares returned
+  ///
+  /// See:
+  ///  * [getOpenSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
     final bool oCSAPIRequest = true,
   }) async {
@@ -384,7 +561,22 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Get list of pending remote shares
+  /// Get list of pending remote shares.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Pending remote shares returned
+  ///
+  /// See:
+  ///  * [getOpenShares] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -428,7 +620,21 @@ class FilesSharingRemoteClient {
     );
   }
 
-  /// Accept a remote share
+  /// Accept a remote share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteAcceptShareResponseApplicationJson, void>> acceptShare({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -441,7 +647,24 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Accept a remote share
+  /// Accept a remote share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -487,7 +710,21 @@ class FilesSharingRemoteClient {
     );
   }
 
-  /// Decline a remote share
+  /// Decline a remote share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share declined successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [declineShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteDeclineShareResponseApplicationJson, void>> declineShare({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -500,7 +737,24 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Decline a remote share
+  /// Decline a remote share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share declined successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [declineShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteDeclineShareResponseApplicationJson, void> declineShareRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -546,7 +800,21 @@ class FilesSharingRemoteClient {
     );
   }
 
-  /// Get info of a remote share
+  /// Get info of a remote share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteGetShareResponseApplicationJson, void>> getShare({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -559,7 +827,24 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Get info of a remote share
+  /// Get info of a remote share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteGetShareResponseApplicationJson, void> getShareRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -605,7 +890,22 @@ class FilesSharingRemoteClient {
     );
   }
 
-  /// Unshare a remote share
+  /// Unshare a remote share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share unshared successfully
+  ///   * 404: Share not found
+  ///   * 403: Unsharing is not possible
+  ///
+  /// See:
+  ///  * [unshareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingRemoteUnshareResponseApplicationJson, void>> unshare({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -618,7 +918,25 @@ class FilesSharingRemoteClient {
     return rawResponse.future;
   }
 
-  /// Unshare a remote share
+  /// Unshare a remote share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share unshared successfully
+  ///   * 404: Share not found
+  ///   * 403: Unsharing is not possible
+  ///
+  /// See:
+  ///  * [unshare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingRemoteUnshareResponseApplicationJson, void> unshareRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -670,7 +988,24 @@ class FilesSharingShareInfoClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Get the info about a share
+  /// Get the info about a share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [t] Token of the share
+  ///   * [password] Password of the share
+  ///   * [dir] Subdirectory to get info about
+  ///   * [depth] Maximum depth to get info about
+  ///
+  /// Status codes:
+  ///   * 200: Share info returned
+  ///   * 403: Getting share info is not allowed
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [infoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareInfo, void>> info({
     required final String t,
     final String? password,
@@ -687,7 +1022,27 @@ class FilesSharingShareInfoClient {
     return rawResponse.future;
   }
 
-  /// Get the info about a share
+  /// Get the info about a share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [t] Token of the share
+  ///   * [password] Password of the share
+  ///   * [dir] Subdirectory to get info about
+  ///   * [depth] Maximum depth to get info about
+  ///
+  /// Status codes:
+  ///   * 200: Share info returned
+  ///   * 403: Getting share info is not allowed
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareInfo, void> infoRaw({
     required final String t,
     final String? password,
@@ -747,7 +1102,25 @@ class FilesSharingShareapiClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Get shares of the current user
+  /// Get shares of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sharedWithMe] Only get shares with the current user
+  ///   * [reshares] Only get shares by the current user and reshares
+  ///   * [subfiles] Only get all shares in a folder
+  ///   * [path] Get shares for a specific path
+  ///   * [includeTags] Include tags in the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 404: The folder was not found or is inaccessible
+  ///
+  /// See:
+  ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiGetSharesResponseApplicationJson, void>> getShares({
     final String sharedWithMe = 'false',
     final String reshares = 'false',
@@ -768,7 +1141,28 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Get shares of the current user
+  /// Get shares of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sharedWithMe] Only get shares with the current user
+  ///   * [reshares] Only get shares by the current user and reshares
+  ///   * [subfiles] Only get all shares in a folder
+  ///   * [path] Get shares for a specific path
+  ///   * [includeTags] Include tags in the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 404: The folder was not found or is inaccessible
+  ///
+  /// See:
+  ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiGetSharesResponseApplicationJson, void> getSharesRaw({
     final String sharedWithMe = 'false',
     final String reshares = 'false',
@@ -832,7 +1226,33 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Create a share
+  /// Create a share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the share
+  ///   * [permissions] Permissions for the share
+  ///   * [shareType] Type of the share
+  ///   * [shareWith] The entity this should be shared with
+  ///   * [publicUpload] If public uploading is allowed
+  ///   * [password] Password for the share
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk
+  ///   * [expireDate] Expiry date of the share
+  ///   * [note] Note for the share
+  ///   * [label] Label for the share (only used in link and email)
+  ///   * [attributes] Additional attributes for the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share created
+  ///   * 400: Unknown share type
+  ///   * 403: Creating the share is not allowed
+  ///   * 404: Creating the share failed
+  ///
+  /// See:
+  ///  * [createShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiCreateShareResponseApplicationJson, void>> createShare({
     final String? path,
     final int? permissions,
@@ -865,7 +1285,36 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Create a share
+  /// Create a share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the share
+  ///   * [permissions] Permissions for the share
+  ///   * [shareType] Type of the share
+  ///   * [shareWith] The entity this should be shared with
+  ///   * [publicUpload] If public uploading is allowed
+  ///   * [password] Password for the share
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk
+  ///   * [expireDate] Expiry date of the share
+  ///   * [note] Note for the share
+  ///   * [label] Label for the share (only used in link and email)
+  ///   * [attributes] Additional attributes for the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share created
+  ///   * 400: Unknown share type
+  ///   * 403: Creating the share is not allowed
+  ///   * 404: Creating the share failed
+  ///
+  /// See:
+  ///  * [createShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiCreateShareResponseApplicationJson, void> createShareRaw({
     final String? path,
     final int? permissions,
@@ -953,7 +1402,22 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Get all shares relative to a file, including parent folders shares rights
+  /// Get all shares relative to a file, including parent folders shares rights.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path all shares will be relative to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 500
+  ///   * 404: The given path is invalid
+  ///
+  /// See:
+  ///  * [getInheritedSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
     required final String path,
     final bool oCSAPIRequest = true,
@@ -966,7 +1430,25 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Get all shares relative to a file, including parent folders shares rights
+  /// Get all shares relative to a file, including parent folders shares rights.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path all shares will be relative to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 500
+  ///   * 404: The given path is invalid
+  ///
+  /// See:
+  ///  * [getInheritedShares] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiGetInheritedSharesResponseApplicationJson, void> getInheritedSharesRaw({
     required final String path,
     final bool oCSAPIRequest = true,
@@ -1012,7 +1494,19 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Get all shares that are still pending
+  /// Get all shares that are still pending.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Pending shares returned
+  ///
+  /// See:
+  ///  * [pendingSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
     final bool oCSAPIRequest = true,
   }) async {
@@ -1023,7 +1517,22 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Get all shares that are still pending
+  /// Get all shares that are still pending.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Pending shares returned
+  ///
+  /// See:
+  ///  * [pendingShares] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -1067,7 +1576,22 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Get a specific share by id
+  /// Get a specific share by id.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [includeTags] Include tags in the share
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiGetShareResponseApplicationJson, void>> getShare({
     required final String id,
     final int includeTags = 0,
@@ -1082,7 +1606,25 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Get a specific share by id
+  /// Get a specific share by id.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [includeTags] Include tags in the share
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiGetShareResponseApplicationJson, void> getShareRaw({
     required final String id,
     final int includeTags = 0,
@@ -1132,7 +1674,32 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Update a share
+  /// Update a share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [permissions] New permissions
+  ///   * [password] New password
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
+  ///   * [publicUpload] New condition if public uploading is allowed
+  ///   * [expireDate] New expiry date
+  ///   * [note] New note
+  ///   * [label] New label
+  ///   * [hideDownload] New condition if the download should be hidden
+  ///   * [attributes] New additional attributes
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share updated successfully
+  ///   * 400: Share could not be updated because the requested changes are invalid
+  ///   * 403: Missing permissions to update the share
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [updateShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiUpdateShareResponseApplicationJson, void>> updateShare({
     required final String id,
     final int? permissions,
@@ -1163,7 +1730,35 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Update a share
+  /// Update a share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [permissions] New permissions
+  ///   * [password] New password
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
+  ///   * [publicUpload] New condition if public uploading is allowed
+  ///   * [expireDate] New expiry date
+  ///   * [note] New note
+  ///   * [label] New label
+  ///   * [hideDownload] New condition if the download should be hidden
+  ///   * [attributes] New additional attributes
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share updated successfully
+  ///   * 400: Share could not be updated because the requested changes are invalid
+  ///   * 403: Missing permissions to update the share
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [updateShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiUpdateShareResponseApplicationJson, void> updateShareRaw({
     required final String id,
     final int? permissions,
@@ -1245,7 +1840,22 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Delete a share
+  /// Delete a share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share deleted successfully
+  ///   * 404: Share not found
+  ///   * 403: Missing permissions to delete the share
+  ///
+  /// See:
+  ///  * [deleteShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiDeleteShareResponseApplicationJson, void>> deleteShare({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -1258,7 +1868,25 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Delete a share
+  /// Delete a share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share deleted successfully
+  ///   * 404: Share not found
+  ///   * 403: Missing permissions to delete the share
+  ///
+  /// See:
+  ///  * [deleteShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiDeleteShareResponseApplicationJson, void> deleteShareRaw({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -1304,7 +1932,22 @@ class FilesSharingShareapiClient {
     );
   }
 
-  /// Accept a share
+  /// Accept a share.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///   * 400: Share could not be accepted
+  ///
+  /// See:
+  ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareapiAcceptShareResponseApplicationJson, void>> acceptShare({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -1317,7 +1960,25 @@ class FilesSharingShareapiClient {
     return rawResponse.future;
   }
 
-  /// Accept a share
+  /// Accept a share.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///   * 400: Share could not be accepted
+  ///
+  /// See:
+  ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareapiAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required final String id,
     final bool oCSAPIRequest = true,
@@ -1369,7 +2030,26 @@ class FilesSharingShareesapiClient {
 
   final FilesSharingClient _rootClient;
 
-  /// Search for sharees
+  /// Search for sharees.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Limit to specific item types
+  ///   * [page] Page offset for searching
+  ///   * [perPage] Limit amount of search results per page
+  ///   * [shareType] Limit to specific share types
+  ///   * [lookup] If a global lookup should be performed too
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sharees search result returned
+  ///   * 400: Invalid search parameters
+  ///
+  /// See:
+  ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<
       DynamiteResponse<FilesSharingShareesapiSearchResponseApplicationJson,
           FilesSharingShareesapiShareesapiSearchHeaders>> search({
@@ -1394,7 +2074,29 @@ class FilesSharingShareesapiClient {
     return rawResponse.future;
   }
 
-  /// Search for sharees
+  /// Search for sharees.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Limit to specific item types
+  ///   * [page] Page offset for searching
+  ///   * [perPage] Limit amount of search results per page
+  ///   * [shareType] Limit to specific share types
+  ///   * [lookup] If a global lookup should be performed too
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sharees search result returned
+  ///   * 400: Invalid search parameters
+  ///
+  /// See:
+  ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareesapiSearchResponseApplicationJson,
       FilesSharingShareesapiShareesapiSearchHeaders> searchRaw({
     final String search = '',
@@ -1467,7 +2169,21 @@ class FilesSharingShareesapiClient {
     );
   }
 
-  /// Find recommended sharees
+  /// Find recommended sharees.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [itemType] Limit to specific item types
+  ///   * [shareType] Limit to specific share types
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Recommended sharees returned
+  ///
+  /// See:
+  ///  * [findRecommendedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesSharingShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
     required final String itemType,
     final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,
@@ -1482,7 +2198,24 @@ class FilesSharingShareesapiClient {
     return rawResponse.future;
   }
 
-  /// Find recommended sharees
+  /// Find recommended sharees.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [itemType] Limit to specific item types
+  ///   * [shareType] Limit to specific share types
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Recommended sharees returned
+  ///
+  /// See:
+  ///  * [findRecommended] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesSharingShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
     required final String itemType,
     final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,

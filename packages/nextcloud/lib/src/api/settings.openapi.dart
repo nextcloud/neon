@@ -10,6 +10,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -42,18 +44,39 @@ class SettingsLogSettingsClient {
 
   final SettingsClient _rootClient;
 
-  /// download logfile
+  /// download logfile.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Logfile returned
+  ///
+  /// See:
+  ///  * [downloadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>> download() async {
     final rawResponse = downloadRaw();
 
     return rawResponse.future;
   }
 
-  /// download logfile
+  /// download logfile.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Logfile returned
+  ///
+  /// See:
+  ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders> downloadRaw() {
     const path = '/index.php/settings/admin/log/download';
     final queryParameters = <String, dynamic>{};

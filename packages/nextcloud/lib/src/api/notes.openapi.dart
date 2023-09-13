@@ -13,6 +13,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -37,6 +39,22 @@ class NotesClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [exclude]
+  ///   * [pruneBefore]
+  ///   * [chunkSize]
+  ///   * [chunkCursor]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<NotesNote>, void>> getNotes({
     final String? category,
     final String exclude = '',
@@ -57,6 +75,25 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [exclude]
+  ///   * [pruneBefore]
+  ///   * [chunkSize]
+  ///   * [chunkCursor]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNotes] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<BuiltList<NotesNote>, void> getNotesRaw({
     final String? category,
     final String exclude = '',
@@ -122,6 +159,21 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [title]
+  ///   * [content]
+  ///   * [modified]
+  ///   * [favorite]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotesNote, void>> createNote({
     final String category = '',
     final String title = '',
@@ -140,6 +192,24 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [title]
+  ///   * [content]
+  ///   * [modified]
+  ///   * [favorite]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotesNote, void> createNoteRaw({
     final String category = '',
     final String title = '',
@@ -201,6 +271,18 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [exclude]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotesNote, void>> getNote({
     required final int id,
     final String exclude = '',
@@ -215,6 +297,21 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [exclude]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotesNote, void> getNoteRaw({
     required final int id,
     final String exclude = '',
@@ -266,6 +363,22 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [content]
+  ///   * [modified]
+  ///   * [title]
+  ///   * [category]
+  ///   * [favorite]
+  ///   * [ifMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotesNote, void>> updateNote({
     required final int id,
     final String? content,
@@ -288,6 +401,25 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [content]
+  ///   * [modified]
+  ///   * [title]
+  ///   * [category]
+  ///   * [favorite]
+  ///   * [ifMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotesNote, void> updateNoteRaw({
     required final int id,
     final String? content,
@@ -355,6 +487,14 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<String, void>> deleteNote({required final int id}) async {
     final rawResponse = deleteNoteRaw(
       id: id,
@@ -363,6 +503,17 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
@@ -404,12 +555,31 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotesSettings, void>> getSettings() async {
     final rawResponse = getSettingsRaw();
 
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotesSettings, void> getSettingsRaw() {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
@@ -450,6 +620,14 @@ class NotesClient extends DynamiteClient {
     );
   }
 
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotesSettings, void>> updateSettings({required final NotesSettings settings}) async {
     final rawResponse = updateSettingsRaw(
       settings: settings,
@@ -458,6 +636,17 @@ class NotesClient extends DynamiteClient {
     return rawResponse.future;
   }
 
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotesSettings, void> updateSettingsRaw({required final NotesSettings settings}) {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};

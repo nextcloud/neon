@@ -13,6 +13,8 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -49,7 +51,21 @@ class ThemingIconClient {
 
   final ThemingClient _rootClient;
 
-  /// Return a 32x32 favicon as png
+  /// Return a 32x32 favicon as png.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Favicon returned
+  ///   * 404: Favicon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getFaviconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getFavicon({final String app = 'core'}) async {
     final rawResponse = getFaviconRaw(
       app: app,
@@ -58,7 +74,24 @@ class ThemingIconClient {
     return rawResponse.future;
   }
 
-  /// Return a 32x32 favicon as png
+  /// Return a 32x32 favicon as png.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Favicon returned
+  ///   * 404: Favicon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getFavicon] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getFaviconRaw({final String app = 'core'}) {
     var path = '/index.php/apps/theming/favicon/{app}';
     final queryParameters = <String, dynamic>{};
@@ -98,7 +131,21 @@ class ThemingIconClient {
     );
   }
 
-  /// Return a 512x512 icon for touch devices
+  /// Return a 512x512 icon for touch devices.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Touch icon returned
+  ///   * 404: Touch icon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTouchIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getTouchIcon({final String app = 'core'}) async {
     final rawResponse = getTouchIconRaw(
       app: app,
@@ -107,7 +154,24 @@ class ThemingIconClient {
     return rawResponse.future;
   }
 
-  /// Return a 512x512 icon for touch devices
+  /// Return a 512x512 icon for touch devices.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Touch icon returned
+  ///   * 404: Touch icon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTouchIcon] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getTouchIconRaw({final String app = 'core'}) {
     var path = '/index.php/apps/theming/icon/{app}';
     final queryParameters = <String, dynamic>{};
@@ -147,7 +211,22 @@ class ThemingIconClient {
     );
   }
 
-  /// Get a themed icon
+  /// Get a themed icon.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [image] image file name (svg required)
+  ///
+  /// Status codes:
+  ///   * 200: Themed icon returned
+  ///   * 404: Themed icon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getThemedIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getThemedIcon({
     required final String app,
     required final String image,
@@ -160,7 +239,25 @@ class ThemingIconClient {
     return rawResponse.future;
   }
 
-  /// Get a themed icon
+  /// Get a themed icon.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [image] image file name (svg required)
+  ///
+  /// Status codes:
+  ///   * 200: Themed icon returned
+  ///   * 404: Themed icon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getThemedIcon] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
     required final String app,
     required final String image,
@@ -206,14 +303,29 @@ class ThemingIconClient {
   }
 }
 
-/// Class ThemingController
-/// handle ajax requests to update the theme
+/// Class ThemingController.
+/// handle ajax requests to update the theme.
 class ThemingThemingClient {
   ThemingThemingClient(this._rootClient);
 
   final ThemingClient _rootClient;
 
-  /// Get the CSS stylesheet for a theme
+  /// Get the CSS stylesheet for a theme.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [plain] Let the browser decide the CSS priority
+  ///   * [withCustomCss] Include custom CSS
+  ///   * [themeId] ID of the theme
+  ///
+  /// Status codes:
+  ///   * 200: Stylesheet returned
+  ///   * 404: Theme not found
+  ///
+  /// See:
+  ///  * [getThemeStylesheetRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<String, void>> getThemeStylesheet({
     required final String themeId,
     final int plain = 0,
@@ -228,7 +340,25 @@ class ThemingThemingClient {
     return rawResponse.future;
   }
 
-  /// Get the CSS stylesheet for a theme
+  /// Get the CSS stylesheet for a theme.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [plain] Let the browser decide the CSS priority
+  ///   * [withCustomCss] Include custom CSS
+  ///   * [themeId] ID of the theme
+  ///
+  /// Status codes:
+  ///   * 200: Stylesheet returned
+  ///   * 404: Theme not found
+  ///
+  /// See:
+  ///  * [getThemeStylesheet] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<String, void> getThemeStylesheetRaw({
     required final String themeId,
     final int plain = 0,
@@ -278,7 +408,22 @@ class ThemingThemingClient {
     );
   }
 
-  /// Get an image
+  /// Get an image.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [useSvg] Return image as SVG
+  ///   * [key] Key of the image
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getImageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getImage({
     required final String key,
     final int useSvg = 1,
@@ -291,7 +436,25 @@ class ThemingThemingClient {
     return rawResponse.future;
   }
 
-  /// Get an image
+  /// Get an image.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [useSvg] Return image as SVG
+  ///   * [key] Key of the image
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getImage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getImageRaw({
     required final String key,
     final int useSvg = 1,
@@ -337,7 +500,19 @@ class ThemingThemingClient {
     );
   }
 
-  /// Get the manifest for an app
+  /// Get the manifest for an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Manifest returned
+  ///
+  /// See:
+  ///  * [getManifestRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ThemingThemingGetManifestResponseApplicationJson, void>> getManifest({
     required final String app,
   }) async {
@@ -348,7 +523,22 @@ class ThemingThemingClient {
     return rawResponse.future;
   }
 
-  /// Get the manifest for an app
+  /// Get the manifest for an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///
+  /// Status codes:
+  ///   * 200: Manifest returned
+  ///
+  /// See:
+  ///  * [getManifest] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ThemingThemingGetManifestResponseApplicationJson, void> getManifestRaw({
     required final String app,
   }) {
@@ -396,7 +586,20 @@ class ThemingUserThemeClient {
 
   final ThemingClient _rootClient;
 
-  /// Get the background image
+  /// Get the background image.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background image returned
+  ///   * 404: Background image not found
+  ///
+  /// See:
+  ///  * [getBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getBackground({final bool oCSAPIRequest = true}) async {
     final rawResponse = getBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -405,7 +608,23 @@ class ThemingUserThemeClient {
     return rawResponse.future;
   }
 
-  /// Get the background image
+  /// Get the background image.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background image returned
+  ///   * 404: Background image not found
+  ///
+  /// See:
+  ///  * [getBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getBackgroundRaw({final bool oCSAPIRequest = true}) {
     const path = '/index.php/apps/theming/background';
     final queryParameters = <String, dynamic>{};
@@ -447,7 +666,24 @@ class ThemingUserThemeClient {
     );
   }
 
-  /// Set the background
+  /// Set the background.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] Path of the background image
+  ///   * [color] Color for the background
+  ///   * [type] Type of background
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background set successfully
+  ///   * 400: Setting background is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [setBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ThemingBackground, void>> setBackground({
     required final String type,
     final String value = '',
@@ -464,7 +700,27 @@ class ThemingUserThemeClient {
     return rawResponse.future;
   }
 
-  /// Set the background
+  /// Set the background.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] Path of the background image
+  ///   * [color] Color for the background
+  ///   * [type] Type of background
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background set successfully
+  ///   * 400: Setting background is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [setBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ThemingBackground, void> setBackgroundRaw({
     required final String type,
     final String value = '',
@@ -518,7 +774,19 @@ class ThemingUserThemeClient {
     );
   }
 
-  /// Delete the background
+  /// Delete the background.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background deleted successfully
+  ///
+  /// See:
+  ///  * [deleteBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ThemingBackground, void>> deleteBackground({final bool oCSAPIRequest = true}) async {
     final rawResponse = deleteBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -527,7 +795,22 @@ class ThemingUserThemeClient {
     return rawResponse.future;
   }
 
-  /// Delete the background
+  /// Delete the background.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Background deleted successfully
+  ///
+  /// See:
+  ///  * [deleteBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ThemingBackground, void> deleteBackgroundRaw({final bool oCSAPIRequest = true}) {
     const path = '/index.php/apps/theming/background/custom';
     final queryParameters = <String, dynamic>{};
@@ -569,7 +852,22 @@ class ThemingUserThemeClient {
     );
   }
 
-  /// Enable theme
+  /// Enable theme.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [themeId] the theme ID
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Theme enabled successfully
+  ///   * 400: Enabling theme is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [enableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ThemingUserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
     required final String themeId,
     final bool oCSAPIRequest = true,
@@ -582,7 +880,25 @@ class ThemingUserThemeClient {
     return rawResponse.future;
   }
 
-  /// Enable theme
+  /// Enable theme.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [themeId] the theme ID
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Theme enabled successfully
+  ///   * 400: Enabling theme is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [enableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ThemingUserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
     required final String themeId,
     final bool oCSAPIRequest = true,
@@ -628,7 +944,22 @@ class ThemingUserThemeClient {
     );
   }
 
-  /// Disable theme
+  /// Disable theme.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [themeId] the theme ID
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Theme disabled successfully
+  ///   * 400: Disabling theme is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [disableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ThemingUserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
     required final String themeId,
     final bool oCSAPIRequest = true,
@@ -641,7 +972,25 @@ class ThemingUserThemeClient {
     return rawResponse.future;
   }
 
-  /// Disable theme
+  /// Disable theme.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [themeId] the theme ID
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Theme disabled successfully
+  ///   * 400: Disabling theme is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [disableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<ThemingUserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
     required final String themeId,
     final bool oCSAPIRequest = true,

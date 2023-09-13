@@ -12,6 +12,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -50,9 +52,28 @@ class NotificationsApiClient {
 
   final NotificationsClient _rootClient;
 
-  /// Generate a notification for a user
+  /// Generate a notification for a user.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shortMessage] Subject of the notification
+  ///   * [longMessage] Message of the notification
+  ///   * [apiVersion]
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully
+  ///   * 400: Generating notification is not possible
+  ///   * 404: User not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [generateNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
     required final String shortMessage,
     required final String userId,
@@ -71,9 +92,31 @@ class NotificationsApiClient {
     return rawResponse.future;
   }
 
-  /// Generate a notification for a user
+  /// Generate a notification for a user.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shortMessage] Subject of the notification
+  ///   * [longMessage] Message of the notification
+  ///   * [apiVersion]
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully
+  ///   * 400: Generating notification is not possible
+  ///   * 404: User not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [generateNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
     required final String shortMessage,
     required final String userId,
@@ -133,7 +176,21 @@ class NotificationsEndpointClient {
 
   final NotificationsClient _rootClient;
 
-  /// Get all notifications
+  /// Get all notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notifications returned
+  ///   * 204: No app uses notifications
+  ///
+  /// See:
+  ///  * [listNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<
       DynamiteResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
           NotificationsEndpointEndpointListNotificationsHeaders>> listNotifications({
@@ -149,7 +206,24 @@ class NotificationsEndpointClient {
     return rawResponse.future;
   }
 
-  /// Get all notifications
+  /// Get all notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notifications returned
+  ///   * 204: No app uses notifications
+  ///
+  /// See:
+  ///  * [listNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
       NotificationsEndpointEndpointListNotificationsHeaders> listNotificationsRaw({
     final NotificationsEndpointListNotificationsApiVersion apiVersion =
@@ -198,7 +272,21 @@ class NotificationsEndpointClient {
     );
   }
 
-  /// Delete all notifications
+  /// Delete all notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: All notifications deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///
+  /// See:
+  ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson, void>>
       deleteAllNotifications({
     final NotificationsEndpointDeleteAllNotificationsApiVersion apiVersion =
@@ -213,7 +301,24 @@ class NotificationsEndpointClient {
     return rawResponse.future;
   }
 
-  /// Delete all notifications
+  /// Delete all notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: All notifications deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///
+  /// See:
+  ///  * [deleteAllNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson, void>
       deleteAllNotificationsRaw({
     final NotificationsEndpointDeleteAllNotificationsApiVersion apiVersion =
@@ -261,7 +366,22 @@ class NotificationsEndpointClient {
     );
   }
 
-  /// Get a notification
+  /// Get a notification.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification returned
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [getNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsEndpointGetNotificationResponseApplicationJson, void>> getNotification({
     required final int id,
     final NotificationsEndpointGetNotificationApiVersion apiVersion = NotificationsEndpointGetNotificationApiVersion.v2,
@@ -276,7 +396,25 @@ class NotificationsEndpointClient {
     return rawResponse.future;
   }
 
-  /// Get a notification
+  /// Get a notification.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification returned
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [getNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsEndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
     required final int id,
     final NotificationsEndpointGetNotificationApiVersion apiVersion = NotificationsEndpointGetNotificationApiVersion.v2,
@@ -324,7 +462,23 @@ class NotificationsEndpointClient {
     );
   }
 
-  /// Delete a notification
+  /// Delete a notification.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [deleteNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsEndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
     required final int id,
     final NotificationsEndpointDeleteNotificationApiVersion apiVersion =
@@ -340,7 +494,26 @@ class NotificationsEndpointClient {
     return rawResponse.future;
   }
 
-  /// Delete a notification
+  /// Delete a notification.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [deleteNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsEndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
     required final int id,
     final NotificationsEndpointDeleteNotificationApiVersion apiVersion =
@@ -389,7 +562,22 @@ class NotificationsEndpointClient {
     );
   }
 
-  /// Check if notification IDs exist
+  /// Check if notification IDs exist.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [ids] IDs of the notifications to check
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Existing notification IDs returned
+  ///   * 400: Too many notification IDs requested
+  ///
+  /// See:
+  ///  * [confirmIdsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsEndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
     required final List<int> ids,
     final NotificationsEndpointConfirmIdsForUserApiVersion apiVersion =
@@ -405,7 +593,25 @@ class NotificationsEndpointClient {
     return rawResponse.future;
   }
 
-  /// Check if notification IDs exist
+  /// Check if notification IDs exist.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [ids] IDs of the notifications to check
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Existing notification IDs returned
+  ///   * 400: Too many notification IDs requested
+  ///
+  /// See:
+  ///  * [confirmIdsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsEndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
     required final List<int> ids,
     final NotificationsEndpointConfirmIdsForUserApiVersion apiVersion =
@@ -460,7 +666,26 @@ class NotificationsPushClient {
 
   final NotificationsClient _rootClient;
 
-  /// Register device for push notifications
+  /// Register device for push notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pushTokenHash] Hash of the push token
+  ///   * [devicePublicKey] Public key of the device
+  ///   * [proxyServer] Proxy server to be used
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Device was already registered
+  ///   * 201: Device registered successfully
+  ///   * 400: Registering device is not possible
+  ///   * 401: Missing permissions to register device
+  ///
+  /// See:
+  ///  * [registerDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsPushRegisterDeviceResponseApplicationJson, void>> registerDevice({
     required final String pushTokenHash,
     required final String devicePublicKey,
@@ -479,7 +704,29 @@ class NotificationsPushClient {
     return rawResponse.future;
   }
 
-  /// Register device for push notifications
+  /// Register device for push notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pushTokenHash] Hash of the push token
+  ///   * [devicePublicKey] Public key of the device
+  ///   * [proxyServer] Proxy server to be used
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Device was already registered
+  ///   * 201: Device registered successfully
+  ///   * 400: Registering device is not possible
+  ///   * 401: Missing permissions to register device
+  ///
+  /// See:
+  ///  * [registerDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsPushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
     required final String pushTokenHash,
     required final String devicePublicKey,
@@ -531,7 +778,23 @@ class NotificationsPushClient {
     );
   }
 
-  /// Remove a device from push notifications
+  /// Remove a device from push notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: No device registered
+  ///   * 202: Device removed successfully
+  ///   * 401: Missing permissions to remove device
+  ///   * 400: Removing device is not possible
+  ///
+  /// See:
+  ///  * [removeDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsPushRemoveDeviceResponseApplicationJson, void>> removeDevice({
     final NotificationsPushRemoveDeviceApiVersion apiVersion = NotificationsPushRemoveDeviceApiVersion.v2,
     final String oCSAPIRequest = 'true',
@@ -544,7 +807,26 @@ class NotificationsPushClient {
     return rawResponse.future;
   }
 
-  /// Remove a device from push notifications
+  /// Remove a device from push notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: No device registered
+  ///   * 202: Device removed successfully
+  ///   * 401: Missing permissions to remove device
+  ///   * 400: Removing device is not possible
+  ///
+  /// See:
+  ///  * [removeDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsPushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
     final NotificationsPushRemoveDeviceApiVersion apiVersion = NotificationsPushRemoveDeviceApiVersion.v2,
     final String oCSAPIRequest = 'true',
@@ -596,7 +878,23 @@ class NotificationsSettingsClient {
 
   final NotificationsClient _rootClient;
 
-  /// Update personal notification settings
+  /// Update personal notification settings.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [personalRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsSettingsPersonalResponseApplicationJson, void>> personal({
     required final int batchSetting,
     required final String soundNotification,
@@ -615,7 +913,26 @@ class NotificationsSettingsClient {
     return rawResponse.future;
   }
 
-  /// Update personal notification settings
+  /// Update personal notification settings.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [personal] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsSettingsPersonalResponseApplicationJson, void> personalRaw({
     required final int batchSetting,
     required final String soundNotification,
@@ -667,9 +984,25 @@ class NotificationsSettingsClient {
     );
   }
 
-  /// Update default notification settings for new users
+  /// Update default notification settings for new users.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [adminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NotificationsSettingsAdminResponseApplicationJson, void>> admin({
     required final int batchSetting,
     required final String soundNotification,
@@ -688,9 +1021,28 @@ class NotificationsSettingsClient {
     return rawResponse.future;
   }
 
-  /// Update default notification settings for new users
+  /// Update default notification settings for new users.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [admin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<NotificationsSettingsAdminResponseApplicationJson, void> adminRaw({
     required final int batchSetting,
     required final String soundNotification,

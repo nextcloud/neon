@@ -13,6 +13,8 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -53,7 +55,23 @@ class FilesApiClient {
 
   final FilesClient _rootClient;
 
-  /// Gets a thumbnail of the specified file
+  /// Gets a thumbnail of the specified file.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [x] Width of the thumbnail
+  ///   * [y] Height of the thumbnail
+  ///   * [file] URL-encoded filename
+  ///
+  /// Status codes:
+  ///   * 200: Thumbnail returned
+  ///   * 400: Getting thumbnail is not possible
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [getThumbnailRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getThumbnail({
     required final int x,
     required final int y,
@@ -68,7 +86,26 @@ class FilesApiClient {
     return rawResponse.future;
   }
 
-  /// Gets a thumbnail of the specified file
+  /// Gets a thumbnail of the specified file.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [x] Width of the thumbnail
+  ///   * [y] Height of the thumbnail
+  ///   * [file] URL-encoded filename
+  ///
+  /// Status codes:
+  ///   * 200: Thumbnail returned
+  ///   * 400: Getting thumbnail is not possible
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [getThumbnail] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getThumbnailRaw({
     required final int x,
     required final int y,
@@ -123,7 +160,19 @@ class FilesDirectEditingClient {
 
   final FilesClient _rootClient;
 
-  /// Get the direct editing capabilities
+  /// Get the direct editing capabilities.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Direct editing capabilities returned
+  ///
+  /// See:
+  ///  * [infoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesDirectEditingInfoResponseApplicationJson, void>> info({
     final bool oCSAPIRequest = true,
   }) async {
@@ -134,7 +183,22 @@ class FilesDirectEditingClient {
     return rawResponse.future;
   }
 
-  /// Get the direct editing capabilities
+  /// Get the direct editing capabilities.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Direct editing capabilities returned
+  ///
+  /// See:
+  ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesDirectEditingInfoResponseApplicationJson, void> infoRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     final queryParameters = <String, dynamic>{};
@@ -176,7 +240,22 @@ class FilesDirectEditingClient {
     );
   }
 
-  /// Get the templates for direct editing
+  /// Get the templates for direct editing.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [editorId] ID of the editor
+  ///   * [creatorId] ID of the creator
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Templates returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [templatesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesDirectEditingTemplatesResponseApplicationJson, void>> templates({
     required final String editorId,
     required final String creatorId,
@@ -191,7 +270,25 @@ class FilesDirectEditingClient {
     return rawResponse.future;
   }
 
-  /// Get the templates for direct editing
+  /// Get the templates for direct editing.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [editorId] ID of the editor
+  ///   * [creatorId] ID of the creator
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Templates returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [templates] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesDirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
     required final String editorId,
     required final String creatorId,
@@ -239,7 +336,24 @@ class FilesDirectEditingClient {
     );
   }
 
-  /// Open a file for direct editing
+  /// Open a file for direct editing.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [editorId] ID of the editor
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [openRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesDirectEditingOpenResponseApplicationJson, void>> open({
     required final String path,
     final String? editorId,
@@ -256,7 +370,27 @@ class FilesDirectEditingClient {
     return rawResponse.future;
   }
 
-  /// Open a file for direct editing
+  /// Open a file for direct editing.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [editorId] ID of the editor
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [open] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesDirectEditingOpenResponseApplicationJson, void> openRaw({
     required final String path,
     final String? editorId,
@@ -310,7 +444,25 @@ class FilesDirectEditingClient {
     );
   }
 
-  /// Create a file for direct editing
+  /// Create a file for direct editing.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [editorId] ID of the editor
+  ///   * [creatorId] ID of the creator
+  ///   * [templateId] ID of the template
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesDirectEditingCreateResponseApplicationJson, void>> create({
     required final String path,
     required final String editorId,
@@ -329,7 +481,28 @@ class FilesDirectEditingClient {
     return rawResponse.future;
   }
 
-  /// Create a file for direct editing
+  /// Create a file for direct editing.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [editorId] ID of the editor
+  ///   * [creatorId] ID of the creator
+  ///   * [templateId] ID of the template
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesDirectEditingCreateResponseApplicationJson, void> createRaw({
     required final String path,
     required final String editorId,
@@ -389,7 +562,21 @@ class FilesOpenLocalEditorClient {
 
   final FilesClient _rootClient;
 
-  /// Create a local editor
+  /// Create a local editor.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Local editor returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesOpenLocalEditorCreateResponseApplicationJson, void>> create({
     required final String path,
     final bool oCSAPIRequest = true,
@@ -402,7 +589,24 @@ class FilesOpenLocalEditorClient {
     return rawResponse.future;
   }
 
-  /// Create a local editor
+  /// Create a local editor.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Local editor returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesOpenLocalEditorCreateResponseApplicationJson, void> createRaw({
     required final String path,
     final bool oCSAPIRequest = true,
@@ -448,7 +652,22 @@ class FilesOpenLocalEditorClient {
     );
   }
 
-  /// Validate a local editor
+  /// Validate a local editor.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [token] Token of the local editor
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Local editor validated successfully
+  ///   * 404: Local editor not found
+  ///
+  /// See:
+  ///  * [validateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesOpenLocalEditorValidateResponseApplicationJson, void>> validate({
     required final String path,
     required final String token,
@@ -463,7 +682,25 @@ class FilesOpenLocalEditorClient {
     return rawResponse.future;
   }
 
-  /// Validate a local editor
+  /// Validate a local editor.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file
+  ///   * [token] Token of the local editor
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Local editor validated successfully
+  ///   * 404: Local editor not found
+  ///
+  /// See:
+  ///  * [validate] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesOpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
     required final String path,
     required final String token,
@@ -517,7 +754,19 @@ class FilesTemplateClient {
 
   final FilesClient _rootClient;
 
-  /// List the available templates
+  /// List the available templates.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Available templates returned
+  ///
+  /// See:
+  ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTemplateListResponseApplicationJson, void>> list({
     final bool oCSAPIRequest = true,
   }) async {
@@ -528,7 +777,22 @@ class FilesTemplateClient {
     return rawResponse.future;
   }
 
-  /// List the available templates
+  /// List the available templates.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Available templates returned
+  ///
+  /// See:
+  ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTemplateListResponseApplicationJson, void> listRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates';
     final queryParameters = <String, dynamic>{};
@@ -570,7 +834,23 @@ class FilesTemplateClient {
     );
   }
 
-  /// Create a template
+  /// Create a template.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filePath] Path of the file
+  ///   * [templatePath] Name of the template
+  ///   * [templateType] Type of the template
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Template created successfully
+  ///   * 403: Creating template is not allowed
+  ///
+  /// See:
+  ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTemplateCreateResponseApplicationJson, void>> create({
     required final String filePath,
     final String templatePath = '',
@@ -587,7 +867,26 @@ class FilesTemplateClient {
     return rawResponse.future;
   }
 
-  /// Create a template
+  /// Create a template.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filePath] Path of the file
+  ///   * [templatePath] Name of the template
+  ///   * [templateType] Type of the template
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Template created successfully
+  ///   * 403: Creating template is not allowed
+  ///
+  /// See:
+  ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTemplateCreateResponseApplicationJson, void> createRaw({
     required final String filePath,
     final String templatePath = '',
@@ -641,7 +940,22 @@ class FilesTemplateClient {
     );
   }
 
-  /// Initialize the template directory
+  /// Initialize the template directory.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [templatePath] Path of the template directory
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Template directory initialized successfully
+  ///   * 403: Initializing the template directory is not allowed
+  ///
+  /// See:
+  ///  * [pathRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTemplatePathResponseApplicationJson, void>> path({
     final String templatePath = '',
     final int copySystemTemplates = 0,
@@ -656,7 +970,25 @@ class FilesTemplateClient {
     return rawResponse.future;
   }
 
-  /// Initialize the template directory
+  /// Initialize the template directory.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [templatePath] Path of the template directory
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Template directory initialized successfully
+  ///   * 403: Initializing the template directory is not allowed
+  ///
+  /// See:
+  ///  * [path] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTemplatePathResponseApplicationJson, void> pathRaw({
     final String templatePath = '',
     final int copySystemTemplates = 0,
@@ -714,7 +1046,23 @@ class FilesTransferOwnershipClient {
 
   final FilesClient _rootClient;
 
-  /// Transfer the ownership to another user
+  /// Transfer the ownership to another user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [recipient] Username of the recipient
+  ///   * [path] Path of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transferred successfully
+  ///   * 400: Transferring ownership is not possible
+  ///   * 403: Transferring ownership is not allowed
+  ///
+  /// See:
+  ///  * [transferRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTransferOwnershipTransferResponseApplicationJson, void>> transfer({
     required final String recipient,
     required final String path,
@@ -729,7 +1077,26 @@ class FilesTransferOwnershipClient {
     return rawResponse.future;
   }
 
-  /// Transfer the ownership to another user
+  /// Transfer the ownership to another user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [recipient] Username of the recipient
+  ///   * [path] Path of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transferred successfully
+  ///   * 400: Transferring ownership is not possible
+  ///   * 403: Transferring ownership is not allowed
+  ///
+  /// See:
+  ///  * [transfer] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTransferOwnershipTransferResponseApplicationJson, void> transferRaw({
     required final String recipient,
     required final String path,
@@ -777,7 +1144,22 @@ class FilesTransferOwnershipClient {
     );
   }
 
-  /// Accept an ownership transfer
+  /// Accept an ownership transfer.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the ownership transfer
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transfer accepted successfully
+  ///   * 403: Accepting ownership transfer is not allowed
+  ///   * 404: Ownership transfer not found
+  ///
+  /// See:
+  ///  * [acceptRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTransferOwnershipAcceptResponseApplicationJson, void>> accept({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -790,7 +1172,25 @@ class FilesTransferOwnershipClient {
     return rawResponse.future;
   }
 
-  /// Accept an ownership transfer
+  /// Accept an ownership transfer.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the ownership transfer
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transfer accepted successfully
+  ///   * 403: Accepting ownership transfer is not allowed
+  ///   * 404: Ownership transfer not found
+  ///
+  /// See:
+  ///  * [accept] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -836,7 +1236,22 @@ class FilesTransferOwnershipClient {
     );
   }
 
-  /// Reject an ownership transfer
+  /// Reject an ownership transfer.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the ownership transfer
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transfer rejected successfully
+  ///   * 403: Rejecting ownership transfer is not allowed
+  ///   * 404: Ownership transfer not found
+  ///
+  /// See:
+  ///  * [rejectRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesTransferOwnershipRejectResponseApplicationJson, void>> reject({
     required final int id,
     final bool oCSAPIRequest = true,
@@ -849,7 +1264,25 @@ class FilesTransferOwnershipClient {
     return rawResponse.future;
   }
 
-  /// Reject an ownership transfer
+  /// Reject an ownership transfer.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the ownership transfer
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transfer rejected successfully
+  ///   * 403: Rejecting ownership transfer is not allowed
+  ///   * 404: Ownership transfer not found
+  ///
+  /// See:
+  ///  * [reject] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesTransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
     required final int id,
     final bool oCSAPIRequest = true,

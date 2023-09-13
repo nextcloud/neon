@@ -11,6 +11,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -43,9 +45,24 @@ class UpdatenotificationApiClient {
 
   final UpdatenotificationClient _rootClient;
 
-  /// List available updates for apps
+  /// List available updates for apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [newVersion] Server version to check updates for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///   * 404: New versions not found
+  ///
+  /// See:
+  ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
     final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
@@ -60,9 +77,27 @@ class UpdatenotificationApiClient {
     return rawResponse.future;
   }
 
-  /// List available updates for apps
+  /// List available updates for apps.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [newVersion] Server version to check updates for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///   * 404: New versions not found
+  ///
+  /// See:
+  ///  * [getAppList] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required final String newVersion,
     final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,

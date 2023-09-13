@@ -12,6 +12,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -44,7 +46,19 @@ class FilesExternalApiClient {
 
   final FilesExternalClient _rootClient;
 
-  /// Get the mount points visible for this user
+  /// Get the mount points visible for this user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User mounts returned
+  ///
+  /// See:
+  ///  * [getUserMountsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesExternalApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
     final bool oCSAPIRequest = true,
   }) async {
@@ -55,7 +69,22 @@ class FilesExternalApiClient {
     return rawResponse.future;
   }
 
-  /// Get the mount points visible for this user
+  /// Get the mount points visible for this user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User mounts returned
+  ///
+  /// See:
+  ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesExternalApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({
     final bool oCSAPIRequest = true,
   }) {

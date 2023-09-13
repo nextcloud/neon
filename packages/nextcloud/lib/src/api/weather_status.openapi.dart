@@ -11,6 +11,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -43,7 +45,20 @@ class WeatherStatusWeatherStatusClient {
 
   final WeatherStatusClient _rootClient;
 
-  /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
+  /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mode] New mode
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Weather status mode updated
+  ///
+  /// See:
+  ///  * [setModeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusSetModeResponseApplicationJson, void>> setMode({
     required final int mode,
     final bool oCSAPIRequest = true,
@@ -56,7 +71,23 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
+  /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mode] New mode
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Weather status mode updated
+  ///
+  /// See:
+  ///  * [setMode] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
     required final int mode,
     final bool oCSAPIRequest = true,
@@ -102,7 +133,19 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Try to use the address set in user personal settings as weather location
+  /// Try to use the address set in user personal settings as weather location.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Address updated
+  ///
+  /// See:
+  ///  * [usePersonalAddressRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson, void>>
       usePersonalAddress({final bool oCSAPIRequest = true}) async {
     final rawResponse = usePersonalAddressRaw(
@@ -112,7 +155,22 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Try to use the address set in user personal settings as weather location
+  /// Try to use the address set in user personal settings as weather location.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Address updated
+  ///
+  /// See:
+  ///  * [usePersonalAddress] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -156,7 +214,19 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Get stored user location
+  /// Get stored user location.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Location returned
+  ///
+  /// See:
+  ///  * [getLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
     final bool oCSAPIRequest = true,
   }) async {
@@ -167,7 +237,22 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Get stored user location
+  /// Get stored user location.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Location returned
+  ///
+  /// See:
+  ///  * [getLocation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -211,7 +296,22 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
+  /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [address] Any approximative or exact address
+  ///   * [lat] Latitude in decimal degree format
+  ///   * [lon] Longitude in decimal degree format
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Location updated
+  ///
+  /// See:
+  ///  * [setLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
     final String? address,
     final num? lat,
@@ -228,7 +328,25 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
+  /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [address] Any approximative or exact address
+  ///   * [lat] Latitude in decimal degree format
+  ///   * [lon] Longitude in decimal degree format
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Location updated
+  ///
+  /// See:
+  ///  * [setLocation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
     final String? address,
     final num? lat,
@@ -284,7 +402,20 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Get forecast for current location
+  /// Get forecast for current location.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Forecast returned
+  ///   * 404: Forecast not found
+  ///
+  /// See:
+  ///  * [getForecastRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
     final bool oCSAPIRequest = true,
   }) async {
@@ -295,7 +426,23 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Get forecast for current location
+  /// Get forecast for current location.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Forecast returned
+  ///   * 404: Forecast not found
+  ///
+  /// See:
+  ///  * [getForecast] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -339,7 +486,19 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Get favorites list
+  /// Get favorites list.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Favorites returned
+  ///
+  /// See:
+  ///  * [getFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
     final bool oCSAPIRequest = true,
   }) async {
@@ -350,7 +509,22 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Get favorites list
+  /// Get favorites list.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Favorites returned
+  ///
+  /// See:
+  ///  * [getFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -394,7 +568,20 @@ class WeatherStatusWeatherStatusClient {
     );
   }
 
-  /// Set favorites list
+  /// Set favorites list.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [favorites] Favorite addresses
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Favorites updated
+  ///
+  /// See:
+  ///  * [setFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
     required final List<String> favorites,
     final bool oCSAPIRequest = true,
@@ -407,7 +594,23 @@ class WeatherStatusWeatherStatusClient {
     return rawResponse.future;
   }
 
-  /// Set favorites list
+  /// Set favorites list.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [favorites] Favorite addresses
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Favorites updated
+  ///
+  /// See:
+  ///  * [setFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
     required final List<String> favorites,
     final bool oCSAPIRequest = true,

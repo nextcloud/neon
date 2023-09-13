@@ -12,6 +12,8 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -44,7 +46,22 @@ class FilesRemindersApiClient {
 
   final FilesRemindersClient _rootClient;
 
-  /// Get a reminder
+  /// Get a reminder.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder returned
+  ///   * 401: User not found
+  ///
+  /// See:
+  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesRemindersApiGetResponseApplicationJson, void>> $get({
     required final String version,
     required final int fileId,
@@ -59,7 +76,25 @@ class FilesRemindersApiClient {
     return rawResponse.future;
   }
 
-  /// Get a reminder
+  /// Get a reminder.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder returned
+  ///   * 401: User not found
+  ///
+  /// See:
+  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesRemindersApiGetResponseApplicationJson, void> $getRaw({
     required final String version,
     required final int fileId,
@@ -108,7 +143,26 @@ class FilesRemindersApiClient {
     );
   }
 
-  /// Set a reminder
+  /// Set a reminder.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder updated
+  ///   * 201: Reminder created successfully
+  ///   * 400: Creating reminder is not possible
+  ///   * 401: User not found
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [$setRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesRemindersApiSetResponseApplicationJson, void>> $set({
     required final String dueDate,
     required final String version,
@@ -125,7 +179,29 @@ class FilesRemindersApiClient {
     return rawResponse.future;
   }
 
-  /// Set a reminder
+  /// Set a reminder.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder updated
+  ///   * 201: Reminder created successfully
+  ///   * 400: Creating reminder is not possible
+  ///   * 401: User not found
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [$set] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesRemindersApiSetResponseApplicationJson, void> $setRaw({
     required final String dueDate,
     required final String version,
@@ -176,7 +252,23 @@ class FilesRemindersApiClient {
     );
   }
 
-  /// Remove a reminder
+  /// Remove a reminder.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder deleted successfully
+  ///   * 401: User not found
+  ///   * 404: Reminder not found
+  ///
+  /// See:
+  ///  * [removeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesRemindersApiRemoveResponseApplicationJson, void>> remove({
     required final String version,
     required final int fileId,
@@ -191,7 +283,26 @@ class FilesRemindersApiClient {
     return rawResponse.future;
   }
 
-  /// Remove a reminder
+  /// Remove a reminder.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reminder deleted successfully
+  ///   * 401: User not found
+  ///   * 404: Reminder not found
+  ///
+  /// See:
+  ///  * [remove] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<FilesRemindersApiRemoveResponseApplicationJson, void> removeRaw({
     required final String version,
     required final int fileId,

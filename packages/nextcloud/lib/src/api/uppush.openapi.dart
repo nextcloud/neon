@@ -11,6 +11,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -35,14 +37,35 @@ class UppushClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Check if the UnifiedPush provider is present
+  /// Check if the UnifiedPush provider is present.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [checkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushCheckResponseApplicationJson, void>> check() async {
     final rawResponse = checkRaw();
 
     return rawResponse.future;
   }
 
-  /// Check if the UnifiedPush provider is present
+  /// Check if the UnifiedPush provider is present.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushCheckResponseApplicationJson, void> checkRaw() {
     const path = '/index.php/apps/uppush';
     final queryParameters = <String, dynamic>{};
@@ -83,9 +106,21 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Set keepalive interval
+  /// Set keepalive interval.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [keepalive] Keep alive value in seconds
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [setKeepaliveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushSetKeepaliveResponseApplicationJson, void>> setKeepalive({
     required final int keepalive,
   }) async {
@@ -96,9 +131,24 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Set keepalive interval
+  /// Set keepalive interval.
   ///
-  /// This endpoint requires admin access
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [keepalive] Keep alive value in seconds
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushSetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required final int keepalive}) {
     const path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
@@ -140,7 +190,19 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Request to create a new deviceId
+  /// Request to create a new deviceId.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceName] Name of the device
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushCreateDeviceResponseApplicationJson, void>> createDevice({
     required final String deviceName,
   }) async {
@@ -151,7 +213,22 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Request to create a new deviceId
+  /// Request to create a new deviceId.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceName] Name of the device
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushCreateDeviceResponseApplicationJson, void> createDeviceRaw({
     required final String deviceName,
   }) {
@@ -195,9 +272,18 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Request to get push messages
+  /// Request to get push messages.
   ///
-  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 401: Missing permissions to sync device
+  ///
+  /// See:
+  ///  * [syncDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushSyncDeviceResponseApplicationJson, void>> syncDevice({
     required final String deviceId,
   }) async {
@@ -208,9 +294,21 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Request to get push messages
+  /// Request to get push messages.
   ///
-  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 401: Missing permissions to sync device
+  ///
+  /// See:
+  ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushSyncDeviceResponseApplicationJson, void> syncDeviceRaw({required final String deviceId}) {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
@@ -252,7 +350,16 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Delete a device
+  /// Delete a device.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Device deleted successfully
+  ///
+  /// See:
+  ///  * [deleteDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushDeleteDeviceResponseApplicationJson, void>> deleteDevice({
     required final String deviceId,
   }) async {
@@ -263,7 +370,19 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Delete a device
+  /// Delete a device.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Device deleted successfully
+  ///
+  /// See:
+  ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushDeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({
     required final String deviceId,
   }) {
@@ -307,7 +426,20 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Create an authorization token for a new 3rd party service
+  /// Create an authorization token for a new 3rd party service.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceId] ID of the device
+  ///   * [appName] Name of the app
+  ///
+  /// Status codes:
+  ///   * 200: App created successfully
+  ///
+  /// See:
+  ///  * [createAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushCreateAppResponseApplicationJson, void>> createApp({
     required final String deviceId,
     required final String appName,
@@ -320,7 +452,23 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Create an authorization token for a new 3rd party service
+  /// Create an authorization token for a new 3rd party service.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceId] ID of the device
+  ///   * [appName] Name of the app
+  ///
+  /// Status codes:
+  ///   * 200: App created successfully
+  ///
+  /// See:
+  ///  * [createApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushCreateAppResponseApplicationJson, void> createAppRaw({
     required final String deviceId,
     required final String appName,
@@ -366,7 +514,16 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Delete an authorization token
+  /// Delete an authorization token.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: App deleted successfully
+  ///
+  /// See:
+  ///  * [deleteAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushDeleteAppResponseApplicationJson, void>> deleteApp({
     required final String token,
   }) async {
@@ -377,7 +534,19 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Delete an authorization token
+  /// Delete an authorization token.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: App deleted successfully
+  ///
+  /// See:
+  ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushDeleteAppResponseApplicationJson, void> deleteAppRaw({required final String token}) {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
@@ -419,7 +588,16 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Unifiedpush discovery Following specifications
+  /// Unifiedpush discovery Following specifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unifiedpushDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
     required final String token,
   }) async {
@@ -430,7 +608,19 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Unifiedpush discovery Following specifications
+  /// Unifiedpush discovery Following specifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unifiedpushDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
     required final String token,
   }) {
@@ -474,7 +664,16 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Receive notifications from 3rd parties
+  /// Receive notifications from 3rd parties.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 201: Notification pushed successfully
+  ///
+  /// See:
+  ///  * [pushRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushPushResponseApplicationJson, void>> push({required final String token}) async {
     final rawResponse = pushRaw(
       token: token,
@@ -483,7 +682,19 @@ class UppushClient extends DynamiteClient {
     return rawResponse.future;
   }
 
-  /// Receive notifications from 3rd parties
+  /// Receive notifications from 3rd parties.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 201: Notification pushed successfully
+  ///
+  /// See:
+  ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushPushResponseApplicationJson, void> pushRaw({required final String token}) {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
@@ -525,14 +736,35 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Matrix Gateway discovery
+  /// Matrix Gateway discovery.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
     final rawResponse = gatewayMatrixDiscoveryRaw();
 
     return rawResponse.future;
   }
 
-  /// Matrix Gateway discovery
+  /// Matrix Gateway discovery.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
@@ -573,14 +805,35 @@ class UppushClient extends DynamiteClient {
     );
   }
 
-  /// Matrix Gateway
+  /// Matrix Gateway.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UppushGatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
     final rawResponse = gatewayMatrixRaw();
 
     return rawResponse.future;
   }
 
-  /// Matrix Gateway
+  /// Matrix Gateway.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UppushGatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};

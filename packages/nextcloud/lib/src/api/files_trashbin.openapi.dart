@@ -10,6 +10,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -42,7 +44,24 @@ class FilesTrashbinPreviewClient {
 
   final FilesTrashbinClient _rootClient;
 
-  /// Get the preview for a file
+  /// Get the preview for a file.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 404: Preview not found
+  ///
+  /// See:
+  ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
     final int fileId = -1,
     final int x = 32,
@@ -59,7 +78,27 @@ class FilesTrashbinPreviewClient {
     return rawResponse.future;
   }
 
-  /// Get the preview for a file
+  /// Get the preview for a file.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 404: Preview not found
+  ///
+  /// See:
+  ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     final int fileId = -1,
     final int x = 32,

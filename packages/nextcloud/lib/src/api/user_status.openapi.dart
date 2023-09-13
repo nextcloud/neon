@@ -12,6 +12,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -50,7 +52,23 @@ class UserStatusHeartbeatClient {
 
   final UserStatusClient _rootClient;
 
-  /// Keep the status alive
+  /// Keep the status alive.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [status] Only online, away
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status successfully updated
+  ///   * 400: Invalid status to update
+  ///   * 500
+  ///   * 204: User has no status to keep alive
+  ///
+  /// See:
+  ///  * [heartbeatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusHeartbeatHeartbeatResponseApplicationJson, void>> heartbeat({
     required final String status,
     final bool oCSAPIRequest = true,
@@ -63,7 +81,26 @@ class UserStatusHeartbeatClient {
     return rawResponse.future;
   }
 
-  /// Keep the status alive
+  /// Keep the status alive.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [status] Only online, away
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status successfully updated
+  ///   * 400: Invalid status to update
+  ///   * 500
+  ///   * 204: User has no status to keep alive
+  ///
+  /// See:
+  ///  * [heartbeat] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusHeartbeatHeartbeatResponseApplicationJson, void> heartbeatRaw({
     required final String status,
     final bool oCSAPIRequest = true,
@@ -115,7 +152,19 @@ class UserStatusPredefinedStatusClient {
 
   final UserStatusClient _rootClient;
 
-  /// Get all predefined messages
+  /// Get all predefined messages.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Predefined statuses returned
+  ///
+  /// See:
+  ///  * [findAllRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusPredefinedStatusFindAllResponseApplicationJson, void>> findAll({
     final bool oCSAPIRequest = true,
   }) async {
@@ -126,7 +175,22 @@ class UserStatusPredefinedStatusClient {
     return rawResponse.future;
   }
 
-  /// Get all predefined messages
+  /// Get all predefined messages.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Predefined statuses returned
+  ///
+  /// See:
+  ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusPredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -176,7 +240,21 @@ class UserStatusStatusesClient {
 
   final UserStatusClient _rootClient;
 
-  /// Find statuses of users
+  /// Find statuses of users.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [limit] Maximum number of statuses to find
+  ///   * [offset] Offset for finding statuses
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Statuses returned
+  ///
+  /// See:
+  ///  * [findAllRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusStatusesFindAllResponseApplicationJson, void>> findAll({
     final int? limit,
     final int? offset,
@@ -191,7 +269,24 @@ class UserStatusStatusesClient {
     return rawResponse.future;
   }
 
-  /// Find statuses of users
+  /// Find statuses of users.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [limit] Maximum number of statuses to find
+  ///   * [offset] Offset for finding statuses
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Statuses returned
+  ///
+  /// See:
+  ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusStatusesFindAllResponseApplicationJson, void> findAllRaw({
     final int? limit,
     final int? offset,
@@ -243,7 +338,21 @@ class UserStatusStatusesClient {
     );
   }
 
-  /// Find the status of a user
+  /// Find the status of a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///   * 404: The user was not found
+  ///
+  /// See:
+  ///  * [findRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusStatusesFindResponseApplicationJson, void>> find({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -256,7 +365,24 @@ class UserStatusStatusesClient {
     return rawResponse.future;
   }
 
-  /// Find the status of a user
+  /// Find the status of a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///   * 404: The user was not found
+  ///
+  /// See:
+  ///  * [find] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusStatusesFindResponseApplicationJson, void> findRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
@@ -308,7 +434,20 @@ class UserStatusUserStatusClient {
 
   final UserStatusClient _rootClient;
 
-  /// Get the status of the current user
+  /// Get the status of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The status was found successfully
+  ///   * 404: The user was not found
+  ///
+  /// See:
+  ///  * [getStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusGetStatusResponseApplicationJson, void>> getStatus({
     final bool oCSAPIRequest = true,
   }) async {
@@ -319,7 +458,23 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Get the status of the current user
+  /// Get the status of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The status was found successfully
+  ///   * 404: The user was not found
+  ///
+  /// See:
+  ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusGetStatusResponseApplicationJson, void> getStatusRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -363,7 +518,21 @@ class UserStatusUserStatusClient {
     );
   }
 
-  /// Update the status type of the current user
+  /// Update the status type of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [statusType] The new status type
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The status was updated successfully
+  ///   * 400: The status type is invalid
+  ///
+  /// See:
+  ///  * [setStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusSetStatusResponseApplicationJson, void>> setStatus({
     required final String statusType,
     final bool oCSAPIRequest = true,
@@ -376,7 +545,24 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Update the status type of the current user
+  /// Update the status type of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [statusType] The new status type
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The status was updated successfully
+  ///   * 400: The status type is invalid
+  ///
+  /// See:
+  ///  * [setStatus] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusSetStatusResponseApplicationJson, void> setStatusRaw({
     required final String statusType,
     final bool oCSAPIRequest = true,
@@ -422,7 +608,22 @@ class UserStatusUserStatusClient {
     );
   }
 
-  /// Set the message to a predefined message for the current user
+  /// Set the message to a predefined message for the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messageId] ID of the predefined message
+  ///   * [clearAt] When the message should be cleared
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The message was updated successfully
+  ///   * 400: The clearAt or message-id is invalid
+  ///
+  /// See:
+  ///  * [setPredefinedMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson, void>> setPredefinedMessage({
     required final String messageId,
     final int? clearAt,
@@ -437,7 +638,25 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Set the message to a predefined message for the current user
+  /// Set the message to a predefined message for the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messageId] ID of the predefined message
+  ///   * [clearAt] When the message should be cleared
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The message was updated successfully
+  ///   * 400: The clearAt or message-id is invalid
+  ///
+  /// See:
+  ///  * [setPredefinedMessage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson, void> setPredefinedMessageRaw({
     required final String messageId,
     final int? clearAt,
@@ -487,7 +706,23 @@ class UserStatusUserStatusClient {
     );
   }
 
-  /// Set the message to a custom message for the current user
+  /// Set the message to a custom message for the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [statusIcon] Icon of the status
+  ///   * [message] Message of the status
+  ///   * [clearAt] When the message should be cleared
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The message was updated successfully
+  ///   * 400: The clearAt or icon is invalid or the message is too long
+  ///
+  /// See:
+  ///  * [setCustomMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusSetCustomMessageResponseApplicationJson, void>> setCustomMessage({
     final String? statusIcon,
     final String? message,
@@ -504,7 +739,26 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Set the message to a custom message for the current user
+  /// Set the message to a custom message for the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [statusIcon] Icon of the status
+  ///   * [message] Message of the status
+  ///   * [clearAt] When the message should be cleared
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: The message was updated successfully
+  ///   * 400: The clearAt or icon is invalid or the message is too long
+  ///
+  /// See:
+  ///  * [setCustomMessage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusSetCustomMessageResponseApplicationJson, void> setCustomMessageRaw({
     final String? statusIcon,
     final String? message,
@@ -560,7 +814,19 @@ class UserStatusUserStatusClient {
     );
   }
 
-  /// Clear the message of the current user
+  /// Clear the message of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Message cleared successfully
+  ///
+  /// See:
+  ///  * [clearMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusClearMessageResponseApplicationJson, void>> clearMessage({
     final bool oCSAPIRequest = true,
   }) async {
@@ -571,7 +837,22 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Clear the message of the current user
+  /// Clear the message of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Message cleared successfully
+  ///
+  /// See:
+  ///  * [clearMessage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -615,7 +896,20 @@ class UserStatusUserStatusClient {
     );
   }
 
-  /// Revert the status to the previous status
+  /// Revert the status to the previous status.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messageId] ID of the message to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status reverted
+  ///
+  /// See:
+  ///  * [revertStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusUserStatusRevertStatusResponseApplicationJson, void>> revertStatus({
     required final String messageId,
     final bool oCSAPIRequest = true,
@@ -628,7 +922,23 @@ class UserStatusUserStatusClient {
     return rawResponse.future;
   }
 
-  /// Revert the status to the previous status
+  /// Revert the status to the previous status.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messageId] ID of the message to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Status reverted
+  ///
+  /// See:
+  ///  * [revertStatus] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<UserStatusUserStatusRevertStatusResponseApplicationJson, void> revertStatusRaw({
     required final String messageId,
     final bool oCSAPIRequest = true,

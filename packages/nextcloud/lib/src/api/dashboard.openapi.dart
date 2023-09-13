@@ -11,6 +11,8 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -43,7 +45,19 @@ class DashboardDashboardApiClient {
 
   final DashboardClient _rootClient;
 
-  /// Get the widgets
+  /// Get the widgets.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widgets returned
+  ///
+  /// See:
+  ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
     final bool oCSAPIRequest = true,
   }) async {
@@ -54,7 +68,22 @@ class DashboardDashboardApiClient {
     return rawResponse.future;
   }
 
-  /// Get the widgets
+  /// Get the widgets.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widgets returned
+  ///
+  /// See:
+  ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
     final bool oCSAPIRequest = true,
   }) {
@@ -98,7 +127,22 @@ class DashboardDashboardApiClient {
     );
   }
 
-  /// Get the items for the widgets
+  /// Get the items for the widgets.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
+  ///   * [limit] Limit number of result items per widget
+  ///   * [widgets] Limit results to specific widgets
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widget items returned
+  ///
+  /// See:
+  ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
@@ -115,7 +159,25 @@ class DashboardDashboardApiClient {
     return rawResponse.future;
   }
 
-  /// Get the items for the widgets
+  /// Get the items for the widgets.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
+  ///   * [limit] Limit number of result items per widget
+  ///   * [widgets] Limit results to specific widgets
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widget items returned
+  ///
+  /// See:
+  ///  * [getWidgetItems] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
@@ -176,7 +238,22 @@ class DashboardDashboardApiClient {
     );
   }
 
-  /// Get the items for the widgets
+  /// Get the items for the widgets.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
+  ///   * [limit] Limit number of result items per widget
+  ///   * [widgets] Limit results to specific widgets
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widget items returned
+  ///
+  /// See:
+  ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
@@ -193,7 +270,25 @@ class DashboardDashboardApiClient {
     return rawResponse.future;
   }
 
-  /// Get the items for the widgets
+  /// Get the items for the widgets.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
+  ///   * [limit] Limit number of result items per widget
+  ///   * [widgets] Limit results to specific widgets
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Widget items returned
+  ///
+  /// See:
+  ///  * [getWidgetItemsV2] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
   DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
