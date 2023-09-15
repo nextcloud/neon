@@ -8,4 +8,4 @@ for package in $(yq -r ".dev_dependencies | keys | .[]" pubspec.yaml); do
 done
 echo "y" | fvm install
 melos bootstrap
-dart run husky install
+fvm dart run husky install
