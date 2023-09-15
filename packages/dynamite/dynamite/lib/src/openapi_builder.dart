@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:build/build.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/builder/client.dart';
@@ -18,6 +19,7 @@ class OpenAPIBuilder implements Builder {
   @override
   final buildExtensions = const {
     '.openapi.json': ['.openapi.dart'],
+    '.openapi.yaml': ['.openapi.dart'],
   };
 
   @override
@@ -31,10 +33,17 @@ class OpenAPIBuilder implements Builder {
         useNullSafetySyntax: true,
       );
 
-      final spec = serializers.deserializeWith(
-        OpenAPI.serializer,
-        json.decode(await buildStep.readAsString(inputId)),
-      )!;
+      final spec = switch (inputId.extension) {
+        'json' => serializers.deserializeWith(
+            OpenAPI.serializer,
+            json.decode(await buildStep.readAsString(inputId)),
+          )!,
+        'yaml' => checkedYamlDecode(
+            await buildStep.readAsString(inputId),
+            (final m) => serializers.deserializeWith(OpenAPI.serializer, m)!,
+          ),
+        _ => throw StateError('Openapi specs can only be yaml or json.'),
+      };
 
       final supportedVersions = ['3.0.3', '3.1.0'];
       if (!supportedVersions.contains(spec.version)) {
