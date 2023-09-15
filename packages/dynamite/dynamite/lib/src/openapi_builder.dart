@@ -34,11 +34,11 @@ class OpenAPIBuilder implements Builder {
       );
 
       final spec = switch (inputId.extension) {
-        'json' => serializers.deserializeWith(
+        '.json' => serializers.deserializeWith(
             OpenAPI.serializer,
             json.decode(await buildStep.readAsString(inputId)),
           )!,
-        'yaml' => checkedYamlDecode(
+        '.yaml' => checkedYamlDecode(
             await buildStep.readAsString(inputId),
             (final m) => serializers.deserializeWith(OpenAPI.serializer, m)!,
           ),
