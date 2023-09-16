@@ -150,7 +150,7 @@ class NeonDrawerHeader extends StatelessWidget {
             Text(
               theme.name,
               style: DefaultTextStyle.of(context).style.copyWith(
-                    color: Theme.of(context).appBarTheme.foregroundColor,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
             ),
             Flexible(
