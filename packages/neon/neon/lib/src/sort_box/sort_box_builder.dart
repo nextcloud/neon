@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/models/option.dart';
 import 'package:sort_box/sort_box.dart';
 
 /// Signature for a function that creates a widget for a given sorted list.

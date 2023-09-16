@@ -3,10 +3,7 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/settings/models/select_option.dart';
-import 'package:neon/src/settings/models/toggle_option.dart';
-import 'package:neon/src/settings/widgets/checkbox_settings_tile.dart';
-import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
+import 'package:neon/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/theme/dialog.dart';
@@ -52,15 +49,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
               tiles: [
                 for (final option
                     in appImplementation.options.options.where((final option) => option.category == category)) ...[
-                  if (option is ToggleOption) ...[
-                    CheckBoxSettingsTile(
-                      option: option,
-                    ),
-                  ] else if (option is SelectOption) ...[
-                    DropdownButtonSettingsTile(
-                      option: option,
-                    ),
-                  ],
+                  OptionSettingsTile(option: option),
                 ],
               ],
             ),

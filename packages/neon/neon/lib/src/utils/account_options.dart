@@ -3,7 +3,6 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
-import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/models/storage.dart';
 
 @internal

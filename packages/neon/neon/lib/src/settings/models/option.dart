@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/models/label_builder.dart';
@@ -7,8 +8,12 @@ import 'package:neon/src/settings/models/options_category.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-@internal
-abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
+/// Listenable option that is persisted in the [SettingsStorage].
+///
+/// See:
+///   * [ToggleOption] for an Option<bool>
+///   * [SelectOption] for an Option with multiple values
+sealed class Option<T> extends ChangeNotifier implements ValueListenable<T> {
   /// Creates an Option
   Option({
     required this.storage,
@@ -37,10 +42,23 @@ abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
     });
   }
 
+  /// Storage to persist the state.
   final SettingsStorage storage;
+
+  /// Storage key to save the state at.
   final Storable key;
+
+  /// Label of the option.
   final LabelBuilder label;
+
+  /// Default value of the option.
+  ///
+  /// [reset] will restore this value.
   final T defaultValue;
+
+  /// Category of this option.
+  ///
+  /// This can be used to group multiple options
   final OptionsCategory? category;
 
   T _value;
@@ -121,4 +139,151 @@ abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
 
     super.dispose();
   }
+}
+
+/// [Option] with multiple available values.
+///
+/// See:
+///   * [SelectOption] for an Option with multiple values
+
+class SelectOption<T> extends Option<T> {
+  /// Creates a SelectOption
+  SelectOption({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required super.defaultValue,
+    required final Map<T, LabelBuilder> values,
+
+    /// Force loading the stored value.
+    ///
+    /// This is needed when [values] is empty but the stored value should still be loaded.
+    /// This only works when [T] is of type String?.
+    final bool forceLoadValue = true,
+    super.category,
+    super.enabled,
+  })  : _values = values,
+        super(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+
+  /// Creates a SelectOption depending on the State of another [Option].
+  SelectOption.depend({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required super.defaultValue,
+    required final Map<T, LabelBuilder> values,
+    required super.enabled,
+
+    /// Force loading the stored value.
+    ///
+    /// This is needed when [values] is empty but the stored value should still be loaded.
+    /// This only works when [T] is of type String?.
+    final bool forceLoadValue = true,
+    super.category,
+  })  : _values = values,
+        super.depend(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+
+  static T? _loadValue<T>(final Map<T, LabelBuilder> vs, final String? stored, {final bool forceLoad = true}) {
+    if (forceLoad && vs.isEmpty && stored is T) {
+      return stored as T;
+    }
+
+    return _deserialize(vs, stored);
+  }
+
+  @override
+  void reset() {
+    unawaited(storage.remove(key.value));
+
+    super.reset();
+  }
+
+  Map<T, LabelBuilder> _values;
+
+  @override
+  set value(final T value) {
+    super.value = value;
+
+    if (value != null) {
+      unawaited(storage.setString(key.value, serialize()!));
+    }
+  }
+
+  /// A collection of different values this can have.
+  ///
+  /// See:
+  /// * [value] for the currently selected one
+  Map<T, LabelBuilder> get values => _values;
+
+  set values(final Map<T, LabelBuilder> newValues) {
+    if (_values == newValues) {
+      return;
+    }
+    _values = newValues;
+    notifyListeners();
+  }
+
+  @override
+  String? serialize() => _serialize(value);
+
+  static String? _serialize<T>(final T value) => value?.toString();
+
+  @override
+  T? deserialize(final Object? data) => _deserialize(_values, data as String?);
+
+  static T? _deserialize<T>(final Map<T, LabelBuilder> vs, final String? valueStr) {
+    if (valueStr == null) {
+      return null;
+    }
+
+    return vs.keys.firstWhereOrNull((final e) => _serialize(e) == valueStr);
+  }
+}
+
+/// [Option] with a boolean value.
+///
+/// See:
+///   * [SelectOption] for an Option with multiple values
+class ToggleOption extends Option<bool> {
+  /// Creates a ToggleOption
+  ToggleOption({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required final bool defaultValue,
+    super.category,
+    super.enabled,
+  }) : super(defaultValue: storage.getBool(key.value) ?? defaultValue);
+
+  /// Creates a ToggleOption depending on the State of another [Option].
+  ToggleOption.depend({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required final bool defaultValue,
+    required super.enabled,
+    super.category,
+  }) : super.depend(
+          defaultValue: storage.getBool(key.value) ?? defaultValue,
+        );
+
+  @override
+  void reset() {
+    unawaited(storage.remove(key.value));
+
+    super.reset();
+  }
+
+  @override
+  set value(final bool value) {
+    super.value = value;
+
+    unawaited(storage.setBool(key.value, serialize()));
+  }
+
+  @override
+  bool serialize() => value;
+
+  @override
+  bool? deserialize(final Object? data) => data as bool?;
 }
