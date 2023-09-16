@@ -176,7 +176,10 @@ class _HomePageState extends State<HomePage> {
         if (drawerAlwaysVisible) {
           return Row(
             children: [
-              drawer,
+              ColoredBox(
+                color: Theme.of(context).colorScheme.background,
+                child: drawer,
+              ),
               Expanded(
                 child: body,
               ),
