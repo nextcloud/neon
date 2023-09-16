@@ -1,70 +1,74 @@
-# neon
+# Neon
 
 <img src="assets/logo.svg" alt="Neon logo" width="200"/>
 
 A framework for building convergent cross-platform Nextcloud clients using Flutter.
+
+## The goals of Neon
+
+The Neon project has three main goals:
+
+1. The [Neon framwork](packages/neon/neon/) does the heavy lifting for Nextcloud client developers. Neon already handles the authentication flow and manages data requests and caching. This means that developers can reuse a lot of the code and do not need to reinvent the wheel.
+2. The [Neon app](packages/app/) is a cross platform Nextcloud client that runs on iOS, Android, macOS, Windows, Linux and Web. We already support Android and Linux with the other platforms being work in progress.
+3. The [Neon app](packages/app/) is a multi client app. This means that you can have multiple clients in the same mobile app. It enables seamless switching between multiple apps as Nextcloud users have enjoyed on the web forever.
+
+### Current problems with other clients
+
+- There are many clients that are designed to run exclusively on a single platform or device type. They all have different code bases, which makes feature parity and maintenance much more difficult.
+- The user experience and features differ significantly from platform to platform, which leads to frustration. This particularly affects mobile devices running Linux (e.g. postmarketOS). There is no suitable client on this platform at all. Using the desktop Linux client for file synchronization would probably work, but it still lacks almost all the features available on e.g. Android and the client is not converging to the needs of a mobile screens.
+- Even on feature-rich platforms, features are spread across multiple apps, making it more complicated for the user who simply wants to get the most out of their Nextcloud server on their device.
+
+### How Neon as a framework tries to solve them
+
+The Neon project uses [Dart](https://dart.dev/) and [Flutter](https://flutter.dev/) to help mobile client developers building apps. Flutter allows us to build convergent cross platform clients that feel native. 
+We are a 100% FOSS framework and do not rely on any proprietary libraries making it easy for developers to publish thier apps in places like the [F-Droid](https://f-droid.org/) store.
+We provide a generated [Nextcloud Dart client](packages/nextcloud/) that is generated from the new OpenAPI specifications shipped with Nextcloud and is already being used by other Dart and Flutter projects. Gone are the days of looking at the PHP code and implementing an API client by hand wich can be time consuming and very error prone.
+
+We provide abstractions, common utilities and prebuilt UI components (called Widgets in Flutter) that can be re-used. This allows Neon to make developing a new Nextcloud client as easy as adding a few custom UI elements and the necessary state management, while everything else is already taken care of for you.
+
+## Contributing
+
+We encourage every client developer to contribute their app implementation back into Neon.
+This way we app developers can choose from a large set of clients to enable.
+Check out our [contributing docs](CONTRIBUTING.md) to get started with developing with Neon.
+
+We have a lot of [documentation](./docs) from helping you setup your development environment to our guidelines.
+Please make sure to read them before starting to contribute.
+
+## Development and support
+
+We have a Matrix space where you can ask questions: https://matrix.to/#/#nextcloud-neon:matrix.org
 
 ## Features
 
 See [here](packages/app/README.md) for screenshots.
 
 - :heavy_check_mark: Supported
+- :construction: Work in progress 
 - :rocket: Planned
 
-| App           | Status             |
-|---------------|--------------------|
-| Files         | :heavy_check_mark: |
-| News          | :heavy_check_mark: |
-| Notes         | :heavy_check_mark: |
-| Notifications | :heavy_check_mark: |
-| Activity      | :rocket:           |
-| Calendar      | :rocket:           |
-| Contacts      | :rocket:           |
-| Cookbook      | :rocket:           |
-| Dashboard     | :rocket:           |
-| Photos        | :rocket:           |
-| Talk          | :rocket:           |
-| Tasks         | :rocket:           |
-
-## Problems with other clients and how this project tries to solve them
-
-### Current problems with other clients
-
-_Excerpt from my job application to Nextcloud:_
-
-- There are many clients that are designed to run exclusively on a single platform or device type. They all have different code bases, which makes feature parity and maintenance much more difficult.
-- The user experience and features differ significantly from platform to platform, which leads to frustration. This particularly affects mobile devices running Linux (e.g. postmarketOS). There is no suitable client on this platform at all. Using the desktop Linux client for file synchronization would probably work, but this platform still lacks almost all the features available on e.g. Android and the client is not made for mobile screens. Someone who uses Linux on their mobile device is likely also interested in Nextcloud, so the need for a solution is definitely there.
-- Even on feature-rich platforms, features are spread across multiple apps (e.g. on Android), making it more complicated for the user who simply wants to get the most out of their Nextcloud server on their device.
-
-### How Neon as a framework tries to solve them
-
-This project uses OpenAPI specifications to generate all the necessary API client code.
-This vastly reduces the developer efforts of writing a lot of boilerplate code and having to look at the PHP source code.
-Most server APIs were not well or at all documented until now (there are some exceptions).
-Based on this work a project at the Nextcloud company started for adopting OpenAPI to document the server APIs.
-The OpenAPI specifications are generated completely automated from the source code (although some changes to the type annotations are required) and are validated with static analysis of the PHP code.
-These efforts are not done yet, but this project basically became the front-line for testing the automatically generated specifications.
-
-We use flutter because of its cross-platform capabilities.
-To decrease the developer burden, a lot of useful widgets and utilities have been developed, so that they can be re-used.
-Trying to make everything re-usable is a major goal of this project, as we want to close the gap between platforms and functionalities and make development of new clients and apps enjoyable and fast.
-Developing a new Nextcloud client can be as easy as adding some UI and then necessary state management, everything else is taken care of for you.
-
-## Contributing
-
-Checkout our [contributing docs](CONTRIBUTING.md) to get started with developing with Neon.
-
-## Development and support
-
-We have a Matrix space where you can ask questions: https://matrix.to/#/#nextcloud-neon:matrix.org
-
-## Documentation
-
-See [docs](./docs).
+| App                                           | Status             |
+|-----------------------------------------------|--------------------|
+| [Files](packages/neon/neon_files/README.md)   | :heavy_check_mark: |
+| [News](packages/neon/neon_news/README.md)     | :heavy_check_mark: |
+| [Notes](packages/neon/neon_notes/README.md)   | :heavy_check_mark: |
+| Notifications                                 | :heavy_check_mark: |
+| Activity                                      | :rocket:           |
+| Calendar                                      | :rocket:           |
+| Contacts                                      | :rocket:           |
+| Cookbook                                      | :rocket:           |
+| Dashboard                                     | :rocket:           |
+| Photos                                        | :rocket:           |
+| Talk                                          | :rocket:           |
+| Tasks                                         | :rocket:           |
 
 ## Platform support
 
-Except for web, Neon should run on all supported Flutter platforms in the future.  
-Right now this is not the case, only Android and Linux are supported and tested, but this can easily be extended to other platforms.  
-
-The features and problems of all platforms should be considered when implementing new features.
+| Platform  | Progress           |
+|-----------|--------------------|
+| Android   | :heavy_check_mark: |
+| iOS       | :construction:     |
+| MacOS     | :construction:     |
+| Linux     | :heavy_check_mark: |
+| Windows   | :rocket:           |
+| Web       | :construction:     |
