@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/theme/dialog.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_tile.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class NeonAccountSelectionDialog extends StatelessWidget {
@@ -18,7 +18,7 @@ class NeonAccountSelectionDialog extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final accounts = accountsBloc.accounts.value;
     final activeAccount = accountsBloc.activeAccount.value!;
 

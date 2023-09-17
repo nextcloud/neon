@@ -15,7 +15,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
   @override
   void initState() {
     super.initState();
-    bloc = Provider.of<FilesBloc>(context, listen: false);
+    bloc = NeonProvider.of<FilesBloc>(context);
 
     bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);

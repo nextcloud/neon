@@ -21,10 +21,10 @@ import 'package:neon/src/theme/branding.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/utils/global_options.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/save_file.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
@@ -55,9 +55,9 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(final BuildContext context) {
-    final globalOptions = Provider.of<GlobalOptions>(context);
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final appImplementations = Provider.of<Iterable<AppImplementation>>(context);
+    final globalOptions = NeonProvider.of<GlobalOptions>(context);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
     final branding = Branding.of(context);
 
     final appBar = AppBar(
@@ -265,7 +265,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       applicationName: branding.name,
                       applicationIcon: branding.logo,
                       applicationLegalese: branding.legalese,
-                      applicationVersion: Provider.of<PackageInfo>(context, listen: false).version,
+                      applicationVersion: NeonProvider.of<PackageInfo>(context).version,
                     );
                   },
                 ),
@@ -350,9 +350,9 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   SettingsExportHelper _buildSettingsExportHelper(final BuildContext context) {
-    final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
+    final globalOptions = NeonProvider.of<GlobalOptions>(context);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
 
     return SettingsExportHelper(
       exportables: {

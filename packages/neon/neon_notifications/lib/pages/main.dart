@@ -16,7 +16,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   void initState() {
     super.initState();
 
-    bloc = Provider.of<NotificationsBlocInterface>(context, listen: false) as NotificationsBloc;
+    bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
 
     bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
@@ -51,7 +51,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     final BuildContext context,
     final NotificationsNotification notification,
   ) {
-    final app = Provider.of<Iterable<AppImplementation>>(context, listen: false).tryFind(notification.app);
+    final app = NeonProvider.of<Iterable<AppImplementation>>(context).tryFind(notification.app);
 
     return ListTile(
       title: Text(notification.subject),
@@ -90,7 +90,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         }
         if (app != null) {
           // TODO: use go_router once implemented
-          final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+          final accountsBloc = NeonProvider.of<AccountsBloc>(context);
           await accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {
           final colorScheme = Theme.of(context).colorScheme;

@@ -9,6 +9,7 @@ import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_switcher_button.dart';
 import 'package:neon/src/widgets/app_implementation_icon.dart';
 import 'package:neon/src/widgets/exception.dart';
@@ -28,7 +29,7 @@ class NeonAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _NeonAppBarState extends State<NeonAppBar> {
-  late final AccountsBloc accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+  late final AccountsBloc accountsBloc = NeonProvider.of<AccountsBloc>(context);
   late final accounts = accountsBloc.accounts.value;
   late final account = accountsBloc.activeAccount.value!;
   late final appsBloc = accountsBloc.activeAppsBloc;
@@ -157,7 +158,7 @@ class SearchIconButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => IconButton(
         onPressed: () {
-          Provider.of<AccountsBloc>(context, listen: false).activeUnifiedSearchBloc.enable();
+          NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
         },
         tooltip: AppLocalizations.of(context).search,
         icon: const Icon(
@@ -186,7 +187,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   @override
   void initState() {
     super.initState();
-    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _appsBloc = _accountsBloc.activeAppsBloc;
     _accounts = _accountsBloc.accounts.value;
     _account = _accountsBloc.activeAccount.value!;

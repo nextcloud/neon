@@ -8,6 +8,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/image_wrapper.dart';
@@ -15,7 +16,6 @@ import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/list_view.dart';
 import 'package:neon/src/widgets/server_icon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class NeonUnifiedSearchResults extends StatelessWidget {
@@ -25,7 +25,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
     return ResultBuilder.behaviorSubject(
       stream: bloc.results,

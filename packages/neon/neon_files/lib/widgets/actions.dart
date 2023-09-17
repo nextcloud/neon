@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/neon_files.dart';
-import 'package:provider/provider.dart';
 
 class FileActions extends StatelessWidget {
   const FileActions({
@@ -14,7 +13,7 @@ class FileActions extends StatelessWidget {
   final FileDetails details;
 
   Future<void> onSelected(final BuildContext context, final FilesFileAction action) async {
-    final bloc = Provider.of<FilesBloc>(context, listen: false);
+    final bloc = NeonProvider.of<FilesBloc>(context);
     final browserBloc = bloc.browser;
     switch (action) {
       case FilesFileAction.toggleFavorite:

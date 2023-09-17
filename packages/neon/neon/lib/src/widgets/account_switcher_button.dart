@@ -5,9 +5,9 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_selection_dialog.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class AccountSwitcherButton extends StatelessWidget {
@@ -16,7 +16,7 @@ class AccountSwitcherButton extends StatelessWidget {
   });
 
   Future<void> _onPressed(final BuildContext context) async {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
     final account = await showDialog<Account>(
       context: context,
@@ -42,7 +42,7 @@ class AccountSwitcherButton extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
 
     return IconButton(

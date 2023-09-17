@@ -11,6 +11,7 @@ import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/global_options.dart' as global_options;
 import 'package:neon/src/utils/global_popups.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/exception.dart';
@@ -39,8 +40,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    _globalOptions = NeonProvider.of<GlobalOptions>(context);
+    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
 

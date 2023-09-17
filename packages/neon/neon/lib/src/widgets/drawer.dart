@@ -8,12 +8,12 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 
 @internal
 class NeonDrawer extends StatelessWidget {
@@ -23,7 +23,7 @@ class NeonDrawer extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final appsBloc = accountsBloc.activeAppsBloc;
 
     return ResultBuilder.behaviorSubject(
@@ -63,7 +63,7 @@ class __NeonDrawerState extends State<_NeonDrawer> {
   void initState() {
     super.initState();
 
-    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _appsBloc = _accountsBloc.activeAppsBloc;
 
     _apps = widget.apps.toList();
@@ -118,7 +118,7 @@ class NeonDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
     final branding = ResultBuilder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(

@@ -9,7 +9,7 @@ import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/global_options.dart';
-import 'package:provider/provider.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
@@ -42,9 +42,9 @@ class GlobalPopups {
       return;
     }
 
-    final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    final firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
-    final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
+    final globalOptions = NeonProvider.of<GlobalOptions>(context);
+    final firstLaunchBloc = NeonProvider.of<FirstLaunchBloc>(context);
+    final nextPushBloc = NeonProvider.of<NextPushBloc>(context);
 
     _subscriptions.addAll([
       if (NeonPlatform.instance.canUsePushNotifications) ...[

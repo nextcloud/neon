@@ -8,8 +8,8 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 
 class NeonException extends StatelessWidget {
   const NeonException(
@@ -189,7 +189,7 @@ class NeonException extends StatelessWidget {
   static void _openLoginPage(final BuildContext context) {
     unawaited(
       LoginCheckServerStatusRoute(
-        serverUrl: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
+        serverUrl: NeonProvider.of<AccountsBloc>(context).activeAccount.value!.serverURL,
       ).push(context),
     );
   }

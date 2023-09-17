@@ -27,7 +27,6 @@ import 'package:neon_files/widgets/file_list_tile.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 

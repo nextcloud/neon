@@ -21,9 +21,9 @@ import 'package:neon/src/theme/theme.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/localizations.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/push_utils.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:tray_manager/tray_manager.dart' as tray;
 import 'package:window_manager/window_manager.dart';
@@ -59,9 +59,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   void initState() {
     super.initState();
 
-    _appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
-    _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    _appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    _globalOptions = NeonProvider.of<GlobalOptions>(context);
+    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
     WidgetsBinding.instance.addObserver(this);
     if (NeonPlatform.instance.canUseSystemTray) {
@@ -144,7 +144,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             return;
           }
 
-          final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
+          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
           final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
 
           if (app == null) {
@@ -160,7 +160,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
           _accountsBloc.setActiveAccount(account);
 
-          final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
+          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
 
           final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
           if (notificationsApp != null) {

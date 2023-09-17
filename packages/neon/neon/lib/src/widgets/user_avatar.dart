@@ -9,10 +9,10 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/server_icon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 class NeonUserAvatar extends StatefulWidget {
@@ -38,7 +38,7 @@ class NeonUserAvatar extends StatefulWidget {
 }
 
 class _UserAvatarState extends State<NeonUserAvatar> {
-  late final _userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusesBlocFor(widget.account);
+  late final _userStatusBloc = NeonProvider.of<AccountsBloc>(context).getUserStatusesBlocFor(widget.account);
   late double size;
 
   @override

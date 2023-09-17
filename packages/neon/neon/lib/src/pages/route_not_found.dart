@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/router.dart';
-import 'package:provider/provider.dart';
+import 'package:neon/src/utils/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 @internal
@@ -30,7 +30,7 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
   }
 
   Future<void> _checkLaunchable() async {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     if (!accountsBloc.hasAccounts) {
       return;
     }
