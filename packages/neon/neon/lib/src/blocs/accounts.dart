@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
@@ -10,6 +11,7 @@ import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_statuses.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/account_cache.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
@@ -97,30 +99,40 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
         setActiveAccount(as.first);
       }
     }
+
+    accounts.listen((final accounts) {
+      _accountsOptions.pruneAgainst(accounts);
+      _appsBlocs.pruneAgainst(accounts);
+      _capabilitiesBlocs.pruneAgainst(accounts);
+      _userDetailsBlocs.pruneAgainst(accounts);
+      _userStatusesBlocs.pruneAgainst(accounts);
+      _unifiedSearchBlocs.pruneAgainst(accounts);
+      for (final app in _allAppImplementations) {
+        app.blocsCache.pruneAgainst(accounts);
+      }
+    });
   }
 
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
 
-  final _accountsOptions = <String, AccountSpecificOptions>{};
-  final _appsBlocs = <String, AppsBloc>{};
-  final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
-  final _userDetailsBlocs = <String, UserDetailsBloc>{};
-  final _userStatusesBlocs = <String, UserStatusesBloc>{};
-  final _unifiedSearchBlocs = <String, UnifiedSearchBloc>{};
+  final _accountsOptions = AccountCache<AccountSpecificOptions>();
+  final _appsBlocs = AccountCache<AppsBloc>();
+  final _capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
+  final _userDetailsBlocs = AccountCache<UserDetailsBloc>();
+  final _userStatusesBlocs = AccountCache<UserStatusesBloc>();
+  final _unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
 
   @override
   void dispose() {
     unawaited(activeAccount.close());
     unawaited(accounts.close());
-    _appsBlocs.disposeAll();
-    _capabilitiesBlocs.disposeAll();
-    _userDetailsBlocs.disposeAll();
-    _userStatusesBlocs.disposeAll();
-    _unifiedSearchBlocs.disposeAll();
-    for (final options in _accountsOptions.values) {
-      options.dispose();
-    }
+    _appsBlocs.dispose();
+    _capabilitiesBlocs.dispose();
+    _userDetailsBlocs.dispose();
+    _userStatusesBlocs.dispose();
+    _unifiedSearchBlocs.dispose();
+    _accountsOptions.dispose();
   }
 
   @override
@@ -212,8 +224,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The options for the specified [account].
   ///
   /// Use [activeOptions] to get them for the [activeAccount].
-  AccountSpecificOptions getOptionsFor(final Account account) =>
-      _accountsOptions[account.id] ??= AccountSpecificOptions(
+  AccountSpecificOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountSpecificOptions(
         AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );
@@ -226,7 +237,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The appsBloc for the specified [account].
   ///
   /// Use [activeAppsBloc] to get them for the [activeAccount].
-  AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account.id] ??= AppsBloc(
+  AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account] ??= AppsBloc(
         getCapabilitiesBlocFor(account),
         this,
         account,
@@ -242,7 +253,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   ///
   /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
   CapabilitiesBloc getCapabilitiesBlocFor(final Account account) =>
-      _capabilitiesBlocs[account.id] ??= CapabilitiesBloc(account);
+      _capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
 
   /// The userDetailsBloc for the [activeAccount].
   ///
@@ -253,7 +264,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   ///
   /// Use [activeUerDetailsBloc] to get them for the [activeAccount].
   UserDetailsBloc getUserDetailsBlocFor(final Account account) =>
-      _userDetailsBlocs[account.id] ??= UserDetailsBloc(account);
+      _userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
   /// The userStatusBloc for the [activeAccount].
   ///
@@ -264,7 +275,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   ///
   /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
   UserStatusesBloc getUserStatusesBlocFor(final Account account) =>
-      _userStatusesBlocs[account.id] ??= UserStatusesBloc(account);
+      _userStatusesBlocs[account] ??= UserStatusesBloc(account);
 
   /// The UnifiedSearchBloc for the [activeAccount].
   ///
@@ -275,7 +286,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   ///
   /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
   UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) =>
-      _unifiedSearchBlocs[account.id] ??= UnifiedSearchBloc(
+      _unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),
         account,
       );

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
+import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/models/label_builder.dart';
 import 'package:neon/src/settings/models/options_category.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -13,7 +14,7 @@ import 'package:rxdart/rxdart.dart';
 /// See:
 ///   * [ToggleOption] for an Option<bool>
 ///   * [SelectOption] for an Option with multiple values
-sealed class Option<T> extends ChangeNotifier implements ValueListenable<T> {
+sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Disposable {
   /// Creates an Option
   Option({
     required this.storage,

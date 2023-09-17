@@ -1,11 +1,12 @@
 import 'package:meta/meta.dart';
+import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/settings/models/exportable.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_category.dart';
 import 'package:neon/src/settings/models/storage.dart';
 
 /// Collection of [Option]s.
-abstract class OptionsCollection implements Exportable {
+abstract class OptionsCollection implements Exportable, Disposable {
   OptionsCollection(this.storage);
 
   /// Storage backend to use.
@@ -30,10 +31,9 @@ abstract class OptionsCollection implements Exportable {
   ///
   /// Implementers extending this must call super.
   @mustCallSuper
+  @override
   void dispose() {
-    for (final option in options) {
-      option.dispose();
-    }
+    options.disposeAll();
   }
 
   @override
