@@ -48,9 +48,8 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
-        b.setPath(originalPath);
+        final b = bloc.getNewFilesBrowserBloc(initialPath: originalPath);
         final result = await showDialog<List<String>?>(
           context: context,
           builder: (final context) => FilesChooseFolderDialog(
@@ -67,9 +66,8 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
-        b.setPath(originalPath);
+        final b = bloc.getNewFilesBrowserBloc(initialPath: originalPath);
         final result = await showDialog<List<String>?>(
           context: context,
           builder: (final context) => FilesChooseFolderDialog(

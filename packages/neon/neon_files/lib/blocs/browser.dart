@@ -15,8 +15,13 @@ abstract interface class FilesBrowserBlocStates {
 class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
   FilesBrowserBloc(
     this.options,
-    this.account,
-  ) {
+    this.account, {
+    final List<String>? initialPath,
+  }) {
+    if (initialPath != null) {
+      path.add(initialPath);
+    }
+
     unawaited(refresh());
   }
 
