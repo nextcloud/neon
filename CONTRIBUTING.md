@@ -44,3 +44,8 @@ This way we can make sure it will not be introduced again.
 ## Documentation
 Whenever you are submitting new features make sure to also add documentation comments in the code.
 Please adhere to the [effective-dart](https://dart.dev/effective-dart/documentation) documentation guidelines.
+
+## Workflow
+We use a rebase workflow, meaning that we rebase PRs onto the latest main branch instead of merging the current main into the development branches.
+This helps to keep the git history cleaner and easier to bisect in the case of debugging an error.
+You can read more on it [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).

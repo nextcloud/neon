@@ -2,8 +2,9 @@
 
 ![Architecture overview diagram](architecture.svg)
 
-The framework consists of multiple packages:
-- For APIs the nextcloud package provides the implementations. The dynamite generator generates the code using the OpenAPI specs.
-- The main package is the neon package that provides widgets and functionality that is useful for building a Nextcloud client. It also manages the global state at runtime so that the app implementations do not have to manage things like multiple accounts for example.
-- The individual apps are implemented as separate packages. Those depend on the neon framework and implement a few interfaces so that the neon framework can use them.
-- On top of all that sits the app package that injects the relevant app implementations into the framework. It is possible to configure which app implementations should be included and how the app is branded.
+The Neon project consists of multiple packages:
+- The `nextcloud` package provides implementations for multiple server APIs. These are generated with the `dynamite` generator utilizing the OpenAPI specifications shipping since Nextcloud Hub 6.
+- Plugins are special clients that are deeper implemented into the framework and need to be closely coupled with it.
+- The individual clients are implemented as separate packages. These depend on the Neon framework and implement a few common interfaces so they can be used together in apps.
+- The main star is the `neon` package that provides common UI components (Widgets) and functionality that is useful for building Nextcloud apps. It also manages the global state at runtime so clients do not have to manage multiple accounts, data fetching or caching.
+- On top of all that sits the app package that injects a set of selected clients into the framework. It is possible to configure which one should be included and add custom styling and branding to it.
