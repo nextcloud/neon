@@ -29,6 +29,9 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUsePushNotifications => false;
 
   @override
+  bool get canUseSharing => false;
+
+  @override
   String get userAccessibleAppDataPath => p.join(Platform.environment['HOME']!, 'Neon');
 
   @override

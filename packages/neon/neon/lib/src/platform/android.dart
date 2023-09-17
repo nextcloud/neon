@@ -29,6 +29,9 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUseWindowManager => false;
 
   @override
+  bool get canUseSharing => true;
+
+  @override
   Future<String> get userAccessibleAppDataPath async {
     if (!await Permission.storage.request().isGranted) {
       throw const MissingPermissionException(Permission.storage);
