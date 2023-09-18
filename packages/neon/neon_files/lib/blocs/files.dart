@@ -177,7 +177,14 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     tasks.add(tasks.value..remove(task));
   }
 
-  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, account);
+  FilesBrowserBloc getNewFilesBrowserBloc({
+    final List<String>? initialPath,
+  }) =>
+      FilesBrowserBloc(
+        options,
+        account,
+        initialPath: initialPath,
+      );
 
   void _downloadParallelismListener() {
     _downloadQueue.parallel = options.downloadQueueParallelism.value;
