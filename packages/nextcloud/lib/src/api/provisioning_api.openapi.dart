@@ -3525,6 +3525,7 @@ abstract class ProvisioningApiUserDetailsQuota_Quota
   // coverage:ignore-end
   JsonObject get data;
   num? get $num;
+  int? get $int;
   String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiUserDetailsQuota_Quota> get serializer =>
@@ -3558,9 +3559,15 @@ class _$ProvisioningApiUserDetailsQuota_QuotaSerializer
       result._$num = data as num?;
     } catch (_) {}
     try {
+      result._$int = data as int?;
+    } catch (_) {}
+    try {
       result._string = data as String?;
     } catch (_) {}
-    assert([result._$num, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert(
+      [result._$num, result._$int, result._string].where((final x) => x != null).isNotEmpty,
+      'Need oneOf for ${result._data}',
+    );
     return result.build();
   }
 }
