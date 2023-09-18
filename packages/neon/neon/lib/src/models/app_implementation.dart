@@ -124,6 +124,12 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   ///
   /// You can later access it through `Theme.of(context).extension<ThemeName>()`.
   final ThemeExtension? theme = null;
+
+  @override
+  bool operator ==(final Object other) => other is AppImplementation && other.id == id;
+
+  @override
+  int get hashCode => id.hashCode;
 }
 
 extension AppImplementationFind on Iterable<AppImplementation> {

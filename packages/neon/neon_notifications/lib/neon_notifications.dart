@@ -21,7 +21,9 @@ part 'options.dart';
 part 'pages/main.dart';
 
 class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
-    implements NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
+    implements
+        // ignore: avoid_implementing_value_types
+        NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
   NotificationsApp();
 
   @override

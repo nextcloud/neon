@@ -21,7 +21,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 Future<void> runNeon({
-  required final Iterable<AppImplementation> appImplementations,
+  required final Set<AppImplementation> appImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,
   @visibleForTesting final Account? account,
