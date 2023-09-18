@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_implementing_value_types
+
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:test/test.dart';
