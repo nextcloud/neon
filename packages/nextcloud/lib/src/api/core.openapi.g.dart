@@ -41,9 +41,8 @@ Serializer<CoreLoginFlowV2Credentials> _$coreLoginFlowV2CredentialsSerializer =
     _$CoreLoginFlowV2CredentialsSerializer();
 Serializer<CoreLoginFlowV2_Poll> _$coreLoginFlowV2PollSerializer = _$CoreLoginFlowV2_PollSerializer();
 Serializer<CoreLoginFlowV2> _$coreLoginFlowV2Serializer = _$CoreLoginFlowV2Serializer();
-Serializer<CoreOpenGraphObject_OpenGraphObject> _$coreOpenGraphObjectOpenGraphObjectSerializer =
-    _$CoreOpenGraphObject_OpenGraphObjectSerializer();
 Serializer<CoreOpenGraphObject> _$coreOpenGraphObjectSerializer = _$CoreOpenGraphObjectSerializer();
+Serializer<CoreResource> _$coreResourceSerializer = _$CoreResourceSerializer();
 Serializer<CoreCollection> _$coreCollectionSerializer = _$CoreCollectionSerializer();
 Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs>
     _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer =
@@ -1187,15 +1186,14 @@ class _$CoreLoginFlowV2Serializer implements StructuredSerializer<CoreLoginFlowV
   }
 }
 
-class _$CoreOpenGraphObject_OpenGraphObjectSerializer
-    implements StructuredSerializer<CoreOpenGraphObject_OpenGraphObject> {
+class _$CoreOpenGraphObjectSerializer implements StructuredSerializer<CoreOpenGraphObject> {
   @override
-  final Iterable<Type> types = const [CoreOpenGraphObject_OpenGraphObject, _$CoreOpenGraphObject_OpenGraphObject];
+  final Iterable<Type> types = const [CoreOpenGraphObject, _$CoreOpenGraphObject];
   @override
-  final String wireName = 'CoreOpenGraphObject_OpenGraphObject';
+  final String wireName = 'CoreOpenGraphObject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreOpenGraphObject_OpenGraphObject object,
+  Iterable<Object?> serialize(Serializers serializers, CoreOpenGraphObject object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -1222,9 +1220,9 @@ class _$CoreOpenGraphObject_OpenGraphObjectSerializer
   }
 
   @override
-  CoreOpenGraphObject_OpenGraphObject deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreOpenGraphObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOpenGraphObject_OpenGraphObjectBuilder();
+    final result = CoreOpenGraphObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1254,14 +1252,14 @@ class _$CoreOpenGraphObject_OpenGraphObjectSerializer
   }
 }
 
-class _$CoreOpenGraphObjectSerializer implements StructuredSerializer<CoreOpenGraphObject> {
+class _$CoreResourceSerializer implements StructuredSerializer<CoreResource> {
   @override
-  final Iterable<Type> types = const [CoreOpenGraphObject, _$CoreOpenGraphObject];
+  final Iterable<Type> types = const [CoreResource, _$CoreResource];
   @override
-  final String wireName = 'CoreOpenGraphObject';
+  final String wireName = 'CoreResource';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CoreOpenGraphObject object,
+  Iterable<Object?> serialize(Serializers serializers, CoreResource object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'richObjectType',
@@ -1270,7 +1268,7 @@ class _$CoreOpenGraphObjectSerializer implements StructuredSerializer<CoreOpenGr
       serializers.serialize(object.richObject,
           specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
       'openGraphObject',
-      serializers.serialize(object.openGraphObject, specifiedType: const FullType(CoreOpenGraphObject_OpenGraphObject)),
+      serializers.serialize(object.openGraphObject, specifiedType: const FullType(CoreOpenGraphObject)),
       'accessible',
       serializers.serialize(object.accessible, specifiedType: const FullType(bool)),
     ];
@@ -1279,9 +1277,9 @@ class _$CoreOpenGraphObjectSerializer implements StructuredSerializer<CoreOpenGr
   }
 
   @override
-  CoreOpenGraphObject deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CoreResource deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOpenGraphObjectBuilder();
+    final result = CoreResourceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1297,9 +1295,8 @@ class _$CoreOpenGraphObjectSerializer implements StructuredSerializer<CoreOpenGr
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
           break;
         case 'openGraphObject':
-          result.openGraphObject.replace(
-              serializers.deserialize(value, specifiedType: const FullType(CoreOpenGraphObject_OpenGraphObject))!
-                  as CoreOpenGraphObject_OpenGraphObject);
+          result.openGraphObject.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreOpenGraphObject))! as CoreOpenGraphObject);
           break;
         case 'accessible':
           result.accessible = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1326,8 +1323,7 @@ class _$CoreCollectionSerializer implements StructuredSerializer<CoreCollection>
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'resources',
-      serializers.serialize(object.resources,
-          specifiedType: const FullType(BuiltList, [FullType(CoreOpenGraphObject)])),
+      serializers.serialize(object.resources, specifiedType: const FullType(BuiltList, [FullType(CoreResource)])),
     ];
 
     return result;
@@ -1352,7 +1348,7 @@ class _$CoreCollectionSerializer implements StructuredSerializer<CoreCollection>
           break;
         case 'resources':
           result.resources.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(CoreOpenGraphObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(CoreResource)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -5336,8 +5332,7 @@ class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap,
-              [FullType(String), FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(CoreReference)])),
     ];
 
     return result;
@@ -5357,8 +5352,7 @@ class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap,
-                  [FullType(String), FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(CoreReference)]))!);
           break;
       }
     }
@@ -5479,8 +5473,7 @@ class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap,
-              [FullType(String), FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(CoreReference)])),
     ];
 
     return result;
@@ -5500,8 +5493,7 @@ class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap,
-                  [FullType(String), FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(CoreReference)]))!);
           break;
       }
     }
@@ -10013,9 +10005,9 @@ class CoreLoginFlowV2Builder
   }
 }
 
-abstract mixin class CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder {
-  void replace(CoreOpenGraphObject_OpenGraphObjectInterface other);
-  void update(void Function(CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder) updates);
+abstract mixin class CoreOpenGraphObjectInterfaceBuilder {
+  void replace(CoreOpenGraphObjectInterface other);
+  void update(void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -10032,7 +10024,7 @@ abstract mixin class CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder {
   set link(String? link);
 }
 
-class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGraphObject {
+class _$CoreOpenGraphObject extends CoreOpenGraphObject {
   @override
   final String id;
   @override
@@ -10044,28 +10036,27 @@ class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGrap
   @override
   final String link;
 
-  factory _$CoreOpenGraphObject_OpenGraphObject([void Function(CoreOpenGraphObject_OpenGraphObjectBuilder)? updates]) =>
-      (CoreOpenGraphObject_OpenGraphObjectBuilder()..update(updates))._build();
+  factory _$CoreOpenGraphObject([void Function(CoreOpenGraphObjectBuilder)? updates]) =>
+      (CoreOpenGraphObjectBuilder()..update(updates))._build();
 
-  _$CoreOpenGraphObject_OpenGraphObject._(
-      {required this.id, required this.name, this.description, this.thumb, required this.link})
+  _$CoreOpenGraphObject._({required this.id, required this.name, this.description, this.thumb, required this.link})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'CoreOpenGraphObject_OpenGraphObject', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'CoreOpenGraphObject_OpenGraphObject', 'name');
-    BuiltValueNullFieldError.checkNotNull(link, r'CoreOpenGraphObject_OpenGraphObject', 'link');
+    BuiltValueNullFieldError.checkNotNull(id, r'CoreOpenGraphObject', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'CoreOpenGraphObject', 'name');
+    BuiltValueNullFieldError.checkNotNull(link, r'CoreOpenGraphObject', 'link');
   }
 
   @override
-  CoreOpenGraphObject_OpenGraphObject rebuild(void Function(CoreOpenGraphObject_OpenGraphObjectBuilder) updates) =>
+  CoreOpenGraphObject rebuild(void Function(CoreOpenGraphObjectBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOpenGraphObject_OpenGraphObjectBuilder toBuilder() => CoreOpenGraphObject_OpenGraphObjectBuilder()..replace(this);
+  CoreOpenGraphObjectBuilder toBuilder() => CoreOpenGraphObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOpenGraphObject_OpenGraphObject &&
+    return other is CoreOpenGraphObject &&
         id == other.id &&
         name == other.name &&
         description == other.description &&
@@ -10087,7 +10078,7 @@ class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGrap
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOpenGraphObject_OpenGraphObject')
+    return (newBuiltValueToStringHelper(r'CoreOpenGraphObject')
           ..add('id', id)
           ..add('name', name)
           ..add('description', description)
@@ -10097,11 +10088,9 @@ class _$CoreOpenGraphObject_OpenGraphObject extends CoreOpenGraphObject_OpenGrap
   }
 }
 
-class CoreOpenGraphObject_OpenGraphObjectBuilder
-    implements
-        Builder<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder>,
-        CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder {
-  _$CoreOpenGraphObject_OpenGraphObject? _$v;
+class CoreOpenGraphObjectBuilder
+    implements Builder<CoreOpenGraphObject, CoreOpenGraphObjectBuilder>, CoreOpenGraphObjectInterfaceBuilder {
+  _$CoreOpenGraphObject? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -10123,9 +10112,9 @@ class CoreOpenGraphObject_OpenGraphObjectBuilder
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  CoreOpenGraphObject_OpenGraphObjectBuilder();
+  CoreOpenGraphObjectBuilder();
 
-  CoreOpenGraphObject_OpenGraphObjectBuilder get _$this {
+  CoreOpenGraphObjectBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -10133,146 +10122,6 @@ class CoreOpenGraphObject_OpenGraphObjectBuilder
       _description = $v.description;
       _thumb = $v.thumb;
       _link = $v.link;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CoreOpenGraphObject_OpenGraphObject other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOpenGraphObject_OpenGraphObject;
-  }
-
-  @override
-  void update(void Function(CoreOpenGraphObject_OpenGraphObjectBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreOpenGraphObject_OpenGraphObject build() => _build();
-
-  _$CoreOpenGraphObject_OpenGraphObject _build() {
-    final _$result = _$v ??
-        _$CoreOpenGraphObject_OpenGraphObject._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'CoreOpenGraphObject_OpenGraphObject', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'CoreOpenGraphObject_OpenGraphObject', 'name'),
-            description: description,
-            thumb: thumb,
-            link: BuiltValueNullFieldError.checkNotNull(link, r'CoreOpenGraphObject_OpenGraphObject', 'link'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class CoreOpenGraphObjectInterfaceBuilder {
-  void replace(CoreOpenGraphObjectInterface other);
-  void update(void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
-  String? get richObjectType;
-  set richObjectType(String? richObjectType);
-
-  MapBuilder<String, JsonObject> get richObject;
-  set richObject(MapBuilder<String, JsonObject>? richObject);
-
-  CoreOpenGraphObject_OpenGraphObjectBuilder get openGraphObject;
-  set openGraphObject(CoreOpenGraphObject_OpenGraphObjectBuilder? openGraphObject);
-
-  bool? get accessible;
-  set accessible(bool? accessible);
-}
-
-class _$CoreOpenGraphObject extends CoreOpenGraphObject {
-  @override
-  final String richObjectType;
-  @override
-  final BuiltMap<String, JsonObject> richObject;
-  @override
-  final CoreOpenGraphObject_OpenGraphObject openGraphObject;
-  @override
-  final bool accessible;
-
-  factory _$CoreOpenGraphObject([void Function(CoreOpenGraphObjectBuilder)? updates]) =>
-      (CoreOpenGraphObjectBuilder()..update(updates))._build();
-
-  _$CoreOpenGraphObject._(
-      {required this.richObjectType, required this.richObject, required this.openGraphObject, required this.accessible})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(richObjectType, r'CoreOpenGraphObject', 'richObjectType');
-    BuiltValueNullFieldError.checkNotNull(richObject, r'CoreOpenGraphObject', 'richObject');
-    BuiltValueNullFieldError.checkNotNull(openGraphObject, r'CoreOpenGraphObject', 'openGraphObject');
-    BuiltValueNullFieldError.checkNotNull(accessible, r'CoreOpenGraphObject', 'accessible');
-  }
-
-  @override
-  CoreOpenGraphObject rebuild(void Function(CoreOpenGraphObjectBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreOpenGraphObjectBuilder toBuilder() => CoreOpenGraphObjectBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreOpenGraphObject &&
-        richObjectType == other.richObjectType &&
-        richObject == other.richObject &&
-        openGraphObject == other.openGraphObject &&
-        accessible == other.accessible;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, richObjectType.hashCode);
-    _$hash = $jc(_$hash, richObject.hashCode);
-    _$hash = $jc(_$hash, openGraphObject.hashCode);
-    _$hash = $jc(_$hash, accessible.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOpenGraphObject')
-          ..add('richObjectType', richObjectType)
-          ..add('richObject', richObject)
-          ..add('openGraphObject', openGraphObject)
-          ..add('accessible', accessible))
-        .toString();
-  }
-}
-
-class CoreOpenGraphObjectBuilder
-    implements Builder<CoreOpenGraphObject, CoreOpenGraphObjectBuilder>, CoreOpenGraphObjectInterfaceBuilder {
-  _$CoreOpenGraphObject? _$v;
-
-  String? _richObjectType;
-  String? get richObjectType => _$this._richObjectType;
-  set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
-
-  MapBuilder<String, JsonObject>? _richObject;
-  MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
-  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
-
-  CoreOpenGraphObject_OpenGraphObjectBuilder? _openGraphObject;
-  CoreOpenGraphObject_OpenGraphObjectBuilder get openGraphObject =>
-      _$this._openGraphObject ??= CoreOpenGraphObject_OpenGraphObjectBuilder();
-  set openGraphObject(covariant CoreOpenGraphObject_OpenGraphObjectBuilder? openGraphObject) =>
-      _$this._openGraphObject = openGraphObject;
-
-  bool? _accessible;
-  bool? get accessible => _$this._accessible;
-  set accessible(covariant bool? accessible) => _$this._accessible = accessible;
-
-  CoreOpenGraphObjectBuilder();
-
-  CoreOpenGraphObjectBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _richObjectType = $v.richObjectType;
-      _richObject = $v.richObject.toBuilder();
-      _openGraphObject = $v.openGraphObject.toBuilder();
-      _accessible = $v.accessible;
       _$v = null;
     }
     return this;
@@ -10293,15 +10142,151 @@ class CoreOpenGraphObjectBuilder
   CoreOpenGraphObject build() => _build();
 
   _$CoreOpenGraphObject _build() {
-    _$CoreOpenGraphObject _$result;
+    final _$result = _$v ??
+        _$CoreOpenGraphObject._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'CoreOpenGraphObject', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'CoreOpenGraphObject', 'name'),
+            description: description,
+            thumb: thumb,
+            link: BuiltValueNullFieldError.checkNotNull(link, r'CoreOpenGraphObject', 'link'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreResourceInterfaceBuilder {
+  void replace(CoreResourceInterface other);
+  void update(void Function(CoreResourceInterfaceBuilder) updates);
+  String? get richObjectType;
+  set richObjectType(String? richObjectType);
+
+  MapBuilder<String, JsonObject> get richObject;
+  set richObject(MapBuilder<String, JsonObject>? richObject);
+
+  CoreOpenGraphObjectBuilder get openGraphObject;
+  set openGraphObject(CoreOpenGraphObjectBuilder? openGraphObject);
+
+  bool? get accessible;
+  set accessible(bool? accessible);
+}
+
+class _$CoreResource extends CoreResource {
+  @override
+  final String richObjectType;
+  @override
+  final BuiltMap<String, JsonObject> richObject;
+  @override
+  final CoreOpenGraphObject openGraphObject;
+  @override
+  final bool accessible;
+
+  factory _$CoreResource([void Function(CoreResourceBuilder)? updates]) =>
+      (CoreResourceBuilder()..update(updates))._build();
+
+  _$CoreResource._(
+      {required this.richObjectType, required this.richObject, required this.openGraphObject, required this.accessible})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(richObjectType, r'CoreResource', 'richObjectType');
+    BuiltValueNullFieldError.checkNotNull(richObject, r'CoreResource', 'richObject');
+    BuiltValueNullFieldError.checkNotNull(openGraphObject, r'CoreResource', 'openGraphObject');
+    BuiltValueNullFieldError.checkNotNull(accessible, r'CoreResource', 'accessible');
+  }
+
+  @override
+  CoreResource rebuild(void Function(CoreResourceBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  CoreResourceBuilder toBuilder() => CoreResourceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreResource &&
+        richObjectType == other.richObjectType &&
+        richObject == other.richObject &&
+        openGraphObject == other.openGraphObject &&
+        accessible == other.accessible;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, richObjectType.hashCode);
+    _$hash = $jc(_$hash, richObject.hashCode);
+    _$hash = $jc(_$hash, openGraphObject.hashCode);
+    _$hash = $jc(_$hash, accessible.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreResource')
+          ..add('richObjectType', richObjectType)
+          ..add('richObject', richObject)
+          ..add('openGraphObject', openGraphObject)
+          ..add('accessible', accessible))
+        .toString();
+  }
+}
+
+class CoreResourceBuilder implements Builder<CoreResource, CoreResourceBuilder>, CoreResourceInterfaceBuilder {
+  _$CoreResource? _$v;
+
+  String? _richObjectType;
+  String? get richObjectType => _$this._richObjectType;
+  set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
+
+  MapBuilder<String, JsonObject>? _richObject;
+  MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
+  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
+
+  CoreOpenGraphObjectBuilder? _openGraphObject;
+  CoreOpenGraphObjectBuilder get openGraphObject => _$this._openGraphObject ??= CoreOpenGraphObjectBuilder();
+  set openGraphObject(covariant CoreOpenGraphObjectBuilder? openGraphObject) =>
+      _$this._openGraphObject = openGraphObject;
+
+  bool? _accessible;
+  bool? get accessible => _$this._accessible;
+  set accessible(covariant bool? accessible) => _$this._accessible = accessible;
+
+  CoreResourceBuilder();
+
+  CoreResourceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _richObjectType = $v.richObjectType;
+      _richObject = $v.richObject.toBuilder();
+      _openGraphObject = $v.openGraphObject.toBuilder();
+      _accessible = $v.accessible;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreResource other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreResource;
+  }
+
+  @override
+  void update(void Function(CoreResourceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreResource build() => _build();
+
+  _$CoreResource _build() {
+    _$CoreResource _$result;
     try {
       _$result = _$v ??
-          _$CoreOpenGraphObject._(
-              richObjectType:
-                  BuiltValueNullFieldError.checkNotNull(richObjectType, r'CoreOpenGraphObject', 'richObjectType'),
+          _$CoreResource._(
+              richObjectType: BuiltValueNullFieldError.checkNotNull(richObjectType, r'CoreResource', 'richObjectType'),
               richObject: richObject.build(),
               openGraphObject: openGraphObject.build(),
-              accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'CoreOpenGraphObject', 'accessible'));
+              accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'CoreResource', 'accessible'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -10310,7 +10295,7 @@ class CoreOpenGraphObjectBuilder
         _$failedField = 'openGraphObject';
         openGraphObject.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CoreOpenGraphObject', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'CoreResource', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10328,8 +10313,8 @@ abstract mixin class CoreCollectionInterfaceBuilder {
   String? get name;
   set name(String? name);
 
-  ListBuilder<CoreOpenGraphObject> get resources;
-  set resources(ListBuilder<CoreOpenGraphObject>? resources);
+  ListBuilder<CoreResource> get resources;
+  set resources(ListBuilder<CoreResource>? resources);
 }
 
 class _$CoreCollection extends CoreCollection {
@@ -10338,7 +10323,7 @@ class _$CoreCollection extends CoreCollection {
   @override
   final String name;
   @override
-  final BuiltList<CoreOpenGraphObject> resources;
+  final BuiltList<CoreResource> resources;
 
   factory _$CoreCollection([void Function(CoreCollectionBuilder)? updates]) =>
       (CoreCollectionBuilder()..update(updates))._build();
@@ -10392,9 +10377,9 @@ class CoreCollectionBuilder implements Builder<CoreCollection, CoreCollectionBui
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
-  ListBuilder<CoreOpenGraphObject>? _resources;
-  ListBuilder<CoreOpenGraphObject> get resources => _$this._resources ??= ListBuilder<CoreOpenGraphObject>();
-  set resources(covariant ListBuilder<CoreOpenGraphObject>? resources) => _$this._resources = resources;
+  ListBuilder<CoreResource>? _resources;
+  ListBuilder<CoreResource> get resources => _$this._resources ??= ListBuilder<CoreResource>();
+  set resources(covariant ListBuilder<CoreResource>? resources) => _$this._resources = resources;
 
   CoreCollectionBuilder();
 
@@ -20533,145 +20518,17 @@ class CoreReferenceApiResolveOneResponseApplicationJsonBuilder
   }
 }
 
-class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References
-    extends CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References {
-  @override
-  final JsonObject data;
-  @override
-  final CoreReference? reference;
-  @override
-  final JsonObject? jsonObject;
-
-  factory _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References(
-          [void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
-      (CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
-
-  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References._(
-      {required this.data, this.reference, this.jsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', 'data');
-  }
-
-  @override
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References rebuild(
-          void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
-      CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References &&
-        data == other.data &&
-        reference == other.reference &&
-        jsonObject == other.jsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, reference.hashCode);
-    _$hash = $jc(_$hash, jsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References')
-          ..add('data', data)
-          ..add('reference', reference)
-          ..add('jsonObject', jsonObject))
-        .toString();
-  }
-}
-
-class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder
-    implements
-        Builder<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References,
-            CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
-  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  CoreReferenceBuilder? _reference;
-  CoreReferenceBuilder get reference => _$this._reference ??= CoreReferenceBuilder();
-  set reference(CoreReferenceBuilder? reference) => _$this._reference = reference;
-
-  JsonObject? _jsonObject;
-  JsonObject? get jsonObject => _$this._jsonObject;
-  set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
-
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder();
-
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _reference = $v.reference?.toBuilder();
-      _jsonObject = $v.jsonObject;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References;
-  }
-
-  @override
-  void update(void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References build() => _build();
-
-  _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References _build() {
-    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References _$result;
-    try {
-      _$result = _$v ??
-          _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', 'data'),
-              reference: _reference?.build(),
-              jsonObject: jsonObject);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'reference';
-        _reference?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get references;
-  set references(MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>? references);
+  MapBuilder<String, CoreReference> get references;
+  set references(MapBuilder<String, CoreReference>? references);
 }
 
 class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
     extends CoreReferenceApiResolveResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> references;
+  final BuiltMap<String, CoreReference> references;
 
   factory _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data(
           [void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
@@ -20720,13 +20577,9 @@ class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder
         CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>? _references;
-  MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get references =>
-      _$this._references ??= MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>();
-  set references(
-          covariant MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>?
-              references) =>
-      _$this._references = references;
+  MapBuilder<String, CoreReference>? _references;
+  MapBuilder<String, CoreReference> get references => _$this._references ??= MapBuilder<String, CoreReference>();
+  set references(covariant MapBuilder<String, CoreReference>? references) => _$this._references = references;
 
   CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder();
 
@@ -20999,145 +20852,17 @@ class CoreReferenceApiResolveResponseApplicationJsonBuilder
   }
 }
 
-class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References
-    extends CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References {
-  @override
-  final JsonObject data;
-  @override
-  final CoreReference? reference;
-  @override
-  final JsonObject? jsonObject;
-
-  factory _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References(
-          [void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates]) =>
-      (CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder()..update(updates))._build();
-
-  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References._(
-      {required this.data, this.reference, this.jsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', 'data');
-  }
-
-  @override
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References rebuild(
-          void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder toBuilder() =>
-      CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References &&
-        data == other.data &&
-        reference == other.reference &&
-        jsonObject == other.jsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, reference.hashCode);
-    _$hash = $jc(_$hash, jsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References')
-          ..add('data', data)
-          ..add('reference', reference)
-          ..add('jsonObject', jsonObject))
-        .toString();
-  }
-}
-
-class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder
-    implements
-        Builder<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References,
-            CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
-  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  CoreReferenceBuilder? _reference;
-  CoreReferenceBuilder get reference => _$this._reference ??= CoreReferenceBuilder();
-  set reference(CoreReferenceBuilder? reference) => _$this._reference = reference;
-
-  JsonObject? _jsonObject;
-  JsonObject? get jsonObject => _$this._jsonObject;
-  set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
-
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder();
-
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _reference = $v.reference?.toBuilder();
-      _jsonObject = $v.jsonObject;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References;
-  }
-
-  @override
-  void update(void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References build() => _build();
-
-  _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References _build() {
-    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References _$result;
-    try {
-      _$result = _$v ??
-          _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', 'data'),
-              reference: _reference?.build(),
-              jsonObject: jsonObject);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'reference';
-        _reference?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get references;
-  set references(MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>? references);
+  MapBuilder<String, CoreReference> get references;
+  set references(MapBuilder<String, CoreReference>? references);
 }
 
 class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
     extends CoreReferenceApiExtractResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> references;
+  final BuiltMap<String, CoreReference> references;
 
   factory _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data(
           [void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
@@ -21186,13 +20911,9 @@ class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
         CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>? _references;
-  MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get references =>
-      _$this._references ??= MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>();
-  set references(
-          covariant MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>?
-              references) =>
-      _$this._references = references;
+  MapBuilder<String, CoreReference>? _references;
+  MapBuilder<String, CoreReference> get references => _$this._references ??= MapBuilder<String, CoreReference>();
+  set references(covariant MapBuilder<String, CoreReference>? references) => _$this._references = references;
 
   CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
 

@@ -2716,47 +2716,12 @@ abstract class CoreLoginFlowV2 implements CoreLoginFlowV2Interface, Built<CoreLo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOpenGraphObject_OpenGraphObjectInterface {
+abstract interface class CoreOpenGraphObjectInterface {
   String get id;
   String get name;
   String? get description;
   String? get thumb;
   String get link;
-  CoreOpenGraphObject_OpenGraphObjectInterface rebuild(
-    final void Function(CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder) updates,
-  );
-  CoreOpenGraphObject_OpenGraphObjectInterfaceBuilder toBuilder();
-}
-
-abstract class CoreOpenGraphObject_OpenGraphObject
-    implements
-        CoreOpenGraphObject_OpenGraphObjectInterface,
-        Built<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder> {
-  factory CoreOpenGraphObject_OpenGraphObject([final void Function(CoreOpenGraphObject_OpenGraphObjectBuilder)? b]) =
-      _$CoreOpenGraphObject_OpenGraphObject;
-
-  // coverage:ignore-start
-  const CoreOpenGraphObject_OpenGraphObject._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreOpenGraphObject_OpenGraphObject.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  static Serializer<CoreOpenGraphObject_OpenGraphObject> get serializer =>
-      _$coreOpenGraphObjectOpenGraphObjectSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class CoreOpenGraphObjectInterface {
-  String get richObjectType;
-  BuiltMap<String, JsonObject> get richObject;
-  CoreOpenGraphObject_OpenGraphObject get openGraphObject;
-  bool get accessible;
   CoreOpenGraphObjectInterface rebuild(final void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
   CoreOpenGraphObjectInterfaceBuilder toBuilder();
 }
@@ -2781,10 +2746,37 @@ abstract class CoreOpenGraphObject
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class CoreResourceInterface {
+  String get richObjectType;
+  BuiltMap<String, JsonObject> get richObject;
+  CoreOpenGraphObject get openGraphObject;
+  bool get accessible;
+  CoreResourceInterface rebuild(final void Function(CoreResourceInterfaceBuilder) updates);
+  CoreResourceInterfaceBuilder toBuilder();
+}
+
+abstract class CoreResource implements CoreResourceInterface, Built<CoreResource, CoreResourceBuilder> {
+  factory CoreResource([final void Function(CoreResourceBuilder)? b]) = _$CoreResource;
+
+  // coverage:ignore-start
+  const CoreResource._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreResource.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<CoreResource> get serializer => _$coreResourceSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class CoreCollectionInterface {
   int get id;
   String get name;
-  BuiltList<CoreOpenGraphObject> get resources;
+  BuiltList<CoreResource> get resources;
   CoreCollectionInterface rebuild(final void Function(CoreCollectionInterfaceBuilder) updates);
   CoreCollectionInterfaceBuilder toBuilder();
 }
@@ -5708,81 +5700,9 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson
       _$coreReferenceApiResolveOneResponseApplicationJsonSerializer;
 }
 
-abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References
-    implements
-        Built<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References,
-            CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References([
-    final void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder)? b,
-  ]) = _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References;
-
-  // coverage:ignore-start
-  const CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  JsonObject get data;
-  CoreReference? get reference;
-  JsonObject? get jsonObject;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get serializer =>
-      _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesSerializer();
-}
-
-class _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesSerializer
-    implements PrimitiveSerializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> {
-  @override
-  final Iterable<Type> types = const [
-    CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References,
-    _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References,
-  ];
-
-  @override
-  final String wireName = 'CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_ReferencesBuilder()..data = JsonObject(data);
-    try {
-      result._reference =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(CoreReference))! as CoreReference)
-              .toBuilder();
-    } catch (_) {}
-    try {
-      result._jsonObject = data as JsonObject?;
-    } catch (_) {}
-    assert(
-      [result._reference, result._jsonObject].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
-    return result.build();
-  }
-}
-
 @BuiltValue(instantiable: false)
 abstract interface class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References> get references;
+  BuiltMap<String, CoreReference> get references;
   CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface rebuild(
     final void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
@@ -5882,81 +5802,9 @@ abstract class CoreReferenceApiResolveResponseApplicationJson
       _$coreReferenceApiResolveResponseApplicationJsonSerializer;
 }
 
-abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References
-    implements
-        Built<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References,
-            CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder> {
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References([
-    final void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder)? b,
-  ]) = _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References;
-
-  // coverage:ignore-start
-  const CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  JsonObject get data;
-  CoreReference? get reference;
-  JsonObject? get jsonObject;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get serializer =>
-      _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesSerializer();
-}
-
-class _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesSerializer
-    implements PrimitiveSerializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> {
-  @override
-  final Iterable<Type> types = const [
-    CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References,
-    _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References,
-  ];
-
-  @override
-  final String wireName = 'CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_ReferencesBuilder()..data = JsonObject(data);
-    try {
-      result._reference =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(CoreReference))! as CoreReference)
-              .toBuilder();
-    } catch (_) {}
-    try {
-      result._jsonObject = data as JsonObject?;
-    } catch (_) {}
-    assert(
-      [result._reference, result._jsonObject].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
-    return result.build();
-  }
-}
-
 @BuiltValue(instantiable: false)
 abstract interface class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References> get references;
+  BuiltMap<String, CoreReference> get references;
   CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface rebuild(
     final void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
@@ -7767,18 +7615,15 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(CoreCollection), CoreCollection.new)
       ..add(CoreCollection.serializer)
-      ..addBuilderFactory(const FullType(CoreOpenGraphObject), CoreOpenGraphObject.new)
-      ..add(CoreOpenGraphObject.serializer)
+      ..addBuilderFactory(const FullType(CoreResource), CoreResource.new)
+      ..add(CoreResource.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
       )
-      ..addBuilderFactory(const FullType(CoreOpenGraphObject_OpenGraphObject), CoreOpenGraphObject_OpenGraphObject.new)
-      ..add(CoreOpenGraphObject_OpenGraphObject.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreOpenGraphObject)]),
-        ListBuilder<CoreOpenGraphObject>.new,
-      )
+      ..addBuilderFactory(const FullType(CoreOpenGraphObject), CoreOpenGraphObject.new)
+      ..add(CoreOpenGraphObject.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreResource)]), ListBuilder<CoreResource>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreCollection)]), ListBuilder<CoreCollection>.new)
       ..addBuilderFactory(
         const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
@@ -8126,18 +7971,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References),
-        CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References.new,
-      )
-      ..add(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References.serializer)
-      ..addBuilderFactory(
-        const FullType(
-          BuiltMap,
-          [FullType(String), FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References)],
-        ),
-        MapBuilder<String, CoreReferenceApiResolveResponseApplicationJson_Ocs_Data_References>.new,
-      )
-      ..addBuilderFactory(
         const FullType(CoreReferenceApiExtractResponseApplicationJson),
         CoreReferenceApiExtractResponseApplicationJson.new,
       )
@@ -8152,18 +7985,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreReferenceApiExtractResponseApplicationJson_Ocs_Data.new,
       )
       ..add(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References),
-        CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References.new,
-      )
-      ..add(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References.serializer)
-      ..addBuilderFactory(
-        const FullType(
-          BuiltMap,
-          [FullType(String), FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References)],
-        ),
-        MapBuilder<String, CoreReferenceApiExtractResponseApplicationJson_Ocs_Data_References>.new,
-      )
       ..addBuilderFactory(
         const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
         CoreReferenceApiGetProvidersInfoResponseApplicationJson.new,

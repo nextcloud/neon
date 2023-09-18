@@ -518,6 +518,10 @@
                                 "format": "float"
                             },
                             {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
                                 "type": "string"
                             }
                         ]

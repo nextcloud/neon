@@ -11361,13 +11361,15 @@ class _$ProvisioningApiUserDetailsQuota_Quota extends ProvisioningApiUserDetails
   @override
   final num? $num;
   @override
+  final int? $int;
+  @override
   final String? string;
 
   factory _$ProvisioningApiUserDetailsQuota_Quota(
           [void Function(ProvisioningApiUserDetailsQuota_QuotaBuilder)? updates]) =>
       (ProvisioningApiUserDetailsQuota_QuotaBuilder()..update(updates))._build();
 
-  _$ProvisioningApiUserDetailsQuota_Quota._({required this.data, this.$num, this.string}) : super._() {
+  _$ProvisioningApiUserDetailsQuota_Quota._({required this.data, this.$num, this.$int, this.string}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'ProvisioningApiUserDetailsQuota_Quota', 'data');
   }
 
@@ -11385,6 +11387,7 @@ class _$ProvisioningApiUserDetailsQuota_Quota extends ProvisioningApiUserDetails
     return other is ProvisioningApiUserDetailsQuota_Quota &&
         data == other.data &&
         $num == other.$num &&
+        $int == other.$int &&
         string == other.string;
   }
 
@@ -11393,6 +11396,7 @@ class _$ProvisioningApiUserDetailsQuota_Quota extends ProvisioningApiUserDetails
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
     _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jc(_$hash, string.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11403,6 +11407,7 @@ class _$ProvisioningApiUserDetailsQuota_Quota extends ProvisioningApiUserDetails
     return (newBuiltValueToStringHelper(r'ProvisioningApiUserDetailsQuota_Quota')
           ..add('data', data)
           ..add('\$num', $num)
+          ..add('\$int', $int)
           ..add('string', string))
         .toString();
   }
@@ -11420,6 +11425,10 @@ class ProvisioningApiUserDetailsQuota_QuotaBuilder
   num? get $num => _$this._$num;
   set $num(num? $num) => _$this._$num = $num;
 
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(int? $int) => _$this._$int = $int;
+
   String? _string;
   String? get string => _$this._string;
   set string(String? string) => _$this._string = string;
@@ -11431,6 +11440,7 @@ class ProvisioningApiUserDetailsQuota_QuotaBuilder
     if ($v != null) {
       _data = $v.data;
       _$num = $v.$num;
+      _$int = $v.$int;
       _string = $v.string;
       _$v = null;
     }
@@ -11456,6 +11466,7 @@ class ProvisioningApiUserDetailsQuota_QuotaBuilder
         _$ProvisioningApiUserDetailsQuota_Quota._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'ProvisioningApiUserDetailsQuota_Quota', 'data'),
             $num: $num,
+            $int: $int,
             string: string);
     replace(_$result);
     return _$result;
