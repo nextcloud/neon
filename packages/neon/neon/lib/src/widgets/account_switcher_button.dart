@@ -28,7 +28,7 @@ class AccountSwitcherButton extends StatelessWidget {
             title: Text(AppLocalizations.of(context).settingsAccountManage),
             onTap: () {
               Navigator.of(context).pop();
-              const SettingsRoute(initialCategory: SettingsCategories.accounts).push(context);
+              const SettingsRoute(initialCategory: SettingsCategories.accounts).push<void>(context);
             },
           ),
         ],

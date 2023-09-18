@@ -114,7 +114,7 @@ class NewsFoldersView extends StatelessWidget {
       },
       onTap: () async {
         await Navigator.of(context).push(
-          MaterialPageRoute(
+          MaterialPageRoute<void>(
             builder: (final context) => NewsFolderPage(
               bloc: bloc,
               folder: folder,

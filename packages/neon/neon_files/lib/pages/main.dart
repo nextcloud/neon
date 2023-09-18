@@ -30,7 +30,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await showDialog(
+            await showDialog<void>(
               context: context,
               builder: (final context) => FilesChooseCreateDialog(
                 bloc: bloc,

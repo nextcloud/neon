@@ -188,7 +188,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
 
           if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
             await Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,
@@ -205,7 +205,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               article.url != null &&
               NeonPlatform.instance.canUseWebView) {
             await Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,

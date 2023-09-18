@@ -120,7 +120,7 @@ class DashboardDashboardApiClient {
   Future<DashboardDashboardApiGetWidgetItemsResponseApplicationJson> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
-    final List<String> widgets = const [],
+    final List<String> widgets = const <String>[],
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
@@ -153,7 +153,7 @@ class DashboardDashboardApiClient {
     if (limit != 7) {
       queryParameters['limit'] = limit.toString();
     }
-    if (widgets != const []) {
+    if (widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -176,7 +176,7 @@ class DashboardDashboardApiClient {
   Future<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
-    final List<String> widgets = const [],
+    final List<String> widgets = const <String>[],
     final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
@@ -209,7 +209,7 @@ class DashboardDashboardApiClient {
     if (limit != 7) {
       queryParameters['limit'] = limit.toString();
     }
-    if (widgets != const []) {
+    if (widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;

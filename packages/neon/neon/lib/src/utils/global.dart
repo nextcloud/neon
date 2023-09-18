@@ -5,6 +5,6 @@ import 'package:neon/src/models/push_notification.dart';
 class Global {
   const Global._();
 
-  static Function(String accountID)? onPushNotificationReceived;
-  static Function(PushNotification notification)? onPushNotificationClicked;
+  static Future<void> Function(String accountID)? onPushNotificationReceived;
+  static Future<void> Function(PushNotification notification)? onPushNotificationClicked;
 }

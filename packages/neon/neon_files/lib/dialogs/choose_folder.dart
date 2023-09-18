@@ -49,7 +49,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
                               child: Text(AppLocalizations.of(context).folderCreate),
                             ),
                             ElevatedButton(
-                              onPressed: !(const ListEquality().equals(originalPath, pathSnapshot.data))
+                              onPressed: !(const ListEquality<String>().equals(originalPath, pathSnapshot.data))
                                   ? () => Navigator.of(context).pop(pathSnapshot.data)
                                   : null,
                               child: Text(AppLocalizations.of(context).folderChoose),

@@ -6,7 +6,7 @@ String valueToEscapedValue(final TypeResult result, final String value) {
     return "'$value'";
   }
   if (result is TypeResultList) {
-    return 'const $value';
+    return 'const <${result.subType.name}>$value';
   }
   if (result is TypeResultEnum) {
     return '${result.name}.${toDartName(value)}';

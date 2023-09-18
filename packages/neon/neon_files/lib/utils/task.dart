@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_lambdas
+
 part of '../neon_files.dart';
 
 sealed class FilesTask {

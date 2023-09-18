@@ -52,7 +52,7 @@ class NotesCategoriesView extends StatelessWidget {
             : const SizedBox.square(dimension: largeIconSize),
         onTap: () async {
           await Navigator.of(context).push(
-            MaterialPageRoute(
+            MaterialPageRoute<void>(
               builder: (final context) => NotesCategoryPage(
                 bloc: bloc,
                 category: category,
