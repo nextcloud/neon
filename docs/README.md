@@ -2,7 +2,7 @@
 
 ## Terminology
 There can be a lot of confusion what an `app` is. It can mean a server app conventionally written in PHP, the app implementation of one or a mobile app built with Neon.
-Therefore we use the following naming:
+We try to use the following naming:
 - **App** as the resulting user facing app that enables one or more clients
 - **Client** for the implementation of a server PHP app
 - **API-Client** as the Dart client generated from the OpenAPI specifications

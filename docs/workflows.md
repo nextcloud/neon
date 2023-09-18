@@ -2,7 +2,7 @@
 
 ## Adding a new package to the Neon project
 
-If you need to add a new package to the Neon project pleae make sure to execute all the following steps:
+If you need to add a new package to the Neon project please make sure to execute all the following steps:
 1. Use the according template by running `fvm dart create -t package package_name` or `fvm flutter create -t package package_name`.
 2. Make sure to activate our strict linting by adding it to the package.
 3. Regenerate the dependency overrides by executing `melos bootstrap`.
