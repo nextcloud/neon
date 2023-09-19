@@ -41,7 +41,7 @@ void main() {
       group('Apps', () {
         test('Get apps', () async {
           final response = await client.provisioningApi.apps.getApps();
-          expect(response.ocs.data.apps, hasLength(39));
+          expect(response.ocs.data.apps, hasLength(40));
 
           for (final id in response.ocs.data.apps) {
             final app = await client.provisioningApi.apps.getAppInfo(app: id);
