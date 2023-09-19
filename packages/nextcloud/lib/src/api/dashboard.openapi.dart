@@ -329,7 +329,7 @@ abstract class DashboardWidget implements DashboardWidgetInterface, Built<Dashbo
 @BuiltValue(instantiable: false)
 abstract interface class DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   DashboardOCSMeta get meta;
-  BuiltList<DashboardWidget> get data;
+  BuiltMap<String, DashboardWidget> get data;
   DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
     final void Function(DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
@@ -615,7 +615,10 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(DashboardWidget_Buttons)]),
         ListBuilder<DashboardWidget_Buttons>.new,
       )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(DashboardWidget)]), ListBuilder<DashboardWidget>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(DashboardWidget)]),
+        MapBuilder<String, DashboardWidget>.new,
+      )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(String)]),
         MapBuilder<String, String>.new,

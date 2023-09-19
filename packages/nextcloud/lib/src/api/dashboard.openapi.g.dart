@@ -260,7 +260,8 @@ class _$DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(DashboardOCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(DashboardWidget)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(DashboardWidget)])),
     ];
 
     return result;
@@ -284,7 +285,7 @@ class _$DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(DashboardWidget)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(DashboardWidget)]))!);
           break;
       }
     }
@@ -1179,8 +1180,8 @@ abstract mixin class DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsI
   DashboardOCSMetaBuilder get meta;
   set meta(DashboardOCSMetaBuilder? meta);
 
-  ListBuilder<DashboardWidget> get data;
-  set data(ListBuilder<DashboardWidget>? data);
+  MapBuilder<String, DashboardWidget> get data;
+  set data(MapBuilder<String, DashboardWidget>? data);
 }
 
 class _$DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs
@@ -1188,7 +1189,7 @@ class _$DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs
   @override
   final DashboardOCSMeta meta;
   @override
-  final BuiltList<DashboardWidget> data;
+  final BuiltMap<String, DashboardWidget> data;
 
   factory _$DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs(
           [void Function(DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -1245,9 +1246,9 @@ class DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   DashboardOCSMetaBuilder get meta => _$this._meta ??= DashboardOCSMetaBuilder();
   set meta(covariant DashboardOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<DashboardWidget>? _data;
-  ListBuilder<DashboardWidget> get data => _$this._data ??= ListBuilder<DashboardWidget>();
-  set data(covariant ListBuilder<DashboardWidget>? data) => _$this._data = data;
+  MapBuilder<String, DashboardWidget>? _data;
+  MapBuilder<String, DashboardWidget> get data => _$this._data ??= MapBuilder<String, DashboardWidget>();
+  set data(covariant MapBuilder<String, DashboardWidget>? data) => _$this._data = data;
 
   DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
 

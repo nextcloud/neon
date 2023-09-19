@@ -107,6 +107,14 @@ Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs>
 Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson>
     _$coreNavigationGetSettingsNavigationResponseApplicationJsonSerializer =
     _$CoreNavigationGetSettingsNavigationResponseApplicationJsonSerializer();
+Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols>
+    _$coreOcmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer =
+    _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsSerializer();
+Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>
+    _$coreOcmDiscoveryResponseApplicationJsonResourceTypesSerializer =
+    _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypesSerializer();
+Serializer<CoreOcmDiscoveryResponseApplicationJson> _$coreOcmDiscoveryResponseApplicationJsonSerializer =
+    _$CoreOcmDiscoveryResponseApplicationJsonSerializer();
 Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version>
     _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer =
     _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer();
@@ -2515,6 +2523,168 @@ class _$CoreNavigationGetSettingsNavigationResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs))!
               as CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsSerializer
+    implements StructuredSerializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
+    _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
+  ];
+  @override
+  final String wireName = 'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'webdav',
+      serializers.serialize(object.webdav, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'webdav':
+          result.webdav = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypesSerializer
+    implements StructuredSerializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcmDiscoveryResponseApplicationJson_ResourceTypes,
+    _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
+  ];
+  @override
+  final String wireName = 'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreOcmDiscoveryResponseApplicationJson_ResourceTypes object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'shareTypes',
+      serializers.serialize(object.shareTypes, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'protocols',
+      serializers.serialize(object.protocols,
+          specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'shareTypes':
+          result.shareTypes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'protocols':
+          result.protocols.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols))!
+              as CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJsonSerializer
+    implements StructuredSerializer<CoreOcmDiscoveryResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcmDiscoveryResponseApplicationJson,
+    _$CoreOcmDiscoveryResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'CoreOcmDiscoveryResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreOcmDiscoveryResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'apiVersion',
+      serializers.serialize(object.apiVersion, specifiedType: const FullType(String)),
+      'endPoint',
+      serializers.serialize(object.endPoint, specifiedType: const FullType(String)),
+      'resourceTypes',
+      serializers.serialize(object.resourceTypes,
+          specifiedType: const FullType(BuiltList, [FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcmDiscoveryResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'apiVersion':
+          result.apiVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'endPoint':
+          result.endPoint = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'resourceTypes':
+          result.resourceTypes.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -13431,6 +13601,500 @@ class CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'CoreNavigationGetSettingsNavigationResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreOcmOcmDiscoveryHeadersInterfaceBuilder {
+  void replace(CoreOcmOcmDiscoveryHeadersInterface other);
+  void update(void Function(CoreOcmOcmDiscoveryHeadersInterfaceBuilder) updates);
+  bool? get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(bool? xNextcloudOcmProviders);
+}
+
+class _$CoreOcmOcmDiscoveryHeaders extends CoreOcmOcmDiscoveryHeaders {
+  @override
+  final bool? xNextcloudOcmProviders;
+
+  factory _$CoreOcmOcmDiscoveryHeaders([void Function(CoreOcmOcmDiscoveryHeadersBuilder)? updates]) =>
+      (CoreOcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
+
+  _$CoreOcmOcmDiscoveryHeaders._({this.xNextcloudOcmProviders}) : super._();
+
+  @override
+  CoreOcmOcmDiscoveryHeaders rebuild(void Function(CoreOcmOcmDiscoveryHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcmOcmDiscoveryHeadersBuilder toBuilder() => CoreOcmOcmDiscoveryHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcmOcmDiscoveryHeaders && xNextcloudOcmProviders == other.xNextcloudOcmProviders;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudOcmProviders.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreOcmOcmDiscoveryHeaders')
+          ..add('xNextcloudOcmProviders', xNextcloudOcmProviders))
+        .toString();
+  }
+}
+
+class CoreOcmOcmDiscoveryHeadersBuilder
+    implements
+        Builder<CoreOcmOcmDiscoveryHeaders, CoreOcmOcmDiscoveryHeadersBuilder>,
+        CoreOcmOcmDiscoveryHeadersInterfaceBuilder {
+  _$CoreOcmOcmDiscoveryHeaders? _$v;
+
+  bool? _xNextcloudOcmProviders;
+  bool? get xNextcloudOcmProviders => _$this._xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(covariant bool? xNextcloudOcmProviders) =>
+      _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
+
+  CoreOcmOcmDiscoveryHeadersBuilder();
+
+  CoreOcmOcmDiscoveryHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudOcmProviders = $v.xNextcloudOcmProviders;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreOcmOcmDiscoveryHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcmOcmDiscoveryHeaders;
+  }
+
+  @override
+  void update(void Function(CoreOcmOcmDiscoveryHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcmOcmDiscoveryHeaders build() => _build();
+
+  _$CoreOcmOcmDiscoveryHeaders _build() {
+    final _$result = _$v ?? _$CoreOcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: xNextcloudOcmProviders);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder {
+  void replace(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface other);
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates);
+  String? get webdav;
+  set webdav(String? webdav);
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
+    extends CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols {
+  @override
+  final String webdav;
+
+  factory _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols(
+          [void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? updates]) =>
+      (CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder()..update(updates))._build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._({required this.webdav}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        webdav, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols', 'webdav');
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols rebuild(
+          void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder toBuilder() =>
+      CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols && webdav == other.webdav;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, webdav.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols')
+          ..add('webdav', webdav))
+        .toString();
+  }
+}
+
+class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder
+    implements
+        Builder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
+            CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder>,
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder {
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols? _$v;
+
+  String? _webdav;
+  String? get webdav => _$this._webdav;
+  set webdav(covariant String? webdav) => _$this._webdav = webdav;
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder();
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _webdav = $v.webdav;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols;
+  }
+
+  @override
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols build() => _build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols _build() {
+    final _$result = _$v ??
+        _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._(
+            webdav: BuiltValueNullFieldError.checkNotNull(
+                webdav, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols', 'webdav'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder {
+  void replace(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface other);
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  ListBuilder<String> get shareTypes;
+  set shareTypes(ListBuilder<String>? shareTypes);
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder get protocols;
+  set protocols(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder? protocols);
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
+    extends CoreOcmDiscoveryResponseApplicationJson_ResourceTypes {
+  @override
+  final String name;
+  @override
+  final BuiltList<String> shareTypes;
+  @override
+  final CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols protocols;
+
+  factory _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes(
+          [void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? updates]) =>
+      (CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder()..update(updates))._build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes._(
+      {required this.name, required this.shareTypes, required this.protocols})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        shareTypes, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes', 'shareTypes');
+    BuiltValueNullFieldError.checkNotNull(
+        protocols, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes', 'protocols');
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes rebuild(
+          void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder toBuilder() =>
+      CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcmDiscoveryResponseApplicationJson_ResourceTypes &&
+        name == other.name &&
+        shareTypes == other.shareTypes &&
+        protocols == other.protocols;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, shareTypes.hashCode);
+    _$hash = $jc(_$hash, protocols.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes')
+          ..add('name', name)
+          ..add('shareTypes', shareTypes)
+          ..add('protocols', protocols))
+        .toString();
+  }
+}
+
+class CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder
+    implements
+        Builder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes,
+            CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder>,
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder {
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  ListBuilder<String>? _shareTypes;
+  ListBuilder<String> get shareTypes => _$this._shareTypes ??= ListBuilder<String>();
+  set shareTypes(covariant ListBuilder<String>? shareTypes) => _$this._shareTypes = shareTypes;
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder? _protocols;
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder get protocols =>
+      _$this._protocols ??= CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder();
+  set protocols(covariant CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder? protocols) =>
+      _$this._protocols = protocols;
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder();
+
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _shareTypes = $v.shareTypes.toBuilder();
+      _protocols = $v.protocols.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreOcmDiscoveryResponseApplicationJson_ResourceTypes other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes;
+  }
+
+  @override
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes build() => _build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes _build() {
+    _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes._(
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes', 'name'),
+              shareTypes: shareTypes.build(),
+              protocols: protocols.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'shareTypes';
+        shareTypes.build();
+        _$failedField = 'protocols';
+        protocols.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcmDiscoveryResponseApplicationJson_ResourceTypes', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder {
+  void replace(CoreOcmDiscoveryResponseApplicationJsonInterface other);
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  String? get apiVersion;
+  set apiVersion(String? apiVersion);
+
+  String? get endPoint;
+  set endPoint(String? endPoint);
+
+  ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes;
+  set resourceTypes(ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>? resourceTypes);
+}
+
+class _$CoreOcmDiscoveryResponseApplicationJson extends CoreOcmDiscoveryResponseApplicationJson {
+  @override
+  final bool enabled;
+  @override
+  final String apiVersion;
+  @override
+  final String endPoint;
+  @override
+  final BuiltList<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> resourceTypes;
+
+  factory _$CoreOcmDiscoveryResponseApplicationJson(
+          [void Function(CoreOcmDiscoveryResponseApplicationJsonBuilder)? updates]) =>
+      (CoreOcmDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson._(
+      {required this.enabled, required this.apiVersion, required this.endPoint, required this.resourceTypes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreOcmDiscoveryResponseApplicationJson', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(apiVersion, r'CoreOcmDiscoveryResponseApplicationJson', 'apiVersion');
+    BuiltValueNullFieldError.checkNotNull(endPoint, r'CoreOcmDiscoveryResponseApplicationJson', 'endPoint');
+    BuiltValueNullFieldError.checkNotNull(resourceTypes, r'CoreOcmDiscoveryResponseApplicationJson', 'resourceTypes');
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson rebuild(
+          void Function(CoreOcmDiscoveryResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJsonBuilder toBuilder() =>
+      CoreOcmDiscoveryResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcmDiscoveryResponseApplicationJson &&
+        enabled == other.enabled &&
+        apiVersion == other.apiVersion &&
+        endPoint == other.endPoint &&
+        resourceTypes == other.resourceTypes;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, apiVersion.hashCode);
+    _$hash = $jc(_$hash, endPoint.hashCode);
+    _$hash = $jc(_$hash, resourceTypes.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreOcmDiscoveryResponseApplicationJson')
+          ..add('enabled', enabled)
+          ..add('apiVersion', apiVersion)
+          ..add('endPoint', endPoint)
+          ..add('resourceTypes', resourceTypes))
+        .toString();
+  }
+}
+
+class CoreOcmDiscoveryResponseApplicationJsonBuilder
+    implements
+        Builder<CoreOcmDiscoveryResponseApplicationJson, CoreOcmDiscoveryResponseApplicationJsonBuilder>,
+        CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder {
+  _$CoreOcmDiscoveryResponseApplicationJson? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+
+  String? _apiVersion;
+  String? get apiVersion => _$this._apiVersion;
+  set apiVersion(covariant String? apiVersion) => _$this._apiVersion = apiVersion;
+
+  String? _endPoint;
+  String? get endPoint => _$this._endPoint;
+  set endPoint(covariant String? endPoint) => _$this._endPoint = endPoint;
+
+  ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>? _resourceTypes;
+  ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes =>
+      _$this._resourceTypes ??= ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>();
+  set resourceTypes(covariant ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>? resourceTypes) =>
+      _$this._resourceTypes = resourceTypes;
+
+  CoreOcmDiscoveryResponseApplicationJsonBuilder();
+
+  CoreOcmDiscoveryResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _apiVersion = $v.apiVersion;
+      _endPoint = $v.endPoint;
+      _resourceTypes = $v.resourceTypes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreOcmDiscoveryResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcmDiscoveryResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreOcmDiscoveryResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcmDiscoveryResponseApplicationJson build() => _build();
+
+  _$CoreOcmDiscoveryResponseApplicationJson _build() {
+    _$CoreOcmDiscoveryResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcmDiscoveryResponseApplicationJson._(
+              enabled:
+                  BuiltValueNullFieldError.checkNotNull(enabled, r'CoreOcmDiscoveryResponseApplicationJson', 'enabled'),
+              apiVersion: BuiltValueNullFieldError.checkNotNull(
+                  apiVersion, r'CoreOcmDiscoveryResponseApplicationJson', 'apiVersion'),
+              endPoint: BuiltValueNullFieldError.checkNotNull(
+                  endPoint, r'CoreOcmDiscoveryResponseApplicationJson', 'endPoint'),
+              resourceTypes: resourceTypes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'resourceTypes';
+        resourceTypes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreOcmDiscoveryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

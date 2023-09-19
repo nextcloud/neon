@@ -78,6 +78,7 @@ class CoreClient extends DynamiteClient {
   CoreGuestAvatarClient get guestAvatar => CoreGuestAvatarClient(this);
   CoreHoverCardClient get hoverCard => CoreHoverCardClient(this);
   CoreNavigationClient get navigation => CoreNavigationClient(this);
+  CoreOcmClient get ocm => CoreOcmClient(this);
   CoreOcsClient get ocs => CoreOcsClient(this);
   CorePreviewClient get preview => CorePreviewClient(this);
   CoreProfileApiClient get profileApi => CoreProfileApiClient(this);
@@ -993,6 +994,53 @@ class CoreNavigationClient {
         await response.jsonBody,
         specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
       )! as CoreNavigationGetSettingsNavigationResponseApplicationJson;
+    }
+    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+/// Controller about the endpoint /ocm-provider/
+class CoreOcmClient {
+  CoreOcmClient(this._rootClient);
+
+  final CoreClient _rootClient;
+
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
+  Future<CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+    const path = '/index.php/ocm-provider';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    }
+    // coverage:ignore-end
+    final response = await _rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
+        _jsonSerializers.deserialize(
+          await response.jsonBody,
+          specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
+        )! as CoreOcmDiscoveryResponseApplicationJson,
+        _jsonSerializers.deserialize(
+          response.responseHeaders,
+          specifiedType: const FullType(CoreOcmOcmDiscoveryHeaders),
+        )! as CoreOcmOcmDiscoveryHeaders,
+      );
     }
     throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3662,6 +3710,182 @@ abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson
   // coverage:ignore-end
   static Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson> get serializer =>
       _$coreNavigationGetSettingsNavigationResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcmOcmDiscoveryHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
+  bool? get xNextcloudOcmProviders;
+  CoreOcmOcmDiscoveryHeadersInterface rebuild(final void Function(CoreOcmOcmDiscoveryHeadersInterfaceBuilder) updates);
+  CoreOcmOcmDiscoveryHeadersInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOcmOcmDiscoveryHeaders
+    implements
+        CoreOcmOcmDiscoveryHeadersInterface,
+        Built<CoreOcmOcmDiscoveryHeaders, CoreOcmOcmDiscoveryHeadersBuilder> {
+  factory CoreOcmOcmDiscoveryHeaders([final void Function(CoreOcmOcmDiscoveryHeadersBuilder)? b]) =
+      _$CoreOcmOcmDiscoveryHeaders;
+
+  // coverage:ignore-start
+  const CoreOcmOcmDiscoveryHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreOcmOcmDiscoveryHeaders.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CoreOcmOcmDiscoveryHeaders> get serializer => _$CoreOcmOcmDiscoveryHeadersSerializer();
+}
+
+class _$CoreOcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<CoreOcmOcmDiscoveryHeaders> {
+  @override
+  final Iterable<Type> types = const [CoreOcmOcmDiscoveryHeaders, _$CoreOcmOcmDiscoveryHeaders];
+
+  @override
+  final String wireName = 'CoreOcmOcmDiscoveryHeaders';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CoreOcmOcmDiscoveryHeaders object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    throw UnimplementedError();
+  }
+
+  @override
+  CoreOcmOcmDiscoveryHeaders deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CoreOcmOcmDiscoveryHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current! as String;
+      switch (key) {
+        case 'x-nextcloud-ocm-providers':
+          result.xNextcloudOcmProviders = (value == 'true');
+      }
+    }
+
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
+  String get webdav;
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface rebuild(
+    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates,
+  );
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
+    implements
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface,
+        Built<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
+            CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder> {
+  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols([
+    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
+  ]) = _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols;
+
+  // coverage:ignore-start
+  const CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> get serializer =>
+      _$coreOcmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
+  String get name;
+  BuiltList<String> get shareTypes;
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols get protocols;
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface rebuild(
+    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder) updates,
+  );
+  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
+    implements
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface,
+        Built<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes,
+            CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder> {
+  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes([
+    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
+  ]) = _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes;
+
+  // coverage:ignore-start
+  const CoreOcmDiscoveryResponseApplicationJson_ResourceTypes._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get serializer =>
+      _$coreOcmDiscoveryResponseApplicationJsonResourceTypesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CoreOcmDiscoveryResponseApplicationJsonInterface {
+  bool get enabled;
+  String get apiVersion;
+  String get endPoint;
+  BuiltList<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes;
+  CoreOcmDiscoveryResponseApplicationJsonInterface rebuild(
+    final void Function(CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class CoreOcmDiscoveryResponseApplicationJson
+    implements
+        CoreOcmDiscoveryResponseApplicationJsonInterface,
+        Built<CoreOcmDiscoveryResponseApplicationJson, CoreOcmDiscoveryResponseApplicationJsonBuilder> {
+  factory CoreOcmDiscoveryResponseApplicationJson([
+    final void Function(CoreOcmDiscoveryResponseApplicationJsonBuilder)? b,
+  ]) = _$CoreOcmDiscoveryResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CoreOcmDiscoveryResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreOcmDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  static Serializer<CoreOcmDiscoveryResponseApplicationJson> get serializer =>
+      _$coreOcmDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -7734,6 +7958,28 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs.new,
       )
       ..add(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreOcmOcmDiscoveryHeaders), CoreOcmOcmDiscoveryHeaders.new)
+      ..add(CoreOcmOcmDiscoveryHeaders.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreOcmDiscoveryResponseApplicationJson),
+        CoreOcmDiscoveryResponseApplicationJson.new,
+      )
+      ..add(CoreOcmDiscoveryResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes),
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.new,
+      )
+      ..add(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(
+        const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
+        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.new,
+      )
+      ..add(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes)]),
+        ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
+      )
       ..addBuilderFactory(
         const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
         CoreOcsGetCapabilitiesResponseApplicationJson.new,
@@ -7861,7 +8107,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CoreNotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(CoreNotesCapabilities_Notes), CoreNotesCapabilities_Notes.new)
       ..add(CoreNotesCapabilities_Notes.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(const FullType(CoreNotificationsCapabilities), CoreNotificationsCapabilities.new)
       ..add(CoreNotificationsCapabilities.serializer)
       ..addBuilderFactory(
