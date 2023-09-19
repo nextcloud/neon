@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _showProblem(final String title) async {
     final colorScheme = Theme.of(context).colorScheme;
 
-    await showDialog(
+    await showDialog<void>(
       context: context,
       builder: (final context) => AlertDialog(
         title: Text(title),

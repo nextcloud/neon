@@ -72,7 +72,7 @@ class GlobalPopups {
             return;
           }
 
-          await showDialog(
+          await showDialog<void>(
             context: _context,
             builder: (final context) => AlertDialog(
               title: Text(AppLocalizations.of(context).nextPushSupported),

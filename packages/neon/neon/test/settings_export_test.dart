@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_implementing_value_types
+// ignore_for_file: avoid_implementing_value_types, inference_failure_on_collection_literal
 
 import 'dart:convert';
 import 'dart:typed_data';

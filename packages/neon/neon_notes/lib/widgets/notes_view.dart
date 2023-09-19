@@ -76,7 +76,7 @@ class NotesView extends StatelessWidget {
         ),
         onTap: () async {
           await Navigator.of(context).push(
-            MaterialPageRoute(
+            MaterialPageRoute<void>(
               builder: (final context) => NotesNotePage(
                 bloc: NotesNoteBloc(
                   bloc,

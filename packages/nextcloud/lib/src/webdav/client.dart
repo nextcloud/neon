@@ -160,7 +160,7 @@ class WebDavClient {
     final DateTime? lastModified,
     final DateTime? created,
     final int? contentLength,
-    final Function(double progres)? onProgress,
+    final void Function(double progres)? onProgress,
   }) async {
     var uploaded = 0;
     return _send(
@@ -193,7 +193,7 @@ class WebDavClient {
     final Uri path, {
     final DateTime? lastModified,
     final DateTime? created,
-    final Function(double progres)? onProgress,
+    final void Function(double progres)? onProgress,
   }) async =>
       putStream(
         file.openRead().cast<Uint8List>(),
@@ -217,12 +217,12 @@ class WebDavClient {
   Future<void> getFile(
     final Uri path,
     final File file, {
-    final Function(double progress)? onProgress,
+    final void Function(double progress)? onProgress,
   }) async {
     final sink = file.openWrite();
     final response = await getStream(path);
     if (response.contentLength > 0) {
-      final completer = Completer();
+      final completer = Completer<void>();
       var downloaded = 0;
 
       response.listen((final chunk) async {

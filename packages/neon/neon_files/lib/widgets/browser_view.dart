@@ -177,7 +177,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
       );
 
-  bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality().equals(
+  bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality<String>().equals(
         [...widget.bloc.path.value, name],
         path,
       );

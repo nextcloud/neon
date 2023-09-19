@@ -1185,8 +1185,8 @@ class ProvisioningApiUsersClient {
     final String password = '',
     final String displayName = '',
     final String email = '',
-    final List<String> groups = const [],
-    final List<String> subadmin = const [],
+    final List<String> groups = const <String>[],
+    final List<String> subadmin = const <String>[],
     final String quota = '',
     final String language = '',
     final String? manager,
@@ -1221,10 +1221,10 @@ class ProvisioningApiUsersClient {
     if (email != '') {
       queryParameters['email'] = email;
     }
-    if (groups != const []) {
+    if (groups != const <String>[]) {
       queryParameters['groups[]'] = groups.map((final e) => e);
     }
-    if (subadmin != const []) {
+    if (subadmin != const <String>[]) {
       queryParameters['subadmin[]'] = subadmin.map((final e) => e);
     }
     if (quota != '') {

@@ -89,7 +89,7 @@ class PushUtils {
         await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
       } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
-        Global.onPushNotificationReceived?.call(instance);
+        await Global.onPushNotificationReceived?.call(instance);
       } else if (pushNotification.type == 'background') {
         debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
@@ -174,7 +174,7 @@ class PushUtils {
         }
       }
 
-      Global.onPushNotificationReceived?.call(instance);
+      await Global.onPushNotificationReceived?.call(instance);
     }
   }
 

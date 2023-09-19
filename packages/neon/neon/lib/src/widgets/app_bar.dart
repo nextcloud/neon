@@ -231,7 +231,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
     );
 
     await Navigator.of(context).push(
-      MaterialPageRoute(
+      MaterialPageRoute<void>(
         builder: (final context) => Provider<NotificationsBlocInterface>(
           create: (final context) => app.getBloc(_account),
           child: page,

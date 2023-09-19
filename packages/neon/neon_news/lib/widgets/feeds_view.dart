@@ -64,7 +64,7 @@ class NewsFeedsView extends StatelessWidget {
             if (feed.updateErrorCount > 0) ...[
               IconButton(
                 onPressed: () async {
-                  await showDialog(
+                  await showDialog<void>(
                     context: context,
                     builder: (final context) => NewsFeedUpdateErrorDialog(
                       feed: feed,
@@ -105,7 +105,7 @@ class NewsFeedsView extends StatelessWidget {
               onSelected: (final action) async {
                 switch (action) {
                   case NewsFeedAction.showURL:
-                    await showDialog(
+                    await showDialog<void>(
                       context: context,
                       builder: (final context) => NewsFeedShowURLDialog(
                         feed: feed,
@@ -159,7 +159,7 @@ class NewsFeedsView extends StatelessWidget {
         },
         onTap: () async {
           await Navigator.of(context).push(
-            MaterialPageRoute(
+            MaterialPageRoute<void>(
               builder: (final context) => NewsFeedPage(
                 bloc: bloc,
                 feed: feed,

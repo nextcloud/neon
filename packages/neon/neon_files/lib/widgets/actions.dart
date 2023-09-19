@@ -24,7 +24,7 @@ class FileActions extends StatelessWidget {
         }
       case FilesFileAction.details:
         await Navigator.of(context).push(
-          MaterialPageRoute(
+          MaterialPageRoute<void>(
             builder: (final context) => FilesDetailsPage(
               bloc: bloc,
               details: details,

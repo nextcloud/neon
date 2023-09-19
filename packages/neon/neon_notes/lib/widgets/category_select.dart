@@ -21,7 +21,7 @@ class NotesCategorySelect extends StatelessWidget {
 
   final List<String> categories;
   final String? initialValue;
-  final Function(String category) onChanged;
+  final ValueChanged<String> onChanged;
   final VoidCallback onSubmitted;
 
   @override

@@ -95,7 +95,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         } else {
           final colorScheme = Theme.of(context).colorScheme;
 
-          await showDialog(
+          await showDialog<void>(
             context: context,
             builder: (final context) => AlertDialog(
               title: Text(AppLocalizations.of(context).notificationAppNotImplementedYet),
