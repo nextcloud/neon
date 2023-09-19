@@ -32,6 +32,9 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUseSharing => false;
 
   @override
+  bool get shouldUseFileDialog => false;
+
+  @override
   String get userAccessibleAppDataPath => p.join(Platform.environment['HOME']!, 'Neon');
 
   @override
