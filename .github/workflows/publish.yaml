@@ -21,7 +21,7 @@ jobs:
       build_number: ${{ steps.build_number.outputs.BUILD_NUMBER }}
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
 
       - name: Set flutter version
         id: flutter_version
@@ -36,7 +36,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
         with:
           flutter-version: ${{ needs.setup.outputs.flutter_version }}
@@ -111,7 +111,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
         with:
           flutter-version: ${{ needs.setup.outputs.flutter_version }}
@@ -146,7 +146,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Set docker image
         id: docker_image
         run: |
