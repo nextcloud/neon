@@ -105,7 +105,6 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
         feeds,
         () async => account.client.news.listFeeds(),
         (final response) {
-          // This is a bit ugly, but IDGAF right now
           if (response.newestItemId != null) {
             _newestItemId = response.newestItemId!;
           }

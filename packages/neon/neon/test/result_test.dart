@@ -25,7 +25,7 @@ void main() {
       expect(a, equals(b), reason: 'ignore cached state in equality');
 
       expect(a.hashCode, equals(a.hashCode), reason: 'identical');
-      expect(a.hashCode, isNot(equals(b.hashCode)), reason: 'hashcode should respect the cached state');
+      expect(a.hashCode, isNot(equals(b.hashCode)), reason: 'hashCode should respect the cached state');
     });
 
     test('Transform to loading', () {

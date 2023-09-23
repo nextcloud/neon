@@ -108,12 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                     ),
                     IconButton(
-                      tooltip: AppLocalizations.of(context).loginUsingQrcode,
+                      tooltip: AppLocalizations.of(context).loginUsingQRcode,
                       icon: const Icon(
                         Icons.qr_code_scanner_rounded,
                         size: 60,
                       ),
-                      onPressed: () => const LoginQrcodeRoute().go(context),
+                      onPressed: () => const LoginQRcodeRoute().go(context),
                     ),
                   ],
                 ],

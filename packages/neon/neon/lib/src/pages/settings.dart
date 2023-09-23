@@ -208,7 +208,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   AccountSettingsTile(
                     account: account,
                     onTap: () {
-                      AccountSettingsRoute(accountid: account.id).go(context);
+                      AccountSettingsRoute(accountID: account.id).go(context);
                     },
                   ),
                 ],

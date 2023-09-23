@@ -50,7 +50,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
           return icon;
         }
 
-        final notificationIdicator = Builder(
+        final notificationIndicator = Builder(
           builder: (final context) {
             final style = TextStyle(
               color: Theme.of(context).colorScheme.primary,
@@ -68,7 +68,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
           alignment: Alignment.bottomRight,
           children: [
             icon,
-            notificationIdicator,
+            notificationIndicator,
           ],
         );
       },
@@ -95,7 +95,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
           return label;
         }
 
-        final notificationIdicator = Padding(
+        final notificationIndicator = Padding(
           padding: const EdgeInsets.only(left: 12, right: 24),
           child: Builder(
             builder: (final context) {
@@ -118,7 +118,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               label,
-              notificationIdicator,
+              notificationIndicator,
             ],
           ),
         );

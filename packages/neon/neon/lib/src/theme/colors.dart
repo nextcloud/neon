@@ -31,12 +31,12 @@ abstract final class NcColors {
   /// Color of a starred item.
   static const Color starredColor = Colors.yellow;
 
-  /// Color used to emphasise declining actions.
+  /// Color used to emphasize declining actions.
   ///
   /// Usually used in conjunction with [NcColors.accept].
   static const Color decline = Colors.red;
 
-  /// Color used to emphasise accepting actions.
+  /// Color used to emphasize accepting actions.
   ///
   /// Usually used in conjunction with [NcColors.decline].
   static const Color accept = Colors.green;

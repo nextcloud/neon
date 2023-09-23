@@ -12,7 +12,7 @@
   "loginOpenAgain": "Open again",
   "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
   "loginWorksWith": "works with",
-  "loginUsingQrcode": "Login using a QR code",
+  "loginUsingQRcode": "Login using a QR code",
   "loginUsingServerAddress": "Login using the server address",
   "loginCheckingServerVersion": "Checking server version",
   "loginSupportedServerVersion": "Supported server version: {version}",
@@ -69,7 +69,7 @@
   },
   "errorEmptyField": "This field can not be empty",
   "errorInvalidURL": "Invalid URL provided",
-  "errorInvalidQrcode": "Invalid QR-Code provided",
+  "errorInvalidQRcode": "Invalid QR-Code provided",
   "errorRouteNotFound": "Route not found: {route}",
   "@errorRouteNotFound" : {
     "placeholders": {

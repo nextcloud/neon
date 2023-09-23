@@ -98,7 +98,7 @@ void generateData() {
     "import 'package:flutter/widgets.dart';",
     '',
     '// Code points',
-    // This filters unused codepoints.
+    // This filters unused code points.
     for (final type in codePoints.keys
         .where((final type) => iconSet.keys.map((final pattern) => iconSet[pattern]![0] == type).contains(true))) ...[
       'const ${_toVariableName(type)} = ${codePoints[type]};',

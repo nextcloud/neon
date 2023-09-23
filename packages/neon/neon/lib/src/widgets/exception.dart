@@ -130,9 +130,9 @@ class NeonException extends StatelessWidget {
       );
     }
 
-    if (exception is InvalidQrcodeException) {
+    if (exception is InvalidQRcodeException) {
       return ExceptionDetails(
-        text: AppLocalizations.of(context).errorInvalidQrcode,
+        text: AppLocalizations.of(context).errorInvalidQRcode,
       );
     }
 

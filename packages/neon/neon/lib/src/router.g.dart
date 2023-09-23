@@ -36,8 +36,8 @@ RouteBase get $homeRoute => GoRouteData.$route(
                   factory: $_AddAccountFlowRouteExtension._fromState,
                 ),
                 GoRouteData.$route(
-                  path: 'qrcode',
-                  factory: $_AddAccountQrcodeRouteExtension._fromState,
+                  path: 'qr-code',
+                  factory: $_AddAccountQRcodeRouteExtension._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'check/server',
@@ -50,7 +50,7 @@ RouteBase get $homeRoute => GoRouteData.$route(
               ],
             ),
             GoRouteData.$route(
-              path: 'account/:accountid',
+              path: 'account/:accountID',
               name: 'AccountSettings',
               factory: $AccountSettingsRouteExtension._fromState,
             ),
@@ -163,11 +163,11 @@ extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $_AddAccountQrcodeRouteExtension on _AddAccountQrcodeRoute {
-  static _AddAccountQrcodeRoute _fromState(GoRouterState state) => const _AddAccountQrcodeRoute();
+extension $_AddAccountQRcodeRouteExtension on _AddAccountQRcodeRoute {
+  static _AddAccountQRcodeRoute _fromState(GoRouterState state) => const _AddAccountQRcodeRoute();
 
   String get location => GoRouteData.$location(
-        '/settings/account/add/qrcode',
+        '/settings/account/add/qr-code',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -227,11 +227,11 @@ extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute
 
 extension $AccountSettingsRouteExtension on AccountSettingsRoute {
   static AccountSettingsRoute _fromState(GoRouterState state) => AccountSettingsRoute(
-        accountid: state.pathParameters['accountid']!,
+        accountID: state.pathParameters['accountID']!,
       );
 
   String get location => GoRouteData.$location(
-        '/settings/account/${Uri.encodeComponent(accountid)}',
+        '/settings/account/${Uri.encodeComponent(accountID)}',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -266,8 +266,8 @@ RouteBase get $loginRoute => GoRouteData.$route(
           factory: $LoginFlowRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'qrcode',
-          factory: $LoginQrcodeRouteExtension._fromState,
+          path: 'qr-code',
+          factory: $LoginQRcodeRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'check/server',
@@ -317,11 +317,11 @@ extension $LoginFlowRouteExtension on LoginFlowRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
-  static LoginQrcodeRoute _fromState(GoRouterState state) => const LoginQrcodeRoute();
+extension $LoginQRcodeRouteExtension on LoginQRcodeRoute {
+  static LoginQRcodeRoute _fromState(GoRouterState state) => const LoginQRcodeRoute();
 
   String get location => GoRouteData.$location(
-        '/login/qrcode',
+        '/login/qr-code',
       );
 
   void go(BuildContext context) => context.go(location);

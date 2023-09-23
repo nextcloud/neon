@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-/// Extension for formating the differnce between two [DateTime]s.
+/// Extension for formatting the difference between two [DateTime]s.
 @internal
 extension RelativeTimeFormat on DateTime {
   /// Format the relative time between this and [to].
