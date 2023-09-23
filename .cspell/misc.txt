@@ -1,0 +1,11 @@
+browsable
+cleartext
+deeplinking
+flathub
+foss
+fullscreen
+playstore
+postmarket
+provokateurin
+subroutes
+uncategorized
