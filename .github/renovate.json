@@ -6,5 +6,37 @@
   "labels": [
     "dependencies"
   ],
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "groupName": "built_value",
+      "matchPackagePatterns": "^built"
+    },
+    {
+      "groupName": "go_router",
+      "matchPackagePatterns": "^go_router"
+    },
+    {
+      "groupName": "sqflite",
+      "matchPackagePatterns": "^sqflite"
+    },
+    {
+      "groupName": "unifiedpush",
+      "matchPackagePatterns": "^unifiedpush"
+    },
+    {
+      "groupName": "xml_serializable",
+      "matchPackageNames": [
+        "xml_annotation",
+        "xml_serializable"
+      ]
+    },
+    {
+      "groupName": "json_serializable",
+      "matchPackageNames": [
+        "json_annotation",
+        "json_serializable"
+      ]
+    }
+  ]
 }
