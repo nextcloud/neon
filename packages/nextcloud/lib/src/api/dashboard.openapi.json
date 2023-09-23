@@ -221,8 +221,8 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {
-                                                    "type": "array",
-                                                    "items": {
+                                                    "type": "object",
+                                                    "additionalProperties": {
                                                         "$ref": "#/components/schemas/Widget"
                                                     }
                                                 }
