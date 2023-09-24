@@ -4,8 +4,8 @@ import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 @internal
-class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
-  const CheckBoxSettingsTile({
+class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
+  const ToggleSettingsTile({
     required super.option,
     super.key,
   });
@@ -13,13 +13,10 @@ class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
   @override
   Widget build(final BuildContext context) => ValueListenableBuilder(
         valueListenable: option,
-        builder: (final context, final value, final child) => CheckboxListTile.adaptive(
-          enabled: option.enabled,
+        builder: (final context, final value, final child) => SwitchListTile.adaptive(
           title: child,
           value: value,
-          onChanged: (final value) {
-            option.value = value!;
-          },
+          onChanged: option.enabled ? (final value) => option.value = value : null,
         ),
         child: Text(option.label(context)),
       );

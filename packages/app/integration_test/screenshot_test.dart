@@ -346,7 +346,7 @@ Future<void> main() async {
     await binding.takeScreenshot('settings_dark');
 
     // Enable OLED theme
-    await tester.tap(find.byType(CheckboxListTile).first);
+    await tester.tap(find.byType(SwitchListTile).first);
     await tester.pumpAndSettle();
 
     await binding.takeScreenshot('settings_oled');

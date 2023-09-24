@@ -4,8 +4,8 @@ import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 @internal
-class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
-  const DropdownButtonSettingsTile({
+class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
+  const SelectSettingsTile({
     required super.option,
     super.key,
   });
