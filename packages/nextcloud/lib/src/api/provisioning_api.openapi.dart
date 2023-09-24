@@ -3190,10 +3190,10 @@ class _$ProvisioningApiGroupDetails_UsercountSerializer
   }) {
     final result = ProvisioningApiGroupDetails_UsercountBuilder()..data = JsonObject(data);
     try {
-      result._$bool = data as bool?;
+      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3250,10 +3250,10 @@ class _$ProvisioningApiGroupDetails_DisabledSerializer
   }) {
     final result = ProvisioningApiGroupDetails_DisabledBuilder()..data = JsonObject(data);
     try {
-      result._$bool = data as bool?;
+      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3600,13 +3600,13 @@ class _$ProvisioningApiUserDetailsQuota_QuotaSerializer
   }) {
     final result = ProvisioningApiUserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
     try {
-      result._$num = data as num?;
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert(
       [result._$num, result._$int, result._string].where((final x) => x != null).isNotEmpty,

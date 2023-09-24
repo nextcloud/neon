@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -2111,7 +2112,10 @@ class CoreWipeClient {
       body,
     );
     if (response.statusCode == 200 || response.statusCode == 404) {
-      return JsonObject(await response.body);
+      return _jsonSerializers.deserialize(
+        json.decode(await response.body),
+        specifiedType: const FullType(JsonObject),
+      )! as JsonObject;
     }
     throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2630,7 +2634,8 @@ class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar = int.parse(value);
+          result.xNcIscustomavatar =
+              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
       }
     }
 
@@ -2703,7 +2708,8 @@ class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializ
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar = int.parse(value);
+          result.xNcIscustomavatar =
+              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
       }
     }
 
@@ -3587,10 +3593,10 @@ class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreN
   }) {
     final result = CoreNavigationEntry_OrderBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3837,7 +3843,10 @@ class _$CoreOcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<Cor
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders = (value == 'true');
+          result.xNextcloudOcmProviders = _jsonSerializers.deserialize(
+            json.decode(value),
+            specifiedType: const FullType(bool),
+          )! as bool;
       }
     }
 
@@ -7473,10 +7482,10 @@ class _$CoreUnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<C
   }) {
     final result = CoreUnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -7569,10 +7578,10 @@ class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<
   }) {
     final result = CoreUnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();

@@ -766,7 +766,7 @@ class _$UserStatusClearAt_TimeSerializer implements PrimitiveSerializer<UserStat
   }) {
     final result = UserStatusClearAt_TimeBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
       result._clearAtTimeType = _jsonSerializers.deserialize(
@@ -1471,7 +1471,7 @@ class _$UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializ
               .toBuilder();
     } catch (_) {}
     try {
-      result._jsonObject = data as JsonObject?;
+      result._jsonObject = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
     } catch (_) {}
     assert(
       [result._private, result._jsonObject].where((final x) => x != null).isNotEmpty,

@@ -1876,10 +1876,10 @@ class _$FilesSharingShareInfo_SizeSerializer implements PrimitiveSerializer<File
   }) {
     final result = FilesSharingShareInfo_SizeBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._$num = data as num?;
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     assert([result._$int, result._$num].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -1970,10 +1970,10 @@ class _$FilesSharingShare_ItemSizeSerializer implements PrimitiveSerializer<File
   }) {
     final result = FilesSharingShare_ItemSizeBuilder()..data = JsonObject(data);
     try {
-      result._$num = data as num?;
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -2739,7 +2739,7 @@ class _$FilesSharingShareesapiSearchShareTypeSerializer
   }) {
     final result = FilesSharingShareesapiSearchShareTypeBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
       result._builtListInt = (_jsonSerializers.deserialize(
@@ -3540,7 +3540,7 @@ class _$FilesSharingShareesapiFindRecommendedShareTypeSerializer
   }) {
     final result = FilesSharingShareesapiFindRecommendedShareTypeBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
       result._builtListInt = (_jsonSerializers.deserialize(

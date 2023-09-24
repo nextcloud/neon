@@ -21,37 +21,29 @@ class TypeResultBase extends TypeResult {
     final String object, {
     final bool onlyChildren = false,
     final String? mimeType,
-  }) =>
-      name == 'String' ? object : '$object.toString()';
-
-  @override
-  String deserialize(final String object, {final bool toBuilder = false}) => '($object as $nullableName)';
-
-  @override
-  String decode(final String object) {
-    switch (name) {
-      case 'String':
-        return '($object as String)';
-      case 'int':
-        return 'int.parse($object as String)';
-      case 'bool':
-        return "($object as String == 'true')";
-      case 'JsonObject':
-        return 'JsonObject($object)';
+  }) {
+    switch (mimeType) {
+      case null:
+      case 'application/json':
+      case 'application/x-www-form-urlencoded':
+        if (className == 'String') {
+          return object;
+        } else {
+          return '$object.toString()';
+        }
+      case 'application/octet-stream':
+        return 'utf8.encode($object) as Uint8List';
       default:
-        throw Exception('Can not decode "$name" from String');
+        throw Exception('Can not encode mime type "$mimeType"');
     }
   }
 
   @override
   TypeResultBase get dartType {
-    final String dartName;
-    switch (name) {
-      case 'JsonObject':
-        dartName = 'dynamic';
-      default:
-        dartName = name;
-    }
+    final dartName = switch (name) {
+      'JsonObject' => 'dynamic',
+      _ => name,
+    };
 
     return TypeResultBase(dartName, nullable: nullable);
   }
