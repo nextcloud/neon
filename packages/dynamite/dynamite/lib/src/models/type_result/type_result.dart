@@ -87,6 +87,11 @@ sealed class TypeResult {
         return 'json.encode($serialized)';
       case 'application/x-www-form-urlencoded':
         return 'Uri(queryParameters: $serialized! as Map<String, dynamic>).query';
+      case 'application/octet-stream':
+        if (className != 'Uint8List') {
+          throw Exception('octet-stream can only be applied to binary data. Expected Uint8List but got $className');
+        }
+        return '$object as Uint8List';
       default:
         throw Exception('Can not encode mime type "$mimeType"');
     }
