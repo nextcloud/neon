@@ -15,7 +15,7 @@ TypeResult? resolveMimeTypeDecode(
 ) {
   if (response.content != null) {
     if (response.content!.length > 1) {
-      throw Exception('Can not work with multiple mime types right now');
+      print('Can not work with multiple mime types right now. Using the first supported.');
     }
 
     for (final content in response.content!.entries) {
@@ -35,10 +35,9 @@ TypeResult? resolveMimeTypeDecode(
         return TypeResultBase('String');
       } else if (mimeType == 'application/json') {
         return result;
-      } else {
-        throw Exception('Can not parse mime type "$mimeType"');
       }
     }
+    throw Exception('Can not parse any mime type of Operation: "$identifier"');
   }
   return null;
 }
@@ -52,7 +51,7 @@ Iterable<String> resolveMimeTypeEncode(
 ) sync* {
   if (operation.requestBody != null) {
     if (operation.requestBody!.content!.length > 1) {
-      throw Exception('Can not work with multiple mime types right now');
+      print('Can not work with multiple mime types right now. Using the first supported.');
     }
     for (final content in operation.requestBody!.content!.entries) {
       final mimeType = content.key;
@@ -121,9 +120,9 @@ Iterable<String> resolveMimeTypeEncode(
             yield '}';
           }
           return;
-        default:
-          throw Exception('Can not parse mime type "$mimeType"');
       }
     }
+
+    throw Exception('Can not parse any mime type of Operation: "$identifier"');
   }
 }
