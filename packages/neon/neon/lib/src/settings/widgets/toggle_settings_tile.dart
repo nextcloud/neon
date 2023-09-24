@@ -4,8 +4,8 @@ import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 @internal
-class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
-  const CheckBoxSettingsTile({
+class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
+  const ToggleSettingsTile({
     required super.option,
     super.key,
   });

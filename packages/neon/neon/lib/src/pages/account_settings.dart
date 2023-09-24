@@ -8,7 +8,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
-import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
+import 'package:neon/src/settings/widgets/select_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/theme/dialog.dart';
@@ -119,7 +119,7 @@ class AccountSettingsPage extends StatelessWidget {
           SettingsCategory(
             title: Text(AppLocalizations.of(context).optionsCategoryGeneral),
             tiles: [
-              DropdownButtonSettingsTile(
+              SelectSettingsTile(
                 option: options.initialApp,
               ),
             ],

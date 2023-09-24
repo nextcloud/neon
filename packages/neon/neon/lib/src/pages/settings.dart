@@ -10,13 +10,13 @@ import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/utils/settings_export_helper.dart';
 import 'package:neon/src/settings/widgets/account_settings_tile.dart';
-import 'package:neon/src/settings/widgets/checkbox_settings_tile.dart';
 import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
-import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
+import 'package:neon/src/settings/widgets/select_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 import 'package:neon/src/settings/widgets/text_settings_tile.dart';
+import 'package:neon/src/settings/widgets/toggle_settings_tile.dart';
 import 'package:neon/src/theme/branding.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
@@ -120,13 +120,13 @@ class _SettingsPageState extends State<SettingsPage> {
               title: Text(AppLocalizations.of(context).optionsCategoryTheme),
               key: ValueKey(SettingsCategories.theme.name),
               tiles: [
-                DropdownButtonSettingsTile(
+                SelectSettingsTile(
                   option: globalOptions.themeMode,
                 ),
-                CheckBoxSettingsTile(
+                ToggleSettingsTile(
                   option: globalOptions.themeOLEDAsDark,
                 ),
-                CheckBoxSettingsTile(
+                ToggleSettingsTile(
                   option: globalOptions.themeKeepOriginalAccentColor,
                 ),
               ],
@@ -135,7 +135,7 @@ class _SettingsPageState extends State<SettingsPage> {
               title: Text(AppLocalizations.of(context).optionsCategoryNavigation),
               key: ValueKey(SettingsCategories.navigation.name),
               tiles: [
-                DropdownButtonSettingsTile(
+                SelectSettingsTile(
                   option: globalOptions.navigationMode,
                 ),
               ],
@@ -155,10 +155,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ],
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.pushNotificationsEnabled,
                   ),
-                  DropdownButtonSettingsTile(
+                  SelectSettingsTile(
                     option: globalOptions.pushNotificationsDistributor,
                   ),
                 ],
@@ -169,10 +169,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text(AppLocalizations.of(context).optionsCategoryStartup),
                 key: ValueKey(SettingsCategories.startup.name),
                 tiles: [
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.startupMinimized,
                   ),
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.startupMinimizeInsteadOfExit,
                   ),
                 ],
@@ -183,10 +183,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
                 key: ValueKey(SettingsCategories.systemTray.name),
                 tiles: [
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.systemTrayEnabled,
                   ),
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.systemTrayHideToTrayWhenMinimized,
                   ),
                 ],
@@ -197,10 +197,10 @@ class _SettingsPageState extends State<SettingsPage> {
               key: ValueKey(SettingsCategories.accounts.name),
               tiles: [
                 if (accountsSnapshot.requireData.length > 1) ...[
-                  CheckBoxSettingsTile(
+                  ToggleSettingsTile(
                     option: globalOptions.rememberLastUsedAccount,
                   ),
-                  DropdownButtonSettingsTile(
+                  SelectSettingsTile(
                     option: globalOptions.initialAccount,
                   ),
                 ],
