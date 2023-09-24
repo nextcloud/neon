@@ -10,6 +10,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
@@ -109,11 +110,7 @@ class FilesRemindersApiClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^1$').hasMatch(version)) {
-      throw Exception(
-        'Invalid value "$version" for parameter "version" with pattern "${r'^1$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -164,11 +161,7 @@ class FilesRemindersApiClient {
 
 // coverage:ignore-end
     queryParameters['dueDate'] = dueDate;
-    if (!RegExp(r'^1$').hasMatch(version)) {
-      throw Exception(
-        'Invalid value "$version" for parameter "version" with pattern "${r'^1$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -221,11 +214,7 @@ class FilesRemindersApiClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^1$').hasMatch(version)) {
-      throw Exception(
-        'Invalid value "$version" for parameter "version" with pattern "${r'^1$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();

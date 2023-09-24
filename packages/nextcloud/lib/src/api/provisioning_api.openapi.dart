@@ -11,6 +11,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
@@ -733,11 +734,7 @@ class ProvisioningApiGroupsClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
@@ -787,11 +784,7 @@ class ProvisioningApiGroupsClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     if (search != '') {
       queryParameters['search'] = search;
@@ -849,11 +842,7 @@ class ProvisioningApiGroupsClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
@@ -901,11 +890,7 @@ class ProvisioningApiGroupsClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
@@ -958,11 +943,7 @@ class ProvisioningApiGroupsClient {
 // coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
@@ -1011,11 +992,7 @@ class ProvisioningApiGroupsClient {
     }
 
 // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
@@ -1801,11 +1778,11 @@ class ProvisioningApiUsersClient {
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    if (!RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$').hasMatch(collectionName)) {
-      throw Exception(
-        'Invalid value "$collectionName" for parameter "collectionName" with pattern "${r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(
+      collectionName,
+      RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
+      'collectionName',
+    ); // coverage:ignore-line
     path = path.replaceAll('{collectionName}', Uri.encodeQueryComponent(collectionName));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(

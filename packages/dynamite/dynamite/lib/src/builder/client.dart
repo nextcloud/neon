@@ -354,29 +354,7 @@ Iterable<Method> buildTags(
               nullable: dartParameterNullable,
             ).dartType;
 
-            if (result.name == 'String') {
-              if (parameter.schema?.pattern != null) {
-                code.write('''
-if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${toDartName(parameter.name)})) {
-  throw Exception('Invalid value "\$${toDartName(parameter.name)}" for parameter "${toDartName(parameter.name)}" with pattern "\${r'${parameter.schema!.pattern!}'}"'); // coverage:ignore-line
-}
-''');
-              }
-              if (parameter.schema?.minLength != null) {
-                code.write('''
-if (${toDartName(parameter.name)}.length < ${parameter.schema!.minLength!}) {
-  throw Exception('Parameter "${toDartName(parameter.name)}" has to be at least ${parameter.schema!.minLength!} characters long'); // coverage:ignore-line
-}
-''');
-              }
-              if (parameter.schema?.maxLength != null) {
-                code.write('''
-if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
-  throw Exception('Parameter "${toDartName(parameter.name)}" has to be at most ${parameter.schema!.maxLength!} characters long'); // coverage:ignore-line
-}
-''');
-              }
-            }
+            buildPatternCheck(result, parameter).forEach(code.writeln);
 
             final defaultValueCode = parameter.schema?.$default != null
                 ? valueToEscapedValue(result, parameter.schema!.$default.toString())
@@ -606,6 +584,27 @@ final _response = await $client.doRequest(
           b.body = Code(code.toString());
         },
       );
+    }
+  }
+}
+
+Iterable<String> buildPatternCheck(
+  final TypeResult result,
+  final openapi.Parameter parameter,
+) sync* {
+  final value = toDartName(parameter.name);
+  final name = "'$value'";
+
+  final schema = parameter.schema;
+  if (result.name == 'String' && schema != null) {
+    if (schema.pattern != null) {
+      yield "checkPattern($value, RegExp(r'${schema.pattern!}'), $name); // coverage:ignore-line";
+    }
+    if (schema.minLength != null) {
+      yield 'checkMinLength($value, ${schema.minLength}, $name); // coverage:ignore-line';
+    }
+    if (schema.maxLength != null) {
+      yield 'checkMaxLength($value, ${schema.maxLength}, $name); // coverage:ignore-line';
     }
   }
 }

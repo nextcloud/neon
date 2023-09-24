@@ -11,6 +11,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
@@ -120,9 +121,7 @@ class FilesApiClient {
 // coverage:ignore-end
     path = path.replaceAll('{x}', Uri.encodeQueryComponent(x.toString()));
     path = path.replaceAll('{y}', Uri.encodeQueryComponent(y.toString()));
-    if (!RegExp(r'^.+$').hasMatch(file)) {
-      throw Exception('Invalid value "$file" for parameter "file" with pattern "${r'^.+$'}"'); // coverage:ignore-line
-    }
+    checkPattern(file, RegExp(r'^.+$'), 'file'); // coverage:ignore-line
     path = path.replaceAll('{file}', Uri.encodeQueryComponent(file));
     final response = await _rootClient.doRequest(
       'get',

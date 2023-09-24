@@ -11,6 +11,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
@@ -186,9 +187,7 @@ class ThemingIconClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    if (!RegExp(r'^.+$').hasMatch(image)) {
-      throw Exception('Invalid value "$image" for parameter "image" with pattern "${r'^.+$'}"'); // coverage:ignore-line
-    }
+    checkPattern(image, RegExp(r'^.+$'), 'image'); // coverage:ignore-line
     path = path.replaceAll('{image}', Uri.encodeQueryComponent(image));
     final response = await _rootClient.doRequest(
       'get',
