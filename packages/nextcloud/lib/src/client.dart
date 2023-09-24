@@ -2,8 +2,6 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/src/api/files_reminders.openapi.dart';
-import 'package:nextcloud/src/api/sharebymail.openapi.dart';
 
 // ignore: public_member_api_docs
 class NextcloudClient extends DynamiteClient {
@@ -45,6 +43,7 @@ class NextcloudClient extends DynamiteClient {
   DavClient? _dav;
   FilesClient? _files;
   FilesExternalClient? _filesExternal;
+  FilesRemindersClient? _filesReminders;
   FilesSharingClient? _filesSharing;
   FilesTrashbinClient? _filesTrashbin;
   FilesVersionsClient? _filesVersions;
@@ -81,6 +80,9 @@ class NextcloudClient extends DynamiteClient {
 
   /// Client for the files external APIs
   FilesExternalClient get filesExternal => _filesExternal ??= FilesExternalClient.fromClient(this);
+
+  /// Client for the files reminders APIs
+  FilesRemindersClient get filesReminders => _filesReminders ??= FilesRemindersClient.fromClient(this);
 
   /// Client for the files sharing APIs
   FilesSharingClient get filesSharing => _filesSharing ??= FilesSharingClient.fromClient(this);
