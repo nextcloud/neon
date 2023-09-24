@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';

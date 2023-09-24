@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -7,6 +8,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:universal_io/io.dart';
@@ -77,13 +79,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -106,13 +119,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -133,13 +157,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['name'] = name;
     final response = await doRequest(
       'post',
@@ -162,13 +197,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['name'] = name;
     final response = await doRequest(
@@ -188,13 +234,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final response = await doRequest(
       'delete',
@@ -216,13 +273,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
@@ -244,13 +312,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -274,13 +353,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['url'] = url;
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
@@ -303,13 +393,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final response = await doRequest(
       'delete',
@@ -331,13 +432,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
@@ -362,13 +474,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle;
     final response = await doRequest(
@@ -391,13 +514,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
@@ -426,13 +560,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -475,13 +620,24 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -509,13 +665,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -534,13 +701,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -559,13 +737,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -584,13 +773,24 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',

@@ -1,11 +1,13 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:universal_io/io.dart';
@@ -77,13 +79,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -109,13 +122,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['keepalive'] = keepalive.toString();
     final response = await doRequest(
       'put',
@@ -140,13 +164,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['deviceName'] = deviceName;
     final response = await doRequest(
       'put',
@@ -173,13 +208,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'get',
@@ -204,13 +250,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'delete',
@@ -238,13 +295,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
     final response = await doRequest(
@@ -270,13 +338,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'delete',
@@ -301,13 +380,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'get',
@@ -332,13 +422,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'post',
@@ -363,13 +464,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -393,13 +505,24 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     final response = await doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

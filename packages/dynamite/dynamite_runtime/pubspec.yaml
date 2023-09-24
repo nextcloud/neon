@@ -8,6 +8,7 @@ environment:
 dependencies:
   built_value: ^8.6.3
   cookie_jar: ^4.0.8
+  meta: ^1.9.1
   universal_io: ^2.2.2
 
 dev_dependencies:

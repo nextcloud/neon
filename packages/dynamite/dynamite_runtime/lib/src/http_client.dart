@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/src/uri.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
@@ -62,27 +63,46 @@ class DynamiteApiException implements Exception {
   String toString() => 'DynamiteApiException(statusCode: $statusCode, headers: $headers, body: $body)';
 }
 
-abstract class DynamiteAuthentication {
-  String get type;
-  String get scheme;
+/// Base dynamite authentication.
+///
+/// See:
+///   * [DynamiteResponse] as the response returned by an operation.
+///   * [DynamiteApiException] as the exception that can be thrown in operations
+///   * [DynamiteClient] for the client providing operations.
+@immutable
+sealed class DynamiteAuthentication {
+  /// Creates a new authentication.
+  const DynamiteAuthentication({
+    required this.type,
+    required this.scheme,
+  });
+
+  /// The base type of the authentication.
+  final String type;
+
+  /// The used authentication scheme.
+  final String scheme;
+
+  /// The authentication headers added to a request.
   Map<String, String> get headers;
 }
 
+/// Basic http authentication with username and password.
 class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
-  DynamiteHttpBasicAuthentication({
+  /// Creates a new http basic authentication.
+  const DynamiteHttpBasicAuthentication({
     required this.username,
     required this.password,
-  });
+  }) : super(
+          type: 'http',
+          scheme: 'basic',
+        );
 
+  /// The username.
   final String username;
 
+  /// The password.
   final String password;
-
-  @override
-  String type = 'http';
-
-  @override
-  String scheme = 'basic';
 
   @override
   Map<String, String> get headers => {
@@ -90,18 +110,18 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
       };
 }
 
+/// Http bearer authentication with a token.
 class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
-  DynamiteHttpBearerAuthentication({
+  /// Creates a new http bearer authentication.
+  const DynamiteHttpBearerAuthentication({
     required this.token,
-  });
+  }) : super(
+          type: 'http',
+          scheme: 'bearer',
+        );
 
+  /// The authentication token.
   final String token;
-
-  @override
-  String type = 'http';
-
-  @override
-  String scheme = 'bearer';
 
   @override
   Map<String, String> get headers => {

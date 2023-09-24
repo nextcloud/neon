@@ -9,6 +9,7 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:intersperse/intersperse.dart';
 
 List<Class> generateDynamiteOverrides(final State state) => [
       Class(
@@ -274,7 +275,7 @@ Iterable<Method> buildTags(
   final List<String> tags,
   final String? tag,
 ) sync* {
-  final isRootClient = tag == null;
+  final client = tag == null ? 'this' : '_rootClient';
   final paths = generatePaths(spec, tag);
 
   for (final pathEntry in paths.entries) {
@@ -312,42 +313,29 @@ Iterable<Method> buildTags(
             }
           }
 
+          final code = StringBuffer();
+
           final acceptHeader = responses.keys
               .map((final response) => response.content?.keys)
               .whereNotNull()
               .expand((final element) => element)
               .toSet()
               .join(',');
-          final code = StringBuffer('''
-var _path = '${pathEntry.key}';
-final _queryParameters = <String, dynamic>{};
-final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
-Uint8List? _body;
-''');
 
-          final security = operation.security ?? spec.security ?? BuiltList();
-          final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
-          final isOptionalSecurity = securityRequirements.length != security.length;
-          code.write('    // coverage:ignore-start\n');
-          for (final requirement in securityRequirements) {
-            final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
-            code.write('''
-if (${isRootClient ? 'this' : '_rootClient'}.authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
-  _headers.addAll(${isRootClient ? 'this' : '_rootClient'}.authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
-}
-''');
-            if (securityRequirements.last != requirement) {
-              code.write('else ');
-            }
-          }
-          if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
-            code.write('''
-else {
-  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
-}
-''');
-          }
-          code.write('    // coverage:ignore-end\n');
+          code.writeln('''
+  var _path = '${pathEntry.key}';
+  final _queryParameters = <String, dynamic>{};
+  final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
+  Uint8List? _body;
+  ''');
+
+          buildAuthCheck(
+            responses,
+            pathEntry,
+            operation,
+            spec,
+            client,
+          ).forEach(code.writeln);
 
           for (final parameter in parameters) {
             final dartParameterNullable = isDartParameterNullable(
@@ -502,7 +490,7 @@ if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
 
           code.write(
             '''
-final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
+final _response = await $client.doRequest(
   '$httpMethod',
   Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null),
   _headers,
@@ -620,6 +608,61 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
       );
     }
   }
+}
+
+Iterable<String> buildAuthCheck(
+  final Map<openapi.Response, List<int>> responses,
+  final MapEntry<String, openapi.PathItem> pathEntry,
+  final openapi.Operation operation,
+  final openapi.OpenAPI spec,
+  final String client,
+) sync* {
+  final security = operation.security ?? spec.security ?? BuiltList();
+  final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+  final isOptionalSecurity = securityRequirements.length != security.length;
+
+  if (securityRequirements.isEmpty) {
+    return;
+  }
+
+  yield '''
+// coverage:ignore-start
+final authentication = $client.authentications.firstWhereOrNull(
+    (final auth) => switch (auth) {
+''';
+
+  yield* securityRequirements.map((final requirement) {
+    final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
+    final dynamiteAuth = toDartName(
+      'Dynamite-${securityScheme.type}-${securityScheme.scheme}-Authentication',
+      uppercaseFirstCharacter: true,
+    );
+    return '$dynamiteAuth()';
+  }).intersperse(' || ');
+
+  yield '''
+        => true,
+      _ => false,
+    },
+  );
+''';
+
+  yield '''
+if(authentication != null) {
+  _headers.addAll(
+    authentication.headers,
+  );
+} 
+''';
+
+  if (!isOptionalSecurity) {
+    yield '''
+else {
+  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
+}
+''';
+  }
+  yield '// coverage:ignore-end';
 }
 
 Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final String? tag) {

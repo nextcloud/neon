@@ -5,6 +5,7 @@ import 'package:path/path.dart' as p;
 List<Spec> generateImports(final AssetId outputId) => [
       const Code('// ignore_for_file: camel_case_types'),
       const Code('// ignore_for_file: public_member_api_docs'),
+      const Code('// ignore_for_file: unreachable_switch_case'),
       Directive.import('dart:convert'),
       Directive.import('dart:typed_data'),
       const Code(''),
@@ -13,6 +14,7 @@ List<Spec> generateImports(final AssetId outputId) => [
       Directive.import('package:built_value/json_object.dart'),
       Directive.import('package:built_value/serializer.dart'),
       Directive.import('package:built_value/standard_json_plugin.dart'),
+      Directive.import('package:collection/collection.dart'),
       Directive.import('package:dynamite_runtime/content_string.dart'),
       Directive.import('package:dynamite_runtime/http_client.dart'),
       Directive.import('package:universal_io/io.dart'),
