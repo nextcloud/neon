@@ -13,6 +13,7 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
   @override
@@ -44,9 +45,8 @@ class OpenAPIBuilder implements Builder {
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };
 
-      final supportedVersions = ['3.0.3', '3.1.0'];
-      if (!supportedVersions.contains(spec.version)) {
-        throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
+      if (Version.parse(spec.version).major != 3) {
+        throw Exception('Only OpenAPI 3.0.0 and later are supported');
       }
 
       final state = State(spec.info.title);

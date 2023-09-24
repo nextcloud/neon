@@ -15,6 +15,7 @@ dependencies:
   intersperse: ^2.0.0
   meta: ^1.9.1
   path: ^1.8.3
+  version: ^3.0.2
 
 dev_dependencies:
   build_runner: ^2.4.6
