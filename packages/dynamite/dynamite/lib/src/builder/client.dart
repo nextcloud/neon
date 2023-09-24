@@ -7,11 +7,8 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
-import 'package:dynamite/src/models/open_api.dart';
-import 'package:dynamite/src/models/path_item.dart';
-import 'package:dynamite/src/models/response.dart';
-import 'package:dynamite/src/models/schema.dart';
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:dynamite/src/models/type_result.dart';
 
 List<Class> generateDynamiteOverrides(final State state) => [
       Class(
@@ -111,7 +108,7 @@ return ${state.classPrefix}ApiException(
     ];
 
 Iterable<Class> generateClients(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
 ) sync* {
   yield* generateDynamiteOverrides(state);
@@ -125,7 +122,7 @@ Iterable<Class> generateClients(
 }
 
 Class buildRootClient(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final List<String> tags,
 ) =>
@@ -224,7 +221,7 @@ super(
     );
 
 Class buildClient(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final List<String> tags,
   final String tag,
@@ -272,7 +269,7 @@ Class buildClient(
     );
 
 Iterable<Method> buildTags(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final List<String> tags,
   final String? tag,
@@ -299,7 +296,7 @@ Iterable<Method> buildTags(
             b.annotations.add(refer('Deprecated').call([refer("''")]));
           }
 
-          var responses = <Response, List<int>>{};
+          var responses = <openapi.Response, List<int>>{};
           if (operation.responses != null) {
             for (final responseEntry in operation.responses!.entries) {
               final statusCode = int.parse(responseEntry.key);
@@ -530,7 +527,7 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
                 spec,
                 state,
                 identifier,
-                Schema(
+                openapi.Schema(
                   (final b) => b
                     ..properties.replace(
                       response.headers!.map(
@@ -625,8 +622,8 @@ final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
   }
 }
 
-Map<String, PathItem> generatePaths(final OpenAPI spec, final String? tag) {
-  final paths = <String, PathItem>{};
+Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final String? tag) {
+  final paths = <String, openapi.PathItem>{};
 
   if (spec.paths != null) {
     for (final path in spec.paths!.entries) {
@@ -637,21 +634,21 @@ Map<String, PathItem> generatePaths(final OpenAPI spec, final String? tag) {
           paths[path.key] ??= path.value;
           paths[path.key]!.rebuild((final b) {
             switch (operationEntry.key) {
-              case PathItemOperation.get:
+              case openapi.PathItemOperation.get:
                 b.get.replace(operation);
-              case PathItemOperation.put:
+              case openapi.PathItemOperation.put:
                 b.put.replace(operation);
-              case PathItemOperation.post:
+              case openapi.PathItemOperation.post:
                 b.post.replace(operation);
-              case PathItemOperation.delete:
+              case openapi.PathItemOperation.delete:
                 b.delete.replace(operation);
-              case PathItemOperation.options:
+              case openapi.PathItemOperation.options:
                 b.options.replace(operation);
-              case PathItemOperation.head:
+              case openapi.PathItemOperation.head:
                 b.head.replace(operation);
-              case PathItemOperation.patch:
+              case openapi.PathItemOperation.patch:
                 b.patch.replace(operation);
-              case PathItemOperation.trace:
+              case openapi.PathItemOperation.trace:
                 b.trace.replace(operation);
             }
           });
@@ -663,7 +660,7 @@ Map<String, PathItem> generatePaths(final OpenAPI spec, final String? tag) {
   return paths;
 }
 
-List<String> generateTags(final OpenAPI spec) {
+List<String> generateTags(final openapi.OpenAPI spec) {
   final tags = <String>[];
 
   if (spec.paths != null) {

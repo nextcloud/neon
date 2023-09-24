@@ -11,9 +11,8 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/models/open_api.dart';
-import 'package:dynamite/src/models/serializers.dart';
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:dynamite/src/models/type_result.dart';
 
 class OpenAPIBuilder implements Builder {
   @override
@@ -34,13 +33,13 @@ class OpenAPIBuilder implements Builder {
       );
 
       final spec = switch (inputId.extension) {
-        '.json' => serializers.deserializeWith(
-            OpenAPI.serializer,
+        '.json' => openapi.serializers.deserializeWith(
+            openapi.OpenAPI.serializer,
             json.decode(await buildStep.readAsString(inputId)),
           )!,
         '.yaml' => checkedYamlDecode(
             await buildStep.readAsString(inputId),
-            (final m) => serializers.deserializeWith(OpenAPI.serializer, m)!,
+            (final m) => openapi.serializers.deserializeWith(openapi.OpenAPI.serializer, m)!,
           ),
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };

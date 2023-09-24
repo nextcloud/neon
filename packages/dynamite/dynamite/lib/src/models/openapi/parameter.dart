@@ -1,7 +1,7 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
-import 'package:dynamite/src/models/schema.dart';
+import 'package:dynamite/src/models/openapi/schema.dart';
 
 part 'parameter.g.dart';
 

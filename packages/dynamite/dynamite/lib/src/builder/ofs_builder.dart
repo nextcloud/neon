@@ -5,15 +5,14 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/models/open_api.dart';
-import 'package:dynamite/src/models/schema.dart';
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveAllOf(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final String identifier,
-  final Schema schema, {
+  final openapi.Schema schema, {
   final bool nullable = false,
 }) {
   final result = TypeResultObject(
@@ -65,10 +64,10 @@ TypeResult resolveAllOf(
 }
 
 TypeResult resolveOfs(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final String identifier,
-  final Schema schema, {
+  final openapi.Schema schema, {
   final bool nullable = false,
 }) {
   if (schema.allOf != null) {

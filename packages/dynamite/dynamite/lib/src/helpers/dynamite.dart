@@ -1,8 +1,7 @@
 // ignore_for_file: avoid_positional_boolean_parameters
 
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/models/parameter.dart';
-import 'package:dynamite/src/models/schema.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
 
 String filterMethodName(final String operationId, final String tag) {
   final expandedTag = tag.split('/').toList();
@@ -20,7 +19,7 @@ String clientName(final String tag) => '${toDartName(tag, uppercaseFirstCharacte
 
 bool isDartParameterNullable(
   final bool? required,
-  final Schema? schema,
+  final openapi.Schema? schema,
 ) =>
     (!(required ?? false) && schema?.$default == null) || (schema?.nullable ?? false);
 
@@ -30,7 +29,7 @@ bool isRequired(
 ) =>
     (required ?? false) && default_ == null;
 
-int sortRequiredParameters(final Parameter a, final Parameter b) {
+int sortRequiredParameters(final openapi.Parameter a, final openapi.Parameter b) {
   if (a.isDartRequired != b.isDartRequired) {
     if (a.isDartRequired && !b.isDartRequired) {
       return -1;
