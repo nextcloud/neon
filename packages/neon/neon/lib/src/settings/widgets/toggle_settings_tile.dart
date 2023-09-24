@@ -13,13 +13,10 @@ class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
   @override
   Widget build(final BuildContext context) => ValueListenableBuilder(
         valueListenable: option,
-        builder: (final context, final value, final child) => CheckboxListTile.adaptive(
-          enabled: option.enabled,
+        builder: (final context, final value, final child) => SwitchListTile.adaptive(
           title: child,
           value: value,
-          onChanged: (final value) {
-            option.value = value!;
-          },
+          onChanged: option.enabled ? (final value) => option.value = value : null,
         ),
         child: Text(option.label(context)),
       );
