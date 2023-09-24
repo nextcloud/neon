@@ -11,47 +11,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files_external.openapi.g.dart';
-
-class FilesExternalResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesExternalResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesExternalResponse(data: $data, headers: $headers)';
-}
-
-class FilesExternalApiException extends DynamiteApiException {
-  FilesExternalApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesExternalApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesExternalApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesExternalApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesExternalClient extends DynamiteClient {
   FilesExternalClient(
@@ -119,7 +82,7 @@ class FilesExternalApiClient {
         specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson),
       )! as FilesExternalApiGetUserMountsResponseApplicationJson;
     }
-    throw await FilesExternalApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

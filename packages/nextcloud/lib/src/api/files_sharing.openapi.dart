@@ -11,47 +11,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files_sharing.openapi.g.dart';
-
-class FilesSharingResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesSharingResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesSharingResponse(data: $data, headers: $headers)';
-}
-
-class FilesSharingApiException extends DynamiteApiException {
-  FilesSharingApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesSharingApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesSharingApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesSharingApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesSharingClient extends DynamiteClient {
   FilesSharingClient(
@@ -129,7 +92,7 @@ class FilesSharingDeletedShareapiClient {
         specifiedType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson),
       )! as FilesSharingDeletedShareapiListResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Undelete a deleted share
@@ -175,7 +138,7 @@ class FilesSharingDeletedShareapiClient {
         specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson),
       )! as FilesSharingDeletedShareapiUndeleteResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -222,7 +185,7 @@ class FilesSharingPublicPreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a preview for a shared file
@@ -279,7 +242,7 @@ class FilesSharingPublicPreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -327,7 +290,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson),
       )! as FilesSharingRemoteGetSharesResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get list of pending remote shares
@@ -371,7 +334,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson),
       )! as FilesSharingRemoteGetOpenSharesResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a remote share
@@ -417,7 +380,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson),
       )! as FilesSharingRemoteAcceptShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Decline a remote share
@@ -463,7 +426,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson),
       )! as FilesSharingRemoteDeclineShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get info of a remote share
@@ -509,7 +472,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson),
       )! as FilesSharingRemoteGetShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unshare a remote share
@@ -555,7 +518,7 @@ class FilesSharingRemoteClient {
         specifiedType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson),
       )! as FilesSharingRemoteUnshareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -615,7 +578,7 @@ class FilesSharingShareInfoClient {
         specifiedType: const FullType(FilesSharingShareInfo),
       )! as FilesSharingShareInfo;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -685,7 +648,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson),
       )! as FilesSharingShareapiGetSharesResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a share
@@ -773,7 +736,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson),
       )! as FilesSharingShareapiCreateShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares relative to a file, including parent folders shares rights
@@ -819,7 +782,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson),
       )! as FilesSharingShareapiGetInheritedSharesResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares that are still pending
@@ -863,7 +826,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson),
       )! as FilesSharingShareapiPendingSharesResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a specific share by id
@@ -913,7 +876,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson),
       )! as FilesSharingShareapiGetShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a share
@@ -995,7 +958,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson),
       )! as FilesSharingShareapiUpdateShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a share
@@ -1041,7 +1004,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson),
       )! as FilesSharingShareapiDeleteShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a share
@@ -1087,7 +1050,7 @@ class FilesSharingShareapiClient {
         specifiedType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson),
       )! as FilesSharingShareapiAcceptShareResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1098,7 +1061,7 @@ class FilesSharingShareesapiClient {
 
   /// Search for sharees
   Future<
-      FilesSharingResponse<FilesSharingShareesapiSearchResponseApplicationJson,
+      DynamiteResponse<FilesSharingShareesapiSearchResponseApplicationJson,
           FilesSharingShareesapiShareesapiSearchHeaders>> search({
     final String search = '',
     final String? itemType,
@@ -1161,7 +1124,7 @@ class FilesSharingShareesapiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return FilesSharingResponse<FilesSharingShareesapiSearchResponseApplicationJson,
+      return DynamiteResponse<FilesSharingShareesapiSearchResponseApplicationJson,
           FilesSharingShareesapiShareesapiSearchHeaders>(
         _jsonSerializers.deserialize(
           await response.jsonBody,
@@ -1173,7 +1136,7 @@ class FilesSharingShareesapiClient {
         )! as FilesSharingShareesapiShareesapiSearchHeaders,
       );
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Find recommended sharees
@@ -1226,7 +1189,7 @@ class FilesSharingShareesapiClient {
         specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson),
       )! as FilesSharingShareesapiFindRecommendedResponseApplicationJson;
     }
-    throw await FilesSharingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

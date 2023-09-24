@@ -10,47 +10,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'weather_status.openapi.g.dart';
-
-class WeatherStatusResponse<T, U> extends DynamiteResponse<T, U> {
-  WeatherStatusResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'WeatherStatusResponse(data: $data, headers: $headers)';
-}
-
-class WeatherStatusApiException extends DynamiteApiException {
-  WeatherStatusApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<WeatherStatusApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return WeatherStatusApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'WeatherStatusApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class WeatherStatusClient extends DynamiteClient {
   WeatherStatusClient(
@@ -122,7 +85,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson),
       )! as WeatherStatusWeatherStatusSetModeResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Try to use the address set in user personal settings as weather location
@@ -166,7 +129,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson),
       )! as WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get stored user location
@@ -210,7 +173,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson),
       )! as WeatherStatusWeatherStatusGetLocationResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
@@ -266,7 +229,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson),
       )! as WeatherStatusWeatherStatusSetLocationResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get forecast for current location
@@ -310,7 +273,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson),
       )! as WeatherStatusWeatherStatusGetForecastResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get favorites list
@@ -354,7 +317,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson),
       )! as WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set favorites list
@@ -400,7 +363,7 @@ class WeatherStatusWeatherStatusClient {
         specifiedType: const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson),
       )! as WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson;
     }
-    throw await WeatherStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

@@ -12,47 +12,10 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'theming.openapi.g.dart';
-
-class ThemingResponse<T, U> extends DynamiteResponse<T, U> {
-  ThemingResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'ThemingResponse(data: $data, headers: $headers)';
-}
-
-class ThemingApiException extends DynamiteApiException {
-  ThemingApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<ThemingApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return ThemingApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'ThemingApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class ThemingClient extends DynamiteClient {
   ThemingClient(
@@ -119,7 +82,7 @@ class ThemingIconClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Return a 512x512 icon for touch devices
@@ -156,7 +119,7 @@ class ThemingIconClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a themed icon
@@ -198,7 +161,7 @@ class ThemingIconClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -253,7 +216,7 @@ class ThemingThemingClient {
     if (response.statusCode == 200) {
       return response.body;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get an image
@@ -296,7 +259,7 @@ class ThemingThemingClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the manifest for an app
@@ -336,7 +299,7 @@ class ThemingThemingClient {
         specifiedType: const FullType(ThemingThemingGetManifestResponseApplicationJson),
       )! as ThemingThemingGetManifestResponseApplicationJson;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -381,7 +344,7 @@ class ThemingUserThemeClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the background
@@ -433,7 +396,7 @@ class ThemingUserThemeClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(ThemingBackground))!
           as ThemingBackground;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete the background
@@ -473,7 +436,7 @@ class ThemingUserThemeClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(ThemingBackground))!
           as ThemingBackground;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable theme
@@ -519,7 +482,7 @@ class ThemingUserThemeClient {
         specifiedType: const FullType(ThemingUserThemeEnableThemeResponseApplicationJson),
       )! as ThemingUserThemeEnableThemeResponseApplicationJson;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable theme
@@ -565,7 +528,7 @@ class ThemingUserThemeClient {
         specifiedType: const FullType(ThemingUserThemeDisableThemeResponseApplicationJson),
       )! as ThemingUserThemeDisableThemeResponseApplicationJson;
     }
-    throw await ThemingApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

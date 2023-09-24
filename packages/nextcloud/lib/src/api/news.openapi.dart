@@ -11,47 +11,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'news.openapi.g.dart';
-
-class NewsResponse<T, U> extends DynamiteResponse<T, U> {
-  NewsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NewsResponse(data: $data, headers: $headers)';
-}
-
-class NewsApiException extends DynamiteApiException {
-  NewsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NewsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NewsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NewsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NewsClient extends DynamiteClient {
   NewsClient(
@@ -109,7 +72,7 @@ class NewsClient extends DynamiteClient {
         specifiedType: const FullType(NewsSupportedAPIVersions),
       )! as NewsSupportedAPIVersions;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFolders> listFolders() async {
@@ -147,7 +110,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFolders))!
           as NewsListFolders;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFolders> createFolder({required final String name}) async {
@@ -186,7 +149,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFolders))!
           as NewsListFolders;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> renameFolder({
@@ -226,7 +189,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> deleteFolder({required final int folderId}) async {
@@ -262,7 +225,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> markFolderAsRead({
@@ -302,7 +265,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFeeds> listFeeds() async {
@@ -340,7 +303,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFeeds))!
           as NewsListFeeds;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFeeds> addFeed({
@@ -385,7 +348,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFeeds))!
           as NewsListFeeds;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> deleteFeed({required final int feedId}) async {
@@ -421,7 +384,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> moveFeed({
@@ -463,7 +426,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> renameFeed({
@@ -503,7 +466,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> markFeedAsRead({
@@ -543,7 +506,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListArticles> listArticles({
@@ -606,7 +569,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListArticles))!
           as NewsListArticles;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListArticles> listUpdatedArticles({
@@ -657,7 +620,7 @@ class NewsClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListArticles))!
           as NewsListArticles;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> markArticleAsRead({required final int itemId}) async {
@@ -693,7 +656,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> markArticleAsUnread({required final int itemId}) async {
@@ -729,7 +692,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> starArticle({required final int itemId}) async {
@@ -765,7 +728,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<void> unstarArticle({required final int itemId}) async {
@@ -801,7 +764,7 @@ class NewsClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

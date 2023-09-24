@@ -9,47 +9,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files_versions.openapi.g.dart';
-
-class FilesVersionsResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesVersionsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesVersionsResponse(data: $data, headers: $headers)';
-}
-
-class FilesVersionsApiException extends DynamiteApiException {
-  FilesVersionsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesVersionsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesVersionsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesVersionsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesVersionsClient extends DynamiteClient {
   FilesVersionsClient(
@@ -130,7 +93,7 @@ class FilesVersionsPreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await FilesVersionsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

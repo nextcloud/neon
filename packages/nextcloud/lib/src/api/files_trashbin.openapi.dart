@@ -9,47 +9,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files_trashbin.openapi.g.dart';
-
-class FilesTrashbinResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesTrashbinResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesTrashbinResponse(data: $data, headers: $headers)';
-}
-
-class FilesTrashbinApiException extends DynamiteApiException {
-  FilesTrashbinApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesTrashbinApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesTrashbinApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesTrashbinApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesTrashbinClient extends DynamiteClient {
   FilesTrashbinClient(
@@ -130,7 +93,7 @@ class FilesTrashbinPreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await FilesTrashbinApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

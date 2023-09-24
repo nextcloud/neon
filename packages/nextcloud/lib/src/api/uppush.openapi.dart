@@ -10,47 +10,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'uppush.openapi.g.dart';
-
-class UppushResponse<T, U> extends DynamiteResponse<T, U> {
-  UppushResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'UppushResponse(data: $data, headers: $headers)';
-}
-
-class UppushApiException extends DynamiteApiException {
-  UppushApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<UppushApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return UppushApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'UppushApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class UppushClient extends DynamiteClient {
   UppushClient(
@@ -109,7 +72,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushCheckResponseApplicationJson),
       )! as UppushCheckResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set keepalive interval
@@ -153,7 +116,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushSetKeepaliveResponseApplicationJson),
       )! as UppushSetKeepaliveResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to create a new deviceId
@@ -195,7 +158,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushCreateDeviceResponseApplicationJson),
       )! as UppushCreateDeviceResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to get push messages
@@ -239,7 +202,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushSyncDeviceResponseApplicationJson),
       )! as UppushSyncDeviceResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a device
@@ -281,7 +244,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushDeleteDeviceResponseApplicationJson),
       )! as UppushDeleteDeviceResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create an authorization token for a new 3rd party service
@@ -327,7 +290,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushCreateAppResponseApplicationJson),
       )! as UppushCreateAppResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete an authorization token
@@ -369,7 +332,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushDeleteAppResponseApplicationJson),
       )! as UppushDeleteAppResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unifiedpush discovery Following specifications
@@ -411,7 +374,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
       )! as UppushUnifiedpushDiscoveryResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Receive notifications from 3rd parties
@@ -453,7 +416,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushPushResponseApplicationJson),
       )! as UppushPushResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway discovery
@@ -494,7 +457,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
       )! as UppushGatewayMatrixDiscoveryResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway
@@ -535,7 +498,7 @@ class UppushClient extends DynamiteClient {
         specifiedType: const FullType(UppushGatewayMatrixResponseApplicationJson),
       )! as UppushGatewayMatrixResponseApplicationJson;
     }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

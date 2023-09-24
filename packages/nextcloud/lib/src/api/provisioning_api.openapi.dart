@@ -12,47 +12,10 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'provisioning_api.openapi.g.dart';
-
-class ProvisioningApiResponse<T, U> extends DynamiteResponse<T, U> {
-  ProvisioningApiResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'ProvisioningApiResponse(data: $data, headers: $headers)';
-}
-
-class ProvisioningApiApiException extends DynamiteApiException {
-  ProvisioningApiApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<ProvisioningApiApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return ProvisioningApiApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'ProvisioningApiApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class ProvisioningApiClient extends DynamiteClient {
   ProvisioningApiClient(
@@ -130,7 +93,7 @@ class ProvisioningApiAppConfigClient {
         specifiedType: const FullType(ProvisioningApiAppConfigGetAppsResponseApplicationJson),
       )! as ProvisioningApiAppConfigGetAppsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the config keys of an app
@@ -178,7 +141,7 @@ class ProvisioningApiAppConfigClient {
         specifiedType: const FullType(ProvisioningApiAppConfigGetKeysResponseApplicationJson),
       )! as ProvisioningApiAppConfigGetKeysResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a the config value of an app
@@ -232,7 +195,7 @@ class ProvisioningApiAppConfigClient {
         specifiedType: const FullType(ProvisioningApiAppConfigGetValueResponseApplicationJson),
       )! as ProvisioningApiAppConfigGetValueResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update the config value of an app
@@ -282,7 +245,7 @@ class ProvisioningApiAppConfigClient {
         specifiedType: const FullType(ProvisioningApiAppConfigSetValueResponseApplicationJson),
       )! as ProvisioningApiAppConfigSetValueResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a config key of an app
@@ -332,7 +295,7 @@ class ProvisioningApiAppConfigClient {
         specifiedType: const FullType(ProvisioningApiAppConfigDeleteKeyResponseApplicationJson),
       )! as ProvisioningApiAppConfigDeleteKeyResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -388,7 +351,7 @@ class ProvisioningApiAppsClient {
         specifiedType: const FullType(ProvisioningApiAppsGetAppsResponseApplicationJson),
       )! as ProvisioningApiAppsGetAppsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the app info for an app
@@ -436,7 +399,7 @@ class ProvisioningApiAppsClient {
         specifiedType: const FullType(ProvisioningApiAppsGetAppInfoResponseApplicationJson),
       )! as ProvisioningApiAppsGetAppInfoResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable an app
@@ -484,7 +447,7 @@ class ProvisioningApiAppsClient {
         specifiedType: const FullType(ProvisioningApiAppsEnableResponseApplicationJson),
       )! as ProvisioningApiAppsEnableResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable an app
@@ -532,7 +495,7 @@ class ProvisioningApiAppsClient {
         specifiedType: const FullType(ProvisioningApiAppsDisableResponseApplicationJson),
       )! as ProvisioningApiAppsDisableResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -594,7 +557,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetGroupsResponseApplicationJson),
       )! as ProvisioningApiGroupsGetGroupsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a new group
@@ -646,7 +609,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsAddGroupResponseApplicationJson),
       )! as ProvisioningApiGroupsAddGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of groups details
@@ -702,7 +665,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson),
       )! as ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users in the specified group
@@ -749,7 +712,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersResponseApplicationJson),
       )! as ProvisioningApiGroupsGetGroupUsersResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users details in the specified group
@@ -808,7 +771,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson),
       )! as ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the list of user IDs that are a subadmin of the group
@@ -857,7 +820,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson),
       )! as ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users in the specified group
@@ -905,7 +868,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsGetGroupResponseApplicationJson),
       )! as ProvisioningApiGroupsGetGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a group
@@ -958,7 +921,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsUpdateGroupResponseApplicationJson),
       )! as ProvisioningApiGroupsUpdateGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a group
@@ -1007,7 +970,7 @@ class ProvisioningApiGroupsClient {
         specifiedType: const FullType(ProvisioningApiGroupsDeleteGroupResponseApplicationJson),
       )! as ProvisioningApiGroupsDeleteGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1063,7 +1026,7 @@ class ProvisioningApiPreferencesClient {
         specifiedType: const FullType(ProvisioningApiPreferencesSetPreferenceResponseApplicationJson),
       )! as ProvisioningApiPreferencesSetPreferenceResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a preference for an app
@@ -1111,7 +1074,7 @@ class ProvisioningApiPreferencesClient {
         specifiedType: const FullType(ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson),
       )! as ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update multiple preference values of an app
@@ -1164,7 +1127,7 @@ class ProvisioningApiPreferencesClient {
         specifiedType: const FullType(ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson),
       )! as ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete multiple preferences for an app
@@ -1212,7 +1175,7 @@ class ProvisioningApiPreferencesClient {
         specifiedType: const FullType(ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson),
       )! as ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1274,7 +1237,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetUsersResponseApplicationJson),
       )! as ProvisioningApiUsersGetUsersResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a new user
@@ -1352,7 +1315,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersAddUserResponseApplicationJson),
       )! as ProvisioningApiUsersAddUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users and their details
@@ -1408,7 +1371,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetUsersDetailsResponseApplicationJson),
       )! as ProvisioningApiUsersGetUsersDetailsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Search users by their phone numbers
@@ -1464,7 +1427,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson),
       )! as ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the details of a user
@@ -1510,7 +1473,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetUserResponseApplicationJson),
       )! as ProvisioningApiUsersGetUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a value of the user's details
@@ -1560,7 +1523,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersEditUserResponseApplicationJson),
       )! as ProvisioningApiUsersEditUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a user
@@ -1606,7 +1569,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersDeleteUserResponseApplicationJson),
       )! as ProvisioningApiUsersDeleteUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the details of the current user
@@ -1650,7 +1613,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetCurrentUserResponseApplicationJson),
       )! as ProvisioningApiUsersGetCurrentUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of fields that are editable for the current user
@@ -1694,7 +1657,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsResponseApplicationJson),
       )! as ProvisioningApiUsersGetEditableFieldsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of fields that are editable for a user
@@ -1740,7 +1703,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson),
       )! as ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update multiple values of the user's details
@@ -1797,7 +1760,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersEditUserMultiValueResponseApplicationJson),
       )! as ProvisioningApiUsersEditUserMultiValueResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Wipe all devices of a user
@@ -1843,7 +1806,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersWipeUserDevicesResponseApplicationJson),
       )! as ProvisioningApiUsersWipeUserDevicesResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable a user
@@ -1889,7 +1852,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersEnableUserResponseApplicationJson),
       )! as ProvisioningApiUsersEnableUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable a user
@@ -1935,7 +1898,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersDisableUserResponseApplicationJson),
       )! as ProvisioningApiUsersDisableUserResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of groups the user belongs to
@@ -1981,7 +1944,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetUsersGroupsResponseApplicationJson),
       )! as ProvisioningApiUsersGetUsersGroupsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Add a user to a group
@@ -2031,7 +1994,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersAddToGroupResponseApplicationJson),
       )! as ProvisioningApiUsersAddToGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a user from a group
@@ -2079,7 +2042,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersRemoveFromGroupResponseApplicationJson),
       )! as ProvisioningApiUsersRemoveFromGroupResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the groups a user is a subadmin of
@@ -2127,7 +2090,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson),
       )! as ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Make a user a subadmin of a group
@@ -2177,7 +2140,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersAddSubAdminResponseApplicationJson),
       )! as ProvisioningApiUsersAddSubAdminResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a user from the subadmins of a group
@@ -2227,7 +2190,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersRemoveSubAdminResponseApplicationJson),
       )! as ProvisioningApiUsersRemoveSubAdminResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Resend the welcome message
@@ -2273,7 +2236,7 @@ class ProvisioningApiUsersClient {
         specifiedType: const FullType(ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson),
       )! as ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson;
     }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

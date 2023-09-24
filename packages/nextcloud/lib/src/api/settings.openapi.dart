@@ -9,47 +9,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'settings.openapi.g.dart';
-
-class SettingsResponse<T, U> extends DynamiteResponse<T, U> {
-  SettingsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'SettingsResponse(data: $data, headers: $headers)';
-}
-
-class SettingsApiException extends DynamiteApiException {
-  SettingsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<SettingsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return SettingsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'SettingsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class SettingsClient extends DynamiteClient {
   SettingsClient(
@@ -81,7 +44,7 @@ class SettingsLogSettingsClient {
   /// download logfile
   ///
   /// This endpoint requires admin access
-  Future<SettingsResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>> download() async {
+  Future<DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>> download() async {
     const path = '/index.php/settings/admin/log/download';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -113,7 +76,7 @@ class SettingsLogSettingsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return SettingsResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>(
+      return DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>(
         await response.bodyBytes,
         _jsonSerializers.deserialize(
           response.responseHeaders,
@@ -121,7 +84,7 @@ class SettingsLogSettingsClient {
         )! as SettingsLogSettingsLogSettingsDownloadHeaders,
       );
     }
-    throw await SettingsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

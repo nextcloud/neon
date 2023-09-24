@@ -11,47 +11,10 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files_reminders.openapi.g.dart';
-
-class FilesRemindersResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesRemindersResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesRemindersResponse(data: $data, headers: $headers)';
-}
-
-class FilesRemindersApiException extends DynamiteApiException {
-  FilesRemindersApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesRemindersApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesRemindersApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesRemindersApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesRemindersClient extends DynamiteClient {
   FilesRemindersClient(
@@ -126,7 +89,7 @@ class FilesRemindersApiClient {
         specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson),
       )! as FilesRemindersApiGetResponseApplicationJson;
     }
-    throw await FilesRemindersApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set a reminder
@@ -181,7 +144,7 @@ class FilesRemindersApiClient {
         specifiedType: const FullType(FilesRemindersApiSetResponseApplicationJson),
       )! as FilesRemindersApiSetResponseApplicationJson;
     }
-    throw await FilesRemindersApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a reminder
@@ -230,7 +193,7 @@ class FilesRemindersApiClient {
         specifiedType: const FullType(FilesRemindersApiRemoveResponseApplicationJson),
       )! as FilesRemindersApiRemoveResponseApplicationJson;
     }
-    throw await FilesRemindersApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

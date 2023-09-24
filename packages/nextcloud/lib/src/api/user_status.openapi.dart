@@ -11,47 +11,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'user_status.openapi.g.dart';
-
-class UserStatusResponse<T, U> extends DynamiteResponse<T, U> {
-  UserStatusResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'UserStatusResponse(data: $data, headers: $headers)';
-}
-
-class UserStatusApiException extends DynamiteApiException {
-  UserStatusApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<UserStatusApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return UserStatusApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'UserStatusApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class UserStatusClient extends DynamiteClient {
   UserStatusClient(
@@ -129,7 +92,7 @@ class UserStatusHeartbeatClient {
         specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponseApplicationJson),
       )! as UserStatusHeartbeatHeartbeatResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -177,7 +140,7 @@ class UserStatusPredefinedStatusClient {
         specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponseApplicationJson),
       )! as UserStatusPredefinedStatusFindAllResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -235,7 +198,7 @@ class UserStatusStatusesClient {
         specifiedType: const FullType(UserStatusStatusesFindAllResponseApplicationJson),
       )! as UserStatusStatusesFindAllResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Find the status of a user
@@ -281,7 +244,7 @@ class UserStatusStatusesClient {
         specifiedType: const FullType(UserStatusStatusesFindResponseApplicationJson),
       )! as UserStatusStatusesFindResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -329,7 +292,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusGetStatusResponseApplicationJson),
       )! as UserStatusUserStatusGetStatusResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update the status type of the current user
@@ -375,7 +338,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusSetStatusResponseApplicationJson),
       )! as UserStatusUserStatusSetStatusResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the message to a predefined message for the current user
@@ -425,7 +388,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusSetPredefinedMessageResponseApplicationJson),
       )! as UserStatusUserStatusSetPredefinedMessageResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the message to a custom message for the current user
@@ -481,7 +444,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponseApplicationJson),
       )! as UserStatusUserStatusSetCustomMessageResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Clear the message of the current user
@@ -525,7 +488,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusClearMessageResponseApplicationJson),
       )! as UserStatusUserStatusClearMessageResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Revert the status to the previous status
@@ -571,7 +534,7 @@ class UserStatusUserStatusClient {
         specifiedType: const FullType(UserStatusUserStatusRevertStatusResponseApplicationJson),
       )! as UserStatusUserStatusRevertStatusResponseApplicationJson;
     }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

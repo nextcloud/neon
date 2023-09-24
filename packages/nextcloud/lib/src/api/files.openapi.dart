@@ -12,47 +12,10 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'files.openapi.g.dart';
-
-class FilesResponse<T, U> extends DynamiteResponse<T, U> {
-  FilesResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'FilesResponse(data: $data, headers: $headers)';
-}
-
-class FilesApiException extends DynamiteApiException {
-  FilesApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<FilesApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return FilesApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'FilesApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class FilesClient extends DynamiteClient {
   FilesClient(
@@ -132,7 +95,7 @@ class FilesApiClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -180,7 +143,7 @@ class FilesDirectEditingClient {
         specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson),
       )! as FilesDirectEditingInfoResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the templates for direct editing
@@ -228,7 +191,7 @@ class FilesDirectEditingClient {
         specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson),
       )! as FilesDirectEditingTemplatesResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Open a file for direct editing
@@ -282,7 +245,7 @@ class FilesDirectEditingClient {
         specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson),
       )! as FilesDirectEditingOpenResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a file for direct editing
@@ -336,7 +299,7 @@ class FilesDirectEditingClient {
         specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson),
       )! as FilesDirectEditingCreateResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -388,7 +351,7 @@ class FilesOpenLocalEditorClient {
         specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson),
       )! as FilesOpenLocalEditorCreateResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Validate a local editor
@@ -436,7 +399,7 @@ class FilesOpenLocalEditorClient {
         specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson),
       )! as FilesOpenLocalEditorValidateResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -484,7 +447,7 @@ class FilesTemplateClient {
         specifiedType: const FullType(FilesTemplateListResponseApplicationJson),
       )! as FilesTemplateListResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a template
@@ -538,7 +501,7 @@ class FilesTemplateClient {
         specifiedType: const FullType(FilesTemplateCreateResponseApplicationJson),
       )! as FilesTemplateCreateResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Initialize the template directory
@@ -590,7 +553,7 @@ class FilesTemplateClient {
         specifiedType: const FullType(FilesTemplatePathResponseApplicationJson),
       )! as FilesTemplatePathResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -644,7 +607,7 @@ class FilesTransferOwnershipClient {
         specifiedType: const FullType(FilesTransferOwnershipTransferResponseApplicationJson),
       )! as FilesTransferOwnershipTransferResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept an ownership transfer
@@ -690,7 +653,7 @@ class FilesTransferOwnershipClient {
         specifiedType: const FullType(FilesTransferOwnershipAcceptResponseApplicationJson),
       )! as FilesTransferOwnershipAcceptResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Reject an ownership transfer
@@ -736,7 +699,7 @@ class FilesTransferOwnershipClient {
         specifiedType: const FullType(FilesTransferOwnershipRejectResponseApplicationJson),
       )! as FilesTransferOwnershipRejectResponseApplicationJson;
     }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

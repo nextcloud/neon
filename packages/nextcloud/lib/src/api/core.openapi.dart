@@ -12,47 +12,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'core.openapi.g.dart';
-
-class CoreResponse<T, U> extends DynamiteResponse<T, U> {
-  CoreResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'CoreResponse(data: $data, headers: $headers)';
-}
-
-class CoreApiException extends DynamiteApiException {
-  CoreApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<CoreApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return CoreApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'CoreApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class CoreClient extends DynamiteClient {
   CoreClient(
@@ -129,7 +92,7 @@ class CoreClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreStatus))!
           as CoreStatus;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -177,7 +140,7 @@ class CoreAppPasswordClient {
         specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
       )! as CoreAppPasswordGetAppPasswordResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Rotate app password
@@ -221,7 +184,7 @@ class CoreAppPasswordClient {
         specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
       )! as CoreAppPasswordRotateAppPasswordResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete app password
@@ -265,7 +228,7 @@ class CoreAppPasswordClient {
         specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
       )! as CoreAppPasswordDeleteAppPasswordResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -337,7 +300,7 @@ class CoreAutoCompleteClient {
         specifiedType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
       )! as CoreAutoCompleteGetResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -348,7 +311,7 @@ class CoreAvatarClient {
   final CoreClient _rootClient;
 
   /// Get the dark avatar
-  Future<CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
+  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required final String userId,
     required final int size,
   }) async {
@@ -383,7 +346,7 @@ class CoreAvatarClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
+      return DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
         await response.bodyBytes,
         _jsonSerializers.deserialize(
           response.responseHeaders,
@@ -391,11 +354,11 @@ class CoreAvatarClient {
         )! as CoreAvatarAvatarGetAvatarDarkHeaders,
       );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the avatar
-  Future<CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
+  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
     required final String userId,
     required final int size,
   }) async {
@@ -430,7 +393,7 @@ class CoreAvatarClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
+      return DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
         await response.bodyBytes,
         _jsonSerializers.deserialize(
           response.responseHeaders,
@@ -438,7 +401,7 @@ class CoreAvatarClient {
         )! as CoreAvatarAvatarGetAvatarHeaders,
       );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -484,7 +447,7 @@ class CoreClientFlowLoginV2Client {
         specifiedType: const FullType(CoreLoginFlowV2Credentials),
       )! as CoreLoginFlowV2Credentials;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Init a login flow
@@ -521,7 +484,7 @@ class CoreClientFlowLoginV2Client {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreLoginFlowV2))!
           as CoreLoginFlowV2;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -573,7 +536,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
       )! as CoreCollaborationResourcesSearchCollectionsResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a collection
@@ -619,7 +582,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
       )! as CoreCollaborationResourcesListCollectionResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Rename a collection
@@ -667,7 +630,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
       )! as CoreCollaborationResourcesRenameCollectionResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Add a resource to a collection
@@ -717,7 +680,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
       )! as CoreCollaborationResourcesAddResourceResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a resource from a collection
@@ -767,7 +730,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
       )! as CoreCollaborationResourcesRemoveResourceResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get collections by resource
@@ -815,7 +778,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
       )! as CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a collection for a resource
@@ -865,7 +828,7 @@ class CoreCollaborationResourcesClient {
         specifiedType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
       )! as CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -913,7 +876,7 @@ class CoreGuestAvatarClient {
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.bodyBytes;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Returns a guest avatar image response
@@ -960,7 +923,7 @@ class CoreGuestAvatarClient {
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.bodyBytes;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1012,7 +975,7 @@ class CoreHoverCardClient {
         specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
       )! as CoreHoverCardGetUserResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1066,7 +1029,7 @@ class CoreNavigationClient {
         specifiedType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
       )! as CoreNavigationGetAppsNavigationResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the settings navigation
@@ -1114,7 +1077,7 @@ class CoreNavigationClient {
         specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
       )! as CoreNavigationGetSettingsNavigationResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1125,7 +1088,7 @@ class CoreOcmClient {
   final CoreClient _rootClient;
 
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
-  Future<CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+  Future<DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
     const path = '/index.php/ocm-provider';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1155,7 +1118,7 @@ class CoreOcmClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
+      return DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
         _jsonSerializers.deserialize(
           await response.jsonBody,
           specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
@@ -1166,7 +1129,7 @@ class CoreOcmClient {
         )! as CoreOcmOcmDiscoveryHeaders,
       );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1212,7 +1175,7 @@ class CoreOcsClient {
         specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
       )! as CoreOcsGetCapabilitiesResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1285,7 +1248,7 @@ class CorePreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a preview by file path
@@ -1352,7 +1315,7 @@ class CorePreviewClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1408,7 +1371,7 @@ class CoreProfileApiClient {
         specifiedType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
       )! as CoreProfileApiSetVisibilityResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1451,7 +1414,7 @@ class CoreReferenceClient {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1503,7 +1466,7 @@ class CoreReferenceApiClient {
         specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
       )! as CoreReferenceApiResolveOneResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Resolve multiple references
@@ -1553,7 +1516,7 @@ class CoreReferenceApiClient {
         specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
       )! as CoreReferenceApiResolveResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Extract references from a text
@@ -1607,7 +1570,7 @@ class CoreReferenceApiClient {
         specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
       )! as CoreReferenceApiExtractResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the providers
@@ -1651,7 +1614,7 @@ class CoreReferenceApiClient {
         specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
       )! as CoreReferenceApiGetProvidersInfoResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Touch a provider
@@ -1701,7 +1664,7 @@ class CoreReferenceApiClient {
         specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
       )! as CoreReferenceApiTouchProviderResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1747,7 +1710,7 @@ class CoreTextProcessingApiClient {
         specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
       )! as CoreTextProcessingApiTaskTypesResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows scheduling a language model task
@@ -1799,7 +1762,7 @@ class CoreTextProcessingApiClient {
         specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
       )! as CoreTextProcessingApiScheduleResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
@@ -1843,7 +1806,7 @@ class CoreTextProcessingApiClient {
         specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
       )! as CoreTextProcessingApiGetTaskResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows to delete a scheduled task for a user
@@ -1889,7 +1852,7 @@ class CoreTextProcessingApiClient {
         specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
       )! as CoreTextProcessingApiDeleteTaskResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
@@ -1939,7 +1902,7 @@ class CoreTextProcessingApiClient {
         specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
       )! as CoreTextProcessingApiListTasksByAppResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1985,7 +1948,7 @@ class CoreTranslationApiClient {
         specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
       )! as CoreTranslationApiLanguagesResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Translate a text
@@ -2035,7 +1998,7 @@ class CoreTranslationApiClient {
         specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
       )! as CoreTranslationApiTranslateResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2089,7 +2052,7 @@ class CoreUnifiedSearchClient {
         specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
       )! as CoreUnifiedSearchGetProvidersResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Search
@@ -2158,7 +2121,7 @@ class CoreUnifiedSearchClient {
         specifiedType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
       )! as CoreUnifiedSearchSearchResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2206,7 +2169,7 @@ class CoreWhatsNewClient {
         specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson),
       )! as CoreWhatsNewGetResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Dismiss the changes
@@ -2252,7 +2215,7 @@ class CoreWhatsNewClient {
         specifiedType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
       )! as CoreWhatsNewDismissResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2298,7 +2261,7 @@ class CoreWipeClient {
         specifiedType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
       )! as CoreWipeCheckWipeResponseApplicationJson;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Finish the wipe
@@ -2338,7 +2301,7 @@ class CoreWipeClient {
         specifiedType: const FullType(JsonObject),
       )! as JsonObject;
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

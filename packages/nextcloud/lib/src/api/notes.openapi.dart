@@ -12,47 +12,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'notes.openapi.g.dart';
-
-class NotesResponse<T, U> extends DynamiteResponse<T, U> {
-  NotesResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NotesResponse(data: $data, headers: $headers)';
-}
-
-class NotesApiException extends DynamiteApiException {
-  NotesApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NotesApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NotesApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NotesApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NotesClient extends DynamiteClient {
   NotesClient(
@@ -135,7 +98,7 @@ class NotesClient extends DynamiteClient {
         specifiedType: const FullType(BuiltList, [FullType(NotesNote)]),
       )! as BuiltList<NotesNote>;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> createNote({
@@ -194,7 +157,7 @@ class NotesClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
           as NotesNote;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> getNote({
@@ -243,7 +206,7 @@ class NotesClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
           as NotesNote;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> updateNote({
@@ -308,7 +271,7 @@ class NotesClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
           as NotesNote;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> deleteNote({required final int id}) async {
@@ -346,7 +309,7 @@ class NotesClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return response.body;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesSettings> getSettings() async {
@@ -384,7 +347,7 @@ class NotesClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
           as NotesSettings;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesSettings> updateSettings({required final NotesSettings settings}) async {
@@ -425,7 +388,7 @@ class NotesClient extends DynamiteClient {
       return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
           as NotesSettings;
     }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

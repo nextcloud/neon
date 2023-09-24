@@ -10,47 +10,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'dashboard.openapi.g.dart';
-
-class DashboardResponse<T, U> extends DynamiteResponse<T, U> {
-  DashboardResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'DashboardResponse(data: $data, headers: $headers)';
-}
-
-class DashboardApiException extends DynamiteApiException {
-  DashboardApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<DashboardApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return DashboardApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'DashboardApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class DashboardClient extends DynamiteClient {
   DashboardClient(
@@ -118,7 +81,7 @@ class DashboardDashboardApiClient {
         specifiedType: const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson),
       )! as DashboardDashboardApiGetWidgetsResponseApplicationJson;
     }
-    throw await DashboardApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the items for the widgets
@@ -179,7 +142,7 @@ class DashboardDashboardApiClient {
         specifiedType: const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson),
       )! as DashboardDashboardApiGetWidgetItemsResponseApplicationJson;
     }
-    throw await DashboardApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the items for the widgets
@@ -240,7 +203,7 @@ class DashboardDashboardApiClient {
         specifiedType: const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson),
       )! as DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson;
     }
-    throw await DashboardApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

@@ -7,47 +7,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'comments.openapi.g.dart';
-
-class CommentsResponse<T, U> extends DynamiteResponse<T, U> {
-  CommentsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'CommentsResponse(data: $data, headers: $headers)';
-}
-
-class CommentsApiException extends DynamiteApiException {
-  CommentsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<CommentsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return CommentsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'CommentsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class CommentsClient extends DynamiteClient {
   CommentsClient(

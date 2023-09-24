@@ -32,31 +32,74 @@ extension DynamiteHttpClientResponseBody on HttpClientResponse {
   }
 }
 
-class DynamiteResponse<T, U> {
-  DynamiteResponse(
-    this.data,
+/// Response returned by operations of a [DynamiteClient].
+///
+/// See:
+///   * [DynamiteApiException] as the exception that can be thrown in operations
+///   * [DynamiteAuthentication] for providing authentication methods.
+///   * [DynamiteClient] for the client providing operations.
+class DynamiteResponse<B, H> {
+  /// Creates a new dynamite response.
+  const DynamiteResponse(
+    this.statusCode,
+    this.body,
     this.headers,
   );
 
-  final T data;
+  /// The status code of the response.
+  final int statusCode;
 
-  final U headers;
+  /// The decoded body of the response.
+  final B body;
+
+  /// The decoded headers of the response.
+  final H headers;
 
   @override
-  String toString() => 'DynamiteResponse(data: $data, headers: $headers)';
+  String toString() => 'DynamiteResponse(data: $body, headers: $headers, statusCode: $statusCode)';
 }
 
+/// The exception thrown by operations of a [DynamiteClient].
+///
+///
+/// See:
+///   * [DynamiteResponse] as the response returned by an operation.
+///   * [DynamiteAuthentication] for providing authentication methods.
+///   * [DynamiteClient] for the client providing operations.
+@immutable
 class DynamiteApiException implements Exception {
-  DynamiteApiException(
+  /// Creates a new dynamite exception with the given information.
+  const DynamiteApiException(
     this.statusCode,
     this.headers,
     this.body,
   );
 
+  /// Creates a new Exception from the given [response].
+  ///
+  /// Tries to decode the `response` into a string.
+  static Future<DynamiteApiException> fromResponse(final HttpClientResponse response) async {
+    String body;
+    try {
+      body = await response.body;
+    } on FormatException {
+      body = 'binary';
+    }
+
+    return DynamiteApiException(
+      response.statusCode,
+      response.responseHeaders,
+      body,
+    );
+  }
+
+  /// The returned status code when the exception was thrown.
   final int statusCode;
 
+  /// The returned headers when the exception was thrown.
   final Map<String, String> headers;
 
+  /// The returned body code when the exception was thrown.
   final String body;
 
   @override
@@ -129,7 +172,17 @@ class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
       };
 }
 
+/// A client for making network requests.
+///
+/// See:
+///   * [DynamiteResponse] as the response returned by an operation.
+///   * [DynamiteApiException] as the exception that can be thrown in operations
+///   * [DynamiteAuthentication] for providing authentication methods.
 class DynamiteClient {
+  /// Creates a new dynamite network client.
+  ///
+  /// If [httpClient] is not provided a default one will be created.
+  /// The [baseURL] will be normalized, removing any trailing `/`.
   DynamiteClient(
     final Uri baseURL, {
     this.baseHeaders,
@@ -140,16 +193,27 @@ class DynamiteClient {
   })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
         baseURL = baseURL.normalizeEmptyPath();
 
+  /// The base server url used to build the request uri.
+  ///
+  /// See `https://swagger.io/docs/specification/api-host-and-base-path` for
+  /// further information.
   final Uri baseURL;
 
+  /// The base headers added to each request.
   final Map<String, String>? baseHeaders;
 
+  /// The base http client.
   final HttpClient httpClient;
 
+  /// The optional cookie jar to persist the response cookies.
   final CookieJar? cookieJar;
 
+  /// The available authentications for this client.
+  ///
+  /// The first one matching the required authentication type will be used.
   final List<DynamiteAuthentication> authentications;
 
+  /// Makes a request against a given [path].
   Future<HttpClientResponse> doRequest(
     final String method,
     final Uri path,

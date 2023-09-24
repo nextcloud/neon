@@ -10,47 +10,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'updatenotification.openapi.g.dart';
-
-class UpdatenotificationResponse<T, U> extends DynamiteResponse<T, U> {
-  UpdatenotificationResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'UpdatenotificationResponse(data: $data, headers: $headers)';
-}
-
-class UpdatenotificationApiException extends DynamiteApiException {
-  UpdatenotificationApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<UpdatenotificationApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return UpdatenotificationApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'UpdatenotificationApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class UpdatenotificationClient extends DynamiteClient {
   UpdatenotificationClient(
@@ -126,7 +89,7 @@ class UpdatenotificationApiClient {
         specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson),
       )! as UpdatenotificationApiGetAppListResponseApplicationJson;
     }
-    throw await UpdatenotificationApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

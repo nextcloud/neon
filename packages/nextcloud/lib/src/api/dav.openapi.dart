@@ -9,47 +9,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'dav.openapi.g.dart';
-
-class DavResponse<T, U> extends DynamiteResponse<T, U> {
-  DavResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'DavResponse(data: $data, headers: $headers)';
-}
-
-class DavApiException extends DynamiteApiException {
-  DavApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<DavApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return DavApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'DavApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class DavClient extends DynamiteClient {
   DavClient(
@@ -125,7 +88,7 @@ class DavDirectClient {
         specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson),
       )! as DavDirectGetUrlResponseApplicationJson;
     }
-    throw await DavApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 

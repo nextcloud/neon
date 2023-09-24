@@ -7,47 +7,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'sharebymail.openapi.g.dart';
-
-class SharebymailResponse<T, U> extends DynamiteResponse<T, U> {
-  SharebymailResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'SharebymailResponse(data: $data, headers: $headers)';
-}
-
-class SharebymailApiException extends DynamiteApiException {
-  SharebymailApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<SharebymailApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return SharebymailApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'SharebymailApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class SharebymailClient extends DynamiteClient {
   SharebymailClient(

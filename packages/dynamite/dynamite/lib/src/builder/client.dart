@@ -11,109 +11,10 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:intersperse/intersperse.dart';
 
-List<Class> generateDynamiteOverrides(final State state) => [
-      Class(
-        (final b) => b
-          ..name = '${state.classPrefix}Response'
-          ..types.addAll([
-            refer('T'),
-            refer('U'),
-          ])
-          ..extend = refer('DynamiteResponse<T, U>')
-          ..constructors.add(
-            Constructor(
-              (final b) => b
-                ..requiredParameters.addAll(
-                  ['data', 'headers'].map(
-                    (final name) => Parameter(
-                      (final b) => b
-                        ..name = name
-                        ..toSuper = true,
-                    ),
-                  ),
-                ),
-            ),
-          )
-          ..methods.add(
-            Method(
-              (final b) => b
-                ..name = 'toString'
-                ..returns = refer('String')
-                ..annotations.add(refer('override'))
-                ..lambda = true
-                ..body = Code(
-                  "'${state.classPrefix}Response(data: \$data, headers: \$headers)'",
-                ),
-            ),
-          ),
-      ),
-      Class(
-        (final b) => b
-          ..name = '${state.classPrefix}ApiException'
-          ..extend = refer('DynamiteApiException')
-          ..constructors.add(
-            Constructor(
-              (final b) => b
-                ..requiredParameters.addAll(
-                  ['statusCode', 'headers', 'body'].map(
-                    (final name) => Parameter(
-                      (final b) => b
-                        ..name = name
-                        ..toSuper = true,
-                    ),
-                  ),
-                ),
-            ),
-          )
-          ..methods.addAll([
-            Method(
-              (final b) => b
-                ..name = 'fromResponse'
-                ..returns = refer('Future<${state.classPrefix}ApiException>')
-                ..static = true
-                ..modifier = MethodModifier.async
-                ..requiredParameters.add(
-                  Parameter(
-                    (final b) => b
-                      ..name = 'response'
-                      ..type = refer('HttpClientResponse'),
-                  ),
-                )
-                ..body = Code('''
-String body;
-try {
-  body = await response.body;
-} on FormatException {
-  body = 'binary';
-}
-
-return ${state.classPrefix}ApiException(
-  response.statusCode,
-  response.responseHeaders,
-  body,
-);
-'''),
-            ),
-            Method(
-              (final b) => b
-                ..name = 'toString'
-                ..returns = refer('String')
-                ..annotations.add(refer('override'))
-                ..lambda = true
-                ..body = Code(
-                  "'${state.classPrefix}ApiException(statusCode: \$statusCode, headers: \$headers, body: \$body)'",
-                ),
-            ),
-          ]),
-      ),
-    ];
-
 Iterable<Class> generateClients(
   final openapi.OpenAPI spec,
   final State state,
 ) sync* {
-  yield* generateDynamiteOverrides(state);
-
   final tags = generateTags(spec);
   yield buildRootClient(spec, state, tags);
 
@@ -560,9 +461,9 @@ final _response = await $client.doRequest(
             }
 
             if (headersType != null && dataType != null) {
-              b.returns = refer('Future<${state.classPrefix}Response<$dataType, $headersType>>');
+              b.returns = refer('Future<DynamiteResponse<$dataType, $headersType>>');
               code.write(
-                'return ${state.classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
+                'return DynamiteResponse<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
               );
             } else if (headersType != null) {
               b.returns = refer('Future<$headersType>');
@@ -578,7 +479,7 @@ final _response = await $client.doRequest(
             code.write('}');
           }
           code.write(
-            'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
+            'throw await DynamiteApiException.fromResponse(_response); // coverage:ignore-line\n',
           );
 
           b.body = Code(code.toString());

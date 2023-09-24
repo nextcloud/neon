@@ -11,47 +11,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'notifications.openapi.g.dart';
-
-class NotificationsResponse<T, U> extends DynamiteResponse<T, U> {
-  NotificationsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NotificationsResponse(data: $data, headers: $headers)';
-}
-
-class NotificationsApiException extends DynamiteApiException {
-  NotificationsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NotificationsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NotificationsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NotificationsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NotificationsClient extends DynamiteClient {
   NotificationsClient(
@@ -139,7 +102,7 @@ class NotificationsApiClient {
         specifiedType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson),
       )! as NotificationsApiGenerateNotificationResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -150,7 +113,7 @@ class NotificationsEndpointClient {
 
   /// Get all notifications
   Future<
-      NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+      DynamiteResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
           NotificationsEndpointEndpointListNotificationsHeaders>> listNotifications({
     final NotificationsEndpointListNotificationsApiVersion apiVersion =
         NotificationsEndpointListNotificationsApiVersion.v2,
@@ -189,7 +152,7 @@ class NotificationsEndpointClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+      return DynamiteResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
           NotificationsEndpointEndpointListNotificationsHeaders>(
         _jsonSerializers.deserialize(
           await response.jsonBody,
@@ -201,7 +164,7 @@ class NotificationsEndpointClient {
         )! as NotificationsEndpointEndpointListNotificationsHeaders,
       );
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete all notifications
@@ -248,7 +211,7 @@ class NotificationsEndpointClient {
         specifiedType: const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson),
       )! as NotificationsEndpointDeleteAllNotificationsResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a notification
@@ -296,7 +259,7 @@ class NotificationsEndpointClient {
         specifiedType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson),
       )! as NotificationsEndpointGetNotificationResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a notification
@@ -345,7 +308,7 @@ class NotificationsEndpointClient {
         specifiedType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson),
       )! as NotificationsEndpointDeleteNotificationResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Check if notification IDs exist
@@ -394,7 +357,7 @@ class NotificationsEndpointClient {
         specifiedType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson),
       )! as NotificationsEndpointConfirmIdsForUserResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -452,7 +415,7 @@ class NotificationsPushClient {
         specifiedType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson),
       )! as NotificationsPushRegisterDeviceResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a device from push notifications
@@ -498,7 +461,7 @@ class NotificationsPushClient {
         specifiedType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson),
       )! as NotificationsPushRemoveDeviceResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -556,7 +519,7 @@ class NotificationsSettingsClient {
         specifiedType: const FullType(NotificationsSettingsPersonalResponseApplicationJson),
       )! as NotificationsSettingsPersonalResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update default notification settings for new users
@@ -610,7 +573,7 @@ class NotificationsSettingsClient {
         specifiedType: const FullType(NotificationsSettingsAdminResponseApplicationJson),
       )! as NotificationsSettingsAdminResponseApplicationJson;
     }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
+    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
