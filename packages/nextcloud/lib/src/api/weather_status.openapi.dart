@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -43,10 +44,23 @@ class WeatherStatusWeatherStatusClient {
   final WeatherStatusClient _rootClient;
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
-  Future<WeatherStatusWeatherStatusSetModeResponseApplicationJson> setMode({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusSetModeResponseApplicationJson, void>> setMode({
     required final int mode,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setModeRaw(
+      mode: mode,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
+  DynamiteRawResponse<WeatherStatusWeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
+    required final int mode,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -73,25 +87,35 @@ class WeatherStatusWeatherStatusClient {
 // coverage:ignore-end
     queryParameters['mode'] = mode.toString();
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusSetModeResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetModeResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusSetModeResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Try to use the address set in user personal settings as weather location
-  Future<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson> usePersonalAddress({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson, void>>
+      usePersonalAddress({final bool oCSAPIRequest = true}) async {
+    final rawResponse = usePersonalAddressRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Try to use the address set in user personal settings as weather location
+  DynamiteRawResponse<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     final bool oCSAPIRequest = true,
-  }) async {
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -117,25 +141,36 @@ class WeatherStatusWeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get stored user location
-  Future<WeatherStatusWeatherStatusGetLocationResponseApplicationJson> getLocation({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getLocationRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get stored user location
+  DynamiteRawResponse<WeatherStatusWeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -161,28 +196,45 @@ class WeatherStatusWeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusGetLocationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetLocationResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusGetLocationResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
-  Future<WeatherStatusWeatherStatusSetLocationResponseApplicationJson> setLocation({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
     final String? address,
     final num? lat,
     final num? lon,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setLocationRaw(
+      address: address,
+      lat: lat,
+      lon: lon,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding
+  DynamiteRawResponse<WeatherStatusWeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
+    final String? address,
+    final num? lat,
+    final num? lon,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -217,25 +269,36 @@ class WeatherStatusWeatherStatusClient {
       queryParameters['lon'] = lon.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusSetLocationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetLocationResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusSetLocationResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get forecast for current location
-  Future<WeatherStatusWeatherStatusGetForecastResponseApplicationJson> getForecast({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getForecastRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get forecast for current location
+  DynamiteRawResponse<WeatherStatusWeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -261,25 +324,36 @@ class WeatherStatusWeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusGetForecastResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetForecastResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusGetForecastResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get favorites list
-  Future<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson> getFavorites({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getFavoritesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get favorites list
+  DynamiteRawResponse<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -305,26 +379,39 @@ class WeatherStatusWeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set favorites list
-  Future<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson> setFavorites({
+  Future<DynamiteResponse<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
     required final List<String> favorites,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setFavoritesRaw(
+      favorites: favorites,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set favorites list
+  DynamiteRawResponse<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
+    required final List<String> favorites,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -351,19 +438,19 @@ class WeatherStatusWeatherStatusClient {
 // coverage:ignore-end
     queryParameters['favorites[]'] = favorites.map((final e) => e);
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson),
-      )! as WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1813,14 +1900,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer))
     .build();
 
-Serializers get weatherStatusSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeWeatherStatus<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeWeatherStatus<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 
@@ -97,14 +98,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CommentsCapabilities_Files.serializer))
     .build();
 
-Serializers get commentsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeComments<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeComments<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

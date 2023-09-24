@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -55,7 +56,22 @@ class ProvisioningApiAppConfigClient {
   /// Get a list of apps
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetAppsResponseApplicationJson> getApps({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void>> getApps({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getAppsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of apps
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void> getAppsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -81,28 +97,43 @@ class ProvisioningApiAppConfigClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetAppsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetAppsResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetAppsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the config keys of an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetKeysResponseApplicationJson> getKeys({
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void>> getKeys({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getKeysRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the config keys of an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -129,30 +160,49 @@ class ProvisioningApiAppConfigClient {
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetKeysResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetKeysResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetKeysResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a the config value of an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetValueResponseApplicationJson> getValue({
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void>> getValue({
     required final String app,
     required final String key,
     final String defaultValue = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getValueRaw(
+      app: app,
+      key: key,
+      defaultValue: defaultValue,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a the config value of an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void> getValueRaw({
+    required final String app,
+    required final String key,
+    final String defaultValue = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -183,28 +233,45 @@ class ProvisioningApiAppConfigClient {
       queryParameters['defaultValue'] = defaultValue;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetValueResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetValueResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update the config value of an app
-  Future<ProvisioningApiAppConfigSetValueResponseApplicationJson> setValue({
+  Future<DynamiteResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void>> setValue({
     required final String value,
     required final String app,
     required final String key,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setValueRaw(
+      value: value,
+      app: app,
+      key: key,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update the config value of an app
+  DynamiteRawResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void> setValueRaw({
+    required final String value,
+    required final String app,
+    required final String key,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -233,29 +300,46 @@ class ProvisioningApiAppConfigClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigSetValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigSetValueResponseApplicationJson),
-      )! as ProvisioningApiAppConfigSetValueResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a config key of an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson> deleteKey({
+  Future<DynamiteResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
     required final String app,
     required final String key,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteKeyRaw(
+      app: app,
+      key: key,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a config key of an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
+    required final String app,
+    required final String key,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -283,19 +367,19 @@ class ProvisioningApiAppConfigClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigDeleteKeyResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigDeleteKeyResponseApplicationJson),
-      )! as ProvisioningApiAppConfigDeleteKeyResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -307,10 +391,25 @@ class ProvisioningApiAppsClient {
   /// Get a list of installed apps
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppsGetAppsResponseApplicationJson> getApps({
+  Future<DynamiteResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void>> getApps({
     final String? filter,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppsRaw(
+      filter: filter,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of installed apps
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void> getAppsRaw({
+    final String? filter,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -339,28 +438,43 @@ class ProvisioningApiAppsClient {
       queryParameters['filter'] = filter;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsGetAppsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsGetAppsResponseApplicationJson),
-      )! as ProvisioningApiAppsGetAppsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the app info for an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppsGetAppInfoResponseApplicationJson> getAppInfo({
+  Future<DynamiteResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppInfoRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the app info for an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -387,28 +501,43 @@ class ProvisioningApiAppsClient {
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsGetAppInfoResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsGetAppInfoResponseApplicationJson),
-      )! as ProvisioningApiAppsGetAppInfoResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppsEnableResponseApplicationJson> enable({
+  Future<DynamiteResponse<ProvisioningApiAppsEnableResponseApplicationJson, void>> enable({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = enableRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Enable an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppsEnableResponseApplicationJson, void> enableRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -435,28 +564,43 @@ class ProvisioningApiAppsClient {
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsEnableResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsEnableResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsEnableResponseApplicationJson),
-      )! as ProvisioningApiAppsEnableResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable an app
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppsDisableResponseApplicationJson> disable({
+  Future<DynamiteResponse<ProvisioningApiAppsDisableResponseApplicationJson, void>> disable({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = disableRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Disable an app
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiAppsDisableResponseApplicationJson, void> disableRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -483,19 +627,19 @@ class ProvisioningApiAppsClient {
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsDisableResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsDisableResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsDisableResponseApplicationJson),
-      )! as ProvisioningApiAppsDisableResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -505,12 +649,29 @@ class ProvisioningApiGroupsClient {
   final ProvisioningApiClient _rootClient;
 
   /// Get a list of groups
-  Future<ProvisioningApiGroupsGetGroupsResponseApplicationJson> getGroups({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void>> getGroups({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -545,29 +706,46 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a new group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsAddGroupResponseApplicationJson> addGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void>> addGroup({
     required final String groupid,
     final String displayname = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addGroupRaw(
+      groupid: groupid,
+      displayname: displayname,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a new group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void> addGroupRaw({
+    required final String groupid,
+    final String displayname = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -597,28 +775,45 @@ class ProvisioningApiGroupsClient {
       queryParameters['displayname'] = displayname;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsAddGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsAddGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsAddGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of groups details
-  Future<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson> getGroupsDetails({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupsDetailsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups details
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -653,26 +848,39 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users in the specified group
-  Future<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson> getGroupUsers({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupUsersRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users in the specified group
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -700,29 +908,49 @@ class ProvisioningApiGroupsClient {
     checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupUsersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupUsersResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users details in the specified group
-  Future<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson> getGroupUsersDetails({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void>>
+      getGroupUsersDetails({
     required final String groupId,
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupUsersDetailsRaw(
+      groupId: groupId,
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users details in the specified group
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
+    required final String groupId,
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -759,28 +987,43 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the list of user IDs that are a subadmin of the group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson> getSubAdminsOfGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getSubAdminsOfGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of user IDs that are a subadmin of the group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -808,27 +1051,41 @@ class ProvisioningApiGroupsClient {
     checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users in the specified group
   @Deprecated('')
-  Future<ProvisioningApiGroupsGetGroupResponseApplicationJson> getGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void>> getGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users in the specified group
+  @Deprecated('')
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void> getGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -856,30 +1113,49 @@ class ProvisioningApiGroupsClient {
     checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsUpdateGroupResponseApplicationJson> updateGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
     required final String key,
     required final String value,
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = updateGroupRaw(
+      key: key,
+      value: value,
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
+    required final String key,
+    required final String value,
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -909,28 +1185,43 @@ class ProvisioningApiGroupsClient {
     checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsUpdateGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsUpdateGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsUpdateGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsDeleteGroupResponseApplicationJson> deleteGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -958,19 +1249,19 @@ class ProvisioningApiGroupsClient {
     checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsDeleteGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsDeleteGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsDeleteGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -980,12 +1271,29 @@ class ProvisioningApiPreferencesClient {
   final ProvisioningApiClient _rootClient;
 
   /// Update a preference value of an app
-  Future<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson> setPreference({
+  Future<DynamiteResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
     required final String configValue,
     required final String appId,
     required final String configKey,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setPreferenceRaw(
+      configValue: configValue,
+      appId: appId,
+      configKey: configKey,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a preference value of an app
+  DynamiteRawResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
+    required final String configValue,
+    required final String appId,
+    required final String configKey,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1014,27 +1322,42 @@ class ProvisioningApiPreferencesClient {
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesSetPreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesSetPreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesSetPreferenceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a preference for an app
-  Future<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson> deletePreference({
+  Future<DynamiteResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
     required final String appId,
     required final String configKey,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deletePreferenceRaw(
+      appId: appId,
+      configKey: configKey,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a preference for an app
+  DynamiteRawResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
+    required final String appId,
+    required final String configKey,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1062,27 +1385,44 @@ class ProvisioningApiPreferencesClient {
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update multiple preference values of an app
-  Future<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson> setMultiplePreferences({
+  Future<DynamiteResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>>
+      setMultiplePreferences({
     required final ContentString<BuiltMap<String, String>> configs,
     required final String appId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setMultiplePreferencesRaw(
+      configs: configs,
+      appId: appId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update multiple preference values of an app
+  DynamiteRawResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>
+      setMultiplePreferencesRaw({
+    required final ContentString<BuiltMap<String, String>> configs,
+    required final String appId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1115,27 +1455,44 @@ class ProvisioningApiPreferencesClient {
     );
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson),
-      )! as ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete multiple preferences for an app
-  Future<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson> deleteMultiplePreference({
+  Future<DynamiteResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>>
+      deleteMultiplePreference({
     required final List<String> configKeys,
     required final String appId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteMultiplePreferenceRaw(
+      configKeys: configKeys,
+      appId: appId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete multiple preferences for an app
+  DynamiteRawResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
+      deleteMultiplePreferenceRaw({
+    required final List<String> configKeys,
+    required final String appId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1163,19 +1520,19 @@ class ProvisioningApiPreferencesClient {
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1185,12 +1542,29 @@ class ProvisioningApiUsersClient {
   final ProvisioningApiClient _rootClient;
 
   /// Get a list of users
-  Future<ProvisioningApiUsersGetUsersResponseApplicationJson> getUsers({
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void>> getUsers({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void> getUsersRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1225,23 +1599,23 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a new user
-  Future<ProvisioningApiUsersAddUserResponseApplicationJson> addUser({
+  Future<DynamiteResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void>> addUser({
     required final String userid,
     final String password = '',
     final String displayName = '',
@@ -1253,6 +1627,35 @@ class ProvisioningApiUsersClient {
     final String? manager,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addUserRaw(
+      userid: userid,
+      password: password,
+      displayName: displayName,
+      email: email,
+      groups: groups,
+      subadmin: subadmin,
+      quota: quota,
+      language: language,
+      manager: manager,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a new user
+  DynamiteRawResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void> addUserRaw({
+    required final String userid,
+    final String password = '',
+    final String displayName = '',
+    final String email = '',
+    final List<String> groups = const <String>[],
+    final List<String> subadmin = const <String>[],
+    final String quota = '',
+    final String language = '',
+    final String? manager,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1303,28 +1706,45 @@ class ProvisioningApiUsersClient {
       queryParameters['manager'] = manager;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddUserResponseApplicationJson),
-      )! as ProvisioningApiUsersAddUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of users and their details
-  Future<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson> getUsersDetails({
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersDetailsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users and their details
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1359,27 +1779,42 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersDetailsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersDetailsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Search users by their phone numbers
-  Future<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson> searchByPhoneNumbers({
+  Future<DynamiteResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchByPhoneNumbersRaw(
+      location: location,
+      search: search,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search users by their phone numbers
+  DynamiteRawResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
+    required final String location,
+    required final ContentString<BuiltMap<String, BuiltList<String>>> search,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users/search/by-phone';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1415,26 +1850,39 @@ class ProvisioningApiUsersClient {
       ]),
     );
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson),
-      )! as ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the details of a user
-  Future<ProvisioningApiUsersGetUserResponseApplicationJson> getUser({
+  Future<DynamiteResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the details of a user
+  DynamiteRawResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void> getUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1461,28 +1909,45 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a value of the user's details
-  Future<ProvisioningApiUsersEditUserResponseApplicationJson> editUser({
+  Future<DynamiteResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void>> editUser({
     required final String key,
     required final String value,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = editUserRaw(
+      key: key,
+      value: value,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a value of the user's details
+  DynamiteRawResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void> editUserRaw({
+    required final String key,
+    required final String value,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1511,26 +1976,39 @@ class ProvisioningApiUsersClient {
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEditUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEditUserResponseApplicationJson),
-      )! as ProvisioningApiUsersEditUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a user
-  Future<ProvisioningApiUsersDeleteUserResponseApplicationJson> deleteUser({
+  Future<DynamiteResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void>> deleteUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a user
+  DynamiteRawResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1557,25 +2035,36 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersDeleteUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersDeleteUserResponseApplicationJson),
-      )! as ProvisioningApiUsersDeleteUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the details of the current user
-  Future<ProvisioningApiUsersGetCurrentUserResponseApplicationJson> getCurrentUser({
+  Future<DynamiteResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getCurrentUserRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the details of the current user
+  DynamiteRawResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/user';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1601,25 +2090,36 @@ class ProvisioningApiUsersClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetCurrentUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetCurrentUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetCurrentUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of fields that are editable for the current user
-  Future<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson> getEditableFields({
+  Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getEditableFieldsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of fields that are editable for the current user
+  DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/user/fields';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1645,26 +2145,41 @@ class ProvisioningApiUsersClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetEditableFieldsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetEditableFieldsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of fields that are editable for a user
-  Future<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson> getEditableFieldsForUser({
+  Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>>
+      getEditableFieldsForUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getEditableFieldsForUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of fields that are editable for a user
+  DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>
+      getEditableFieldsForUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/user/fields/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1691,29 +2206,48 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update multiple values of the user's details
-  Future<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson> editUserMultiValue({
+  Future<DynamiteResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
     required final String key,
     required final String value,
     required final String userId,
     required final String collectionName,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = editUserMultiValueRaw(
+      key: key,
+      value: value,
+      userId: userId,
+      collectionName: collectionName,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update multiple values of the user's details
+  DynamiteRawResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
+    required final String key,
+    required final String value,
+    required final String userId,
+    required final String collectionName,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/{collectionName}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1748,26 +2282,39 @@ class ProvisioningApiUsersClient {
     ); // coverage:ignore-line
     path = path.replaceAll('{collectionName}', Uri.encodeQueryComponent(collectionName));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEditUserMultiValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEditUserMultiValueResponseApplicationJson),
-      )! as ProvisioningApiUsersEditUserMultiValueResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Wipe all devices of a user
-  Future<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson> wipeUserDevices({
+  Future<DynamiteResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = wipeUserDevicesRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Wipe all devices of a user
+  DynamiteRawResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/wipe';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1794,26 +2341,39 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersWipeUserDevicesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersWipeUserDevicesResponseApplicationJson),
-      )! as ProvisioningApiUsersWipeUserDevicesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable a user
-  Future<ProvisioningApiUsersEnableUserResponseApplicationJson> enableUser({
+  Future<DynamiteResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void>> enableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = enableUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Enable a user
+  DynamiteRawResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void> enableUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/enable';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1840,26 +2400,39 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEnableUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEnableUserResponseApplicationJson),
-      )! as ProvisioningApiUsersEnableUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable a user
-  Future<ProvisioningApiUsersDisableUserResponseApplicationJson> disableUser({
+  Future<DynamiteResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void>> disableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = disableUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Disable a user
+  DynamiteRawResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void> disableUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/disable';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1886,26 +2459,39 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersDisableUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersDisableUserResponseApplicationJson),
-      )! as ProvisioningApiUsersDisableUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a list of groups the user belongs to
-  Future<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson> getUsersGroups({
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersGroupsRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups the user belongs to
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1932,27 +2518,42 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersGroupsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersGroupsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Add a user to a group
-  Future<ProvisioningApiUsersAddToGroupResponseApplicationJson> addToGroup({
+  Future<DynamiteResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required final String userId,
     final String groupid = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addToGroupRaw(
+      userId: userId,
+      groupid: groupid,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Add a user to a group
+  DynamiteRawResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
+    required final String userId,
+    final String groupid = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1982,27 +2583,42 @@ class ProvisioningApiUsersClient {
       queryParameters['groupid'] = groupid;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddToGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddToGroupResponseApplicationJson),
-      )! as ProvisioningApiUsersAddToGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a user from a group
-  Future<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson> removeFromGroup({
+  Future<DynamiteResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeFromGroupRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a user from a group
+  DynamiteRawResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2030,28 +2646,44 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersRemoveFromGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersRemoveFromGroupResponseApplicationJson),
-      )! as ProvisioningApiUsersRemoveFromGroupResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the groups a user is a subadmin of
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson> getUserSubAdminGroups({
+  Future<DynamiteResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void>>
+      getUserSubAdminGroups({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserSubAdminGroupsRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the groups a user is a subadmin of
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2078,29 +2710,46 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Make a user a subadmin of a group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiUsersAddSubAdminResponseApplicationJson> addSubAdmin({
+  Future<DynamiteResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Make a user a subadmin of a group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2128,29 +2777,46 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddSubAdminResponseApplicationJson),
-      )! as ProvisioningApiUsersAddSubAdminResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a user from the subadmins of a group
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson> removeSubAdmin({
+  Future<DynamiteResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a user from the subadmins of a group
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2178,26 +2844,39 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersRemoveSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersRemoveSubAdminResponseApplicationJson),
-      )! as ProvisioningApiUsersRemoveSubAdminResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Resend the welcome message
-  Future<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson> resendWelcomeMessage({
+  Future<DynamiteResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resendWelcomeMessageRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resend the welcome message
+  DynamiteRawResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/welcome';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2224,19 +2903,19 @@ class ProvisioningApiUsersClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson),
-      )! as ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -7181,14 +7860,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer))
     .build();
 
-Serializers get provisioningApiSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeProvisioningApi<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeProvisioningApi<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

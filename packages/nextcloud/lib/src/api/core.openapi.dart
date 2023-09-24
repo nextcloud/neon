@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:convert';
@@ -74,7 +75,13 @@ class CoreClient extends DynamiteClient {
 
   CoreWipeClient get wipe => CoreWipeClient(this);
 
-  Future<CoreStatus> getStatus() async {
+  Future<DynamiteResponse<CoreStatus, void>> getStatus() async {
+    final rawResponse = getStatusRaw();
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<CoreStatus, void> getStatusRaw() {
     const path = '/status.php';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -82,17 +89,19 @@ class CoreClient extends DynamiteClient {
     };
     Uint8List? body;
 
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreStatus, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreStatus),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreStatus))!
-          as CoreStatus;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -102,7 +111,20 @@ class CoreAppPasswordClient {
   final CoreClient _rootClient;
 
   /// Create app password
-  Future<CoreAppPasswordGetAppPasswordResponseApplicationJson> getAppPassword({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create app password
+  DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/getapppassword';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -128,25 +150,36 @@ class CoreAppPasswordClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordGetAppPasswordResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Rotate app password
-  Future<CoreAppPasswordRotateAppPasswordResponseApplicationJson> rotateAppPassword({
+  Future<DynamiteResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = rotateAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Rotate app password
+  DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/apppassword/rotate';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -172,25 +205,36 @@ class CoreAppPasswordClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordRotateAppPasswordResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete app password
-  Future<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> deleteAppPassword({
+  Future<DynamiteResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete app password
+  DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/apppassword';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -216,19 +260,19 @@ class CoreAppPasswordClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordDeleteAppPasswordResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -238,7 +282,7 @@ class CoreAutoCompleteClient {
   final CoreClient _rootClient;
 
   /// Autocomplete a query
-  Future<CoreAutoCompleteGetResponseApplicationJson> $get({
+  Future<DynamiteResponse<CoreAutoCompleteGetResponseApplicationJson, void>> $get({
     required final String search,
     final String? itemType,
     final String? itemId,
@@ -247,6 +291,29 @@ class CoreAutoCompleteClient {
     final int limit = 10,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = $getRaw(
+      search: search,
+      itemType: itemType,
+      itemId: itemId,
+      sorter: sorter,
+      shareTypes: shareTypes,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Autocomplete a query
+  DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void> $getRaw({
+    required final String search,
+    final String? itemType,
+    final String? itemId,
+    final String? sorter,
+    final List<int>? shareTypes,
+    final int limit = 10,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/autocomplete/get';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -288,19 +355,19 @@ class CoreAutoCompleteClient {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
-      )! as CoreAutoCompleteGetResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -315,6 +382,19 @@ class CoreAvatarClient {
     required final String userId,
     required final int size,
   }) async {
+    final rawResponse = getAvatarDarkRaw(
+      userId: userId,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the dark avatar
+  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
+    required final String userId,
+    required final int size,
+  }) {
     var path = '/index.php/avatar/{userId}/{size}/dark';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -339,22 +419,19 @@ class CoreAvatarClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
-        await response.bodyBytes,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
-        )! as CoreAvatarAvatarGetAvatarDarkHeaders,
-      );
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the avatar
@@ -362,6 +439,19 @@ class CoreAvatarClient {
     required final String userId,
     required final int size,
   }) async {
+    final rawResponse = getAvatarRaw(
+      userId: userId,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the avatar
+  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders> getAvatarRaw({
+    required final String userId,
+    required final int size,
+  }) {
     var path = '/index.php/avatar/{userId}/{size}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -386,22 +476,19 @@ class CoreAvatarClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(CoreAvatarAvatarGetAvatarHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
-        await response.bodyBytes,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreAvatarAvatarGetAvatarHeaders),
-        )! as CoreAvatarAvatarGetAvatarHeaders,
-      );
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -411,7 +498,16 @@ class CoreClientFlowLoginV2Client {
   final CoreClient _rootClient;
 
   /// Poll the login flow credentials
-  Future<CoreLoginFlowV2Credentials> poll({required final String token}) async {
+  Future<DynamiteResponse<CoreLoginFlowV2Credentials, void>> poll({required final String token}) async {
+    final rawResponse = pollRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Poll the login flow credentials
+  DynamiteRawResponse<CoreLoginFlowV2Credentials, void> pollRaw({required final String token}) {
     const path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -435,23 +531,30 @@ class CoreClientFlowLoginV2Client {
 
 // coverage:ignore-end
     queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreLoginFlowV2Credentials, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreLoginFlowV2Credentials),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreLoginFlowV2Credentials),
-      )! as CoreLoginFlowV2Credentials;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Init a login flow
-  Future<CoreLoginFlowV2> init() async {
+  Future<DynamiteResponse<CoreLoginFlowV2, void>> init() async {
+    final rawResponse = initRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Init a login flow
+  DynamiteRawResponse<CoreLoginFlowV2, void> initRaw() {
     const path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -474,17 +577,19 @@ class CoreClientFlowLoginV2Client {
     }
 
 // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreLoginFlowV2, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreLoginFlowV2),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreLoginFlowV2))!
-          as CoreLoginFlowV2;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -494,10 +599,23 @@ class CoreCollaborationResourcesClient {
   final CoreClient _rootClient;
 
   /// Search for collections
-  Future<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> searchCollections({
+  Future<DynamiteResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchCollectionsRaw(
+      filter: filter,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search for collections
+  DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
+    required final String filter,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/search/{filter}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -524,26 +642,39 @@ class CoreCollaborationResourcesClient {
 // coverage:ignore-end
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
-      )! as CoreCollaborationResourcesSearchCollectionsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a collection
-  Future<CoreCollaborationResourcesListCollectionResponseApplicationJson> listCollection({
+  Future<DynamiteResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = listCollectionRaw(
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a collection
+  DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -570,27 +701,42 @@ class CoreCollaborationResourcesClient {
 // coverage:ignore-end
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
-      )! as CoreCollaborationResourcesListCollectionResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Rename a collection
-  Future<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> renameCollection({
+  Future<DynamiteResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = renameCollectionRaw(
+      collectionName: collectionName,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Rename a collection
+  DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
+    required final String collectionName,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -618,28 +764,45 @@ class CoreCollaborationResourcesClient {
     queryParameters['collectionName'] = collectionName;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
-      )! as CoreCollaborationResourcesRenameCollectionResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Add a resource to a collection
-  Future<CoreCollaborationResourcesAddResourceResponseApplicationJson> addResource({
+  Future<DynamiteResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Add a resource to a collection
+  DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -668,28 +831,45 @@ class CoreCollaborationResourcesClient {
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesAddResourceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a resource from a collection
-  Future<CoreCollaborationResourcesRemoveResourceResponseApplicationJson> removeResource({
+  Future<DynamiteResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a resource from a collection
+  DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -718,27 +898,44 @@ class CoreCollaborationResourcesClient {
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesRemoveResourceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get collections by resource
-  Future<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> getCollectionsByResource({
+  Future<DynamiteResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
+      getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getCollectionsByResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get collections by resource
+  DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
+      getCollectionsByResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -766,28 +963,47 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{resourceType}', Uri.encodeQueryComponent(resourceType));
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a collection for a resource
-  Future<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> createCollectionOnResource({
+  Future<DynamiteResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
+      createCollectionOnResource({
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createCollectionOnResourceRaw(
+      name: name,
+      baseResourceType: baseResourceType,
+      baseResourceId: baseResourceId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a collection for a resource
+  DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
+      createCollectionOnResourceRaw({
+    required final String name,
+    required final String baseResourceType,
+    required final String baseResourceId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -816,19 +1032,19 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{baseResourceType}', Uri.encodeQueryComponent(baseResourceType));
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -839,10 +1055,23 @@ class CoreGuestAvatarClient {
   final CoreClient _rootClient;
 
   /// Returns a dark guest avatar image response
-  Future<Uint8List> getAvatarDark({
+  Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
     required final String guestName,
     required final String size,
   }) async {
+    final rawResponse = getAvatarDarkRaw(
+      guestName: guestName,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Returns a dark guest avatar image response
+  DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
+    required final String guestName,
+    required final String size,
+  }) {
     var path = '/index.php/avatar/guest/{guestName}/{size}/dark';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -867,24 +1096,42 @@ class CoreGuestAvatarClient {
 // coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200, 201},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Returns a guest avatar image response
-  Future<Uint8List> getAvatar({
+  Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String guestName,
     required final String size,
     final int? darkTheme = 0,
   }) async {
+    final rawResponse = getAvatarRaw(
+      guestName: guestName,
+      size: size,
+      darkTheme: darkTheme,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Returns a guest avatar image response
+  DynamiteRawResponse<Uint8List, void> getAvatarRaw({
+    required final String guestName,
+    required final String size,
+    final int? darkTheme = 0,
+  }) {
     var path = '/index.php/avatar/guest/{guestName}/{size}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -914,16 +1161,19 @@ class CoreGuestAvatarClient {
         queryParameters['darkTheme'] = darkTheme.toString();
       }
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200, 201},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -933,10 +1183,23 @@ class CoreHoverCardClient {
   final CoreClient _rootClient;
 
   /// Get the user details for a hovercard
-  Future<CoreHoverCardGetUserResponseApplicationJson> getUser({
+  Future<DynamiteResponse<CoreHoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the user details for a hovercard
+  DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void> getUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/hovercard/v1/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -963,19 +1226,19 @@ class CoreHoverCardClient {
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
-      )! as CoreHoverCardGetUserResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -985,10 +1248,23 @@ class CoreNavigationClient {
   final CoreClient _rootClient;
 
   /// Get the apps navigation
-  Future<CoreNavigationGetAppsNavigationResponseApplicationJson> getAppsNavigation({
+  Future<DynamiteResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppsNavigationRaw(
+      absolute: absolute,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the apps navigation
+  DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
+    final int absolute = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1017,26 +1293,39 @@ class CoreNavigationClient {
       queryParameters['absolute'] = absolute.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
-      )! as CoreNavigationGetAppsNavigationResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the settings navigation
-  Future<CoreNavigationGetSettingsNavigationResponseApplicationJson> getSettingsNavigation({
+  Future<DynamiteResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getSettingsNavigationRaw(
+      absolute: absolute,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the settings navigation
+  DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
+    final int absolute = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/navigation/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1065,19 +1354,19 @@ class CoreNavigationClient {
       queryParameters['absolute'] = absolute.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
-      )! as CoreNavigationGetSettingsNavigationResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1089,6 +1378,13 @@ class CoreOcmClient {
 
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
   Future<DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+    final rawResponse = discoveryRaw();
+
+    return rawResponse.future;
+  }
+
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
+  DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders> discoveryRaw() {
     const path = '/index.php/ocm-provider';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1111,25 +1407,19 @@ class CoreOcmClient {
     }
 
 // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
+      headersType: const FullType(CoreOcmOcmDiscoveryHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
-        _jsonSerializers.deserialize(
-          await response.jsonBody,
-          specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
-        )! as CoreOcmDiscoveryResponseApplicationJson,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreOcmOcmDiscoveryHeaders),
-        )! as CoreOcmOcmDiscoveryHeaders,
-      );
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1139,7 +1429,20 @@ class CoreOcsClient {
   final CoreClient _rootClient;
 
   /// Get the capabilities
-  Future<CoreOcsGetCapabilitiesResponseApplicationJson> getCapabilities({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getCapabilitiesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the capabilities
+  DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1163,19 +1466,19 @@ class CoreOcsClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
-      )! as CoreOcsGetCapabilitiesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1185,7 +1488,7 @@ class CorePreviewClient {
   final CoreClient _rootClient;
 
   /// Get a preview by file ID
-  Future<Uint8List> getPreviewByFileId({
+  Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
     final int fileId = -1,
     final int x = 32,
     final int y = 32,
@@ -1194,6 +1497,29 @@ class CorePreviewClient {
     final String mode = 'fill',
     final int mimeFallback = 0,
   }) async {
+    final rawResponse = getPreviewByFileIdRaw(
+      fileId: fileId,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview by file ID
+  DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
+    final int fileId = -1,
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+    final int forceIcon = 1,
+    final String mode = 'fill',
+    final int mimeFallback = 0,
+  }) {
     const path = '/index.php/core/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1239,20 +1565,23 @@ class CorePreviewClient {
     if (mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a preview by file path
-  Future<Uint8List> getPreview({
+  Future<DynamiteResponse<Uint8List, void>> getPreview({
     final String file = '',
     final int x = 32,
     final int y = 32,
@@ -1261,6 +1590,29 @@ class CorePreviewClient {
     final String mode = 'fill',
     final int mimeFallback = 0,
   }) async {
+    final rawResponse = getPreviewRaw(
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview by file path
+  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+    final String file = '',
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+    final int forceIcon = 1,
+    final String mode = 'fill',
+    final int mimeFallback = 0,
+  }) {
     const path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1306,16 +1658,19 @@ class CorePreviewClient {
     if (mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1325,12 +1680,29 @@ class CoreProfileApiClient {
   final CoreClient _rootClient;
 
   /// Update the visibility of a parameter
-  Future<CoreProfileApiSetVisibilityResponseApplicationJson> setVisibility({
+  Future<DynamiteResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setVisibilityRaw(
+      paramId: paramId,
+      visibility: visibility,
+      targetUserId: targetUserId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update the visibility of a parameter
+  DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
+    required final String paramId,
+    required final String visibility,
+    required final String targetUserId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/profile/{targetUserId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1359,19 +1731,19 @@ class CoreProfileApiClient {
     queryParameters['visibility'] = visibility;
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
-      )! as CoreProfileApiSetVisibilityResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1381,7 +1753,16 @@ class CoreReferenceClient {
   final CoreClient _rootClient;
 
   /// Get a preview for a reference
-  Future<Uint8List> preview({required final String referenceId}) async {
+  Future<DynamiteResponse<Uint8List, void>> preview({required final String referenceId}) async {
+    final rawResponse = previewRaw(
+      referenceId: referenceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview for a reference
+  DynamiteRawResponse<Uint8List, void> previewRaw({required final String referenceId}) {
     var path = '/index.php/core/references/preview/{referenceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1405,16 +1786,19 @@ class CoreReferenceClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{referenceId}', Uri.encodeQueryComponent(referenceId));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1424,10 +1808,23 @@ class CoreReferenceApiClient {
   final CoreClient _rootClient;
 
   /// Resolve a reference
-  Future<CoreReferenceApiResolveOneResponseApplicationJson> resolveOne({
+  Future<DynamiteResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resolveOneRaw(
+      reference: reference,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resolve a reference
+  DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
+    required final String reference,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1454,27 +1851,42 @@ class CoreReferenceApiClient {
 // coverage:ignore-end
     queryParameters['reference'] = reference;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
-      )! as CoreReferenceApiResolveOneResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Resolve multiple references
-  Future<CoreReferenceApiResolveResponseApplicationJson> resolve({
+  Future<DynamiteResponse<CoreReferenceApiResolveResponseApplicationJson, void>> resolve({
     required final List<String> references,
     final int limit = 1,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resolveRaw(
+      references: references,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resolve multiple references
+  DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void> resolveRaw({
+    required final List<String> references,
+    final int limit = 1,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1504,28 +1916,45 @@ class CoreReferenceApiClient {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
-      )! as CoreReferenceApiResolveResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Extract references from a text
-  Future<CoreReferenceApiExtractResponseApplicationJson> extract({
+  Future<DynamiteResponse<CoreReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
     final int resolve = 0,
     final int limit = 1,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = extractRaw(
+      text: text,
+      resolve: resolve,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Extract references from a text
+  DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void> extractRaw({
+    required final String text,
+    final int resolve = 0,
+    final int limit = 1,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/extract';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1558,25 +1987,36 @@ class CoreReferenceApiClient {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
-      )! as CoreReferenceApiExtractResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the providers
-  Future<CoreReferenceApiGetProvidersInfoResponseApplicationJson> getProvidersInfo({
+  Future<DynamiteResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getProvidersInfoRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the providers
+  DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/providers';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1602,27 +2042,42 @@ class CoreReferenceApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
-      )! as CoreReferenceApiGetProvidersInfoResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Touch a provider
-  Future<CoreReferenceApiTouchProviderResponseApplicationJson> touchProvider({
+  Future<DynamiteResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = touchProviderRaw(
+      providerId: providerId,
+      timestamp: timestamp,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Touch a provider
+  DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
+    required final String providerId,
+    final int? timestamp,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/references/provider/{providerId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1652,19 +2107,19 @@ class CoreReferenceApiClient {
       queryParameters['timestamp'] = timestamp.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
-      )! as CoreReferenceApiTouchProviderResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1674,7 +2129,20 @@ class CoreTextProcessingApiClient {
   final CoreClient _rootClient;
 
   /// This endpoint returns all available LanguageModel task types
-  Future<CoreTextProcessingApiTaskTypesResponseApplicationJson> taskTypes({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = taskTypesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint returns all available LanguageModel task types
+  DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/textprocessing/tasktypes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1698,29 +2166,48 @@ class CoreTextProcessingApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
-      )! as CoreTextProcessingApiTaskTypesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows scheduling a language model task
-  Future<CoreTextProcessingApiScheduleResponseApplicationJson> schedule({
+  Future<DynamiteResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>> schedule({
     required final String input,
     required final String type,
     required final String appId,
     final String identifier = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = scheduleRaw(
+      input: input,
+      type: type,
+      appId: appId,
+      identifier: identifier,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows scheduling a language model task
+  DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
+    required final String input,
+    required final String type,
+    required final String appId,
+    final String identifier = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/textprocessing/schedule';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1750,26 +2237,39 @@ class CoreTextProcessingApiClient {
       queryParameters['identifier'] = identifier;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
-      )! as CoreTextProcessingApiScheduleResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
-  Future<CoreTextProcessingApiGetTaskResponseApplicationJson> getTask({
+  Future<DynamiteResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1794,26 +2294,39 @@ class CoreTextProcessingApiClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
-      )! as CoreTextProcessingApiGetTaskResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows to delete a scheduled task for a user
-  Future<CoreTextProcessingApiDeleteTaskResponseApplicationJson> deleteTask({
+  Future<DynamiteResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user
+  DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1840,27 +2353,42 @@ class CoreTextProcessingApiClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
-      )! as CoreTextProcessingApiDeleteTaskResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
-  Future<CoreTextProcessingApiListTasksByAppResponseApplicationJson> listTasksByApp({
+  Future<DynamiteResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = listTasksByAppRaw(
+      appId: appId,
+      identifier: identifier,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
+  DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
+    required final String appId,
+    final String? identifier,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/textprocessing/tasks/app/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1890,19 +2418,19 @@ class CoreTextProcessingApiClient {
       queryParameters['identifier'] = identifier;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
-      )! as CoreTextProcessingApiListTasksByAppResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1912,7 +2440,20 @@ class CoreTranslationApiClient {
   final CoreClient _rootClient;
 
   /// Get the list of supported languages
-  Future<CoreTranslationApiLanguagesResponseApplicationJson> languages({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>> languages({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = languagesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of supported languages
+  DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/translation/languages';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1936,28 +2477,45 @@ class CoreTranslationApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
-      )! as CoreTranslationApiLanguagesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Translate a text
-  Future<CoreTranslationApiTranslateResponseApplicationJson> translate({
+  Future<DynamiteResponse<CoreTranslationApiTranslateResponseApplicationJson, void>> translate({
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = translateRaw(
+      text: text,
+      toLanguage: toLanguage,
+      fromLanguage: fromLanguage,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Translate a text
+  DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void> translateRaw({
+    required final String text,
+    required final String toLanguage,
+    final String? fromLanguage,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/translation/translate';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1986,19 +2544,19 @@ class CoreTranslationApiClient {
       queryParameters['fromLanguage'] = fromLanguage;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
-      )! as CoreTranslationApiTranslateResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2008,10 +2566,23 @@ class CoreUnifiedSearchClient {
   final CoreClient _rootClient;
 
   /// Get the providers for unified search
-  Future<CoreUnifiedSearchGetProvidersResponseApplicationJson> getProviders({
+  Future<DynamiteResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getProvidersRaw(
+      from: from,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the providers for unified search
+  DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
+    final String from = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/search/providers';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2040,23 +2611,23 @@ class CoreUnifiedSearchClient {
       queryParameters['from'] = from;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
-      )! as CoreUnifiedSearchGetProvidersResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Search
-  Future<CoreUnifiedSearchSearchResponseApplicationJson> search({
+  Future<DynamiteResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
     final String term = '',
     final int? sortOrder,
@@ -2065,6 +2636,29 @@ class CoreUnifiedSearchClient {
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchRaw(
+      providerId: providerId,
+      term: term,
+      sortOrder: sortOrder,
+      limit: limit,
+      cursor: cursor,
+      from: from,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search
+  DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void> searchRaw({
+    required final String providerId,
+    final String term = '',
+    final int? sortOrder,
+    final int? limit,
+    final ContentString<CoreUnifiedSearchSearchCursor>? cursor,
+    final String from = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/search/providers/{providerId}/search';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2109,19 +2703,19 @@ class CoreUnifiedSearchClient {
       queryParameters['from'] = from;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
-      )! as CoreUnifiedSearchSearchResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2131,7 +2725,16 @@ class CoreWhatsNewClient {
   final CoreClient _rootClient;
 
   /// Get the changes
-  Future<CoreWhatsNewGetResponseApplicationJson> $get({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<CoreWhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
+    final rawResponse = $getRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the changes
+  DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2157,26 +2760,39 @@ class CoreWhatsNewClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWhatsNewGetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson),
-      )! as CoreWhatsNewGetResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Dismiss the changes
-  Future<CoreWhatsNewDismissResponseApplicationJson> dismiss({
+  Future<DynamiteResponse<CoreWhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = dismissRaw(
+      version: version,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Dismiss the changes
+  DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void> dismissRaw({
+    required final String version,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2203,19 +2819,19 @@ class CoreWhatsNewClient {
 // coverage:ignore-end
     queryParameters['version'] = version;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
-      )! as CoreWhatsNewDismissResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2225,7 +2841,18 @@ class CoreWipeClient {
   final CoreClient _rootClient;
 
   /// Check if the device should be wiped
-  Future<CoreWipeCheckWipeResponseApplicationJson> checkWipe({required final String token}) async {
+  Future<DynamiteResponse<CoreWipeCheckWipeResponseApplicationJson, void>> checkWipe({
+    required final String token,
+  }) async {
+    final rawResponse = checkWipeRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Check if the device should be wiped
+  DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
     const path = '/index.php/core/wipe/check';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2249,23 +2876,32 @@ class CoreWipeClient {
 
 // coverage:ignore-end
     queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
-      )! as CoreWipeCheckWipeResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Finish the wipe
-  Future<JsonObject> wipeDone({required final String token}) async {
+  Future<DynamiteResponse<JsonObject, void>> wipeDone({required final String token}) async {
+    final rawResponse = wipeDoneRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Finish the wipe
+  DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required final String token}) {
     const path = '/index.php/core/wipe/success';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2289,19 +2925,19 @@ class CoreWipeClient {
 
 // coverage:ignore-end
     queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<JsonObject, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 404},
+      ),
+      bodyType: const FullType(JsonObject),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 404) {
-      return _jsonSerializers.deserialize(
-        json.decode(await response.body),
-        specifiedType: const FullType(JsonObject),
-      )! as JsonObject;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -8836,14 +9472,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CoreWipeCheckWipeResponseApplicationJson.serializer))
     .build();
 
-Serializers get coreSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeCore<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeCore<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

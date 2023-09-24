@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -44,11 +45,26 @@ class FilesRemindersApiClient {
   final FilesRemindersClient _rootClient;
 
   /// Get a reminder
-  Future<FilesRemindersApiGetResponseApplicationJson> $get({
+  Future<DynamiteResponse<FilesRemindersApiGetResponseApplicationJson, void>> $get({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = $getRaw(
+      version: version,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a reminder
+  DynamiteRawResponse<FilesRemindersApiGetResponseApplicationJson, void> $getRaw({
+    required final String version,
+    required final int fileId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -77,28 +93,45 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesRemindersApiGetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesRemindersApiGetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson),
-      )! as FilesRemindersApiGetResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set a reminder
-  Future<FilesRemindersApiSetResponseApplicationJson> $set({
+  Future<DynamiteResponse<FilesRemindersApiSetResponseApplicationJson, void>> $set({
     required final String dueDate,
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = $setRaw(
+      dueDate: dueDate,
+      version: version,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set a reminder
+  DynamiteRawResponse<FilesRemindersApiSetResponseApplicationJson, void> $setRaw({
+    required final String dueDate,
+    required final String version,
+    required final int fileId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -128,31 +161,42 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesRemindersApiSetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200, 201, 400, 401, 404},
+      ),
+      bodyType: const FullType(FilesRemindersApiSetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 ||
-        response.statusCode == 201 ||
-        response.statusCode == 400 ||
-        response.statusCode == 401 ||
-        response.statusCode == 404) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesRemindersApiSetResponseApplicationJson),
-      )! as FilesRemindersApiSetResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Remove a reminder
-  Future<FilesRemindersApiRemoveResponseApplicationJson> remove({
+  Future<DynamiteResponse<FilesRemindersApiRemoveResponseApplicationJson, void>> remove({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeRaw(
+      version: version,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a reminder
+  DynamiteRawResponse<FilesRemindersApiRemoveResponseApplicationJson, void> removeRaw({
+    required final String version,
+    required final int fileId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -181,19 +225,19 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesRemindersApiRemoveResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 401, 404},
+      ),
+      bodyType: const FullType(FilesRemindersApiRemoveResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 401 || response.statusCode == 404) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesRemindersApiRemoveResponseApplicationJson),
-      )! as FilesRemindersApiRemoveResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -512,14 +556,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesRemindersApiRemoveResponseApplicationJson_Ocs.serializer))
     .build();
 
-Serializers get filesRemindersSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFilesReminders<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFilesReminders<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

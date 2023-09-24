@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -42,12 +43,29 @@ class FilesVersionsPreviewClient {
   final FilesVersionsClient _rootClient;
 
   /// Get the preview for a file version
-  Future<Uint8List> getPreview({
+  Future<DynamiteResponse<Uint8List, void>> getPreview({
     final String file = '',
     final int x = 44,
     final int y = 44,
     final String version = '',
   }) async {
+    final rawResponse = getPreviewRaw(
+      file: file,
+      x: x,
+      y: y,
+      version: version,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the preview for a file version
+  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+    final String file = '',
+    final int x = 44,
+    final int y = 44,
+    final String version = '',
+  }) {
     const path = '/index.php/apps/files_versions/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -84,16 +102,19 @@ class FilesVersionsPreviewClient {
     if (version != '') {
       queryParameters['version'] = version;
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -169,14 +190,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesVersionsCapabilities_Files.serializer))
     .build();
 
-Serializers get filesVersionsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFilesVersions<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFilesVersions<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

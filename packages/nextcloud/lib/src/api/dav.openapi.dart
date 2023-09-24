@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -42,11 +43,26 @@ class DavDirectClient {
   final DavClient _rootClient;
 
   /// Get a direct link to a file
-  Future<DavDirectGetUrlResponseApplicationJson> getUrl({
+  Future<DynamiteResponse<DavDirectGetUrlResponseApplicationJson, void>> getUrl({
     required final int fileId,
     final int? expirationTime,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUrlRaw(
+      fileId: fileId,
+      expirationTime: expirationTime,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a direct link to a file
+  DynamiteRawResponse<DavDirectGetUrlResponseApplicationJson, void> getUrlRaw({
+    required final int fileId,
+    final int? expirationTime,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -76,19 +92,19 @@ class DavDirectClient {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<DavDirectGetUrlResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(DavDirectGetUrlResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(DavDirectGetUrlResponseApplicationJson),
-      )! as DavDirectGetUrlResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -303,14 +319,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(DavCapabilities_Dav.serializer))
     .build();
 
-Serializers get davSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeDav<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeDav<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

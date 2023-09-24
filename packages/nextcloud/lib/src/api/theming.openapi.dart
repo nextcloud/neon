@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -49,7 +50,16 @@ class ThemingIconClient {
   final ThemingClient _rootClient;
 
   /// Return a 32x32 favicon as png
-  Future<Uint8List> getFavicon({final String app = 'core'}) async {
+  Future<DynamiteResponse<Uint8List, void>> getFavicon({final String app = 'core'}) async {
+    final rawResponse = getFaviconRaw(
+      app: app,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Return a 32x32 favicon as png
+  DynamiteRawResponse<Uint8List, void> getFaviconRaw({final String app = 'core'}) {
     var path = '/index.php/apps/theming/favicon/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -73,20 +83,32 @@ class ThemingIconClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Return a 512x512 icon for touch devices
-  Future<Uint8List> getTouchIcon({final String app = 'core'}) async {
+  Future<DynamiteResponse<Uint8List, void>> getTouchIcon({final String app = 'core'}) async {
+    final rawResponse = getTouchIconRaw(
+      app: app,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Return a 512x512 icon for touch devices
+  DynamiteRawResponse<Uint8List, void> getTouchIconRaw({final String app = 'core'}) {
     var path = '/index.php/apps/theming/icon/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -110,23 +132,39 @@ class ThemingIconClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a themed icon
-  Future<Uint8List> getThemedIcon({
+  Future<DynamiteResponse<Uint8List, void>> getThemedIcon({
     required final String app,
     required final String image,
   }) async {
+    final rawResponse = getThemedIconRaw(
+      app: app,
+      image: image,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a themed icon
+  DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
+    required final String app,
+    required final String image,
+  }) {
     var path = '/index.php/apps/theming/img/{app}/{image}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -152,16 +190,19 @@ class ThemingIconClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     checkPattern(image, RegExp(r'^.+$'), 'image'); // coverage:ignore-line
     path = path.replaceAll('{image}', Uri.encodeQueryComponent(image));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -173,11 +214,26 @@ class ThemingThemingClient {
   final ThemingClient _rootClient;
 
   /// Get the CSS stylesheet for a theme
-  Future<String> getThemeStylesheet({
+  Future<DynamiteResponse<String, void>> getThemeStylesheet({
     required final String themeId,
     final int plain = 0,
     final int withCustomCss = 0,
   }) async {
+    final rawResponse = getThemeStylesheetRaw(
+      themeId: themeId,
+      plain: plain,
+      withCustomCss: withCustomCss,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the CSS stylesheet for a theme
+  DynamiteRawResponse<String, void> getThemeStylesheetRaw({
+    required final String themeId,
+    final int plain = 0,
+    final int withCustomCss = 0,
+  }) {
     var path = '/index.php/apps/theming/theme/{themeId}.css';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -207,23 +263,39 @@ class ThemingThemingClient {
     if (withCustomCss != 0) {
       queryParameters['withCustomCss'] = withCustomCss.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<String, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(String),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get an image
-  Future<Uint8List> getImage({
+  Future<DynamiteResponse<Uint8List, void>> getImage({
     required final String key,
     final int useSvg = 1,
   }) async {
+    final rawResponse = getImageRaw(
+      key: key,
+      useSvg: useSvg,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get an image
+  DynamiteRawResponse<Uint8List, void> getImageRaw({
+    required final String key,
+    final int useSvg = 1,
+  }) {
     var path = '/index.php/apps/theming/image/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -250,20 +322,36 @@ class ThemingThemingClient {
     if (useSvg != 1) {
       queryParameters['useSvg'] = useSvg.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the manifest for an app
-  Future<ThemingThemingGetManifestResponseApplicationJson> getManifest({required final String app}) async {
+  Future<DynamiteResponse<ThemingThemingGetManifestResponseApplicationJson, void>> getManifest({
+    required final String app,
+  }) async {
+    final rawResponse = getManifestRaw(
+      app: app,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the manifest for an app
+  DynamiteRawResponse<ThemingThemingGetManifestResponseApplicationJson, void> getManifestRaw({
+    required final String app,
+  }) {
     var path = '/index.php/apps/theming/manifest/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -287,19 +375,19 @@ class ThemingThemingClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ThemingThemingGetManifestResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ThemingThemingGetManifestResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ThemingThemingGetManifestResponseApplicationJson),
-      )! as ThemingThemingGetManifestResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -309,7 +397,16 @@ class ThemingUserThemeClient {
   final ThemingClient _rootClient;
 
   /// Get the background image
-  Future<Uint8List> getBackground({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<Uint8List, void>> getBackground({final bool oCSAPIRequest = true}) async {
+    final rawResponse = getBackgroundRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the background image
+  DynamiteRawResponse<Uint8List, void> getBackgroundRaw({final bool oCSAPIRequest = true}) {
     const path = '/index.php/apps/theming/background';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -335,25 +432,45 @@ class ThemingUserThemeClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set the background
-  Future<ThemingBackground> setBackground({
+  Future<DynamiteResponse<ThemingBackground, void>> setBackground({
     required final String type,
     final String value = '',
     final String? color,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setBackgroundRaw(
+      type: type,
+      value: value,
+      color: color,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set the background
+  DynamiteRawResponse<ThemingBackground, void> setBackgroundRaw({
+    required final String type,
+    final String value = '',
+    final String? color,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/index.php/apps/theming/background/{type}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -386,21 +503,32 @@ class ThemingUserThemeClient {
       queryParameters['color'] = color;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ThemingBackground, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ThemingBackground),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(ThemingBackground))!
-          as ThemingBackground;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete the background
-  Future<ThemingBackground> deleteBackground({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<ThemingBackground, void>> deleteBackground({final bool oCSAPIRequest = true}) async {
+    final rawResponse = deleteBackgroundRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete the background
+  DynamiteRawResponse<ThemingBackground, void> deleteBackgroundRaw({final bool oCSAPIRequest = true}) {
     const path = '/index.php/apps/theming/background/custom';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -426,24 +554,39 @@ class ThemingUserThemeClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ThemingBackground, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ThemingBackground),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(ThemingBackground))!
-          as ThemingBackground;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Enable theme
-  Future<ThemingUserThemeEnableThemeResponseApplicationJson> enableTheme({
+  Future<DynamiteResponse<ThemingUserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
     required final String themeId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = enableThemeRaw(
+      themeId: themeId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Enable theme
+  DynamiteRawResponse<ThemingUserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
+    required final String themeId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -470,26 +613,39 @@ class ThemingUserThemeClient {
 // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ThemingUserThemeEnableThemeResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ThemingUserThemeEnableThemeResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ThemingUserThemeEnableThemeResponseApplicationJson),
-      )! as ThemingUserThemeEnableThemeResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Disable theme
-  Future<ThemingUserThemeDisableThemeResponseApplicationJson> disableTheme({
+  Future<DynamiteResponse<ThemingUserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
     required final String themeId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = disableThemeRaw(
+      themeId: themeId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Disable theme
+  DynamiteRawResponse<ThemingUserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
+    required final String themeId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/theming/api/v1/theme/{themeId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -516,19 +672,19 @@ class ThemingUserThemeClient {
 // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ThemingUserThemeDisableThemeResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ThemingUserThemeDisableThemeResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ThemingUserThemeDisableThemeResponseApplicationJson),
-      )! as ThemingUserThemeDisableThemeResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -941,14 +1097,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ThemingPublicCapabilities_Theming.serializer))
     .build();
 
-Serializers get themingSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeTheming<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeTheming<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

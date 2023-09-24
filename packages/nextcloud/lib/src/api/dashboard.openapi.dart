@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -43,7 +44,20 @@ class DashboardDashboardApiClient {
   final DashboardClient _rootClient;
 
   /// Get the widgets
-  Future<DashboardDashboardApiGetWidgetsResponseApplicationJson> getWidgets({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getWidgetsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the widgets
+  DynamiteRawResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -69,28 +83,45 @@ class DashboardDashboardApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson),
-      )! as DashboardDashboardApiGetWidgetsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the items for the widgets
-  Future<DashboardDashboardApiGetWidgetItemsResponseApplicationJson> getWidgetItems({
+  Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getWidgetItemsRaw(
+      sinceIds: sinceIds,
+      limit: limit,
+      widgets: widgets,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the items for the widgets
+  DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
+    final ContentString<BuiltMap<String, String>>? sinceIds,
+    final int limit = 7,
+    final List<String> widgets = const <String>[],
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -130,28 +161,45 @@ class DashboardDashboardApiClient {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson),
-      )! as DashboardDashboardApiGetWidgetItemsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the items for the widgets
-  Future<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson> getWidgetItemsV2({
+  Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getWidgetItemsV2Raw(
+      sinceIds: sinceIds,
+      limit: limit,
+      widgets: widgets,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the items for the widgets
+  DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
+    final ContentString<BuiltMap<String, String>>? sinceIds,
+    final int limit = 7,
+    final List<String> widgets = const <String>[],
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -191,19 +239,19 @@ class DashboardDashboardApiClient {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson),
-      )! as DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -661,14 +709,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ))
     .build();
 
-Serializers get dashboardSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeDashboard<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeDashboard<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -35,7 +36,14 @@ class UppushClient extends DynamiteClient {
         );
 
   /// Check if the UnifiedPush provider is present
-  Future<UppushCheckResponseApplicationJson> check() async {
+  Future<DynamiteResponse<UppushCheckResponseApplicationJson, void>> check() async {
+    final rawResponse = checkRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Check if the UnifiedPush provider is present
+  DynamiteRawResponse<UppushCheckResponseApplicationJson, void> checkRaw() {
     const path = '/index.php/apps/uppush';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -60,25 +68,38 @@ class UppushClient extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCheckResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCheckResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCheckResponseApplicationJson),
-      )! as UppushCheckResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set keepalive interval
   ///
   /// This endpoint requires admin access
-  Future<UppushSetKeepaliveResponseApplicationJson> setKeepalive({required final int keepalive}) async {
+  Future<DynamiteResponse<UppushSetKeepaliveResponseApplicationJson, void>> setKeepalive({
+    required final int keepalive,
+  }) async {
+    final rawResponse = setKeepaliveRaw(
+      keepalive: keepalive,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set keepalive interval
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<UppushSetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required final int keepalive}) {
     const path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -104,23 +125,36 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     queryParameters['keepalive'] = keepalive.toString();
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushSetKeepaliveResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushSetKeepaliveResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushSetKeepaliveResponseApplicationJson),
-      )! as UppushSetKeepaliveResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to create a new deviceId
-  Future<UppushCreateDeviceResponseApplicationJson> createDevice({required final String deviceName}) async {
+  Future<DynamiteResponse<UppushCreateDeviceResponseApplicationJson, void>> createDevice({
+    required final String deviceName,
+  }) async {
+    final rawResponse = createDeviceRaw(
+      deviceName: deviceName,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Request to create a new deviceId
+  DynamiteRawResponse<UppushCreateDeviceResponseApplicationJson, void> createDeviceRaw({
+    required final String deviceName,
+  }) {
     const path = '/index.php/apps/uppush/device';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -146,25 +180,38 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     queryParameters['deviceName'] = deviceName;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCreateDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCreateDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCreateDeviceResponseApplicationJson),
-      )! as UppushCreateDeviceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to get push messages
   ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
-  Future<UppushSyncDeviceResponseApplicationJson> syncDevice({required final String deviceId}) async {
+  Future<DynamiteResponse<UppushSyncDeviceResponseApplicationJson, void>> syncDevice({
+    required final String deviceId,
+  }) async {
+    final rawResponse = syncDeviceRaw(
+      deviceId: deviceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Request to get push messages
+  ///
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
+  DynamiteRawResponse<UppushSyncDeviceResponseApplicationJson, void> syncDeviceRaw({required final String deviceId}) {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -190,23 +237,36 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushSyncDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {401},
+      ),
+      bodyType: const FullType(UppushSyncDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 401) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushSyncDeviceResponseApplicationJson),
-      )! as UppushSyncDeviceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a device
-  Future<UppushDeleteDeviceResponseApplicationJson> deleteDevice({required final String deviceId}) async {
+  Future<DynamiteResponse<UppushDeleteDeviceResponseApplicationJson, void>> deleteDevice({
+    required final String deviceId,
+  }) async {
+    final rawResponse = deleteDeviceRaw(
+      deviceId: deviceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a device
+  DynamiteRawResponse<UppushDeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({
+    required final String deviceId,
+  }) {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -232,26 +292,39 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushDeleteDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushDeleteDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteDeviceResponseApplicationJson),
-      )! as UppushDeleteDeviceResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create an authorization token for a new 3rd party service
-  Future<UppushCreateAppResponseApplicationJson> createApp({
+  Future<DynamiteResponse<UppushCreateAppResponseApplicationJson, void>> createApp({
     required final String deviceId,
     required final String appName,
   }) async {
+    final rawResponse = createAppRaw(
+      deviceId: deviceId,
+      appName: appName,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create an authorization token for a new 3rd party service
+  DynamiteRawResponse<UppushCreateAppResponseApplicationJson, void> createAppRaw({
+    required final String deviceId,
+    required final String appName,
+  }) {
     const path = '/index.php/apps/uppush/app';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -278,23 +351,34 @@ class UppushClient extends DynamiteClient {
 // coverage:ignore-end
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCreateAppResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCreateAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCreateAppResponseApplicationJson),
-      )! as UppushCreateAppResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete an authorization token
-  Future<UppushDeleteAppResponseApplicationJson> deleteApp({required final String token}) async {
+  Future<DynamiteResponse<UppushDeleteAppResponseApplicationJson, void>> deleteApp({
+    required final String token,
+  }) async {
+    final rawResponse = deleteAppRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete an authorization token
+  DynamiteRawResponse<UppushDeleteAppResponseApplicationJson, void> deleteAppRaw({required final String token}) {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -320,23 +404,36 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushDeleteAppResponseApplicationJson, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushDeleteAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteAppResponseApplicationJson),
-      )! as UppushDeleteAppResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unifiedpush discovery Following specifications
-  Future<UppushUnifiedpushDiscoveryResponseApplicationJson> unifiedpushDiscovery({required final String token}) async {
+  Future<DynamiteResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
+    required final String token,
+  }) async {
+    final rawResponse = unifiedpushDiscoveryRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Unifiedpush discovery Following specifications
+  DynamiteRawResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
+    required final String token,
+  }) {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -362,23 +459,32 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
-      )! as UppushUnifiedpushDiscoveryResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Receive notifications from 3rd parties
-  Future<UppushPushResponseApplicationJson> push({required final String token}) async {
+  Future<DynamiteResponse<UppushPushResponseApplicationJson, void>> push({required final String token}) async {
+    final rawResponse = pushRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Receive notifications from 3rd parties
+  DynamiteRawResponse<UppushPushResponseApplicationJson, void> pushRaw({required final String token}) {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -404,23 +510,30 @@ class UppushClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushPushResponseApplicationJson, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {201},
+      ),
+      bodyType: const FullType(UppushPushResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 201) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushPushResponseApplicationJson),
-      )! as UppushPushResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway discovery
-  Future<UppushGatewayMatrixDiscoveryResponseApplicationJson> gatewayMatrixDiscovery() async {
+  Future<DynamiteResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
+    final rawResponse = gatewayMatrixDiscoveryRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Matrix Gateway discovery
+  DynamiteRawResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -445,23 +558,30 @@ class UppushClient extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
-      )! as UppushGatewayMatrixDiscoveryResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway
-  Future<UppushGatewayMatrixResponseApplicationJson> gatewayMatrix() async {
+  Future<DynamiteResponse<UppushGatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
+    final rawResponse = gatewayMatrixRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Matrix Gateway
+  DynamiteRawResponse<UppushGatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -486,19 +606,19 @@ class UppushClient extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushGatewayMatrixResponseApplicationJson, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushGatewayMatrixResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixResponseApplicationJson),
-      )! as UppushGatewayMatrixResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1011,14 +1131,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
-Serializers get uppushSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeUppush<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeUppush<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

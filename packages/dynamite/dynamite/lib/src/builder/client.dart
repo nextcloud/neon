@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite/src/builder/resolve_mime_type.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
@@ -181,308 +182,245 @@ Iterable<Method> buildTags(
 
   for (final pathEntry in paths.entries) {
     for (final operationEntry in pathEntry.value.operations.entries) {
-      yield Method(
-        (final b) {
-          final httpMethod = operationEntry.key.name;
-          final operation = operationEntry.value;
-          final operationId = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
-          final parameters = [
-            ...?pathEntry.value.parameters,
-            ...?operation.parameters,
-          ]..sort(sortRequiredParameters);
-          b
-            ..name = toDartName(filterMethodName(operationId, tag ?? ''))
-            ..modifier = MethodModifier.async
-            ..docs.addAll(operation.formattedDescription);
-          if (operation.deprecated ?? false) {
-            b.annotations.add(refer('Deprecated').call([refer("''")]));
-          }
+      final httpMethod = operationEntry.key.name;
+      final operation = operationEntry.value;
+      final operationId = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
+      final parameters = [
+        ...?pathEntry.value.parameters,
+        ...?operation.parameters,
+      ]..sort(sortRequiredParameters);
+      final name = toDartName(filterMethodName(operationId, tag ?? ''));
 
-          var responses = <openapi.Response, List<int>>{};
-          if (operation.responses != null) {
-            for (final responseEntry in operation.responses!.entries) {
-              final statusCode = int.parse(responseEntry.key);
-              final response = responseEntry.value;
+      var responses = <openapi.Response, List<int>>{};
+      if (operation.responses != null) {
+        for (final responseEntry in operation.responses!.entries) {
+          final statusCode = int.parse(responseEntry.key);
+          final response = responseEntry.value;
 
-              responses[response] ??= [];
-              responses[response]!.add(statusCode);
-            }
+          responses[response] ??= [];
+          responses[response]!.add(statusCode);
+        }
 
-            if (responses.length > 1) {
-              print('$operationId uses more than one response schema but we only generate the first one');
-              responses = Map.fromEntries([responses.entries.first]);
-            }
-          }
+        if (responses.length > 1) {
+          print('$operationId uses more than one response schema but we only generate the first one');
+          responses = Map.fromEntries([responses.entries.first]);
+        }
+      }
 
-          final code = StringBuffer();
+      final code = StringBuffer();
+      final acceptHeader = responses.keys
+          .map((final response) => response.content?.keys)
+          .whereNotNull()
+          .expand((final element) => element)
+          .toSet()
+          .join(',');
 
-          final acceptHeader = responses.keys
-              .map((final response) => response.content?.keys)
-              .whereNotNull()
-              .expand((final element) => element)
-              .toSet()
-              .join(',');
-
-          code.writeln('''
+      code.writeln('''
   var _path = '${pathEntry.key}';
   final _queryParameters = <String, dynamic>{};
   final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
   ''');
 
-          buildAuthCheck(
-            responses,
-            pathEntry,
-            operation,
+      buildAuthCheck(
+        responses,
+        pathEntry,
+        operation,
+        spec,
+        client,
+      ).forEach(code.writeln);
+
+      final operationParameters = ListBuilder<Parameter>();
+      final docs = operation.formattedDescription;
+      final annotations = operation.deprecated ?? false ? refer('Deprecated').call([refer("''")]) : null;
+      var returnDataType = 'void';
+      var returnHeadersType = 'void';
+
+      for (final parameter in parameters) {
+        final dartParameterNullable = isDartParameterNullable(
+          parameter.required,
+          parameter.schema,
+        );
+
+        final result = resolveType(
+          spec,
+          state,
+          toDartName(
+            '$operationId-${parameter.name}',
+            uppercaseFirstCharacter: true,
+          ),
+          parameter.schema!,
+          nullable: dartParameterNullable,
+        ).dartType;
+
+        buildPatternCheck(result, parameter).forEach(code.writeln);
+
+        final defaultValueCode = parameter.schema?.$default != null
+            ? valueToEscapedValue(result, parameter.schema!.$default.toString())
+            : null;
+
+        operationParameters.add(
+          Parameter(
+            (final b) {
+              b
+                ..named = true
+                ..name = toDartName(parameter.name)
+                ..required = parameter.isDartRequired;
+              if (parameter.schema != null) {
+                b.type = refer(result.nullableName);
+              }
+              if (defaultValueCode != null) {
+                b.defaultTo = Code(defaultValueCode);
+              }
+            },
+          ),
+        );
+
+        if (dartParameterNullable) {
+          code.writeln('if (${toDartName(parameter.name)} != null) {');
+        }
+        final value = result.encode(
+          toDartName(parameter.name),
+          onlyChildren: result is TypeResultList && parameter.$in == 'query',
+        );
+        if (defaultValueCode != null && parameter.$in == 'query') {
+          code.writeln('if (${toDartName(parameter.name)} != $defaultValueCode) {');
+        }
+        switch (parameter.$in) {
+          case 'path':
+            code.writeln(
+              "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
+            );
+          case 'query':
+            code.writeln(
+              "_queryParameters['${parameter.name}'] = $value;",
+            );
+          case 'header':
+            code.writeln(
+              "_headers['${parameter.name}'] = $value;",
+            );
+          default:
+            throw Exception('Can not work with parameter in "${parameter.$in}"');
+        }
+        if (defaultValueCode != null && parameter.$in == 'query') {
+          code.writeln('}');
+        }
+        if (dartParameterNullable) {
+          code.writeln('}');
+        }
+      }
+      resolveMimeTypeEncode(operation, spec, state, operationId, operationParameters).forEach(code.writeln);
+
+      for (final responseEntry in responses.entries) {
+        final response = responseEntry.key;
+        final statusCodes = responseEntry.value;
+
+        TypeResult? headersType;
+        if (response.headers != null) {
+          final identifier =
+              '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
+          headersType = resolveObject(
             spec,
-            client,
-          ).forEach(code.writeln);
-
-          for (final parameter in parameters) {
-            final dartParameterNullable = isDartParameterNullable(
-              parameter.required,
-              parameter.schema,
-            );
-
-            final result = resolveType(
-              spec,
-              state,
-              toDartName(
-                '$operationId-${parameter.name}',
-                uppercaseFirstCharacter: true,
-              ),
-              parameter.schema!,
-              nullable: dartParameterNullable,
-            ).dartType;
-
-            buildPatternCheck(result, parameter).forEach(code.writeln);
-
-            final defaultValueCode = parameter.schema?.$default != null
-                ? valueToEscapedValue(result, parameter.schema!.$default.toString())
-                : null;
-
-            b.optionalParameters.add(
-              Parameter(
-                (final b) {
-                  b
-                    ..named = true
-                    ..name = toDartName(parameter.name)
-                    ..required = parameter.isDartRequired;
-                  if (parameter.schema != null) {
-                    b.type = refer(result.nullableName);
-                  }
-                  if (defaultValueCode != null) {
-                    b.defaultTo = Code(defaultValueCode);
-                  }
-                },
-              ),
-            );
-
-            if (dartParameterNullable) {
-              code.write('if (${toDartName(parameter.name)} != null) {');
-            }
-            final value = result.encode(
-              toDartName(parameter.name),
-              onlyChildren: result is TypeResultList && parameter.$in == 'query',
-            );
-            if (defaultValueCode != null && parameter.$in == 'query') {
-              code.write('if (${toDartName(parameter.name)} != $defaultValueCode) {');
-            }
-            switch (parameter.$in) {
-              case 'path':
-                code.write(
-                  "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
-                );
-              case 'query':
-                code.write(
-                  "_queryParameters['${parameter.name}'] = $value;",
-                );
-              case 'header':
-                code.write(
-                  "_headers['${parameter.name}'] = $value;",
-                );
-              default:
-                throw Exception('Can not work with parameter in "${parameter.$in}"');
-            }
-            if (defaultValueCode != null && parameter.$in == 'query') {
-              code.write('}');
-            }
-            if (dartParameterNullable) {
-              code.write('}');
-            }
-          }
-
-          if (operation.requestBody != null) {
-            if (operation.requestBody!.content!.length > 1) {
-              throw Exception('Can not work with multiple mime types right now');
-            }
-            for (final content in operation.requestBody!.content!.entries) {
-              final mimeType = content.key;
-              final mediaType = content.value;
-
-              code.write("_headers['Content-Type'] = '$mimeType';");
-
-              final dartParameterNullable = isDartParameterNullable(
-                operation.requestBody!.required,
-                mediaType.schema,
-              );
-
-              final result = resolveType(
-                spec,
-                state,
-                toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
-                mediaType.schema!,
-                nullable: dartParameterNullable,
-              );
-              final parameterName = toDartName(result.name.replaceFirst(state.classPrefix, ''));
-              switch (mimeType) {
-                case 'application/json':
-                case 'application/x-www-form-urlencoded':
-                  final dartParameterRequired = isRequired(
-                    operation.requestBody!.required,
-                    mediaType.schema?.$default,
-                  );
-                  b.optionalParameters.add(
-                    Parameter(
-                      (final b) => b
-                        ..name = parameterName
-                        ..type = refer(result.nullableName)
-                        ..named = true
-                        ..required = dartParameterRequired,
+            state,
+            identifier,
+            openapi.Schema(
+              (final b) => b
+                ..properties.replace(
+                  response.headers!.map(
+                    (final headerName, final value) => MapEntry(
+                      headerName.toLowerCase(),
+                      value.schema!,
                     ),
-                  );
-
-                  if (dartParameterNullable) {
-                    code.write('if ($parameterName != null) {');
-                  }
-                  code.write(
-                    '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)}) as Uint8List;',
-                  );
-                  if (dartParameterNullable) {
-                    code.write('}');
-                  }
-                default:
-                  throw Exception('Can not parse mime type "$mimeType"');
-              }
-            }
-          }
-
-          code.write(
-            '''
-final _response = await $client.doRequest(
-  '$httpMethod',
-  Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null),
-  _headers,
-  _body,
-);
-''',
-          );
-
-          for (final responseEntry in responses.entries) {
-            final response = responseEntry.key;
-            final statusCodes = responseEntry.value;
-            code.write(
-              'if (${statusCodes.map((final statusCode) => '_response.statusCode == $statusCode').join(' || ')}) {',
-            );
-
-            String? headersType;
-            String? headersValue;
-            if (response.headers != null) {
-              final identifier =
-                  '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
-              final result = resolveObject(
-                spec,
-                state,
-                identifier,
-                openapi.Schema(
-                  (final b) => b
-                    ..properties.replace(
-                      response.headers!.map(
-                        (final headerName, final value) => MapEntry(
-                          headerName.toLowerCase(),
-                          value.schema!,
-                        ),
-                      ),
-                    ),
-                ),
-                isHeader: true,
-              );
-              headersType = result.name;
-              headersValue = result.deserialize('_response.responseHeaders');
-            }
-
-            String? dataType;
-            String? dataValue;
-            bool? dataNeedsAwait;
-            if (response.content != null) {
-              if (response.content!.length > 1) {
-                throw Exception('Can not work with multiple mime types right now');
-              }
-              for (final content in response.content!.entries) {
-                final mimeType = content.key;
-                final mediaType = content.value;
-
-                final result = resolveType(
-                  spec,
-                  state,
-                  toDartName(
-                    '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}-$mimeType',
-                    uppercaseFirstCharacter: true,
                   ),
-                  mediaType.schema!,
-                );
-
-                if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
-                  dataType = 'Uint8List';
-                  dataValue = '_response.bodyBytes';
-                  dataNeedsAwait = true;
-                } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
-                  dataType = 'String';
-                  dataValue = '_response.body';
-                  dataNeedsAwait = true;
-                } else if (mimeType == 'application/json') {
-                  dataType = result.name;
-                  if (result.name == 'dynamic') {
-                    dataValue = '';
-                  } else if (result.name == 'String') {
-                    dataValue = '_response.body';
-                    dataNeedsAwait = true;
-                  } else if (result is TypeResultEnum || result is TypeResultBase) {
-                    dataValue = result.deserialize(result.decode('await _response.body'));
-                    dataNeedsAwait = false;
-                  } else {
-                    dataValue = result.deserialize('await _response.jsonBody');
-                    dataNeedsAwait = false;
-                  }
-                } else {
-                  throw Exception('Can not parse mime type "$mimeType"');
-                }
-              }
-            }
-
-            if (headersType != null && dataType != null) {
-              b.returns = refer('Future<DynamiteResponse<$dataType, $headersType>>');
-              code.write(
-                'return DynamiteResponse<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
-              );
-            } else if (headersType != null) {
-              b.returns = refer('Future<$headersType>');
-              code.write('return $headersValue;');
-            } else if (dataType != null) {
-              b.returns = refer('Future<$dataType>');
-              code.write('return $dataValue;');
-            } else {
-              b.returns = refer('Future<void>');
-              code.write('return;');
-            }
-
-            code.write('}');
-          }
-          code.write(
-            'throw await DynamiteApiException.fromResponse(_response); // coverage:ignore-line\n',
+                ),
+            ),
+            isHeader: true,
           );
+        }
 
-          b.body = Code(code.toString());
+        final dataType = resolveMimeTypeDecode(
+          response,
+          spec,
+          state,
+          toDartName(
+            '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}',
+            uppercaseFirstCharacter: true,
+          ),
+        );
+
+        code.writeln(
+          'final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);',
+        );
+
+        if (dataType != null) {
+          returnDataType = dataType.name;
+        }
+        if (headersType != null) {
+          returnHeadersType = headersType.name;
+        }
+
+        code.writeln('''
+  return DynamiteRawResponse<$returnDataType, $returnHeadersType>(
+    response: $client.doRequest(
+      '$httpMethod',
+      _uri,
+      _headers,
+      _body,
+''');
+
+        if (responses.values.isNotEmpty) {
+          final codes = statusCodes.join(',');
+          code.writeln('const {$codes},');
+        }
+
+        code.writeln('''
+    ),
+    bodyType: ${dataType?.fullType},
+    headersType: ${headersType?.fullType},
+    serializers: _jsonSerializers,
+  );
+''');
+      }
+
+      yield Method((final b) {
+        b
+          ..name = name
+          ..modifier = MethodModifier.async
+          ..docs.addAll(docs);
+
+        if (annotations != null) {
+          b.annotations.add(annotations);
+        }
+
+        final parameters = operationParameters.build();
+        final rawParameters = parameters.map((final p) => '${p.name}: ${p.name},').join('\n');
+
+        b
+          ..optionalParameters.addAll(parameters)
+          ..returns = refer('Future<DynamiteResponse<$returnDataType, $returnHeadersType>>')
+          ..body = Code('''
+final rawResponse = ${name}Raw(
+  $rawParameters
+);
+
+return rawResponse.future;
+''');
+      });
+
+      yield Method(
+        (final b) {
+          b
+            ..name = '${name}Raw'
+            ..docs.addAll(docs);
+
+          if (annotations != null) {
+            b.annotations.add(annotations);
+          }
+
+          b
+            ..optionalParameters.addAll(operationParameters.build())
+            ..returns = refer('DynamiteRawResponse<$returnDataType, $returnHeadersType>')
+            ..body = Code(code.toString());
         },
       );
     }

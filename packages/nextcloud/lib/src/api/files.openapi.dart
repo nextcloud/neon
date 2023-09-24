@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -53,11 +54,26 @@ class FilesApiClient {
   final FilesClient _rootClient;
 
   /// Gets a thumbnail of the specified file
-  Future<Uint8List> getThumbnail({
+  Future<DynamiteResponse<Uint8List, void>> getThumbnail({
     required final int x,
     required final int y,
     required final String file,
   }) async {
+    final rawResponse = getThumbnailRaw(
+      x: x,
+      y: y,
+      file: file,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Gets a thumbnail of the specified file
+  DynamiteRawResponse<Uint8List, void> getThumbnailRaw({
+    required final int x,
+    required final int y,
+    required final String file,
+  }) {
     var path = '/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -86,16 +102,19 @@ class FilesApiClient {
     path = path.replaceAll('{y}', Uri.encodeQueryComponent(y.toString()));
     checkPattern(file, RegExp(r'^.+$'), 'file'); // coverage:ignore-line
     path = path.replaceAll('{file}', Uri.encodeQueryComponent(file));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -105,7 +124,18 @@ class FilesDirectEditingClient {
   final FilesClient _rootClient;
 
   /// Get the direct editing capabilities
-  Future<FilesDirectEditingInfoResponseApplicationJson> info({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<FilesDirectEditingInfoResponseApplicationJson, void>> info({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = infoRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the direct editing capabilities
+  DynamiteRawResponse<FilesDirectEditingInfoResponseApplicationJson, void> infoRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -131,27 +161,42 @@ class FilesDirectEditingClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesDirectEditingInfoResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesDirectEditingInfoResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson),
-      )! as FilesDirectEditingInfoResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get the templates for direct editing
-  Future<FilesDirectEditingTemplatesResponseApplicationJson> templates({
+  Future<DynamiteResponse<FilesDirectEditingTemplatesResponseApplicationJson, void>> templates({
     required final String editorId,
     required final String creatorId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = templatesRaw(
+      editorId: editorId,
+      creatorId: creatorId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the templates for direct editing
+  DynamiteRawResponse<FilesDirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
+    required final String editorId,
+    required final String creatorId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -179,28 +224,45 @@ class FilesDirectEditingClient {
     path = path.replaceAll('{editorId}', Uri.encodeQueryComponent(editorId));
     path = path.replaceAll('{creatorId}', Uri.encodeQueryComponent(creatorId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesDirectEditingTemplatesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson),
-      )! as FilesDirectEditingTemplatesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Open a file for direct editing
-  Future<FilesDirectEditingOpenResponseApplicationJson> open({
+  Future<DynamiteResponse<FilesDirectEditingOpenResponseApplicationJson, void>> open({
     required final String path,
     final String? editorId,
     final int? fileId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = openRaw(
+      path: path,
+      editorId: editorId,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Open a file for direct editing
+  DynamiteRawResponse<FilesDirectEditingOpenResponseApplicationJson, void> openRaw({
+    required final String path,
+    final String? editorId,
+    final int? fileId,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/open';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -233,29 +295,48 @@ class FilesDirectEditingClient {
       queryParameters['fileId'] = fileId.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesDirectEditingOpenResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesDirectEditingOpenResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson),
-      )! as FilesDirectEditingOpenResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a file for direct editing
-  Future<FilesDirectEditingCreateResponseApplicationJson> create({
+  Future<DynamiteResponse<FilesDirectEditingCreateResponseApplicationJson, void>> create({
     required final String path,
     required final String editorId,
     required final String creatorId,
     final String? templateId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createRaw(
+      path: path,
+      editorId: editorId,
+      creatorId: creatorId,
+      templateId: templateId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a file for direct editing
+  DynamiteRawResponse<FilesDirectEditingCreateResponseApplicationJson, void> createRaw({
+    required final String path,
+    required final String editorId,
+    required final String creatorId,
+    final String? templateId,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/create';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -287,19 +368,19 @@ class FilesDirectEditingClient {
       queryParameters['templateId'] = templateId;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesDirectEditingCreateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesDirectEditingCreateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson),
-      )! as FilesDirectEditingCreateResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -309,10 +390,23 @@ class FilesOpenLocalEditorClient {
   final FilesClient _rootClient;
 
   /// Create a local editor
-  Future<FilesOpenLocalEditorCreateResponseApplicationJson> create({
+  Future<DynamiteResponse<FilesOpenLocalEditorCreateResponseApplicationJson, void>> create({
     required final String path,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createRaw(
+      path: path,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a local editor
+  DynamiteRawResponse<FilesOpenLocalEditorCreateResponseApplicationJson, void> createRaw({
+    required final String path,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -339,27 +433,42 @@ class FilesOpenLocalEditorClient {
 // coverage:ignore-end
     queryParameters['path'] = path;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesOpenLocalEditorCreateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson),
-      )! as FilesOpenLocalEditorCreateResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Validate a local editor
-  Future<FilesOpenLocalEditorValidateResponseApplicationJson> validate({
+  Future<DynamiteResponse<FilesOpenLocalEditorValidateResponseApplicationJson, void>> validate({
     required final String path,
     required final String token,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = validateRaw(
+      path: path,
+      token: token,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Validate a local editor
+  DynamiteRawResponse<FilesOpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
+    required final String path,
+    required final String token,
+    final bool oCSAPIRequest = true,
+  }) {
     var path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -387,19 +496,19 @@ class FilesOpenLocalEditorClient {
     queryParameters['path'] = path;
     path0 = path0.replaceAll('{token}', Uri.encodeQueryComponent(token));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesOpenLocalEditorValidateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson),
-      )! as FilesOpenLocalEditorValidateResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -409,7 +518,18 @@ class FilesTemplateClient {
   final FilesClient _rootClient;
 
   /// List the available templates
-  Future<FilesTemplateListResponseApplicationJson> list({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<FilesTemplateListResponseApplicationJson, void>> list({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = listRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// List the available templates
+  DynamiteRawResponse<FilesTemplateListResponseApplicationJson, void> listRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -435,28 +555,45 @@ class FilesTemplateClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTemplateListResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesTemplateListResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTemplateListResponseApplicationJson),
-      )! as FilesTemplateListResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a template
-  Future<FilesTemplateCreateResponseApplicationJson> create({
+  Future<DynamiteResponse<FilesTemplateCreateResponseApplicationJson, void>> create({
     required final String filePath,
     final String templatePath = '',
     final String templateType = 'user',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createRaw(
+      filePath: filePath,
+      templatePath: templatePath,
+      templateType: templateType,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a template
+  DynamiteRawResponse<FilesTemplateCreateResponseApplicationJson, void> createRaw({
+    required final String filePath,
+    final String templatePath = '',
+    final String templateType = 'user',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/create';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -489,27 +626,42 @@ class FilesTemplateClient {
       queryParameters['templateType'] = templateType;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTemplateCreateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesTemplateCreateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTemplateCreateResponseApplicationJson),
-      )! as FilesTemplateCreateResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Initialize the template directory
-  Future<FilesTemplatePathResponseApplicationJson> path({
+  Future<DynamiteResponse<FilesTemplatePathResponseApplicationJson, void>> path({
     final String templatePath = '',
     final int copySystemTemplates = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = pathRaw(
+      templatePath: templatePath,
+      copySystemTemplates: copySystemTemplates,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Initialize the template directory
+  DynamiteRawResponse<FilesTemplatePathResponseApplicationJson, void> pathRaw({
+    final String templatePath = '',
+    final int copySystemTemplates = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/path';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -541,19 +693,19 @@ class FilesTemplateClient {
       queryParameters['copySystemTemplates'] = copySystemTemplates.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTemplatePathResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesTemplatePathResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTemplatePathResponseApplicationJson),
-      )! as FilesTemplatePathResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -563,11 +715,26 @@ class FilesTransferOwnershipClient {
   final FilesClient _rootClient;
 
   /// Transfer the ownership to another user
-  Future<FilesTransferOwnershipTransferResponseApplicationJson> transfer({
+  Future<DynamiteResponse<FilesTransferOwnershipTransferResponseApplicationJson, void>> transfer({
     required final String recipient,
     required final String path,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = transferRaw(
+      recipient: recipient,
+      path: path,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Transfer the ownership to another user
+  DynamiteRawResponse<FilesTransferOwnershipTransferResponseApplicationJson, void> transferRaw({
+    required final String recipient,
+    required final String path,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/transferownership';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -595,26 +762,39 @@ class FilesTransferOwnershipClient {
     queryParameters['recipient'] = recipient;
     queryParameters['path'] = path;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTransferOwnershipTransferResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400, 403},
+      ),
+      bodyType: const FullType(FilesTransferOwnershipTransferResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400 || response.statusCode == 403) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTransferOwnershipTransferResponseApplicationJson),
-      )! as FilesTransferOwnershipTransferResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept an ownership transfer
-  Future<FilesTransferOwnershipAcceptResponseApplicationJson> accept({
+  Future<DynamiteResponse<FilesTransferOwnershipAcceptResponseApplicationJson, void>> accept({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = acceptRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Accept an ownership transfer
+  DynamiteRawResponse<FilesTransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -641,26 +821,39 @@ class FilesTransferOwnershipClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTransferOwnershipAcceptResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 403, 404},
+      ),
+      bodyType: const FullType(FilesTransferOwnershipAcceptResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 403 || response.statusCode == 404) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTransferOwnershipAcceptResponseApplicationJson),
-      )! as FilesTransferOwnershipAcceptResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Reject an ownership transfer
-  Future<FilesTransferOwnershipRejectResponseApplicationJson> reject({
+  Future<DynamiteResponse<FilesTransferOwnershipRejectResponseApplicationJson, void>> reject({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = rejectRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Reject an ownership transfer
+  DynamiteRawResponse<FilesTransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -687,19 +880,19 @@ class FilesTransferOwnershipClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesTransferOwnershipRejectResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 403, 404},
+      ),
+      bodyType: const FullType(FilesTransferOwnershipRejectResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 403 || response.statusCode == 404) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesTransferOwnershipRejectResponseApplicationJson),
-      )! as FilesTransferOwnershipRejectResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2369,14 +2562,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesTemplate.serializer))
     .build();
 
-Serializers get filesSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFiles<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFiles<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

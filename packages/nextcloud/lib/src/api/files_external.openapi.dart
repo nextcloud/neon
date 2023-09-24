@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -44,7 +45,20 @@ class FilesExternalApiClient {
   final FilesExternalClient _rootClient;
 
   /// Get the mount points visible for this user
-  Future<FilesExternalApiGetUserMountsResponseApplicationJson> getUserMounts({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<FilesExternalApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getUserMountsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the mount points visible for this user
+  DynamiteRawResponse<FilesExternalApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -70,19 +84,19 @@ class FilesExternalApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesExternalApiGetUserMountsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson),
-      )! as FilesExternalApiGetUserMountsResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -344,14 +358,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ))
     .build();
 
-Serializers get filesExternalSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFilesExternal<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFilesExternal<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

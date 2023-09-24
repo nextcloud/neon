@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:convert';
@@ -36,7 +37,7 @@ class NotesClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  Future<BuiltList<NotesNote>> getNotes({
+  Future<DynamiteResponse<BuiltList<NotesNote>, void>> getNotes({
     final String? category,
     final String exclude = '',
     final int pruneBefore = 0,
@@ -44,6 +45,26 @@ class NotesClient extends DynamiteClient {
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) async {
+    final rawResponse = getNotesRaw(
+      category: category,
+      exclude: exclude,
+      pruneBefore: pruneBefore,
+      chunkSize: chunkSize,
+      chunkCursor: chunkCursor,
+      ifNoneMatch: ifNoneMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<BuiltList<NotesNote>, void> getNotesRaw({
+    final String? category,
+    final String exclude = '',
+    final int pruneBefore = 0,
+    final int chunkSize = 0,
+    final String? chunkCursor,
+    final String? ifNoneMatch,
+  }) {
     const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -86,28 +107,46 @@ class NotesClient extends DynamiteClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<BuiltList<NotesNote>, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(BuiltList, [FullType(NotesNote)]),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(BuiltList, [FullType(NotesNote)]),
-      )! as BuiltList<NotesNote>;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> createNote({
+  Future<DynamiteResponse<NotesNote, void>> createNote({
     final String category = '',
     final String title = '',
     final String content = '',
     final int modified = 0,
     final int favorite = 0,
   }) async {
+    final rawResponse = createNoteRaw(
+      category: category,
+      title: title,
+      content: content,
+      modified: modified,
+      favorite: favorite,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<NotesNote, void> createNoteRaw({
+    final String category = '',
+    final String title = '',
+    final String content = '',
+    final int modified = 0,
+    final int favorite = 0,
+  }) {
     const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -147,24 +186,40 @@ class NotesClient extends DynamiteClient {
     if (favorite != 0) {
       queryParameters['favorite'] = favorite.toString();
     }
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> getNote({
+  Future<DynamiteResponse<NotesNote, void>> getNote({
     required final int id,
     final String exclude = '',
     final String? ifNoneMatch,
   }) async {
+    final rawResponse = getNoteRaw(
+      id: id,
+      exclude: exclude,
+      ifNoneMatch: ifNoneMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<NotesNote, void> getNoteRaw({
+    required final int id,
+    final String exclude = '',
+    final String? ifNoneMatch,
+  }) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -196,20 +251,22 @@ class NotesClient extends DynamiteClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> updateNote({
+  Future<DynamiteResponse<NotesNote, void>> updateNote({
     required final int id,
     final String? content,
     final int? modified,
@@ -218,6 +275,28 @@ class NotesClient extends DynamiteClient {
     final int? favorite,
     final String? ifMatch,
   }) async {
+    final rawResponse = updateNoteRaw(
+      id: id,
+      content: content,
+      modified: modified,
+      title: title,
+      category: category,
+      favorite: favorite,
+      ifMatch: ifMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<NotesNote, void> updateNoteRaw({
+    required final int id,
+    final String? content,
+    final int? modified,
+    final String? title,
+    final String? category,
+    final int? favorite,
+    final String? ifMatch,
+  }) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -261,20 +340,30 @@ class NotesClient extends DynamiteClient {
     if (ifMatch != null) {
       headers['If-Match'] = ifMatch;
     }
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<String> deleteNote({required final int id}) async {
+  Future<DynamiteResponse<String, void>> deleteNote({required final int id}) async {
+    final rawResponse = deleteNoteRaw(
+      id: id,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -300,19 +389,28 @@ class NotesClient extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<String, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(String),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesSettings> getSettings() async {
+  Future<DynamiteResponse<NotesSettings, void>> getSettings() async {
+    final rawResponse = getSettingsRaw();
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<NotesSettings, void> getSettingsRaw() {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -337,20 +435,30 @@ class NotesClient extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesSettings, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesSettings),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
-          as NotesSettings;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesSettings> updateSettings({required final NotesSettings settings}) async {
+  Future<DynamiteResponse<NotesSettings, void>> updateSettings({required final NotesSettings settings}) async {
+    final rawResponse = updateSettingsRaw(
+      settings: settings,
+    );
+
+    return rawResponse.future;
+  }
+
+  DynamiteRawResponse<NotesSettings, void> updateSettingsRaw({required final NotesSettings settings}) {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -378,17 +486,19 @@ class NotesClient extends DynamiteClient {
     headers['Content-Type'] = 'application/json';
     body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings))))
         as Uint8List;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesSettings, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesSettings),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
-          as NotesSettings;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -633,14 +743,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
-Serializers get notesSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeNotes<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeNotes<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

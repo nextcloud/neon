@@ -4,6 +4,7 @@ import 'package:path/path.dart' as p;
 
 List<Spec> generateImports(final AssetId outputId) => [
       const Code('// ignore_for_file: camel_case_types'),
+      const Code('// ignore_for_file: discarded_futures'),
       const Code('// ignore_for_file: public_member_api_docs'),
       const Code('// ignore_for_file: unreachable_switch_case'),
       Directive.import('dart:convert'),

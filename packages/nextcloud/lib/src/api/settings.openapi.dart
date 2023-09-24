@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -45,6 +46,15 @@ class SettingsLogSettingsClient {
   ///
   /// This endpoint requires admin access
   Future<DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>> download() async {
+    final rawResponse = downloadRaw();
+
+    return rawResponse.future;
+  }
+
+  /// download logfile
+  ///
+  /// This endpoint requires admin access
+  DynamiteRawResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders> downloadRaw() {
     const path = '/index.php/settings/admin/log/download';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -69,22 +79,19 @@ class SettingsLogSettingsClient {
     }
 
 // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(SettingsLogSettingsLogSettingsDownloadHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>(
-        await response.bodyBytes,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(SettingsLogSettingsLogSettingsDownloadHeaders),
-        )! as SettingsLogSettingsLogSettingsDownloadHeaders,
-      );
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -176,14 +183,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(SettingsLogSettingsLogSettingsDownloadHeaders.serializer))
     .build();
 
-Serializers get settingsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeSettings<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeSettings<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

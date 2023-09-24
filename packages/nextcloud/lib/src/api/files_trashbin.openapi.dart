@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -42,12 +43,29 @@ class FilesTrashbinPreviewClient {
   final FilesTrashbinClient _rootClient;
 
   /// Get the preview for a file
-  Future<Uint8List> getPreview({
+  Future<DynamiteResponse<Uint8List, void>> getPreview({
     final int fileId = -1,
     final int x = 32,
     final int y = 32,
     final int a = 0,
   }) async {
+    final rawResponse = getPreviewRaw(
+      fileId: fileId,
+      x: x,
+      y: y,
+      a: a,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the preview for a file
+  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+    final int fileId = -1,
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+  }) {
     const path = '/index.php/apps/files_trashbin/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -84,16 +102,19 @@ class FilesTrashbinPreviewClient {
     if (a != 0) {
       queryParameters['a'] = a.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -165,14 +186,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesTrashbinCapabilities_Files.serializer))
     .build();
 
-Serializers get filesTrashbinSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFilesTrashbin<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFilesTrashbin<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

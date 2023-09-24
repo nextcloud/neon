@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
@@ -54,7 +55,20 @@ class FilesSharingDeletedShareapiClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of all deleted shares
-  Future<FilesSharingDeletedShareapiListResponseApplicationJson> list({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<FilesSharingDeletedShareapiListResponseApplicationJson, void>> list({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = listRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of all deleted shares
+  DynamiteRawResponse<FilesSharingDeletedShareapiListResponseApplicationJson, void> listRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -80,26 +94,39 @@ class FilesSharingDeletedShareapiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingDeletedShareapiListResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson),
-      )! as FilesSharingDeletedShareapiListResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Undelete a deleted share
-  Future<FilesSharingDeletedShareapiUndeleteResponseApplicationJson> undelete({
+  Future<DynamiteResponse<FilesSharingDeletedShareapiUndeleteResponseApplicationJson, void>> undelete({
     required final String id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = undeleteRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Undelete a deleted share
+  DynamiteRawResponse<FilesSharingDeletedShareapiUndeleteResponseApplicationJson, void> undeleteRaw({
+    required final String id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -126,19 +153,19 @@ class FilesSharingDeletedShareapiClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingDeletedShareapiUndeleteResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson),
-      )! as FilesSharingDeletedShareapiUndeleteResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -148,10 +175,23 @@ class FilesSharingPublicPreviewClient {
   final FilesSharingClient _rootClient;
 
   /// Get a direct link preview for a shared file
-  Future<Uint8List> directLink({
+  Future<DynamiteResponse<Uint8List, void>> directLink({
     required final String token,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = directLinkRaw(
+      token: token,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a direct link preview for a shared file
+  DynamiteRawResponse<Uint8List, void> directLinkRaw({
+    required final String token,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/index.php/s/{token}/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -176,20 +216,23 @@ class FilesSharingPublicPreviewClient {
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a preview for a shared file
-  Future<Uint8List> getPreview({
+  Future<DynamiteResponse<Uint8List, void>> getPreview({
     required final String token,
     final String file = '',
     final int x = 32,
@@ -197,6 +240,27 @@ class FilesSharingPublicPreviewClient {
     final int a = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getPreviewRaw(
+      token: token,
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview for a shared file
+  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+    required final String token,
+    final String file = '',
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/index.php/apps/files_sharing/publicpreview/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -233,16 +297,19 @@ class FilesSharingPublicPreviewClient {
       queryParameters['a'] = a.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -252,7 +319,20 @@ class FilesSharingRemoteClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of accepted remote shares
-  Future<FilesSharingRemoteGetSharesResponseApplicationJson> getShares({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<FilesSharingRemoteGetSharesResponseApplicationJson, void>> getShares({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getSharesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of accepted remote shares
+  DynamiteRawResponse<FilesSharingRemoteGetSharesResponseApplicationJson, void> getSharesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -278,25 +358,36 @@ class FilesSharingRemoteClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteGetSharesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson),
-      )! as FilesSharingRemoteGetSharesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get list of pending remote shares
-  Future<FilesSharingRemoteGetOpenSharesResponseApplicationJson> getOpenShares({
+  Future<DynamiteResponse<FilesSharingRemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getOpenSharesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get list of pending remote shares
+  DynamiteRawResponse<FilesSharingRemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -322,26 +413,39 @@ class FilesSharingRemoteClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteGetOpenSharesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson),
-      )! as FilesSharingRemoteGetOpenSharesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a remote share
-  Future<FilesSharingRemoteAcceptShareResponseApplicationJson> acceptShare({
+  Future<DynamiteResponse<FilesSharingRemoteAcceptShareResponseApplicationJson, void>> acceptShare({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = acceptShareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Accept a remote share
+  DynamiteRawResponse<FilesSharingRemoteAcceptShareResponseApplicationJson, void> acceptShareRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -368,26 +472,39 @@ class FilesSharingRemoteClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteAcceptShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson),
-      )! as FilesSharingRemoteAcceptShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Decline a remote share
-  Future<FilesSharingRemoteDeclineShareResponseApplicationJson> declineShare({
+  Future<DynamiteResponse<FilesSharingRemoteDeclineShareResponseApplicationJson, void>> declineShare({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = declineShareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Decline a remote share
+  DynamiteRawResponse<FilesSharingRemoteDeclineShareResponseApplicationJson, void> declineShareRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -414,26 +531,39 @@ class FilesSharingRemoteClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteDeclineShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson),
-      )! as FilesSharingRemoteDeclineShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get info of a remote share
-  Future<FilesSharingRemoteGetShareResponseApplicationJson> getShare({
+  Future<DynamiteResponse<FilesSharingRemoteGetShareResponseApplicationJson, void>> getShare({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getShareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get info of a remote share
+  DynamiteRawResponse<FilesSharingRemoteGetShareResponseApplicationJson, void> getShareRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -460,26 +590,39 @@ class FilesSharingRemoteClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteGetShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson),
-      )! as FilesSharingRemoteGetShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unshare a remote share
-  Future<FilesSharingRemoteUnshareResponseApplicationJson> unshare({
+  Future<DynamiteResponse<FilesSharingRemoteUnshareResponseApplicationJson, void>> unshare({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = unshareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Unshare a remote share
+  DynamiteRawResponse<FilesSharingRemoteUnshareResponseApplicationJson, void> unshareRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -506,19 +649,19 @@ class FilesSharingRemoteClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingRemoteUnshareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson),
-      )! as FilesSharingRemoteUnshareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -528,12 +671,29 @@ class FilesSharingShareInfoClient {
   final FilesSharingClient _rootClient;
 
   /// Get the info about a share
-  Future<FilesSharingShareInfo> info({
+  Future<DynamiteResponse<FilesSharingShareInfo, void>> info({
     required final String t,
     final String? password,
     final String? dir,
     final int depth = -1,
   }) async {
+    final rawResponse = infoRaw(
+      t: t,
+      password: password,
+      dir: dir,
+      depth: depth,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the info about a share
+  DynamiteRawResponse<FilesSharingShareInfo, void> infoRaw({
+    required final String t,
+    final String? password,
+    final String? dir,
+    final int depth = -1,
+  }) {
     const path = '/index.php/apps/files_sharing/shareinfo';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -566,19 +726,19 @@ class FilesSharingShareInfoClient {
     if (depth != -1) {
       queryParameters['depth'] = depth.toString();
     }
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareInfo, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareInfo),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareInfo),
-      )! as FilesSharingShareInfo;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -588,7 +748,7 @@ class FilesSharingShareapiClient {
   final FilesSharingClient _rootClient;
 
   /// Get shares of the current user
-  Future<FilesSharingShareapiGetSharesResponseApplicationJson> getShares({
+  Future<DynamiteResponse<FilesSharingShareapiGetSharesResponseApplicationJson, void>> getShares({
     final String sharedWithMe = 'false',
     final String reshares = 'false',
     final String subfiles = 'false',
@@ -596,6 +756,27 @@ class FilesSharingShareapiClient {
     final String includeTags = 'false',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getSharesRaw(
+      sharedWithMe: sharedWithMe,
+      reshares: reshares,
+      subfiles: subfiles,
+      path: path,
+      includeTags: includeTags,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get shares of the current user
+  DynamiteRawResponse<FilesSharingShareapiGetSharesResponseApplicationJson, void> getSharesRaw({
+    final String sharedWithMe = 'false',
+    final String reshares = 'false',
+    final String subfiles = 'false',
+    final String path = '',
+    final String includeTags = 'false',
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -636,23 +817,23 @@ class FilesSharingShareapiClient {
       queryParameters['include_tags'] = includeTags;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiGetSharesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson),
-      )! as FilesSharingShareapiGetSharesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create a share
-  Future<FilesSharingShareapiCreateShareResponseApplicationJson> createShare({
+  Future<DynamiteResponse<FilesSharingShareapiCreateShareResponseApplicationJson, void>> createShare({
     final String? path,
     final int? permissions,
     final int shareType = -1,
@@ -666,6 +847,39 @@ class FilesSharingShareapiClient {
     final String? attributes,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createShareRaw(
+      path: path,
+      permissions: permissions,
+      shareType: shareType,
+      shareWith: shareWith,
+      publicUpload: publicUpload,
+      password: password,
+      sendPasswordByTalk: sendPasswordByTalk,
+      expireDate: expireDate,
+      note: note,
+      label: label,
+      attributes: attributes,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a share
+  DynamiteRawResponse<FilesSharingShareapiCreateShareResponseApplicationJson, void> createShareRaw({
+    final String? path,
+    final int? permissions,
+    final int shareType = -1,
+    final String? shareWith,
+    final String publicUpload = 'false',
+    final String password = '',
+    final String? sendPasswordByTalk,
+    final String expireDate = '',
+    final String note = '',
+    final String label = '',
+    final String? attributes,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -724,26 +938,39 @@ class FilesSharingShareapiClient {
       queryParameters['attributes'] = attributes;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiCreateShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson),
-      )! as FilesSharingShareapiCreateShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares relative to a file, including parent folders shares rights
-  Future<FilesSharingShareapiGetInheritedSharesResponseApplicationJson> getInheritedShares({
+  Future<DynamiteResponse<FilesSharingShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
     required final String path,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getInheritedSharesRaw(
+      path: path,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get all shares relative to a file, including parent folders shares rights
+  DynamiteRawResponse<FilesSharingShareapiGetInheritedSharesResponseApplicationJson, void> getInheritedSharesRaw({
+    required final String path,
+    final bool oCSAPIRequest = true,
+  }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -770,25 +997,36 @@ class FilesSharingShareapiClient {
 // coverage:ignore-end
     queryParameters['path'] = path;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiGetInheritedSharesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson),
-      )! as FilesSharingShareapiGetInheritedSharesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get all shares that are still pending
-  Future<FilesSharingShareapiPendingSharesResponseApplicationJson> pendingShares({
+  Future<DynamiteResponse<FilesSharingShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = pendingSharesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get all shares that are still pending
+  DynamiteRawResponse<FilesSharingShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -814,27 +1052,42 @@ class FilesSharingShareapiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiPendingSharesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson),
-      )! as FilesSharingShareapiPendingSharesResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Get a specific share by id
-  Future<FilesSharingShareapiGetShareResponseApplicationJson> getShare({
+  Future<DynamiteResponse<FilesSharingShareapiGetShareResponseApplicationJson, void>> getShare({
     required final String id,
     final int includeTags = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getShareRaw(
+      id: id,
+      includeTags: includeTags,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a specific share by id
+  DynamiteRawResponse<FilesSharingShareapiGetShareResponseApplicationJson, void> getShareRaw({
+    required final String id,
+    final int includeTags = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -864,23 +1117,23 @@ class FilesSharingShareapiClient {
       queryParameters['include_tags'] = includeTags.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiGetShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson),
-      )! as FilesSharingShareapiGetShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Update a share
-  Future<FilesSharingShareapiUpdateShareResponseApplicationJson> updateShare({
+  Future<DynamiteResponse<FilesSharingShareapiUpdateShareResponseApplicationJson, void>> updateShare({
     required final String id,
     final int? permissions,
     final String? password,
@@ -893,6 +1146,37 @@ class FilesSharingShareapiClient {
     final String? attributes,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = updateShareRaw(
+      id: id,
+      permissions: permissions,
+      password: password,
+      sendPasswordByTalk: sendPasswordByTalk,
+      publicUpload: publicUpload,
+      expireDate: expireDate,
+      note: note,
+      label: label,
+      hideDownload: hideDownload,
+      attributes: attributes,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a share
+  DynamiteRawResponse<FilesSharingShareapiUpdateShareResponseApplicationJson, void> updateShareRaw({
+    required final String id,
+    final int? permissions,
+    final String? password,
+    final String? sendPasswordByTalk,
+    final String? publicUpload,
+    final String? expireDate,
+    final String? note,
+    final String? label,
+    final String? hideDownload,
+    final String? attributes,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -946,26 +1230,39 @@ class FilesSharingShareapiClient {
       queryParameters['attributes'] = attributes;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiUpdateShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson),
-      )! as FilesSharingShareapiUpdateShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a share
-  Future<FilesSharingShareapiDeleteShareResponseApplicationJson> deleteShare({
+  Future<DynamiteResponse<FilesSharingShareapiDeleteShareResponseApplicationJson, void>> deleteShare({
     required final String id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteShareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a share
+  DynamiteRawResponse<FilesSharingShareapiDeleteShareResponseApplicationJson, void> deleteShareRaw({
+    required final String id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -992,26 +1289,39 @@ class FilesSharingShareapiClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiDeleteShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson),
-      )! as FilesSharingShareapiDeleteShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Accept a share
-  Future<FilesSharingShareapiAcceptShareResponseApplicationJson> acceptShare({
+  Future<DynamiteResponse<FilesSharingShareapiAcceptShareResponseApplicationJson, void>> acceptShare({
     required final String id,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = acceptShareRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Accept a share
+  DynamiteRawResponse<FilesSharingShareapiAcceptShareResponseApplicationJson, void> acceptShareRaw({
+    required final String id,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1038,19 +1348,19 @@ class FilesSharingShareapiClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareapiAcceptShareResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson),
-      )! as FilesSharingShareapiAcceptShareResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1071,6 +1381,30 @@ class FilesSharingShareesapiClient {
     final int lookup = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchRaw(
+      search: search,
+      itemType: itemType,
+      page: page,
+      perPage: perPage,
+      shareType: shareType,
+      lookup: lookup,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search for sharees
+  DynamiteRawResponse<FilesSharingShareesapiSearchResponseApplicationJson,
+      FilesSharingShareesapiShareesapiSearchHeaders> searchRaw({
+    final String search = '',
+    final String? itemType,
+    final int page = 1,
+    final int perPage = 200,
+    final ContentString<FilesSharingShareesapiSearchShareType>? shareType,
+    final int lookup = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1117,34 +1451,43 @@ class FilesSharingShareesapiClient {
       queryParameters['lookup'] = lookup.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareesapiSearchResponseApplicationJson,
+        FilesSharingShareesapiShareesapiSearchHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareesapiSearchResponseApplicationJson),
+      headersType: const FullType(FilesSharingShareesapiShareesapiSearchHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return DynamiteResponse<FilesSharingShareesapiSearchResponseApplicationJson,
-          FilesSharingShareesapiShareesapiSearchHeaders>(
-        _jsonSerializers.deserialize(
-          await response.jsonBody,
-          specifiedType: const FullType(FilesSharingShareesapiSearchResponseApplicationJson),
-        )! as FilesSharingShareesapiSearchResponseApplicationJson,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(FilesSharingShareesapiShareesapiSearchHeaders),
-        )! as FilesSharingShareesapiShareesapiSearchHeaders,
-      );
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Find recommended sharees
-  Future<FilesSharingShareesapiFindRecommendedResponseApplicationJson> findRecommended({
+  Future<DynamiteResponse<FilesSharingShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
     required final String itemType,
     final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = findRecommendedRaw(
+      itemType: itemType,
+      shareType: shareType,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Find recommended sharees
+  DynamiteRawResponse<FilesSharingShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
+    required final String itemType,
+    final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1177,19 +1520,19 @@ class FilesSharingShareesapiClient {
       );
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<FilesSharingShareesapiFindRecommendedResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson),
-      )! as FilesSharingShareesapiFindRecommendedResponseApplicationJson;
-    }
-    throw await DynamiteApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -4732,14 +5075,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer))
     .build();
 
-Serializers get filesSharingSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeFilesSharing<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeFilesSharing<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end
