@@ -2,6 +2,8 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/api/files_reminders.openapi.dart';
+import 'package:nextcloud/src/api/sharebymail.openapi.dart';
 
 // ignore: public_member_api_docs
 class NextcloudClient extends DynamiteClient {
@@ -124,13 +126,27 @@ class NextcloudClient extends DynamiteClient {
 
 // ignore: public_member_api_docs
 final serializers = Serializers.merge([
+  commentsSerializers,
   coreSerializers,
+  dashboardSerializers,
+  davSerializers,
+  filesSerializers,
+  filesExternalSerializers,
+  filesRemindersSerializers,
+  filesSharingSerializers,
+  filesTrashbinSerializers,
+  filesVersionsSerializers,
   newsSerializers,
   notesSerializers,
   notificationsSerializers,
   provisioningApiSerializers,
+  settingsSerializers,
+  sharebymailSerializers,
+  themingSerializers,
+  updatenotificationSerializers,
   uppushSerializers,
   userStatusSerializers,
+  weatherStatusSerializers,
 ]);
 
 // ignore: public_member_api_docs
