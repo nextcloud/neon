@@ -22,7 +22,7 @@ The Neon project has three main goals:
 
 The Neon project uses [Dart](https://dart.dev/) and [Flutter](https://flutter.dev/) to help mobile client developers building apps. Flutter allows us to build convergent cross-platform clients that feel native. 
 We are a 100% FOSS framework and do not rely on any proprietary libraries making it easy for developers to publish their apps in places like the [F-Droid](https://f-droid.org/) store.
-We provide a generated [Nextcloud Dart client](packages/nextcloud) that is generated from the new OpenAPI specifications shipped with Nextcloud and is already being used by other Dart and Flutter projects. Gone are the days of looking at the PHP code and implementing an API client by hand wich can be time-consuming and very error-prone.
+We provide a generated [Nextcloud Dart client](packages/nextcloud) that is generated from the new OpenAPI specifications shipped with Nextcloud and is already being used by other Dart and Flutter projects. Gone are the days of looking at the PHP code and implementing an API client by hand which can be time-consuming and very error-prone.
 
 We provide abstractions, common utilities and prebuilt UI components (called Widgets in Flutter) that can be re-used. This allows Neon to make developing a new Nextcloud client as easy as adding a few custom UI elements and the necessary state management, while everything else is already taken care of for you.
 

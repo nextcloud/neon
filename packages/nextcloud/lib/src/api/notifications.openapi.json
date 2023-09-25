@@ -729,7 +729,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Existing nsotification IDs returned",
+                        "description": "Existing notification IDs returned",
                         "content": {
                             "application/json": {
                                 "schema": {

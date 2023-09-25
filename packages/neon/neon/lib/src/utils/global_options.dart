@@ -174,14 +174,14 @@ class GlobalOptions extends OptionsCollection {
 
   late final systemTrayEnabled = ToggleOption(
     storage: storage,
-    key: GlobalOptionKeys.systemtrayEnabled,
+    key: GlobalOptionKeys.systemTrayEnabled,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
     defaultValue: false,
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
     storage: storage,
-    key: GlobalOptionKeys.systemtrayHideToTrayWhenMinimized,
+    key: GlobalOptionKeys.systemTrayHideToTrayWhenMinimized,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
     defaultValue: true,
     enabled: systemTrayEnabled,
@@ -228,8 +228,8 @@ enum GlobalOptionKeys implements Storable {
   pushNotificationsDistributor._('push-notifications-distributor'),
   startupMinimized._('startup-minimized'),
   startupMinimizeInsteadOfExit._('startup-minimize-instead-of-exit'),
-  systemtrayEnabled._('systemtray-enabled'),
-  systemtrayHideToTrayWhenMinimized._('systemtray-hide-to-tray-when-minimized'),
+  systemTrayEnabled._('system-tray-enabled'),
+  systemTrayHideToTrayWhenMinimized._('system-tray-hide-to-tray-when-minimized'),
   rememberLastUsedAccount._('remember-last-used-account'),
   initialAccount._('initial-account'),
   navigationMode._('navigation-mode');

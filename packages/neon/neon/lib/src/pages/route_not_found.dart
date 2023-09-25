@@ -26,10 +26,10 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
   void initState() {
     super.initState();
 
-    unawaited(_checkLaunchable());
+    unawaited(_checkCanLaunch());
   }
 
-  Future<void> _checkLaunchable() async {
+  Future<void> _checkCanLaunch() async {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     if (!accountsBloc.hasAccounts) {
       return;

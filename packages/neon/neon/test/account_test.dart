@@ -2,20 +2,20 @@ import 'package:neon/src/models/account.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('LoginQrcode', () {
+  group('LoginQRcode', () {
     const qrCodePath = '/user:JohnDoe&password:super_secret&server:example.com';
     const qrCode = 'nc://login$qrCodePath';
-    const invalidUrl = '::Not valid LoginQrcode::';
-    final credentials = LoginQrcode(
+    const invalidUrl = '::Not valid LoginQRcode::';
+    final credentials = LoginQRcode(
       serverURL: Uri.parse('example.com'),
       username: 'JohnDoe',
       password: 'super_secret',
     );
 
     test('parse', () {
-      expect(LoginQrcode.tryParse(qrCode), equals(credentials));
-      expect(LoginQrcode.tryParse(qrCodePath), equals(credentials));
-      expect(LoginQrcode.tryParse(invalidUrl), null);
+      expect(LoginQRcode.tryParse(qrCode), equals(credentials));
+      expect(LoginQRcode.tryParse(qrCodePath), equals(credentials));
+      expect(LoginQRcode.tryParse(invalidUrl), null);
     });
 
     test('equality', () {

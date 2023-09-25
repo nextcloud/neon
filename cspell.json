@@ -1,0 +1,60 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "OpenAPI"
+  ],
+  "ignorePaths": [
+    "**.iml",
+    "**.log",
+    "**.svg",
+    "**/assets/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/ephemeral/**",
+    "**/l10n/!(en.arb)",
+    "external",
+    "packages/app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+    "packages/app/android/gradlew*",
+    "packages/file_icons/lib/src/data.dart",
+    "packages/neon_lints/lib",
+    "packages/nextcloud/test/files"
+  ],
+  "dictionaries": [
+    "bash",
+    "dart_flutter",
+    "en_US",
+    "misc",
+    "neon",
+    "nextcloud",
+    "softwareTerms",
+    "tools",
+    "webdav"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "dart_flutter",
+      "path": ".cspell/dart_flutter.txt"
+    },
+    {
+      "name": "misc",
+      "path": ".cspell/misc.txt"
+    },
+    {
+      "name": "neon",
+      "path": ".cspell/neon.txt"
+    },
+    {
+      "name": "nextcloud",
+      "path": ".cspell/nextcloud.txt"
+    },
+    {
+      "name": "tools",
+      "path": ".cspell/tools.txt"
+    },
+    {
+      "name": "webdav",
+      "path": ".cspell/webdav.txt"
+    }
+  ]
+}

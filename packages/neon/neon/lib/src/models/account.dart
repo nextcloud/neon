@@ -117,16 +117,16 @@ extension AccountFind on Iterable<Account> {
   Account find(final String accountID) => firstWhere((final account) => account.id == accountID);
 }
 
-/// Qrcode Login credentials.
+/// QRcode Login credentials.
 ///
 /// The Credentials as provided by the server when manually creating an app
 /// password.
 @internal
 @immutable
-class LoginQrcode implements Credentials {
-  /// Creates a new LoginQrcode object.
+class LoginQRcode implements Credentials {
+  /// Creates a new LoginQRcode object.
   @visibleForTesting
-  const LoginQrcode({
+  const LoginQRcode({
     required this.serverURL,
     required this.username,
     required this.password,
@@ -139,31 +139,31 @@ class LoginQrcode implements Credentials {
   @override
   final String password;
 
-  /// Pattern matching the full Qrcode content.
-  static final _loginQrcodeUrlRegex = RegExp(r'^nc://login/user:(.*)&password:(.*)&server:(.*)$');
+  /// Pattern matching the full QRcode content.
+  static final _loginQRcodeUrlRegex = RegExp(r'^nc://login/user:(.*)&password:(.*)&server:(.*)$');
 
-  /// Pattern matching the path part of the Qrcode.
+  /// Pattern matching the path part of the QRcode.
   ///
   /// This is used when launching the app through an intent.
-  static final _loginQrcodePathRegex = RegExp(r'^/user:(.*)&password:(.*)&server:(.*)$');
+  static final _loginQRcodePathRegex = RegExp(r'^/user:(.*)&password:(.*)&server:(.*)$');
 
-  /// Creates a new `LoginQrcode` object by parsing a url string.
+  /// Creates a new `LoginQRcode` object by parsing a url string.
   ///
-  /// If the [url] string is not valid as a LoginQrcode a [FormatException] is
+  /// If the [url] string is not valid as a LoginQRcode a [FormatException] is
   /// thrown.
   ///
   /// Example:
   /// ```dart
-  /// final loginQrcode =
-  ///     LoginQrcode.parse('nc://login/user:JohnDoe&password:super_secret&server:example.com');
-  /// print(loginQrcode.serverURL); // JohnDoe
-  /// print(loginQrcode.username); // super_secret
-  /// print(loginQrcode.password); // example.com
+  /// final loginQRcode =
+  ///     LoginQRcode.parse('nc://login/user:JohnDoe&password:super_secret&server:example.com');
+  /// print(loginQRcode.serverURL); // JohnDoe
+  /// print(loginQRcode.username); // super_secret
+  /// print(loginQRcode.password); // example.com
   ///
-  /// LoginQrcode.parse('::Not valid LoginQrcode::'); // Throws FormatException.
+  /// LoginQRcode.parse('::Not valid LoginQRcode::'); // Throws FormatException.
   /// ```
-  static LoginQrcode parse(final String url) {
-    for (final regex in [_loginQrcodeUrlRegex, _loginQrcodePathRegex]) {
+  static LoginQRcode parse(final String url) {
+    for (final regex in [_loginQRcodeUrlRegex, _loginQRcodePathRegex]) {
       final matches = regex.allMatches(url);
       if (matches.isEmpty) {
         continue;
@@ -174,7 +174,7 @@ class LoginQrcode implements Credentials {
         continue;
       }
 
-      return LoginQrcode(
+      return LoginQRcode(
         serverURL: Uri.parse(match.group(3)!),
         username: match.group(1)!,
         password: match.group(2)!,
@@ -184,22 +184,22 @@ class LoginQrcode implements Credentials {
     throw const FormatException();
   }
 
-  /// Creates a new `LoginQrcode` object by parsing a url string.
+  /// Creates a new `LoginQRcode` object by parsing a url string.
   ///
-  /// Returns `null` if the [url] string is not valid as a LoginQrcode.
+  /// Returns `null` if the [url] string is not valid as a LoginQRcode.
   ///
   /// Example:
   /// ```dart
-  /// final loginQrcode =
-  ///     LoginQrcode.parse('nc://login/user:JohnDoe&password:super_secret&server:example.com');
-  /// print(loginQrcode.serverURL); // JohnDoe
-  /// print(loginQrcode.username); // super_secret
-  /// print(loginQrcode.password); // example.com
+  /// final loginQRcode =
+  ///     LoginQRcode.parse('nc://login/user:JohnDoe&password:super_secret&server:example.com');
+  /// print(loginQRcode.serverURL); // JohnDoe
+  /// print(loginQRcode.username); // super_secret
+  /// print(loginQRcode.password); // example.com
   ///
-  /// final notLoginQrcode = LoginQrcode.tryParse('::Not valid LoginQrcode::');
-  /// print(notLoginQrcode); // null
+  /// final notLoginQRcode = LoginQRcode.tryParse('::Not valid LoginQRcode::');
+  /// print(notLoginQRcode); // null
   /// ```
-  static LoginQrcode? tryParse(final String url) {
+  static LoginQRcode? tryParse(final String url) {
     try {
       return parse(url);
     } on FormatException {
@@ -209,7 +209,7 @@ class LoginQrcode implements Credentials {
 
   @override
   bool operator ==(final Object other) =>
-      other is LoginQrcode && other.serverURL == serverURL && other.username == username && other.password == password;
+      other is LoginQRcode && other.serverURL == serverURL && other.username == username && other.password == password;
 
   @override
   int get hashCode => Object.hashAll([

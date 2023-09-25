@@ -11,10 +11,10 @@ abstract interface class Disposable {
   void dispose();
 }
 
-extension DisposeableIterableBloc on Iterable<Disposable> {
+extension DisposableIterableBloc on Iterable<Disposable> {
   /// Calls [Disposable.dispose] on all entries.
   ///
-  /// The disposed values will not be removed from the iteraable.
+  /// The disposed values will not be removed from the iterable.
   void disposeAll() {
     for (final bloc in this) {
       bloc.dispose();
@@ -22,7 +22,7 @@ extension DisposeableIterableBloc on Iterable<Disposable> {
   }
 }
 
-extension DisposeableMapBloc on Map<dynamic, Disposable> {
+extension DisposableMapBloc on Map<dynamic, Disposable> {
   /// Calls [Disposable.dispose] on all entries.
   ///
   /// The disposed values will not be removed from the map.

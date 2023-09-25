@@ -42,7 +42,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginWorksWith => 'works with';
 
   @override
-  String get loginUsingQrcode => 'Login using a QR code';
+  String get loginUsingQRcode => 'Login using a QR code';
 
   @override
   String get loginUsingServerAddress => 'Login using the server address';
@@ -121,7 +121,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorInvalidURL => 'Invalid URL provided';
 
   @override
-  String get errorInvalidQrcode => 'Invalid QR-Code provided';
+  String get errorInvalidQRcode => 'Invalid QR-Code provided';
 
   @override
   String errorRouteNotFound(String route) {

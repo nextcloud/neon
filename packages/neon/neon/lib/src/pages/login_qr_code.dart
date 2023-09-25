@@ -7,16 +7,16 @@ import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/widgets/exception.dart';
 
 @internal
-class LoginQrcodePage extends StatefulWidget {
-  const LoginQrcodePage({
+class LoginQRcodePage extends StatefulWidget {
+  const LoginQRcodePage({
     super.key,
   });
 
   @override
-  State<LoginQrcodePage> createState() => _LoginQrcodePageState();
+  State<LoginQRcodePage> createState() => _LoginQRcodePageState();
 }
 
-class _LoginQrcodePageState extends State<LoginQrcodePage> {
+class _LoginQRcodePageState extends State<LoginQRcodePage> {
   String? _lastErrorURL;
 
   @override
@@ -35,11 +35,11 @@ class _LoginQrcodePageState extends State<LoginQrcodePage> {
             try {
               url = code.text;
               if (url == null) {
-                throw InvalidQrcodeException();
+                throw InvalidQRcodeException();
               }
-              final match = LoginQrcode.tryParse(url);
+              final match = LoginQRcode.tryParse(url);
               if (match == null) {
-                throw InvalidQrcodeException();
+                throw InvalidQRcodeException();
               }
 
               LoginCheckServerStatusRoute.withCredentials(

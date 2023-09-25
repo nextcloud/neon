@@ -8,4 +8,4 @@ class MissingPermissionException implements Exception {
 
 class UnableToOpenFileException implements Exception {}
 
-class InvalidQrcodeException implements Exception {}
+class InvalidQRcodeException implements Exception {}

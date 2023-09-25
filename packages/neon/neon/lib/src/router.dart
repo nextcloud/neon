@@ -15,7 +15,7 @@ import 'package:neon/src/pages/login.dart';
 import 'package:neon/src/pages/login_check_account.dart';
 import 'package:neon/src/pages/login_check_server_status.dart';
 import 'package:neon/src/pages/login_flow.dart';
-import 'package:neon/src/pages/login_qrcode.dart';
+import 'package:neon/src/pages/login_qr_code.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/route_not_found.dart';
 import 'package:neon/src/pages/settings.dart';
@@ -36,12 +36,12 @@ class AppRouter extends GoRouter {
           initialLocation: const HomeRoute().location,
           errorPageBuilder: _buildErrorPage,
           redirect: (final context, final state) {
-            final loginQrcode = LoginQrcode.tryParse(state.uri.toString());
-            if (loginQrcode != null) {
+            final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
+            if (loginQRcode != null) {
               return LoginCheckServerStatusRoute.withCredentials(
-                serverUrl: loginQrcode.serverURL,
-                loginName: loginQrcode.username,
-                password: loginQrcode.password,
+                serverUrl: loginQRcode.serverURL,
+                loginName: loginQRcode.username,
+                password: loginQRcode.password,
               ).location;
             }
 
@@ -72,15 +72,15 @@ class AppRouter extends GoRouter {
 @immutable
 class AccountSettingsRoute extends GoRouteData {
   const AccountSettingsRoute({
-    required this.accountid,
+    required this.accountID,
   });
 
-  final String accountid;
+  final String accountID;
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
     final bloc = NeonProvider.of<AccountsBloc>(context);
-    final account = bloc.accounts.value.find(accountid);
+    final account = bloc.accounts.value.find(accountID);
 
     return AccountSettingsPage(
       bloc: bloc,
@@ -108,8 +108,8 @@ class AccountSettingsRoute extends GoRouteData {
             TypedGoRoute<_AddAccountFlowRoute>(
               path: 'flow',
             ),
-            TypedGoRoute<_AddAccountQrcodeRoute>(
-              path: 'qrcode',
+            TypedGoRoute<_AddAccountQRcodeRoute>(
+              path: 'qr-code',
             ),
             TypedGoRoute<_AddAccountCheckServerStatusRoute>(
               path: 'check/server',
@@ -120,7 +120,7 @@ class AccountSettingsRoute extends GoRouteData {
           ],
         ),
         TypedGoRoute<AccountSettingsRoute>(
-          path: 'account/:accountid',
+          path: 'account/:accountID',
           name: 'AccountSettings',
         ),
       ],
@@ -147,8 +147,8 @@ class HomeRoute extends GoRouteData {
     TypedGoRoute<LoginFlowRoute>(
       path: 'flow',
     ),
-    TypedGoRoute<LoginQrcodeRoute>(
-      path: 'qrcode',
+    TypedGoRoute<LoginQRcodeRoute>(
+      path: 'qr-code',
     ),
     TypedGoRoute<LoginCheckServerStatusRoute>(
       path: 'check/server',
@@ -201,18 +201,18 @@ class LoginFlowRoute extends GoRouteData {
 }
 
 @immutable
-class LoginQrcodeRoute extends GoRouteData {
-  const LoginQrcodeRoute();
+class LoginQRcodeRoute extends GoRouteData {
+  const LoginQRcodeRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const LoginQrcodePage();
+  Widget build(final BuildContext context, final GoRouterState state) => const LoginQRcodePage();
 
   @override
   FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
-      return const _AddAccountQrcodeRoute().location;
+      return const _AddAccountQRcodeRoute().location;
     }
 
     return null;
@@ -325,8 +325,8 @@ class _AddAccountFlowRoute extends LoginFlowRoute {
 }
 
 @immutable
-class _AddAccountQrcodeRoute extends LoginQrcodeRoute {
-  const _AddAccountQrcodeRoute();
+class _AddAccountQRcodeRoute extends LoginQRcodeRoute {
+  const _AddAccountQRcodeRoute();
 }
 
 @immutable
