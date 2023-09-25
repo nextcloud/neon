@@ -71,8 +71,11 @@ class UserStatusClient extends DynamiteClient {
         );
 
   UserStatusHeartbeatClient get heartbeat => UserStatusHeartbeatClient(this);
+
   UserStatusPredefinedStatusClient get predefinedStatus => UserStatusPredefinedStatusClient(this);
+
   UserStatusStatusesClient get statuses => UserStatusStatusesClient(this);
+
   UserStatusUserStatusClient get userStatus => UserStatusUserStatusClient(this);
 }
 
@@ -549,6 +552,7 @@ abstract class UserStatusOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusOCSMeta> get serializer => _$userStatusOCSMetaSerializer;
 }
 
@@ -578,6 +582,7 @@ abstract class UserStatusPublic implements UserStatusPublicInterface, Built<User
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusPublic> get serializer => _$userStatusPublicSerializer;
 }
 
@@ -609,6 +614,7 @@ abstract class UserStatusPrivate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusPrivate> get serializer => _$userStatusPrivateSerializer;
 }
 
@@ -643,6 +649,7 @@ abstract class UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusHeartbeatHeartbeatResponseApplicationJson_Ocs> get serializer =>
       _$userStatusHeartbeatHeartbeatResponseApplicationJsonOcsSerializer;
 }
@@ -677,6 +684,7 @@ abstract class UserStatusHeartbeatHeartbeatResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusHeartbeatHeartbeatResponseApplicationJson> get serializer =>
       _$userStatusHeartbeatHeartbeatResponseApplicationJsonSerializer;
 }
@@ -692,7 +700,9 @@ class UserStatusClearAt_Type extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<UserStatusClearAt_Type> get values => _$userStatusClearAtTypeValues;
   // coverage:ignore-end
+
   static UserStatusClearAt_Type valueOf(final String name) => _$valueOfUserStatusClearAt_Type(name);
+
   static Serializer<UserStatusClearAt_Type> get serializer => _$userStatusClearAtTypeSerializer;
 }
 
@@ -706,7 +716,9 @@ class UserStatusClearAtTimeType extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<UserStatusClearAtTimeType> get values => _$userStatusClearAtTimeTypeValues;
   // coverage:ignore-end
+
   static UserStatusClearAtTimeType valueOf(final String name) => _$valueOfUserStatusClearAtTimeType(name);
+
   static Serializer<UserStatusClearAtTimeType> get serializer => _$userStatusClearAtTimeTypeSerializer;
 }
 
@@ -725,6 +737,7 @@ abstract class UserStatusClearAt_Time implements Built<UserStatusClearAt_Time, U
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   int? get $int;
   UserStatusClearAtTimeType? get clearAtTimeType;
@@ -795,6 +808,7 @@ abstract class UserStatusClearAt
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusClearAt> get serializer => _$userStatusClearAtSerializer;
 }
 
@@ -825,6 +839,7 @@ abstract class UserStatusPredefined
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusPredefined> get serializer => _$userStatusPredefinedSerializer;
 }
 
@@ -859,6 +874,7 @@ abstract class UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusPredefinedStatusFindAllResponseApplicationJson_Ocs> get serializer =>
       _$userStatusPredefinedStatusFindAllResponseApplicationJsonOcsSerializer;
 }
@@ -893,6 +909,7 @@ abstract class UserStatusPredefinedStatusFindAllResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusPredefinedStatusFindAllResponseApplicationJson> get serializer =>
       _$userStatusPredefinedStatusFindAllResponseApplicationJsonSerializer;
 }
@@ -928,6 +945,7 @@ abstract class UserStatusStatusesFindAllResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusStatusesFindAllResponseApplicationJson_Ocs> get serializer =>
       _$userStatusStatusesFindAllResponseApplicationJsonOcsSerializer;
 }
@@ -962,6 +980,7 @@ abstract class UserStatusStatusesFindAllResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusStatusesFindAllResponseApplicationJson> get serializer =>
       _$userStatusStatusesFindAllResponseApplicationJsonSerializer;
 }
@@ -997,6 +1016,7 @@ abstract class UserStatusStatusesFindResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusStatusesFindResponseApplicationJson_Ocs> get serializer =>
       _$userStatusStatusesFindResponseApplicationJsonOcsSerializer;
 }
@@ -1030,6 +1050,7 @@ abstract class UserStatusStatusesFindResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusStatusesFindResponseApplicationJson> get serializer =>
       _$userStatusStatusesFindResponseApplicationJsonSerializer;
 }
@@ -1065,6 +1086,7 @@ abstract class UserStatusUserStatusGetStatusResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusGetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusGetStatusResponseApplicationJsonOcsSerializer;
 }
@@ -1099,6 +1121,7 @@ abstract class UserStatusUserStatusGetStatusResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusGetStatusResponseApplicationJson> get serializer =>
       _$userStatusUserStatusGetStatusResponseApplicationJsonSerializer;
 }
@@ -1134,6 +1157,7 @@ abstract class UserStatusUserStatusSetStatusResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusSetStatusResponseApplicationJsonOcsSerializer;
 }
@@ -1168,6 +1192,7 @@ abstract class UserStatusUserStatusSetStatusResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetStatusResponseApplicationJson> get serializer =>
       _$userStatusUserStatusSetStatusResponseApplicationJsonSerializer;
 }
@@ -1205,6 +1230,7 @@ abstract class UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1239,6 +1265,7 @@ abstract class UserStatusUserStatusSetPredefinedMessageResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson> get serializer =>
       _$userStatusUserStatusSetPredefinedMessageResponseApplicationJsonSerializer;
 }
@@ -1274,6 +1301,7 @@ abstract class UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetCustomMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusSetCustomMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1308,6 +1336,7 @@ abstract class UserStatusUserStatusSetCustomMessageResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusSetCustomMessageResponseApplicationJson> get serializer =>
       _$userStatusUserStatusSetCustomMessageResponseApplicationJsonSerializer;
 }
@@ -1343,6 +1372,7 @@ abstract class UserStatusUserStatusClearMessageResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusClearMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusClearMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1377,6 +1407,7 @@ abstract class UserStatusUserStatusClearMessageResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusClearMessageResponseApplicationJson> get serializer =>
       _$userStatusUserStatusClearMessageResponseApplicationJsonSerializer;
 }
@@ -1401,6 +1432,7 @@ abstract class UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   UserStatusPrivate? get private;
   JsonObject? get jsonObject;
@@ -1482,6 +1514,7 @@ abstract class UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusRevertStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusUserStatusRevertStatusResponseApplicationJsonOcsSerializer;
 }
@@ -1516,6 +1549,7 @@ abstract class UserStatusUserStatusRevertStatusResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusUserStatusRevertStatusResponseApplicationJson> get serializer =>
       _$userStatusUserStatusRevertStatusResponseApplicationJsonSerializer;
 }
@@ -1551,6 +1585,7 @@ abstract class UserStatusCapabilities_UserStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusCapabilities_UserStatus> get serializer => _$userStatusCapabilitiesUserStatusSerializer;
 }
 
@@ -1578,6 +1613,7 @@ abstract class UserStatusCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UserStatusCapabilities> get serializer => _$userStatusCapabilitiesSerializer;
 }
 

@@ -71,8 +71,11 @@ class NotificationsClient extends DynamiteClient {
         );
 
   NotificationsApiClient get api => NotificationsApiClient(this);
+
   NotificationsEndpointClient get endpoint => NotificationsEndpointClient(this);
+
   NotificationsPushClient get push => NotificationsPushClient(this);
+
   NotificationsSettingsClient get settings => NotificationsSettingsClient(this);
 }
 
@@ -570,8 +573,10 @@ class NotificationsApiGenerateNotificationApiVersion extends EnumClass {
   static BuiltSet<NotificationsApiGenerateNotificationApiVersion> get values =>
       _$notificationsApiGenerateNotificationApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsApiGenerateNotificationApiVersion valueOf(final String name) =>
       _$valueOfNotificationsApiGenerateNotificationApiVersion(name);
+
   static Serializer<NotificationsApiGenerateNotificationApiVersion> get serializer =>
       _$notificationsApiGenerateNotificationApiVersionSerializer;
 }
@@ -603,6 +608,7 @@ abstract class NotificationsOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsOCSMeta> get serializer => _$notificationsOCSMetaSerializer;
 }
 
@@ -637,6 +643,7 @@ abstract class NotificationsApiGenerateNotificationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs> get serializer =>
       _$notificationsApiGenerateNotificationResponseApplicationJsonOcsSerializer;
 }
@@ -671,6 +678,7 @@ abstract class NotificationsApiGenerateNotificationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsApiGenerateNotificationResponseApplicationJson> get serializer =>
       _$notificationsApiGenerateNotificationResponseApplicationJsonSerializer;
 }
@@ -688,8 +696,10 @@ class NotificationsEndpointListNotificationsApiVersion extends EnumClass {
   static BuiltSet<NotificationsEndpointListNotificationsApiVersion> get values =>
       _$notificationsEndpointListNotificationsApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsEndpointListNotificationsApiVersion valueOf(final String name) =>
       _$valueOfNotificationsEndpointListNotificationsApiVersion(name);
+
   static Serializer<NotificationsEndpointListNotificationsApiVersion> get serializer =>
       _$notificationsEndpointListNotificationsApiVersionSerializer;
 }
@@ -725,6 +735,7 @@ abstract class NotificationsEndpointEndpointListNotificationsHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   @BuiltValueSerializer(custom: true)
   static Serializer<NotificationsEndpointEndpointListNotificationsHeaders> get serializer =>
       _$NotificationsEndpointEndpointListNotificationsHeadersSerializer();
@@ -804,6 +815,7 @@ abstract class NotificationsNotificationAction
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsNotificationAction> get serializer => _$notificationsNotificationActionSerializer;
 }
 
@@ -849,6 +861,7 @@ abstract class NotificationsNotification
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsNotification> get serializer => _$notificationsNotificationSerializer;
 }
 
@@ -883,6 +896,7 @@ abstract class NotificationsEndpointListNotificationsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs> get serializer =>
       _$notificationsEndpointListNotificationsResponseApplicationJsonOcsSerializer;
 }
@@ -917,6 +931,7 @@ abstract class NotificationsEndpointListNotificationsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointListNotificationsResponseApplicationJson> get serializer =>
       _$notificationsEndpointListNotificationsResponseApplicationJsonSerializer;
 }
@@ -934,8 +949,10 @@ class NotificationsEndpointDeleteAllNotificationsApiVersion extends EnumClass {
   static BuiltSet<NotificationsEndpointDeleteAllNotificationsApiVersion> get values =>
       _$notificationsEndpointDeleteAllNotificationsApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsEndpointDeleteAllNotificationsApiVersion valueOf(final String name) =>
       _$valueOfNotificationsEndpointDeleteAllNotificationsApiVersion(name);
+
   static Serializer<NotificationsEndpointDeleteAllNotificationsApiVersion> get serializer =>
       _$notificationsEndpointDeleteAllNotificationsApiVersionSerializer;
 }
@@ -973,6 +990,7 @@ abstract class NotificationsEndpointDeleteAllNotificationsResponseApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs> get serializer =>
       _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer;
 }
@@ -1009,6 +1027,7 @@ abstract class NotificationsEndpointDeleteAllNotificationsResponseApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson> get serializer =>
       _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerializer;
 }
@@ -1024,8 +1043,10 @@ class NotificationsEndpointGetNotificationApiVersion extends EnumClass {
   static BuiltSet<NotificationsEndpointGetNotificationApiVersion> get values =>
       _$notificationsEndpointGetNotificationApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsEndpointGetNotificationApiVersion valueOf(final String name) =>
       _$valueOfNotificationsEndpointGetNotificationApiVersion(name);
+
   static Serializer<NotificationsEndpointGetNotificationApiVersion> get serializer =>
       _$notificationsEndpointGetNotificationApiVersionSerializer;
 }
@@ -1061,6 +1082,7 @@ abstract class NotificationsEndpointGetNotificationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs> get serializer =>
       _$notificationsEndpointGetNotificationResponseApplicationJsonOcsSerializer;
 }
@@ -1095,6 +1117,7 @@ abstract class NotificationsEndpointGetNotificationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointGetNotificationResponseApplicationJson> get serializer =>
       _$notificationsEndpointGetNotificationResponseApplicationJsonSerializer;
 }
@@ -1112,8 +1135,10 @@ class NotificationsEndpointDeleteNotificationApiVersion extends EnumClass {
   static BuiltSet<NotificationsEndpointDeleteNotificationApiVersion> get values =>
       _$notificationsEndpointDeleteNotificationApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsEndpointDeleteNotificationApiVersion valueOf(final String name) =>
       _$valueOfNotificationsEndpointDeleteNotificationApiVersion(name);
+
   static Serializer<NotificationsEndpointDeleteNotificationApiVersion> get serializer =>
       _$notificationsEndpointDeleteNotificationApiVersionSerializer;
 }
@@ -1151,6 +1176,7 @@ abstract class NotificationsEndpointDeleteNotificationResponseApplicationJson_Oc
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs> get serializer =>
       _$notificationsEndpointDeleteNotificationResponseApplicationJsonOcsSerializer;
 }
@@ -1185,6 +1211,7 @@ abstract class NotificationsEndpointDeleteNotificationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson> get serializer =>
       _$notificationsEndpointDeleteNotificationResponseApplicationJsonSerializer;
 }
@@ -1202,8 +1229,10 @@ class NotificationsEndpointConfirmIdsForUserApiVersion extends EnumClass {
   static BuiltSet<NotificationsEndpointConfirmIdsForUserApiVersion> get values =>
       _$notificationsEndpointConfirmIdsForUserApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsEndpointConfirmIdsForUserApiVersion valueOf(final String name) =>
       _$valueOfNotificationsEndpointConfirmIdsForUserApiVersion(name);
+
   static Serializer<NotificationsEndpointConfirmIdsForUserApiVersion> get serializer =>
       _$notificationsEndpointConfirmIdsForUserApiVersionSerializer;
 }
@@ -1239,6 +1268,7 @@ abstract class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs> get serializer =>
       _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonOcsSerializer;
 }
@@ -1273,6 +1303,7 @@ abstract class NotificationsEndpointConfirmIdsForUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson> get serializer =>
       _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer;
 }
@@ -1286,8 +1317,10 @@ class NotificationsPushRegisterDeviceApiVersion extends EnumClass {
   static BuiltSet<NotificationsPushRegisterDeviceApiVersion> get values =>
       _$notificationsPushRegisterDeviceApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsPushRegisterDeviceApiVersion valueOf(final String name) =>
       _$valueOfNotificationsPushRegisterDeviceApiVersion(name);
+
   static Serializer<NotificationsPushRegisterDeviceApiVersion> get serializer =>
       _$notificationsPushRegisterDeviceApiVersionSerializer;
 }
@@ -1317,6 +1350,7 @@ abstract class NotificationsPushDevice
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsPushDevice> get serializer => _$notificationsPushDeviceSerializer;
 }
 
@@ -1351,6 +1385,7 @@ abstract class NotificationsPushRegisterDeviceResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs> get serializer =>
       _$notificationsPushRegisterDeviceResponseApplicationJsonOcsSerializer;
 }
@@ -1385,6 +1420,7 @@ abstract class NotificationsPushRegisterDeviceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsPushRegisterDeviceResponseApplicationJson> get serializer =>
       _$notificationsPushRegisterDeviceResponseApplicationJsonSerializer;
 }
@@ -1398,8 +1434,10 @@ class NotificationsPushRemoveDeviceApiVersion extends EnumClass {
   static BuiltSet<NotificationsPushRemoveDeviceApiVersion> get values =>
       _$notificationsPushRemoveDeviceApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsPushRemoveDeviceApiVersion valueOf(final String name) =>
       _$valueOfNotificationsPushRemoveDeviceApiVersion(name);
+
   static Serializer<NotificationsPushRemoveDeviceApiVersion> get serializer =>
       _$notificationsPushRemoveDeviceApiVersionSerializer;
 }
@@ -1435,6 +1473,7 @@ abstract class NotificationsPushRemoveDeviceResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs> get serializer =>
       _$notificationsPushRemoveDeviceResponseApplicationJsonOcsSerializer;
 }
@@ -1469,6 +1508,7 @@ abstract class NotificationsPushRemoveDeviceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsPushRemoveDeviceResponseApplicationJson> get serializer =>
       _$notificationsPushRemoveDeviceResponseApplicationJsonSerializer;
 }
@@ -1482,8 +1522,10 @@ class NotificationsSettingsPersonalApiVersion extends EnumClass {
   static BuiltSet<NotificationsSettingsPersonalApiVersion> get values =>
       _$notificationsSettingsPersonalApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsSettingsPersonalApiVersion valueOf(final String name) =>
       _$valueOfNotificationsSettingsPersonalApiVersion(name);
+
   static Serializer<NotificationsSettingsPersonalApiVersion> get serializer =>
       _$notificationsSettingsPersonalApiVersionSerializer;
 }
@@ -1519,6 +1561,7 @@ abstract class NotificationsSettingsPersonalResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsSettingsPersonalResponseApplicationJson_Ocs> get serializer =>
       _$notificationsSettingsPersonalResponseApplicationJsonOcsSerializer;
 }
@@ -1553,6 +1596,7 @@ abstract class NotificationsSettingsPersonalResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsSettingsPersonalResponseApplicationJson> get serializer =>
       _$notificationsSettingsPersonalResponseApplicationJsonSerializer;
 }
@@ -1565,8 +1609,10 @@ class NotificationsSettingsAdminApiVersion extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<NotificationsSettingsAdminApiVersion> get values => _$notificationsSettingsAdminApiVersionValues;
   // coverage:ignore-end
+
   static NotificationsSettingsAdminApiVersion valueOf(final String name) =>
       _$valueOfNotificationsSettingsAdminApiVersion(name);
+
   static Serializer<NotificationsSettingsAdminApiVersion> get serializer =>
       _$notificationsSettingsAdminApiVersionSerializer;
 }
@@ -1602,6 +1648,7 @@ abstract class NotificationsSettingsAdminResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsSettingsAdminResponseApplicationJson_Ocs> get serializer =>
       _$notificationsSettingsAdminResponseApplicationJsonOcsSerializer;
 }
@@ -1636,6 +1683,7 @@ abstract class NotificationsSettingsAdminResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsSettingsAdminResponseApplicationJson> get serializer =>
       _$notificationsSettingsAdminResponseApplicationJsonSerializer;
 }
@@ -1673,6 +1721,7 @@ abstract class NotificationsCapabilities_Notifications
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsCapabilities_Notifications> get serializer =>
       _$notificationsCapabilitiesNotificationsSerializer;
 }
@@ -1701,6 +1750,7 @@ abstract class NotificationsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotificationsCapabilities> get serializer => _$notificationsCapabilitiesSerializer;
 }
 

@@ -71,9 +71,13 @@ class ProvisioningApiClient extends DynamiteClient {
         );
 
   ProvisioningApiAppConfigClient get appConfig => ProvisioningApiAppConfigClient(this);
+
   ProvisioningApiAppsClient get apps => ProvisioningApiAppsClient(this);
+
   ProvisioningApiGroupsClient get groups => ProvisioningApiGroupsClient(this);
+
   ProvisioningApiPreferencesClient get preferences => ProvisioningApiPreferencesClient(this);
+
   ProvisioningApiUsersClient get users => ProvisioningApiUsersClient(this);
 }
 
@@ -2106,6 +2110,7 @@ abstract class ProvisioningApiOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiOCSMeta> get serializer => _$provisioningApiOCSMetaSerializer;
 }
 
@@ -2139,6 +2144,7 @@ abstract class ProvisioningApiAppConfigGetAppsResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetAppsResponseApplicationJsonOcsDataSerializer;
 }
@@ -2174,6 +2180,7 @@ abstract class ProvisioningApiAppConfigGetAppsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetAppsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetAppsResponseApplicationJsonOcsSerializer;
 }
@@ -2208,6 +2215,7 @@ abstract class ProvisioningApiAppConfigGetAppsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetAppsResponseApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetAppsResponseApplicationJsonSerializer;
 }
@@ -2242,6 +2250,7 @@ abstract class ProvisioningApiAppConfigGetKeysResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetKeysResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetKeysResponseApplicationJsonOcsDataSerializer;
 }
@@ -2277,6 +2286,7 @@ abstract class ProvisioningApiAppConfigGetKeysResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetKeysResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetKeysResponseApplicationJsonOcsSerializer;
 }
@@ -2311,6 +2321,7 @@ abstract class ProvisioningApiAppConfigGetKeysResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetKeysResponseApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetKeysResponseApplicationJsonSerializer;
 }
@@ -2345,6 +2356,7 @@ abstract class ProvisioningApiAppConfigGetValueResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetValueResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetValueResponseApplicationJsonOcsDataSerializer;
 }
@@ -2380,6 +2392,7 @@ abstract class ProvisioningApiAppConfigGetValueResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetValueResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigGetValueResponseApplicationJsonOcsSerializer;
 }
@@ -2414,6 +2427,7 @@ abstract class ProvisioningApiAppConfigGetValueResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigGetValueResponseApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetValueResponseApplicationJsonSerializer;
 }
@@ -2449,6 +2463,7 @@ abstract class ProvisioningApiAppConfigSetValueResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigSetValueResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigSetValueResponseApplicationJsonOcsSerializer;
 }
@@ -2483,6 +2498,7 @@ abstract class ProvisioningApiAppConfigSetValueResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigSetValueResponseApplicationJson> get serializer =>
       _$provisioningApiAppConfigSetValueResponseApplicationJsonSerializer;
 }
@@ -2518,6 +2534,7 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppConfigDeleteKeyResponseApplicationJsonOcsSerializer;
 }
@@ -2552,6 +2569,7 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson> get serializer =>
       _$provisioningApiAppConfigDeleteKeyResponseApplicationJsonSerializer;
 }
@@ -2586,6 +2604,7 @@ abstract class ProvisioningApiAppsGetAppsResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppsGetAppsResponseApplicationJsonOcsDataSerializer;
 }
@@ -2621,6 +2640,7 @@ abstract class ProvisioningApiAppsGetAppsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsGetAppsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsGetAppsResponseApplicationJsonOcsSerializer;
 }
@@ -2655,6 +2675,7 @@ abstract class ProvisioningApiAppsGetAppsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsGetAppsResponseApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppsResponseApplicationJsonSerializer;
 }
@@ -2724,6 +2745,7 @@ abstract class ProvisioningApiAppInfo
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppInfo> get serializer => _$provisioningApiAppInfoSerializer;
 }
 
@@ -2758,6 +2780,7 @@ abstract class ProvisioningApiAppsGetAppInfoResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsGetAppInfoResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsGetAppInfoResponseApplicationJsonOcsSerializer;
 }
@@ -2792,6 +2815,7 @@ abstract class ProvisioningApiAppsGetAppInfoResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsGetAppInfoResponseApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppInfoResponseApplicationJsonSerializer;
 }
@@ -2827,6 +2851,7 @@ abstract class ProvisioningApiAppsEnableResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsEnableResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsEnableResponseApplicationJsonOcsSerializer;
 }
@@ -2861,6 +2886,7 @@ abstract class ProvisioningApiAppsEnableResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsEnableResponseApplicationJson> get serializer =>
       _$provisioningApiAppsEnableResponseApplicationJsonSerializer;
 }
@@ -2896,6 +2922,7 @@ abstract class ProvisioningApiAppsDisableResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsDisableResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiAppsDisableResponseApplicationJsonOcsSerializer;
 }
@@ -2930,6 +2957,7 @@ abstract class ProvisioningApiAppsDisableResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiAppsDisableResponseApplicationJson> get serializer =>
       _$provisioningApiAppsDisableResponseApplicationJsonSerializer;
 }
@@ -2964,6 +2992,7 @@ abstract class ProvisioningApiGroupsGetGroupsResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsResponseApplicationJsonOcsDataSerializer;
 }
@@ -2999,6 +3028,7 @@ abstract class ProvisioningApiGroupsGetGroupsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupsResponseApplicationJsonOcsSerializer;
 }
@@ -3033,6 +3063,7 @@ abstract class ProvisioningApiGroupsGetGroupsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsResponseApplicationJsonSerializer;
 }
@@ -3068,6 +3099,7 @@ abstract class ProvisioningApiGroupsAddGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsAddGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsAddGroupResponseApplicationJsonOcsSerializer;
 }
@@ -3102,6 +3134,7 @@ abstract class ProvisioningApiGroupsAddGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsAddGroupResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsAddGroupResponseApplicationJsonSerializer;
 }
@@ -3124,6 +3157,7 @@ abstract class ProvisioningApiGroupDetails_Usercount
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   bool? get $bool;
   int? get $int;
@@ -3183,6 +3217,7 @@ abstract class ProvisioningApiGroupDetails_Disabled
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   bool? get $bool;
   int? get $int;
@@ -3258,6 +3293,7 @@ abstract class ProvisioningApiGroupDetails
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupDetails> get serializer => _$provisioningApiGroupDetailsSerializer;
 }
 
@@ -3293,6 +3329,7 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson_Ocs_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponseApplicationJsonOcsDataSerializer;
 }
@@ -3328,6 +3365,7 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponseApplicationJsonOcsSerializer;
 }
@@ -3362,6 +3400,7 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponseApplicationJsonSerializer;
 }
@@ -3398,6 +3437,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponseApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponseApplicationJsonOcsDataSerializer;
 }
@@ -3433,6 +3473,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponseApplicationJsonOcsSerializer;
 }
@@ -3467,6 +3508,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponseApplicationJsonSerializer;
 }
@@ -3501,6 +3543,7 @@ abstract class ProvisioningApiUserDetails_BackendCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUserDetails_BackendCapabilities> get serializer =>
       _$provisioningApiUserDetailsBackendCapabilitiesSerializer;
 }
@@ -3523,6 +3566,7 @@ abstract class ProvisioningApiUserDetailsQuota_Quota
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   num? get $num;
   int? get $int;
@@ -3604,6 +3648,7 @@ abstract class ProvisioningApiUserDetailsQuota
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUserDetailsQuota> get serializer => _$provisioningApiUserDetailsQuotaSerializer;
 }
 
@@ -3679,6 +3724,7 @@ abstract class ProvisioningApiUserDetails
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUserDetails> get serializer => _$provisioningApiUserDetailsSerializer;
 }
 
@@ -3716,6 +3762,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
@@ -3742,6 +3789,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   ProvisioningApiUserDetails? get userDetails;
   ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
@@ -3835,6 +3883,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataSerializer;
 }
@@ -3872,6 +3921,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponseApplicationJsonOcsSerializer;
 }
@@ -3906,6 +3956,7 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponseApplicationJsonSerializer;
 }
@@ -3943,6 +3994,7 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJsonOcsSerializer;
 }
@@ -3977,6 +4029,7 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJsonSerializer;
 }
@@ -4011,6 +4064,7 @@ abstract class ProvisioningApiGroupsGetGroupResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupResponseApplicationJsonOcsDataSerializer;
 }
@@ -4046,6 +4100,7 @@ abstract class ProvisioningApiGroupsGetGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsGetGroupResponseApplicationJsonOcsSerializer;
 }
@@ -4080,6 +4135,7 @@ abstract class ProvisioningApiGroupsGetGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsGetGroupResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupResponseApplicationJsonSerializer;
 }
@@ -4115,6 +4171,7 @@ abstract class ProvisioningApiGroupsUpdateGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsUpdateGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsUpdateGroupResponseApplicationJsonOcsSerializer;
 }
@@ -4149,6 +4206,7 @@ abstract class ProvisioningApiGroupsUpdateGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsUpdateGroupResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsUpdateGroupResponseApplicationJsonSerializer;
 }
@@ -4184,6 +4242,7 @@ abstract class ProvisioningApiGroupsDeleteGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsDeleteGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiGroupsDeleteGroupResponseApplicationJsonOcsSerializer;
 }
@@ -4218,6 +4277,7 @@ abstract class ProvisioningApiGroupsDeleteGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiGroupsDeleteGroupResponseApplicationJson> get serializer =>
       _$provisioningApiGroupsDeleteGroupResponseApplicationJsonSerializer;
 }
@@ -4255,6 +4315,7 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponseApplicationJson_Oc
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesSetPreferenceResponseApplicationJsonOcsSerializer;
 }
@@ -4289,6 +4350,7 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetPreferenceResponseApplicationJsonSerializer;
 }
@@ -4326,6 +4388,7 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesDeletePreferenceResponseApplicationJsonOcsSerializer;
 }
@@ -4360,6 +4423,7 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeletePreferenceResponseApplicationJsonSerializer;
 }
@@ -4398,6 +4462,7 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicati
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesSetMultiplePreferencesResponseApplicationJsonOcsSerializer;
 }
@@ -4435,6 +4500,7 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicati
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetMultiplePreferencesResponseApplicationJsonSerializer;
 }
@@ -4473,6 +4539,7 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplica
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJsonOcsSerializer;
 }
@@ -4510,6 +4577,7 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplica
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer;
 }
@@ -4544,6 +4612,7 @@ abstract class ProvisioningApiUsersGetUsersResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersResponseApplicationJsonOcsDataSerializer;
 }
@@ -4579,6 +4648,7 @@ abstract class ProvisioningApiUsersGetUsersResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersResponseApplicationJsonOcsSerializer;
 }
@@ -4613,6 +4683,7 @@ abstract class ProvisioningApiUsersGetUsersResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersResponseApplicationJsonSerializer;
 }
@@ -4647,6 +4718,7 @@ abstract class ProvisioningApiUsersAddUserResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddUserResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersAddUserResponseApplicationJsonOcsDataSerializer;
 }
@@ -4682,6 +4754,7 @@ abstract class ProvisioningApiUsersAddUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddUserResponseApplicationJsonOcsSerializer;
 }
@@ -4716,6 +4789,7 @@ abstract class ProvisioningApiUsersAddUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersAddUserResponseApplicationJsonSerializer;
 }
@@ -4753,6 +4827,7 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
@@ -4779,6 +4854,7 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   ProvisioningApiUserDetails? get userDetails;
   ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
@@ -4871,6 +4947,7 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponseApplicationJsonOcsDataSerializer;
 }
@@ -4906,6 +4983,7 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponseApplicationJsonOcsSerializer;
 }
@@ -4940,6 +5018,7 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponseApplicationJsonSerializer;
 }
@@ -4977,6 +5056,7 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersSearchByPhoneNumbersResponseApplicationJsonOcsSerializer;
 }
@@ -5011,6 +5091,7 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson> get serializer =>
       _$provisioningApiUsersSearchByPhoneNumbersResponseApplicationJsonSerializer;
 }
@@ -5046,6 +5127,7 @@ abstract class ProvisioningApiUsersGetUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUserResponseApplicationJsonOcsSerializer;
 }
@@ -5080,6 +5162,7 @@ abstract class ProvisioningApiUsersGetUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserResponseApplicationJsonSerializer;
 }
@@ -5115,6 +5198,7 @@ abstract class ProvisioningApiUsersEditUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEditUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEditUserResponseApplicationJsonOcsSerializer;
 }
@@ -5149,6 +5233,7 @@ abstract class ProvisioningApiUsersEditUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEditUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserResponseApplicationJsonSerializer;
 }
@@ -5184,6 +5269,7 @@ abstract class ProvisioningApiUsersDeleteUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersDeleteUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersDeleteUserResponseApplicationJsonOcsSerializer;
 }
@@ -5218,6 +5304,7 @@ abstract class ProvisioningApiUsersDeleteUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersDeleteUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersDeleteUserResponseApplicationJsonSerializer;
 }
@@ -5253,6 +5340,7 @@ abstract class ProvisioningApiUsersGetCurrentUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetCurrentUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetCurrentUserResponseApplicationJsonOcsSerializer;
 }
@@ -5287,6 +5375,7 @@ abstract class ProvisioningApiUsersGetCurrentUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetCurrentUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetCurrentUserResponseApplicationJsonSerializer;
 }
@@ -5322,6 +5411,7 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetEditableFieldsResponseApplicationJsonOcsSerializer;
 }
@@ -5356,6 +5446,7 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsResponseApplicationJsonSerializer;
 }
@@ -5394,6 +5485,7 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetEditableFieldsForUserResponseApplicationJsonOcsSerializer;
 }
@@ -5430,6 +5522,7 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsForUserResponseApplicationJsonSerializer;
 }
@@ -5465,6 +5558,7 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEditUserMultiValueResponseApplicationJsonOcsSerializer;
 }
@@ -5499,6 +5593,7 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserMultiValueResponseApplicationJsonSerializer;
 }
@@ -5534,6 +5629,7 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersWipeUserDevicesResponseApplicationJsonOcsSerializer;
 }
@@ -5568,6 +5664,7 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson> get serializer =>
       _$provisioningApiUsersWipeUserDevicesResponseApplicationJsonSerializer;
 }
@@ -5603,6 +5700,7 @@ abstract class ProvisioningApiUsersEnableUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEnableUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersEnableUserResponseApplicationJsonOcsSerializer;
 }
@@ -5637,6 +5735,7 @@ abstract class ProvisioningApiUsersEnableUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersEnableUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersEnableUserResponseApplicationJsonSerializer;
 }
@@ -5672,6 +5771,7 @@ abstract class ProvisioningApiUsersDisableUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersDisableUserResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersDisableUserResponseApplicationJsonOcsSerializer;
 }
@@ -5706,6 +5806,7 @@ abstract class ProvisioningApiUsersDisableUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersDisableUserResponseApplicationJson> get serializer =>
       _$provisioningApiUsersDisableUserResponseApplicationJsonSerializer;
 }
@@ -5742,6 +5843,7 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponseApplicationJson_Ocs_Dat
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponseApplicationJsonOcsDataSerializer;
 }
@@ -5777,6 +5879,7 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponseApplicationJsonOcsSerializer;
 }
@@ -5811,6 +5914,7 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponseApplicationJsonSerializer;
 }
@@ -5846,6 +5950,7 @@ abstract class ProvisioningApiUsersAddToGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddToGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddToGroupResponseApplicationJsonOcsSerializer;
 }
@@ -5880,6 +5985,7 @@ abstract class ProvisioningApiUsersAddToGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddToGroupResponseApplicationJson> get serializer =>
       _$provisioningApiUsersAddToGroupResponseApplicationJsonSerializer;
 }
@@ -5915,6 +6021,7 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersRemoveFromGroupResponseApplicationJsonOcsSerializer;
 }
@@ -5949,6 +6056,7 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveFromGroupResponseApplicationJsonSerializer;
 }
@@ -5986,6 +6094,7 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson_
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersGetUserSubAdminGroupsResponseApplicationJsonOcsSerializer;
 }
@@ -6020,6 +6129,7 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserSubAdminGroupsResponseApplicationJsonSerializer;
 }
@@ -6055,6 +6165,7 @@ abstract class ProvisioningApiUsersAddSubAdminResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddSubAdminResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersAddSubAdminResponseApplicationJsonOcsSerializer;
 }
@@ -6089,6 +6200,7 @@ abstract class ProvisioningApiUsersAddSubAdminResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersAddSubAdminResponseApplicationJson> get serializer =>
       _$provisioningApiUsersAddSubAdminResponseApplicationJsonSerializer;
 }
@@ -6124,6 +6236,7 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersRemoveSubAdminResponseApplicationJsonOcsSerializer;
 }
@@ -6158,6 +6271,7 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveSubAdminResponseApplicationJsonSerializer;
 }
@@ -6195,6 +6309,7 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
       _$provisioningApiUsersResendWelcomeMessageResponseApplicationJsonOcsSerializer;
 }
@@ -6229,6 +6344,7 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson> get serializer =>
       _$provisioningApiUsersResendWelcomeMessageResponseApplicationJsonSerializer;
 }
@@ -6268,6 +6384,7 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiCapabilities_ProvisioningApi> get serializer =>
       _$provisioningApiCapabilitiesProvisioningApiSerializer;
 }
@@ -6301,6 +6418,7 @@ abstract class ProvisioningApiCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ProvisioningApiCapabilities> get serializer => _$provisioningApiCapabilitiesSerializer;
 }
 

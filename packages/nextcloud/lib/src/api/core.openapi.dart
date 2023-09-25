@@ -71,24 +71,43 @@ class CoreClient extends DynamiteClient {
         );
 
   CoreAppPasswordClient get appPassword => CoreAppPasswordClient(this);
+
   CoreAutoCompleteClient get autoComplete => CoreAutoCompleteClient(this);
+
   CoreAvatarClient get avatar => CoreAvatarClient(this);
+
   CoreClientFlowLoginV2Client get clientFlowLoginV2 => CoreClientFlowLoginV2Client(this);
+
   CoreCollaborationResourcesClient get collaborationResources => CoreCollaborationResourcesClient(this);
+
   CoreGuestAvatarClient get guestAvatar => CoreGuestAvatarClient(this);
+
   CoreHoverCardClient get hoverCard => CoreHoverCardClient(this);
+
   CoreNavigationClient get navigation => CoreNavigationClient(this);
+
   CoreOcmClient get ocm => CoreOcmClient(this);
+
   CoreOcsClient get ocs => CoreOcsClient(this);
+
   CorePreviewClient get preview => CorePreviewClient(this);
+
   CoreProfileApiClient get profileApi => CoreProfileApiClient(this);
+
   CoreReferenceClient get reference => CoreReferenceClient(this);
+
   CoreReferenceApiClient get referenceApi => CoreReferenceApiClient(this);
+
   CoreTextProcessingApiClient get textProcessingApi => CoreTextProcessingApiClient(this);
+
   CoreTranslationApiClient get translationApi => CoreTranslationApiClient(this);
+
   CoreUnifiedSearchClient get unifiedSearch => CoreUnifiedSearchClient(this);
+
   CoreWhatsNewClient get whatsNew => CoreWhatsNewClient(this);
+
   CoreWipeClient get wipe => CoreWipeClient(this);
+
   Future<CoreStatus> getStatus() async {
     const path = '/status.php';
     final queryParameters = <String, dynamic>{};
@@ -2128,6 +2147,7 @@ abstract class CoreStatus implements CoreStatusInterface, Built<CoreStatus, Core
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreStatus> get serializer => _$coreStatusSerializer;
 }
 
@@ -2156,6 +2176,7 @@ abstract class CoreOCSMeta implements CoreOCSMetaInterface, Built<CoreOCSMeta, C
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOCSMeta> get serializer => _$coreOCSMetaSerializer;
 }
 
@@ -2189,6 +2210,7 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsDataSerializer;
 }
@@ -2224,6 +2246,7 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsSerializer;
 }
@@ -2258,6 +2281,7 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson> get serializer =>
       _$coreAppPasswordGetAppPasswordResponseApplicationJsonSerializer;
 }
@@ -2292,6 +2316,7 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsDataSerializer;
 }
@@ -2327,6 +2352,7 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsSerializer;
 }
@@ -2361,6 +2387,7 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponseApplicationJsonSerializer;
 }
@@ -2396,6 +2423,7 @@ abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> get serializer =>
       _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer;
 }
@@ -2430,6 +2458,7 @@ abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> get serializer =>
       _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer;
 }
@@ -2463,6 +2492,7 @@ abstract class CoreAutocompleteResult
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAutocompleteResult> get serializer => _$coreAutocompleteResultSerializer;
 }
 
@@ -2496,6 +2526,7 @@ abstract class CoreAutoCompleteGetResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAutoCompleteGetResponseApplicationJson_Ocs> get serializer =>
       _$coreAutoCompleteGetResponseApplicationJsonOcsSerializer;
 }
@@ -2529,6 +2560,7 @@ abstract class CoreAutoCompleteGetResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreAutoCompleteGetResponseApplicationJson> get serializer =>
       _$coreAutoCompleteGetResponseApplicationJsonSerializer;
 }
@@ -2562,6 +2594,7 @@ abstract class CoreAvatarAvatarGetAvatarDarkHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreAvatarAvatarGetAvatarDarkHeaders> get serializer =>
       _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer();
@@ -2636,6 +2669,7 @@ abstract class CoreAvatarAvatarGetAvatarHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreAvatarAvatarGetAvatarHeaders> get serializer => _$CoreAvatarAvatarGetAvatarHeadersSerializer();
 }
@@ -2707,6 +2741,7 @@ abstract class CoreLoginFlowV2Credentials
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreLoginFlowV2Credentials> get serializer => _$coreLoginFlowV2CredentialsSerializer;
 }
 
@@ -2734,6 +2769,7 @@ abstract class CoreLoginFlowV2_Poll
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreLoginFlowV2_Poll> get serializer => _$coreLoginFlowV2PollSerializer;
 }
 
@@ -2760,6 +2796,7 @@ abstract class CoreLoginFlowV2 implements CoreLoginFlowV2Interface, Built<CoreLo
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreLoginFlowV2> get serializer => _$coreLoginFlowV2Serializer;
 }
 
@@ -2790,6 +2827,7 @@ abstract class CoreOpenGraphObject
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOpenGraphObject> get serializer => _$coreOpenGraphObjectSerializer;
 }
 
@@ -2817,6 +2855,7 @@ abstract class CoreResource implements CoreResourceInterface, Built<CoreResource
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreResource> get serializer => _$coreResourceSerializer;
 }
 
@@ -2844,6 +2883,7 @@ abstract class CoreCollection implements CoreCollectionInterface, Built<CoreColl
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollection> get serializer => _$coreCollectionSerializer;
 }
 
@@ -2880,6 +2920,7 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer;
 }
@@ -2916,6 +2957,7 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJso
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer;
 }
@@ -2953,6 +2995,7 @@ abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesListCollectionResponseApplicationJsonOcsSerializer;
 }
@@ -2987,6 +3030,7 @@ abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesListCollectionResponseApplicationJsonSerializer;
 }
@@ -3024,6 +3068,7 @@ abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonOcsSerializer;
 }
@@ -3058,6 +3103,7 @@ abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonSerializer;
 }
@@ -3093,6 +3139,7 @@ abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesAddResourceResponseApplicationJsonOcsSerializer;
 }
@@ -3127,6 +3174,7 @@ abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesAddResourceResponseApplicationJsonSerializer;
 }
@@ -3164,6 +3212,7 @@ abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_O
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonOcsSerializer;
 }
@@ -3198,6 +3247,7 @@ abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonSerializer;
 }
@@ -3236,6 +3286,7 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplica
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonOcsSerializer;
 }
@@ -3273,6 +3324,7 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplica
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer;
 }
@@ -3311,6 +3363,7 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponseAppli
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs> get serializer =>
       _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonOcsSerializer;
 }
@@ -3348,6 +3401,7 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponseAppli
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> get serializer =>
       _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer;
 }
@@ -3378,6 +3432,7 @@ abstract class CoreContactsAction
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreContactsAction> get serializer => _$coreContactsActionSerializer;
 }
 
@@ -3413,6 +3468,7 @@ abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreHoverCardGetUserResponseApplicationJsonOcsDataSerializer;
 }
@@ -3447,6 +3503,7 @@ abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs> get serializer =>
       _$coreHoverCardGetUserResponseApplicationJsonOcsSerializer;
 }
@@ -3480,6 +3537,7 @@ abstract class CoreHoverCardGetUserResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreHoverCardGetUserResponseApplicationJson> get serializer =>
       _$coreHoverCardGetUserResponseApplicationJsonSerializer;
 }
@@ -3500,6 +3558,7 @@ abstract class CoreNavigationEntry_Order implements Built<CoreNavigationEntry_Or
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   int? get $int;
   String? get string;
@@ -3571,6 +3630,7 @@ abstract class CoreNavigationEntry
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNavigationEntry> get serializer => _$coreNavigationEntrySerializer;
 }
 
@@ -3605,6 +3665,7 @@ abstract class CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs> get serializer =>
       _$coreNavigationGetAppsNavigationResponseApplicationJsonOcsSerializer;
 }
@@ -3639,6 +3700,7 @@ abstract class CoreNavigationGetAppsNavigationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson> get serializer =>
       _$coreNavigationGetAppsNavigationResponseApplicationJsonSerializer;
 }
@@ -3674,6 +3736,7 @@ abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs> get serializer =>
       _$coreNavigationGetSettingsNavigationResponseApplicationJsonOcsSerializer;
 }
@@ -3708,6 +3771,7 @@ abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson> get serializer =>
       _$coreNavigationGetSettingsNavigationResponseApplicationJsonSerializer;
 }
@@ -3739,6 +3803,7 @@ abstract class CoreOcmOcmDiscoveryHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreOcmOcmDiscoveryHeaders> get serializer => _$CoreOcmOcmDiscoveryHeadersSerializer();
 }
@@ -3812,6 +3877,7 @@ abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> get serializer =>
       _$coreOcmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer;
 }
@@ -3848,6 +3914,7 @@ abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get serializer =>
       _$coreOcmDiscoveryResponseApplicationJsonResourceTypesSerializer;
 }
@@ -3884,6 +3951,7 @@ abstract class CoreOcmDiscoveryResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcmDiscoveryResponseApplicationJson> get serializer =>
       _$coreOcmDiscoveryResponseApplicationJsonSerializer;
 }
@@ -3923,6 +3991,7 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version> get serializer =>
       _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer;
 }
@@ -3955,6 +4024,7 @@ abstract class CoreCommentsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCommentsCapabilities_Files> get serializer => _$coreCommentsCapabilitiesFilesSerializer;
 }
 
@@ -3982,6 +4052,7 @@ abstract class CoreCommentsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreCommentsCapabilities> get serializer => _$coreCommentsCapabilitiesSerializer;
 }
 
@@ -4009,6 +4080,7 @@ abstract class CoreDavCapabilities_Dav
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreDavCapabilities_Dav> get serializer => _$coreDavCapabilitiesDavSerializer;
 }
 
@@ -4035,6 +4107,7 @@ abstract class CoreDavCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreDavCapabilities> get serializer => _$coreDavCapabilitiesSerializer;
 }
 
@@ -4069,6 +4142,7 @@ abstract class CoreFilesCapabilities_Files_DirectEditing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesCapabilities_Files_DirectEditing> get serializer =>
       _$coreFilesCapabilitiesFilesDirectEditingSerializer;
 }
@@ -4104,6 +4178,7 @@ abstract class CoreFilesCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesCapabilities_Files> get serializer => _$coreFilesCapabilitiesFilesSerializer;
 }
 
@@ -4130,6 +4205,7 @@ abstract class CoreFilesCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesCapabilities> get serializer => _$coreFilesCapabilitiesSerializer;
 }
 
@@ -4164,6 +4240,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
 }
@@ -4200,6 +4277,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
 }
@@ -4238,6 +4316,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateIntern
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
@@ -4274,6 +4353,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
@@ -4322,6 +4402,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingPublicSerializer;
 }
@@ -4356,6 +4437,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
 }
@@ -4392,6 +4474,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_User> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingUserSerializer;
 }
@@ -4426,6 +4509,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
@@ -4461,6 +4545,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingGroupSerializer;
 }
@@ -4495,6 +4580,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
 }
@@ -4532,6 +4618,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
@@ -4571,6 +4658,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingFederationSerializer;
 }
@@ -4608,6 +4696,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingShareeSerializer;
 }
@@ -4652,6 +4741,7 @@ abstract class CoreFilesSharingCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities_FilesSharing> get serializer =>
       _$coreFilesSharingCapabilitiesFilesSharingSerializer;
 }
@@ -4685,6 +4775,7 @@ abstract class CoreFilesSharingCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesSharingCapabilities> get serializer => _$coreFilesSharingCapabilitiesSerializer;
 }
 
@@ -4716,6 +4807,7 @@ abstract class CoreFilesTrashbinCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesTrashbinCapabilities_Files> get serializer =>
       _$coreFilesTrashbinCapabilitiesFilesSerializer;
 }
@@ -4748,6 +4840,7 @@ abstract class CoreFilesTrashbinCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesTrashbinCapabilities> get serializer => _$coreFilesTrashbinCapabilitiesSerializer;
 }
 
@@ -4783,6 +4876,7 @@ abstract class CoreFilesVersionsCapabilities_Files
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesVersionsCapabilities_Files> get serializer =>
       _$coreFilesVersionsCapabilitiesFilesSerializer;
 }
@@ -4815,6 +4909,7 @@ abstract class CoreFilesVersionsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreFilesVersionsCapabilities> get serializer => _$coreFilesVersionsCapabilitiesSerializer;
 }
 
@@ -4848,6 +4943,7 @@ abstract class CoreNotesCapabilities_Notes
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNotesCapabilities_Notes> get serializer => _$coreNotesCapabilitiesNotesSerializer;
 }
 
@@ -4874,6 +4970,7 @@ abstract class CoreNotesCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNotesCapabilities> get serializer => _$coreNotesCapabilitiesSerializer;
 }
 
@@ -4910,6 +5007,7 @@ abstract class CoreNotificationsCapabilities_Notifications
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNotificationsCapabilities_Notifications> get serializer =>
       _$coreNotificationsCapabilitiesNotificationsSerializer;
 }
@@ -4942,6 +5040,7 @@ abstract class CoreNotificationsCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreNotificationsCapabilities> get serializer => _$coreNotificationsCapabilitiesSerializer;
 }
 
@@ -4980,6 +5079,7 @@ abstract class CoreProvisioningApiCapabilities_ProvisioningApi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> get serializer =>
       _$coreProvisioningApiCapabilitiesProvisioningApiSerializer;
 }
@@ -5013,6 +5113,7 @@ abstract class CoreProvisioningApiCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreProvisioningApiCapabilities> get serializer => _$coreProvisioningApiCapabilitiesSerializer;
 }
 
@@ -5048,6 +5149,7 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesD
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
@@ -5083,6 +5185,7 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 }
@@ -5118,6 +5221,7 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
@@ -5159,6 +5263,7 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSharebymailSerializer;
 }
@@ -5192,6 +5297,7 @@ abstract class CoreSharebymailCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities_FilesSharing> get serializer =>
       _$coreSharebymailCapabilitiesFilesSharingSerializer;
 }
@@ -5225,6 +5331,7 @@ abstract class CoreSharebymailCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreSharebymailCapabilities> get serializer => _$coreSharebymailCapabilitiesSerializer;
 }
 
@@ -5276,6 +5383,7 @@ abstract class CoreThemingPublicCapabilities_Theming
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreThemingPublicCapabilities_Theming> get serializer =>
       _$coreThemingPublicCapabilitiesThemingSerializer;
 }
@@ -5308,6 +5416,7 @@ abstract class CoreThemingPublicCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreThemingPublicCapabilities> get serializer => _$coreThemingPublicCapabilitiesSerializer;
 }
 
@@ -5343,6 +5452,7 @@ abstract class CoreUserStatusCapabilities_UserStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUserStatusCapabilities_UserStatus> get serializer =>
       _$coreUserStatusCapabilitiesUserStatusSerializer;
 }
@@ -5374,6 +5484,7 @@ abstract class CoreUserStatusCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUserStatusCapabilities> get serializer => _$coreUserStatusCapabilitiesSerializer;
 }
 
@@ -5406,6 +5517,7 @@ abstract class CoreWeatherStatusCapabilities_WeatherStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWeatherStatusCapabilities_WeatherStatus> get serializer =>
       _$coreWeatherStatusCapabilitiesWeatherStatusSerializer;
 }
@@ -5439,6 +5551,7 @@ abstract class CoreWeatherStatusCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWeatherStatusCapabilities> get serializer => _$coreWeatherStatusCapabilitiesSerializer;
 }
 
@@ -5464,6 +5577,7 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabiliti
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   CoreCommentsCapabilities? get commentsCapabilities;
   CoreDavCapabilities? get davCapabilities;
@@ -5652,6 +5766,7 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataSerializer;
 }
@@ -5687,6 +5802,7 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs> get serializer =>
       _$coreOcsGetCapabilitiesResponseApplicationJsonOcsSerializer;
 }
@@ -5720,6 +5836,7 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson> get serializer =>
       _$coreOcsGetCapabilitiesResponseApplicationJsonSerializer;
 }
@@ -5755,6 +5872,7 @@ abstract class CoreProfileApiSetVisibilityResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs> get serializer =>
       _$coreProfileApiSetVisibilityResponseApplicationJsonOcsSerializer;
 }
@@ -5789,6 +5907,7 @@ abstract class CoreProfileApiSetVisibilityResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreProfileApiSetVisibilityResponseApplicationJson> get serializer =>
       _$coreProfileApiSetVisibilityResponseApplicationJsonSerializer;
 }
@@ -5818,6 +5937,7 @@ abstract class CoreReference implements CoreReferenceInterface, Built<CoreRefere
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReference> get serializer => _$coreReferenceSerializer;
 }
 
@@ -5851,6 +5971,7 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveOneResponseApplicationJsonOcsDataSerializer;
 }
@@ -5886,6 +6007,7 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiResolveOneResponseApplicationJsonOcsSerializer;
 }
@@ -5920,6 +6042,7 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveOneResponseApplicationJson> get serializer =>
       _$coreReferenceApiResolveOneResponseApplicationJsonSerializer;
 }
@@ -5954,6 +6077,7 @@ abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveResponseApplicationJsonOcsDataSerializer;
 }
@@ -5989,6 +6113,7 @@ abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiResolveResponseApplicationJsonOcsSerializer;
 }
@@ -6022,6 +6147,7 @@ abstract class CoreReferenceApiResolveResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiResolveResponseApplicationJson> get serializer =>
       _$coreReferenceApiResolveResponseApplicationJsonSerializer;
 }
@@ -6056,6 +6182,7 @@ abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiExtractResponseApplicationJsonOcsDataSerializer;
 }
@@ -6091,6 +6218,7 @@ abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiExtractResponseApplicationJsonOcsSerializer;
 }
@@ -6124,6 +6252,7 @@ abstract class CoreReferenceApiExtractResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiExtractResponseApplicationJson> get serializer =>
       _$coreReferenceApiExtractResponseApplicationJsonSerializer;
 }
@@ -6157,6 +6286,7 @@ abstract class CoreReferenceProvider
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceProvider> get serializer => _$coreReferenceProviderSerializer;
 }
 
@@ -6191,6 +6321,7 @@ abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer;
 }
@@ -6225,6 +6356,7 @@ abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson> get serializer =>
       _$coreReferenceApiGetProvidersInfoResponseApplicationJsonSerializer;
 }
@@ -6259,6 +6391,7 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiTouchProviderResponseApplicationJsonOcsDataSerializer;
 }
@@ -6294,6 +6427,7 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs> get serializer =>
       _$coreReferenceApiTouchProviderResponseApplicationJsonOcsSerializer;
 }
@@ -6328,6 +6462,7 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson> get serializer =>
       _$coreReferenceApiTouchProviderResponseApplicationJsonSerializer;
 }
@@ -6366,6 +6501,7 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Ty
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get serializer =>
       _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataTypesSerializer;
 }
@@ -6400,6 +6536,7 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer;
 }
@@ -6435,6 +6572,7 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsSerializer;
 }
@@ -6469,6 +6607,7 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson> get serializer =>
       _$coreTextProcessingApiTaskTypesResponseApplicationJsonSerializer;
 }
@@ -6503,6 +6642,7 @@ abstract class CoreTextProcessingTask
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingTask> get serializer => _$coreTextProcessingTaskSerializer;
 }
 
@@ -6536,6 +6676,7 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiScheduleResponseApplicationJsonOcsDataSerializer;
 }
@@ -6571,6 +6712,7 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiScheduleResponseApplicationJsonOcsSerializer;
 }
@@ -6605,6 +6747,7 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson> get serializer =>
       _$coreTextProcessingApiScheduleResponseApplicationJsonSerializer;
 }
@@ -6639,6 +6782,7 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer;
 }
@@ -6674,6 +6818,7 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsSerializer;
 }
@@ -6708,6 +6853,7 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson> get serializer =>
       _$coreTextProcessingApiGetTaskResponseApplicationJsonSerializer;
 }
@@ -6742,6 +6888,7 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsDataSerializer;
 }
@@ -6777,6 +6924,7 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer;
 }
@@ -6811,6 +6959,7 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson> get serializer =>
       _$coreTextProcessingApiDeleteTaskResponseApplicationJsonSerializer;
 }
@@ -6847,6 +6996,7 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Da
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer;
 }
@@ -6882,6 +7032,7 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer;
 }
@@ -6916,6 +7067,7 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson> get serializer =>
       _$coreTextProcessingApiListTasksByAppResponseApplicationJsonSerializer;
 }
@@ -6955,6 +7107,7 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Langu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get serializer =>
       _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataLanguagesSerializer;
 }
@@ -6990,6 +7143,7 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataSerializer;
 }
@@ -7025,6 +7179,7 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs> get serializer =>
       _$coreTranslationApiLanguagesResponseApplicationJsonOcsSerializer;
 }
@@ -7059,6 +7214,7 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiLanguagesResponseApplicationJson> get serializer =>
       _$coreTranslationApiLanguagesResponseApplicationJsonSerializer;
 }
@@ -7094,6 +7250,7 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreTranslationApiTranslateResponseApplicationJsonOcsDataSerializer;
 }
@@ -7129,6 +7286,7 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs> get serializer =>
       _$coreTranslationApiTranslateResponseApplicationJsonOcsSerializer;
 }
@@ -7163,6 +7321,7 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreTranslationApiTranslateResponseApplicationJson> get serializer =>
       _$coreTranslationApiTranslateResponseApplicationJsonSerializer;
 }
@@ -7193,6 +7352,7 @@ abstract class CoreUnifiedSearchProvider
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchProvider> get serializer => _$coreUnifiedSearchProviderSerializer;
 }
 
@@ -7227,6 +7387,7 @@ abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs> get serializer =>
       _$coreUnifiedSearchGetProvidersResponseApplicationJsonOcsSerializer;
 }
@@ -7261,6 +7422,7 @@ abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson> get serializer =>
       _$coreUnifiedSearchGetProvidersResponseApplicationJsonSerializer;
 }
@@ -7282,6 +7444,7 @@ abstract class CoreUnifiedSearchSearchCursor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   int? get $int;
   String? get string;
@@ -7356,6 +7519,7 @@ abstract class CoreUnifiedSearchResultEntry
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchResultEntry> get serializer => _$coreUnifiedSearchResultEntrySerializer;
 }
 
@@ -7376,6 +7540,7 @@ abstract class CoreUnifiedSearchResult_Cursor
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   JsonObject get data;
   int? get $int;
   String? get string;
@@ -7442,6 +7607,7 @@ abstract class CoreUnifiedSearchResult
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchResult> get serializer => _$coreUnifiedSearchResultSerializer;
 }
 
@@ -7476,6 +7642,7 @@ abstract class CoreUnifiedSearchSearchResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchSearchResponseApplicationJson_Ocs> get serializer =>
       _$coreUnifiedSearchSearchResponseApplicationJsonOcsSerializer;
 }
@@ -7509,6 +7676,7 @@ abstract class CoreUnifiedSearchSearchResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreUnifiedSearchSearchResponseApplicationJson> get serializer =>
       _$coreUnifiedSearchSearchResponseApplicationJsonSerializer;
 }
@@ -7544,6 +7712,7 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew> get serializer =>
       _$coreWhatsNewGetResponseApplicationJsonOcsDataWhatsNewSerializer;
 }
@@ -7580,6 +7749,7 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data> get serializer =>
       _$coreWhatsNewGetResponseApplicationJsonOcsDataSerializer;
 }
@@ -7614,6 +7784,7 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs> get serializer =>
       _$coreWhatsNewGetResponseApplicationJsonOcsSerializer;
 }
@@ -7647,6 +7818,7 @@ abstract class CoreWhatsNewGetResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewGetResponseApplicationJson> get serializer =>
       _$coreWhatsNewGetResponseApplicationJsonSerializer;
 }
@@ -7681,6 +7853,7 @@ abstract class CoreWhatsNewDismissResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewDismissResponseApplicationJson_Ocs> get serializer =>
       _$coreWhatsNewDismissResponseApplicationJsonOcsSerializer;
 }
@@ -7714,6 +7887,7 @@ abstract class CoreWhatsNewDismissResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWhatsNewDismissResponseApplicationJson> get serializer =>
       _$coreWhatsNewDismissResponseApplicationJsonSerializer;
 }
@@ -7747,6 +7921,7 @@ abstract class CoreWipeCheckWipeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<CoreWipeCheckWipeResponseApplicationJson> get serializer =>
       _$coreWipeCheckWipeResponseApplicationJsonSerializer;
 }

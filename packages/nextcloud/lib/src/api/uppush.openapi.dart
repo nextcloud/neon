@@ -444,6 +444,7 @@ abstract class UppushCheckResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushCheckResponseApplicationJson> get serializer =>
       _$uppushCheckResponseApplicationJsonSerializer;
 }
@@ -477,6 +478,7 @@ abstract class UppushSetKeepaliveResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushSetKeepaliveResponseApplicationJson> get serializer =>
       _$uppushSetKeepaliveResponseApplicationJsonSerializer;
 }
@@ -511,6 +513,7 @@ abstract class UppushCreateDeviceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushCreateDeviceResponseApplicationJson> get serializer =>
       _$uppushCreateDeviceResponseApplicationJsonSerializer;
 }
@@ -544,6 +547,7 @@ abstract class UppushSyncDeviceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushSyncDeviceResponseApplicationJson> get serializer =>
       _$uppushSyncDeviceResponseApplicationJsonSerializer;
 }
@@ -577,6 +581,7 @@ abstract class UppushDeleteDeviceResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushDeleteDeviceResponseApplicationJson> get serializer =>
       _$uppushDeleteDeviceResponseApplicationJsonSerializer;
 }
@@ -611,6 +616,7 @@ abstract class UppushCreateAppResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushCreateAppResponseApplicationJson> get serializer =>
       _$uppushCreateAppResponseApplicationJsonSerializer;
 }
@@ -644,6 +650,7 @@ abstract class UppushDeleteAppResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushDeleteAppResponseApplicationJson> get serializer =>
       _$uppushDeleteAppResponseApplicationJsonSerializer;
 }
@@ -678,6 +685,7 @@ abstract class UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
       _$uppushUnifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
@@ -712,6 +720,7 @@ abstract class UppushUnifiedpushDiscoveryResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson> get serializer =>
       _$uppushUnifiedpushDiscoveryResponseApplicationJsonSerializer;
 }
@@ -744,6 +753,7 @@ abstract class UppushPushResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushPushResponseApplicationJson> get serializer => _$uppushPushResponseApplicationJsonSerializer;
 }
 
@@ -777,6 +787,7 @@ abstract class UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
@@ -811,6 +822,7 @@ abstract class UppushGatewayMatrixDiscoveryResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer;
 }
@@ -844,6 +856,7 @@ abstract class UppushGatewayMatrixResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UppushGatewayMatrixResponseApplicationJson> get serializer =>
       _$uppushGatewayMatrixResponseApplicationJsonSerializer;
 }

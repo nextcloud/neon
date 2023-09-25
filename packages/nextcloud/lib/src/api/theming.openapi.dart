@@ -71,7 +71,9 @@ class ThemingClient extends DynamiteClient {
         );
 
   ThemingIconClient get icon => ThemingIconClient(this);
+
   ThemingThemingClient get theming => ThemingThemingClient(this);
+
   ThemingUserThemeClient get userTheme => ThemingUserThemeClient(this);
 }
 
@@ -543,6 +545,7 @@ abstract class ThemingThemingGetManifestResponseApplicationJson_Icons
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingThemingGetManifestResponseApplicationJson_Icons> get serializer =>
       _$themingThemingGetManifestResponseApplicationJsonIconsSerializer;
 }
@@ -588,6 +591,7 @@ abstract class ThemingThemingGetManifestResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingThemingGetManifestResponseApplicationJson> get serializer =>
       _$themingThemingGetManifestResponseApplicationJsonSerializer;
 }
@@ -617,6 +621,7 @@ abstract class ThemingBackground
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingBackground> get serializer => _$themingBackgroundSerializer;
 }
 
@@ -646,6 +651,7 @@ abstract class ThemingOCSMeta implements ThemingOCSMetaInterface, Built<ThemingO
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingOCSMeta> get serializer => _$themingOCSMetaSerializer;
 }
 
@@ -680,6 +686,7 @@ abstract class ThemingUserThemeEnableThemeResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingUserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
       _$themingUserThemeEnableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -714,6 +721,7 @@ abstract class ThemingUserThemeEnableThemeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingUserThemeEnableThemeResponseApplicationJson> get serializer =>
       _$themingUserThemeEnableThemeResponseApplicationJsonSerializer;
 }
@@ -749,6 +757,7 @@ abstract class ThemingUserThemeDisableThemeResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingUserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
       _$themingUserThemeDisableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -783,6 +792,7 @@ abstract class ThemingUserThemeDisableThemeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingUserThemeDisableThemeResponseApplicationJson> get serializer =>
       _$themingUserThemeDisableThemeResponseApplicationJsonSerializer;
 }
@@ -834,6 +844,7 @@ abstract class ThemingPublicCapabilities_Theming
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingPublicCapabilities_Theming> get serializer => _$themingPublicCapabilitiesThemingSerializer;
 }
 
@@ -861,6 +872,7 @@ abstract class ThemingPublicCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<ThemingPublicCapabilities> get serializer => _$themingPublicCapabilitiesSerializer;
 }
 

@@ -629,6 +629,7 @@ abstract class NewsSupportedAPIVersions
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsSupportedAPIVersions> get serializer => _$newsSupportedAPIVersionsSerializer;
 }
 
@@ -672,6 +673,7 @@ abstract class NewsArticle implements NewsArticleInterface, Built<NewsArticle, N
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsArticle> get serializer => _$newsArticleSerializer;
 }
 
@@ -708,6 +710,7 @@ abstract class NewsFeed implements NewsFeedInterface, Built<NewsFeed, NewsFeedBu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsFeed> get serializer => _$newsFeedSerializer;
 }
 
@@ -737,6 +740,7 @@ abstract class NewsFolder implements NewsFolderInterface, Built<NewsFolder, News
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsFolder> get serializer => _$newsFolderSerializer;
 }
 
@@ -762,6 +766,7 @@ abstract class NewsListFolders implements NewsListFoldersInterface, Built<NewsLi
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsListFolders> get serializer => _$newsListFoldersSerializer;
 }
 
@@ -789,6 +794,7 @@ abstract class NewsListFeeds implements NewsListFeedsInterface, Built<NewsListFe
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsListFeeds> get serializer => _$newsListFeedsSerializer;
 }
 
@@ -814,6 +820,7 @@ abstract class NewsListArticles implements NewsListArticlesInterface, Built<News
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsListArticles> get serializer => _$newsListArticlesSerializer;
 }
 
@@ -842,6 +849,7 @@ abstract class NewsOCSMeta implements NewsOCSMetaInterface, Built<NewsOCSMeta, N
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsOCSMeta> get serializer => _$newsOCSMetaSerializer;
 }
 
@@ -868,6 +876,7 @@ abstract class NewsEmptyOCS_Ocs implements NewsEmptyOCS_OcsInterface, Built<News
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsEmptyOCS_Ocs> get serializer => _$newsEmptyOCSOcsSerializer;
 }
 
@@ -892,6 +901,7 @@ abstract class NewsEmptyOCS implements NewsEmptyOCSInterface, Built<NewsEmptyOCS
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NewsEmptyOCS> get serializer => _$newsEmptyOCSSerializer;
 }
 

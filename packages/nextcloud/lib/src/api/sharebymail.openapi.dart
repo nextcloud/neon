@@ -98,6 +98,7 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
@@ -133,6 +134,7 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
       _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 }
@@ -168,6 +170,7 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
@@ -209,6 +212,7 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
       _$sharebymailCapabilitiesFilesSharingSharebymailSerializer;
 }
@@ -241,6 +245,7 @@ abstract class SharebymailCapabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities_FilesSharing> get serializer =>
       _$sharebymailCapabilitiesFilesSharingSerializer;
 }
@@ -269,6 +274,7 @@ abstract class SharebymailCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<SharebymailCapabilities> get serializer => _$sharebymailCapabilitiesSerializer;
 }
 

@@ -255,6 +255,7 @@ abstract class FilesRemindersOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersOCSMeta> get serializer => _$filesRemindersOCSMetaSerializer;
 }
 
@@ -288,6 +289,7 @@ abstract class FilesRemindersApiGetResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs_Data> get serializer =>
       _$filesRemindersApiGetResponseApplicationJsonOcsDataSerializer;
 }
@@ -322,6 +324,7 @@ abstract class FilesRemindersApiGetResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs> get serializer =>
       _$filesRemindersApiGetResponseApplicationJsonOcsSerializer;
 }
@@ -355,6 +358,7 @@ abstract class FilesRemindersApiGetResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiGetResponseApplicationJson> get serializer =>
       _$filesRemindersApiGetResponseApplicationJsonSerializer;
 }
@@ -389,6 +393,7 @@ abstract class FilesRemindersApiSetResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiSetResponseApplicationJson_Ocs> get serializer =>
       _$filesRemindersApiSetResponseApplicationJsonOcsSerializer;
 }
@@ -422,6 +427,7 @@ abstract class FilesRemindersApiSetResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiSetResponseApplicationJson> get serializer =>
       _$filesRemindersApiSetResponseApplicationJsonSerializer;
 }
@@ -457,6 +463,7 @@ abstract class FilesRemindersApiRemoveResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiRemoveResponseApplicationJson_Ocs> get serializer =>
       _$filesRemindersApiRemoveResponseApplicationJsonOcsSerializer;
 }
@@ -490,6 +497,7 @@ abstract class FilesRemindersApiRemoveResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesRemindersApiRemoveResponseApplicationJson> get serializer =>
       _$filesRemindersApiRemoveResponseApplicationJsonSerializer;
 }

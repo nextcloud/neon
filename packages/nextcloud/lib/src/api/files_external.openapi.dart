@@ -145,6 +145,7 @@ abstract class FilesExternalOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesExternalOCSMeta> get serializer => _$filesExternalOCSMetaSerializer;
 }
 
@@ -156,7 +157,9 @@ class FilesExternalMount_Type extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<FilesExternalMount_Type> get values => _$filesExternalMountTypeValues;
   // coverage:ignore-end
+
   static FilesExternalMount_Type valueOf(final String name) => _$valueOfFilesExternalMount_Type(name);
+
   static Serializer<FilesExternalMount_Type> get serializer => _$filesExternalMountTypeSerializer;
 }
 
@@ -170,7 +173,9 @@ class FilesExternalMount_Scope extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<FilesExternalMount_Scope> get values => _$filesExternalMountScopeValues;
   // coverage:ignore-end
+
   static FilesExternalMount_Scope valueOf(final String name) => _$valueOfFilesExternalMount_Scope(name);
+
   static Serializer<FilesExternalMount_Scope> get serializer => _$filesExternalMountScopeSerializer;
 }
 
@@ -184,7 +189,9 @@ class FilesExternalStorageConfig_Type extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<FilesExternalStorageConfig_Type> get values => _$filesExternalStorageConfigTypeValues;
   // coverage:ignore-end
+
   static FilesExternalStorageConfig_Type valueOf(final String name) => _$valueOfFilesExternalStorageConfig_Type(name);
+
   static Serializer<FilesExternalStorageConfig_Type> get serializer => _$filesExternalStorageConfigTypeSerializer;
 }
 
@@ -226,6 +233,7 @@ abstract class FilesExternalStorageConfig
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesExternalStorageConfig> get serializer => _$filesExternalStorageConfigSerializer;
 }
 
@@ -261,6 +269,7 @@ abstract class FilesExternalMount
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesExternalMount> get serializer => _$filesExternalMountSerializer;
 }
 
@@ -295,6 +304,7 @@ abstract class FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs> get serializer =>
       _$filesExternalApiGetUserMountsResponseApplicationJsonOcsSerializer;
 }
@@ -329,6 +339,7 @@ abstract class FilesExternalApiGetUserMountsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<FilesExternalApiGetUserMountsResponseApplicationJson> get serializer =>
       _$filesExternalApiGetUserMountsResponseApplicationJsonSerializer;
 }
