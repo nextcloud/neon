@@ -147,6 +147,7 @@ abstract class DavOCSMeta implements DavOCSMetaInterface, Built<DavOCSMeta, DavO
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavOCSMeta> get serializer => _$davOCSMetaSerializer;
 }
 
@@ -179,6 +180,7 @@ abstract class DavDirectGetUrlResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
       _$davDirectGetUrlResponseApplicationJsonOcsDataSerializer;
 }
@@ -213,6 +215,7 @@ abstract class DavDirectGetUrlResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs> get serializer =>
       _$davDirectGetUrlResponseApplicationJsonOcsSerializer;
 }
@@ -246,6 +249,7 @@ abstract class DavDirectGetUrlResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavDirectGetUrlResponseApplicationJson> get serializer =>
       _$davDirectGetUrlResponseApplicationJsonSerializer;
 }
@@ -274,6 +278,7 @@ abstract class DavCapabilities_Dav
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavCapabilities_Dav> get serializer => _$davCapabilitiesDavSerializer;
 }
 
@@ -299,6 +304,7 @@ abstract class DavCapabilities implements DavCapabilitiesInterface, Built<DavCap
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<DavCapabilities> get serializer => _$davCapabilitiesSerializer;
 }
 

@@ -132,8 +132,10 @@ class UpdatenotificationApiGetAppListApiVersion extends EnumClass {
   static BuiltSet<UpdatenotificationApiGetAppListApiVersion> get values =>
       _$updatenotificationApiGetAppListApiVersionValues;
   // coverage:ignore-end
+
   static UpdatenotificationApiGetAppListApiVersion valueOf(final String name) =>
       _$valueOfUpdatenotificationApiGetAppListApiVersion(name);
+
   static Serializer<UpdatenotificationApiGetAppListApiVersion> get serializer =>
       _$updatenotificationApiGetAppListApiVersionSerializer;
 }
@@ -166,6 +168,7 @@ abstract class UpdatenotificationOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UpdatenotificationOCSMeta> get serializer => _$updatenotificationOCSMetaSerializer;
 }
 
@@ -193,6 +196,7 @@ abstract class UpdatenotificationApp
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UpdatenotificationApp> get serializer => _$updatenotificationAppSerializer;
 }
 
@@ -227,6 +231,7 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
       _$updatenotificationApiGetAppListResponseApplicationJsonOcsDataSerializer;
 }
@@ -262,6 +267,7 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs> get serializer =>
       _$updatenotificationApiGetAppListResponseApplicationJsonOcsSerializer;
 }
@@ -296,6 +302,7 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson> get serializer =>
       _$updatenotificationApiGetAppListResponseApplicationJsonSerializer;
 }

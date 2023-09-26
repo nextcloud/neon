@@ -380,6 +380,7 @@ abstract class NotesNote implements NotesNoteInterface, Built<NotesNote, NotesNo
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesNote> get serializer => _$notesNoteSerializer;
 }
 
@@ -395,7 +396,9 @@ class NotesSettings_NoteMode extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<NotesSettings_NoteMode> get values => _$notesSettingsNoteModeValues;
   // coverage:ignore-end
+
   static NotesSettings_NoteMode valueOf(final String name) => _$valueOfNotesSettings_NoteMode(name);
+
   static Serializer<NotesSettings_NoteMode> get serializer => _$notesSettingsNoteModeSerializer;
 }
 
@@ -423,6 +426,7 @@ abstract class NotesSettings implements NotesSettingsInterface, Built<NotesSetti
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesSettings> get serializer => _$notesSettingsSerializer;
 }
 
@@ -451,6 +455,7 @@ abstract class NotesCapabilities_Notes
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
 }
 
@@ -477,6 +482,7 @@ abstract class NotesCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
 }
 
@@ -505,6 +511,7 @@ abstract class NotesOCSMeta implements NotesOCSMetaInterface, Built<NotesOCSMeta
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesOCSMeta> get serializer => _$notesOCSMetaSerializer;
 }
 
@@ -532,6 +539,7 @@ abstract class NotesEmptyOCS_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesEmptyOCS_Ocs> get serializer => _$notesEmptyOCSOcsSerializer;
 }
 
@@ -557,6 +565,7 @@ abstract class NotesEmptyOCS implements NotesEmptyOCSInterface, Built<NotesEmpty
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+
   static Serializer<NotesEmptyOCS> get serializer => _$notesEmptyOCSSerializer;
 }
 
