@@ -4,7 +4,7 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/provider.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -79,7 +79,7 @@ class NeonAccountTile extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              NeonException(
+              NeonError(
                 userDetails.error,
                 onlyIcon: true,
                 iconSize: 24,

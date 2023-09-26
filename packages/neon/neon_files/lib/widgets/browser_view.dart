@@ -34,7 +34,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   void initState() {
     widget.bloc.errors.listen((final error) {
-      NeonException.showSnackbar(context, error);
+      NeonError.showSnackbar(context, error);
     });
 
     super.initState();

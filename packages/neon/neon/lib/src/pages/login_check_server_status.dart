@@ -6,7 +6,7 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_check_server_status.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
 import 'package:nextcloud/nextcloud.dart';
 
@@ -67,7 +67,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                     children: [
                       if (state.hasError) ...[
                         NeonValidationTile(
-                          title: NeonException.getDetails(context, state.error).text,
+                          title: NeonError.getDetails(context, state.error).text,
                           state: ValidationState.failure,
                         ),
                       ],

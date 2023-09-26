@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
 class NeonListView<T> extends StatelessWidget {
@@ -47,7 +47,7 @@ class NeonListView<T> extends StatelessWidget {
                   padding: withFloatingActionButton ? const EdgeInsets.only(bottom: 88) : null,
                   children: [
                     ...?topScrollingChildren,
-                    NeonException(
+                    NeonError(
                       error,
                       onRetry: onRefresh,
                     ),

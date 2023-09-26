@@ -13,7 +13,7 @@ import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 
@@ -104,7 +104,7 @@ class AccountSettingsPage extends StatelessWidget {
                         ),
                       ),
                     ],
-                    NeonException(
+                    NeonError(
                       userDetails.error,
                       onRetry: userDetailsBloc.refresh,
                     ),

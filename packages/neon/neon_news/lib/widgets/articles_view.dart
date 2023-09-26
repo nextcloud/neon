@@ -20,7 +20,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      NeonException.showSnackbar(context, error);
+      NeonError.showSnackbar(context, error);
     });
   }
 

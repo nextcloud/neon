@@ -10,7 +10,7 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/cached_image.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/image_wrapper.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/list_view.dart';
@@ -66,7 +66,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
               provider.name,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            NeonException(
+            NeonError(
               result.error,
               onRetry: bloc.refresh,
             ),

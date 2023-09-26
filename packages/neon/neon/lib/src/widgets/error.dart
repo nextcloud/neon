@@ -11,9 +11,9 @@ import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:nextcloud/nextcloud.dart';
 
-class NeonException extends StatelessWidget {
-  const NeonException(
-    this.exception, {
+class NeonError extends StatelessWidget {
+  const NeonError(
+    this.error, {
     required this.onRetry,
     this.onlyIcon = false,
     this.iconSize,
@@ -21,14 +21,14 @@ class NeonException extends StatelessWidget {
     super.key,
   });
 
-  final dynamic exception;
+  final dynamic error;
   final VoidCallback onRetry;
   final bool onlyIcon;
   final double? iconSize;
   final Color? color;
 
-  static void showSnackbar(final BuildContext context, final dynamic exception) {
-    final details = getDetails(context, exception);
+  static void showSnackbar(final BuildContext context, final dynamic error) {
+    final details = getDetails(context, error);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -45,11 +45,11 @@ class NeonException extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    if (exception == null) {
+    if (error == null) {
       return const SizedBox();
     }
 
-    final details = getDetails(context, exception);
+    final details = getDetails(context, error);
     final color = this.color ?? Theme.of(context).colorScheme.error;
 
     final errorIcon = Icon(
@@ -111,71 +111,71 @@ class NeonException extends StatelessWidget {
   }
 
   @internal
-  static ExceptionDetails getDetails(final BuildContext context, final dynamic exception) {
-    if (exception is String) {
+  static ExceptionDetails getDetails(final BuildContext context, final dynamic error) {
+    if (error is String) {
       return ExceptionDetails(
-        text: exception,
+        text: error,
       );
     }
 
-    if (exception is MissingPermissionException) {
+    if (error is MissingPermissionException) {
       return ExceptionDetails(
-        text: AppLocalizations.of(context).errorMissingPermission(exception.permission.toString().split('.')[1]),
+        text: AppLocalizations.of(context).errorMissingPermission(error.permission.toString().split('.')[1]),
       );
     }
 
-    if (exception is UnableToOpenFileException) {
+    if (error is UnableToOpenFileException) {
       return ExceptionDetails(
         text: AppLocalizations.of(context).errorUnableToOpenFile,
       );
     }
 
-    if (exception is InvalidQRcodeException) {
+    if (error is InvalidQRcodeException) {
       return ExceptionDetails(
         text: AppLocalizations.of(context).errorInvalidQRcode,
       );
     }
 
-    if (exception is DynamiteApiException) {
-      if (exception.statusCode == 401) {
+    if (error is DynamiteApiException) {
+      if (error.statusCode == 401) {
         return ExceptionDetails(
           text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
           isUnauthorized: true,
         );
       }
 
-      if (exception.statusCode >= 500 && exception.statusCode <= 599) {
+      if (error.statusCode >= 500 && error.statusCode <= 599) {
         return ExceptionDetails(
           text: AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
         );
       }
     }
 
-    if (exception is SocketException) {
+    if (error is SocketException) {
       return ExceptionDetails(
-        text: exception.address != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.address!.host)
+        text: error.address != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
-    if (exception is ClientException) {
+    if (error is ClientException) {
       return ExceptionDetails(
-        text: exception.uri != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
+        text: error.uri != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
-    if (exception is HttpException) {
+    if (error is HttpException) {
       return ExceptionDetails(
-        text: exception.uri != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
+        text: error.uri != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
-    if (exception is TimeoutException) {
+    if (error is TimeoutException) {
       return ExceptionDetails(
         text: AppLocalizations.of(context).errorConnectionTimedOut,
       );

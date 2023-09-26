@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 
 @internal
 class LoginQRcodePage extends StatefulWidget {
@@ -53,7 +53,7 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                 debugPrint(s.toString());
 
                 _lastErrorURL = url;
-                NeonException.showSnackbar(context, e);
+                NeonError.showSnackbar(context, e);
               }
             }
           },

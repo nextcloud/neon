@@ -19,7 +19,7 @@ class _NewsMainPageState extends State<NewsMainPage> {
     bloc = NeonProvider.of<NewsBloc>(context);
 
     bloc.errors.listen((final error) {
-      NeonException.showSnackbar(context, error);
+      NeonError.showSnackbar(context, error);
     });
   }
 
