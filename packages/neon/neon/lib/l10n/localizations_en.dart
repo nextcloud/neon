@@ -107,9 +107,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get errorUnableToOpenFile => 'Unable to open the file';
-
-  @override
   String errorUnsupportedAppVersions(String names) {
     return 'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n $names \n Please contact your administrator to resolve the issues.';
   }

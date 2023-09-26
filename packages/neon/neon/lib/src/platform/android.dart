@@ -31,7 +31,7 @@ class AndroidNeonPlatform implements NeonPlatform {
   @override
   Future<String> get userAccessibleAppDataPath async {
     if (!await Permission.storage.request().isGranted) {
-      throw MissingPermissionException(Permission.storage);
+      throw const MissingPermissionException(Permission.storage);
     }
 
     return p.join((await getExternalStorageDirectory())!.path);

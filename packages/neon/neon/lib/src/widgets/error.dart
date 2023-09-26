@@ -28,11 +28,11 @@ class NeonError extends StatelessWidget {
   final Color? color;
 
   static void showSnackbar(final BuildContext context, final dynamic error) {
-    final details = getDetails(context, error);
+    final details = getDetails(error);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(details.text),
+        content: Text(details.getText(context)),
         action: details.isUnauthorized
             ? SnackBarAction(
                 label: AppLocalizations.of(context).loginAgain,
@@ -49,7 +49,7 @@ class NeonError extends StatelessWidget {
       return const SizedBox();
     }
 
-    final details = getDetails(context, error);
+    final details = getDetails(error);
     final color = this.color ?? Theme.of(context).colorScheme.error;
 
     final errorIcon = Icon(
@@ -65,7 +65,7 @@ class NeonError extends StatelessWidget {
 
     if (onlyIcon) {
       return Semantics(
-        tooltip: details.text,
+        tooltip: details.getText(context),
         child: IconButton(
           icon: errorIcon,
           padding: EdgeInsets.zero,
@@ -93,7 +93,7 @@ class NeonError extends StatelessWidget {
               ),
               Flexible(
                 child: Text(
-                  details.text,
+                  details.getText(context),
                   style: TextStyle(
                     color: color,
                   ),
@@ -111,78 +111,64 @@ class NeonError extends StatelessWidget {
   }
 
   @internal
-  static ExceptionDetails getDetails(final BuildContext context, final dynamic error) {
+  static NeonExceptionDetails getDetails(final dynamic error) {
     if (error is String) {
-      return ExceptionDetails(
-        text: error,
+      return NeonExceptionDetails(
+        getText: (final _) => error,
       );
     }
 
-    if (error is MissingPermissionException) {
-      return ExceptionDetails(
-        text: AppLocalizations.of(context).errorMissingPermission(error.permission.toString().split('.')[1]),
-      );
-    }
-
-    if (error is UnableToOpenFileException) {
-      return ExceptionDetails(
-        text: AppLocalizations.of(context).errorUnableToOpenFile,
-      );
-    }
-
-    if (error is InvalidQRcodeException) {
-      return ExceptionDetails(
-        text: AppLocalizations.of(context).errorInvalidQRcode,
-      );
+    if (error is NeonException) {
+      return error.details;
     }
 
     if (error is DynamiteApiException) {
       if (error.statusCode == 401) {
-        return ExceptionDetails(
-          text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+        return NeonExceptionDetails(
+          getText: (final context) => AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
           isUnauthorized: true,
         );
       }
 
       if (error.statusCode >= 500 && error.statusCode <= 599) {
-        return ExceptionDetails(
-          text: AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+        return NeonExceptionDetails(
+          getText: (final context) => AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
         );
       }
     }
 
     if (error is SocketException) {
-      return ExceptionDetails(
-        text: error.address != null
+      return NeonExceptionDetails(
+        getText: (final context) => error.address != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
     if (error is ClientException) {
-      return ExceptionDetails(
-        text: error.uri != null
+      return NeonExceptionDetails(
+        getText: (final context) => error.uri != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
     if (error is HttpException) {
-      return ExceptionDetails(
-        text: error.uri != null
+      return NeonExceptionDetails(
+        getText: (final context) => error.uri != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
     if (error is TimeoutException) {
-      return ExceptionDetails(
-        text: AppLocalizations.of(context).errorConnectionTimedOut,
+      return NeonExceptionDetails(
+        getText: (final context) => AppLocalizations.of(context).errorConnectionTimedOut,
       );
     }
 
-    return ExceptionDetails(
-      text: AppLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+    return NeonExceptionDetails(
+      getText: (final context) => AppLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
   }
 
@@ -193,15 +179,4 @@ class NeonError extends StatelessWidget {
       ).push(context),
     );
   }
-}
-
-@internal
-class ExceptionDetails {
-  ExceptionDetails({
-    required this.text,
-    this.isUnauthorized = false,
-  });
-
-  final String text;
-  final bool isUnauthorized;
 }

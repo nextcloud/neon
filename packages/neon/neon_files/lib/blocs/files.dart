@@ -95,7 +95,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
         }
         final result = await OpenFile.open(file.path, type: mimeType);
         if (result.type != ResultType.done) {
-          throw UnableToOpenFileException();
+          throw const UnableToOpenFileException();
         }
       },
       disableTimeout: true,
@@ -193,4 +193,14 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void _uploadParallelismListener() {
     _uploadQueue.parallel = options.uploadQueueParallelism.value;
   }
+}
+
+@immutable
+class UnableToOpenFileException extends NeonException {
+  const UnableToOpenFileException();
+
+  @override
+  NeonExceptionDetails get details => NeonExceptionDetails(
+        getText: (final context) => AppLocalizations.of(context).errorUnableToOpenFile,
+      );
 }

@@ -239,12 +239,6 @@ abstract class AppLocalizations {
   /// **'Permission for {name} is missing'**
   String errorMissingPermission(String name);
 
-  /// No description provided for @errorUnableToOpenFile.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to open the file'**
-  String get errorUnableToOpenFile;
-
   /// No description provided for @errorUnsupportedAppVersions.
   ///
   /// In en, this message translates to:

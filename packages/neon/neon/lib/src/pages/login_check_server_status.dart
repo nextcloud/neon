@@ -67,7 +67,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                     children: [
                       if (state.hasError) ...[
                         NeonValidationTile(
-                          title: NeonError.getDetails(context, state.error).text,
+                          title: NeonError.getDetails(state.error).getText(context),
                           state: ValidationState.failure,
                         ),
                       ],
