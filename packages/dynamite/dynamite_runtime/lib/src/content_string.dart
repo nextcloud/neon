@@ -5,17 +5,26 @@ import 'package:built_value/serializer.dart';
 
 part 'content_string.g.dart';
 
+/// Json data encoded in a `String` as defined by [json-schema](https://json-schema.org/understanding-json-schema/reference/non_json_data.html#contentschema).
 abstract class ContentString<T> implements Built<ContentString<T>, ContentStringBuilder<T>> {
+  /// Creates a new content `String`.
   factory ContentString([final void Function(ContentStringBuilder<T>)? b]) = _$ContentString<T>;
   const ContentString._();
 
-  /// decoded contentString
+  /// The decoded value of the content `String`.
   T get content;
 
+  /// The serializer for a content `String`.
   static Serializer<ContentString<Object?>> get serializer => _$contentStringSerializer;
 }
 
+/// Serialization plugin for decoding [ContentString]s.
+///
+/// This plugin must be after the `StandardJsonPlugin`.
 class ContentStringPlugin implements SerializerPlugin {
+  /// Creates a new serialization plugin for decoding [ContentString]s.
+  ///
+  /// This plugin must be after the `StandardJsonPlugin`.
   const ContentStringPlugin();
 
   @override
