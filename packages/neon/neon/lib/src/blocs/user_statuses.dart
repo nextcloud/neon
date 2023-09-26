@@ -73,7 +73,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
           final response = await _account.client.userStatus.heartbeat.heartbeat(
             status: isAway ? 'away' : 'online',
           );
-          data = response.ocs.data;
+          data = response.body.ocs.data;
         } catch (e) {
           // 204 is returned if the heartbeat failed because the current status is different. Ignore this and fetch the normal status
           if (e is! DynamiteApiException || e.statusCode != 204) {
@@ -84,7 +84,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
 
       if (data == null) {
         final response = await _account.client.userStatus.statuses.find(userId: username);
-        data = response.ocs.data;
+        data = response.body.ocs.data;
       }
 
       _updateStatus(username, Result.success(data));

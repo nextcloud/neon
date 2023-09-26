@@ -59,7 +59,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
 
       final account = Account(
         serverURL: serverURL,
-        username: response.ocs.data.id,
+        username: response.body.ocs.data.id,
         password: password,
         userAgent: neonUserAgent,
       );

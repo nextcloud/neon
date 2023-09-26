@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _checkMaintenanceMode() async {
     try {
       final status = await _account.client.core.getStatus();
-      if (status.maintenance && mounted) {
+      if (status.body.maintenance && mounted) {
         await _showProblem(
           AppLocalizations.of(context).errorServerInMaintenanceMode,
         );

@@ -47,7 +47,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
       account.id,
       'files-${path.value.join('/')}',
       files,
-      () async => account.client.webdav.propfind(
+      () => account.client.webdav.propfind(
         Uri(pathSegments: path.value),
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
