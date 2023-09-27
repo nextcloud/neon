@@ -17,6 +17,10 @@ abstract interface class NeonPlatform {
   ///
   /// Required to be called before accessing [NeonPlatform.instance].
   static Future<void> setup() async {
+    if (_platform != null) {
+      return;
+    }
+
     if (Platform.isAndroid) {
       _platform = const AndroidNeonPlatform();
     } else if (Platform.isLinux) {
