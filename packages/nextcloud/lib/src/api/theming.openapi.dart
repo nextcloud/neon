@@ -315,7 +315,7 @@ class ThemingUserThemeClient {
   final ThemingClient _rootClient;
 
   /// Get the background image
-  Future<Uint8List> getBackground({final String oCSAPIRequest = 'true'}) async {
+  Future<Uint8List> getBackground({final bool oCSAPIRequest = true}) async {
     const path = '/index.php/apps/theming/background';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -335,7 +335,7 @@ class ThemingUserThemeClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -353,7 +353,7 @@ class ThemingUserThemeClient {
     required final String type,
     final String value = '',
     final String? color,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/index.php/apps/theming/background/{type}';
     final queryParameters = <String, dynamic>{};
@@ -381,7 +381,7 @@ class ThemingUserThemeClient {
     if (color != null) {
       queryParameters['color'] = color;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -396,7 +396,7 @@ class ThemingUserThemeClient {
   }
 
   /// Delete the background
-  Future<ThemingBackground> deleteBackground({final String oCSAPIRequest = 'true'}) async {
+  Future<ThemingBackground> deleteBackground({final bool oCSAPIRequest = true}) async {
     const path = '/index.php/apps/theming/background/custom';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -416,7 +416,7 @@ class ThemingUserThemeClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -433,7 +433,7 @@ class ThemingUserThemeClient {
   /// Enable theme
   Future<ThemingUserThemeEnableThemeResponseApplicationJson> enableTheme({
     required final String themeId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable';
     final queryParameters = <String, dynamic>{};
@@ -455,7 +455,7 @@ class ThemingUserThemeClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -474,7 +474,7 @@ class ThemingUserThemeClient {
   /// Disable theme
   Future<ThemingUserThemeDisableThemeResponseApplicationJson> disableTheme({
     required final String themeId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/theming/api/v1/theme/{themeId}';
     final queryParameters = <String, dynamic>{};
@@ -496,7 +496,7 @@ class ThemingUserThemeClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

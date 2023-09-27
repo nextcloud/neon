@@ -137,9 +137,7 @@ class CoreAppPasswordClient {
   final CoreClient _rootClient;
 
   /// Create app password
-  Future<CoreAppPasswordGetAppPasswordResponseApplicationJson> getAppPassword({
-    final String oCSAPIRequest = 'true',
-  }) async {
+  Future<CoreAppPasswordGetAppPasswordResponseApplicationJson> getAppPassword({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/core/getapppassword';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -159,7 +157,7 @@ class CoreAppPasswordClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -177,7 +175,7 @@ class CoreAppPasswordClient {
 
   /// Rotate app password
   Future<CoreAppPasswordRotateAppPasswordResponseApplicationJson> rotateAppPassword({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/apppassword/rotate';
     final queryParameters = <String, dynamic>{};
@@ -198,7 +196,7 @@ class CoreAppPasswordClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -216,7 +214,7 @@ class CoreAppPasswordClient {
 
   /// Delete app password
   Future<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> deleteAppPassword({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/apppassword';
     final queryParameters = <String, dynamic>{};
@@ -237,7 +235,7 @@ class CoreAppPasswordClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -267,7 +265,7 @@ class CoreAutoCompleteClient {
     final String? sorter,
     final List<int>? shareTypes,
     final int limit = 10,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/autocomplete/get';
     final queryParameters = <String, dynamic>{};
@@ -304,7 +302,7 @@ class CoreAutoCompleteClient {
     if (limit != 10) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -493,7 +491,7 @@ class CoreCollaborationResourcesClient {
   /// Search for collections
   Future<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> searchCollections({
     required final String filter,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/collections/search/{filter}';
     final queryParameters = <String, dynamic>{};
@@ -515,7 +513,7 @@ class CoreCollaborationResourcesClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -534,7 +532,7 @@ class CoreCollaborationResourcesClient {
   /// Get a collection
   Future<CoreCollaborationResourcesListCollectionResponseApplicationJson> listCollection({
     required final int collectionId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -556,7 +554,7 @@ class CoreCollaborationResourcesClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -576,7 +574,7 @@ class CoreCollaborationResourcesClient {
   Future<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> renameCollection({
     required final String collectionName,
     required final int collectionId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -599,7 +597,7 @@ class CoreCollaborationResourcesClient {
     // coverage:ignore-end
     queryParameters['collectionName'] = collectionName;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -620,7 +618,7 @@ class CoreCollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -644,7 +642,7 @@ class CoreCollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -665,7 +663,7 @@ class CoreCollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -689,7 +687,7 @@ class CoreCollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -709,7 +707,7 @@ class CoreCollaborationResourcesClient {
   Future<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}';
     final queryParameters = <String, dynamic>{};
@@ -732,7 +730,7 @@ class CoreCollaborationResourcesClient {
     // coverage:ignore-end
     path = path.replaceAll('{resourceType}', Uri.encodeQueryComponent(resourceType));
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -753,7 +751,7 @@ class CoreCollaborationResourcesClient {
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}';
     final queryParameters = <String, dynamic>{};
@@ -777,7 +775,7 @@ class CoreCollaborationResourcesClient {
     queryParameters['name'] = name;
     path = path.replaceAll('{baseResourceType}', Uri.encodeQueryComponent(baseResourceType));
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -887,7 +885,7 @@ class CoreHoverCardClient {
   /// Get the user details for a hovercard
   Future<CoreHoverCardGetUserResponseApplicationJson> getUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/hovercard/v1/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -909,7 +907,7 @@ class CoreHoverCardClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -934,7 +932,7 @@ class CoreNavigationClient {
   /// Get the apps navigation
   Future<CoreNavigationGetAppsNavigationResponseApplicationJson> getAppsNavigation({
     final int absolute = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
@@ -958,7 +956,7 @@ class CoreNavigationClient {
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -977,7 +975,7 @@ class CoreNavigationClient {
   /// Get the settings navigation
   Future<CoreNavigationGetSettingsNavigationResponseApplicationJson> getSettingsNavigation({
     final int absolute = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/navigation/settings';
     final queryParameters = <String, dynamic>{};
@@ -1001,7 +999,7 @@ class CoreNavigationClient {
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1071,7 +1069,7 @@ class CoreOcsClient {
   final CoreClient _rootClient;
 
   /// Get the capabilities
-  Future<CoreOcsGetCapabilitiesResponseApplicationJson> getCapabilities({final String oCSAPIRequest = 'true'}) async {
+  Future<CoreOcsGetCapabilitiesResponseApplicationJson> getCapabilities({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1089,7 +1087,7 @@ class CoreOcsClient {
       );
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1246,7 +1244,7 @@ class CoreProfileApiClient {
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/profile/{targetUserId}';
     final queryParameters = <String, dynamic>{};
@@ -1270,7 +1268,7 @@ class CoreProfileApiClient {
     queryParameters['paramId'] = paramId;
     queryParameters['visibility'] = visibility;
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1333,7 +1331,7 @@ class CoreReferenceApiClient {
   /// Resolve a reference
   Future<CoreReferenceApiResolveOneResponseApplicationJson> resolveOne({
     required final String reference,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
@@ -1355,7 +1353,7 @@ class CoreReferenceApiClient {
     }
     // coverage:ignore-end
     queryParameters['reference'] = reference;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1375,7 +1373,7 @@ class CoreReferenceApiClient {
   Future<CoreReferenceApiResolveResponseApplicationJson> resolve({
     required final List<String> references,
     final int limit = 1,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
@@ -1400,7 +1398,7 @@ class CoreReferenceApiClient {
     if (limit != 1) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1421,7 +1419,7 @@ class CoreReferenceApiClient {
     required final String text,
     final int resolve = 0,
     final int limit = 1,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/references/extract';
     final queryParameters = <String, dynamic>{};
@@ -1449,7 +1447,7 @@ class CoreReferenceApiClient {
     if (limit != 1) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1467,7 +1465,7 @@ class CoreReferenceApiClient {
 
   /// Get the providers
   Future<CoreReferenceApiGetProvidersInfoResponseApplicationJson> getProvidersInfo({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/references/providers';
     final queryParameters = <String, dynamic>{};
@@ -1488,7 +1486,7 @@ class CoreReferenceApiClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1508,7 +1506,7 @@ class CoreReferenceApiClient {
   Future<CoreReferenceApiTouchProviderResponseApplicationJson> touchProvider({
     required final String providerId,
     final int? timestamp,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/references/provider/{providerId}';
     final queryParameters = <String, dynamic>{};
@@ -1533,7 +1531,7 @@ class CoreReferenceApiClient {
     if (timestamp != null) {
       queryParameters['timestamp'] = timestamp.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1556,7 +1554,7 @@ class CoreTextProcessingApiClient {
   final CoreClient _rootClient;
 
   /// This endpoint returns all available LanguageModel task types
-  Future<CoreTextProcessingApiTaskTypesResponseApplicationJson> taskTypes({final String oCSAPIRequest = 'true'}) async {
+  Future<CoreTextProcessingApiTaskTypesResponseApplicationJson> taskTypes({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/textprocessing/tasktypes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1574,7 +1572,7 @@ class CoreTextProcessingApiClient {
       );
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1596,7 +1594,7 @@ class CoreTextProcessingApiClient {
     required final String type,
     required final String appId,
     final String identifier = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/textprocessing/schedule';
     final queryParameters = <String, dynamic>{};
@@ -1621,7 +1619,7 @@ class CoreTextProcessingApiClient {
     if (identifier != '') {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1640,7 +1638,7 @@ class CoreTextProcessingApiClient {
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
   Future<CoreTextProcessingApiGetTaskResponseApplicationJson> getTask({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1660,7 +1658,7 @@ class CoreTextProcessingApiClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1679,7 +1677,7 @@ class CoreTextProcessingApiClient {
   /// This endpoint allows to delete a scheduled task for a user
   Future<CoreTextProcessingApiDeleteTaskResponseApplicationJson> deleteTask({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1701,7 +1699,7 @@ class CoreTextProcessingApiClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1721,7 +1719,7 @@ class CoreTextProcessingApiClient {
   Future<CoreTextProcessingApiListTasksByAppResponseApplicationJson> listTasksByApp({
     required final String appId,
     final String? identifier,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/textprocessing/tasks/app/{appId}';
     final queryParameters = <String, dynamic>{};
@@ -1746,7 +1744,7 @@ class CoreTextProcessingApiClient {
     if (identifier != null) {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1769,7 +1767,7 @@ class CoreTranslationApiClient {
   final CoreClient _rootClient;
 
   /// Get the list of supported languages
-  Future<CoreTranslationApiLanguagesResponseApplicationJson> languages({final String oCSAPIRequest = 'true'}) async {
+  Future<CoreTranslationApiLanguagesResponseApplicationJson> languages({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/translation/languages';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1787,7 +1785,7 @@ class CoreTranslationApiClient {
       );
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1808,7 +1806,7 @@ class CoreTranslationApiClient {
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/translation/translate';
     final queryParameters = <String, dynamic>{};
@@ -1832,7 +1830,7 @@ class CoreTranslationApiClient {
     if (fromLanguage != null) {
       queryParameters['fromLanguage'] = fromLanguage;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1857,7 +1855,7 @@ class CoreUnifiedSearchClient {
   /// Get the providers for unified search
   Future<CoreUnifiedSearchGetProvidersResponseApplicationJson> getProviders({
     final String from = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/search/providers';
     final queryParameters = <String, dynamic>{};
@@ -1881,7 +1879,7 @@ class CoreUnifiedSearchClient {
     if (from != '') {
       queryParameters['from'] = from;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1905,7 +1903,7 @@ class CoreUnifiedSearchClient {
     final int? limit,
     final ContentString<CoreUnifiedSearchSearchCursor>? cursor,
     final String from = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/search/providers/{providerId}/search';
     final queryParameters = <String, dynamic>{};
@@ -1945,7 +1943,7 @@ class CoreUnifiedSearchClient {
     if (from != '') {
       queryParameters['from'] = from;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1968,7 +1966,7 @@ class CoreWhatsNewClient {
   final CoreClient _rootClient;
 
   /// Get the changes
-  Future<CoreWhatsNewGetResponseApplicationJson> $get({final String oCSAPIRequest = 'true'}) async {
+  Future<CoreWhatsNewGetResponseApplicationJson> $get({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1988,7 +1986,7 @@ class CoreWhatsNewClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -2007,7 +2005,7 @@ class CoreWhatsNewClient {
   /// Dismiss the changes
   Future<CoreWhatsNewDismissResponseApplicationJson> dismiss({
     required final String version,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
@@ -2029,7 +2027,7 @@ class CoreWhatsNewClient {
     }
     // coverage:ignore-end
     queryParameters['version'] = version;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

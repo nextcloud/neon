@@ -78,9 +78,7 @@ class DashboardDashboardApiClient {
   final DashboardClient _rootClient;
 
   /// Get the widgets
-  Future<DashboardDashboardApiGetWidgetsResponseApplicationJson> getWidgets({
-    final String oCSAPIRequest = 'true',
-  }) async {
+  Future<DashboardDashboardApiGetWidgetsResponseApplicationJson> getWidgets({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -100,7 +98,7 @@ class DashboardDashboardApiClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -121,7 +119,7 @@ class DashboardDashboardApiClient {
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
     final queryParameters = <String, dynamic>{};
@@ -156,7 +154,7 @@ class DashboardDashboardApiClient {
     if (widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -177,7 +175,7 @@ class DashboardDashboardApiClient {
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
     final queryParameters = <String, dynamic>{};
@@ -212,7 +210,7 @@ class DashboardDashboardApiClient {
     if (widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

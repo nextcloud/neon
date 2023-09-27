@@ -83,7 +83,7 @@ class UpdatenotificationApiClient {
   Future<UpdatenotificationApiGetAppListResponseApplicationJson> getAppList({
     required final String newVersion,
     final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}';
     final queryParameters = <String, dynamic>{};
@@ -106,7 +106,7 @@ class UpdatenotificationApiClient {
     // coverage:ignore-end
     path = path.replaceAll('{newVersion}', Uri.encodeQueryComponent(newVersion));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

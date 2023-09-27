@@ -80,7 +80,7 @@ class WeatherStatusWeatherStatusClient {
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address
   Future<WeatherStatusWeatherStatusSetModeResponseApplicationJson> setMode({
     required final int mode,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
     final queryParameters = <String, dynamic>{};
@@ -102,7 +102,7 @@ class WeatherStatusWeatherStatusClient {
     }
     // coverage:ignore-end
     queryParameters['mode'] = mode.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -120,7 +120,7 @@ class WeatherStatusWeatherStatusClient {
 
   /// Try to use the address set in user personal settings as weather location
   Future<WeatherStatusWeatherStatusUsePersonalAddressResponseApplicationJson> usePersonalAddress({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
     final queryParameters = <String, dynamic>{};
@@ -141,7 +141,7 @@ class WeatherStatusWeatherStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -159,7 +159,7 @@ class WeatherStatusWeatherStatusClient {
 
   /// Get stored user location
   Future<WeatherStatusWeatherStatusGetLocationResponseApplicationJson> getLocation({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
@@ -180,7 +180,7 @@ class WeatherStatusWeatherStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -201,7 +201,7 @@ class WeatherStatusWeatherStatusClient {
     final String? address,
     final num? lat,
     final num? lon,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
@@ -231,7 +231,7 @@ class WeatherStatusWeatherStatusClient {
     if (lon != null) {
       queryParameters['lon'] = lon.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -249,7 +249,7 @@ class WeatherStatusWeatherStatusClient {
 
   /// Get forecast for current location
   Future<WeatherStatusWeatherStatusGetForecastResponseApplicationJson> getForecast({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
     final queryParameters = <String, dynamic>{};
@@ -270,7 +270,7 @@ class WeatherStatusWeatherStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -288,7 +288,7 @@ class WeatherStatusWeatherStatusClient {
 
   /// Get favorites list
   Future<WeatherStatusWeatherStatusGetFavoritesResponseApplicationJson> getFavorites({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
@@ -309,7 +309,7 @@ class WeatherStatusWeatherStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -328,7 +328,7 @@ class WeatherStatusWeatherStatusClient {
   /// Set favorites list
   Future<WeatherStatusWeatherStatusSetFavoritesResponseApplicationJson> setFavorites({
     required final List<String> favorites,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
@@ -350,7 +350,7 @@ class WeatherStatusWeatherStatusClient {
     }
     // coverage:ignore-end
     queryParameters['favorites[]'] = favorites.map((final e) => e);
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

@@ -80,7 +80,7 @@ class DavDirectClient {
   Future<DavDirectGetUrlResponseApplicationJson> getUrl({
     required final int fileId,
     final int? expirationTime,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final queryParameters = <String, dynamic>{};
@@ -105,7 +105,7 @@ class DavDirectClient {
     if (expirationTime != null) {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

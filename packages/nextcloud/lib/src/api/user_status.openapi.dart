@@ -87,7 +87,7 @@ class UserStatusHeartbeatClient {
   /// Keep the status alive
   Future<UserStatusHeartbeatHeartbeatResponseApplicationJson> heartbeat({
     required final String status,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
@@ -109,7 +109,7 @@ class UserStatusHeartbeatClient {
     }
     // coverage:ignore-end
     queryParameters['status'] = status;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -132,9 +132,7 @@ class UserStatusPredefinedStatusClient {
   final UserStatusClient _rootClient;
 
   /// Get all predefined messages
-  Future<UserStatusPredefinedStatusFindAllResponseApplicationJson> findAll({
-    final String oCSAPIRequest = 'true',
-  }) async {
+  Future<UserStatusPredefinedStatusFindAllResponseApplicationJson> findAll({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -154,7 +152,7 @@ class UserStatusPredefinedStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -180,7 +178,7 @@ class UserStatusStatusesClient {
   Future<UserStatusStatusesFindAllResponseApplicationJson> findAll({
     final int? limit,
     final int? offset,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
@@ -207,7 +205,7 @@ class UserStatusStatusesClient {
     if (offset != null) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -226,7 +224,7 @@ class UserStatusStatusesClient {
   /// Find the status of a user
   Future<UserStatusStatusesFindResponseApplicationJson> find({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -248,7 +246,7 @@ class UserStatusStatusesClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -271,7 +269,7 @@ class UserStatusUserStatusClient {
   final UserStatusClient _rootClient;
 
   /// Get the status of the current user
-  Future<UserStatusUserStatusGetStatusResponseApplicationJson> getStatus({final String oCSAPIRequest = 'true'}) async {
+  Future<UserStatusUserStatusGetStatusResponseApplicationJson> getStatus({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -291,7 +289,7 @@ class UserStatusUserStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -310,7 +308,7 @@ class UserStatusUserStatusClient {
   /// Update the status type of the current user
   Future<UserStatusUserStatusSetStatusResponseApplicationJson> setStatus({
     required final String statusType,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final queryParameters = <String, dynamic>{};
@@ -332,7 +330,7 @@ class UserStatusUserStatusClient {
     }
     // coverage:ignore-end
     queryParameters['statusType'] = statusType;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -352,7 +350,7 @@ class UserStatusUserStatusClient {
   Future<UserStatusUserStatusSetPredefinedMessageResponseApplicationJson> setPredefinedMessage({
     required final String messageId,
     final int? clearAt,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final queryParameters = <String, dynamic>{};
@@ -377,7 +375,7 @@ class UserStatusUserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -398,7 +396,7 @@ class UserStatusUserStatusClient {
     final String? statusIcon,
     final String? message,
     final int? clearAt,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final queryParameters = <String, dynamic>{};
@@ -428,7 +426,7 @@ class UserStatusUserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -446,7 +444,7 @@ class UserStatusUserStatusClient {
 
   /// Clear the message of the current user
   Future<UserStatusUserStatusClearMessageResponseApplicationJson> clearMessage({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     final queryParameters = <String, dynamic>{};
@@ -467,7 +465,7 @@ class UserStatusUserStatusClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -486,7 +484,7 @@ class UserStatusUserStatusClient {
   /// Revert the status to the previous status
   Future<UserStatusUserStatusRevertStatusResponseApplicationJson> revertStatus({
     required final String messageId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}';
     final queryParameters = <String, dynamic>{};
@@ -508,7 +506,7 @@ class UserStatusUserStatusClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{messageId}', Uri.encodeQueryComponent(messageId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

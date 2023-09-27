@@ -81,7 +81,7 @@ class FilesRemindersApiClient {
   Future<FilesRemindersApiGetResponseApplicationJson> $get({
     required final String version,
     required final int fileId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -109,7 +109,7 @@ class FilesRemindersApiClient {
     }
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -130,7 +130,7 @@ class FilesRemindersApiClient {
     required final String dueDate,
     required final String version,
     required final int fileId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -159,7 +159,7 @@ class FilesRemindersApiClient {
     }
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -183,7 +183,7 @@ class FilesRemindersApiClient {
   Future<FilesRemindersApiRemoveResponseApplicationJson> remove({
     required final String version,
     required final int fileId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -211,7 +211,7 @@ class FilesRemindersApiClient {
     }
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
