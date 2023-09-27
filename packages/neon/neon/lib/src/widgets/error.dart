@@ -11,7 +11,11 @@ import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:nextcloud/nextcloud.dart';
 
+/// An indicator that an [error] has occurred.
+///
+/// The action that lead to the error can be retried.
 class NeonError extends StatelessWidget {
+  /// Creates a NeonError.
   const NeonError(
     this.error, {
     required this.onRetry,
@@ -21,12 +25,28 @@ class NeonError extends StatelessWidget {
     super.key,
   });
 
+  /// The error object.
+  ///
+  /// Can be of type [String] or [Exception], various subtypes of `Exception` are also handled separately.
   final dynamic error;
+
+  /// A function that's called when the user decides to retry the action that lead to the error.
   final VoidCallback onRetry;
+
+  /// Changes whether the text is displayed additionally or not.
   final bool onlyIcon;
+
+  /// The size of the icon in logical pixels.
+  ///
+  /// Defaults to a size of `30`.
   final double? iconSize;
+
+  /// The color to use when drawing the error indicator.
+  ///
+  /// Defaults to the nearest [IconTheme]'s [ColorScheme.error].
   final Color? color;
 
+  /// Shows a [SnackBar] popup for the [error].
   static void showSnackbar(final BuildContext context, final dynamic error) {
     final details = getDetails(error);
 
@@ -110,6 +130,7 @@ class NeonError extends StatelessWidget {
     );
   }
 
+  /// Gets the details for a given [error].
   @internal
   static NeonExceptionDetails getDetails(final dynamic error) {
     switch (error) {
