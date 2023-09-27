@@ -58,7 +58,6 @@
       }
     }
   },
-  "errorUnableToOpenFile": "Unable to open the file",
   "errorUnsupportedAppVersions": "Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {names} \n Please contact your administrator to resolve the issues.",
   "@errorUnsupportedAppVersions" : {
     "placeholders": {

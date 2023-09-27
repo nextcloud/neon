@@ -9,7 +9,7 @@ import 'package:neon/nextcloud.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/provider.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
@@ -180,9 +180,9 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
         ),
       );
 
-  Widget _buildError(final dynamic error) =>
+  Widget _buildError(final Object? error) =>
       widget.errorBuilder?.call(context, error) ??
-      NeonException(
+      NeonError(
         error,
         onRetry: () {
           setState(() {});

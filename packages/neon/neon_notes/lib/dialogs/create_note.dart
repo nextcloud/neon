@@ -55,7 +55,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                   ),
                   if (widget.category == null) ...[
                     Center(
-                      child: NeonException(
+                      child: NeonError(
                         notes.error,
                         onRetry: widget.bloc.refresh,
                       ),

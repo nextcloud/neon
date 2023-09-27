@@ -37,7 +37,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Center(
-                    child: NeonException(
+                    child: NeonError(
                       notes.error,
                       onRetry: widget.bloc.refresh,
                     ),

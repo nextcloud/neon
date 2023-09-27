@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
 import 'package:meta/meta.dart';
+import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 
 @internal
 class LoginQRcodePage extends StatefulWidget {
@@ -35,11 +36,11 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
             try {
               url = code.text;
               if (url == null) {
-                throw InvalidQRcodeException();
+                throw const InvalidQRcodeException();
               }
               final match = LoginQRcode.tryParse(url);
               if (match == null) {
-                throw InvalidQRcodeException();
+                throw const InvalidQRcodeException();
               }
 
               LoginCheckServerStatusRoute.withCredentials(
@@ -53,10 +54,20 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                 debugPrint(s.toString());
 
                 _lastErrorURL = url;
-                NeonException.showSnackbar(context, e);
+                NeonError.showSnackbar(context, e);
               }
             }
           },
         ),
+      );
+}
+
+@immutable
+class InvalidQRcodeException extends NeonException {
+  const InvalidQRcodeException();
+
+  @override
+  NeonExceptionDetails get details => NeonExceptionDetails(
+        getText: (final context) => AppLocalizations.of(context).errorInvalidQRcode,
       );
 }

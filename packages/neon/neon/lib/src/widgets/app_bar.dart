@@ -12,7 +12,7 @@ import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_switcher_button.dart';
 import 'package:neon/src/widgets/app_implementation_icon.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -89,7 +89,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                                 const SizedBox(
                                   width: 8,
                                 ),
-                                NeonException(
+                                NeonError(
                                   appImplementations.error,
                                   onRetry: appsBloc.refresh,
                                   onlyIcon: true,

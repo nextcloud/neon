@@ -73,7 +73,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                   ),
                   if (widget.folderID == null) ...[
                     Center(
-                      child: NeonException(
+                      child: NeonError(
                         folders.error,
                         onRetry: widget.bloc.refresh,
                       ),

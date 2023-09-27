@@ -4,7 +4,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_flow.dart';
 import 'package:neon/src/router.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -68,7 +68,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
                   NeonLinearProgressIndicator(
                     visible: init.isLoading,
                   ),
-                  NeonException(
+                  NeonError(
                     init.error,
                     onRetry: bloc.refresh,
                   ),

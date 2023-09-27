@@ -18,7 +18,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
     bloc = NeonProvider.of<FilesBloc>(context);
 
     bloc.errors.listen((final error) {
-      NeonException.showSnackbar(context, error);
+      NeonError.showSnackbar(context, error);
     });
   }
 

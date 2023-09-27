@@ -11,7 +11,7 @@ import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 
@@ -131,7 +131,7 @@ class NeonDrawerHeader extends StatelessWidget {
         }
 
         if (capabilities.hasError) {
-          return NeonException(
+          return NeonError(
             capabilities.error,
             onRetry: capabilitiesBloc.refresh,
           );

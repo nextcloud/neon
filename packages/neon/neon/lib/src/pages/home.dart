@@ -14,7 +14,7 @@ import 'package:neon/src/utils/global_popups.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/unified_search_results.dart';
 import 'package:provider/provider.dart';
 
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
       debugPrint(e.toString());
       debugPrint(s.toString());
       if (mounted) {
-        NeonException.showSnackbar(context, e);
+        NeonError.showSnackbar(context, e);
       }
     }
   }

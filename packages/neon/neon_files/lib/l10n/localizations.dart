@@ -131,6 +131,12 @@ abstract class AppLocalizations {
   /// **'Sync'**
   String get actionSync;
 
+  /// No description provided for @errorUnableToOpenFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to open the file'**
+  String get errorUnableToOpenFile;
+
   /// No description provided for @general.
   ///
   /// In en, this message translates to:

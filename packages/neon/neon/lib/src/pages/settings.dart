@@ -23,7 +23,7 @@ import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/save_file.dart';
-import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -287,7 +287,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       debugPrint(e.toString());
                       debugPrint(s.toString());
                       if (mounted) {
-                        NeonException.showSnackbar(context, e);
+                        NeonError.showSnackbar(context, e);
                       }
                     }
                   },
@@ -312,7 +312,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                       if (!result.files.single.path!.endsWith('.json')) {
                         if (mounted) {
-                          NeonException.showSnackbar(
+                          NeonError.showSnackbar(
                             context,
                             AppLocalizations.of(context).settingsImportWrongFileExtension,
                           );
@@ -325,7 +325,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       debugPrint(e.toString());
                       debugPrint(s.toString());
                       if (mounted) {
-                        NeonException.showSnackbar(context, e);
+                        NeonError.showSnackbar(context, e);
                       }
                     }
                   },
