@@ -79,9 +79,7 @@ class FilesExternalApiClient {
   final FilesExternalClient _rootClient;
 
   /// Get the mount points visible for this user
-  Future<FilesExternalApiGetUserMountsResponseApplicationJson> getUserMounts({
-    final String oCSAPIRequest = 'true',
-  }) async {
+  Future<FilesExternalApiGetUserMountsResponseApplicationJson> getUserMounts({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -101,7 +99,7 @@ class FilesExternalApiClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

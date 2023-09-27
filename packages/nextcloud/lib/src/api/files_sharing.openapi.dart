@@ -89,7 +89,7 @@ class FilesSharingDeletedShareapiClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of all deleted shares
-  Future<FilesSharingDeletedShareapiListResponseApplicationJson> list({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesSharingDeletedShareapiListResponseApplicationJson> list({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -109,7 +109,7 @@ class FilesSharingDeletedShareapiClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -128,7 +128,7 @@ class FilesSharingDeletedShareapiClient {
   /// Undelete a deleted share
   Future<FilesSharingDeletedShareapiUndeleteResponseApplicationJson> undelete({
     required final String id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -150,7 +150,7 @@ class FilesSharingDeletedShareapiClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -175,7 +175,7 @@ class FilesSharingPublicPreviewClient {
   /// Get a direct link preview for a shared file
   Future<Uint8List> directLink({
     required final String token,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/index.php/s/{token}/preview';
     final queryParameters = <String, dynamic>{};
@@ -195,7 +195,7 @@ class FilesSharingPublicPreviewClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -215,7 +215,7 @@ class FilesSharingPublicPreviewClient {
     final int x = 32,
     final int y = 32,
     final int a = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/index.php/apps/files_sharing/publicpreview/{token}';
     final queryParameters = <String, dynamic>{};
@@ -247,7 +247,7 @@ class FilesSharingPublicPreviewClient {
     if (a != 0) {
       queryParameters['a'] = a.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -267,7 +267,7 @@ class FilesSharingRemoteClient {
   final FilesSharingClient _rootClient;
 
   /// Get a list of accepted remote shares
-  Future<FilesSharingRemoteGetSharesResponseApplicationJson> getShares({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesSharingRemoteGetSharesResponseApplicationJson> getShares({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -287,7 +287,7 @@ class FilesSharingRemoteClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -305,7 +305,7 @@ class FilesSharingRemoteClient {
 
   /// Get list of pending remote shares
   Future<FilesSharingRemoteGetOpenSharesResponseApplicationJson> getOpenShares({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     final queryParameters = <String, dynamic>{};
@@ -326,7 +326,7 @@ class FilesSharingRemoteClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -345,7 +345,7 @@ class FilesSharingRemoteClient {
   /// Accept a remote share
   Future<FilesSharingRemoteAcceptShareResponseApplicationJson> acceptShare({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -367,7 +367,7 @@ class FilesSharingRemoteClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -386,7 +386,7 @@ class FilesSharingRemoteClient {
   /// Decline a remote share
   Future<FilesSharingRemoteDeclineShareResponseApplicationJson> declineShare({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -408,7 +408,7 @@ class FilesSharingRemoteClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -427,7 +427,7 @@ class FilesSharingRemoteClient {
   /// Get info of a remote share
   Future<FilesSharingRemoteGetShareResponseApplicationJson> getShare({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -449,7 +449,7 @@ class FilesSharingRemoteClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -468,7 +468,7 @@ class FilesSharingRemoteClient {
   /// Unshare a remote share
   Future<FilesSharingRemoteUnshareResponseApplicationJson> unshare({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -490,7 +490,7 @@ class FilesSharingRemoteClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -574,7 +574,7 @@ class FilesSharingShareapiClient {
     final String subfiles = 'false',
     final String path = '',
     final String includeTags = 'false',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
@@ -610,7 +610,7 @@ class FilesSharingShareapiClient {
     if (includeTags != 'false') {
       queryParameters['include_tags'] = includeTags;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -639,7 +639,7 @@ class FilesSharingShareapiClient {
     final String note = '',
     final String label = '',
     final String? attributes,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
@@ -693,7 +693,7 @@ class FilesSharingShareapiClient {
     if (attributes != null) {
       queryParameters['attributes'] = attributes;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -712,7 +712,7 @@ class FilesSharingShareapiClient {
   /// Get all shares relative to a file, including parent folders shares rights
   Future<FilesSharingShareapiGetInheritedSharesResponseApplicationJson> getInheritedShares({
     required final String path,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
     final queryParameters = <String, dynamic>{};
@@ -734,7 +734,7 @@ class FilesSharingShareapiClient {
     }
     // coverage:ignore-end
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -752,7 +752,7 @@ class FilesSharingShareapiClient {
 
   /// Get all shares that are still pending
   Future<FilesSharingShareapiPendingSharesResponseApplicationJson> pendingShares({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     final queryParameters = <String, dynamic>{};
@@ -773,7 +773,7 @@ class FilesSharingShareapiClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -793,7 +793,7 @@ class FilesSharingShareapiClient {
   Future<FilesSharingShareapiGetShareResponseApplicationJson> getShare({
     required final String id,
     final int includeTags = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -818,7 +818,7 @@ class FilesSharingShareapiClient {
     if (includeTags != 0) {
       queryParameters['include_tags'] = includeTags.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -846,7 +846,7 @@ class FilesSharingShareapiClient {
     final String? label,
     final String? hideDownload,
     final String? attributes,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -895,7 +895,7 @@ class FilesSharingShareapiClient {
     if (attributes != null) {
       queryParameters['attributes'] = attributes;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -914,7 +914,7 @@ class FilesSharingShareapiClient {
   /// Delete a share
   Future<FilesSharingShareapiDeleteShareResponseApplicationJson> deleteShare({
     required final String id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -936,7 +936,7 @@ class FilesSharingShareapiClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -955,7 +955,7 @@ class FilesSharingShareapiClient {
   /// Accept a share
   Future<FilesSharingShareapiAcceptShareResponseApplicationJson> acceptShare({
     required final String id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -977,7 +977,7 @@ class FilesSharingShareapiClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1009,7 +1009,7 @@ class FilesSharingShareesapiClient {
     final int perPage = 200,
     final ContentString<FilesSharingShareesapiSearchShareType>? shareType,
     final int lookup = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees';
     final queryParameters = <String, dynamic>{};
@@ -1051,7 +1051,7 @@ class FilesSharingShareesapiClient {
     if (lookup != 0) {
       queryParameters['lookup'] = lookup.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1078,7 +1078,7 @@ class FilesSharingShareesapiClient {
   Future<FilesSharingShareesapiFindRecommendedResponseApplicationJson> findRecommended({
     required final String itemType,
     final ContentString<FilesSharingShareesapiFindRecommendedShareType>? shareType,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended';
     final queryParameters = <String, dynamic>{};
@@ -1106,7 +1106,7 @@ class FilesSharingShareesapiClient {
         specifiedType: const FullType(ContentString, [FullType(FilesSharingShareesapiFindRecommendedShareType)]),
       );
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),

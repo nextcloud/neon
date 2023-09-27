@@ -128,43 +128,6 @@ class FilesApiClient {
     }
     throw await FilesApiException.fromResponse(response); // coverage:ignore-line
   }
-
-  /// Get the service-worker Javascript for previews
-  Future<FilesResponse<String, FilesApiApiServiceWorkerHeaders>> serviceWorker() async {
-    const path = '/index.php/apps/files/preview-service-worker.js';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/javascript',
-    };
-    Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return FilesResponse<String, FilesApiApiServiceWorkerHeaders>(
-        await response.body,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(FilesApiApiServiceWorkerHeaders),
-        )! as FilesApiApiServiceWorkerHeaders,
-      );
-    }
-    throw await FilesApiException.fromResponse(response); // coverage:ignore-line
-  }
 }
 
 class FilesDirectEditingClient {
@@ -173,7 +136,7 @@ class FilesDirectEditingClient {
   final FilesClient _rootClient;
 
   /// Get the direct editing capabilities
-  Future<FilesDirectEditingInfoResponseApplicationJson> info({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesDirectEditingInfoResponseApplicationJson> info({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -193,7 +156,7 @@ class FilesDirectEditingClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -213,7 +176,7 @@ class FilesDirectEditingClient {
   Future<FilesDirectEditingTemplatesResponseApplicationJson> templates({
     required final String editorId,
     required final String creatorId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}';
     final queryParameters = <String, dynamic>{};
@@ -236,7 +199,7 @@ class FilesDirectEditingClient {
     // coverage:ignore-end
     path = path.replaceAll('{editorId}', Uri.encodeQueryComponent(editorId));
     path = path.replaceAll('{creatorId}', Uri.encodeQueryComponent(creatorId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -257,7 +220,7 @@ class FilesDirectEditingClient {
     required final String path,
     final String? editorId,
     final int? fileId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/open';
     final queryParameters = <String, dynamic>{};
@@ -285,7 +248,7 @@ class FilesDirectEditingClient {
     if (fileId != null) {
       queryParameters['fileId'] = fileId.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -307,7 +270,7 @@ class FilesDirectEditingClient {
     required final String editorId,
     required final String creatorId,
     final String? templateId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/create';
     final queryParameters = <String, dynamic>{};
@@ -334,7 +297,7 @@ class FilesDirectEditingClient {
     if (templateId != null) {
       queryParameters['templateId'] = templateId;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -359,7 +322,7 @@ class FilesOpenLocalEditorClient {
   /// Create a local editor
   Future<FilesOpenLocalEditorCreateResponseApplicationJson> create({
     required final String path,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor';
     final queryParameters = <String, dynamic>{};
@@ -381,7 +344,7 @@ class FilesOpenLocalEditorClient {
     }
     // coverage:ignore-end
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -401,7 +364,7 @@ class FilesOpenLocalEditorClient {
   Future<FilesOpenLocalEditorValidateResponseApplicationJson> validate({
     required final String path,
     required final String token,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}';
     final queryParameters = <String, dynamic>{};
@@ -424,7 +387,7 @@ class FilesOpenLocalEditorClient {
     // coverage:ignore-end
     queryParameters['path'] = path;
     path0 = path0.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -447,7 +410,7 @@ class FilesTemplateClient {
   final FilesClient _rootClient;
 
   /// List the available templates
-  Future<FilesTemplateListResponseApplicationJson> list({final String oCSAPIRequest = 'true'}) async {
+  Future<FilesTemplateListResponseApplicationJson> list({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/files/api/v1/templates';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -467,7 +430,7 @@ class FilesTemplateClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -488,7 +451,7 @@ class FilesTemplateClient {
     required final String filePath,
     final String templatePath = '',
     final String templateType = 'user',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/create';
     final queryParameters = <String, dynamic>{};
@@ -516,7 +479,7 @@ class FilesTemplateClient {
     if (templateType != 'user') {
       queryParameters['templateType'] = templateType;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -536,7 +499,7 @@ class FilesTemplateClient {
   Future<FilesTemplatePathResponseApplicationJson> path({
     final String templatePath = '',
     final int copySystemTemplates = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/path';
     final queryParameters = <String, dynamic>{};
@@ -563,7 +526,7 @@ class FilesTemplateClient {
     if (copySystemTemplates != 0) {
       queryParameters['copySystemTemplates'] = copySystemTemplates.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -589,7 +552,7 @@ class FilesTransferOwnershipClient {
   Future<FilesTransferOwnershipTransferResponseApplicationJson> transfer({
     required final String recipient,
     required final String path,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path0 = '/ocs/v2.php/apps/files/api/v1/transferownership';
     final queryParameters = <String, dynamic>{};
@@ -612,7 +575,7 @@ class FilesTransferOwnershipClient {
     // coverage:ignore-end
     queryParameters['recipient'] = recipient;
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -631,7 +594,7 @@ class FilesTransferOwnershipClient {
   /// Accept an ownership transfer
   Future<FilesTransferOwnershipAcceptResponseApplicationJson> accept({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
@@ -653,7 +616,7 @@ class FilesTransferOwnershipClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -672,7 +635,7 @@ class FilesTransferOwnershipClient {
   /// Reject an ownership transfer
   Future<FilesTransferOwnershipRejectResponseApplicationJson> reject({
     required final int id,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
@@ -694,7 +657,7 @@ class FilesTransferOwnershipClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -708,79 +671,6 @@ class FilesTransferOwnershipClient {
       )! as FilesTransferOwnershipRejectResponseApplicationJson;
     }
     throw await FilesApiException.fromResponse(response); // coverage:ignore-line
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class FilesApiApiServiceWorkerHeadersInterface {
-  @BuiltValueField(wireName: 'service-worker-allowed')
-  String? get serviceWorkerAllowed;
-  FilesApiApiServiceWorkerHeadersInterface rebuild(
-    final void Function(FilesApiApiServiceWorkerHeadersInterfaceBuilder) updates,
-  );
-  FilesApiApiServiceWorkerHeadersInterfaceBuilder toBuilder();
-}
-
-abstract class FilesApiApiServiceWorkerHeaders
-    implements
-        FilesApiApiServiceWorkerHeadersInterface,
-        Built<FilesApiApiServiceWorkerHeaders, FilesApiApiServiceWorkerHeadersBuilder> {
-  factory FilesApiApiServiceWorkerHeaders([final void Function(FilesApiApiServiceWorkerHeadersBuilder)? b]) =
-      _$FilesApiApiServiceWorkerHeaders;
-
-  // coverage:ignore-start
-  const FilesApiApiServiceWorkerHeaders._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FilesApiApiServiceWorkerHeaders.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FilesApiApiServiceWorkerHeaders> get serializer => _$FilesApiApiServiceWorkerHeadersSerializer();
-}
-
-class _$FilesApiApiServiceWorkerHeadersSerializer implements StructuredSerializer<FilesApiApiServiceWorkerHeaders> {
-  @override
-  final Iterable<Type> types = const [FilesApiApiServiceWorkerHeaders, _$FilesApiApiServiceWorkerHeaders];
-
-  @override
-  final String wireName = 'FilesApiApiServiceWorkerHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final FilesApiApiServiceWorkerHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  FilesApiApiServiceWorkerHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = FilesApiApiServiceWorkerHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'service-worker-allowed':
-          result.serviceWorkerAllowed = value;
-      }
-    }
-
-    return result.build();
   }
 }
 
@@ -2234,8 +2124,6 @@ abstract class FilesTemplate implements FilesTemplateInterface, Built<FilesTempl
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(FilesApiApiServiceWorkerHeaders), FilesApiApiServiceWorkerHeaders.new)
-      ..add(FilesApiApiServiceWorkerHeaders.serializer)
       ..addBuilderFactory(
         const FullType(FilesDirectEditingInfoResponseApplicationJson),
         FilesDirectEditingInfoResponseApplicationJson.new,

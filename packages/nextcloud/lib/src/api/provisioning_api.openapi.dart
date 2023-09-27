@@ -89,7 +89,7 @@ class ProvisioningApiAppConfigClient {
   /// Get a list of apps
   ///
   /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetAppsResponseApplicationJson> getApps({final String oCSAPIRequest = 'true'}) async {
+  Future<ProvisioningApiAppConfigGetAppsResponseApplicationJson> getApps({final bool oCSAPIRequest = true}) async {
     const path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -109,7 +109,7 @@ class ProvisioningApiAppConfigClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -130,7 +130,7 @@ class ProvisioningApiAppConfigClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiAppConfigGetKeysResponseApplicationJson> getKeys({
     required final String app,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}';
     final queryParameters = <String, dynamic>{};
@@ -152,7 +152,7 @@ class ProvisioningApiAppConfigClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -175,7 +175,7 @@ class ProvisioningApiAppConfigClient {
     required final String app,
     required final String key,
     final String defaultValue = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
@@ -201,7 +201,7 @@ class ProvisioningApiAppConfigClient {
     if (defaultValue != '') {
       queryParameters['defaultValue'] = defaultValue;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -222,7 +222,7 @@ class ProvisioningApiAppConfigClient {
     required final String value,
     required final String app,
     required final String key,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
@@ -246,7 +246,7 @@ class ProvisioningApiAppConfigClient {
     queryParameters['value'] = value;
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -268,7 +268,7 @@ class ProvisioningApiAppConfigClient {
   Future<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson> deleteKey({
     required final String app,
     required final String key,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
@@ -291,7 +291,7 @@ class ProvisioningApiAppConfigClient {
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -318,7 +318,7 @@ class ProvisioningApiAppsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiAppsGetAppsResponseApplicationJson> getApps({
     final String? filter,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/apps';
     final queryParameters = <String, dynamic>{};
@@ -342,7 +342,7 @@ class ProvisioningApiAppsClient {
     if (filter != null) {
       queryParameters['filter'] = filter;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -363,7 +363,7 @@ class ProvisioningApiAppsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiAppsGetAppInfoResponseApplicationJson> getAppInfo({
     required final String app,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
@@ -385,7 +385,7 @@ class ProvisioningApiAppsClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -406,7 +406,7 @@ class ProvisioningApiAppsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiAppsEnableResponseApplicationJson> enable({
     required final String app,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
@@ -428,7 +428,7 @@ class ProvisioningApiAppsClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -449,7 +449,7 @@ class ProvisioningApiAppsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiAppsDisableResponseApplicationJson> disable({
     required final String app,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
@@ -471,7 +471,7 @@ class ProvisioningApiAppsClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -498,7 +498,7 @@ class ProvisioningApiGroupsClient {
     final String search = '',
     final int? limit,
     final int offset = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
@@ -528,7 +528,7 @@ class ProvisioningApiGroupsClient {
     if (offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -550,7 +550,7 @@ class ProvisioningApiGroupsClient {
   Future<ProvisioningApiGroupsAddGroupResponseApplicationJson> addGroup({
     required final String groupid,
     final String displayname = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
@@ -575,7 +575,7 @@ class ProvisioningApiGroupsClient {
     if (displayname != '') {
       queryParameters['displayname'] = displayname;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -596,7 +596,7 @@ class ProvisioningApiGroupsClient {
     final String search = '',
     final int? limit,
     final int offset = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/groups/details';
     final queryParameters = <String, dynamic>{};
@@ -626,7 +626,7 @@ class ProvisioningApiGroupsClient {
     if (offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -645,7 +645,7 @@ class ProvisioningApiGroupsClient {
   /// Get a list of users in the specified group
   Future<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson> getGroupUsers({
     required final String groupId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users';
     final queryParameters = <String, dynamic>{};
@@ -672,7 +672,7 @@ class ProvisioningApiGroupsClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -694,7 +694,7 @@ class ProvisioningApiGroupsClient {
     final String search = '',
     final int? limit,
     final int offset = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users/details';
     final queryParameters = <String, dynamic>{};
@@ -730,7 +730,7 @@ class ProvisioningApiGroupsClient {
     if (offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -751,7 +751,7 @@ class ProvisioningApiGroupsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson> getSubAdminsOfGroup({
     required final String groupId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/subadmins';
     final queryParameters = <String, dynamic>{};
@@ -778,7 +778,7 @@ class ProvisioningApiGroupsClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -798,7 +798,7 @@ class ProvisioningApiGroupsClient {
   @Deprecated('')
   Future<ProvisioningApiGroupsGetGroupResponseApplicationJson> getGroup({
     required final String groupId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
@@ -825,7 +825,7 @@ class ProvisioningApiGroupsClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -848,7 +848,7 @@ class ProvisioningApiGroupsClient {
     required final String key,
     required final String value,
     required final String groupId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
@@ -877,7 +877,7 @@ class ProvisioningApiGroupsClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -898,7 +898,7 @@ class ProvisioningApiGroupsClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiGroupsDeleteGroupResponseApplicationJson> deleteGroup({
     required final String groupId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
@@ -925,7 +925,7 @@ class ProvisioningApiGroupsClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -952,7 +952,7 @@ class ProvisioningApiPreferencesClient {
     required final String configValue,
     required final String appId,
     required final String configKey,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
@@ -976,7 +976,7 @@ class ProvisioningApiPreferencesClient {
     queryParameters['configValue'] = configValue;
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -996,7 +996,7 @@ class ProvisioningApiPreferencesClient {
   Future<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson> deletePreference({
     required final String appId,
     required final String configKey,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
@@ -1019,7 +1019,7 @@ class ProvisioningApiPreferencesClient {
     // coverage:ignore-end
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1039,7 +1039,7 @@ class ProvisioningApiPreferencesClient {
   Future<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson> setMultiplePreferences({
     required final ContentString<BuiltMap<String, String>> configs,
     required final String appId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
@@ -1067,7 +1067,7 @@ class ProvisioningApiPreferencesClient {
       ]),
     );
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1087,7 +1087,7 @@ class ProvisioningApiPreferencesClient {
   Future<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson> deleteMultiplePreference({
     required final List<String> configKeys,
     required final String appId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
@@ -1110,7 +1110,7 @@ class ProvisioningApiPreferencesClient {
     // coverage:ignore-end
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1137,7 +1137,7 @@ class ProvisioningApiUsersClient {
     final String search = '',
     final int? limit,
     final int offset = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
@@ -1167,7 +1167,7 @@ class ProvisioningApiUsersClient {
     if (offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1194,7 +1194,7 @@ class ProvisioningApiUsersClient {
     final String quota = '',
     final String language = '',
     final String? manager,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
@@ -1240,7 +1240,7 @@ class ProvisioningApiUsersClient {
     if (manager != null) {
       queryParameters['manager'] = manager;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1261,7 +1261,7 @@ class ProvisioningApiUsersClient {
     final String search = '',
     final int? limit,
     final int offset = 0,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/users/details';
     final queryParameters = <String, dynamic>{};
@@ -1291,7 +1291,7 @@ class ProvisioningApiUsersClient {
     if (offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1311,7 +1311,7 @@ class ProvisioningApiUsersClient {
   Future<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson> searchByPhoneNumbers({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/users/search/by-phone';
     final queryParameters = <String, dynamic>{};
@@ -1342,7 +1342,7 @@ class ProvisioningApiUsersClient {
         ]),
       ]),
     );
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1361,7 +1361,7 @@ class ProvisioningApiUsersClient {
   /// Get the details of a user
   Future<ProvisioningApiUsersGetUserResponseApplicationJson> getUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -1383,7 +1383,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1404,7 +1404,7 @@ class ProvisioningApiUsersClient {
     required final String key,
     required final String value,
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -1428,7 +1428,7 @@ class ProvisioningApiUsersClient {
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1447,7 +1447,7 @@ class ProvisioningApiUsersClient {
   /// Delete a user
   Future<ProvisioningApiUsersDeleteUserResponseApplicationJson> deleteUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -1469,7 +1469,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1487,7 +1487,7 @@ class ProvisioningApiUsersClient {
 
   /// Get the details of the current user
   Future<ProvisioningApiUsersGetCurrentUserResponseApplicationJson> getCurrentUser({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/user';
     final queryParameters = <String, dynamic>{};
@@ -1508,7 +1508,7 @@ class ProvisioningApiUsersClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1526,7 +1526,7 @@ class ProvisioningApiUsersClient {
 
   /// Get a list of fields that are editable for the current user
   Future<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson> getEditableFields({
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     const path = '/ocs/v2.php/cloud/user/fields';
     final queryParameters = <String, dynamic>{};
@@ -1547,7 +1547,7 @@ class ProvisioningApiUsersClient {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1566,7 +1566,7 @@ class ProvisioningApiUsersClient {
   /// Get a list of fields that are editable for a user
   Future<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson> getEditableFieldsForUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/user/fields/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -1588,7 +1588,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1610,7 +1610,7 @@ class ProvisioningApiUsersClient {
     required final String value,
     required final String userId,
     required final String collectionName,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/{collectionName}';
     final queryParameters = <String, dynamic>{};
@@ -1640,7 +1640,7 @@ class ProvisioningApiUsersClient {
       ); // coverage:ignore-line
     }
     path = path.replaceAll('{collectionName}', Uri.encodeQueryComponent(collectionName));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1659,7 +1659,7 @@ class ProvisioningApiUsersClient {
   /// Wipe all devices of a user
   Future<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson> wipeUserDevices({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/wipe';
     final queryParameters = <String, dynamic>{};
@@ -1681,7 +1681,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1700,7 +1700,7 @@ class ProvisioningApiUsersClient {
   /// Enable a user
   Future<ProvisioningApiUsersEnableUserResponseApplicationJson> enableUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/enable';
     final queryParameters = <String, dynamic>{};
@@ -1722,7 +1722,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1741,7 +1741,7 @@ class ProvisioningApiUsersClient {
   /// Disable a user
   Future<ProvisioningApiUsersDisableUserResponseApplicationJson> disableUser({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/disable';
     final queryParameters = <String, dynamic>{};
@@ -1763,7 +1763,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1782,7 +1782,7 @@ class ProvisioningApiUsersClient {
   /// Get a list of groups the user belongs to
   Future<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson> getUsersGroups({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
@@ -1804,7 +1804,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1824,7 +1824,7 @@ class ProvisioningApiUsersClient {
   Future<ProvisioningApiUsersAddToGroupResponseApplicationJson> addToGroup({
     required final String userId,
     final String groupid = '',
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
@@ -1849,7 +1849,7 @@ class ProvisioningApiUsersClient {
     if (groupid != '') {
       queryParameters['groupid'] = groupid;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1869,7 +1869,7 @@ class ProvisioningApiUsersClient {
   Future<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson> removeFromGroup({
     required final String groupid,
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
@@ -1892,7 +1892,7 @@ class ProvisioningApiUsersClient {
     // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1913,7 +1913,7 @@ class ProvisioningApiUsersClient {
   /// This endpoint requires admin access
   Future<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson> getUserSubAdminGroups({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
@@ -1935,7 +1935,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -1957,7 +1957,7 @@ class ProvisioningApiUsersClient {
   Future<ProvisioningApiUsersAddSubAdminResponseApplicationJson> addSubAdmin({
     required final String groupid,
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
@@ -1980,7 +1980,7 @@ class ProvisioningApiUsersClient {
     // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -2002,7 +2002,7 @@ class ProvisioningApiUsersClient {
   Future<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson> removeSubAdmin({
     required final String groupid,
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
@@ -2025,7 +2025,7 @@ class ProvisioningApiUsersClient {
     // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
@@ -2044,7 +2044,7 @@ class ProvisioningApiUsersClient {
   /// Resend the welcome message
   Future<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson> resendWelcomeMessage({
     required final String userId,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     var path = '/ocs/v2.php/cloud/users/{userId}/welcome';
     final queryParameters = <String, dynamic>{};
@@ -2066,7 +2066,7 @@ class ProvisioningApiUsersClient {
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
