@@ -180,7 +180,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
         ),
       );
 
-  Widget _buildError(final dynamic error) =>
+  Widget _buildError(final Object? error) =>
       widget.errorBuilder?.call(context, error) ??
       NeonError(
         error,

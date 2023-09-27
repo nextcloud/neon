@@ -18,7 +18,7 @@ class NeonListView<T> extends StatelessWidget {
 
   final Iterable<T>? items;
   final bool isLoading;
-  final dynamic error;
+  final Object? error;
   final RefreshCallback onRefresh;
   final Widget Function(BuildContext, T data) builder;
   final String? scrollKey;

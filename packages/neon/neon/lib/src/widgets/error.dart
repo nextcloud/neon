@@ -28,7 +28,7 @@ class NeonError extends StatelessWidget {
   /// The error object.
   ///
   /// Can be of type [String] or [Exception], various subtypes of `Exception` are also handled separately.
-  final dynamic error;
+  final Object? error;
 
   /// A function that's called when the user decides to retry the action that lead to the error.
   final VoidCallback onRetry;
@@ -47,7 +47,7 @@ class NeonError extends StatelessWidget {
   final Color? color;
 
   /// Shows a [SnackBar] popup for the [error].
-  static void showSnackbar(final BuildContext context, final dynamic error) {
+  static void showSnackbar(final BuildContext context, final Object? error) {
     final details = getDetails(error);
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -132,7 +132,7 @@ class NeonError extends StatelessWidget {
 
   /// Gets the details for a given [error].
   @internal
-  static NeonExceptionDetails getDetails(final dynamic error) {
+  static NeonExceptionDetails getDetails(final Object? error) {
     switch (error) {
       case String():
         return NeonExceptionDetails(

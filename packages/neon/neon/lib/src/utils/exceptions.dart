@@ -22,13 +22,13 @@ class NeonExceptionDetails {
   final bool isUnauthorized;
 }
 
-/// Extensible [Exception] to be used for displaying custom errors in the UI
+/// Extensible [Exception] to be used for displaying custom errors in the UI.
 @immutable
 abstract class NeonException implements Exception {
   /// Creates a NeonException
   const NeonException();
 
-  /// Details that will be rendered by the UI
+  /// Details that will be rendered by the UI.
   NeonExceptionDetails get details;
 }
 
