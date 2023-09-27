@@ -32,6 +32,8 @@ Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs>
 Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson>
     _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer =
     _$CoreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer();
+Serializer<CoreAutocompleteResult_Status0> _$coreAutocompleteResultStatus0Serializer =
+    _$CoreAutocompleteResult_Status0Serializer();
 Serializer<CoreAutocompleteResult> _$coreAutocompleteResultSerializer = _$CoreAutocompleteResultSerializer();
 Serializer<CoreAutoCompleteGetResponseApplicationJson_Ocs> _$coreAutoCompleteGetResponseApplicationJsonOcsSerializer =
     _$CoreAutoCompleteGetResponseApplicationJson_OcsSerializer();
@@ -897,6 +899,71 @@ class _$CoreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer
   }
 }
 
+class _$CoreAutocompleteResult_Status0Serializer implements StructuredSerializer<CoreAutocompleteResult_Status0> {
+  @override
+  final Iterable<Type> types = const [CoreAutocompleteResult_Status0, _$CoreAutocompleteResult_Status0];
+  @override
+  final String wireName = 'CoreAutocompleteResult_Status0';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreAutocompleteResult_Status0 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.icon;
+    if (value != null) {
+      result
+        ..add('icon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  CoreAutocompleteResult_Status0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreAutocompleteResult_Status0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'clearAt':
+          result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CoreAutocompleteResultSerializer implements StructuredSerializer<CoreAutocompleteResult> {
   @override
   final Iterable<Type> types = const [CoreAutocompleteResult, _$CoreAutocompleteResult];
@@ -916,7 +983,7 @@ class _$CoreAutocompleteResultSerializer implements StructuredSerializer<CoreAut
       'source',
       serializers.serialize(object.source, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status, specifiedType: const FullType(CoreAutocompleteResult_Status)),
       'subline',
       serializers.serialize(object.subline, specifiedType: const FullType(String)),
       'shareWithDisplayNameUnique',
@@ -950,7 +1017,8 @@ class _$CoreAutocompleteResultSerializer implements StructuredSerializer<CoreAut
           result.source = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreAutocompleteResult_Status))! as CoreAutocompleteResult_Status);
           break;
         case 'subline':
           result.subline = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -9245,6 +9313,259 @@ class CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class CoreAutocompleteResult_Status0InterfaceBuilder {
+  void replace(CoreAutocompleteResult_Status0Interface other);
+  void update(void Function(CoreAutocompleteResult_Status0InterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  String? get message;
+  set message(String? message);
+
+  String? get icon;
+  set icon(String? icon);
+
+  int? get clearAt;
+  set clearAt(int? clearAt);
+}
+
+class _$CoreAutocompleteResult_Status0 extends CoreAutocompleteResult_Status0 {
+  @override
+  final String status;
+  @override
+  final String? message;
+  @override
+  final String? icon;
+  @override
+  final int? clearAt;
+
+  factory _$CoreAutocompleteResult_Status0([void Function(CoreAutocompleteResult_Status0Builder)? updates]) =>
+      (CoreAutocompleteResult_Status0Builder()..update(updates))._build();
+
+  _$CoreAutocompleteResult_Status0._({required this.status, this.message, this.icon, this.clearAt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'CoreAutocompleteResult_Status0', 'status');
+  }
+
+  @override
+  CoreAutocompleteResult_Status0 rebuild(void Function(CoreAutocompleteResult_Status0Builder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreAutocompleteResult_Status0Builder toBuilder() => CoreAutocompleteResult_Status0Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreAutocompleteResult_Status0 &&
+        status == other.status &&
+        message == other.message &&
+        icon == other.icon &&
+        clearAt == other.clearAt;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
+    _$hash = $jc(_$hash, clearAt.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreAutocompleteResult_Status0')
+          ..add('status', status)
+          ..add('message', message)
+          ..add('icon', icon)
+          ..add('clearAt', clearAt))
+        .toString();
+  }
+}
+
+class CoreAutocompleteResult_Status0Builder
+    implements
+        Builder<CoreAutocompleteResult_Status0, CoreAutocompleteResult_Status0Builder>,
+        CoreAutocompleteResult_Status0InterfaceBuilder {
+  _$CoreAutocompleteResult_Status0? _$v;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
+
+  int? _clearAt;
+  int? get clearAt => _$this._clearAt;
+  set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
+
+  CoreAutocompleteResult_Status0Builder();
+
+  CoreAutocompleteResult_Status0Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _status = $v.status;
+      _message = $v.message;
+      _icon = $v.icon;
+      _clearAt = $v.clearAt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreAutocompleteResult_Status0 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreAutocompleteResult_Status0;
+  }
+
+  @override
+  void update(void Function(CoreAutocompleteResult_Status0Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreAutocompleteResult_Status0 build() => _build();
+
+  _$CoreAutocompleteResult_Status0 _build() {
+    final _$result = _$v ??
+        _$CoreAutocompleteResult_Status0._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'CoreAutocompleteResult_Status0', 'status'),
+            message: message,
+            icon: icon,
+            clearAt: clearAt);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreAutocompleteResult_Status extends CoreAutocompleteResult_Status {
+  @override
+  final JsonObject data;
+  @override
+  final CoreAutocompleteResult_Status0? autocompleteResultStatus0;
+  @override
+  final String? string;
+
+  factory _$CoreAutocompleteResult_Status([void Function(CoreAutocompleteResult_StatusBuilder)? updates]) =>
+      (CoreAutocompleteResult_StatusBuilder()..update(updates))._build();
+
+  _$CoreAutocompleteResult_Status._({required this.data, this.autocompleteResultStatus0, this.string}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreAutocompleteResult_Status', 'data');
+  }
+
+  @override
+  CoreAutocompleteResult_Status rebuild(void Function(CoreAutocompleteResult_StatusBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreAutocompleteResult_StatusBuilder toBuilder() => CoreAutocompleteResult_StatusBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreAutocompleteResult_Status &&
+        data == other.data &&
+        autocompleteResultStatus0 == other.autocompleteResultStatus0 &&
+        string == other.string;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, autocompleteResultStatus0.hashCode);
+    _$hash = $jc(_$hash, string.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreAutocompleteResult_Status')
+          ..add('data', data)
+          ..add('autocompleteResultStatus0', autocompleteResultStatus0)
+          ..add('string', string))
+        .toString();
+  }
+}
+
+class CoreAutocompleteResult_StatusBuilder
+    implements Builder<CoreAutocompleteResult_Status, CoreAutocompleteResult_StatusBuilder> {
+  _$CoreAutocompleteResult_Status? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  CoreAutocompleteResult_Status0Builder? _autocompleteResultStatus0;
+  CoreAutocompleteResult_Status0Builder get autocompleteResultStatus0 =>
+      _$this._autocompleteResultStatus0 ??= CoreAutocompleteResult_Status0Builder();
+  set autocompleteResultStatus0(CoreAutocompleteResult_Status0Builder? autocompleteResultStatus0) =>
+      _$this._autocompleteResultStatus0 = autocompleteResultStatus0;
+
+  String? _string;
+  String? get string => _$this._string;
+  set string(String? string) => _$this._string = string;
+
+  CoreAutocompleteResult_StatusBuilder();
+
+  CoreAutocompleteResult_StatusBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _autocompleteResultStatus0 = $v.autocompleteResultStatus0?.toBuilder();
+      _string = $v.string;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreAutocompleteResult_Status other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreAutocompleteResult_Status;
+  }
+
+  @override
+  void update(void Function(CoreAutocompleteResult_StatusBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreAutocompleteResult_Status build() => _build();
+
+  _$CoreAutocompleteResult_Status _build() {
+    _$CoreAutocompleteResult_Status _$result;
+    try {
+      _$result = _$v ??
+          _$CoreAutocompleteResult_Status._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'CoreAutocompleteResult_Status', 'data'),
+              autocompleteResultStatus0: _autocompleteResultStatus0?.build(),
+              string: string);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'autocompleteResultStatus0';
+        _autocompleteResultStatus0?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreAutocompleteResult_Status', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class CoreAutocompleteResultInterfaceBuilder {
   void replace(CoreAutocompleteResultInterface other);
   void update(void Function(CoreAutocompleteResultInterfaceBuilder) updates);
@@ -9260,8 +9581,8 @@ abstract mixin class CoreAutocompleteResultInterfaceBuilder {
   String? get source;
   set source(String? source);
 
-  String? get status;
-  set status(String? status);
+  CoreAutocompleteResult_StatusBuilder get status;
+  set status(CoreAutocompleteResult_StatusBuilder? status);
 
   String? get subline;
   set subline(String? subline);
@@ -9280,7 +9601,7 @@ class _$CoreAutocompleteResult extends CoreAutocompleteResult {
   @override
   final String source;
   @override
-  final String status;
+  final CoreAutocompleteResult_Status status;
   @override
   final String subline;
   @override
@@ -9376,9 +9697,9 @@ class CoreAutocompleteResultBuilder
   String? get source => _$this._source;
   set source(covariant String? source) => _$this._source = source;
 
-  String? _status;
-  String? get status => _$this._status;
-  set status(covariant String? status) => _$this._status = status;
+  CoreAutocompleteResult_StatusBuilder? _status;
+  CoreAutocompleteResult_StatusBuilder get status => _$this._status ??= CoreAutocompleteResult_StatusBuilder();
+  set status(covariant CoreAutocompleteResult_StatusBuilder? status) => _$this._status = status;
 
   String? _subline;
   String? get subline => _$this._subline;
@@ -9398,7 +9719,7 @@ class CoreAutocompleteResultBuilder
       _label = $v.label;
       _icon = $v.icon;
       _source = $v.source;
-      _status = $v.status;
+      _status = $v.status.toBuilder();
       _subline = $v.subline;
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _$v = null;
@@ -9421,16 +9742,28 @@ class CoreAutocompleteResultBuilder
   CoreAutocompleteResult build() => _build();
 
   _$CoreAutocompleteResult _build() {
-    final _$result = _$v ??
-        _$CoreAutocompleteResult._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'CoreAutocompleteResult', 'id'),
-            label: BuiltValueNullFieldError.checkNotNull(label, r'CoreAutocompleteResult', 'label'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'CoreAutocompleteResult', 'icon'),
-            source: BuiltValueNullFieldError.checkNotNull(source, r'CoreAutocompleteResult', 'source'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'CoreAutocompleteResult', 'status'),
-            subline: BuiltValueNullFieldError.checkNotNull(subline, r'CoreAutocompleteResult', 'subline'),
-            shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                shareWithDisplayNameUnique, r'CoreAutocompleteResult', 'shareWithDisplayNameUnique'));
+    _$CoreAutocompleteResult _$result;
+    try {
+      _$result = _$v ??
+          _$CoreAutocompleteResult._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'CoreAutocompleteResult', 'id'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'CoreAutocompleteResult', 'label'),
+              icon: BuiltValueNullFieldError.checkNotNull(icon, r'CoreAutocompleteResult', 'icon'),
+              source: BuiltValueNullFieldError.checkNotNull(source, r'CoreAutocompleteResult', 'source'),
+              status: status.build(),
+              subline: BuiltValueNullFieldError.checkNotNull(subline, r'CoreAutocompleteResult', 'subline'),
+              shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
+                  shareWithDisplayNameUnique, r'CoreAutocompleteResult', 'shareWithDisplayNameUnique'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'status';
+        status.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreAutocompleteResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
