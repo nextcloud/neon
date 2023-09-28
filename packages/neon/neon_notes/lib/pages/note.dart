@@ -164,16 +164,18 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         border: InputBorder.none,
                       ),
                     )
-                  : MarkdownBody(
-                      data: _contentController.text,
-                      onTapLink: (final text, final href, final title) async {
-                        if (href != null) {
-                          await launchUrlString(
-                            href,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        }
-                      },
+                  : SingleChildScrollView(
+                      child: MarkdownBody(
+                        data: _contentController.text,
+                        onTapLink: (final text, final href, final title) async {
+                          if (href != null) {
+                            await launchUrlString(
+                              href,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          }
+                        },
+                      ),
                     ),
             ),
           ),
