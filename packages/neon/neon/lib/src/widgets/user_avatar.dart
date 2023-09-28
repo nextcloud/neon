@@ -56,39 +56,44 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           final brightness = Theme.of(context).brightness;
           size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
           final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+
+          final avatar = CircleAvatar(
+            radius: size / 2,
+            backgroundColor: widget.backgroundColor,
+            child: ClipOval(
+              child: NeonCachedImage.custom(
+                cacheKey: '${widget.account.id}-avatar-${widget.username}-$brightness$pixelSize',
+                getImage: () async {
+                  if (brightness == Brightness.dark) {
+                    return (await widget.account.client.core.avatar.getAvatarDark(
+                      userId: widget.username,
+                      size: pixelSize,
+                    ))
+                        .data;
+                  } else {
+                    return (await widget.account.client.core.avatar.getAvatar(
+                      userId: widget.username,
+                      size: pixelSize,
+                    ))
+                        .data;
+                  }
+                },
+              ),
+            ),
+          );
+
+          if (!widget.showStatus) {
+            return avatar;
+          }
+
           return Stack(
             alignment: Alignment.center,
             children: [
-              CircleAvatar(
-                radius: size / 2,
-                backgroundColor: widget.backgroundColor,
-                child: ClipOval(
-                  child: NeonCachedImage.custom(
-                    cacheKey: '${widget.account.id}-avatar-${widget.username}-$brightness$pixelSize',
-                    getImage: () async {
-                      if (brightness == Brightness.dark) {
-                        return (await widget.account.client.core.avatar.getAvatarDark(
-                          userId: widget.username,
-                          size: pixelSize,
-                        ))
-                            .data;
-                      } else {
-                        return (await widget.account.client.core.avatar.getAvatar(
-                          userId: widget.username,
-                          size: pixelSize,
-                        ))
-                            .data;
-                      }
-                    },
-                  ),
-                ),
+              avatar,
+              ResultBuilder<UserStatusPublicInterface?>(
+                stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
+                builder: _userStatusIconBuilder,
               ),
-              if (widget.showStatus) ...[
-                ResultBuilder<UserStatusPublicInterface?>(
-                  stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
-                  builder: _userStatusIconBuilder,
-                ),
-              ],
             ],
           );
         },

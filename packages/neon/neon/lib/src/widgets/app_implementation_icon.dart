@@ -21,25 +21,31 @@ class NeonAppImplementationIcon extends StatelessWidget {
   final double? size;
 
   @override
-  Widget build(final BuildContext context) => Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Container(
-            margin: const EdgeInsets.all(5),
-            child: appImplementation.buildIcon(
-              size: size,
-              color: color,
-            ),
+  Widget build(final BuildContext context) {
+    final icon = Container(
+      margin: const EdgeInsets.all(5),
+      child: appImplementation.buildIcon(
+        size: size,
+        color: color,
+      ),
+    );
+
+    if (unreadCount == 0) {
+      return icon;
+    }
+
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        icon,
+        Text(
+          unreadCount.toString(),
+          style: TextStyle(
+            color: color,
+            fontWeight: FontWeight.bold,
           ),
-          if (unreadCount > 0) ...[
-            Text(
-              unreadCount.toString(),
-              style: TextStyle(
-                color: color,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
