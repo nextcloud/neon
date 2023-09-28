@@ -32,8 +32,10 @@ class RequestManager {
   static RequestManager get instance => _requestManager ??= RequestManager();
 
   Future<void> initCache() async {
-    _cache = Cache();
-    await _cache!.init();
+    final cache = Cache();
+    await cache.init();
+
+    _cache = cache;
   }
 
   Cache? _cache;
@@ -239,13 +241,24 @@ class Cache {
     );
   }
 
+  Database get _requireDatabase {
+    final database = _database;
+    if (database == null) {
+      throw StateError(
+        'Cache has not been set up yet. Please make sure Cache.init() has been called before and completed.',
+      );
+    }
+
+    return database;
+  }
+
   Future<bool> has(final String key) async =>
-      Sqflite.firstIntValue(await _database!.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
+      Sqflite.firstIntValue(await _requireDatabase.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
 
   Future<String?> get(final String key) async =>
-      (await _database!.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
+      (await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
 
-  Future<void> set(final String key, final String value) async => _database!.rawQuery(
+  Future<void> set(final String key, final String value) async => _requireDatabase.rawQuery(
         'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
         [key, value],
       );
