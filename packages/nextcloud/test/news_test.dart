@@ -69,6 +69,25 @@ void main() {
         expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
       });
 
+      test('Delete feed', () async {
+        var response = await addWikipediaFeed();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.feeds, hasLength(1));
+
+        final deleteResponse = await client.news.deleteFeed(feedId: response.body.feeds.single.id);
+        expect(deleteResponse.statusCode, 200);
+        expect(() => deleteResponse.body, isA<void>());
+        expect(() => deleteResponse.headers, isA<void>());
+
+        response = await client.news.listFeeds();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.feeds, hasLength(0));
+      });
+
       test('Rename feed', () async {
         var response = await addWikipediaFeed();
         expect(response.statusCode, 200);
@@ -305,6 +324,45 @@ void main() {
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
         expect(response.body.folders[0].feeds, hasLength(0));
+      });
+
+      test('Delete folder', () async {
+        var response = await client.news.createFolder(name: 'test1');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+
+        final deleteResponse = await client.news.deleteFolder(folderId: response.body.folders.single.id);
+        expect(deleteResponse.statusCode, 200);
+        expect(() => deleteResponse.body, isA<void>());
+        expect(() => deleteResponse.headers, isA<void>());
+
+        response = await client.news.listFolders();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(0));
+      });
+
+      test('Rename folder', () async {
+        var response = await client.news.createFolder(name: 'test1');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+
+        final deleteResponse = await client.news.renameFolder(folderId: response.body.folders.single.id, name: 'test2');
+        expect(deleteResponse.statusCode, 200);
+        expect(() => deleteResponse.body, isA<void>());
+        expect(() => deleteResponse.headers, isA<void>());
+
+        response = await client.news.listFolders();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+        expect(response.body.folders.single.name, 'test2');
       });
 
       test('List folders', () async {
