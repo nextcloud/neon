@@ -10,7 +10,7 @@ dependencies:
   built_value: ^8.6.3
   checked_yaml: ^2.0.3
   code_builder: ^4.7.0
-  collection: ^1.17.2
+  collection: ^1.18.0
   dart_style: ^2.3.2
   intersperse: ^2.0.0
   meta: ^1.9.1

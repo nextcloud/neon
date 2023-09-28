@@ -7,7 +7,7 @@ environment:
   flutter: '>=3.13.6'
 
 dependencies:
-  collection: ^1.17.1
+  collection: ^1.18.0
   crypto: ^3.0.3
   file_picker: ^5.5.0
   filesize: ^2.0.1
