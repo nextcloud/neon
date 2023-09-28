@@ -401,10 +401,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: "4b58412b92bd7d588f904425ef6d41a017da1f097e5e9428d2c27d275777e16e"
+      sha256: a07c781bf55bf11ae85133338e4850f0b4e33e261c44a66c750fc707d65d8393
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.1"
+    version: "11.1.2"
   html:
     dependency: transitive
     description:
