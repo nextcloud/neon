@@ -1,5 +1,6 @@
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
+import 'package:neon/platform.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/neon_files.dart';
@@ -16,6 +17,8 @@ class FileActions extends StatelessWidget {
     final bloc = NeonProvider.of<FilesBloc>(context);
     final browserBloc = bloc.browser;
     switch (action) {
+      case FilesFileAction.share:
+        bloc.shareFileNative(details.path, details.etag!);
       case FilesFileAction.toggleFavorite:
         if (details.isFavorite ?? false) {
           bloc.removeFavorite(details.path);
@@ -115,6 +118,12 @@ class FileActions extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => PopupMenuButton<FilesFileAction>(
         itemBuilder: (final context) => [
+          if (!details.isDirectory && NeonPlatform.instance.canUseSharing) ...[
+            PopupMenuItem(
+              value: FilesFileAction.share,
+              child: Text(AppLocalizations.of(context).actionShare),
+            ),
+          ],
           if (details.isFavorite != null) ...[
             PopupMenuItem(
               value: FilesFileAction.toggleFavorite,
@@ -158,6 +167,7 @@ class FileActions extends StatelessWidget {
 }
 
 enum FilesFileAction {
+  share,
   toggleFavorite,
   details,
   rename,

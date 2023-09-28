@@ -57,6 +57,8 @@ abstract interface class NeonPlatform {
 
   abstract final bool canUsePushNotifications;
 
+  abstract final bool canUseSharing;
+
   FutureOr<String> get userAccessibleAppDataPath;
 
   FutureOr<void> init();

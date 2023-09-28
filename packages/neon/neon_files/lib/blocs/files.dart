@@ -7,6 +7,8 @@ abstract interface class FilesBlocEvents {
 
   void openFile(final List<String> path, final String etag, final String? mimeType);
 
+  void shareFileNative(final List<String> path, final String etag);
+
   void delete(final List<String> path);
 
   void rename(final List<String> path, final String name);
@@ -84,19 +86,24 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void openFile(final List<String> path, final String etag, final String? mimeType) {
     wrapAction(
       () async {
-        final cacheDir = await getApplicationCacheDirectory();
-        final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), path.last));
-        if (!file.existsSync()) {
-          debugPrint('Downloading ${Uri(pathSegments: path)} since it does not exist');
-          if (!file.parent.existsSync()) {
-            await file.parent.create(recursive: true);
-          }
-          await _downloadFile(path, file);
-        }
+        final file = await _cacheFile(path, etag);
+
         final result = await OpenFile.open(file.path, type: mimeType);
         if (result.type != ResultType.done) {
           throw const UnableToOpenFileException();
         }
+      },
+      disableTimeout: true,
+    );
+  }
+
+  @override
+  void shareFileNative(final List<String> path, final String etag) {
+    wrapAction(
+      () async {
+        final file = await _cacheFile(path, etag);
+
+        await Share.shareXFiles([XFile(file.path)]);
       },
       disableTimeout: true,
     );
@@ -162,6 +169,21 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
       },
       disableTimeout: true,
     );
+  }
+
+  Future<File> _cacheFile(final List<String> path, final String etag) async {
+    final cacheDir = await getApplicationCacheDirectory();
+    final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), path.last));
+
+    if (!file.existsSync()) {
+      debugPrint('Downloading ${Uri(pathSegments: path)} since it does not exist');
+      if (!file.parent.existsSync()) {
+        await file.parent.create(recursive: true);
+      }
+      await _downloadFile(path, file);
+    }
+
+    return file;
   }
 
   Future<void> _downloadFile(

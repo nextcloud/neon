@@ -26,6 +26,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get actionSync => 'Sync';
 
   @override
+  String get actionShare => 'Share';
+
+  @override
   String get errorUnableToOpenFile => 'Unable to open the file';
 
   @override
