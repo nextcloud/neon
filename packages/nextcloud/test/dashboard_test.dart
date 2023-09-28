@@ -19,21 +19,21 @@ void main() {
 
       test('Get widgets', () async {
         final response = await client.dashboard.dashboardApi.getWidgets();
-        expect(response.ocs.data.keys, equals(['activity', 'notes', 'recommendations', 'user_status']));
+        expect(response.body.ocs.data.keys, equals(['activity', 'notes', 'recommendations', 'user_status']));
       });
 
       group('Get widget items', () {
         test('v1', () async {
           final response = await client.dashboard.dashboardApi.getWidgetItems();
-          expect(response.ocs.data.keys, equals(['recommendations']));
-          final items = response.ocs.data['recommendations']!;
+          expect(response.body.ocs.data.keys, equals(['recommendations']));
+          final items = response.body.ocs.data['recommendations']!;
           expect(items, hasLength(7));
         });
 
         test('v2', () async {
           final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
-          expect(response.ocs.data.keys, equals(['recommendations']));
-          final items = response.ocs.data['recommendations']!.items;
+          expect(response.body.ocs.data.keys, equals(['recommendations']));
+          final items = response.body.ocs.data['recommendations']!.items;
           expect(items, hasLength(7));
         });
       });

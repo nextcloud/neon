@@ -1,11 +1,11 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/models/components.dart';
-import 'package:dynamite/src/models/info.dart';
-import 'package:dynamite/src/models/path_item.dart';
-import 'package:dynamite/src/models/server.dart';
-import 'package:dynamite/src/models/tag.dart';
+import 'package:dynamite/src/models/openapi/components.dart';
+import 'package:dynamite/src/models/openapi/info.dart';
+import 'package:dynamite/src/models/openapi/path_item.dart';
+import 'package:dynamite/src/models/openapi/server.dart';
+import 'package:dynamite/src/models/openapi/tag.dart';
 
 part 'open_api.g.dart';
 

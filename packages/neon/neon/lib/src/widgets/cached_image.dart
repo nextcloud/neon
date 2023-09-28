@@ -17,7 +17,7 @@ typedef ImageDownloader = FutureOr<Uint8List> Function();
 typedef CacheWriter = Future<void> Function(CacheManager cacheManager, Uint8List image);
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext, dynamic);
 
-typedef ApiImageDownloader = FutureOr<Uint8List> Function(NextcloudClient client);
+typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
 
 class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage({
@@ -223,7 +223,10 @@ class NeonApiImage extends StatelessWidget {
     final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     return NeonCachedImage.custom(
-      getImage: () async => getImage(account.client),
+      getImage: () async {
+        final response = await getImage(account.client);
+        return response.body;
+      },
       cacheKey: '${account.id}-$cacheKey',
     );
   }

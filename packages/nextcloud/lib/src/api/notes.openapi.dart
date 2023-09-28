@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -8,49 +10,15 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'notes.openapi.g.dart';
-
-class NotesResponse<T, U> extends DynamiteResponse<T, U> {
-  NotesResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NotesResponse(data: $data, headers: $headers)';
-}
-
-class NotesApiException extends DynamiteApiException {
-  NotesApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NotesApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NotesApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NotesApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NotesClient extends DynamiteClient {
   NotesClient(
@@ -71,7 +39,23 @@ class NotesClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  Future<BuiltList<NotesNote>> getNotes({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [exclude]
+  ///   * [pruneBefore]
+  ///   * [chunkSize]
+  ///   * [chunkCursor]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<BuiltList<NotesNote>, void>> getNotes({
     final String? category,
     final String exclude = '',
     final int pruneBefore = 0,
@@ -79,19 +63,69 @@ class NotesClient extends DynamiteClient {
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) async {
+    final rawResponse = getNotesRaw(
+      category: category,
+      exclude: exclude,
+      pruneBefore: pruneBefore,
+      chunkSize: chunkSize,
+      chunkCursor: chunkCursor,
+      ifNoneMatch: ifNoneMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [exclude]
+  ///   * [pruneBefore]
+  ///   * [chunkSize]
+  ///   * [chunkCursor]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNotes] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<BuiltList<NotesNote>, void> getNotesRaw({
+    final String? category,
+    final String exclude = '',
+    final int pruneBefore = 0,
+    final int chunkSize = 0,
+    final String? chunkCursor,
+    final String? ifNoneMatch,
+  }) {
     const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (category != null) {
       queryParameters['category'] = category;
     }
@@ -110,41 +144,103 @@ class NotesClient extends DynamiteClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<BuiltList<NotesNote>, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(BuiltList, [FullType(NotesNote)]),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(BuiltList, [FullType(NotesNote)]),
-      )! as BuiltList<NotesNote>;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> createNote({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [title]
+  ///   * [content]
+  ///   * [modified]
+  ///   * [favorite]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotesNote, void>> createNote({
     final String category = '',
     final String title = '',
     final String content = '',
     final int modified = 0,
     final int favorite = 0,
   }) async {
+    final rawResponse = createNoteRaw(
+      category: category,
+      title: title,
+      content: content,
+      modified: modified,
+      favorite: favorite,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [category]
+  ///   * [title]
+  ///   * [content]
+  ///   * [modified]
+  ///   * [favorite]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotesNote, void> createNoteRaw({
+    final String category = '',
+    final String title = '',
+    final String content = '',
+    final int modified = 0,
+    final int favorite = 0,
+  }) {
     const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (category != '') {
       queryParameters['category'] = category;
     }
@@ -160,37 +256,91 @@ class NotesClient extends DynamiteClient {
     if (favorite != 0) {
       queryParameters['favorite'] = favorite.toString();
     }
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> getNote({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [exclude]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotesNote, void>> getNote({
     required final int id,
     final String exclude = '',
     final String? ifNoneMatch,
   }) async {
+    final rawResponse = getNoteRaw(
+      id: id,
+      exclude: exclude,
+      ifNoneMatch: ifNoneMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [exclude]
+  ///   * [ifNoneMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotesNote, void> getNoteRaw({
+    required final int id,
+    final String exclude = '',
+    final String? ifNoneMatch,
+  }) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (exclude != '') {
       queryParameters['exclude'] = exclude;
@@ -198,20 +348,38 @@ class NotesClient extends DynamiteClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesNote> updateNote({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [content]
+  ///   * [modified]
+  ///   * [title]
+  ///   * [category]
+  ///   * [favorite]
+  ///   * [ifMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotesNote, void>> updateNote({
     required final int id,
     final String? content,
     final int? modified,
@@ -220,19 +388,71 @@ class NotesClient extends DynamiteClient {
     final int? favorite,
     final String? ifMatch,
   }) async {
+    final rawResponse = updateNoteRaw(
+      id: id,
+      content: content,
+      modified: modified,
+      title: title,
+      category: category,
+      favorite: favorite,
+      ifMatch: ifMatch,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [content]
+  ///   * [modified]
+  ///   * [title]
+  ///   * [category]
+  ///   * [favorite]
+  ///   * [ifMatch]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotesNote, void> updateNoteRaw({
+    required final int id,
+    final String? content,
+    final int? modified,
+    final String? title,
+    final String? category,
+    final int? favorite,
+    final String? ifMatch,
+  }) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (content != null) {
       queryParameters['content'] = content;
@@ -252,101 +472,222 @@ class NotesClient extends DynamiteClient {
     if (ifMatch != null) {
       headers['If-Match'] = ifMatch;
     }
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesNote, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesNote),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesNote))!
-          as NotesNote;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<String> deleteNote({required final int id}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<String, void>> deleteNote({required final int id}) async {
+    final rawResponse = deleteNoteRaw(
+      id: id,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteNote] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<String, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(String),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesSettings> getSettings() async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotesSettings, void>> getSettings() async {
+    final rawResponse = getSettingsRaw();
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotesSettings, void> getSettingsRaw() {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesSettings, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesSettings),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
-          as NotesSettings;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotesSettings> updateSettings({required final NotesSettings settings}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotesSettings, void>> updateSettings({required final NotesSettings settings}) async {
+    final rawResponse = updateSettingsRaw(
+      settings: settings,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotesSettings, void> updateSettingsRaw({required final NotesSettings settings}) {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['Content-Type'] = 'application/json';
     body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings))))
         as Uint8List;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotesSettings, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotesSettings),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NotesSettings))!
-          as NotesSettings;
-    }
-    throw await NotesApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -591,14 +932,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
-Serializers get notesSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeNotes<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeNotes<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

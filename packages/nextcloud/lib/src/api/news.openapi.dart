@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -7,49 +9,15 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'news.openapi.g.dart';
-
-class NewsResponse<T, U> extends DynamiteResponse<T, U> {
-  NewsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NewsResponse(data: $data, headers: $headers)';
-}
-
-class NewsApiException extends DynamiteApiException {
-  NewsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NewsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NewsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NewsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NewsClient extends DynamiteClient {
   NewsClient(
@@ -70,349 +38,912 @@ class NewsClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  Future<NewsSupportedAPIVersions> getSupportedApiVersions() async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsSupportedAPIVersions, void>> getSupportedApiVersions() async {
+    final rawResponse = getSupportedApiVersionsRaw();
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsSupportedAPIVersions, void> getSupportedApiVersionsRaw() {
     const path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsSupportedAPIVersions, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsSupportedAPIVersions),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NewsSupportedAPIVersions),
-      )! as NewsSupportedAPIVersions;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListFolders> listFolders() async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFoldersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListFolders, void>> listFolders() async {
+    final rawResponse = listFoldersRaw();
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListFolders, void> listFoldersRaw() {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListFolders, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListFolders),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFolders))!
-          as NewsListFolders;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListFolders> createFolder({required final String name}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListFolders, void>> createFolder({required final String name}) async {
+    final rawResponse = createFolderRaw(
+      name: name,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListFolders, void> createFolderRaw({required final String name}) {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['name'] = name;
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListFolders, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListFolders),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFolders))!
-          as NewsListFolders;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> renameFolder({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> renameFolder({
     required final int folderId,
     required final String name,
   }) async {
+    final rawResponse = renameFolderRaw(
+      folderId: folderId,
+      name: name,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> renameFolderRaw({
+    required final int folderId,
+    required final String name,
+  }) {
     var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['name'] = name;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> deleteFolder({required final int folderId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> deleteFolder({required final int folderId}) async {
+    final rawResponse = deleteFolderRaw(
+      folderId: folderId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> deleteFolderRaw({required final int folderId}) {
     var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> markFolderAsRead({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFolderAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> markFolderAsRead({
     required final int folderId,
     required final int newestItemId,
   }) async {
+    final rawResponse = markFolderAsReadRaw(
+      folderId: folderId,
+      newestItemId: newestItemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFolderAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> markFolderAsReadRaw({
+    required final int folderId,
+    required final int newestItemId,
+  }) {
     var path = '/index.php/apps/news/api/v1-3/folders/{folderId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListFeeds> listFeeds() async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFeedsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListFeeds, void>> listFeeds() async {
+    final rawResponse = listFeedsRaw();
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListFeeds, void> listFeedsRaw() {
     const path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListFeeds, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListFeeds),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFeeds))!
-          as NewsListFeeds;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListFeeds> addFeed({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [url]
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [addFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListFeeds, void>> addFeed({
     required final String url,
     final int? folderId,
   }) async {
+    final rawResponse = addFeedRaw(
+      url: url,
+      folderId: folderId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [url]
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [addFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListFeeds, void> addFeedRaw({
+    required final String url,
+    final int? folderId,
+  }) {
     const path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['url'] = url;
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListFeeds, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListFeeds),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListFeeds))!
-          as NewsListFeeds;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> deleteFeed({required final int feedId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> deleteFeed({required final int feedId}) async {
+    final rawResponse = deleteFeedRaw(
+      feedId: feedId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> deleteFeedRaw({required final int feedId}) {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> moveFeed({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [moveFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> moveFeed({
     required final int feedId,
     final int? folderId,
   }) async {
+    final rawResponse = moveFeedRaw(
+      feedId: feedId,
+      folderId: folderId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [folderId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [moveFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> moveFeedRaw({
+    required final int feedId,
+    final int? folderId,
+  }) {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/move';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> renameFeed({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [feedTitle]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> renameFeed({
     required final int feedId,
     required final String feedTitle,
   }) async {
+    final rawResponse = renameFeedRaw(
+      feedId: feedId,
+      feedTitle: feedTitle,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [feedTitle]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> renameFeedRaw({
+    required final int feedId,
+    required final String feedTitle,
+  }) {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/rename';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle;
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> markFeedAsRead({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFeedAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> markFeedAsRead({
     required final int feedId,
     required final int newestItemId,
   }) async {
+    final rawResponse = markFeedAsReadRaw(
+      feedId: feedId,
+      newestItemId: newestItemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFeedAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> markFeedAsReadRaw({
+    required final int feedId,
+    required final int newestItemId,
+  }) {
     var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListArticles> listArticles({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [getRead]
+  ///   * [batchSize]
+  ///   * [offset]
+  ///   * [oldestFirst]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListArticles, void>> listArticles({
     final int type = 3,
     final int id = 0,
     final int getRead = 1,
@@ -420,19 +951,69 @@ class NewsClient extends DynamiteClient {
     final int offset = 0,
     final int oldestFirst = 0,
   }) async {
+    final rawResponse = listArticlesRaw(
+      type: type,
+      id: id,
+      getRead: getRead,
+      batchSize: batchSize,
+      offset: offset,
+      oldestFirst: oldestFirst,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [getRead]
+  ///   * [batchSize]
+  ///   * [offset]
+  ///   * [oldestFirst]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListArticles, void> listArticlesRaw({
+    final int type = 3,
+    final int id = 0,
+    final int getRead = 1,
+    final int batchSize = -1,
+    final int offset = 0,
+    final int oldestFirst = 0,
+  }) {
     const path = '/index.php/apps/news/api/v1-3/items';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -451,37 +1032,93 @@ class NewsClient extends DynamiteClient {
     if (oldestFirst != 0) {
       queryParameters['oldestFirst'] = oldestFirst.toString();
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListArticles, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListArticles),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListArticles))!
-          as NewsListArticles;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NewsListArticles> listUpdatedArticles({
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [lastModified]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NewsListArticles, void>> listUpdatedArticles({
     final int type = 3,
     final int id = 0,
     final int lastModified = 0,
   }) async {
+    final rawResponse = listUpdatedArticlesRaw(
+      type: type,
+      id: id,
+      lastModified: lastModified,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [type]
+  ///   * [id]
+  ///   * [lastModified]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NewsListArticles, void> listUpdatedArticlesRaw({
+    final int type = 3,
+    final int id = 0,
+    final int lastModified = 0,
+  }) {
     const path = '/index.php/apps/news/api/v1-3/items/updated';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -491,117 +1128,283 @@ class NewsClient extends DynamiteClient {
     if (lastModified != 0) {
       queryParameters['lastModified'] = lastModified.toString();
     }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NewsListArticles, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NewsListArticles),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NewsListArticles))!
-          as NewsListArticles;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> markArticleAsRead({required final int itemId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> markArticleAsRead({required final int itemId}) async {
+    final rawResponse = markArticleAsReadRaw(
+      itemId: itemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> markArticleAsReadRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> markArticleAsUnread({required final int itemId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> markArticleAsUnread({required final int itemId}) async {
+    final rawResponse = markArticleAsUnreadRaw(
+      itemId: itemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> starArticle({required final int itemId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> starArticle({required final int itemId}) async {
+    final rawResponse = starArticleRaw(
+      itemId: itemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> starArticleRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<void> unstarArticle({required final int itemId}) async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<void, void>> unstarArticle({required final int itemId}) async {
+    final rawResponse = unstarArticleRaw(
+      itemId: itemId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<void, void> unstarArticleRaw({required final int itemId}) {
     var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<void, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: null,
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await NewsApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -720,7 +1523,7 @@ abstract interface class NewsFolderInterface {
   String get name;
   bool get opened;
 
-  /// This seems to be broken. In testing it is always empty
+  /// This seems to be broken. In testing it is always empty.
   BuiltList<NewsFeed> get feeds;
   NewsFolderInterface rebuild(final void Function(NewsFolderInterfaceBuilder) updates);
   NewsFolderInterfaceBuilder toBuilder();
@@ -934,14 +1737,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
-Serializers get newsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeNews<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeNews<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

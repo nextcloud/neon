@@ -50,16 +50,13 @@ class NotificationsBloc extends InteractiveBloc
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance
-        .wrapNextcloud<List<NotificationsNotification>, NotificationsEndpointListNotificationsResponseApplicationJson>(
+    await RequestManager.instance.wrapNextcloud<List<NotificationsNotification>,
+        NotificationsEndpointListNotificationsResponseApplicationJson, void>(
       _account.id,
       'notifications-notifications',
       notifications,
-      () async {
-        final response = await _account.client.notifications.endpoint.listNotifications();
-        return response.data;
-      },
-      (final response) => response.ocs.data.toList(),
+      _account.client.notifications.endpoint.listNotificationsRaw(),
+      (final response) => response.body.ocs.data.toList(),
     );
   }
 

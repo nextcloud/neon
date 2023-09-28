@@ -1,5 +1,8 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -7,49 +10,15 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'core.openapi.g.dart';
-
-class CoreResponse<T, U> extends DynamiteResponse<T, U> {
-  CoreResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'CoreResponse(data: $data, headers: $headers)';
-}
-
-class CoreApiException extends DynamiteApiException {
-  CoreApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<CoreApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return CoreApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'CoreApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class CoreClient extends DynamiteClient {
   CoreClient(
@@ -108,26 +77,52 @@ class CoreClient extends DynamiteClient {
 
   CoreWipeClient get wipe => CoreWipeClient(this);
 
-  Future<CoreStatus> getStatus() async {
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///
+  /// See:
+  ///  * [getStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreStatus, void>> getStatus() async {
+    final rawResponse = getStatusRaw();
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Status returned
+  ///
+  /// See:
+  ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreStatus, void> getStatusRaw() {
     const path = '/status.php';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreStatus, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreStatus),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreStatus))!
-          as CoreStatus;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -136,119 +131,256 @@ class CoreAppPasswordClient {
 
   final CoreClient _rootClient;
 
-  /// Create app password
-  Future<CoreAppPasswordGetAppPasswordResponseApplicationJson> getAppPassword({final bool oCSAPIRequest = true}) async {
+  /// Create app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Creating app password is not allowed
+  ///
+  /// See:
+  ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Creating app password is not allowed
+  ///
+  /// See:
+  ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/getapppassword';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordGetAppPasswordResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Rotate app password
-  Future<CoreAppPasswordRotateAppPasswordResponseApplicationJson> rotateAppPassword({
+  /// Rotate app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Rotating app password is not allowed
+  ///
+  /// See:
+  ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = rotateAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Rotate app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password returned
+  ///   * 403: Rotating app password is not allowed
+  ///
+  /// See:
+  ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/apppassword/rotate';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordRotateAppPasswordResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete app password
-  Future<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> deleteAppPassword({
+  /// Delete app password.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteAppPasswordRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete app password.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/apppassword';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
-      )! as CoreAppPasswordDeleteAppPasswordResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -257,8 +389,26 @@ class CoreAutoCompleteClient {
 
   final CoreClient _rootClient;
 
-  /// Autocomplete a query
-  Future<CoreAutoCompleteGetResponseApplicationJson> $get({
+  /// Autocomplete a query.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Type of the items to search for
+  ///   * [itemId] ID of the items to search for
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
+  ///   * [shareTypes] Types of shares to search for
+  ///   * [limit] Maximum number of results to return
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Autocomplete results returned
+  ///
+  /// See:
+  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreAutoCompleteGetResponseApplicationJson, void>> $get({
     required final String search,
     final String? itemType,
     final String? itemId,
@@ -267,25 +417,74 @@ class CoreAutoCompleteClient {
     final int limit = 10,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = $getRaw(
+      search: search,
+      itemType: itemType,
+      itemId: itemId,
+      sorter: sorter,
+      shareTypes: shareTypes,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Autocomplete a query.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [itemType] Type of the items to search for
+  ///   * [itemId] ID of the items to search for
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
+  ///   * [shareTypes] Types of shares to search for
+  ///   * [limit] Maximum number of results to return
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Autocomplete results returned
+  ///
+  /// See:
+  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void> $getRaw({
+    required final String search,
+    final String? itemType,
+    final String? itemId,
+    final String? sorter,
+    final List<int>? shareTypes,
+    final int limit = 10,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/autocomplete/get';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['search'] = search;
     if (itemType != null) {
       queryParameters['itemType'] = itemType;
@@ -303,110 +502,202 @@ class CoreAutoCompleteClient {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
-      )! as CoreAutoCompleteGetResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
-/// Class AvatarController
+/// Class AvatarController.
 class CoreAvatarClient {
   CoreAvatarClient(this._rootClient);
 
   final CoreClient _rootClient;
 
-  /// Get the dark avatar
-  Future<CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
+  /// Get the dark avatar.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required final String userId,
     required final int size,
   }) async {
+    final rawResponse = getAvatarDarkRaw(
+      userId: userId,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the dark avatar.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
+    required final String userId,
+    required final int size,
+  }) {
     var path = '/index.php/avatar/{userId}/{size}/dark';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
-        await response.bodyBytes,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
-        )! as CoreAvatarAvatarGetAvatarDarkHeaders,
-      );
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the avatar
-  Future<CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
+  /// Get the avatar.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
     required final String userId,
     required final int size,
   }) async {
+    final rawResponse = getAvatarRaw(
+      userId: userId,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the avatar.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [size] Size of the avatar
+  ///
+  /// Status codes:
+  ///   * 200: Avatar returned
+  ///   * 404: Avatar not found
+  ///
+  /// See:
+  ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders> getAvatarRaw({
+    required final String userId,
+    required final int size,
+  }) {
     var path = '/index.php/avatar/{userId}/{size}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(CoreAvatarAvatarGetAvatarHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return CoreResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
-        await response.bodyBytes,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreAvatarAvatarGetAvatarHeaders),
-        )! as CoreAvatarAvatarGetAvatarHeaders,
-      );
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -415,71 +706,149 @@ class CoreClientFlowLoginV2Client {
 
   final CoreClient _rootClient;
 
-  /// Poll the login flow credentials
-  Future<CoreLoginFlowV2Credentials> poll({required final String token}) async {
+  /// Poll the login flow credentials.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the flow
+  ///
+  /// Status codes:
+  ///   * 200: Login flow credentials returned
+  ///   * 404: Login flow not found or completed
+  ///
+  /// See:
+  ///  * [pollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreLoginFlowV2Credentials, void>> poll({required final String token}) async {
+    final rawResponse = pollRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Poll the login flow credentials.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the flow
+  ///
+  /// Status codes:
+  ///   * 200: Login flow credentials returned
+  ///   * 404: Login flow not found or completed
+  ///
+  /// See:
+  ///  * [poll] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreLoginFlowV2Credentials, void> pollRaw({required final String token}) {
     const path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreLoginFlowV2Credentials),
-      )! as CoreLoginFlowV2Credentials;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    queryParameters['token'] = token;
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreLoginFlowV2Credentials, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreLoginFlowV2Credentials),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 
-  /// Init a login flow
-  Future<CoreLoginFlowV2> init() async {
+  /// Init a login flow.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Login flow init returned
+  ///
+  /// See:
+  ///  * [initRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreLoginFlowV2, void>> init() async {
+    final rawResponse = initRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Init a login flow.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Login flow init returned
+  ///
+  /// See:
+  ///  * [init] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreLoginFlowV2, void> initRaw() {
     const path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(CoreLoginFlowV2))!
-          as CoreLoginFlowV2;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreLoginFlowV2, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreLoginFlowV2),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 }
 
@@ -488,307 +857,698 @@ class CoreCollaborationResourcesClient {
 
   final CoreClient _rootClient;
 
-  /// Search for collections
-  Future<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> searchCollections({
+  /// Search for collections.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchCollectionsRaw(
+      filter: filter,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search for collections.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [searchCollections] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
+    required final String filter,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/search/{filter}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
-      )! as CoreCollaborationResourcesSearchCollectionsResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a collection
-  Future<CoreCollaborationResourcesListCollectionResponseApplicationJson> listCollection({
+  /// Get a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = listCollectionRaw(
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listCollection] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
-      )! as CoreCollaborationResourcesListCollectionResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Rename a collection
-  Future<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> renameCollection({
+  /// Rename a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionName] New name
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [renameCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = renameCollectionRaw(
+      collectionName: collectionName,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Rename a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [collectionName] New name
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [renameCollection] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
+    required final String collectionName,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['collectionName'] = collectionName;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
-      )! as CoreCollaborationResourcesRenameCollectionResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Add a resource to a collection
-  Future<CoreCollaborationResourcesAddResourceResponseApplicationJson> addResource({
+  /// Add a resource to a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found or resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [addResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Add a resource to a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection not found or resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [addResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesAddResourceResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Remove a resource from a collection
-  Future<CoreCollaborationResourcesRemoveResourceResponseApplicationJson> removeResource({
+  /// Remove a resource from a collection.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection or resource not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [removeResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      collectionId: collectionId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a resource from a collection.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Name of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [collectionId] ID of the collection
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 404: Collection or resource not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [removeResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    required final int collectionId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesRemoveResourceResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get collections by resource
-  Future<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> getCollectionsByResource({
+  /// Get collections by resource.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Type of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Resource not accessible
+  ///
+  /// See:
+  ///  * [getCollectionsByResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
+      getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getCollectionsByResourceRaw(
+      resourceType: resourceType,
+      resourceId: resourceId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get collections by resource.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [resourceType] Type of the resource
+  ///   * [resourceId] ID of the resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Resource not accessible
+  ///
+  /// See:
+  ///  * [getCollectionsByResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
+      getCollectionsByResourceRaw({
+    required final String resourceType,
+    required final String resourceId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{resourceType}', Uri.encodeQueryComponent(resourceType));
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Create a collection for a resource
-  Future<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> createCollectionOnResource({
+  /// Create a collection for a resource.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name] Name of the collection
+  ///   * [baseResourceType] Type of the base resource
+  ///   * [baseResourceId] ID of the base resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 400: Creating collection is not possible
+  ///   * 404: Resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createCollectionOnResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
+      createCollectionOnResource({
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = createCollectionOnResourceRaw(
+      name: name,
+      baseResourceType: baseResourceType,
+      baseResourceId: baseResourceId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a collection for a resource.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name] Name of the collection
+  ///   * [baseResourceType] Type of the base resource
+  ///   * [baseResourceId] ID of the base resource
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Collection returned
+  ///   * 400: Creating collection is not possible
+  ///   * 404: Resource inaccessible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createCollectionOnResource] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
+      createCollectionOnResourceRaw({
+    required final String name,
+    required final String baseResourceType,
+    required final String baseResourceId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['name'] = name;
     path = path.replaceAll('{baseResourceType}', Uri.encodeQueryComponent(baseResourceType));
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-      )! as CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -798,65 +1558,174 @@ class CoreGuestAvatarClient {
 
   final CoreClient _rootClient;
 
-  /// Returns a dark guest avatar image response
-  Future<Uint8List> getAvatarDark({
+  /// Returns a dark guest avatar image response.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
     required final String guestName,
     required final String size,
   }) async {
+    final rawResponse = getAvatarDarkRaw(
+      guestName: guestName,
+      size: size,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Returns a dark guest avatar image response.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
+    required final String guestName,
+    required final String size,
+  }) {
     var path = '/index.php/avatar/guest/{guestName}/{size}/dark';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200, 201},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.bodyBytes;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Returns a guest avatar image response
-  Future<Uint8List> getAvatar({
+  /// Returns a guest avatar image response.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [darkTheme] Return dark avatar
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String guestName,
     required final String size,
     final int? darkTheme = 0,
   }) async {
+    final rawResponse = getAvatarRaw(
+      guestName: guestName,
+      size: size,
+      darkTheme: darkTheme,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Returns a guest avatar image response.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [darkTheme] Return dark avatar
+  ///   * [guestName] The guest name, e.g. "Albert"
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> getAvatarRaw({
+    required final String guestName,
+    required final String size,
+    final int? darkTheme = 0,
+  }) {
     var path = '/index.php/avatar/guest/{guestName}/{size}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
     if (darkTheme != null) {
@@ -864,16 +1733,19 @@ class CoreGuestAvatarClient {
         queryParameters['darkTheme'] = darkTheme.toString();
       }
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200, 201},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.bodyBytes;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -882,45 +1754,94 @@ class CoreHoverCardClient {
 
   final CoreClient _rootClient;
 
-  /// Get the user details for a hovercard
-  Future<CoreHoverCardGetUserResponseApplicationJson> getUser({
+  /// Get the user details for a hovercard.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User details returned
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreHoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the user details for a hovercard.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User details returned
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void> getUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/hovercard/v1/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
-      )! as CoreHoverCardGetUserResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -929,137 +1850,264 @@ class CoreNavigationClient {
 
   final CoreClient _rootClient;
 
-  /// Get the apps navigation
-  Future<CoreNavigationGetAppsNavigationResponseApplicationJson> getAppsNavigation({
+  /// Get the apps navigation.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppsNavigationRaw(
+      absolute: absolute,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the apps navigation.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
+    final int absolute = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
-      )! as CoreNavigationGetAppsNavigationResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the settings navigation
-  Future<CoreNavigationGetSettingsNavigationResponseApplicationJson> getSettingsNavigation({
+  /// Get the settings navigation.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getSettingsNavigationRaw(
+      absolute: absolute,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the settings navigation.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps navigation returned
+  ///   * 304: No apps navigation changed
+  ///
+  /// See:
+  ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
+    final int absolute = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/navigation/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
-      )! as CoreNavigationGetSettingsNavigationResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
-/// Controller about the endpoint /ocm-provider/
+/// Controller about the endpoint /ocm-provider/.
 class CoreOcmClient {
   CoreOcmClient(this._rootClient);
 
   final CoreClient _rootClient;
 
-  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php
-  Future<CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: OCM Provider details returned
+  ///   * 500: OCM not supported
+  ///
+  /// See:
+  ///  * [discoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+    final rawResponse = discoveryRaw();
+
+    return rawResponse.future;
+  }
+
+  /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: OCM Provider details returned
+  ///   * 500: OCM not supported
+  ///
+  /// See:
+  ///  * [discovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders> discoveryRaw() {
     const path = '/index.php/ocm-provider';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return CoreResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
-        _jsonSerializers.deserialize(
-          await response.jsonBody,
-          specifiedType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
-        )! as CoreOcmDiscoveryResponseApplicationJson,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(CoreOcmOcmDiscoveryHeaders),
-        )! as CoreOcmOcmDiscoveryHeaders,
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
       );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
+      headersType: const FullType(CoreOcmOcmDiscoveryHeaders),
+      serializers: _jsonSerializers,
+    );
   }
 }
 
@@ -1068,39 +2116,84 @@ class CoreOcsClient {
 
   final CoreClient _rootClient;
 
-  /// Get the capabilities
-  Future<CoreOcsGetCapabilitiesResponseApplicationJson> getCapabilities({final bool oCSAPIRequest = true}) async {
+  /// Get the capabilities.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Capabilities returned
+  ///
+  /// See:
+  ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getCapabilitiesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the capabilities.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Capabilities returned
+  ///
+  /// See:
+  ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
-      )! as CoreOcsGetCapabilitiesResponseApplicationJson;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 }
 
@@ -1109,8 +2202,30 @@ class CorePreviewClient {
 
   final CoreClient _rootClient;
 
-  /// Get a preview by file ID
-  Future<Uint8List> getPreviewByFileId({
+  /// Get a preview by file ID.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
     final int fileId = -1,
     final int x = 32,
     final int y = 32,
@@ -1119,25 +2234,78 @@ class CorePreviewClient {
     final String mode = 'fill',
     final int mimeFallback = 0,
   }) async {
+    final rawResponse = getPreviewByFileIdRaw(
+      fileId: fileId,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview by file ID.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
+    final int fileId = -1,
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+    final int forceIcon = 1,
+    final String mode = 'fill',
+    final int mimeFallback = 0,
+  }) {
     const path = '/index.php/core/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (fileId != -1) {
       queryParameters['fileId'] = fileId.toString();
     }
@@ -1159,20 +2327,45 @@ class CorePreviewClient {
     if (mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a preview by file path
-  Future<Uint8List> getPreview({
+  /// Get a preview by file path.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> getPreview({
     final String file = '',
     final int x = 32,
     final int y = 32,
@@ -1181,25 +2374,78 @@ class CorePreviewClient {
     final String mode = 'fill',
     final int mimeFallback = 0,
   }) async {
+    final rawResponse = getPreviewRaw(
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview by file path.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file
+  ///   * [x] Width of the preview
+  ///   * [y] Height of the preview
+  ///   * [a] Whether to not crop the preview
+  ///   * [forceIcon] Force returning an icon
+  ///   * [mode] How to crop the image
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+    final String file = '',
+    final int x = 32,
+    final int y = 32,
+    final int a = 0,
+    final int forceIcon = 1,
+    final String mode = 'fill',
+    final int mimeFallback = 0,
+  }) {
     const path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (file != '') {
       queryParameters['file'] = file;
     }
@@ -1221,16 +2467,19 @@ class CorePreviewClient {
     if (mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1239,49 +2488,110 @@ class CoreProfileApiClient {
 
   final CoreClient _rootClient;
 
-  /// Update the visibility of a parameter
-  Future<CoreProfileApiSetVisibilityResponseApplicationJson> setVisibility({
+  /// Update the visibility of a parameter.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [paramId] ID of the parameter
+  ///   * [visibility] New visibility
+  ///   * [targetUserId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Visibility updated successfully
+  ///   * 400: Updating visibility is not possible
+  ///   * 403: Not allowed to edit other users visibility
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [setVisibilityRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setVisibilityRaw(
+      paramId: paramId,
+      visibility: visibility,
+      targetUserId: targetUserId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update the visibility of a parameter.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [paramId] ID of the parameter
+  ///   * [visibility] New visibility
+  ///   * [targetUserId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Visibility updated successfully
+  ///   * 400: Updating visibility is not possible
+  ///   * 403: Not allowed to edit other users visibility
+  ///   * 404: User not found
+  ///
+  /// See:
+  ///  * [setVisibility] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
+    required final String paramId,
+    required final String visibility,
+    required final String targetUserId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/profile/{targetUserId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['paramId'] = paramId;
     queryParameters['visibility'] = visibility;
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
-      )! as CoreProfileApiSetVisibilityResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1290,36 +2600,82 @@ class CoreReferenceClient {
 
   final CoreClient _rootClient;
 
-  /// Get a preview for a reference
-  Future<Uint8List> preview({required final String referenceId}) async {
+  /// Get a preview for a reference.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [referenceId] the reference cache key
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 404: Reference not found
+  ///
+  /// See:
+  ///  * [previewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> preview({required final String referenceId}) async {
+    final rawResponse = previewRaw(
+      referenceId: referenceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a preview for a reference.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [referenceId] the reference cache key
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 404: Reference not found
+  ///
+  /// See:
+  ///  * [preview] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> previewRaw({required final String referenceId}) {
     var path = '/index.php/core/references/preview/{referenceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    path = path.replaceAll('{referenceId}', Uri.encodeQueryComponent(referenceId));
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    path = path.replaceAll('{referenceId}', Uri.encodeQueryComponent(referenceId));
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 }
 
@@ -1328,118 +2684,271 @@ class CoreReferenceApiClient {
 
   final CoreClient _rootClient;
 
-  /// Resolve a reference
-  Future<CoreReferenceApiResolveOneResponseApplicationJson> resolveOne({
+  /// Resolve a reference.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resolveOneRaw(
+      reference: reference,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resolve a reference.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [resolveOne] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
+    required final String reference,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['reference'] = reference;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
-      )! as CoreReferenceApiResolveOneResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Resolve multiple references
-  Future<CoreReferenceApiResolveResponseApplicationJson> resolve({
+  /// Resolve multiple references.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [references] References to resolve
+  ///   * [limit] Maximum amount of references to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreReferenceApiResolveResponseApplicationJson, void>> resolve({
     required final List<String> references,
     final int limit = 1,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resolveRaw(
+      references: references,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resolve multiple references.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [references] References to resolve
+  ///   * [limit] Maximum amount of references to resolve
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [resolve] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void> resolveRaw({
+    required final List<String> references,
+    final int limit = 1,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['references[]'] = references.map((final e) => e);
     if (limit != 1) {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
-      )! as CoreReferenceApiResolveResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Extract references from a text
-  Future<CoreReferenceApiExtractResponseApplicationJson> extract({
+  /// Extract references from a text.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from
+  ///   * [resolve] Resolve the references
+  ///   * [limit] Maximum amount of references to extract
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
     final int resolve = 0,
     final int limit = 1,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = extractRaw(
+      text: text,
+      resolve: resolve,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Extract references from a text.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from
+  ///   * [resolve] Resolve the references
+  ///   * [limit] Maximum amount of references to extract
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extract] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void> extractRaw({
+    required final String text,
+    final int resolve = 0,
+    final int limit = 1,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/extract';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['text'] = text;
     if (resolve != 0) {
       queryParameters['resolve'] = resolve.toString();
@@ -1448,103 +2957,197 @@ class CoreReferenceApiClient {
       queryParameters['limit'] = limit.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
-      )! as CoreReferenceApiExtractResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the providers
-  Future<CoreReferenceApiGetProvidersInfoResponseApplicationJson> getProvidersInfo({
+  /// Get the providers.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getProvidersInfoRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the providers.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/references/providers';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
-      )! as CoreReferenceApiGetProvidersInfoResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Touch a provider
-  Future<CoreReferenceApiTouchProviderResponseApplicationJson> touchProvider({
+  /// Touch a provider.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [timestamp] Timestamp of the last usage
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Provider touched
+  ///
+  /// See:
+  ///  * [touchProviderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = touchProviderRaw(
+      providerId: providerId,
+      timestamp: timestamp,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Touch a provider.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [timestamp] Timestamp of the last usage
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Provider touched
+  ///
+  /// See:
+  ///  * [touchProvider] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
+    required final String providerId,
+    final int? timestamp,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/references/provider/{providerId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
     if (timestamp != null) {
       queryParameters['timestamp'] = timestamp.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
-      )! as CoreReferenceApiTouchProviderResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1553,66 +3156,174 @@ class CoreTextProcessingApiClient {
 
   final CoreClient _rootClient;
 
-  /// This endpoint returns all available LanguageModel task types
-  Future<CoreTextProcessingApiTaskTypesResponseApplicationJson> taskTypes({final bool oCSAPIRequest = true}) async {
+  /// This endpoint returns all available LanguageModel task types.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = taskTypesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint returns all available LanguageModel task types.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/textprocessing/tasktypes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
-      )! as CoreTextProcessingApiTaskTypesResponseApplicationJson;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 
-  /// This endpoint allows scheduling a language model task
-  Future<CoreTextProcessingApiScheduleResponseApplicationJson> schedule({
+  /// This endpoint allows scheduling a language model task.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text
+  ///   * [type] Type of the task
+  ///   * [appId] ID of the app that will execute the task
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///
+  /// See:
+  ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>> schedule({
     required final String input,
     required final String type,
     required final String appId,
     final String identifier = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = scheduleRaw(
+      input: input,
+      type: type,
+      appId: appId,
+      identifier: identifier,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows scheduling a language model task.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text
+  ///   * [type] Type of the task
+  ///   * [appId] ID of the app that will execute the task
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///
+  /// See:
+  ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
+    required final String input,
+    required final String type,
+    required final String appId,
+    final String identifier = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/textprocessing/schedule';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['input'] = input;
     queryParameters['type'] = type;
     queryParameters['appId'] = appId;
@@ -1620,144 +3331,299 @@ class CoreTextProcessingApiClient {
       queryParameters['identifier'] = identifier;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
-      )! as CoreTextProcessingApiScheduleResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
-  Future<CoreTextProcessingApiGetTaskResponseApplicationJson> getTask({
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
-    var path = '/ocs/v2.php/textprocessing/task/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final rawResponse = getTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
-      )! as CoreTextProcessingApiGetTaskResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+    return rawResponse.future;
   }
 
-  /// This endpoint allows to delete a scheduled task for a user
-  Future<CoreTextProcessingApiDeleteTaskResponseApplicationJson> deleteTask({
+  /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
     final bool oCSAPIRequest = true,
-  }) async {
+  }) {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        authentication.headers,
       );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+    }
+
+// coverage:ignore-end
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = deleteTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
+    var path = '/ocs/v2.php/textprocessing/task/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
-      )! as CoreTextProcessingApiDeleteTaskResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
-  Future<CoreTextProcessingApiListTasksByAppResponseApplicationJson> listTasksByApp({
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = listTasksByAppRaw(
+      appId: appId,
+      identifier: identifier,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
+    required final String appId,
+    final String? identifier,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/textprocessing/tasks/app/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     if (identifier != null) {
       queryParameters['identifier'] = identifier;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
-      )! as CoreTextProcessingApiListTasksByAppResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1766,84 +3632,190 @@ class CoreTranslationApiClient {
 
   final CoreClient _rootClient;
 
-  /// Get the list of supported languages
-  Future<CoreTranslationApiLanguagesResponseApplicationJson> languages({final bool oCSAPIRequest = true}) async {
+  /// Get the list of supported languages.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Supported languages returned
+  ///
+  /// See:
+  ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>> languages({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = languagesRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of supported languages.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Supported languages returned
+  ///
+  /// See:
+  ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/translation/languages';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
-      )! as CoreTranslationApiLanguagesResponseApplicationJson;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 
-  /// Translate a text
-  Future<CoreTranslationApiTranslateResponseApplicationJson> translate({
+  /// Translate a text.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to be translated
+  ///   * [fromLanguage] Language to translate from
+  ///   * [toLanguage] Language to translate to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Translated text returned
+  ///   * 400: Language not detected or unable to translate
+  ///   * 412: Translating is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [translateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreTranslationApiTranslateResponseApplicationJson, void>> translate({
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = translateRaw(
+      text: text,
+      toLanguage: toLanguage,
+      fromLanguage: fromLanguage,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Translate a text.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to be translated
+  ///   * [fromLanguage] Language to translate from
+  ///   * [toLanguage] Language to translate to
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Translated text returned
+  ///   * 400: Language not detected or unable to translate
+  ///   * 412: Translating is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [translate] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void> translateRaw({
+    required final String text,
+    required final String toLanguage,
+    final String? fromLanguage,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/translation/translate';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['text'] = text;
     queryParameters['toLanguage'] = toLanguage;
     if (fromLanguage != null) {
       queryParameters['fromLanguage'] = fromLanguage;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
-      )! as CoreTranslationApiTranslateResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1852,51 +3824,117 @@ class CoreUnifiedSearchClient {
 
   final CoreClient _rootClient;
 
-  /// Get the providers for unified search
-  Future<CoreUnifiedSearchGetProvidersResponseApplicationJson> getProviders({
+  /// Get the providers for unified search.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [from] the url the user is currently at
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getProvidersRaw(
+      from: from,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the providers for unified search.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [from] the url the user is currently at
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Providers returned
+  ///
+  /// See:
+  ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
+    final String from = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/search/providers';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (from != '') {
       queryParameters['from'] = from;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
-      )! as CoreUnifiedSearchGetProvidersResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Search
-  Future<CoreUnifiedSearchSearchResponseApplicationJson> search({
+  /// Search.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [term] Term to search
+  ///   * [sortOrder] Order of entries
+  ///   * [limit] Maximum amount of entries
+  ///   * [cursor] Offset for searching
+  ///   * [from] The current user URL
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Search entries returned
+  ///   * 400: Searching is not possible
+  ///
+  /// See:
+  ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
     final String term = '',
     final int? sortOrder,
@@ -1905,25 +3943,75 @@ class CoreUnifiedSearchClient {
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchRaw(
+      providerId: providerId,
+      term: term,
+      sortOrder: sortOrder,
+      limit: limit,
+      cursor: cursor,
+      from: from,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [term] Term to search
+  ///   * [sortOrder] Order of entries
+  ///   * [limit] Maximum amount of entries
+  ///   * [cursor] Offset for searching
+  ///   * [from] The current user URL
+  ///   * [providerId] ID of the provider
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Search entries returned
+  ///   * 400: Searching is not possible
+  ///
+  /// See:
+  ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void> searchRaw({
+    required final String providerId,
+    final String term = '',
+    final int? sortOrder,
+    final int? limit,
+    final ContentString<CoreUnifiedSearchSearchCursor>? cursor,
+    final String from = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/search/providers/{providerId}/search';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
     if (term != '') {
       queryParameters['term'] = term;
@@ -1944,19 +4032,19 @@ class CoreUnifiedSearchClient {
       queryParameters['from'] = from;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
-      )! as CoreUnifiedSearchSearchResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1965,82 +4053,174 @@ class CoreWhatsNewClient {
 
   final CoreClient _rootClient;
 
-  /// Get the changes
-  Future<CoreWhatsNewGetResponseApplicationJson> $get({final bool oCSAPIRequest = true}) async {
+  /// Get the changes.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes returned
+  ///   * 204: No changes
+  ///
+  /// See:
+  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreWhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
+    final rawResponse = $getRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the changes.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes returned
+  ///   * 204: No changes
+  ///
+  /// See:
+  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWhatsNewGetResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWhatsNewGetResponseApplicationJson),
-      )! as CoreWhatsNewGetResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Dismiss the changes
-  Future<CoreWhatsNewDismissResponseApplicationJson> dismiss({
+  /// Dismiss the changes.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] Version to dismiss the changes for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes dismissed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreWhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = dismissRaw(
+      version: version,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Dismiss the changes.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] Version to dismiss the changes for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Changes dismissed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [dismiss] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void> dismissRaw({
+    required final String version,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['version'] = version;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
-      )! as CoreWhatsNewDismissResponseApplicationJson;
-    }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2049,71 +4229,162 @@ class CoreWipeClient {
 
   final CoreClient _rootClient;
 
-  /// Check if the device should be wiped
-  Future<CoreWipeCheckWipeResponseApplicationJson> checkWipe({required final String token}) async {
+  /// Check if the device should be wiped.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Device should be wiped
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [checkWipeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<CoreWipeCheckWipeResponseApplicationJson, void>> checkWipe({
+    required final String token,
+  }) async {
+    final rawResponse = checkWipeRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Check if the device should be wiped.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Device should be wiped
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [checkWipe] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
     const path = '/index.php/core/wipe/check';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
-      )! as CoreWipeCheckWipeResponseApplicationJson;
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    queryParameters['token'] = token;
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 
-  /// Finish the wipe
-  Future<JsonObject> wipeDone({required final String token}) async {
+  /// Finish the wipe.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Wipe finished successfully
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [wipeDoneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<JsonObject, void>> wipeDone({required final String token}) async {
+    final rawResponse = wipeDoneRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Finish the wipe.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] App password
+  ///
+  /// Status codes:
+  ///   * 200: Wipe finished successfully
+  ///   * 404: Device should not be wiped
+  ///
+  /// See:
+  ///  * [wipeDone] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required final String token}) {
     const path = '/index.php/core/wipe/success';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
-      );
-    }
-    // coverage:ignore-end
-    queryParameters['token'] = token;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
-    if (response.statusCode == 200 || response.statusCode == 404) {
-      return JsonObject(await response.body);
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     }
-    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+
+// coverage:ignore-end
+    queryParameters['token'] = token;
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<JsonObject, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 404},
+      ),
+      bodyType: const FullType(JsonObject),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
   }
 }
 
@@ -2630,7 +4901,8 @@ class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar = int.parse(value);
+          result.xNcIscustomavatar =
+              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
       }
     }
 
@@ -2703,7 +4975,8 @@ class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializ
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar = int.parse(value);
+          result.xNcIscustomavatar =
+              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
       }
     }
 
@@ -3587,10 +5860,10 @@ class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreN
   }) {
     final result = CoreNavigationEntry_OrderBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3837,7 +6110,10 @@ class _$CoreOcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<Cor
       final value = iterator.current! as String;
       switch (key) {
         case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders = (value == 'true');
+          result.xNextcloudOcmProviders = _jsonSerializers.deserialize(
+            json.decode(value),
+            specifiedType: const FullType(bool),
+          )! as bool;
       }
     }
 
@@ -7473,10 +9749,10 @@ class _$CoreUnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<C
   }) {
     final result = CoreUnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -7569,10 +9845,10 @@ class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<
   }) {
     final result = CoreUnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -8643,14 +10919,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CoreWipeCheckWipeResponseApplicationJson.serializer))
     .build();
 
-Serializers get coreSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeCore<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeCore<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

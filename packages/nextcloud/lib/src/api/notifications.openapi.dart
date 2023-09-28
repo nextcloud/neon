@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -7,49 +9,15 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'notifications.openapi.g.dart';
-
-class NotificationsResponse<T, U> extends DynamiteResponse<T, U> {
-  NotificationsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'NotificationsResponse(data: $data, headers: $headers)';
-}
-
-class NotificationsApiException extends DynamiteApiException {
-  NotificationsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<NotificationsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return NotificationsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'NotificationsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class NotificationsClient extends DynamiteClient {
   NotificationsClient(
@@ -84,35 +52,102 @@ class NotificationsApiClient {
 
   final NotificationsClient _rootClient;
 
-  /// Generate a notification for a user
+  /// Generate a notification for a user.
   ///
-  /// This endpoint requires admin access
-  Future<NotificationsApiGenerateNotificationResponseApplicationJson> generateNotification({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shortMessage] Subject of the notification
+  ///   * [longMessage] Message of the notification
+  ///   * [apiVersion]
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully
+  ///   * 400: Generating notification is not possible
+  ///   * 404: User not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [generateNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
     required final String shortMessage,
     required final String userId,
     final String longMessage = '',
     final NotificationsApiGenerateNotificationApiVersion apiVersion = NotificationsApiGenerateNotificationApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = generateNotificationRaw(
+      shortMessage: shortMessage,
+      userId: userId,
+      longMessage: longMessage,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Generate a notification for a user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shortMessage] Subject of the notification
+  ///   * [longMessage] Message of the notification
+  ///   * [apiVersion]
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully
+  ///   * 400: Generating notification is not possible
+  ///   * 404: User not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [generateNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
+    required final String shortMessage,
+    required final String userId,
+    final String longMessage = '',
+    final NotificationsApiGenerateNotificationApiVersion apiVersion = NotificationsApiGenerateNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['shortMessage'] = shortMessage;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     if (longMessage != '') {
@@ -120,19 +155,19 @@ class NotificationsApiClient {
     }
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsApiGenerateNotificationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson),
-      )! as NotificationsApiGenerateNotificationResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -141,228 +176,488 @@ class NotificationsEndpointClient {
 
   final NotificationsClient _rootClient;
 
-  /// Get all notifications
+  /// Get all notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notifications returned
+  ///   * 204: No app uses notifications
+  ///
+  /// See:
+  ///  * [listNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<
-      NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+      DynamiteResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
           NotificationsEndpointEndpointListNotificationsHeaders>> listNotifications({
     final NotificationsEndpointListNotificationsApiVersion apiVersion =
         NotificationsEndpointListNotificationsApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = listNotificationsRaw(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get all notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notifications returned
+  ///   * 204: No app uses notifications
+  ///
+  /// See:
+  ///  * [listNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+      NotificationsEndpointEndpointListNotificationsHeaders> listNotificationsRaw({
+    final NotificationsEndpointListNotificationsApiVersion apiVersion =
+        NotificationsEndpointListNotificationsApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
+        NotificationsEndpointEndpointListNotificationsHeaders>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsEndpointListNotificationsResponseApplicationJson),
+      headersType: const FullType(NotificationsEndpointEndpointListNotificationsHeaders),
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return NotificationsResponse<NotificationsEndpointListNotificationsResponseApplicationJson,
-          NotificationsEndpointEndpointListNotificationsHeaders>(
-        _jsonSerializers.deserialize(
-          await response.jsonBody,
-          specifiedType: const FullType(NotificationsEndpointListNotificationsResponseApplicationJson),
-        )! as NotificationsEndpointListNotificationsResponseApplicationJson,
-        _jsonSerializers.deserialize(
-          response.responseHeaders,
-          specifiedType: const FullType(NotificationsEndpointEndpointListNotificationsHeaders),
-        )! as NotificationsEndpointEndpointListNotificationsHeaders,
-      );
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete all notifications
-  Future<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson> deleteAllNotifications({
+  /// Delete all notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: All notifications deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///
+  /// See:
+  ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson, void>>
+      deleteAllNotifications({
     final NotificationsEndpointDeleteAllNotificationsApiVersion apiVersion =
         NotificationsEndpointDeleteAllNotificationsApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = deleteAllNotificationsRaw(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete all notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: All notifications deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///
+  /// See:
+  ///  * [deleteAllNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson, void>
+      deleteAllNotificationsRaw({
+    final NotificationsEndpointDeleteAllNotificationsApiVersion apiVersion =
+        NotificationsEndpointDeleteAllNotificationsApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson),
-      )! as NotificationsEndpointDeleteAllNotificationsResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a notification
-  Future<NotificationsEndpointGetNotificationResponseApplicationJson> getNotification({
+  /// Get a notification.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification returned
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [getNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsEndpointGetNotificationResponseApplicationJson, void>> getNotification({
     required final int id,
     final NotificationsEndpointGetNotificationApiVersion apiVersion = NotificationsEndpointGetNotificationApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = getNotificationRaw(
+      id: id,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a notification.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Version of the API to use
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification returned
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [getNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsEndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
+    required final int id,
+    final NotificationsEndpointGetNotificationApiVersion apiVersion = NotificationsEndpointGetNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsEndpointGetNotificationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson),
-      )! as NotificationsEndpointGetNotificationResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a notification
-  Future<NotificationsEndpointDeleteNotificationResponseApplicationJson> deleteNotification({
+  /// Delete a notification.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [deleteNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsEndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
     required final int id,
     final NotificationsEndpointDeleteNotificationApiVersion apiVersion =
         NotificationsEndpointDeleteNotificationApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = deleteNotificationRaw(
+      id: id,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a notification.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [id] ID of the notification
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Notification deleted successfully
+  ///   * 403: Deleting notification for impersonated user is not allowed
+  ///   * 404: Notification not found
+  ///
+  /// See:
+  ///  * [deleteNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsEndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
+    required final int id,
+    final NotificationsEndpointDeleteNotificationApiVersion apiVersion =
+        NotificationsEndpointDeleteNotificationApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsEndpointDeleteNotificationResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson),
-      )! as NotificationsEndpointDeleteNotificationResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Check if notification IDs exist
-  Future<NotificationsEndpointConfirmIdsForUserResponseApplicationJson> confirmIdsForUser({
+  /// Check if notification IDs exist.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [ids] IDs of the notifications to check
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Existing notification IDs returned
+  ///   * 400: Too many notification IDs requested
+  ///
+  /// See:
+  ///  * [confirmIdsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsEndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
     required final List<int> ids,
     final NotificationsEndpointConfirmIdsForUserApiVersion apiVersion =
         NotificationsEndpointConfirmIdsForUserApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = confirmIdsForUserRaw(
+      ids: ids,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Check if notification IDs exist.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [ids] IDs of the notifications to check
+  ///   * [apiVersion] Version of the API to use
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Existing notification IDs returned
+  ///   * 400: Too many notification IDs requested
+  ///
+  /// See:
+  ///  * [confirmIdsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsEndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
+    required final List<int> ids,
+    final NotificationsEndpointConfirmIdsForUserApiVersion apiVersion =
+        NotificationsEndpointConfirmIdsForUserApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['ids[]'] = ids.map((final e) => e.toString());
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsEndpointConfirmIdsForUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson),
-      )! as NotificationsEndpointConfirmIdsForUserResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -371,92 +666,210 @@ class NotificationsPushClient {
 
   final NotificationsClient _rootClient;
 
-  /// Register device for push notifications
-  Future<NotificationsPushRegisterDeviceResponseApplicationJson> registerDevice({
+  /// Register device for push notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pushTokenHash] Hash of the push token
+  ///   * [devicePublicKey] Public key of the device
+  ///   * [proxyServer] Proxy server to be used
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Device was already registered
+  ///   * 201: Device registered successfully
+  ///   * 400: Registering device is not possible
+  ///   * 401: Missing permissions to register device
+  ///
+  /// See:
+  ///  * [registerDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsPushRegisterDeviceResponseApplicationJson, void>> registerDevice({
     required final String pushTokenHash,
     required final String devicePublicKey,
     required final String proxyServer,
     final NotificationsPushRegisterDeviceApiVersion apiVersion = NotificationsPushRegisterDeviceApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = registerDeviceRaw(
+      pushTokenHash: pushTokenHash,
+      devicePublicKey: devicePublicKey,
+      proxyServer: proxyServer,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Register device for push notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pushTokenHash] Hash of the push token
+  ///   * [devicePublicKey] Public key of the device
+  ///   * [proxyServer] Proxy server to be used
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: Device was already registered
+  ///   * 201: Device registered successfully
+  ///   * 400: Registering device is not possible
+  ///   * 401: Missing permissions to register device
+  ///
+  /// See:
+  ///  * [registerDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsPushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
+    required final String pushTokenHash,
+    required final String devicePublicKey,
+    required final String proxyServer,
+    final NotificationsPushRegisterDeviceApiVersion apiVersion = NotificationsPushRegisterDeviceApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['pushTokenHash'] = pushTokenHash;
     queryParameters['devicePublicKey'] = devicePublicKey;
     queryParameters['proxyServer'] = proxyServer;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsPushRegisterDeviceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 201},
+      ),
+      bodyType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson),
-      )! as NotificationsPushRegisterDeviceResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Remove a device from push notifications
-  Future<NotificationsPushRemoveDeviceResponseApplicationJson> removeDevice({
+  /// Remove a device from push notifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: No device registered
+  ///   * 202: Device removed successfully
+  ///   * 401: Missing permissions to remove device
+  ///   * 400: Removing device is not possible
+  ///
+  /// See:
+  ///  * [removeDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsPushRemoveDeviceResponseApplicationJson, void>> removeDevice({
     final NotificationsPushRemoveDeviceApiVersion apiVersion = NotificationsPushRemoveDeviceApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = removeDeviceRaw(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a device from push notifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200: No device registered
+  ///   * 202: Device removed successfully
+  ///   * 401: Missing permissions to remove device
+  ///   * 400: Removing device is not possible
+  ///
+  /// See:
+  ///  * [removeDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsPushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
+    final NotificationsPushRemoveDeviceApiVersion apiVersion = NotificationsPushRemoveDeviceApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsPushRemoveDeviceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 202, 401},
+      ),
+      bodyType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 202 || response.statusCode == 401) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson),
-      )! as NotificationsPushRemoveDeviceResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -465,100 +878,220 @@ class NotificationsSettingsClient {
 
   final NotificationsClient _rootClient;
 
-  /// Update personal notification settings
-  Future<NotificationsSettingsPersonalResponseApplicationJson> personal({
+  /// Update personal notification settings.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [personalRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsSettingsPersonalResponseApplicationJson, void>> personal({
     required final int batchSetting,
     required final String soundNotification,
     required final String soundTalk,
     final NotificationsSettingsPersonalApiVersion apiVersion = NotificationsSettingsPersonalApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = personalRaw(
+      batchSetting: batchSetting,
+      soundNotification: soundNotification,
+      soundTalk: soundTalk,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update personal notification settings.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [personal] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsSettingsPersonalResponseApplicationJson, void> personalRaw({
+    required final int batchSetting,
+    required final String soundNotification,
+    required final String soundTalk,
+    final NotificationsSettingsPersonalApiVersion apiVersion = NotificationsSettingsPersonalApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['batchSetting'] = batchSetting.toString();
     queryParameters['soundNotification'] = soundNotification;
     queryParameters['soundTalk'] = soundTalk;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsSettingsPersonalResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsSettingsPersonalResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsSettingsPersonalResponseApplicationJson),
-      )! as NotificationsSettingsPersonalResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update default notification settings for new users
+  /// Update default notification settings for new users.
   ///
-  /// This endpoint requires admin access
-  Future<NotificationsSettingsAdminResponseApplicationJson> admin({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [adminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<NotificationsSettingsAdminResponseApplicationJson, void>> admin({
     required final int batchSetting,
     required final String soundNotification,
     required final String soundTalk,
     final NotificationsSettingsAdminApiVersion apiVersion = NotificationsSettingsAdminApiVersion.v2,
     final String oCSAPIRequest = 'true',
   }) async {
+    final rawResponse = adminRaw(
+      batchSetting: batchSetting,
+      soundNotification: soundNotification,
+      soundTalk: soundTalk,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update default notification settings for new users.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
+  ///   * [apiVersion]
+  ///   * [oCSAPIRequest]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [admin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<NotificationsSettingsAdminResponseApplicationJson, void> adminRaw({
+    required final int batchSetting,
+    required final String soundNotification,
+    required final String soundTalk,
+    final NotificationsSettingsAdminApiVersion apiVersion = NotificationsSettingsAdminApiVersion.v2,
+    final String oCSAPIRequest = 'true',
+  }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['batchSetting'] = batchSetting.toString();
     queryParameters['soundNotification'] = soundNotification;
     queryParameters['soundTalk'] = soundTalk;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<NotificationsSettingsAdminResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(NotificationsSettingsAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(NotificationsSettingsAdminResponseApplicationJson),
-      )! as NotificationsSettingsAdminResponseApplicationJson;
-    }
-    throw await NotificationsApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1902,14 +2435,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
-Serializers get notificationsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeNotifications<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeNotifications<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

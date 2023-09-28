@@ -53,7 +53,7 @@ class WebDavClient {
       throw DynamiteApiException(
         response.statusCode,
         response.responseHeaders,
-        await response.body,
+        await response.string,
       );
     }
 
@@ -82,7 +82,7 @@ class WebDavClient {
   }
 
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
-      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
+      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.string).rootElement);
 
   Map<String, String> _getUploadHeaders({
     required final DateTime? lastModified,
@@ -205,7 +205,7 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
-  Future<Uint8List> get(final Uri path) async => (await getStream(path)).bodyBytes;
+  Future<Uint8List> get(final Uri path) async => (await getStream(path)).bytes;
 
   /// Gets the content of the file at [path].
   Future<HttpClientResponse> getStream(final Uri path) async => _send(

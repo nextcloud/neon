@@ -3,7 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
-import 'package:dynamite/src/models/discriminator.dart';
+import 'package:dynamite/src/models/openapi/discriminator.dart';
 
 part 'schema.g.dart';
 

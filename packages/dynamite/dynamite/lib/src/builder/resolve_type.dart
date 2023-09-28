@@ -2,15 +2,14 @@ import 'package:dynamite/src/builder/ofs_builder.dart';
 import 'package:dynamite/src/builder/resolve_enum.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/state.dart';
-import 'package:dynamite/src/models/open_api.dart';
-import 'package:dynamite/src/models/schema.dart';
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveType(
-  final OpenAPI spec,
+  final openapi.OpenAPI spec,
   final State state,
   final String identifier,
-  final Schema schema, {
+  final openapi.Schema schema, {
   final bool ignoreEnum = false,
   final bool nullable = false,
 }) {

@@ -92,23 +92,23 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
+      RequestManager.instance.wrapNextcloud<List<NewsFolder>, NewsListFolders, void>(
         account.id,
         'news-folders',
         folders,
-        () async => account.client.news.listFolders(),
-        (final response) => response.folders.toList(),
+        account.client.news.listFoldersRaw(),
+        (final response) => response.body.folders.toList(),
       ),
-      RequestManager.instance.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
+      RequestManager.instance.wrapNextcloud<List<NewsFeed>, NewsListFeeds, void>(
         account.id,
         'news-feeds',
         feeds,
-        () async => account.client.news.listFeeds(),
+        account.client.news.listFeedsRaw(),
         (final response) {
-          if (response.newestItemId != null) {
-            _newestItemId = response.newestItemId!;
+          if (response.body.newestItemId != null) {
+            _newestItemId = response.body.newestItemId!;
           }
-          return response.feeds.toList();
+          return response.body.feeds.toList();
         },
       ),
       mainArticlesBloc.reload(),

@@ -39,12 +39,12 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
-        CoreOcsGetCapabilitiesResponseApplicationJson>(
+        CoreOcsGetCapabilitiesResponseApplicationJson, void>(
       _account.id,
       'capabilities',
       capabilities,
-      () async => _account.client.core.ocs.getCapabilities(),
-      (final response) => response.ocs.data,
+      _account.client.core.ocs.getCapabilitiesRaw(),
+      (final response) => response.body.ocs.data,
     );
   }
 }

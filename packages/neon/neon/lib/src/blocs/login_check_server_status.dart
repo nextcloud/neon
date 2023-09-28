@@ -47,7 +47,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
       );
 
       final status = await client.core.getStatus();
-      state.add(Result.success(status));
+      state.add(Result.success(status.body));
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());

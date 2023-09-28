@@ -46,7 +46,8 @@ class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocState
       for (final account in _accountsBloc.accounts.value) {
         if (!_supported.containsKey(account)) {
           try {
-            _supported[account] = (await account.client.uppush.check()).success;
+            final response = await account.client.uppush.check();
+            _supported[account] = response.body.success;
           } catch (e, s) {
             debugPrint(e.toString());
             debugPrint(s.toString());

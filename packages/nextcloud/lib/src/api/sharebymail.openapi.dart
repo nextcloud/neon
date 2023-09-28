@@ -1,52 +1,17 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'sharebymail.openapi.g.dart';
-
-class SharebymailResponse<T, U> extends DynamiteResponse<T, U> {
-  SharebymailResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'SharebymailResponse(data: $data, headers: $headers)';
-}
-
-class SharebymailApiException extends DynamiteApiException {
-  SharebymailApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<SharebymailApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return SharebymailApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'SharebymailApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class SharebymailClient extends DynamiteClient {
   SharebymailClient(
@@ -309,14 +274,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer))
     .build();
 
-Serializers get sharebymailSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeSharebymail<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeSharebymail<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

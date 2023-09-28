@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -13,7 +14,10 @@ import 'package:xml/xml.dart' as xml;
 typedef UnwrapCallback<T, R> = T Function(R);
 typedef SerializeCallback<T> = String Function(T);
 typedef DeserializeCallback<T> = T Function(String);
-typedef NextcloudApiCallback<T> = Future<T> Function();
+typedef NextcloudApiCallback<T> = AsyncValueGetter<T>;
+
+const maxRetries = 3;
+const defaultTimeout = Duration(seconds: 30);
 
 class RequestManager {
   RequestManager();
@@ -34,26 +38,32 @@ class RequestManager {
 
   Cache? _cache;
 
-  Future<void> wrapNextcloud<T, R>(
+  Future<void> wrapNextcloud<T, B, H>(
     final String clientID,
     final String k,
     final BehaviorSubject<Result<T>> subject,
-    final NextcloudApiCallback<R> call,
-    final UnwrapCallback<T, R> unwrap, {
+    final DynamiteRawResponse<B, H> rawResponse,
+    final UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
     final bool disableTimeout = false,
-    final bool emitEmptyCache = false,
   }) async =>
-      _wrap<T, R>(
+      _wrap<T, DynamiteRawResponse<B, H>>(
         clientID,
         k,
         subject,
-        call,
-        unwrap,
-        (final data) => json.encode(serializeNextcloud<R>(data)),
-        (final data) => deserializeNextcloud<R>(json.decode(data) as Object),
+        () async {
+          await rawResponse.future;
+
+          return rawResponse;
+        },
+        (final rawResponse) => unwrap(rawResponse.response),
+        (final data) => json.encode(data),
+        (final data) => DynamiteRawResponse<B, H>.fromJson(
+          json.decode(data) as Map<String, Object?>,
+          serializers: rawResponse.serializers,
+          bodyType: rawResponse.bodyType,
+          headersType: rawResponse.headersType,
+        ),
         disableTimeout,
-        emitEmptyCache,
-        0,
       );
 
   Future<void> wrapWebDav<T>(
@@ -75,7 +85,6 @@ class RequestManager {
         (final data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout,
         emitEmptyCache,
-        0,
       );
 
   Future<void> _wrap<T, R>(
@@ -85,44 +94,44 @@ class RequestManager {
     final NextcloudApiCallback<R> call,
     final UnwrapCallback<T, R> unwrap,
     final SerializeCallback<R> serialize,
-    final DeserializeCallback<R> deserialize,
-    final bool disableTimeout,
-    final bool emitEmptyCache,
-    final int retries,
-  ) async {
-    if (subject.valueOrNull?.hasData ?? false) {
-      subject.add(
-        Result(
-          subject.value.data,
-          null,
-          isLoading: true,
-          isCached: true,
-        ),
-      );
-    } else {
-      subject.add(Result.loading());
-    }
+    final DeserializeCallback<R> deserialize, [
+    final bool disableTimeout = false,
+    final bool emitEmptyCache = false,
+    final int retries = 0,
+  ]) async {
+    // emit loading state with the current value if present
+    final value = subject.valueOrNull?.copyWith(isLoading: true) ?? Result.loading();
+    subject.add(value);
 
     final key = '$clientID-$k';
 
-    await _emitCached(
-      key,
-      subject,
-      unwrap,
-      deserialize,
-      emitEmptyCache,
-      true,
-      null,
+    unawaited(
+      _emitCached(
+        key,
+        subject,
+        unwrap,
+        deserialize,
+        emitEmptyCache,
+      ),
     );
 
     try {
-      final response = await (disableTimeout ? call() : timeout(call));
-      await _cache?.set(key, await compute(serialize, response));
+      final response = await timeout(call, disableTimeout: disableTimeout);
       subject.add(Result.success(unwrap(response)));
+
+      final serialized = serialize(response);
+      await _cache?.set(key, serialized);
+    } on TimeoutException catch (e, s) {
+      debugPrint('Request timed out ...');
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+
+      _emitError<T>(e, subject);
     } catch (e, s) {
       debugPrint(e.toString());
-      debugPrint(s.toString());
-      if (e is DynamiteApiException && e.statusCode >= 500 && retries < 3) {
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+
+      if (e is DynamiteApiException && e.statusCode >= 500 && retries < maxRetries) {
         debugPrint('Retrying...');
         await _wrap(
           clientID,
@@ -136,20 +145,21 @@ class RequestManager {
           emitEmptyCache,
           retries + 1,
         );
-        return;
-      }
-      if (!(await _emitCached(
-        key,
-        subject,
-        unwrap,
-        deserialize,
-        emitEmptyCache,
-        false,
-        e,
-      ))) {
-        subject.add(Result.error(e));
+      } else {
+        _emitError<T>(e, subject);
       }
     }
+  }
+
+  /// Re emits the current result with the given [error].
+  ///
+  /// Defaults to a [Result.error] if none has been emitted yet.
+  void _emitError<T>(
+    final Object error,
+    final BehaviorSubject<Result<T>> subject,
+  ) {
+    final value = subject.valueOrNull?.copyWith(error: error, isLoading: false) ?? Result.error(error);
+    subject.add(value);
   }
 
   Future<bool> _emitCached<T, R>(
@@ -158,36 +168,56 @@ class RequestManager {
     final UnwrapCallback<T, R> unwrap,
     final DeserializeCallback<R> deserialize,
     final bool emitEmptyCache,
-    final bool loading,
-    final Object? error,
   ) async {
-    T? cached;
-    try {
-      if (_cache != null && await _cache!.has(key)) {
-        cached = unwrap(await compute(deserialize, (await _cache!.get(key))!));
+    if (_cache != null && await _cache!.has(key)) {
+      try {
+        final cacheValue = await _cache!.get(key);
+        final cached = unwrap(deserialize(cacheValue!));
+
+        // If the network fetch is faster than fetching the cached value the
+        // subject can be closed before emitting.
+        if (subject.value.hasUncachedData) {
+          return true;
+        }
+
+        subject.add(
+          subject.value.copyWith(
+            data: cached,
+            isCached: true,
+          ),
+        );
+
+        return true;
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrintStack(stackTrace: s, maxFrames: 5);
       }
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
     }
-    if (cached != null || emitEmptyCache) {
+
+    if (emitEmptyCache && !subject.value.hasUncachedData) {
       subject.add(
-        Result(
-          cached,
-          error,
-          isLoading: loading,
+        subject.value.copyWith(
           isCached: true,
         ),
       );
+
       return true;
     }
+
     return false;
   }
 
   Future<T> timeout<T>(
-    final NextcloudApiCallback<T> call,
-  ) =>
-      call().timeout(const Duration(seconds: 30));
+    final NextcloudApiCallback<T> call, {
+    final bool disableTimeout = false,
+    final Duration timeout = const Duration(seconds: 30),
+  }) {
+    if (disableTimeout) {
+      return call();
+    }
+
+    return call().timeout(timeout);
+  }
 }
 
 @internal

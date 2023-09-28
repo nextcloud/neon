@@ -26,12 +26,13 @@ void main() {
       });
       tearDown(() => container.destroy());
 
-      Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) async => client.news.addFeed(
+      Future<DynamiteResponse<NewsListFeeds, void>> addWikipediaFeed([final int? folderID]) async =>
+          client.news.addFeed(
             url: 'http://host.docker.internal:${rssServer.port}/wikipedia.xml',
             folderId: folderID,
           );
 
-      Future<NewsListFeeds> addNasaFeed() async => client.news.addFeed(
+      Future<DynamiteResponse<NewsListFeeds, void>> addNasaFeed() async => client.news.addFeed(
             url: 'http://host.docker.internal:${rssServer.port}/nasa.xml',
           );
 
@@ -42,26 +43,38 @@ void main() {
 
       test('Add feed', () async {
         var response = await client.news.listFeeds();
-        expect(response.starredCount, 0);
-        expect(response.newestItemId, null);
-        expect(response.feeds, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.starredCount, 0);
+        expect(response.body.newestItemId, null);
+        expect(response.body.feeds, hasLength(0));
 
         response = await addWikipediaFeed();
-        expect(response.starredCount, null);
-        expect(response.newestItemId, isNotNull);
-        expect(response.feeds, hasLength(1));
-        expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.starredCount, null);
+        expect(response.body.newestItemId, isNotNull);
+        expect(response.body.feeds, hasLength(1));
+        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
 
         response = await client.news.listFeeds();
-        expect(response.starredCount, 0);
-        expect(response.newestItemId, isNotNull);
-        expect(response.feeds, hasLength(1));
-        expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.starredCount, 0);
+        expect(response.body.newestItemId, isNotNull);
+        expect(response.body.feeds, hasLength(1));
+        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
       });
 
       test('Rename feed', () async {
         var response = await addWikipediaFeed();
-        expect(response.feeds[0].title, 'Wikipedia featured articles feed');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.feeds[0].title, 'Wikipedia featured articles feed');
 
         await client.news.renameFeed(
           feedId: 1,
@@ -69,7 +82,10 @@ void main() {
         );
 
         response = await client.news.listFeeds();
-        expect(response.feeds[0].title, 'test1');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.feeds[0].title, 'test1');
       });
 
       test('Move feed to folder', () async {
@@ -81,40 +97,57 @@ void main() {
         );
 
         final response = await client.news.listFolders();
-        expect(response.folders, hasLength(1));
-        expect(response.folders[0].id, 1);
-        expect(response.folders[0].name, 'test1');
-        expect(response.folders[0].opened, true);
-        expect(response.folders[0].feeds, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].name, 'test1');
+        expect(response.body.folders[0].opened, true);
+        expect(response.body.folders[0].feeds, hasLength(0));
       });
 
       test('Mark feed as read', () async {
         final feedsResponse = await addWikipediaFeed();
 
-        var articlesResponse = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(articlesResponse.items.length, greaterThan(0));
+        var response = await client.news.listArticles(type: NewsListType.unread.index);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items.length, greaterThan(0));
 
         await client.news.markFeedAsRead(
-          feedId: feedsResponse.feeds[0].id,
-          newestItemId: feedsResponse.newestItemId!,
+          feedId: feedsResponse.body.feeds[0].id,
+          newestItemId: feedsResponse.body.newestItemId!,
         );
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
 
-        articlesResponse = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(articlesResponse.items, hasLength(0));
+        response = await client.news.listArticles(type: NewsListType.unread.index);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(0));
       });
 
       test('List articles', () async {
         var response = await client.news.listArticles();
-        expect(response.items, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(0));
 
         await addWikipediaFeed();
 
         response = await client.news.listArticles();
-        expect(response.items.length, greaterThan(0));
-        expect(response.items[0].body, isNotNull);
-        expect(response.items[0].feedId, 1);
-        expect(response.items[0].unread, true);
-        expect(response.items[0].starred, false);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items.length, greaterThan(0));
+        expect(response.body.items[0].body, isNotNull);
+        expect(response.body.items[0].feedId, 1);
+        expect(response.body.items[0].unread, true);
+        expect(response.body.items[0].starred, false);
       });
 
       test('List updated articles', () async {
@@ -126,146 +159,212 @@ void main() {
         await addWikipediaFeed();
 
         var response = await client.news.listArticles();
-        final wikipediaArticles = response.items.length;
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final wikipediaArticles = response.body.items.length;
         expect(wikipediaArticles, greaterThan(0));
 
         await addNasaFeed();
 
         response = await client.news.listArticles();
-        final nasaArticles = response.items.length - wikipediaArticles;
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final nasaArticles = response.body.items.length - wikipediaArticles;
         expect(nasaArticles, greaterThan(0));
 
         response = await client.news.listUpdatedArticles(
-          lastModified: response.items[response.items.length - 1 - nasaArticles].lastModified,
+          lastModified: response.body.items[response.body.items.length - 1 - nasaArticles].lastModified,
         );
-        expect(response.items, hasLength(nasaArticles));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(nasaArticles));
       });
 
       test('Mark article as read', () async {
         await addWikipediaFeed();
 
         var response = await client.news.listArticles(type: NewsListType.unread.index);
-        final unreadArticles = response.items.length;
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final unreadArticles = response.body.items.length;
         expect(unreadArticles, greaterThan(0));
 
         await client.news.markArticleAsRead(
-          itemId: response.items[0].id,
+          itemId: response.body.items[0].id,
         );
         response = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(response.items, hasLength(unreadArticles - 1));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(unreadArticles - 1));
       });
 
       test('Mark article as unread', () async {
         await addWikipediaFeed();
 
         var response = await client.news.listArticles(type: NewsListType.unread.index);
-        final readArticle = response.items[0];
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final readArticle = response.body.items[0];
         await client.news.markArticleAsRead(itemId: readArticle.id);
         response = await client.news.listArticles(type: NewsListType.unread.index);
-        final unreadArticles = response.items.length;
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final unreadArticles = response.body.items.length;
         expect(unreadArticles, greaterThan(0));
 
         await client.news.markArticleAsUnread(itemId: readArticle.id);
         response = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(response.items, hasLength(unreadArticles + 1));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(unreadArticles + 1));
       });
 
       test('Star article', () async {
         await addWikipediaFeed();
 
         var response = await client.news.listArticles(type: NewsListType.starred.index);
-        final starredArticles = response.items.length;
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final starredArticles = response.body.items.length;
         expect(starredArticles, 0);
 
         response = await client.news.listArticles();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
         await client.news.starArticle(
-          itemId: response.items[0].id,
+          itemId: response.body.items[0].id,
         );
         response = await client.news.listArticles(type: NewsListType.starred.index);
-        expect(response.items, hasLength(1));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(1));
       });
 
       test('Unstar article', () async {
         await addWikipediaFeed();
 
         var response = await client.news.listArticles();
-        final item = response.items[0];
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final item = response.body.items[0];
 
         await client.news.starArticle(
           itemId: item.id,
         );
         response = await client.news.listArticles(type: NewsListType.starred.index);
-        expect(response.items, hasLength(1));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(1));
 
         await client.news.unstarArticle(
           itemId: item.id,
         );
         response = await client.news.listArticles(type: NewsListType.starred.index);
-        expect(response.items, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(0));
       });
 
       test('Create folder', () async {
         var response = await client.news.listFolders();
-        expect(response.folders, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(0));
 
         response = await client.news.createFolder(name: 'test1');
-        expect(response.folders, hasLength(1));
-        expect(response.folders[0].id, 1);
-        expect(response.folders[0].name, 'test1');
-        expect(response.folders[0].opened, true);
-        expect(response.folders[0].feeds, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].name, 'test1');
+        expect(response.body.folders[0].opened, true);
+        expect(response.body.folders[0].feeds, hasLength(0));
 
         response = await client.news.listFolders();
-        expect(response.folders, hasLength(1));
-        expect(response.folders[0].id, 1);
-        expect(response.folders[0].name, 'test1');
-        expect(response.folders[0].opened, true);
-        expect(response.folders[0].feeds, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(1));
+        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].name, 'test1');
+        expect(response.body.folders[0].opened, true);
+        expect(response.body.folders[0].feeds, hasLength(0));
       });
 
       test('List folders', () async {
         var response = await client.news.listFolders();
-        expect(response.folders, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(0));
 
         await client.news.createFolder(name: 'test1');
         await client.news.createFolder(name: 'test2');
 
         response = response = await client.news.listFolders();
-        expect(response.folders, hasLength(2));
-        expect(response.folders[0].id, 1);
-        expect(response.folders[0].name, 'test1');
-        expect(response.folders[0].opened, true);
-        expect(response.folders[0].feeds, hasLength(0));
-        expect(response.folders[1].id, 2);
-        expect(response.folders[1].name, 'test2');
-        expect(response.folders[1].opened, true);
-        expect(response.folders[1].feeds, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.folders, hasLength(2));
+        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].name, 'test1');
+        expect(response.body.folders[0].opened, true);
+        expect(response.body.folders[0].feeds, hasLength(0));
+        expect(response.body.folders[1].id, 2);
+        expect(response.body.folders[1].name, 'test2');
+        expect(response.body.folders[1].opened, true);
+        expect(response.body.folders[1].feeds, hasLength(0));
       });
 
       test('Add feed to folder', () async {
         await client.news.createFolder(name: 'test1');
         final response = await addWikipediaFeed(1);
-        expect(response.starredCount, null);
-        expect(response.newestItemId, isNotNull);
-        expect(response.feeds, hasLength(1));
-        expect(response.feeds[0].folderId, 1);
-        expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.starredCount, null);
+        expect(response.body.newestItemId, isNotNull);
+        expect(response.body.feeds, hasLength(1));
+        expect(response.body.feeds[0].folderId, 1);
+        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
       });
 
       test('Mark folder as read', () async {
         final foldersResponse = await client.news.createFolder(name: 'test1');
         final feedsResponse = await addWikipediaFeed(1);
 
-        var articlesResponse = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(articlesResponse.items.length, greaterThan(0));
+        var response = await client.news.listArticles(type: NewsListType.unread.index);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items.length, greaterThan(0));
 
         await client.news.markFolderAsRead(
-          folderId: foldersResponse.folders[0].id,
-          newestItemId: feedsResponse.newestItemId!,
+          folderId: foldersResponse.body.folders[0].id,
+          newestItemId: feedsResponse.body.newestItemId!,
         );
 
-        articlesResponse = await client.news.listArticles(type: NewsListType.unread.index);
-        expect(articlesResponse.items, hasLength(0));
+        response = await client.news.listArticles(type: NewsListType.unread.index);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.items, hasLength(0));
       });
     },
     retry: retryCount,

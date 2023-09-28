@@ -141,7 +141,7 @@ Future<TestNextcloudClient> getTestClient(
     try {
       await client.core.getStatus();
       break;
-    } on CoreApiException catch (error) {
+    } on DynamiteApiException catch (error) {
       i++;
       await Future.delayed(const Duration(milliseconds: 100));
       if (i >= 30) {

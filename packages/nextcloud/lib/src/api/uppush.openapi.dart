@@ -1,54 +1,22 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'uppush.openapi.g.dart';
-
-class UppushResponse<T, U> extends DynamiteResponse<T, U> {
-  UppushResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'UppushResponse(data: $data, headers: $headers)';
-}
-
-class UppushApiException extends DynamiteApiException {
-  UppushApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<UppushApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return UppushApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'UppushApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class UppushClient extends DynamiteClient {
   UppushClient(
@@ -69,350 +37,841 @@ class UppushClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Check if the UnifiedPush provider is present
-  Future<UppushCheckResponseApplicationJson> check() async {
+  /// Check if the UnifiedPush provider is present.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [checkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushCheckResponseApplicationJson, void>> check() async {
+    final rawResponse = checkRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Check if the UnifiedPush provider is present.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushCheckResponseApplicationJson, void> checkRaw() {
     const path = '/index.php/apps/uppush';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCheckResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCheckResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCheckResponseApplicationJson),
-      )! as UppushCheckResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Set keepalive interval
+  /// Set keepalive interval.
   ///
-  /// This endpoint requires admin access
-  Future<UppushSetKeepaliveResponseApplicationJson> setKeepalive({required final int keepalive}) async {
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [keepalive] Keep alive value in seconds
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [setKeepaliveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushSetKeepaliveResponseApplicationJson, void>> setKeepalive({
+    required final int keepalive,
+  }) async {
+    final rawResponse = setKeepaliveRaw(
+      keepalive: keepalive,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Set keepalive interval.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [keepalive] Keep alive value in seconds
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushSetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required final int keepalive}) {
     const path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['keepalive'] = keepalive.toString();
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushSetKeepaliveResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushSetKeepaliveResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushSetKeepaliveResponseApplicationJson),
-      )! as UppushSetKeepaliveResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Request to create a new deviceId
-  Future<UppushCreateDeviceResponseApplicationJson> createDevice({required final String deviceName}) async {
+  /// Request to create a new deviceId.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceName] Name of the device
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushCreateDeviceResponseApplicationJson, void>> createDevice({
+    required final String deviceName,
+  }) async {
+    final rawResponse = createDeviceRaw(
+      deviceName: deviceName,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Request to create a new deviceId.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceName] Name of the device
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushCreateDeviceResponseApplicationJson, void> createDeviceRaw({
+    required final String deviceName,
+  }) {
     const path = '/index.php/apps/uppush/device';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['deviceName'] = deviceName;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCreateDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCreateDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCreateDeviceResponseApplicationJson),
-      )! as UppushCreateDeviceResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Request to get push messages
+  /// Request to get push messages.
   ///
-  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
-  Future<UppushSyncDeviceResponseApplicationJson> syncDevice({required final String deviceId}) async {
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 401: Missing permissions to sync device
+  ///
+  /// See:
+  ///  * [syncDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushSyncDeviceResponseApplicationJson, void>> syncDevice({
+    required final String deviceId,
+  }) async {
+    final rawResponse = syncDeviceRaw(
+      deviceId: deviceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Request to get push messages.
+  ///
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 401: Missing permissions to sync device
+  ///
+  /// See:
+  ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushSyncDeviceResponseApplicationJson, void> syncDeviceRaw({required final String deviceId}) {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushSyncDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {401},
+      ),
+      bodyType: const FullType(UppushSyncDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 401) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushSyncDeviceResponseApplicationJson),
-      )! as UppushSyncDeviceResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a device
-  Future<UppushDeleteDeviceResponseApplicationJson> deleteDevice({required final String deviceId}) async {
+  /// Delete a device.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Device deleted successfully
+  ///
+  /// See:
+  ///  * [deleteDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushDeleteDeviceResponseApplicationJson, void>> deleteDevice({
+    required final String deviceId,
+  }) async {
+    final rawResponse = deleteDeviceRaw(
+      deviceId: deviceId,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a device.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Device deleted successfully
+  ///
+  /// See:
+  ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushDeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({
+    required final String deviceId,
+  }) {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushDeleteDeviceResponseApplicationJson, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushDeleteDeviceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteDeviceResponseApplicationJson),
-      )! as UppushDeleteDeviceResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Create an authorization token for a new 3rd party service
-  Future<UppushCreateAppResponseApplicationJson> createApp({
+  /// Create an authorization token for a new 3rd party service.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceId] ID of the device
+  ///   * [appName] Name of the app
+  ///
+  /// Status codes:
+  ///   * 200: App created successfully
+  ///
+  /// See:
+  ///  * [createAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushCreateAppResponseApplicationJson, void>> createApp({
     required final String deviceId,
     required final String appName,
   }) async {
+    final rawResponse = createAppRaw(
+      deviceId: deviceId,
+      appName: appName,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create an authorization token for a new 3rd party service.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [deviceId] ID of the device
+  ///   * [appName] Name of the app
+  ///
+  /// Status codes:
+  ///   * 200: App created successfully
+  ///
+  /// See:
+  ///  * [createApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushCreateAppResponseApplicationJson, void> createAppRaw({
+    required final String deviceId,
+    required final String appName,
+  }) {
     const path = '/index.php/apps/uppush/app';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
-    final response = await doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushCreateAppResponseApplicationJson, void>(
+      response: doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushCreateAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushCreateAppResponseApplicationJson),
-      )! as UppushCreateAppResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete an authorization token
-  Future<UppushDeleteAppResponseApplicationJson> deleteApp({required final String token}) async {
+  /// Delete an authorization token.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: App deleted successfully
+  ///
+  /// See:
+  ///  * [deleteAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushDeleteAppResponseApplicationJson, void>> deleteApp({
+    required final String token,
+  }) async {
+    final rawResponse = deleteAppRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete an authorization token.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: App deleted successfully
+  ///
+  /// See:
+  ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushDeleteAppResponseApplicationJson, void> deleteAppRaw({required final String token}) {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushDeleteAppResponseApplicationJson, void>(
+      response: doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushDeleteAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushDeleteAppResponseApplicationJson),
-      )! as UppushDeleteAppResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Unifiedpush discovery Following specifications
-  Future<UppushUnifiedpushDiscoveryResponseApplicationJson> unifiedpushDiscovery({required final String token}) async {
+  /// Unifiedpush discovery Following specifications.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unifiedpushDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
+    required final String token,
+  }) async {
+    final rawResponse = unifiedpushDiscoveryRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Unifiedpush discovery Following specifications.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unifiedpushDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
+    required final String token,
+  }) {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushUnifiedpushDiscoveryResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson),
-      )! as UppushUnifiedpushDiscoveryResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Receive notifications from 3rd parties
-  Future<UppushPushResponseApplicationJson> push({required final String token}) async {
+  /// Receive notifications from 3rd parties.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 201: Notification pushed successfully
+  ///
+  /// See:
+  ///  * [pushRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushPushResponseApplicationJson, void>> push({required final String token}) async {
+    final rawResponse = pushRaw(
+      token: token,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Receive notifications from 3rd parties.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 201: Notification pushed successfully
+  ///
+  /// See:
+  ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushPushResponseApplicationJson, void> pushRaw({required final String token}) {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushPushResponseApplicationJson, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {201},
+      ),
+      bodyType: const FullType(UppushPushResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 201) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushPushResponseApplicationJson),
-      )! as UppushPushResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Matrix Gateway discovery
-  Future<UppushGatewayMatrixDiscoveryResponseApplicationJson> gatewayMatrixDiscovery() async {
+  /// Matrix Gateway discovery.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
+    final rawResponse = gatewayMatrixDiscoveryRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Matrix Gateway discovery.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushGatewayMatrixDiscoveryResponseApplicationJson, void>(
+      response: doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson),
-      )! as UppushGatewayMatrixDiscoveryResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Matrix Gateway
-  Future<UppushGatewayMatrixResponseApplicationJson> gatewayMatrix() async {
+  /// Matrix Gateway.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrixRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UppushGatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
+    final rawResponse = gatewayMatrixRaw();
+
+    return rawResponse.future;
+  }
+
+  /// Matrix Gateway.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UppushGatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
     const path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+
+// coverage:ignore-start
+    final authentication = authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    // coverage:ignore-end
-    final response = await doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+
+// coverage:ignore-end
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UppushGatewayMatrixResponseApplicationJson, void>(
+      response: doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UppushGatewayMatrixResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UppushGatewayMatrixResponseApplicationJson),
-      )! as UppushGatewayMatrixResponseApplicationJson;
-    }
-    throw await UppushApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -925,14 +1384,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
-Serializers get uppushSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeUppush<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeUppush<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

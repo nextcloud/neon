@@ -22,8 +22,9 @@ Future<void> run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Download log file', () async {
-      final response = utf8.decode((await client.settings.logSettings.download()).data);
-      expect(response, await container.nextcloudLogs());
+      final response = await client.settings.logSettings.download();
+      final logs = utf8.decode(response.body);
+      expect(logs, await container.nextcloudLogs());
     });
   });
 }

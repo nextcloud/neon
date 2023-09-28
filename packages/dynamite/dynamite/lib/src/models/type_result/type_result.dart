@@ -8,7 +8,7 @@ part 'map.dart';
 part 'object.dart';
 
 @immutable
-abstract class TypeResult {
+sealed class TypeResult {
   TypeResult(
     this.className, {
     this.generics = const [],

@@ -35,9 +35,9 @@ extension NewsVersionSupported on NewsClient {
   ///
   /// Also returns the supported API version number
   Future<(bool, String)> isSupported() async {
-    final versions = await getSupportedApiVersions();
+    final response = await getSupportedApiVersions();
     return (
-      versions.apiLevels!.contains(newsSupportedVersion),
+      response.body.apiLevels!.contains(newsSupportedVersion),
       newsSupportedVersion,
     );
   }

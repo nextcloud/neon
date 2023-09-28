@@ -1,8 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/models/header.dart';
-import 'package:dynamite/src/models/media_type.dart';
+import 'package:dynamite/src/models/openapi/header.dart';
+import 'package:dynamite/src/models/openapi/media_type.dart';
 
 part 'response.g.dart';
 

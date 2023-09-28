@@ -3,11 +3,15 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
-import 'package:dynamite/src/models/open_api.dart';
-import 'package:dynamite/src/models/schema.dart';
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:dynamite/src/models/type_result.dart';
 
-Spec buildHeaderSerializer(final State state, final String identifier, final OpenAPI spec, final Schema schema) =>
+Spec buildHeaderSerializer(
+  final State state,
+  final String identifier,
+  final openapi.OpenAPI spec,
+  final openapi.Schema schema,
+) =>
     Class(
       (final b) => b
         ..name = '_\$${state.classPrefix}${identifier}Serializer'
@@ -107,8 +111,8 @@ return result.build();
 Iterable<String> deserializeProperty(
   final State state,
   final String identifier,
-  final OpenAPI spec,
-  final Schema schema,
+  final openapi.OpenAPI spec,
+  final openapi.Schema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;

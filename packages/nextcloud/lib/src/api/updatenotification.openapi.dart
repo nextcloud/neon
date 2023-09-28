@@ -1,54 +1,22 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'updatenotification.openapi.g.dart';
-
-class UpdatenotificationResponse<T, U> extends DynamiteResponse<T, U> {
-  UpdatenotificationResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'UpdatenotificationResponse(data: $data, headers: $headers)';
-}
-
-class UpdatenotificationApiException extends DynamiteApiException {
-  UpdatenotificationApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<UpdatenotificationApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return UpdatenotificationApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'UpdatenotificationApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class UpdatenotificationClient extends DynamiteClient {
   UpdatenotificationClient(
@@ -77,49 +45,104 @@ class UpdatenotificationApiClient {
 
   final UpdatenotificationClient _rootClient;
 
-  /// List available updates for apps
+  /// List available updates for apps.
   ///
-  /// This endpoint requires admin access
-  Future<UpdatenotificationApiGetAppListResponseApplicationJson> getAppList({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [newVersion] Server version to check updates for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///   * 404: New versions not found
+  ///
+  /// See:
+  ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
     final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppListRaw(
+      newVersion: newVersion,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// List available updates for apps.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion]
+  ///   * [newVersion] Server version to check updates for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///   * 404: New versions not found
+  ///
+  /// See:
+  ///  * [getAppList] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void> getAppListRaw({
+    required final String newVersion,
+    final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{newVersion}', Uri.encodeQueryComponent(newVersion));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson),
-      )! as UpdatenotificationApiGetAppListResponseApplicationJson;
-    }
-    throw await UpdatenotificationApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -335,15 +358,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ))
     .build();
 
-Serializers get updatenotificationSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeUpdatenotification<T>(final Object data) =>
-    _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeUpdatenotification<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

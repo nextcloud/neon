@@ -1,6 +1,3 @@
-import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
-import 'package:dynamite_runtime/content_string.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 // ignore: public_member_api_docs
@@ -123,44 +120,3 @@ class NextcloudClient extends DynamiteClient {
   /// Client for the weather status APIs
   WeatherStatusClient get weatherStatus => _weatherStatus ??= WeatherStatusClient.fromClient(this);
 }
-
-// coverage:ignore-start
-
-// ignore: public_member_api_docs
-final serializers = Serializers.merge([
-  commentsSerializers,
-  coreSerializers,
-  dashboardSerializers,
-  davSerializers,
-  filesSerializers,
-  filesExternalSerializers,
-  filesRemindersSerializers,
-  filesSharingSerializers,
-  filesTrashbinSerializers,
-  filesVersionsSerializers,
-  newsSerializers,
-  notesSerializers,
-  notificationsSerializers,
-  provisioningApiSerializers,
-  settingsSerializers,
-  sharebymailSerializers,
-  themingSerializers,
-  updatenotificationSerializers,
-  uppushSerializers,
-  userStatusSerializers,
-  weatherStatusSerializers,
-]);
-
-// ignore: public_member_api_docs
-final Serializers jsonSerializers = (serializers.toBuilder()
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const ContentStringPlugin()))
-    .build();
-
-// ignore: public_member_api_docs
-T deserializeNextcloud<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-// ignore: public_member_api_docs
-Object? serializeNextcloud<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));
-
-// coverage:ignore-end

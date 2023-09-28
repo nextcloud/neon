@@ -88,7 +88,8 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
 
     try {
       results.add(results.value.asLoading());
-      final providers = (await _account.client.core.unifiedSearch.getProviders()).ocs.data;
+      final response = await _account.client.core.unifiedSearch.getProviders();
+      final providers = response.body.ocs.data;
       results.add(
         Result.success(Map.fromEntries(_getLoadingProviders(providers))),
       );
@@ -117,7 +118,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
         providerId: provider.id,
         term: _term,
       );
-      _updateResults(provider, Result.success(response.ocs.data));
+      _updateResults(provider, Result.success(response.body.ocs.data));
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());

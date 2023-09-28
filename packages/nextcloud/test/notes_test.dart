@@ -19,7 +19,11 @@ void main() {
       tearDown(() => container.destroy());
 
       test('Is supported', () async {
-        final (supported, _) = client.notes.isSupported((await client.core.ocs.getCapabilities()).ocs.data);
+        final response = await client.core.ocs.getCapabilities();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        final (supported, _) = client.notes.isSupported(response.body.ocs.data);
         expect(supported, isTrue);
       });
 
@@ -30,14 +34,17 @@ void main() {
           category: 'c',
           favorite: 1,
         );
-        expect(response.id, isPositive);
-        expect(response.title, 'a');
-        expect(response.content, 'b');
-        expect(response.category, 'c');
-        expect(response.favorite, true);
-        expect(response.readonly, false);
-        expect(response.etag, isNotNull);
-        expect(response.modified, isNotNull);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.id, isPositive);
+        expect(response.body.title, 'a');
+        expect(response.body.content, 'b');
+        expect(response.body.category, 'c');
+        expect(response.body.favorite, true);
+        expect(response.body.readonly, false);
+        expect(response.body.etag, isNotNull);
+        expect(response.body.modified, isNotNull);
       });
 
       test('Create note not favorite', () async {
@@ -46,14 +53,17 @@ void main() {
           content: 'b',
           category: 'c',
         );
-        expect(response.id, isPositive);
-        expect(response.title, 'a');
-        expect(response.content, 'b');
-        expect(response.category, 'c');
-        expect(response.favorite, false);
-        expect(response.readonly, false);
-        expect(response.etag, isNotNull);
-        expect(response.modified, isNotNull);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.id, isPositive);
+        expect(response.body.title, 'a');
+        expect(response.body.content, 'b');
+        expect(response.body.category, 'c');
+        expect(response.body.favorite, false);
+        expect(response.body.readonly, false);
+        expect(response.body.etag, isNotNull);
+        expect(response.body.modified, isNotNull);
       });
 
       test('Get notes', () async {
@@ -61,63 +71,84 @@ void main() {
         await client.notes.createNote(title: 'b');
 
         final response = await client.notes.getNotes();
-        expect(response, hasLength(2));
-        expect(response[0].title, 'a');
-        expect(response[1].title, 'b');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body, hasLength(2));
+        expect(response.body[0].title, 'a');
+        expect(response.body[1].title, 'b');
       });
 
       test('Get note', () async {
         final response = await client.notes.getNote(
-          id: (await client.notes.createNote(title: 'a')).id,
+          id: (await client.notes.createNote(title: 'a')).body.id,
         );
-        expect(response.title, 'a');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.title, 'a');
       });
 
       test('Update note', () async {
-        final id = (await client.notes.createNote(title: 'a')).id;
+        final id = (await client.notes.createNote(title: 'a')).body.id;
         await client.notes.updateNote(
           id: id,
           title: 'b',
         );
 
         final response = await client.notes.getNote(id: id);
-        expect(response.title, 'b');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.title, 'b');
       });
 
       test('Update note fail changed on server', () async {
         final response = await client.notes.createNote(title: 'a');
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
         await client.notes.updateNote(
-          id: response.id,
+          id: response.body.id,
           title: 'b',
-          ifMatch: '"${response.etag}"',
+          ifMatch: '"${response.body.etag}"',
         );
         expect(
           () => client.notes.updateNote(
-            id: response.id,
+            id: response.body.id,
             title: 'c',
-            ifMatch: '"${response.etag}"',
+            ifMatch: '"${response.body.etag}"',
           ),
           throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 412)),
         );
       });
 
       test('Delete note', () async {
-        final id = (await client.notes.createNote(title: 'a')).id;
+        final id = (await client.notes.createNote(title: 'a')).body.id;
 
         var response = await client.notes.getNotes();
-        expect(response, hasLength(1));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body, hasLength(1));
 
         await client.notes.deleteNote(id: id);
 
         response = await client.notes.getNotes();
-        expect(response, hasLength(0));
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body, hasLength(0));
       });
 
       test('Get settings', () async {
         final response = await client.notes.getSettings();
-        expect(response.notesPath, 'Notes');
-        expect(response.fileSuffix, '.md');
-        expect(response.noteMode, NotesSettings_NoteMode.rich);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.notesPath, 'Notes');
+        expect(response.body.fileSuffix, '.md');
+        expect(response.body.noteMode, NotesSettings_NoteMode.rich);
       });
 
       test('Update settings', () async {
@@ -129,14 +160,20 @@ void main() {
               ..noteMode = NotesSettings_NoteMode.preview,
           ),
         );
-        expect(response.notesPath, 'Test Notes');
-        expect(response.fileSuffix, '.txt');
-        expect(response.noteMode, NotesSettings_NoteMode.preview);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.notesPath, 'Test Notes');
+        expect(response.body.fileSuffix, '.txt');
+        expect(response.body.noteMode, NotesSettings_NoteMode.preview);
 
         response = await client.notes.getSettings();
-        expect(response.notesPath, 'Test Notes');
-        expect(response.fileSuffix, '.txt');
-        expect(response.noteMode, NotesSettings_NoteMode.preview);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.notesPath, 'Test Notes');
+        expect(response.body.fileSuffix, '.txt');
+        expect(response.body.noteMode, NotesSettings_NoteMode.preview);
       });
     },
     retry: retryCount,

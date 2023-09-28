@@ -1,52 +1,17 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'comments.openapi.g.dart';
-
-class CommentsResponse<T, U> extends DynamiteResponse<T, U> {
-  CommentsResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'CommentsResponse(data: $data, headers: $headers)';
-}
-
-class CommentsApiException extends DynamiteApiException {
-  CommentsApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<CommentsApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return CommentsApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'CommentsApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class CommentsClient extends DynamiteClient {
   CommentsClient(
@@ -133,14 +98,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CommentsCapabilities_Files.serializer))
     .build();
 
-Serializers get commentsSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeComments<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeComments<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

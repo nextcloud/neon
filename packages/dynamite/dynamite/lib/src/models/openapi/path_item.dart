@@ -1,8 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/models/operation.dart';
-import 'package:dynamite/src/models/parameter.dart';
+import 'package:dynamite/src/models/openapi/operation.dart';
+import 'package:dynamite/src/models/openapi/parameter.dart';
 
 part 'path_item.g.dart';
 

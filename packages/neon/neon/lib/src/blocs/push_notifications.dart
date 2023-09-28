@@ -96,7 +96,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
         await _storage.setString(_keyLastEndpoint(account), endpoint);
 
         debugPrint(
-          'Account $instance registered for push notifications ${json.encode(subscription.ocs.data.toJson())}',
+          'Account $instance registered for push notifications ${json.encode(subscription.body.ocs.data.toJson())}',
         );
       },
       onMessage: PushUtils.onMessage,

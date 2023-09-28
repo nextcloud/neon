@@ -53,6 +53,7 @@ Future<Account> getAccount(final String username) async {
     loginName: username,
     password: username,
   ).core.appPassword.getAppPassword())
+      .body
       .ocs
       .data
       .apppassword;
@@ -149,7 +150,7 @@ Future<void> main() async {
     final folder = await account.client.news.createFolder(name: 'test');
     await account.client.news.addFeed(
       url: nasaFeedURL,
-      folderId: folder.folders.single.id,
+      folderId: folder.body.folders.single.id,
     );
 
     await runTestApp(

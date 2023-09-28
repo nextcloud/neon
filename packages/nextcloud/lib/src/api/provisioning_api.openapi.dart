@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types
+// ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -7,49 +9,16 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
+import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
 part 'provisioning_api.openapi.g.dart';
-
-class ProvisioningApiResponse<T, U> extends DynamiteResponse<T, U> {
-  ProvisioningApiResponse(
-    super.data,
-    super.headers,
-  );
-
-  @override
-  String toString() => 'ProvisioningApiResponse(data: $data, headers: $headers)';
-}
-
-class ProvisioningApiApiException extends DynamiteApiException {
-  ProvisioningApiApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  static Future<ProvisioningApiApiException> fromResponse(final HttpClientResponse response) async {
-    String body;
-    try {
-      body = await response.body;
-    } on FormatException {
-      body = 'binary';
-    }
-
-    return ProvisioningApiApiException(
-      response.statusCode,
-      response.responseHeaders,
-      body,
-    );
-  }
-
-  @override
-  String toString() => 'ProvisioningApiApiException(statusCode: $statusCode, headers: $headers, body: $body)';
-}
 
 class ProvisioningApiClient extends DynamiteClient {
   ProvisioningApiClient(
@@ -86,225 +55,494 @@ class ProvisioningApiAppConfigClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of apps
+  /// Get a list of apps.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetAppsResponseApplicationJson> getApps({final bool oCSAPIRequest = true}) async {
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///
+  /// See:
+  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void>> getApps({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getAppsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of apps.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///
+  /// See:
+  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void> getAppsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetAppsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetAppsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetAppsResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetAppsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the config keys of an app
+  /// Get the config keys of an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetKeysResponseApplicationJson> getKeys({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Keys returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getKeysRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void>> getKeys({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getKeysRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the config keys of an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Keys returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getKeys] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetKeysResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetKeysResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetKeysResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetKeysResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a the config value of an app
+  /// Get a the config value of an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigGetValueResponseApplicationJson> getValue({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [defaultValue] Default returned value if the value is empty
+  ///   * [app] ID of the app
+  ///   * [key] Key
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void>> getValue({
     required final String app,
     required final String key,
     final String defaultValue = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getValueRaw(
+      app: app,
+      key: key,
+      defaultValue: defaultValue,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a the config value of an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [defaultValue] Default returned value if the value is empty
+  ///   * [app] ID of the app
+  ///   * [key] Key
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value returned
+  ///   * 403: App is not allowed
+  ///
+  /// See:
+  ///  * [getValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void> getValueRaw({
+    required final String app,
+    required final String key,
+    final String defaultValue = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     if (defaultValue != '') {
       queryParameters['defaultValue'] = defaultValue;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigGetValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigGetValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigGetValueResponseApplicationJson),
-      )! as ProvisioningApiAppConfigGetValueResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update the config value of an app
-  Future<ProvisioningApiAppConfigSetValueResponseApplicationJson> setValue({
+  /// Update the config value of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] New value for the key
+  ///   * [app] ID of the app
+  ///   * [key] Key to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value updated successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [setValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void>> setValue({
     required final String value,
     required final String app,
     required final String key,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setValueRaw(
+      value: value,
+      app: app,
+      key: key,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update the config value of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [value] New value for the key
+  ///   * [app] ID of the app
+  ///   * [key] Key to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Value updated successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [setValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void> setValueRaw({
+    required final String value,
+    required final String app,
+    required final String key,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['value'] = value;
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigSetValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigSetValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigSetValueResponseApplicationJson),
-      )! as ProvisioningApiAppConfigSetValueResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a config key of an app
+  /// Delete a config key of an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson> deleteKey({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [key] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Key deleted successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [deleteKeyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
     required final String app,
     required final String key,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteKeyRaw(
+      app: app,
+      key: key,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a config key of an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [key] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Key deleted successfully
+  ///   * 403: App or key is not allowed
+  ///
+  /// See:
+  ///  * [deleteKey] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
+    required final String app,
+    required final String key,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppConfigDeleteKeyResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppConfigDeleteKeyResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppConfigDeleteKeyResponseApplicationJson),
-      )! as ProvisioningApiAppConfigDeleteKeyResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -313,178 +551,374 @@ class ProvisioningApiAppsClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of installed apps
+  /// Get a list of installed apps.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppsGetAppsResponseApplicationJson> getApps({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter for enabled or disabled apps
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Installed apps returned
+  ///
+  /// See:
+  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void>> getApps({
     final String? filter,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppsRaw(
+      filter: filter,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of installed apps.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter for enabled or disabled apps
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Installed apps returned
+  ///
+  /// See:
+  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void> getAppsRaw({
+    final String? filter,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (filter != null) {
       queryParameters['filter'] = filter;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsGetAppsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsGetAppsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsGetAppsResponseApplicationJson),
-      )! as ProvisioningApiAppsGetAppsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the app info for an app
+  /// Get the app info for an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppsGetAppInfoResponseApplicationJson> getAppInfo({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App info returned
+  ///
+  /// See:
+  ///  * [getAppInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getAppInfoRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the app info for an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App info returned
+  ///
+  /// See:
+  ///  * [getAppInfo] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsGetAppInfoResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsGetAppInfoResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsGetAppInfoResponseApplicationJson),
-      )! as ProvisioningApiAppsGetAppInfoResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Enable an app
+  /// Enable an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppsEnableResponseApplicationJson> enable({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App enabled successfully
+  ///
+  /// See:
+  ///  * [enableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppsEnableResponseApplicationJson, void>> enable({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = enableRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Enable an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App enabled successfully
+  ///
+  /// See:
+  ///  * [enable] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppsEnableResponseApplicationJson, void> enableRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsEnableResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsEnableResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsEnableResponseApplicationJson),
-      )! as ProvisioningApiAppsEnableResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Disable an app
+  /// Disable an app.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiAppsDisableResponseApplicationJson> disable({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App disabled successfully
+  ///
+  /// See:
+  ///  * [disableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiAppsDisableResponseApplicationJson, void>> disable({
     required final String app,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = disableRaw(
+      app: app,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Disable an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: App disabled successfully
+  ///
+  /// See:
+  ///  * [disable] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiAppsDisableResponseApplicationJson, void> disableRaw({
+    required final String app,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/apps/{app}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiAppsDisableResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiAppsDisableResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiAppsDisableResponseApplicationJson),
-      )! as ProvisioningApiAppsDisableResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -493,32 +927,87 @@ class ProvisioningApiGroupsClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of groups
-  Future<ProvisioningApiGroupsGetGroupsResponseApplicationJson> getGroups({
+  /// Get a list of groups.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups returned
+  ///
+  /// See:
+  ///  * [getGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void>> getGroups({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups returned
+  ///
+  /// See:
+  ///  * [getGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -529,94 +1018,202 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Create a new group
+  /// Create a new group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsAddGroupResponseApplicationJson> addGroup({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [displayname] Display name of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group created successfully
+  ///
+  /// See:
+  ///  * [addGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void>> addGroup({
     required final String groupid,
     final String displayname = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addGroupRaw(
+      groupid: groupid,
+      displayname: displayname,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a new group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [displayname] Display name of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group created successfully
+  ///
+  /// See:
+  ///  * [addGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void> addGroupRaw({
+    required final String groupid,
+    final String displayname = '',
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['groupid'] = groupid;
     if (displayname != '') {
       queryParameters['displayname'] = displayname;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsAddGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsAddGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsAddGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsAddGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of groups details
-  Future<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson> getGroupsDetails({
+  /// Get a list of groups details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups details returned
+  ///
+  /// See:
+  ///  * [getGroupsDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupsDetailsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Groups details returned
+  ///
+  /// See:
+  ///  * [getGroupsDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/groups/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -627,99 +1224,202 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupsDetailsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of users in the specified group
-  Future<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson> getGroupUsers({
+  /// Get a list of users in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User IDs returned
+  ///   * 404: Group not found
+  ///   * 403: Missing permissions to get users in the group
+  ///
+  /// See:
+  ///  * [getGroupUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupUsersRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User IDs returned
+  ///   * 404: Group not found
+  ///   * 403: Missing permissions to get users in the group
+  ///
+  /// See:
+  ///  * [getGroupUsers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+
+// coverage:ignore-end
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupUsersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupUsersResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of users details in the specified group
-  Future<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson> getGroupUsersDetails({
+  /// Get a list of users details in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users details returned
+  ///
+  /// See:
+  ///  * [getGroupUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void>>
+      getGroupUsersDetails({
     required final String groupId,
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupUsersDetailsRaw(
+      groupId: groupId,
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users details in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users details returned
+  ///
+  /// See:
+  ///  * [getGroupUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
+    required final String groupId,
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/users/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+
+// coverage:ignore-end
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     if (search != '') {
       queryParameters['search'] = search;
@@ -731,214 +1431,401 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupUsersDetailsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the list of user IDs that are a subadmin of the group
+  /// Get the list of user IDs that are a subadmin of the group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson> getSubAdminsOfGroup({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getSubAdminsOfGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of user IDs that are a subadmin of the group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+
+// coverage:ignore-end
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetSubAdminsOfGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of users in the specified group
+  /// Get a list of users in the specified group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users returned
+  ///
+  /// See:
+  ///  * [getGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   @Deprecated('')
-  Future<ProvisioningApiGroupsGetGroupResponseApplicationJson> getGroup({
+  Future<DynamiteResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void>> getGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users in the specified group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group users returned
+  ///
+  /// See:
+  ///  * [getGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  @Deprecated('')
+  DynamiteRawResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void> getGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+
+// coverage:ignore-end
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsGetGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsGetGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsGetGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsGetGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update a group
+  /// Update a group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsUpdateGroupResponseApplicationJson> updateGroup({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update, only 'displayname'
+  ///   * [value] New value for the key
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group updated successfully
+  ///
+  /// See:
+  ///  * [updateGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
     required final String key,
     required final String value,
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = updateGroupRaw(
+      key: key,
+      value: value,
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update, only 'displayname'
+  ///   * [value] New value for the key
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group updated successfully
+  ///
+  /// See:
+  ///  * [updateGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
+    required final String key,
+    required final String value,
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsUpdateGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsUpdateGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsUpdateGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsUpdateGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a group
+  /// Delete a group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiGroupsDeleteGroupResponseApplicationJson> deleteGroup({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group deleted successfully
+  ///
+  /// See:
+  ///  * [deleteGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
     required final String groupId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Group deleted successfully
+  ///
+  /// See:
+  ///  * [deleteGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
+    required final String groupId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/groups/{groupId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
-    if (!RegExp(r'^.+$').hasMatch(groupId)) {
-      throw Exception(
-        'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
-      ); // coverage:ignore-line
-    }
+
+// coverage:ignore-end
+    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiGroupsDeleteGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiGroupsDeleteGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiGroupsDeleteGroupResponseApplicationJson),
-      )! as ProvisioningApiGroupsDeleteGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -947,119 +1834,284 @@ class ProvisioningApiPreferencesClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Update a preference value of an app
-  Future<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson> setPreference({
+  /// Update a preference value of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configValue] New value
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key of the preference
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setPreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
     required final String configValue,
     required final String appId,
     required final String configKey,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setPreferenceRaw(
+      configValue: configValue,
+      appId: appId,
+      configKey: configKey,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a preference value of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configValue] New value
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key of the preference
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setPreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
+    required final String configValue,
+    required final String appId,
+    required final String configKey,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['configValue'] = configValue;
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesSetPreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesSetPreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesSetPreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesSetPreferenceResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a preference for an app
-  Future<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson> deletePreference({
+  /// Delete a preference for an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deletePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
     required final String appId,
     required final String configKey,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deletePreferenceRaw(
+      appId: appId,
+      configKey: configKey,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a preference for an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app
+  ///   * [configKey] Key to delete
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preference deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deletePreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
+    required final String appId,
+    required final String configKey,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesDeletePreferenceResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update multiple preference values of an app
-  Future<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson> setMultiplePreferences({
+  /// Update multiple preference values of an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configs] Key-value pairs of the preferences
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setMultiplePreferencesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>>
+      setMultiplePreferences({
     required final ContentString<BuiltMap<String, String>> configs,
     required final String appId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = setMultiplePreferencesRaw(
+      configs: configs,
+      appId: appId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update multiple preference values of an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configs] Key-value pairs of the preferences
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences updated successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [setMultiplePreferences] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>
+      setMultiplePreferencesRaw({
+    required final ContentString<BuiltMap<String, String>> configs,
+    required final String appId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['configs'] = _jsonSerializers.serialize(
       configs,
       specifiedType: const FullType(ContentString, [
@@ -1068,62 +2120,117 @@ class ProvisioningApiPreferencesClient {
     );
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson),
-      )! as ProvisioningApiPreferencesSetMultiplePreferencesResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete multiple preferences for an app
-  Future<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson> deleteMultiplePreference({
+  /// Delete multiple preferences for an app.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configKeys] Keys to delete
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deleteMultiplePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>>
+      deleteMultiplePreference({
     required final List<String> configKeys,
     required final String appId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteMultiplePreferenceRaw(
+      configKeys: configKeys,
+      appId: appId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete multiple preferences for an app.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [configKeys] Keys to delete
+  ///   * [appId] ID of the app
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Preferences deleted successfully
+  ///   * 400: Preference invalid
+  ///
+  /// See:
+  ///  * [deleteMultiplePreference] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
+      deleteMultiplePreferenceRaw({
+    required final List<String> configKeys,
+    required final String appId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200, 400},
+      ),
+      bodyType: const FullType(ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson),
-      )! as ProvisioningApiPreferencesDeleteMultiplePreferenceResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1132,32 +2239,87 @@ class ProvisioningApiUsersClient {
 
   final ProvisioningApiClient _rootClient;
 
-  /// Get a list of users
-  Future<ProvisioningApiUsersGetUsersResponseApplicationJson> getUsers({
+  /// Get a list of users.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///
+  /// See:
+  ///  * [getUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void>> getUsers({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///
+  /// See:
+  ///  * [getUsers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void> getUsersRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -1168,23 +2330,45 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Create a new user
-  Future<ProvisioningApiUsersAddUserResponseApplicationJson> addUser({
+  /// Create a new user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userid] ID of the user
+  ///   * [password] Password of the user
+  ///   * [displayName] Display name of the user
+  ///   * [email] Email of the user
+  ///   * [groups] Groups of the user
+  ///   * [subadmin] Groups where the user is subadmin
+  ///   * [quota] Quota of the user
+  ///   * [language] Language of the user
+  ///   * [manager] Manager of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added successfully
+  ///   * 403: Missing permissions to make user subadmin
+  ///
+  /// See:
+  ///  * [addUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void>> addUser({
     required final String userid,
     final String password = '',
     final String displayName = '',
@@ -1196,25 +2380,84 @@ class ProvisioningApiUsersClient {
     final String? manager,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addUserRaw(
+      userid: userid,
+      password: password,
+      displayName: displayName,
+      email: email,
+      groups: groups,
+      subadmin: subadmin,
+      quota: quota,
+      language: language,
+      manager: manager,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Create a new user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userid] ID of the user
+  ///   * [password] Password of the user
+  ///   * [displayName] Display name of the user
+  ///   * [email] Email of the user
+  ///   * [groups] Groups of the user
+  ///   * [subadmin] Groups where the user is subadmin
+  ///   * [quota] Quota of the user
+  ///   * [language] Language of the user
+  ///   * [manager] Manager of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added successfully
+  ///   * 403: Missing permissions to make user subadmin
+  ///
+  /// See:
+  ///  * [addUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void> addUserRaw({
+    required final String userid,
+    final String password = '',
+    final String displayName = '',
+    final String email = '',
+    final List<String> groups = const <String>[],
+    final List<String> subadmin = const <String>[],
+    final String quota = '',
+    final String language = '',
+    final String? manager,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['userid'] = userid;
     if (password != '') {
       queryParameters['password'] = password;
@@ -1241,47 +2484,102 @@ class ProvisioningApiUsersClient {
       queryParameters['manager'] = manager;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddUserResponseApplicationJson),
-      )! as ProvisioningApiUsersAddUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of users and their details
-  Future<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson> getUsersDetails({
+  /// Get a list of users and their details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned
+  ///
+  /// See:
+  ///  * [getUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
     final String search = '',
     final int? limit,
     final int offset = 0,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersDetailsRaw(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of users and their details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for
+  ///   * [limit] Limit the amount of groups returned
+  ///   * [offset] Offset for searching for groups
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned
+  ///
+  /// See:
+  ///  * [getUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
+    final String search = '',
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users/details';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -1292,46 +2590,99 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersDetailsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersDetailsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersDetailsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Search users by their phone numbers
-  Future<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson> searchByPhoneNumbers({
+  /// Search users by their phone numbers.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] Location of the phone number (for country code)
+  ///   * [search] Phone numbers to search for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///   * 400: Invalid location
+  ///
+  /// See:
+  ///  * [searchByPhoneNumbersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = searchByPhoneNumbersRaw(
+      location: location,
+      search: search,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Search users by their phone numbers.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] Location of the phone number (for country code)
+  ///   * [search] Phone numbers to search for
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users returned
+  ///   * 400: Invalid location
+  ///
+  /// See:
+  ///  * [searchByPhoneNumbers] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
+    required final String location,
+    required final ContentString<BuiltMap<String, BuiltList<String>>> search,
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/users/search/by-phone';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['location'] = location;
     queryParameters['search'] = _jsonSerializers.serialize(
       search,
@@ -1343,743 +2694,1579 @@ class ProvisioningApiUsersClient {
       ]),
     );
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson),
-      )! as ProvisioningApiUsersSearchByPhoneNumbersResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the details of a user
-  Future<ProvisioningApiUsersGetUserResponseApplicationJson> getUser({
+  /// Get the details of a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User returned
+  ///
+  /// See:
+  ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the details of a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User returned
+  ///
+  /// See:
+  ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void> getUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update a value of the user's details
-  Future<ProvisioningApiUsersEditUserResponseApplicationJson> editUser({
+  /// Update a value of the user's details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User value edited successfully
+  ///
+  /// See:
+  ///  * [editUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void>> editUser({
     required final String key,
     required final String value,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = editUserRaw(
+      key: key,
+      value: value,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update a value of the user's details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User value edited successfully
+  ///
+  /// See:
+  ///  * [editUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void> editUserRaw({
+    required final String key,
+    required final String value,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEditUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEditUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEditUserResponseApplicationJson),
-      )! as ProvisioningApiUsersEditUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a user
-  Future<ProvisioningApiUsersDeleteUserResponseApplicationJson> deleteUser({
+  /// Delete a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User deleted successfully
+  ///
+  /// See:
+  ///  * [deleteUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void>> deleteUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = deleteUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Delete a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User deleted successfully
+  ///
+  /// See:
+  ///  * [deleteUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersDeleteUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersDeleteUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersDeleteUserResponseApplicationJson),
-      )! as ProvisioningApiUsersDeleteUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the details of the current user
-  Future<ProvisioningApiUsersGetCurrentUserResponseApplicationJson> getCurrentUser({
+  /// Get the details of the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Current user returned
+  ///
+  /// See:
+  ///  * [getCurrentUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getCurrentUserRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the details of the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Current user returned
+  ///
+  /// See:
+  ///  * [getCurrentUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/user';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetCurrentUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetCurrentUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetCurrentUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetCurrentUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of fields that are editable for the current user
-  Future<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson> getEditableFields({
+  /// Get a list of fields that are editable for the current user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getEditableFieldsRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of fields that are editable for the current user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields returned
+  ///
+  /// See:
+  ///  * [getEditableFields] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
+    final bool oCSAPIRequest = true,
+  }) {
     const path = '/ocs/v2.php/cloud/user/fields';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetEditableFieldsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetEditableFieldsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of fields that are editable for a user
-  Future<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson> getEditableFieldsForUser({
+  /// Get a list of fields that are editable for a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields for user returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>>
+      getEditableFieldsForUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getEditableFieldsForUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of fields that are editable for a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Editable fields for user returned
+  ///
+  /// See:
+  ///  * [getEditableFieldsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>
+      getEditableFieldsForUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/user/fields/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson),
-      )! as ProvisioningApiUsersGetEditableFieldsForUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Update multiple values of the user's details
-  Future<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson> editUserMultiValue({
+  /// Update multiple values of the user's details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [collectionName] Collection to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User values edited successfully
+  ///
+  /// See:
+  ///  * [editUserMultiValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
     required final String key,
     required final String value,
     required final String userId,
     required final String collectionName,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = editUserMultiValueRaw(
+      key: key,
+      value: value,
+      userId: userId,
+      collectionName: collectionName,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update multiple values of the user's details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key that will be updated
+  ///   * [value] New value for the key
+  ///   * [userId] ID of the user
+  ///   * [collectionName] Collection to update
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User values edited successfully
+  ///
+  /// See:
+  ///  * [editUserMultiValue] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
+    required final String key,
+    required final String value,
+    required final String userId,
+    required final String collectionName,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/{collectionName}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    if (!RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$').hasMatch(collectionName)) {
-      throw Exception(
-        'Invalid value "$collectionName" for parameter "collectionName" with pattern "${r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'}"',
-      ); // coverage:ignore-line
-    }
+    checkPattern(
+      collectionName,
+      RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
+      'collectionName',
+    ); // coverage:ignore-line
     path = path.replaceAll('{collectionName}', Uri.encodeQueryComponent(collectionName));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEditUserMultiValueResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEditUserMultiValueResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEditUserMultiValueResponseApplicationJson),
-      )! as ProvisioningApiUsersEditUserMultiValueResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Wipe all devices of a user
-  Future<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson> wipeUserDevices({
+  /// Wipe all devices of a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Wiped all user devices successfully
+  ///
+  /// See:
+  ///  * [wipeUserDevicesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = wipeUserDevicesRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Wipe all devices of a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Wiped all user devices successfully
+  ///
+  /// See:
+  ///  * [wipeUserDevices] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/wipe';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersWipeUserDevicesResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersWipeUserDevicesResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersWipeUserDevicesResponseApplicationJson),
-      )! as ProvisioningApiUsersWipeUserDevicesResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Enable a user
-  Future<ProvisioningApiUsersEnableUserResponseApplicationJson> enableUser({
+  /// Enable a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User enabled successfully
+  ///
+  /// See:
+  ///  * [enableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void>> enableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = enableUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Enable a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User enabled successfully
+  ///
+  /// See:
+  ///  * [enableUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void> enableUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/enable';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersEnableUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersEnableUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersEnableUserResponseApplicationJson),
-      )! as ProvisioningApiUsersEnableUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Disable a user
-  Future<ProvisioningApiUsersDisableUserResponseApplicationJson> disableUser({
+  /// Disable a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User disabled successfully
+  ///
+  /// See:
+  ///  * [disableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void>> disableUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = disableUserRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Disable a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User disabled successfully
+  ///
+  /// See:
+  ///  * [disableUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void> disableUserRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/disable';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersDisableUserResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'put',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersDisableUserResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersDisableUserResponseApplicationJson),
-      )! as ProvisioningApiUsersDisableUserResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get a list of groups the user belongs to
-  Future<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson> getUsersGroups({
+  /// Get a list of groups the user belongs to.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users groups returned
+  ///
+  /// See:
+  ///  * [getUsersGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUsersGroupsRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get a list of groups the user belongs to.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Users groups returned
+  ///
+  /// See:
+  ///  * [getUsersGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUsersGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUsersGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUsersGroupsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUsersGroupsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Add a user to a group
-  Future<ProvisioningApiUsersAddToGroupResponseApplicationJson> addToGroup({
+  /// Add a user to a group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added to group successfully
+  ///
+  /// See:
+  ///  * [addToGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required final String userId,
     final String groupid = '',
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addToGroupRaw(
+      userId: userId,
+      groupid: groupid,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Add a user to a group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added to group successfully
+  ///
+  /// See:
+  ///  * [addToGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
+    required final String userId,
+    final String groupid = '',
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     if (groupid != '') {
       queryParameters['groupid'] = groupid;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddToGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddToGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddToGroupResponseApplicationJson),
-      )! as ProvisioningApiUsersAddToGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Remove a user from a group
-  Future<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson> removeFromGroup({
+  /// Remove a user from a group.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed from group successfully
+  ///
+  /// See:
+  ///  * [removeFromGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeFromGroupRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a user from a group.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed from group successfully
+  ///
+  /// See:
+  ///  * [removeFromGroup] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/groups';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersRemoveFromGroupResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersRemoveFromGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersRemoveFromGroupResponseApplicationJson),
-      )! as ProvisioningApiUsersRemoveFromGroupResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Get the groups a user is a subadmin of
+  /// Get the groups a user is a subadmin of.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson> getUserSubAdminGroups({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void>>
+      getUserSubAdminGroups({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = getUserSubAdminGroupsRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the groups a user is a subadmin of.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroups] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson),
-      )! as ProvisioningApiUsersGetUserSubAdminGroupsResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Make a user a subadmin of a group
+  /// Make a user a subadmin of a group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiUsersAddSubAdminResponseApplicationJson> addSubAdmin({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = addSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Make a user a subadmin of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersAddSubAdminResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersAddSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersAddSubAdminResponseApplicationJson),
-      )! as ProvisioningApiUsersAddSubAdminResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Remove a user from the subadmins of a group
+  /// Remove a user from the subadmins of a group.
   ///
-  /// This endpoint requires admin access
-  Future<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson> removeSubAdmin({
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
     required final String groupid,
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = removeSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a user from the subadmins of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group
+  ///   * [userId] ID of the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
+    required final String groupid,
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/subadmins';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersRemoveSubAdminResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersRemoveSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersRemoveSubAdminResponseApplicationJson),
-      )! as ProvisioningApiUsersRemoveSubAdminResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Resend the welcome message
-  Future<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson> resendWelcomeMessage({
+  /// Resend the welcome message.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Resent welcome message successfully
+  ///
+  /// See:
+  ///  * [resendWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
+    final rawResponse = resendWelcomeMessageRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Resend the welcome message.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///
+  /// Status codes:
+  ///   * 200: Resent welcome message successfully
+  ///
+  /// See:
+  ///  * [resendWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
+    required final String userId,
+    final bool oCSAPIRequest = true,
+  }) {
     var path = '/ocs/v2.php/cloud/users/{userId}/welcome';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    // coverage:ignore-start
-    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
       headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
-      );
-    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(
-        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+        authentication.headers,
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
-    // coverage:ignore-end
+
+// coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final response = await _rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
-      headers,
-      body,
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    return DynamiteRawResponse<ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson, void>(
+      response: _rootClient.doRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
     );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson),
-      )! as ProvisioningApiUsersResendWelcomeMessageResponseApplicationJson;
-    }
-    throw await ProvisioningApiApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -3190,10 +5377,10 @@ class _$ProvisioningApiGroupDetails_UsercountSerializer
   }) {
     final result = ProvisioningApiGroupDetails_UsercountBuilder()..data = JsonObject(data);
     try {
-      result._$bool = data as bool?;
+      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3250,10 +5437,10 @@ class _$ProvisioningApiGroupDetails_DisabledSerializer
   }) {
     final result = ProvisioningApiGroupDetails_DisabledBuilder()..data = JsonObject(data);
     try {
-      result._$bool = data as bool?;
+      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3600,13 +5787,13 @@ class _$ProvisioningApiUserDetailsQuota_QuotaSerializer
   }) {
     final result = ProvisioningApiUserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
     try {
-      result._$num = data as num?;
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     try {
-      result._$int = data as int?;
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._string = data as String?;
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert(
       [result._$num, result._$int, result._string].where((final x) => x != null).isNotEmpty,
@@ -7024,14 +9211,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer))
     .build();
 
-Serializers get provisioningApiSerializers => _serializers;
-
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
-
-T deserializeProvisioningApi<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
-
-Object? serializeProvisioningApi<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end

@@ -42,11 +42,19 @@ class Result<T> {
         isCached: isCached,
       );
 
-  Result<T> asLoading() => Result(
-        data,
-        error,
-        isLoading: true,
-        isCached: isCached,
+  Result<T> asLoading() => copyWith(isLoading: true);
+
+  Result<T> copyWith({
+    final T? data,
+    final Object? error,
+    final bool? isLoading,
+    final bool? isCached,
+  }) =>
+      Result(
+        data ?? this.data,
+        error ?? this.error,
+        isLoading: isLoading ?? this.isLoading,
+        isCached: isCached ?? this.isCached,
       );
 
   bool get hasError => error != null;

@@ -54,14 +54,14 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
       init.add(Result.loading());
 
       final initResponse = await _client.core.clientFlowLoginV2.init();
-      init.add(Result.success(initResponse));
+      init.add(Result.success(initResponse.body));
 
       _cancelPollTimer();
       _pollTimer = Timer.periodic(const Duration(seconds: 1), (final _) async {
         try {
-          final resultResponse = await _client.core.clientFlowLoginV2.poll(token: initResponse.poll.token);
+          final resultResponse = await _client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
           _cancelPollTimer();
-          _resultController.add(resultResponse);
+          _resultController.add(resultResponse.body);
         } catch (e, s) {
           debugPrint(e.toString());
           debugPrint(s.toString());

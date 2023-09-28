@@ -37,7 +37,7 @@ void main() {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await client.notifications.endpoint.listNotifications()).data;
+      final response = (await client.notifications.endpoint.listNotifications()).body;
       expect(response.ocs.data, hasLength(2));
       expect(response.ocs.data[0].notificationId, 2);
       expect(response.ocs.data[0].app, 'admin_notifications');
@@ -61,28 +61,31 @@ void main() {
 
       final startTime = DateTime.now().toUtc();
       final response = await client.notifications.endpoint.getNotification(id: 2);
-      expect(response.ocs.data.notificationId, 2);
-      expect(response.ocs.data.app, 'admin_notifications');
-      expect(response.ocs.data.user, 'admin');
-      expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data.datetime), startTime);
-      expect(response.ocs.data.objectType, 'admin_notifications');
-      expect(response.ocs.data.objectId, isNotNull);
-      expect(response.ocs.data.subject, '123');
-      expect(response.ocs.data.message, '456');
-      expect(response.ocs.data.link, '');
-      expect(response.ocs.data.subjectRich, '');
-      expect(response.ocs.data.subjectRichParameters, isEmpty);
-      expect(response.ocs.data.messageRich, '');
-      expect(response.ocs.data.messageRichParameters, isEmpty);
-      expect(response.ocs.data.icon, isNotEmpty);
-      expect(response.ocs.data.actions, hasLength(0));
+      expect(response.statusCode, 200);
+      expect(() => response.headers, isA<void>());
+
+      expect(response.body.ocs.data.notificationId, 2);
+      expect(response.body.ocs.data.app, 'admin_notifications');
+      expect(response.body.ocs.data.user, 'admin');
+      expectDateInReasonableTimeRange(DateTime.parse(response.body.ocs.data.datetime), startTime);
+      expect(response.body.ocs.data.objectType, 'admin_notifications');
+      expect(response.body.ocs.data.objectId, isNotNull);
+      expect(response.body.ocs.data.subject, '123');
+      expect(response.body.ocs.data.message, '456');
+      expect(response.body.ocs.data.link, '');
+      expect(response.body.ocs.data.subjectRich, '');
+      expect(response.body.ocs.data.subjectRichParameters, isEmpty);
+      expect(response.body.ocs.data.messageRich, '');
+      expect(response.body.ocs.data.messageRichParameters, isEmpty);
+      expect(response.body.ocs.data.icon, isNotEmpty);
+      expect(response.body.ocs.data.actions, hasLength(0));
     });
 
     test('Delete notification', () async {
       await sendTestNotification();
       await client.notifications.endpoint.deleteNotification(id: 2);
 
-      final response = (await client.notifications.endpoint.listNotifications()).data;
+      final response = (await client.notifications.endpoint.listNotifications()).body;
       expect(response.ocs.data, hasLength(1));
     });
 
@@ -91,7 +94,7 @@ void main() {
       await sendTestNotification();
       await client.notifications.endpoint.deleteAllNotifications();
 
-      final response = (await client.notifications.endpoint.listNotifications()).data;
+      final response = (await client.notifications.endpoint.listNotifications()).body;
       expect(response.ocs.data, hasLength(0));
     });
   });
@@ -126,6 +129,7 @@ void main() {
           devicePublicKey: keypair.publicKey.toFormattedPEM(),
           proxyServer: 'https://example.com/',
         ))
+            .body
             .ocs
             .data;
         expect(subscription.publicKey, hasLength(451));

@@ -1,4 +1,4 @@
-import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:dynamite/src/models/type_result.dart';
 import 'package:test/test.dart';
 
 void main() {

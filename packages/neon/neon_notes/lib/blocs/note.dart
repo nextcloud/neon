@@ -29,11 +29,11 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   }
 
   // ignore: avoid_void_async
-  void _wrapAction(final Future<NotesNote> Function(String etag) call) async {
+  void _wrapAction(final Future<DynamiteResponse<NotesNote, dynamic>> Function(String etag) call) async {
     await _updateQueue.add(() async {
       try {
-        final data = await call(_etag);
-        _emitNote(data);
+        final response = await call(_etag);
+        _emitNote(response.body);
         await _notesBloc.refresh();
       } catch (e, s) {
         debugPrint(e.toString());
