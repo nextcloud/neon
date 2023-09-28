@@ -1,21 +1,15 @@
 {
   "version": "0.2",
   "language": "en",
+  "useGitignore": true,
   "words": [
     "OpenAPI"
   ],
   "ignorePaths": [
-    "**.iml",
-    "**.log",
     "**.svg",
-    "**/assets/**",
-    "**/build/**",
-    "**/coverage/**",
-    "**/ephemeral/**",
+    "**/assets",
     "**/l10n/!(en.arb)",
     "external",
-    "packages/app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
-    "packages/app/android/gradlew*",
     "packages/file_icons/lib/src/data.dart",
     "packages/neon_lints/lib",
     "packages/nextcloud/test/files"

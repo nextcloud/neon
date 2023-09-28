@@ -11,6 +11,7 @@ cloc
 commitlint
 dapplication
 dists
+dockerenv
 endforeach
 endfunction
 endlegend
@@ -24,7 +25,6 @@ fullpath
 gboolean
 gchar
 genhtml
-gradlew
 hicolor
 icudtl
 inkscape
@@ -37,6 +37,7 @@ libapp
 libappindicator
 libayatana
 libflutter
+libgtk
 libindicator
 libsqlite
 mipmap
