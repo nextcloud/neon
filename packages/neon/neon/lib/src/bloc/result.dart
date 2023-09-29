@@ -9,26 +9,21 @@ class Result<T> {
     required this.isCached,
   });
 
-  factory Result.loading() => const Result(
-        null,
-        null,
-        isLoading: true,
-        isCached: false,
-      );
+  const Result.loading()
+      : data = null,
+        error = null,
+        isLoading = true,
+        isCached = false;
 
-  factory Result.success(final T data) => Result(
-        data,
-        null,
-        isLoading: false,
-        isCached: false,
-      );
+  const Result.success(this.data)
+      : error = null,
+        isLoading = false,
+        isCached = false;
 
-  factory Result.error(final Object error) => Result(
-        null,
-        error,
-        isLoading: false,
-        isCached: false,
-      );
+  const Result.error(this.error)
+      : data = null,
+        isLoading = false,
+        isCached = false;
 
   final T? data;
   final Object? error;

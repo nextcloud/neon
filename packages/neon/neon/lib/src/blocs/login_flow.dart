@@ -51,7 +51,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   @override
   Future<void> refresh() async {
     try {
-      init.add(Result.loading());
+      init.add(const Result.loading());
 
       final initResponse = await _client.core.clientFlowLoginV2.init();
       init.add(Result.success(initResponse.body));
