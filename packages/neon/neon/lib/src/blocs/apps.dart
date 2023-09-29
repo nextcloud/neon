@@ -27,8 +27,6 @@ abstract interface class AppsBlocEvents {
 
 @internal
 abstract interface class AppsBlocStates {
-  BehaviorSubject<Result<List<core.NavigationEntry>>> get apps;
-
   BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
 
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
@@ -48,7 +46,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     this._account,
     this._allAppImplementations,
   ) {
-    apps.listen((final result) {
+    _apps.listen((final result) {
       appImplementations
           .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
     });
@@ -162,10 +160,11 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   final AccountsBloc _accountsBloc;
   final Account _account;
   final Iterable<AppImplementation> _allAppImplementations;
+  final _apps = BehaviorSubject<Result<List<core.NavigationEntry>>>();
 
   @override
   void dispose() {
-    unawaited(apps.close());
+    unawaited(_apps.close());
     unawaited(appImplementations.close());
     unawaited(notificationsAppImplementation.close());
     unawaited(activeApp.close());
@@ -183,9 +182,6 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<List<core.NavigationEntry>>> apps = BehaviorSubject();
-
-  @override
   BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation = BehaviorSubject();
 
   @override
@@ -199,7 +195,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     await RequestManager.instance.wrapNextcloud(
       _account.id,
       'apps-apps',
-      apps,
+      _apps,
       _account.client.core.navigation.getAppsNavigationRaw(),
       (final response) => response.body.ocs.data.toList(),
     );
