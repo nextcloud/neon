@@ -25,13 +25,16 @@ class NotesCategoriesView extends StatelessWidget {
                 ),
               )
               .toList(),
-          builder: (final context, final sorted) => NeonListView<NoteCategory>(
+          builder: (final context, final sorted) => NeonListView(
             scrollKey: 'notes-categories',
-            items: sorted,
             isLoading: notes.isLoading,
             error: notes.error,
             onRefresh: bloc.refresh,
-            builder: _buildCategory,
+            itemCount: sorted.length,
+            itemBuilder: (final context, final index) => _buildCategory(
+              context,
+              sorted[index],
+            ),
           ),
         ),
       );

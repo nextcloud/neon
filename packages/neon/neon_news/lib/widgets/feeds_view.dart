@@ -22,16 +22,15 @@ class NewsFeedsView extends StatelessWidget {
             input: folders.hasData
                 ? feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList()
                 : null,
-            builder: (final context, final sorted) => NeonListView<NewsFeed>(
+            builder: (final context, final sorted) => NeonListView(
               scrollKey: 'news-feeds',
-              withFloatingActionButton: true,
-              items: sorted,
               isLoading: feeds.isLoading || folders.isLoading,
               error: feeds.error ?? folders.error,
               onRefresh: bloc.refresh,
-              builder: (final context, final feed) => _buildFeed(
+              itemCount: sorted.length,
+              itemBuilder: (final context, final index) => _buildFeed(
                 context,
-                feed,
+                sorted[index],
                 folders.requireData,
               ),
             ),

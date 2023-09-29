@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
 import 'package:neon/nextcloud.dart';
@@ -44,6 +43,7 @@ part 'sort/files.dart';
 part 'utils/task.dart';
 part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
+part 'widgets/navigator.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesApp();
