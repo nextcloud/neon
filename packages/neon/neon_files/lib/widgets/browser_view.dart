@@ -60,8 +60,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     },
                     child: SortBoxBuilder<FilesSortProperty, WebDavFile>(
                       sortBox: filesSortBox,
-                      sortPropertyOption: widget.bloc.options.filesSortPropertyOption,
-                      sortBoxOrderOption: widget.bloc.options.filesSortBoxOrderOption,
+                      sortProperty: widget.bloc.options.filesSortPropertyOption,
+                      sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
                       presort: const {
                         (FilesSortProperty.isFolder, SortBoxOrder.ascending),
                       },

@@ -17,8 +17,8 @@ class NewsFeedsView extends StatelessWidget {
           stream: bloc.feeds,
           builder: (final context, final feeds) => SortBoxBuilder<FeedsSortProperty, NewsFeed>(
             sortBox: feedsSortBox,
-            sortPropertyOption: bloc.options.feedsSortPropertyOption,
-            sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
+            sortProperty: bloc.options.feedsSortPropertyOption,
+            sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
             input: folders.hasData
                 ? feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList()
                 : null,

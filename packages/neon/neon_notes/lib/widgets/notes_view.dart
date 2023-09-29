@@ -18,8 +18,8 @@ class NotesView extends StatelessWidget {
           presort: const {
             (NotesSortProperty.favorite, SortBoxOrder.ascending),
           },
-          sortPropertyOption: bloc.options.notesSortPropertyOption,
-          sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
+          sortProperty: bloc.options.notesSortPropertyOption,
+          sortBoxOrder: bloc.options.notesSortBoxOrderOption,
           input: category != null ? notes.data?.where((final note) => note.category == category).toList() : notes.data,
           builder: (final context, final sorted) => NeonListView(
             scrollKey: 'notes-notes',
