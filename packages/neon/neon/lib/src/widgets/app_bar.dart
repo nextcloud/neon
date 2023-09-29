@@ -251,25 +251,19 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
           final notificationsImplementationData = notificationsAppImplementation.data!;
           final notificationBloc = notificationsImplementationData.getBloc(_account);
 
-          return StreamBuilder<int>(
-            stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
-            builder: (final context, final unreadCounterSnapshot) {
-              final unreadCount = unreadCounterSnapshot.data ?? 0;
-              return IconButton(
-                key: Key('app-${notificationsImplementationData.id}'),
-                onPressed: () async {
-                  await _openNotifications(notificationsImplementationData);
-                },
-                tooltip: AppLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
-                icon: NeonAppImplementationIcon(
-                  appImplementation: notificationsImplementationData,
-                  unreadCount: unreadCount,
-                  color: unreadCount > 0
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.onBackground,
-                ),
-              );
+          return IconButton(
+            key: Key('app-${notificationsImplementationData.id}'),
+            onPressed: () async {
+              await _openNotifications(notificationsImplementationData);
             },
+            tooltip: AppLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
+            icon: StreamBuilder<int>(
+              stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
+              builder: (final context, final unreadCounterSnapshot) => NeonAppImplementationIcon(
+                appImplementation: notificationsImplementationData,
+                unreadCount: unreadCounterSnapshot.data,
+              ),
+            ),
           );
         },
       );
