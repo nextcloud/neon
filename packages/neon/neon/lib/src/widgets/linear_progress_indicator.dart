@@ -17,14 +17,12 @@ class NeonLinearProgressIndicator extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => Container(
         margin: margin,
-        child: SizedBox(
-          height: 3,
-          child: visible
-              ? LinearProgressIndicator(
-                  color: color,
-                  backgroundColor: backgroundColor,
-                )
-              : null,
-        ),
+        constraints: BoxConstraints.loose(const Size.fromHeight(3)),
+        child: visible
+            ? LinearProgressIndicator(
+                color: color,
+                backgroundColor: backgroundColor,
+              )
+            : null,
       );
 }
