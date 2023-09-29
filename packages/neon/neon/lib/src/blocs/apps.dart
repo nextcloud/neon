@@ -7,7 +7,6 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/settings/models/options_collection.dart';

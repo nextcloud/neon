@@ -5,12 +5,12 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:nextcloud/nextcloud.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
 typedef ImageDownloader = FutureOr<Uint8List> Function();

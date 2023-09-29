@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:nextcloud/settings.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';

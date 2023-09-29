@@ -1,3 +1,4 @@
+import 'package:nextcloud/uppush.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';

@@ -10,7 +10,6 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/models/push_notification.dart';

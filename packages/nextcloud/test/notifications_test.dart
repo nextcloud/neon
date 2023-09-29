@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';
