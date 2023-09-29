@@ -53,10 +53,7 @@ class NewsFeedsView extends StatelessWidget {
         subtitle: feed.unreadCount! > 0
             ? Text(AppLocalizations.of(context).articlesUnread(feed.unreadCount!))
             : const SizedBox(),
-        leading: NewsFeedIcon(
-          feed: feed,
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-        ),
+        leading: NewsFeedIcon(feed: feed),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

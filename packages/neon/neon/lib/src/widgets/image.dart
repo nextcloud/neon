@@ -12,25 +12,46 @@ import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 
-typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
-typedef ImageDownloader = FutureOr<Uint8List> Function();
-typedef CacheWriter = Future<void> Function(CacheManager cacheManager, Uint8List image);
-typedef ErrorWidgetBuilder = Widget? Function(BuildContext, dynamic);
+/// The signature of a function reviving image data from the [cache].
+typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cache);
 
+/// The signature of a function downloading image data.
+typedef ImageDownloader = FutureOr<Uint8List> Function();
+
+/// The signature of a function writing [image] data to the [cache].
+typedef CacheWriter = Future<void> Function(CacheManager cache, Uint8List image);
+
+/// The signature of a function building a widget displaying [error].
+typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
+
+/// The signature of a function downloading image data from a the nextcloud api through [client].
 typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
 
+/// A widget painting an Image.
+///
+/// The image is cached in the [DefaultCacheManager] to avoid expensive
+/// fetches.
+///
+/// See:
+///  * [NeonApiImage] for an image from the [NextcloudClient]
+///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonCachedImage extends StatefulWidget {
-  const NeonCachedImage({
-    required this.image,
+  /// Prints the data from [image] to the canvas.
+  ///
+  /// The data is not persisted in the cache.
+  NeonCachedImage({
+    required final Uint8List image,
     required Key super.key,
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.svgColor,
     this.iconColor,
     this.errorBuilder,
-  });
+  }) : image = Future.value(image);
 
+  /// Fetches the image from [url].
+  ///
+  /// The image is automatically cached.
   NeonCachedImage.url({
     required final String url,
     final Account? account,
@@ -38,12 +59,15 @@ class NeonCachedImage extends StatefulWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.svgColor,
     this.iconColor,
     this.errorBuilder,
   })  : image = _getImageFromUrl(url, account),
         super(key: key ?? Key(url));
 
+  /// Custom image implementation.
+  ///
+  /// It is possible to provide custom [reviver] and [writeCache] functions to
+  /// adjust the caching.
   NeonCachedImage.custom({
     required final ImageDownloader getImage,
     required final String cacheKey,
@@ -52,7 +76,6 @@ class NeonCachedImage extends StatefulWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.svgColor,
     this.iconColor,
     this.errorBuilder,
   })  : image = _customImageGetter(
@@ -63,15 +86,36 @@ class NeonCachedImage extends StatefulWidget {
         ),
         super(key: Key(cacheKey));
 
+  /// The image content.
   final Future<Uint8List> image;
+
+  /// {@template NeonCachedImage.svgHint}
+  /// Hint whether the image is an SVG.
+  /// {@endtemplate}
   final bool isSvgHint;
 
+  /// {@template NeonCachedImage.size}
+  /// Dimensions for the painted image.
+  /// {@endtemplate}
   final Size? size;
+
+  /// {@template NeonCachedImage.fit}
+  /// How to inscribe the image into the space allocated during layout.
+  /// {@endtemplate}
   final BoxFit? fit;
 
-  final Color? svgColor;
+  /// {@template NeonCachedImage.iconColor}
+  /// The color to use when drawing the image.
+  ///
+  /// Applies to SVG images only and the loading animation.
+  /// {@endtemplate}
   final Color? iconColor;
 
+  /// {@template NeonCachedImage.errorBuilder}
+  /// Builder function building the error widget.
+  ///
+  /// Defaults to a [NeonError] awaiting [image] again onRetry.
+  /// {@endtemplate}
   final ErrorWidgetBuilder? errorBuilder;
 
   static Future<Uint8List> _getImageFromUrl(final String url, final Account? account) async {
@@ -161,7 +205,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                   height: widget.size?.height,
                   width: widget.size?.width,
                   fit: widget.fit ?? BoxFit.contain,
-                  colorFilter: widget.svgColor != null ? ColorFilter.mode(widget.svgColor!, BlendMode.srcIn) : null,
+                  colorFilter: widget.iconColor != null ? ColorFilter.mode(widget.iconColor!, BlendMode.srcIn) : null,
                 );
               }
             } catch (_) {
@@ -192,7 +236,18 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
       );
 }
 
+/// Nextcloud API image.
+///
+/// Extension for [NeonCachedImage] providing a [NextcloudClient] to the caller
+/// to retrieve the image.
+///
+/// See:
+///  * [NeonCachedImage] for a customized image
+///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonApiImage extends StatelessWidget {
+  /// Creates a new Neon API image with the active account.
+  ///
+  /// Use [NeonApiImage.custom] to specify fetching the image with a different account.
   const NeonApiImage({
     required this.getImage,
     required this.cacheKey,
@@ -201,26 +256,64 @@ class NeonApiImage extends StatelessWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.svgColor,
+    this.iconColor,
+    this.errorBuilder,
+    super.key,
+  }) : account = null;
+
+  /// Creates a new Neon API image for a given account.
+  ///
+  /// Use [NeonApiImage] to fetch the image with the currently active account.
+  const NeonApiImage.custom({
+    required this.getImage,
+    required this.cacheKey,
+    required Account this.account,
+    this.reviver,
+    this.writeCache,
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
     this.iconColor,
     this.errorBuilder,
     super.key,
   });
 
+  /// Optional account to use for the request.
+  ///
+  /// Defaults to the currently active account in [AccountsBloc.activeAccount].
+  /// Use the [NeonApiImage.custom] constructor to specify a different account.
+  final Account? account;
+
+  /// Image downloader.
   final ApiImageDownloader getImage;
+
+  /// Cache key used for [NeonCachedImage.key].
   final String cacheKey;
+
+  /// Custom cache reviver function.
   final CacheReviver? reviver;
+
+  /// Custom cache writer function.
   final CacheWriter? writeCache;
+
+  /// {@macro NeonCachedImage.svgHint}
   final bool isSvgHint;
+
+  /// {@macro NeonCachedImage.size}
   final Size? size;
+
+  /// {@macro NeonCachedImage.fit}
   final BoxFit? fit;
-  final Color? svgColor;
+
+  /// {@macro NeonCachedImage.iconColor}
   final Color? iconColor;
+
+  /// {@macro NeonCachedImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
   Widget build(final BuildContext context) {
-    final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+    final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     return NeonCachedImage.custom(
       getImage: () async {
@@ -228,6 +321,62 @@ class NeonApiImage extends StatelessWidget {
         return response.body;
       },
       cacheKey: '${account.id}-$cacheKey',
+      reviver: reviver,
+      writeCache: writeCache,
+      isSvgHint: isSvgHint,
+      size: size,
+      fit: fit,
+      iconColor: iconColor,
+      errorBuilder: errorBuilder,
     );
   }
+}
+
+/// Nextcloud image wrapper widget.
+///
+/// Wraps a child (most commonly an image) into a uniformly styled container.
+///
+/// See:
+///  * [NeonCachedImage] for a customized image
+///  * [NeonApiImage] for an image widget from a [NextcloudClient].
+class NeonImageWrapper extends StatelessWidget {
+  /// Creates a new image wrapper.
+  const NeonImageWrapper({
+    required this.child,
+    this.color = Colors.white,
+    this.size,
+    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    super.key,
+  });
+
+  /// The widget below this widget in the tree.
+  ///
+  /// {@macro flutter.widgets.ProxyWidget.child}
+  final Widget child;
+
+  /// The color to paint the background area with.
+  final Color color;
+
+  /// The size of the widget.
+  final Size? size;
+
+  /// The corners of this box are rounded by this [BorderRadius].
+  ///
+  /// If null defaults to `const BorderRadius.all(Radius.circular(8))`.
+  ///
+  /// {@macro flutter.painting.BoxDecoration.clip}
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(final BuildContext context) => Container(
+        height: size?.height,
+        width: size?.width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          color: color,
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: child,
+      );
 }

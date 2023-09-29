@@ -9,9 +9,9 @@ import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/provider.dart';
-import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/error.dart';
+import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 

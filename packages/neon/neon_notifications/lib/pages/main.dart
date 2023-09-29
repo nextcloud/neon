@@ -80,7 +80,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               child: NeonCachedImage.url(
                 url: notification.icon!,
                 size: const Size.square(largeIconSize),
-                svgColor: Theme.of(context).colorScheme.primary,
+                iconColor: Theme.of(context).colorScheme.primary,
               ),
             ),
       onTap: () async {
