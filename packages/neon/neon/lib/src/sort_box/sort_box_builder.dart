@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:neon/src/settings/models/option.dart';
 import 'package:sort_box/sort_box.dart';
 
 /// Signature for a function that creates a widget for a given sorted list.
@@ -11,19 +11,25 @@ typedef SortBoxWidgetBuilder<T> = Widget Function(BuildContext context, List<T> 
 ///
 /// Used together with a [SortBox] to sort a given list.
 class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
+  /// Creates a new sort box builder.
   SortBoxBuilder({
     required this.sortBox,
-    required this.sortPropertyOption,
-    required this.sortBoxOrderOption,
+    required this.sortProperty,
+    required this.sortBoxOrder,
     required final List<R>? input,
     required this.builder,
     this.presort,
     super.key,
   }) : input = input ?? [];
 
+  /// The box containing all sorting properties.
   final SortBox<T, R> sortBox;
-  final SelectOption<T> sortPropertyOption;
-  final SelectOption<SortBoxOrder> sortBoxOrderOption;
+
+  /// The property to sort on.
+  final ValueListenable<T> sortProperty;
+
+  /// The sorting order applied to the [sortProperty].
+  final ValueListenable<SortBoxOrder> sortBoxOrder;
 
   /// Input list to sort.
   final List<R> input;
@@ -42,9 +48,9 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
     }
 
     return ValueListenableBuilder<T>(
-      valueListenable: sortPropertyOption,
+      valueListenable: sortProperty,
       builder: (final context, final property, final _) => ValueListenableBuilder<SortBoxOrder>(
-        valueListenable: sortBoxOrderOption,
+        valueListenable: sortBoxOrder,
         builder: (final context, final order, final _) {
           final box = (property, order);
 

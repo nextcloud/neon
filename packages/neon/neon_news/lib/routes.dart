@@ -7,11 +7,11 @@ import 'package:neon_news/neon_news.dart';
 part 'routes.g.dart';
 
 @TypedGoRoute<NewsAppRoute>(
-  path: '$appsRoutePrefix${AppIDs.news}',
+  path: '$appsBaseRoutePrefix${AppIDs.news}',
   name: AppIDs.news,
 )
 @immutable
-class NewsAppRoute extends NeonAppRoute {
+class NewsAppRoute extends NeonBaseAppRoute {
   const NewsAppRoute();
 
   @override

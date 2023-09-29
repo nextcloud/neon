@@ -13,8 +13,8 @@ class NotesCategoriesView extends StatelessWidget {
         stream: bloc.notes,
         builder: (final context, final notes) => SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
           sortBox: categoriesSortBox,
-          sortPropertyOption: bloc.options.categoriesSortPropertyOption,
-          sortBoxOrderOption: bloc.options.categoriesSortBoxOrderOption,
+          sortProperty: bloc.options.categoriesSortPropertyOption,
+          sortBoxOrder: bloc.options.categoriesSortBoxOrderOption,
           input: notes.data
               ?.map((final note) => note.category)
               .toSet()

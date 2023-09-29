@@ -31,8 +31,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           stream: widget.bloc.articles,
           builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
             sortBox: articlesSortBox,
-            sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
-            sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
+            sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
+            sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
             input: articles.data,
             builder: (final context, final sorted) => NeonListView(
               scrollKey: 'news-articles',

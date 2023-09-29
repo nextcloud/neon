@@ -4,9 +4,11 @@ import 'package:go_router/go_router.dart';
 /// [RouteData] for the initial page of an app.
 ///
 /// Subclasses must override one of [build] or [redirect].
+/// Routes should be prefixed with [appsBaseRoutePrefix].
 @immutable
-abstract class NeonAppRoute extends GoRouteData {
-  const NeonAppRoute();
+abstract class NeonBaseAppRoute extends GoRouteData {
+  /// Creates a new app base route.
+  const NeonBaseAppRoute();
 
   @override
   Page<void> buildPage(final BuildContext context, final GoRouterState state) => NoTransitionPage(
@@ -14,4 +16,5 @@ abstract class NeonAppRoute extends GoRouteData {
       );
 }
 
-const appsRoutePrefix = '/apps/';
+/// Prefix for [NeonBaseAppRoute]s.
+const appsBaseRoutePrefix = '/apps/';
