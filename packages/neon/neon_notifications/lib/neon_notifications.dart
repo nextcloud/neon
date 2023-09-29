@@ -52,4 +52,11 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;
+
+  @override
+  (bool? supported, String? minimumVersion) isSupported(
+    final Account account,
+    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) =>
+      const (null, null);
 }

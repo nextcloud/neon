@@ -36,7 +36,7 @@ abstract interface class AppsBlocStates {
 
   BehaviorSubject<void> get openNotifications;
 
-  BehaviorSubject<Iterable<(String, Object?)>?> get appVersions;
+  BehaviorSubject<Map<String, String?>> get appVersions;
 }
 
 @internal
@@ -116,24 +116,23 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       return;
     }
 
-    final appIds = {
-      'core',
-      ...apps.requireData.map((final a) => a.id),
-    };
+    final notSupported = <String, String?>{};
 
-    final notSupported = <(String, Object?)>[];
+    try {
+      final (coreSupported, coreMinimumVersion) = _account.client.core.isSupported(capabilities.requireData);
+      if (!coreSupported) {
+        notSupported['core'] = coreMinimumVersion.toString();
+      }
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
+    }
 
-    for (final id in appIds) {
+    for (final app in apps.requireData) {
       try {
-        final (supported, minVersion) = switch (id) {
-          'core' => _account.client.core.isSupported(capabilities.requireData),
-          AppIDs.news => await _account.client.news.isSupported(),
-          AppIDs.notes => _account.client.notes.isSupported(capabilities.requireData),
-          _ => (true, null),
-        };
-
-        if (!supported) {
-          notSupported.add((id, minVersion));
+        final (supported, minimumVersion) = await app.isSupported(_account, capabilities.requireData);
+        if (!(supported ?? true)) {
+          notSupported[app.id] = minimumVersion;
         }
       } catch (e, s) {
         debugPrint(e.toString());
@@ -193,7 +192,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<void> openNotifications = BehaviorSubject();
 
   @override
-  BehaviorSubject<List<(String, Object?)>?> appVersions = BehaviorSubject();
+  BehaviorSubject<Map<String, String?>> appVersions = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

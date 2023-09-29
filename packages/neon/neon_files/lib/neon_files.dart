@@ -71,4 +71,11 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
 
   @override
   final RouteBase route = $filesAppRoute;
+
+  @override
+  (bool? supported, String? minimumVersion) isSupported(
+    final Account account,
+    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) =>
+      const (null, null);
 }
