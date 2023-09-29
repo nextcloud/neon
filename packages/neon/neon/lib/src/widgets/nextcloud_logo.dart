@@ -2,15 +2,25 @@ import 'package:flutter/widgets.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+/// The Nextcloud logo, in widget form.
+///
+/// For guidelines on using the Nextcloud logo, visit https://nextcloud.com/trademarks.
 class NextcloudLogo extends StatelessWidget {
+  /// Creates a widget that shows the Nextcloud logo.
   const NextcloudLogo({
+    this.size = 100,
     super.key,
   });
 
+  /// The size of the logo in logical pixels.
+  ///
+  /// The logo will be fit into a square this size.
+  final double size;
+
   @override
   Widget build(final BuildContext context) => VectorGraphic(
-        width: 100,
-        height: 100,
+        width: size,
+        height: size,
         loader: const AssetBytesLoader(
           'assets/logo_nextcloud.svg.vec',
           packageName: 'neon',
