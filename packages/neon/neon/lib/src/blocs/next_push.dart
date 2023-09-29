@@ -6,6 +6,7 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/global_options.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 @internal

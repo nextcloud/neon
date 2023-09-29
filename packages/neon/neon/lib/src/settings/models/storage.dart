@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:neon/src/models/app_ids.dart';
+import 'package:nextcloud/ids.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @internal

@@ -1,4 +1,4 @@
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/user_status.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';

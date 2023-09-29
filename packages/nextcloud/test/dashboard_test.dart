@@ -1,3 +1,4 @@
+import 'package:nextcloud/dashboard.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';

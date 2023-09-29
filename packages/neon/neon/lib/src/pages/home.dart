@@ -16,6 +16,7 @@ import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/unified_search_results.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 
 @internal
