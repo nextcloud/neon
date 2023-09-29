@@ -184,6 +184,21 @@ void main() {
         expect(response.body.ocs.data.entries.single.rounded, isFalse);
         expect(response.body.ocs.data.entries.single.attributes, isEmpty);
       });
+
+      test('Client login flow V2', () async {
+        final response = await client.core.clientFlowLoginV2.init();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.login, startsWith('http://localhost'));
+        expect(response.body.poll.endpoint, startsWith('http://localhost'));
+        expect(response.body.poll.token, isNotEmpty);
+
+        expect(
+          () => client.core.clientFlowLoginV2.poll(token: response.body.poll.token),
+          throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 404)),
+        );
+      });
     },
     retry: retryCount,
     timeout: timeout,
