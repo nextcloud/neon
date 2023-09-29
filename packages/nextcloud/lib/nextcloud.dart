@@ -21,7 +21,6 @@ export 'src/api/updatenotification.openapi.dart';
 export 'src/api/uppush.openapi.dart';
 export 'src/api/user_status.openapi.dart';
 export 'src/api/weather_status.openapi.dart';
-export 'src/app_type.dart';
 export 'src/client.dart';
 export 'src/helpers/core.dart';
 export 'src/helpers/news.dart';
