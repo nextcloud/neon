@@ -19,7 +19,7 @@ abstract class InteractiveBloc extends Bloc {
   final _errorsStreamController = StreamController<Object>();
   late Stream<Object> errors = _errorsStreamController.stream.asBroadcastStream();
 
-  Future<void> refresh();
+  FutureOr<void> refresh();
 
   void addError(final Object error) {
     _errorsStreamController.add(error);

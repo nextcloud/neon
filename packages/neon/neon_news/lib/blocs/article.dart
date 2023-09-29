@@ -44,7 +44,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   BehaviorSubject<bool> unread = BehaviorSubject<bool>();
 
   @override
-  Future<void> refresh() async {}
+  void refresh() {}
 
   @override
   void markArticleAsRead() {
