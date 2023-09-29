@@ -58,7 +58,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
 
     try {
-      _updateStatus(username, Result.loading());
+      _updateStatus(username, const Result.loading());
 
       UserStatusPublicInterface? data;
 
@@ -90,7 +90,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
       _updateStatus(username, Result.success(data));
     } catch (e, s) {
       if (e is DynamiteApiException && e.statusCode == 404) {
-        _updateStatus(username, Result.success(null));
+        _updateStatus(username, const Result.success(null));
         return;
       }
       debugPrint(e.toString());

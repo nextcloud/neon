@@ -31,7 +31,7 @@ void main() {
     test('Transform to loading', () {
       const data = 'someData';
 
-      final a = Result.success(data);
+      const a = Result.success(data);
       const b = Result(
         data,
         null,
@@ -46,8 +46,8 @@ void main() {
     test('data check', () {
       const data = 'someData';
 
-      final a = Result.loading();
-      final b = Result.success(data);
+      const a = Result.loading();
+      const b = Result.success(data);
       const c = Result(
         data,
         null,
@@ -68,7 +68,7 @@ void main() {
     test('error check', () {
       const error = 'someError';
 
-      final a = Result.error(error);
+      const a = Result.error(error);
 
       expect(a.hasError, true);
     });
@@ -76,7 +76,7 @@ void main() {
     test('transform', () {
       const data = 1;
 
-      final a = Result.success(data);
+      const a = Result.success(data);
 
       String transformer(final int data) => data.toString();
 

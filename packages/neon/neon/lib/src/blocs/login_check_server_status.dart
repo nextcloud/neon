@@ -38,7 +38,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
 
   @override
   Future<void> refresh() async {
-    state.add(Result.loading());
+    state.add(const Result.loading());
 
     try {
       final client = NextcloudClient(

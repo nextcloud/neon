@@ -102,7 +102,7 @@ class RequestManager {
     final int retries = 0,
   ]) async {
     // emit loading state with the current value if present
-    final value = subject.valueOrNull?.copyWith(isLoading: true) ?? Result.loading();
+    final value = subject.valueOrNull?.asLoading() ?? const Result.loading();
     subject.add(value);
 
     final key = '$clientID-$k';
