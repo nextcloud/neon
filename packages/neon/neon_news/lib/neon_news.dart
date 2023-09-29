@@ -81,4 +81,11 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;
+
+  @override
+  Future<(bool? supported, String? minimumVersion)> isSupported(
+    final Account account,
+    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) =>
+      account.client.news.isSupported();
 }

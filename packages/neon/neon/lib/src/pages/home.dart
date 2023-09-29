@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late StreamSubscription<List<(String, Object?)>?> _versionCheckSubscription;
+  late StreamSubscription<Map<String, String?>> _versionCheckSubscription;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     _appsBloc = _accountsBloc.activeAppsBloc;
 
     _versionCheckSubscription = _appsBloc.appVersions.listen((final values) {
-      if (values == null || !mounted) {
+      if (!mounted) {
         return;
       }
 
@@ -55,8 +55,9 @@ class _HomePageState extends State<HomePage> {
 
       final buffer = StringBuffer()..writeln();
 
-      for (final error in values) {
-        final (appId, minVersion) = error;
+      for (final error in values.entries) {
+        final appId = error.key;
+        final minVersion = error.value;
         final appName = l10n.appImplementationName(appId);
 
         if (appName.isNotEmpty && minVersion != null) {
