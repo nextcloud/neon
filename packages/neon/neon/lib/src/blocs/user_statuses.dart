@@ -66,7 +66,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
         var isAway = false;
         if (NeonPlatform.instance.canUseWindowManager) {
           final focused = await windowManager.isFocused();
-          final visible = await windowManager.isFocused();
+          final visible = await windowManager.isVisible();
           isAway = !focused || !visible;
         }
         try {
