@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:nextcloud/src/api/core.openapi.dart';
 import 'package:nextcloud/src/api/news.openapi.dart';
 import 'package:nextcloud/src/api/notes.openapi.dart';
@@ -51,9 +52,8 @@ extension NotesVersionSupported on NotesClient {
   (bool, int) isSupported(final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) => (
         capabilities.capabilities.notesCapabilities?.notes.apiVersion
                 ?.map(Version.parse)
-                .where((final version) => version.major == notesSupportedVersion)
-                .isNotEmpty ??
-            false,
+                .firstWhereOrNull((final version) => version.major == notesSupportedVersion) !=
+            null,
         notesSupportedVersion,
       );
 }
