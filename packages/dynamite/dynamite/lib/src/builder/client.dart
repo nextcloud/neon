@@ -193,7 +193,11 @@ Iterable<Method> buildTags(
       var responses = <openapi.Response, List<int>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
-          final statusCode = int.parse(responseEntry.key);
+          final statusCode = int.tryParse(responseEntry.key);
+          if (statusCode == null) {
+            print('Default responses are not supported right now. Skipping it for $operationId');
+            continue;
+          }
           final response = responseEntry.value;
 
           responses[response] ??= [];
