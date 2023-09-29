@@ -7,11 +7,11 @@ import 'package:neon_files/neon_files.dart';
 part 'routes.g.dart';
 
 @TypedGoRoute<FilesAppRoute>(
-  path: '$appsRoutePrefix${AppIDs.files}',
+  path: '$appsBaseRoutePrefix${AppIDs.files}',
   name: AppIDs.files,
 )
 @immutable
-class FilesAppRoute extends NeonAppRoute {
+class FilesAppRoute extends NeonBaseAppRoute {
   const FilesAppRoute();
 
   @override
