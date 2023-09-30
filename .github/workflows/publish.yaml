@@ -144,15 +144,17 @@ jobs:
     name: Linux arm64
     runs-on: ubuntu-22.04
     needs: setup
+    permissions:
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
-      - name: Set docker image
-        id: docker_image
-        run: |
-          echo "local=nextcloud-neon-build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
-          echo "remote=ghcr.io/$GITHUB_REPOSITORY/build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
-      - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3 # v3
         with:
