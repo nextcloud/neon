@@ -28,12 +28,16 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         stream: bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () async {
-              bloc.deleteAllNotifications();
+          floatingActionButton: StreamBuilder<int>(
+            stream: bloc.unreadCounter,
+            builder: (final context, final snapshot) {
+              final unreadCount = snapshot.data ?? 0;
+              return FloatingActionButton(
+                onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
+                tooltip: AppLocalizations.of(context).notificationsDismissAll,
+                child: const Icon(MdiIcons.checkAll),
+              );
             },
-            tooltip: AppLocalizations.of(context).notificationsDismissAll,
-            child: const Icon(MdiIcons.checkAll),
           ),
           body: NeonListView(
             scrollKey: 'notifications-notifications',
