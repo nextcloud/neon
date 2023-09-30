@@ -10,11 +10,9 @@ class FilesBrowserNavigator extends StatelessWidget {
   final List<String> path;
   final FilesBrowserBloc bloc;
 
-  static const double _height = 30;
-
   @override
   Widget build(final BuildContext context) => SizedBox(
-        height: _height,
+        height: ButtonTheme.of(context).height,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
@@ -30,10 +28,7 @@ class FilesBrowserNavigator extends StatelessWidget {
                   vertical: VisualDensity.minimumDensity,
                 ),
                 tooltip: AppLocalizations.of(context).goToPath(''),
-                icon: const Icon(
-                  Icons.house,
-                  size: _height,
-                ),
+                icon: const Icon(Icons.house),
                 onPressed: () {
                   bloc.setPath([]);
                 },
@@ -43,24 +38,17 @@ class FilesBrowserNavigator extends StatelessWidget {
             final path = this.path.sublist(0, index);
             final label = path.join('/');
 
-            return Tooltip(
-              message: AppLocalizations.of(context).goToPath(label),
-              excludeFromSemantics: true,
-              child: TextButton(
-                onPressed: () {
-                  bloc.setPath(path);
-                },
-                child: Text(
-                  path.last,
-                  semanticsLabel: AppLocalizations.of(context).goToPath(label),
-                ),
+            return TextButton(
+              onPressed: () {
+                bloc.setPath(path);
+              },
+              child: Text(
+                path.last,
+                semanticsLabel: AppLocalizations.of(context).goToPath(label),
               ),
             );
           },
-          separatorBuilder: (final context, final index) => const Icon(
-            Icons.keyboard_arrow_right,
-            size: _height,
-          ),
+          separatorBuilder: (final context, final index) => const Icon(Icons.keyboard_arrow_right),
         ),
       );
 }
