@@ -1,6 +1,3 @@
-// ignore_for_file: use_late_for_private_fields_and_variables
-// ^ This is a really strange false positive, it goes of at a very random place without any meaning. Hopefully fixed soon?
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -10,7 +7,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/utils/provider.dart';
-import 'package:neon/src/widgets/cached_image.dart';
+import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/server_icon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
@@ -61,20 +58,18 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             radius: size / 2,
             backgroundColor: widget.backgroundColor,
             child: ClipOval(
-              child: NeonCachedImage.custom(
-                cacheKey: '${widget.account.id}-avatar-${widget.username}-$brightness$pixelSize',
-                getImage: () async {
-                  final response = switch (brightness) {
-                    Brightness.dark => await widget.account.client.core.avatar.getAvatarDark(
-                        userId: widget.username,
-                        size: pixelSize,
-                      ),
-                    Brightness.light => await widget.account.client.core.avatar.getAvatar(
-                        userId: widget.username,
-                        size: pixelSize,
-                      ),
-                  };
-                  return response.body;
+              child: NeonApiImage.custom(
+                account: widget.account,
+                cacheKey: 'avatar-${widget.username}-$brightness$pixelSize',
+                getImage: (final client) async => switch (brightness) {
+                  Brightness.dark => client.core.avatar.getAvatarDark(
+                      userId: widget.username,
+                      size: pixelSize,
+                    ),
+                  Brightness.light => client.core.avatar.getAvatar(
+                      userId: widget.username,
+                      size: pixelSize,
+                    ),
                 },
               ),
             ),
@@ -83,7 +78,6 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           if (!widget.showStatus) {
             return avatar;
           }
-
           return Stack(
             alignment: Alignment.center,
             children: [

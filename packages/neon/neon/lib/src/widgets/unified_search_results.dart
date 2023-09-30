@@ -9,9 +9,8 @@ import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/utils/provider.dart';
-import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/error.dart';
-import 'package:neon/src/widgets/image_wrapper.dart';
+import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/list_view.dart';
 import 'package:neon/src/widgets/server_icon.dart';
@@ -94,7 +93,6 @@ class NeonUnifiedSearchResults extends StatelessWidget {
               ListTile(
                 leading: NeonImageWrapper(
                   size: const Size.square(largeIconSize),
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
                 ),
                 title: Text(entry.title),
@@ -129,10 +127,9 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final Account account,
     final CoreUnifiedSearchResultEntry entry,
   ) {
-    final size = Size.square(IconTheme.of(context).size!);
     if (entry.icon.startsWith('/')) {
       return NeonCachedImage.url(
-        size: size,
+        size: Size.square(IconTheme.of(context).size!),
         url: entry.icon,
         account: account,
       );
@@ -140,7 +137,6 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
     if (entry.icon.startsWith('icon-')) {
       return NeonServerIcon(
-        size: size,
         color: Theme.of(context).colorScheme.primary,
         icon: entry.icon,
       );
