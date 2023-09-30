@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 cd "$(dirname "$0")/.."
+source tool/common.sh
 
 targets=("linux/arm64" "linux/amd64")
 
@@ -21,26 +22,15 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   os="$(echo "$target" | cut -d "/" -f 1)"
   arch="$(echo "$target" | cut -d "/" -f 2)"
 
-  build_args=()
-  if [ -v GITHUB_REPOSITORY ]; then
-    image="ghcr.io/$GITHUB_REPOSITORY/build-$os-$arch"
-    build_args+=(
-      "--push"
-      "--cache-from" "type=registry,ref=$image"
-      "--cache-to" "type=registry,ref=$image,mode=max"
-    )
-    tag="$image:$FLUTTER_VERSION"
-  else
-    tag="nextcloud-neon-build-$os-$arch:$FLUTTER_VERSION"
-  fi
+  tag="$(image_tag "build:$os-$arch")"
 
-  # shellcheck disable=SC2086
+  # shellcheck disable=SC2046
   docker buildx build \
   --platform "$target" \
   --progress plain \
   --tag "$tag"  \
   --build-arg="FLUTTER_VERSION=$FLUTTER_VERSION" \
-  ${build_args[*]} \
+  $(cache_build_args "$tag") \
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
 
