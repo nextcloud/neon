@@ -415,8 +415,8 @@ class DynamiteClient {
     final uri = baseURL.replace(
       path: '${baseURL.path}${path.path}',
       queryParameters: {
-        ...baseURL.queryParameters,
-        ...path.queryParameters,
+        ...baseURL.queryParametersAll,
+        ...path.queryParametersAll,
       },
     );
 
