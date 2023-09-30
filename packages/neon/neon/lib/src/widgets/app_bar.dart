@@ -17,8 +17,10 @@ import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Global app bar for the Neon app.
 @internal
 class NeonAppBar extends StatefulWidget implements PreferredSizeWidget {
+  /// Creates a new Neon app bar.
   const NeonAppBar({super.key});
 
   @override
@@ -149,8 +151,10 @@ class _NeonAppBarState extends State<NeonAppBar> {
       );
 }
 
+/// Button opening the unified search page.
 @internal
 class SearchIconButton extends StatelessWidget {
+  /// Creates a new unified search button.
   const SearchIconButton({
     super.key,
   });
@@ -167,8 +171,10 @@ class SearchIconButton extends StatelessWidget {
       );
 }
 
+/// Button opening the notifications page.
 @internal
 class NotificationIconButton extends StatefulWidget {
+  /// Creates a new notifications button.
   const NotificationIconButton({
     super.key,
   });

@@ -5,6 +5,7 @@ import 'package:neon/src/theme/neon.dart';
 /// A ColorScheme used in the [NeonTheme].
 @immutable
 class NeonColorScheme {
+  /// Creates a new neon color scheme.
   const NeonColorScheme({
     this.primary = NcColors.primary,
   });

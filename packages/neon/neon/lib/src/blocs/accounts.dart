@@ -21,6 +21,7 @@ import 'package:rxdart/rxdart.dart';
 
 const _keyAccounts = 'accounts';
 
+/// Events for the [AccountsBloc].
 @internal
 abstract interface class AccountsBlocEvents {
   /// Logs in the given [account].
@@ -45,6 +46,7 @@ abstract interface class AccountsBlocEvents {
   void setActiveAccount(final Account account);
 }
 
+/// States for the [AccountsBloc].
 @internal
 abstract interface class AccountsBlocStates {
   /// All registered accounts.
@@ -59,7 +61,12 @@ abstract interface class AccountsBlocStates {
   BehaviorSubject<Account?> get activeAccount;
 }
 
+/// The Bloc responsible for managing the [Account]s
 class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
+  /// Creates a new account bloc.
+  ///
+  /// The last state will be loaded from storage and all necessary listeners
+  /// will be set up.
   AccountsBloc(
     this._globalOptions,
     this._allAppImplementations,

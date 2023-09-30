@@ -18,6 +18,7 @@ abstract interface class CapabilitiesBlocStates {
 
 @internal
 class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
+  /// Creates a new capabilities bloc.
   CapabilitiesBloc(
     this._account,
   ) {

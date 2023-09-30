@@ -216,6 +216,9 @@ class SelectOption<T> extends Option<T> {
   /// * [value] for the currently selected one
   Map<T, LabelBuilder> get values => _values;
 
+  /// Updates the collection of possible values.
+  ///
+  /// It is up to the caller to also change the [value] if it is no longer supported.
   set values(final Map<T, LabelBuilder> newValues) {
     if (_values == newValues) {
       return;

@@ -22,6 +22,7 @@ import 'package:neon/src/settings/models/storage.dart';
 @internal
 @immutable
 class SettingsExportHelper {
+  /// Creates a new settings exporter for the given [exportables].
   const SettingsExportHelper({
     required this.exportables,
   });
@@ -77,6 +78,7 @@ class SettingsExportHelper {
 @internal
 @immutable
 class AppImplementationsExporter implements Exportable {
+  /// Creates a new [AppImplementation] exporter.
   const AppImplementationsExporter(this.appImplementations);
 
   /// List of apps to export.
@@ -113,6 +115,7 @@ class AppImplementationsExporter implements Exportable {
 @internal
 @immutable
 class AccountsBlocExporter implements Exportable {
+  /// Creates a new [Account] exporter.
   const AccountsBlocExporter(this.accountsBloc);
 
   /// AccountsBloc containing the accounts to export.

@@ -19,8 +19,10 @@ import 'package:neon/src/widgets/unified_search_results.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:provider/provider.dart';
 
+/// The home page of Neon.
 @internal
 class HomePage extends StatefulWidget {
+  /// Creates a new home page.
   const HomePage({
     super.key,
   });

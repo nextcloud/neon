@@ -6,8 +6,15 @@ import 'package:neon/src/platform/android.dart';
 import 'package:neon/src/platform/linux.dart';
 
 /// Implements platform specific functionality and exposes the availability of certain features.
+///
+/// [NeonPlatform.setup] mus be called and completed before acquiring the [instance].
+///
+/// See:
+///   * [AndroidNeonPlatform] for the android implementation
+///   * [LinuxNeonPlatform] for the linux implementation
 @immutable
 abstract interface class NeonPlatform {
+  /// Initializes the platform with the given mocked [platform].
   @visibleForTesting
   factory NeonPlatform.mocked(final NeonPlatform platform) => _platform = platform;
 
@@ -45,18 +52,39 @@ abstract interface class NeonPlatform {
     return _platform!;
   }
 
+  /// Whether this platform supports web views.
+  ///
+  /// The support depends on `https://pub.dev/packages/webview_flutter`.
   abstract final bool canUseWebView;
 
+  /// Whether this platform can use quick actions.
+  ///
+  /// The support depends on `https://pub.dev/packages/quick_actions`.
   abstract final bool canUseQuickActions;
 
+  /// Whether this platform support system trays.
+  ///
+  /// The support depends on `https://pub.dev/packages/tray_manager`.
   abstract final bool canUseSystemTray;
 
+  /// Whether this platform supports window managers.
+  ///
+  /// The support depends on `https://pub.dev/packages/window_manager`.
   abstract final bool canUseWindowManager;
 
+  /// Whether this platform can use the camera.
+  ///
+  /// The support depends on `https://pub.dev/packages/camera`.
   abstract final bool canUseCamera;
 
+  /// Whether this platform can use push notifications.
+  ///
+  /// The support depends on `https://pub.dev/packages/unifiedpush`.
   abstract final bool canUsePushNotifications;
 
+  /// Wether this platform supports a native sharing option.
+  ///
+  /// The support depends on `https://pub.dev/packages/share_plus`.
   abstract final bool canUseSharing;
 
   /// Whether this platform should use file dialog.
@@ -64,7 +92,10 @@ abstract interface class NeonPlatform {
   /// This is needed to compensate lacking support of `https://pub.dev/packages/file_picker`.
   abstract final bool shouldUseFileDialog;
 
+  /// Returns the path to a directory where the application may access top
+  /// level storage.
   FutureOr<String> get userAccessibleAppDataPath;
 
+  /// Initializes this platform.
   FutureOr<void> init();
 }

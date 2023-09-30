@@ -13,7 +13,9 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 
+/// A circle that contains the user profile image and status.
 class NeonUserAvatar extends StatefulWidget {
+  /// Creates a new Neon user avatar.
   NeonUserAvatar({
     required this.account,
     final String? username,
@@ -24,11 +26,23 @@ class NeonUserAvatar extends StatefulWidget {
     super.key,
   }) : username = username ?? account.username;
 
+  /// The account used to fetch the image.
   final Account account;
+
+  /// The user profile to display
   final String username;
+
+  /// Whether to also show the status.
   final bool showStatus;
+
+  /// The size of the avatar.
   final double? size;
+
+  /// The color with which to fill the circle. Changing the background
+  /// color will cause the avatar to animate to the new color.
   final Color? backgroundColor;
+
+  /// The color used to render the loading animation.
   final Color? foregroundColor;
 
   @override
