@@ -54,22 +54,21 @@ class NeonListView extends StatelessWidget {
               itemCount: topFixedChildren!.length,
               itemBuilder: (final context, final index) => topFixedChildren![index],
             ),
-          if (isLoading)
-            const SliverToBoxAdapter(
-              child: NeonLinearProgressIndicator(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
+          SliverToBoxAdapter(
+            child: NeonLinearProgressIndicator(
+              visible: isLoading,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 5,
               ),
             ),
-          if (error != null)
-            SliverToBoxAdapter(
-              child: NeonError(
-                error,
-                onRetry: () async => refreshIndicatorKey.currentState!.show(),
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: NeonError(
+              error,
+              onRetry: () async => refreshIndicatorKey.currentState!.show(),
             ),
+          ),
           if (topScrollingChildren != null)
             SliverList.builder(
               itemCount: topScrollingChildren!.length,
