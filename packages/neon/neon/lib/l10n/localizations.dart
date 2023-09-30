@@ -635,12 +635,6 @@ abstract class AppLocalizations {
   /// **'Drawer always visible'**
   String get globalOptionsNavigationModeDrawerAlwaysVisible;
 
-  /// No description provided for @globalOptionsNavigationModeQuickBar.
-  ///
-  /// In en, this message translates to:
-  /// **'Quick bar'**
-  String get globalOptionsNavigationModeQuickBar;
-
   /// No description provided for @accountOptionsRemove.
   ///
   /// In en, this message translates to:

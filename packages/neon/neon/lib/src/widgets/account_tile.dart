@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -13,21 +14,15 @@ import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 class NeonAccountTile extends StatelessWidget {
   const NeonAccountTile({
     required this.account,
-    this.color,
     this.trailing,
     this.onTap,
-    this.textColor,
-    this.dense = false,
     this.showStatus = true,
     super.key,
   });
 
   final Account account;
-  final Color? color;
   final Widget? trailing;
   final GestureTapCallback? onTap;
-  final Color? textColor;
-  final bool dense;
   final bool showStatus;
 
   @override
@@ -35,16 +30,7 @@ class NeonAccountTile extends StatelessWidget {
     final userDetailsBloc = NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
 
     return ListTile(
-      textColor: textColor,
       onTap: onTap,
-      dense: dense,
-      contentPadding: dense ? EdgeInsets.zero : null,
-      visualDensity: dense
-          ? const VisualDensity(
-              horizontal: -4,
-              vertical: -4,
-            )
-          : null,
       leading: NeonUserAvatar(
         account: account,
         showStatus: showStatus,
@@ -54,46 +40,29 @@ class NeonAccountTile extends StatelessWidget {
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [
-            if (userDetails.hasData) ...[
+            if (userDetails.hasData)
               Flexible(
                 child: Text(
                   userDetails.requireData.displayname,
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: textColor,
-                      ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-            ],
-            if (userDetails.isLoading) ...[
-              const SizedBox(
-                width: 5,
+            if (userDetails.isLoading)
+              const Expanded(
+                child: NeonLinearProgressIndicator(),
               ),
-              Expanded(
-                child: NeonLinearProgressIndicator(
-                  color: textColor,
-                ),
-              ),
-            ],
-            if (userDetails.hasError) ...[
-              const SizedBox(
-                width: 5,
-              ),
+            if (userDetails.hasError)
               NeonError(
                 userDetails.error,
                 onlyIcon: true,
                 iconSize: 24,
                 onRetry: userDetailsBloc.refresh,
               ),
-            ],
-          ],
+          ].intersperse(const SizedBox(width: 5)).toList(),
         ),
       ),
       subtitle: Text(
         account.humanReadableID,
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              color: textColor,
-            ),
         overflow: TextOverflow.ellipsis,
       ),
     );

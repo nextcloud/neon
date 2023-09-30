@@ -315,9 +315,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsNavigationModeDrawerAlwaysVisible => 'Drawer always visible';
 
   @override
-  String get globalOptionsNavigationModeQuickBar => 'Quick bar';
-
-  @override
   String get accountOptionsRemove => 'Remove account';
 
   @override

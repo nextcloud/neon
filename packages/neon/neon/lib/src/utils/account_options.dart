@@ -19,10 +19,7 @@ class AccountSpecificOptions extends OptionsCollection {
 
       initialApp.values = {
         null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
-        for (final app in result.requireData) ...{
-          app.id: app.name,
-        },
-      };
+      }..addEntries(result.requireData.map((final app) => MapEntry(app.id, app.name)));
     });
   }
 

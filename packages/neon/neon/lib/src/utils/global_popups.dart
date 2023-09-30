@@ -34,6 +34,7 @@ class GlobalPopups {
     }
     _subscriptions.clear();
     _registered = false;
+    instance = null;
   }
 
   void register(final BuildContext context) {
@@ -42,12 +43,13 @@ class GlobalPopups {
       return;
     }
 
+    _registered = true;
+
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final firstLaunchBloc = NeonProvider.of<FirstLaunchBloc>(context);
     final nextPushBloc = NeonProvider.of<NextPushBloc>(context);
-
-    _subscriptions.addAll([
-      if (NeonPlatform.instance.canUsePushNotifications) ...[
+    if (NeonPlatform.instance.canUsePushNotifications) {
+      _subscriptions.addAll([
         firstLaunchBloc.onFirstLaunch.listen((final _) {
           assert(context.mounted, 'Context should be mounted');
           if (!globalOptions.pushNotificationsEnabled.enabled) {
@@ -98,9 +100,7 @@ class GlobalPopups {
             ),
           );
         }),
-      ],
-    ]);
-
-    _registered = true;
+      ]);
+    }
   }
 }
