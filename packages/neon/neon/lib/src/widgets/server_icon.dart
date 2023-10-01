@@ -8,7 +8,7 @@ class NeonServerIcon extends StatelessWidget {
   /// Creates a new server icon
   const NeonServerIcon({
     required this.icon,
-    this.color,
+    this.colorFilter,
     this.size,
     super.key,
   });
@@ -16,13 +16,7 @@ class NeonServerIcon extends StatelessWidget {
   /// Name of the server icon to draw.
   final String icon;
 
-  /// The color to use when drawing the icon.
-  ///
-  /// Defaults to the nearest [IconTheme]'s [IconThemeData.color].
-  ///
-  /// The color (whether specified explicitly here or obtained from the
-  /// [IconTheme]) will be further adjusted by the nearest [IconTheme]'s
-  /// [IconThemeData.opacity].
+  /// The color filter to use when drawing the icon.
   ///
   /// {@tool snippet}
   /// Typically, a Material Design color will be used, as follows:
@@ -30,11 +24,11 @@ class NeonServerIcon extends StatelessWidget {
   /// ```dart
   /// NeonServerIcon(
   ///   icon: 'icon-add',
-  ///   color: Colors.blue.shade400,
+  ///   colorFilter: ColorFilter.mode(Colors.blue.shade400, BlendMode.srcIn),
   /// )
   /// ```
   /// {@end-tool}
-  final Color? color;
+  final ColorFilter? colorFilter;
 
   /// The size of the icon in logical pixels.
   ///
@@ -53,12 +47,11 @@ class NeonServerIcon extends StatelessWidget {
     final iconTheme = Theme.of(context).iconTheme;
 
     final size = this.size ?? iconTheme.size;
-    final color = this.color ?? iconTheme.color;
 
     return VectorGraphic(
       width: size,
       height: size,
-      colorFilter: color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+      colorFilter: colorFilter,
       loader: AssetBytesLoader(
         'assets/icons/server/${icon.replaceFirst(RegExp('^icon-'), '').replaceFirst(RegExp(r'-(dark|white)$'), '')}.svg.vec',
         packageName: 'neon',

@@ -137,7 +137,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
     if (entry.icon.startsWith('icon-')) {
       return NeonServerIcon(
-        color: Theme.of(context).colorScheme.primary,
+        colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
         icon: entry.icon,
       );
     }
