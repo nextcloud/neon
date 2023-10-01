@@ -2,6 +2,7 @@ autofocus
 endtemplate
 expando
 gapless
+goldens
 lerp
 pubspec
 sublist
