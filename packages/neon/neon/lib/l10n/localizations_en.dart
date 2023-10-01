@@ -19,6 +19,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
       {
         'nextcloud': 'Nextcloud',
         'core': 'Server',
+        'dashboard': 'Dashboard',
         'files': 'Files',
         'news': 'News',
         'notes': 'Notes',

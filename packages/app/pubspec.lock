@@ -649,6 +649,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  neon_dashboard:
+    dependency: "direct main"
+    description:
+      path: "../neon/neon_dashboard"
+      relative: true
+    source: path
+    version: "1.0.0"
   neon_files:
     dependency: "direct main"
     description:

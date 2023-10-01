@@ -104,7 +104,7 @@ abstract class NeonLocalizations {
   /// No description provided for @appImplementationName.
   ///
   /// In en, this message translates to:
-  /// **'{app, select, nextcloud{Nextcloud} core{Server} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}'**
+  /// **'{app, select, nextcloud{Nextcloud} core{Server} dashboard{Dashboard} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}'**
   String appImplementationName(String app);
 
   /// No description provided for @loginAgain.
