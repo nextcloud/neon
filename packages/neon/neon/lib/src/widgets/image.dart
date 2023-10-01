@@ -345,7 +345,7 @@ class NeonImageWrapper extends StatelessWidget {
     required this.child,
     this.color = Colors.white,
     this.size,
-    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.borderRadius,
     super.key,
   });
 
@@ -373,7 +373,7 @@ class NeonImageWrapper extends StatelessWidget {
         width: size?.width,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: borderRadius,
+          borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(8)),
           color: color,
         ),
         clipBehavior: Clip.antiAlias,
