@@ -412,12 +412,13 @@ class DynamiteClient {
     final Uint8List? body,
     final Set<int>? validStatuses,
   ) async {
+    final queryParameters = {
+      ...baseURL.queryParametersAll,
+      ...path.queryParametersAll,
+    };
     final uri = baseURL.replace(
       path: '${baseURL.path}${path.path}',
-      queryParameters: {
-        ...baseURL.queryParametersAll,
-        ...path.queryParametersAll,
-      },
+      queryParameters: queryParameters.isNotEmpty ? queryParameters : null,
     );
 
     final request = await httpClient.openUrl(method, uri);
