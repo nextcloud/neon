@@ -2,28 +2,43 @@ import 'package:meta/meta.dart';
 
 @immutable
 class Result<T> {
-  const Result(
+  Result(
     this.data,
     this.error, {
     required this.isLoading,
     required this.isCached,
-  });
+  }) : assert(
+          T != Never,
+          'Result() called without specifying the data type. Call Result<T>() instead',
+        );
 
-  const Result.loading()
+  Result.loading()
       : data = null,
         error = null,
         isLoading = true,
-        isCached = false;
+        isCached = false,
+        assert(
+          T != Never,
+          'Result.loading() called without specifying the data type. Call Result<T>.loading() instead',
+        );
 
-  const Result.success(this.data)
+  Result.success(this.data)
       : error = null,
         isLoading = false,
-        isCached = false;
+        isCached = false,
+        assert(
+          T != Never,
+          'Result.success() called without specifying the data type. Call Result<T>.success() instead',
+        );
 
-  const Result.error(this.error)
+  Result.error(this.error)
       : data = null,
         isLoading = false,
-        isCached = false;
+        isCached = false,
+        assert(
+          T != Never,
+          'Result.error() called without specifying the data type. Call Result<T>.error() instead',
+        );
 
   final T? data;
   final Object? error;
@@ -55,6 +70,7 @@ class Result<T> {
   bool get hasError => error != null;
 
   bool get hasData => data != null;
+
   bool get hasUncachedData => hasData && !isCached;
 
   T get requireData {

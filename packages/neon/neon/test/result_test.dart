@@ -8,13 +8,13 @@ void main() {
     test('Equality', () {
       const data = 'someData';
 
-      const a = Result(
+      final a = Result(
         data,
         null,
         isLoading: true,
         isCached: false,
       );
-      const b = Result(
+      final b = Result(
         data,
         null,
         isLoading: true,
@@ -31,8 +31,8 @@ void main() {
     test('Transform to loading', () {
       const data = 'someData';
 
-      const a = Result.success(data);
-      const b = Result(
+      final a = Result.success(data);
+      final b = Result(
         data,
         null,
         isLoading: true,
@@ -46,9 +46,9 @@ void main() {
     test('data check', () {
       const data = 'someData';
 
-      const a = Result.loading();
-      const b = Result.success(data);
-      const c = Result(
+      final a = Result<String>.loading();
+      final b = Result.success(data);
+      final c = Result(
         data,
         null,
         isLoading: false,
@@ -68,7 +68,7 @@ void main() {
     test('error check', () {
       const error = 'someError';
 
-      const a = Result.error(error);
+      final a = Result<String>.error(error);
 
       expect(a.hasError, true);
     });
@@ -76,11 +76,25 @@ void main() {
     test('transform', () {
       const data = 1;
 
-      const a = Result.success(data);
+      final a = Result.success(data);
 
       String transformer(final int data) => data.toString();
 
       expect(a.transform(transformer), equals(Result.success(data.toString())));
+    });
+
+    test('copyWith', () {
+      expect(Result<dynamic>('String', 'error', isLoading: false, isCached: false).copyWith(data: '').data, '');
+      expect(Result<String>('String', 'error', isLoading: false, isCached: false).copyWith(data: '').data, '');
+
+      expect(Result<dynamic>.loading().copyWith(data: '').isLoading, true);
+      expect(Result<String>.loading().copyWith(data: '').isLoading, true);
+
+      expect(Result<dynamic>.success('String').copyWith(data: '').data, '');
+      expect(Result<String>.success('String').copyWith(data: '').data, '');
+
+      expect(Result<dynamic>.error('error').copyWith(data: '').error, 'error');
+      expect(Result<String>.error('error').copyWith(data: '').error, 'error');
     });
   });
 }

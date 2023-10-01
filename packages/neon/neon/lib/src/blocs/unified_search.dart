@@ -48,7 +48,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
 
   @override
   BehaviorSubject<Result<Map<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>>?>> results =
-      BehaviorSubject.seeded(const Result.success(null));
+      BehaviorSubject.seeded(Result.success(null));
 
   @override
   void dispose() {
@@ -76,13 +76,13 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
   @override
   void disable() {
     enabled.add(false);
-    results.add(const Result.success(null));
+    results.add(Result.success(null));
     _term = '';
   }
 
   Future<void> _search() async {
     if (_term.isEmpty) {
-      results.add(const Result.success(null));
+      results.add(Result.success(null));
       return;
     }
 
@@ -107,12 +107,12 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
     final Iterable<CoreUnifiedSearchProvider> providers,
   ) sync* {
     for (final provider in providers) {
-      yield MapEntry(provider, const Result.loading());
+      yield MapEntry(provider, Result.loading());
     }
   }
 
   Future<void> _searchProvider(final CoreUnifiedSearchProvider provider) async {
-    _updateResults(provider, const Result.loading());
+    _updateResults(provider, Result.loading());
     try {
       final response = await _account.client.core.unifiedSearch.search(
         providerId: provider.id,
