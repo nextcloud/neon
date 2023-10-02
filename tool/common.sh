@@ -8,14 +8,13 @@ function image_tag() {
 
 function cache_build_args() {
     tag="$1"
-    build_args=("--cache-from" "type=registry,ref=$tag")
+
+    build_args=(
+      "--load"
+      "--cache-from" "type=registry,ref=$tag"
+    )
     if [ -v GITHUB_REPOSITORY ]; then
-      build_args+=(
-        "--push"
-        "--cache-to" "type=registry,ref=$tag,mode=max"
-      )
-    else
-      build_args+=("--load")
+      build_args+=("--cache-to" "type=registry,ref=$tag,mode=max")
     fi
 
     echo "${build_args[*]}"
