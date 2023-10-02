@@ -97,9 +97,14 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   /// Returns null when no app is supported by the server.
   String? _getInitialAppFallback() {
     final supportedApps = appImplementations.value.requireData;
-    if (supportedApps.tryFind(AppIDs.files) != null) {
-      return AppIDs.files;
-    } else if (supportedApps.isNotEmpty) {
+
+    for (final fallback in {AppIDs.dashboard, AppIDs.files}) {
+      if (supportedApps.tryFind(fallback) != null) {
+        return fallback;
+      }
+    }
+
+    if (supportedApps.isNotEmpty) {
       return supportedApps.first.id;
     }
 
