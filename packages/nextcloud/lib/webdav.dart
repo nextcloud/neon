@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:nextcloud/src/client.dart';
 import 'package:nextcloud/src/webdav/client.dart';
 
