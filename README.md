@@ -49,6 +49,7 @@ See [here](packages/app/README.md) for screenshots.
 
 | App                                               | Status             |
 |---------------------------------------------------|--------------------|
+| [Dashboard](packages/neon/neon_dashboard)         | :heavy_check_mark: |
 | [Files](packages/neon/neon_files)                 | :heavy_check_mark: |
 | [News](packages/neon/neon_news)                   | :heavy_check_mark: |
 | [Notes](packages/neon/neon_notes)                 | :heavy_check_mark: |
@@ -57,7 +58,6 @@ See [here](packages/app/README.md) for screenshots.
 | Calendar                                          | :rocket:           |
 | Contacts                                          | :rocket:           |
 | Cookbook                                          | :rocket:           |
-| Dashboard                                         | :rocket:           |
 | Photos                                            | :rocket:           |
 | Talk                                              | :rocket:           |
 | Tasks                                             | :rocket:           |
