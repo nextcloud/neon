@@ -60,7 +60,7 @@ dev_dependencies:
   build_runner: ^2.4.6
   go_router_builder: ^2.3.3
   json_serializable: ^6.7.1
-  mocktail: ^1.0.0
+  mocktail: ^1.0.1
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon
