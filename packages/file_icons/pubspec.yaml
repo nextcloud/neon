@@ -20,4 +20,4 @@ flutter:
   fonts:
     - family: Seti
       fonts:
-        - asset: fonts/seti.ttf
+        - asset: assets/seti.ttf
