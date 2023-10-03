@@ -105,47 +105,19 @@ jobs:
           export DEBUG_KEYSTORE=${{ secrets.DEBUG_KEYSTORE }}
           GITHUB_REPOSITORY=provokateurin/nextcloud-neon fdroid nightly -v --archive-older 10
 
-  linux_x86_64:
-    name: Linux x86_64
-    runs-on: ubuntu-22.04
-    needs: setup
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
-      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
-        with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
-          channel: 'stable'
-          cache: true
-      - name: Pub dependency cache
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
-        with:
-          path: ${{ env.PUB_CACHE }}
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
-      - name: Install dependencies
-        run: |
-          sudo apt-get install \
-            -y --no-install-recommends \
-            clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev \
-            libappindicator3-dev
-
-      - name: Build
-        run: cd packages/app && flutter build linux --build-number="${{ needs.setup.outputs.build_number }}"
-
-      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
-        with:
-          name: Linux x86_64
-          path: packages/app/build/linux/x64/release/bundle/*
-          if-no-files-found: error
-
-  linux_arm64:
-    name: Linux arm64
+  linux:
+    name: Linux ${{ matrix.architecture.flutter }}
     runs-on: ubuntu-22.04
     needs: setup
     permissions:
       packages: write
+    strategy:
+      matrix:
+        architecture:
+          - docker: amd64
+            flutter: x64
+          - docker: arm64
+            flutter: arm64
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
@@ -158,19 +130,19 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3 # v3
         with:
-          platforms: arm64
+          platforms: ${{ matrix.architecture.docker }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3
         with:
-          platforms: linux/arm64
+          platforms: linux/${{ matrix.architecture.docker }}
 
       - name: Build
         env:
           FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
-        run: ./tool/build-app.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
+        run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="${{ needs.setup.outputs.build_number }}"
 
       - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         with:
-          name: Linux arm64
-          path: packages/app/build/linux/arm64/release/bundle/*
+          name: Linux ${{ matrix.architecture.flutter }}
+          path: packages/app/build/linux/${{ matrix.architecture.flutter }}/release/bundle/*
           if-no-files-found: error
