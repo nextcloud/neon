@@ -11,7 +11,7 @@ dependencies:
   checked_yaml: ^2.0.3
   code_builder: ^4.7.0
   collection: ^1.17.2
-  dart_style: ^2.3.2
+  dart_style: ^2.3.3
   intersperse: ^2.0.0
   meta: ^1.9.1
   path: ^1.8.3
