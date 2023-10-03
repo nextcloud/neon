@@ -135,6 +135,10 @@ jobs:
         with:
           platforms: linux/${{ matrix.architecture.docker }}
 
+      - name: Install dart
+        uses: dart-lang/setup-dart@8a4b97ea2017cc079571daec46542f76189836b1 # v1
+      - name: Install melos
+        run: dart pub global activate melos
       - name: Build
         run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="${{ needs.setup.outputs.build_number }}"
 
