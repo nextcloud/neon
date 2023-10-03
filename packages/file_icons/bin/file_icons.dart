@@ -17,9 +17,9 @@ void main() {
 }
 
 void copyFont() {
-  final fontsDir = Directory('fonts');
-  if (!fontsDir.existsSync()) {
-    fontsDir.createSync();
+  final assetsDir = Directory('assets');
+  if (!assetsDir.existsSync()) {
+    assetsDir.createSync();
   }
   File(
     p.join(
@@ -29,7 +29,7 @@ void copyFont() {
       'seti',
       'seti.ttf',
     ),
-  ).copySync(p.join('fonts', 'seti.ttf'));
+  ).copySync(p.join(assetsDir.path, 'seti.ttf'));
 }
 
 void generateData() {
