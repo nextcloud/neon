@@ -23,7 +23,6 @@ class NewsFeedIcon extends StatelessWidget {
           ? NeonCachedImage.url(
               url: faviconLink,
               size: Size.square(size),
-              iconColor: Theme.of(context).colorScheme.primary,
             )
           : Icon(
               Icons.rss_feed,
