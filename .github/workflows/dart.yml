@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
       - name: Login to GHCR
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3
         with:
@@ -44,4 +46,9 @@ jobs:
       - name: Lint code
         run: melos run analyze
       - name: Run tests
-        run: melos run test
+        run: |
+          mapfile -t packages < <(melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
+          if [ -z "$packages" ]; then exit 0; fi
+          packages_glob="$(printf ",%s" "${packages[@]}")"
+          packages_glob="${packages_glob:1}"
+          melos exec --scope="$packages_glob" --concurrency=1 --fail-fast --dir-exists=test -- "flutter test --concurrency=$(nproc --all)"
