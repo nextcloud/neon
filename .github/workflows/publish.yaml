@@ -23,9 +23,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
 
-      - name: Set flutter version
-        id: flutter_version
-        run: echo "FLUTTER_VERSION=$(jq ".flutterSdkVersion" -r < .fvm/fvm_config.json | cut -d "@" -f 1)" >> $GITHUB_OUTPUT
       - name: Set build number
         id: build_number
         run: echo "BUILD_NUMBER=$(date +"%s")" >> $GITHUB_OUTPUT
@@ -37,10 +34,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+      - uses: kuhnroyal/flutter-fvm-config-action@v1
+        id: fvm_config
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
         with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
-          channel: 'stable'
+          flutter-version: ${{ steps.fvm_config.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm_config.outputs.FLUTTER_CHANNEL }}
           cache: true
       - name: Pub dependency cache
         uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
@@ -137,8 +136,6 @@ jobs:
           platforms: linux/${{ matrix.architecture.docker }}
 
       - name: Build
-        env:
-          FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
         run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="${{ needs.setup.outputs.build_number }}"
 
       - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
