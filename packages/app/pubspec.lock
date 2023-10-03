@@ -1131,18 +1131,18 @@ packages:
     dependency: transitive
     description:
       name: unifiedpush
-      sha256: "083863337eae48a3d5e30b41964c7c025a6e0e77c3f9c74340d5ff7bfa4e8c85"
+      sha256: ef7f3ae6139d27169604e3844379ef7929af573a2be21d9e82187f44ab7b9a32
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   unifiedpush_android:
     dependency: transitive
     description:
       name: unifiedpush_android
-      sha256: "559124eb1d6bcc5d8f422c8b9a942e52cc704858e6f0afad4c449feef654f1a3"
+      sha256: "19fcdd2671c46bd074efbb80c43cedd0bcddd1fc0cfd3e2f74aec03fb0659d58"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.2.0"
   unifiedpush_platform_interface:
     dependency: transitive
     description:
