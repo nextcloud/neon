@@ -13,11 +13,6 @@ if ! [[ ${targets[*]} =~ "$target" ]]; then
   exit 1
 fi
 
-if [ ! -v FLUTTER_VERSION ]; then
-  # shellcheck disable=SC2155
-  export FLUTTER_VERSION="$(jq ".flutterSdkVersion" -r < .fvm/fvm_config.json | cut -d "@" -f 1)"
-fi
-
 if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   os="$(echo "$target" | cut -d "/" -f 1)"
   arch="$(echo "$target" | cut -d "/" -f 2)"
@@ -29,7 +24,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   --platform "$target" \
   --progress plain \
   --tag "$tag"  \
-  --build-arg="FLUTTER_VERSION=$FLUTTER_VERSION" \
+  --build-arg="FLUTTER_VERSION=$(jq ".flutterSdkVersion" -r < .fvm/fvm_config.json | cut -d "@" -f 1)" \
   $(cache_build_args "$tag") \
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
