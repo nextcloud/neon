@@ -40,7 +40,7 @@ jobs:
         run: ./tool/setup.sh
 
       - name: Check formatting
-        run: melos run format-check
+        run: melos run format:check
       - name: Lint code
         run: melos run analyze
       - name: Run tests
