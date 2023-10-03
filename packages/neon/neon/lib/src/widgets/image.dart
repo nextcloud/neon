@@ -45,7 +45,7 @@ class NeonCachedImage extends StatefulWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.iconColor,
+    this.svgColorFilter,
     this.errorBuilder,
   }) : image = Future.value(image);
 
@@ -59,7 +59,7 @@ class NeonCachedImage extends StatefulWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.iconColor,
+    this.svgColorFilter,
     this.errorBuilder,
   })  : image = _getImageFromUrl(url, account),
         super(key: key ?? Key(url));
@@ -76,7 +76,7 @@ class NeonCachedImage extends StatefulWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.iconColor,
+    this.svgColorFilter,
     this.errorBuilder,
   })  : image = _customImageGetter(
           reviver,
@@ -104,12 +104,10 @@ class NeonCachedImage extends StatefulWidget {
   /// {@endtemplate}
   final BoxFit? fit;
 
-  /// {@template NeonCachedImage.iconColor}
-  /// The color to use when drawing the image.
-  ///
-  /// Applies to SVG images only and the loading animation.
+  /// {@template NeonCachedImage.svgColorFilter}
+  /// The color filter to use when drawing SVGs.
   /// {@endtemplate}
-  final Color? iconColor;
+  final ColorFilter? svgColorFilter;
 
   /// {@template NeonCachedImage.errorBuilder}
   /// Builder function building the error widget.
@@ -189,9 +187,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
             if (!fileSnapshot.hasData) {
               return SizedBox(
                 width: widget.size?.width,
-                child: NeonLinearProgressIndicator(
-                  color: widget.iconColor,
-                ),
+                child: const NeonLinearProgressIndicator(),
               );
             }
 
@@ -205,7 +201,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                   height: widget.size?.height,
                   width: widget.size?.width,
                   fit: widget.fit ?? BoxFit.contain,
-                  colorFilter: widget.iconColor != null ? ColorFilter.mode(widget.iconColor!, BlendMode.srcIn) : null,
+                  colorFilter: widget.svgColorFilter,
                 );
               }
             } catch (_) {
@@ -256,7 +252,7 @@ class NeonApiImage extends StatelessWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.iconColor,
+    this.svgColorFilter,
     this.errorBuilder,
     super.key,
   }) : account = null;
@@ -273,7 +269,7 @@ class NeonApiImage extends StatelessWidget {
     this.isSvgHint = false,
     this.size,
     this.fit,
-    this.iconColor,
+    this.svgColorFilter,
     this.errorBuilder,
     super.key,
   });
@@ -305,8 +301,8 @@ class NeonApiImage extends StatelessWidget {
   /// {@macro NeonCachedImage.fit}
   final BoxFit? fit;
 
-  /// {@macro NeonCachedImage.iconColor}
-  final Color? iconColor;
+  /// {@macro NeonCachedImage.svgColorFilter}
+  final ColorFilter? svgColorFilter;
 
   /// {@macro NeonCachedImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
@@ -326,7 +322,7 @@ class NeonApiImage extends StatelessWidget {
       isSvgHint: isSvgHint,
       size: size,
       fit: fit,
-      iconColor: iconColor,
+      svgColorFilter: svgColorFilter,
       errorBuilder: errorBuilder,
     );
   }
