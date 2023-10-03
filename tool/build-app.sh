@@ -3,6 +3,18 @@ set -euxo pipefail
 cd "$(dirname "$0")/.."
 source tool/common.sh
 
+function get_mount_paths_dir() {
+  dir="$1"
+  mapfile -t packages < <(melos list --parsable --relative --dir-exists="$dir")
+  echo "${packages[@]/%//$dir}"
+}
+
+function get_mount_paths_file() {
+  file="$1"
+  mapfile -t packages < <(melos list --parsable --relative --file-exists="$file")
+  echo "${packages[@]/%//$file}"
+}
+
 targets=("linux/arm64" "linux/amd64")
 
 target="$1"
@@ -29,8 +41,14 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
 
+  paths=(packages/app/{pubspec.lock,linux,build})
+  mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "lib")
+  mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "assets")
+  mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_file "pubspec.yaml")
+  mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_file "pubspec_overrides.yaml")
+
   run_args=()
-  for path in packages/{app,dynamite/dynamite_runtime,file_icons,neon_lints,nextcloud,sort_box}/{lib,pubspec.yaml} packages/neon/*/{assets,lib,pubspec.yaml,pubspec_overrides.yaml} packages/file_icons/fonts packages/nextcloud/pubspec_overrides.yaml packages/app/{pubspec_overrides.yaml,assets,build,linux}; do
+  for path in ${paths[*]}; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
   mkdir -p "packages/app/build"
