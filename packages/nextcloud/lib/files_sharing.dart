@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:nextcloud/src/api/files_sharing.openapi.dart';
 import 'package:nextcloud/src/client.dart';
 

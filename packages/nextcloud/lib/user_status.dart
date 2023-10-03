@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:nextcloud/src/api/user_status.openapi.dart';
 import 'package:nextcloud/src/client.dart';
 

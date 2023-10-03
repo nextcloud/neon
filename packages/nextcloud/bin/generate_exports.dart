@@ -31,6 +31,7 @@ void main() {
     }
 
     File('lib/$id.dart').writeAsStringSync('''
+// coverage:ignore-file
 import 'package:nextcloud/src/api/$id.openapi.dart';
 import 'package:nextcloud/src/client.dart';
 
