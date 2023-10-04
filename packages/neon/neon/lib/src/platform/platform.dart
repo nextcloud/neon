@@ -59,6 +59,11 @@ abstract interface class NeonPlatform {
 
   abstract final bool canUseSharing;
 
+  /// Whether this platform should use file dialog.
+  ///
+  /// This is needed to compensate lacking support of `https://pub.dev/packages/file_picker`.
+  abstract final bool shouldUseFileDialog;
+
   FutureOr<String> get userAccessibleAppDataPath;
 
   FutureOr<void> init();
