@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_implementing_value_types, inference_failure_on_collection_literal
-
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -14,13 +12,14 @@ import 'package:neon/src/utils/account_options.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:test/test.dart';
 
-// ignore: missing_override_of_must_be_overridden
+// ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
 class FakeAppImplementation extends Mock implements AppImplementation {}
 
 class NextcloudAppOptionsMock extends Mock implements NextcloudAppOptions {}
 
 class AccountsBlocMock extends Mock implements AccountsBloc {}
 
+// ignore: avoid_implementing_value_types
 class FakeAccount extends Mock implements Account {}
 
 class AccountSpecificOptionsMock extends Mock implements AccountSpecificOptions {}
@@ -33,7 +32,7 @@ void main() {
       var exporter = const AppImplementationsExporter([]);
 
       var export = exporter.export();
-      expect(Map.fromEntries([export]), {'app': {}});
+      expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
       final fakeApp = FakeAppImplementation();
       final fakeOptions = NextcloudAppOptionsMock();
@@ -66,7 +65,7 @@ void main() {
 
       when(() => bloc.accounts).thenAnswer((final _) => BehaviorSubject.seeded([]));
       var export = exporter.export();
-      expect(Map.fromEntries([export]), {'accounts': {}});
+      expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
       final fakeAccount = FakeAccount();
       final fakeOptions = AccountSpecificOptionsMock();

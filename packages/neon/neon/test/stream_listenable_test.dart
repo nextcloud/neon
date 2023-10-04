@@ -1,5 +1,3 @@
-// ignore_for_file: unreachable_from_main, inference_failure_on_instance_creation
-
 import 'dart:async';
 
 import 'package:mocktail/mocktail.dart';
@@ -22,11 +20,11 @@ void main() {
       verifyNever(callback.call);
 
       stream.value = true;
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
       verify(callback.call).called(1);
 
       stream.value = true;
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
       verify(callback.call).called(1);
 
       unawaited(stream.close());
@@ -45,11 +43,11 @@ void main() {
       verifyNever(callback.call);
 
       stream.value = true;
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
       verify(callback.call).called(1);
 
       stream2.value = 3;
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
       verify(callback.call).called(1);
 
       unawaited(stream.close());
@@ -57,7 +55,7 @@ void main() {
     });
 
     test('dispose', () {
-      final controller = StreamController();
+      final controller = StreamController<void>();
 
       final listenable = StreamListenable(controller.stream);
 
