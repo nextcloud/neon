@@ -140,7 +140,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
 
   @override
-  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>();
+  BehaviorSubject<Account?> activeAccount = BehaviorSubject();
 
   @override
   void addAccount(final Account account) {

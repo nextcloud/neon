@@ -177,7 +177,7 @@ class NeonCachedImage extends StatefulWidget {
 class _NeonCachedImageState extends State<NeonCachedImage> {
   @override
   Widget build(final BuildContext context) => Center(
-        child: FutureBuilder<Uint8List>(
+        child: FutureBuilder(
           future: widget.image,
           builder: (final context, final fileSnapshot) {
             if (fileSnapshot.hasError) {

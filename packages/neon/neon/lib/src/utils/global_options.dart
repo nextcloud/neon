@@ -114,7 +114,7 @@ class GlobalOptions extends OptionsCollection {
     }
   }
 
-  late final themeMode = SelectOption<ThemeMode>(
+  late final themeMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.themeMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
@@ -202,7 +202,7 @@ class GlobalOptions extends OptionsCollection {
     values: {},
   );
 
-  late final navigationMode = SelectOption<NavigationMode>(
+  late final navigationMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.navigationMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,

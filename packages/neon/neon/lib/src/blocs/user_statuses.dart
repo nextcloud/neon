@@ -41,8 +41,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> statuses =
-      BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>>();
+  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> statuses = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

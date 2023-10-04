@@ -64,9 +64,9 @@ class _NeonAppBarState extends State<NeonAppBar> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
         stream: appsBloc.appImplementations,
-        builder: (final context, final appImplementations) => StreamBuilder<AppImplementation>(
+        builder: (final context, final appImplementations) => StreamBuilder(
           stream: appsBloc.activeApp,
-          builder: (final context, final activeAppSnapshot) => StreamBuilder<bool>(
+          builder: (final context, final activeAppSnapshot) => StreamBuilder(
             stream: unifiedSearchBloc.enabled,
             builder: (final context, final unifiedSearchEnabledSnapshot) {
               final unifiedSearchEnabled = unifiedSearchEnabledSnapshot.data ?? false;

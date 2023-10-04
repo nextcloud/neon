@@ -82,7 +82,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             alignment: Alignment.center,
             children: [
               avatar,
-              ResultBuilder<UserStatusPublicInterface?>(
+              ResultBuilder(
                 stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                 builder: _userStatusIconBuilder,
               ),
