@@ -4,7 +4,6 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
@@ -82,14 +81,14 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       ],
     );
-    final body = StreamBuilder<List<Account>>(
+    final body = StreamBuilder(
       stream: accountsBloc.accounts,
       initialData: accountsBloc.accounts.valueOrNull,
       builder: (
         final context,
         final accountsSnapshot,
       ) =>
-          ValueListenableBuilder<bool>(
+          ValueListenableBuilder(
         valueListenable: globalOptions.pushNotificationsEnabled,
         builder: (
           final context,

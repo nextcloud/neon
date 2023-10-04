@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               );
             }
 
-            return StreamBuilder<AppImplementation>(
+            return StreamBuilder(
               stream: _appsBloc.activeApp,
               builder: (final context, final activeAppIDSnapshot) {
                 if (!activeAppIDSnapshot.hasData) {
@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
       },
     );
 
-    final body = ValueListenableBuilder<global_options.NavigationMode>(
+    final body = ValueListenableBuilder(
       valueListenable: _globalOptions.navigationMode,
       builder: (final context, final navigationMode, final _) {
         final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;

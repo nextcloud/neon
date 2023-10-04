@@ -33,13 +33,11 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
   }
 
   @override
-  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities =
-      BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
+  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
-        CoreOcsGetCapabilitiesResponseApplicationJson, void>(
+    await RequestManager.instance.wrapNextcloud(
       _account.id,
       'capabilities',
       capabilities,

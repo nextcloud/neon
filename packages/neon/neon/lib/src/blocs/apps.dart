@@ -175,18 +175,17 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  BehaviorSubject<AppImplementation> activeApp = BehaviorSubject<AppImplementation>();
+  BehaviorSubject<AppImplementation> activeApp = BehaviorSubject();
 
   @override
   BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppOptions>>>> appImplementations =
-      BehaviorSubject<Result<Iterable<AppImplementation>>>();
+      BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<List<CoreNavigationEntry>>> apps = BehaviorSubject<Result<List<CoreNavigationEntry>>>();
+  BehaviorSubject<Result<List<CoreNavigationEntry>>> apps = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation =
-      BehaviorSubject<Result<NotificationsAppInterface?>>();
+  BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation = BehaviorSubject();
 
   @override
   BehaviorSubject<void> openNotifications = BehaviorSubject();
@@ -196,8 +195,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance
-        .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponseApplicationJson, void>(
+    await RequestManager.instance.wrapNextcloud(
       _account.id,
       'apps-apps',
       apps,

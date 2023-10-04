@@ -43,7 +43,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   }
 
   @override
-  BehaviorSubject<Result<CoreLoginFlowV2>> init = BehaviorSubject<Result<CoreLoginFlowV2>>();
+  BehaviorSubject<Result<CoreLoginFlowV2>> init = BehaviorSubject();
 
   @override
   late Stream<CoreLoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
