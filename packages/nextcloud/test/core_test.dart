@@ -87,48 +87,24 @@ void main() {
         expect(response.body.ocs.data[5].id, 'news');
       });
 
-      test(
-        'Autocomplete',
-        () async {
-          final response = await client.core.autoComplete.$get(
-            search: '',
-            itemType: 'call',
-            itemId: 'new',
-            shareTypes: [
-              ShareType.user.index,
-              ShareType.group.index,
-            ],
-          );
-          expect(response.statusCode, 200);
-          expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(3));
+      test('Autocomplete', () async {
+        final response = await client.core.autoComplete.$get(
+          search: '',
+          itemType: 'call',
+          itemId: 'new',
+          shareTypes: [ShareType.group.index],
+        );
+        expect(response.body.ocs.data, hasLength(1));
 
-          expect(response.body.ocs.data[0].id, 'admin');
-          expect(response.body.ocs.data[0].label, 'admin');
-          expect(response.body.ocs.data[0].icon, 'icon-user');
-          expect(response.body.ocs.data[0].source, 'users');
-          expect(response.body.ocs.data[0].status, isEmpty);
-          expect(response.body.ocs.data[0].subline, '');
-          expect(response.body.ocs.data[0].shareWithDisplayNameUnique, 'admin@example.com');
-
-          expect(response.body.ocs.data[1].id, 'user2');
-          expect(response.body.ocs.data[1].label, 'User Two');
-          expect(response.body.ocs.data[1].icon, 'icon-user');
-          expect(response.body.ocs.data[1].source, 'users');
-          expect(response.body.ocs.data[1].status, isEmpty);
-          expect(response.body.ocs.data[1].subline, '');
-          expect(response.body.ocs.data[1].shareWithDisplayNameUnique, 'user2');
-
-          expect(response.body.ocs.data[2].id, 'admin');
-          expect(response.body.ocs.data[2].label, 'admin');
-          expect(response.body.ocs.data[2].icon, '');
-          expect(response.body.ocs.data[2].source, 'groups');
-          expect(response.body.ocs.data[2].status, isEmpty);
-          expect(response.body.ocs.data[2].subline, '');
-          expect(response.body.ocs.data[2].shareWithDisplayNameUnique, '');
-        },
-        skip: true, // TODO: This test only works on 28+ due to a bug fix with the status
-      );
+        expect(response.body.ocs.data[0].id, 'admin');
+        expect(response.body.ocs.data[0].label, 'admin');
+        expect(response.body.ocs.data[0].icon, '');
+        expect(response.body.ocs.data[0].source, 'groups');
+        expect(response.body.ocs.data[0].status.autocompleteResultStatus0, isNull);
+        expect(response.body.ocs.data[0].status.string, isEmpty);
+        expect(response.body.ocs.data[0].subline, '');
+        expect(response.body.ocs.data[0].shareWithDisplayNameUnique, '');
+      });
 
       test('Get preview', () async {
         final response = await client.core.preview.getPreview(file: 'Nextcloud.png');

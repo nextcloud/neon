@@ -4733,12 +4733,112 @@ abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class CoreAutocompleteResult_Status0Interface {
+  String get status;
+  String? get message;
+  String? get icon;
+  int? get clearAt;
+  CoreAutocompleteResult_Status0Interface rebuild(
+    final void Function(CoreAutocompleteResult_Status0InterfaceBuilder) updates,
+  );
+  CoreAutocompleteResult_Status0InterfaceBuilder toBuilder();
+}
+
+abstract class CoreAutocompleteResult_Status0
+    implements
+        CoreAutocompleteResult_Status0Interface,
+        Built<CoreAutocompleteResult_Status0, CoreAutocompleteResult_Status0Builder> {
+  factory CoreAutocompleteResult_Status0([final void Function(CoreAutocompleteResult_Status0Builder)? b]) =
+      _$CoreAutocompleteResult_Status0;
+
+  // coverage:ignore-start
+  const CoreAutocompleteResult_Status0._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreAutocompleteResult_Status0.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<CoreAutocompleteResult_Status0> get serializer => _$coreAutocompleteResultStatus0Serializer;
+}
+
+abstract class CoreAutocompleteResult_Status
+    implements Built<CoreAutocompleteResult_Status, CoreAutocompleteResult_StatusBuilder> {
+  factory CoreAutocompleteResult_Status([final void Function(CoreAutocompleteResult_StatusBuilder)? b]) =
+      _$CoreAutocompleteResult_Status;
+
+  // coverage:ignore-start
+  const CoreAutocompleteResult_Status._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreAutocompleteResult_Status.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  JsonObject get data;
+  CoreAutocompleteResult_Status0? get autocompleteResultStatus0;
+  String? get string;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CoreAutocompleteResult_Status> get serializer => _$CoreAutocompleteResult_StatusSerializer();
+}
+
+class _$CoreAutocompleteResult_StatusSerializer implements PrimitiveSerializer<CoreAutocompleteResult_Status> {
+  @override
+  final Iterable<Type> types = const [CoreAutocompleteResult_Status, _$CoreAutocompleteResult_Status];
+
+  @override
+  final String wireName = 'CoreAutocompleteResult_Status';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final CoreAutocompleteResult_Status object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  CoreAutocompleteResult_Status deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CoreAutocompleteResult_StatusBuilder()..data = JsonObject(data);
+    try {
+      result._autocompleteResultStatus0 = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreAutocompleteResult_Status0),
+      )! as CoreAutocompleteResult_Status0)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    assert(
+      [result._autocompleteResultStatus0, result._string].where((final x) => x != null).isNotEmpty,
+      'Need oneOf for ${result._data}',
+    );
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class CoreAutocompleteResultInterface {
   String get id;
   String get label;
   String get icon;
   String get source;
-  String get status;
+  CoreAutocompleteResult_Status get status;
   String get subline;
   String get shareWithDisplayNameUnique;
   CoreAutocompleteResultInterface rebuild(final void Function(CoreAutocompleteResultInterfaceBuilder) updates);
@@ -10259,6 +10359,10 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(CoreAutoCompleteGetResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(CoreAutocompleteResult), CoreAutocompleteResult.new)
       ..add(CoreAutocompleteResult.serializer)
+      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Status), CoreAutocompleteResult_Status.new)
+      ..add(CoreAutocompleteResult_Status.serializer)
+      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Status0), CoreAutocompleteResult_Status0.new)
+      ..add(CoreAutocompleteResult_Status0.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(CoreAutocompleteResult)]),
         ListBuilder<CoreAutocompleteResult>.new,
