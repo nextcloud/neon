@@ -3,7 +3,6 @@
 package "Neon framework" {
     component neon
     component nextcloud
-    component settings
     component sort_box
     component file_icons
 }
