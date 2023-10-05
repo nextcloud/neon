@@ -338,10 +338,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_markdown
-      sha256: d4a1cb250c4e059586af0235f32e02882860a508e189b61f2b31b8810c1e1330
+      sha256: "8afc9a6aa6d8e8063523192ba837149dbf3d377a37c0b0fc579149a1fbd4a619"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.17+2"
+    version: "0.6.18"
   flutter_material_design_icons:
     dependency: "direct dev"
     description:
