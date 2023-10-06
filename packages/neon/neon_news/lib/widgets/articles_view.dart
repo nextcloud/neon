@@ -25,11 +25,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NewsFeed>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<news.Feed>>.behaviorSubject(
         stream: widget.newsBloc.feeds,
-        builder: (final context, final feeds) => ResultBuilder<List<NewsArticle>>.behaviorSubject(
+        builder: (final context, final feeds) => ResultBuilder<List<news.Article>>.behaviorSubject(
           stream: widget.bloc.articles,
-          builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
+          builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
@@ -101,8 +101,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
 
   Widget _buildArticle(
     final BuildContext context,
-    final NewsArticle article,
-    final NewsFeed feed,
+    final news.Article article,
+    final news.Feed feed,
   ) =>
       ListTile(
         title: Row(

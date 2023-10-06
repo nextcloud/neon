@@ -7,7 +7,7 @@ import 'package:neon/models.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/apps.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 @internal
@@ -23,7 +23,7 @@ abstract interface class UnifiedSearchBlocEvents {
 abstract interface class UnifiedSearchBlocStates {
   BehaviorSubject<bool> get enabled;
 
-  BehaviorSubject<Result<Map<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>>?>> get results;
+  BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> get results;
 }
 
 @internal
@@ -47,7 +47,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
   BehaviorSubject<bool> enabled = BehaviorSubject.seeded(false);
 
   @override
-  BehaviorSubject<Result<Map<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>>?>> results =
+  BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> results =
       BehaviorSubject.seeded(Result.success(null));
 
   @override
@@ -103,15 +103,15 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
     }
   }
 
-  Iterable<MapEntry<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>>> _getLoadingProviders(
-    final Iterable<CoreUnifiedSearchProvider> providers,
+  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _getLoadingProviders(
+    final Iterable<core.UnifiedSearchProvider> providers,
   ) sync* {
     for (final provider in providers) {
       yield MapEntry(provider, Result.loading());
     }
   }
 
-  Future<void> _searchProvider(final CoreUnifiedSearchProvider provider) async {
+  Future<void> _searchProvider(final core.UnifiedSearchProvider provider) async {
     _updateResults(provider, Result.loading());
     try {
       final response = await _account.client.core.unifiedSearch.search(
@@ -126,7 +126,7 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
     }
   }
 
-  void _updateResults(final CoreUnifiedSearchProvider provider, final Result<CoreUnifiedSearchResult> result) =>
+  void _updateResults(final core.UnifiedSearchProvider provider, final Result<core.UnifiedSearchResult> result) =>
       results.add(
         Result.success(
           Map.fromEntries(
@@ -138,8 +138,8 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
         ),
       );
 
-  Iterable<MapEntry<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>>> _sortResults(
-    final Map<CoreUnifiedSearchProvider, Result<CoreUnifiedSearchResult>> results,
+  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _sortResults(
+    final Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
   ) sync* {
     final activeApp = _appsBloc.activeApp.value;
 
@@ -152,12 +152,12 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
         .sorted((final a, final b) => _sortEntriesCount(a.value, b.value));
   }
 
-  bool _providerMatchesApp(final CoreUnifiedSearchProvider provider, final AppImplementation app) =>
+  bool _providerMatchesApp(final core.UnifiedSearchProvider provider, final AppImplementation app) =>
       provider.id == app.id || provider.id.startsWith('${app.id}_');
 
-  bool _hasEntries(final Result<CoreUnifiedSearchResult> result) =>
+  bool _hasEntries(final Result<core.UnifiedSearchResult> result) =>
       !result.hasData || result.requireData.entries.isNotEmpty;
 
-  int _sortEntriesCount(final Result<CoreUnifiedSearchResult> a, final Result<CoreUnifiedSearchResult> b) =>
+  int _sortEntriesCount(final Result<core.UnifiedSearchResult> a, final Result<core.UnifiedSearchResult> b) =>
       (b.data?.entries.length ?? 0).compareTo(a.data?.entries.length ?? 0);
 }

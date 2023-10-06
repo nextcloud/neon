@@ -22,6 +22,7 @@ import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/push_utils.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:tray_manager/tray_manager.dart' as tray;
@@ -284,7 +285,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
               stream: _accountsBloc.activeAccount,
               builder: (final context, final activeAccountSnapshot) {
                 FlutterNativeSplash.remove();
-                return ResultBuilder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
+                return ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
                   stream: activeAccountSnapshot.hasData
                       ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,

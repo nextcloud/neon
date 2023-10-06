@@ -19,7 +19,7 @@ abstract interface class NotesBlocEvents {
 }
 
 abstract interface class NotesBlocStates {
-  BehaviorSubject<Result<List<NotesNote>>> get notes;
+  BehaviorSubject<Result<List<notes.Note>>> get notesList;
 }
 
 class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocStates {
@@ -35,21 +35,21 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
 
   @override
   void dispose() {
-    unawaited(notes.close());
+    unawaited(notesList.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<Result<List<NotesNote>>> notes = BehaviorSubject<Result<List<NotesNote>>>();
+  BehaviorSubject<Result<List<notes.Note>>> notesList = BehaviorSubject<Result<List<notes.Note>>>();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<List<NotesNote>, BuiltList<NotesNote>, void>(
+    await RequestManager.instance.wrapNextcloud<List<notes.Note>, BuiltList<notes.Note>, void>(
       account.id,
       'notes-notes',
-      notes,
+      notesList,
       account.client.notes.getNotesRaw(),
-      (final response) => List<NotesNote>.from(response.body),
+      (final response) => List<notes.Note>.from(response.body),
     );
   }
 

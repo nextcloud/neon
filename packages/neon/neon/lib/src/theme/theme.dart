@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/hex_color.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 
 @internal
 @immutable
@@ -16,7 +16,7 @@ class AppTheme {
     this.appThemes,
   }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
 
-  final CoreThemingPublicCapabilities_Theming? nextcloudTheme;
+  final core.ThemingPublicCapabilities_Theming? nextcloudTheme;
   final bool keepOriginalAccentColor;
   final bool oledAsDark;
   final Iterable<ThemeExtension>? appThemes;

@@ -653,7 +653,7 @@ packages:
     source: hosted
     version: "1.0.0"
   nextcloud:
-    dependency: "direct overridden"
+    dependency: "direct dev"
     description:
       path: "../nextcloud"
       relative: true

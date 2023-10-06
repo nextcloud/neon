@@ -14,17 +14,17 @@ enum ListType {
 abstract interface class NewsArticlesBlocEvents {
   void setFilterType(final FilterType type);
 
-  void markArticleAsRead(final NewsArticle article);
+  void markArticleAsRead(final news.Article article);
 
-  void markArticleAsUnread(final NewsArticle article);
+  void markArticleAsUnread(final news.Article article);
 
-  void starArticle(final NewsArticle article);
+  void starArticle(final news.Article article);
 
-  void unstarArticle(final NewsArticle article);
+  void unstarArticle(final news.Article article);
 }
 
 abstract interface class NewsArticlesBlocStates {
-  BehaviorSubject<Result<List<NewsArticle>>> get articles;
+  BehaviorSubject<Result<List<news.Article>>> get articles;
 
   BehaviorSubject<FilterType> get filterType;
 }
@@ -69,7 +69,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   }
 
   @override
-  BehaviorSubject<Result<List<NewsArticle>>> articles = BehaviorSubject<Result<List<NewsArticle>>>();
+  BehaviorSubject<Result<List<news.Article>>> articles = BehaviorSubject<Result<List<news.Article>>>();
 
   @override
   BehaviorSubject<FilterType> filterType = BehaviorSubject<FilterType>();
@@ -87,7 +87,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
     // https://github.com/nextcloud/news/blob/master/docs/api/api-v1-2.md#get-items
 
     // https://github.com/nextcloud/news/blob/48ee5ce4d135da20079961a62ae37958d6a6b628/lib/Db/ListType.php#L21
-    late final NewsListType type;
+    late final news.ListType type;
     bool? getRead;
     if (listType != null) {
       switch (filterType.value) {
@@ -101,21 +101,21 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
     }
     switch (listType) {
       case ListType.feed:
-        type = NewsListType.feed;
+        type = news.ListType.feed;
       case ListType.folder:
-        type = NewsListType.folder;
+        type = news.ListType.folder;
       case null:
         switch (filterType.value) {
           case FilterType.starred:
-            type = NewsListType.starred;
+            type = news.ListType.starred;
           case FilterType.all:
-            type = NewsListType.allItems;
+            type = news.ListType.allItems;
           case FilterType.unread:
-            type = NewsListType.unread;
+            type = news.ListType.unread;
         }
     }
 
-    await RequestManager.instance.wrapNextcloud<List<NewsArticle>, NewsListArticles, void>(
+    await RequestManager.instance.wrapNextcloud<List<news.Article>, news.ListArticles, void>(
       account.id,
       'news-articles-${type.index}-$id-$getRead',
       articles,
@@ -129,12 +129,12 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   }
 
   @override
-  void markArticleAsRead(final NewsArticle article) {
+  void markArticleAsRead(final news.Article article) {
     wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
-  void markArticleAsUnread(final NewsArticle article) {
+  void markArticleAsUnread(final news.Article article) {
     wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
   }
 
@@ -144,12 +144,12 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   }
 
   @override
-  void starArticle(final NewsArticle article) {
+  void starArticle(final news.Article article) {
     wrapAction(() async => account.client.news.starArticle(itemId: article.id));
   }
 
   @override
-  void unstarArticle(final NewsArticle article) {
+  void unstarArticle(final news.Article article) {
     wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
   }
 }

@@ -24,8 +24,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NotificationsNotification>>.behaviorSubject(
-        stream: bloc.notifications,
+  Widget build(final BuildContext context) => ResultBuilder<List<notifications.Notification>>.behaviorSubject(
+        stream: bloc.notificationsList,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: StreamBuilder<int>(
@@ -52,7 +52,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
   Widget _buildNotification(
     final BuildContext context,
-    final NotificationsNotification notification,
+    final notifications.Notification notification,
   ) {
     final app = NeonProvider.of<Iterable<AppImplementation>>(context).tryFind(notification.app);
 

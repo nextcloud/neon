@@ -13,7 +13,7 @@ import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 
 @internal
 class NeonDrawer extends StatelessWidget {
@@ -121,7 +121,7 @@ class NeonDrawerHeader extends StatelessWidget {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
-    final branding = ResultBuilder<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(
+    final branding = ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(
       stream: capabilitiesBloc.capabilities,
       builder: (final context, final capabilities) {
         if (!capabilities.hasData) {

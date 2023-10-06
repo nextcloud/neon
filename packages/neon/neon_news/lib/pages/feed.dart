@@ -8,7 +8,7 @@ class NewsFeedPage extends StatelessWidget {
   });
 
   final NewsBloc bloc;
-  final NewsFeed feed;
+  final news.Feed feed;
 
   @override
   Widget build(final BuildContext context) => Scaffold(

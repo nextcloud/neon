@@ -11,7 +11,6 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:go_router/go_router.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
 import 'package:neon/theme.dart';
@@ -19,6 +18,9 @@ import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/routes.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notes.dart' as notes;
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -71,7 +73,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   @override
   (bool? supported, String? minimumVersion) isSupported(
     final Account account,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) {
     final (supported, minimumVersion) = account.client.notes.isSupported(capabilities);
     return (supported, minimumVersion.toString());

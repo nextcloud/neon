@@ -8,6 +8,7 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/timer.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -18,7 +19,7 @@ abstract interface class UserStatusesBlocEvents {
 
 @internal
 abstract interface class UserStatusesBlocStates {
-  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> get statuses;
+  BehaviorSubject<Map<String, Result<user_status.PublicInterface?>>> get statuses;
 }
 
 @internal
@@ -41,7 +42,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<UserStatusPublicInterface?>>> statuses = BehaviorSubject();
+  BehaviorSubject<Map<String, Result<user_status.PublicInterface?>>> statuses = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
@@ -59,7 +60,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     try {
       _updateStatus(username, Result.loading());
 
-      UserStatusPublicInterface? data;
+      user_status.PublicInterface? data;
 
       if (_account.username == username) {
         var isAway = false;
@@ -98,10 +99,10 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
   }
 
-  Map<String, Result<UserStatusPublicInterface?>> get _statuses =>
-      statuses.valueOrNull ?? <String, Result<UserStatusPublicInterface?>>{};
+  Map<String, Result<user_status.PublicInterface?>> get _statuses =>
+      statuses.valueOrNull ?? <String, Result<user_status.PublicInterface?>>{};
 
-  void _updateStatus(final String username, final Result<UserStatusPublicInterface?> result) {
+  void _updateStatus(final String username, final Result<user_status.PublicInterface?> result) {
     statuses.add({
       ..._statuses,
       username: result,

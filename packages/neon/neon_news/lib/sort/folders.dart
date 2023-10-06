@@ -15,4 +15,4 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   },
 );
 
-typedef FolderFeedsWrapper = (NewsFolder folder, int feedCount, int unreadCount);
+typedef FolderFeedsWrapper = (news.Folder folder, int feedCount, int unreadCount);

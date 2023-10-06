@@ -20,6 +20,10 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon/neon
+  nextcloud:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/nextcloud
   rxdart: ^0.27.0
   share_plus: ^7.0.0
   url_launcher: ^6.0.0

@@ -7,7 +7,7 @@ abstract interface class NotificationsBlocEvents {
 }
 
 abstract interface class NotificationsBlocStates {
-  BehaviorSubject<Result<List<NotificationsNotification>>> get notifications;
+  BehaviorSubject<Result<List<notifications.Notification>>> get notificationsList;
 
   BehaviorSubject<int> get unreadCounter;
 }
@@ -18,7 +18,7 @@ class NotificationsBloc extends InteractiveBloc
     this.options,
     this._account,
   ) {
-    notifications.listen((final result) {
+    notificationsList.listen((final result) {
       if (result.hasData) {
         unreadCounter.add(result.requireData.length);
       }
@@ -36,25 +36,25 @@ class NotificationsBloc extends InteractiveBloc
   @override
   void dispose() {
     _timer.cancel();
-    unawaited(notifications.close());
+    unawaited(notificationsList.close());
     unawaited(unreadCounter.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<Result<List<NotificationsNotification>>> notifications =
-      BehaviorSubject<Result<List<NotificationsNotification>>>();
+  BehaviorSubject<Result<List<notifications.Notification>>> notificationsList =
+      BehaviorSubject<Result<List<notifications.Notification>>>();
 
   @override
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<List<NotificationsNotification>,
-        NotificationsEndpointListNotificationsResponseApplicationJson, void>(
+    await RequestManager.instance.wrapNextcloud<List<notifications.Notification>,
+        notifications.EndpointListNotificationsResponseApplicationJson, void>(
       _account.id,
       'notifications-notifications',
-      notifications,
+      notificationsList,
       _account.client.notifications.endpoint.listNotificationsRaw(),
       (final response) => response.body.ocs.data.toList(),
     );

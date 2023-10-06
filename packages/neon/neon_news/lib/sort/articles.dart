@@ -1,6 +1,6 @@
 part of '../neon_news.dart';
 
-final articlesSortBox = SortBox<ArticlesSortProperty, NewsArticle>(
+final articlesSortBox = SortBox<ArticlesSortProperty, news.Article>(
   {
     ArticlesSortProperty.publishDate: (final article) => article.pubDate,
     ArticlesSortProperty.alphabetical: (final article) => article.title.toLowerCase(),

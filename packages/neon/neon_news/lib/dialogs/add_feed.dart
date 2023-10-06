@@ -18,7 +18,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   final formKey = GlobalKey<FormState>();
   final controller = TextEditingController();
 
-  NewsFolder? folder;
+  news.Folder? folder;
 
   void submit() {
     if (formKey.currentState!.validate()) {
@@ -49,7 +49,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NewsFolder>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(
           title: Text(AppLocalizations.of(context).feedAdd),

@@ -41,6 +41,10 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
+  nextcloud:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/nextcloud
   shared_preferences: any
   vector_graphics_compiler: any
 

@@ -11,6 +11,7 @@ import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/utils/request_manager.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -26,7 +27,7 @@ abstract interface class AppsBlocEvents {
 
 @internal
 abstract interface class AppsBlocStates {
-  BehaviorSubject<Result<List<CoreNavigationEntry>>> get apps;
+  BehaviorSubject<Result<List<core.NavigationEntry>>> get apps;
 
   BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
 
@@ -182,7 +183,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<List<CoreNavigationEntry>>> apps = BehaviorSubject();
+  BehaviorSubject<Result<List<core.NavigationEntry>>> apps = BehaviorSubject();
 
   @override
   BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation = BehaviorSubject();

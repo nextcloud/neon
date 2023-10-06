@@ -9,9 +9,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/settings.dart';
 import 'package:neon_files/widgets/actions.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/news.dart' as news;
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notes.dart' as notes;
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> runTestApp(

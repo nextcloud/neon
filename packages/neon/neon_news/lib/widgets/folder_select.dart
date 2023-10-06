@@ -8,12 +8,12 @@ class NewsFolderSelect extends StatelessWidget {
     super.key,
   });
 
-  final List<NewsFolder> folders;
-  final ValueChanged<NewsFolder?> onChanged;
-  final NewsFolder? value;
+  final List<news.Folder> folders;
+  final ValueChanged<news.Folder?> onChanged;
+  final news.Folder? value;
 
   @override
-  Widget build(final BuildContext context) => DropdownButtonFormField<NewsFolder>(
+  Widget build(final BuildContext context) => DropdownButtonFormField<news.Folder>(
         decoration: InputDecoration(
           hintText: AppLocalizations.of(context).folder,
         ),
@@ -23,7 +23,7 @@ class NewsFolderSelect extends StatelessWidget {
             child: Text(AppLocalizations.of(context).folderRoot),
           ),
           ...folders.map(
-            (final f) => DropdownMenuItem<NewsFolder>(
+            (final f) => DropdownMenuItem<news.Folder>(
               value: f,
               child: Text(f.name),
             ),
