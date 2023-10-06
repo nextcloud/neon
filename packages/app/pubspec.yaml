@@ -29,10 +29,10 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon/neon_notifications
-  vector_graphics: ^1.1.7
+  vector_graphics: any
 
 dev_dependencies:
-  flutter_material_design_icons: ^1.1.7296
+  flutter_material_design_icons: any
   flutter_test:
     sdk: flutter
   integration_test:
@@ -41,7 +41,8 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
-  shared_preferences: ^2.2.1
+  shared_preferences: any
+  vector_graphics_compiler: any
 
 flutter:
   uses-material-design: true
