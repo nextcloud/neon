@@ -14,8 +14,8 @@ Spec buildHeaderSerializer(
 ) =>
     Class(
       (final b) => b
-        ..name = '_\$${state.classPrefix}${identifier}Serializer'
-        ..implements.add(refer('StructuredSerializer<${state.classPrefix}$identifier>'))
+        ..name = '_\$${identifier}Serializer'
+        ..implements.add(refer('StructuredSerializer<$identifier>'))
         ..fields.addAll([
           Field(
             (final b) => b
@@ -23,7 +23,7 @@ Spec buildHeaderSerializer(
               ..modifier = FieldModifier.final$
               ..type = refer('Iterable<Type>')
               ..annotations.add(refer('override'))
-              ..assignment = Code('const [${state.classPrefix}$identifier, _\$${state.classPrefix}$identifier]'),
+              ..assignment = Code('const [$identifier, _\$$identifier]'),
           ),
           Field(
             (final b) => b
@@ -31,7 +31,7 @@ Spec buildHeaderSerializer(
               ..modifier = FieldModifier.final$
               ..type = refer('String')
               ..annotations.add(refer('override'))
-              ..assignment = Code("r'${state.classPrefix}$identifier'"),
+              ..assignment = Code("r'$identifier'"),
           ),
         ])
         ..methods.addAll([
@@ -49,7 +49,7 @@ Spec buildHeaderSerializer(
                 Parameter(
                   (final b) => b
                     ..name = 'object'
-                    ..type = refer('${state.classPrefix}$identifier'),
+                    ..type = refer(identifier),
                 ),
               ])
               ..optionalParameters.add(
@@ -66,7 +66,7 @@ Spec buildHeaderSerializer(
           Method((final b) {
             b
               ..name = 'deserialize'
-              ..returns = refer('${state.classPrefix}$identifier')
+              ..returns = refer(identifier)
               ..annotations.add(refer('override'))
               ..requiredParameters.addAll([
                 Parameter(
@@ -90,7 +90,7 @@ Spec buildHeaderSerializer(
                 ),
               )
               ..body = Code('''
-final result = new ${state.classPrefix}${identifier}Builder();
+final result = new ${identifier}Builder();
 
 final iterator = serialized.iterator;
 while (iterator.moveNext()) {
