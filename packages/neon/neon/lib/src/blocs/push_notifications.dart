@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/global_options.dart';
@@ -18,9 +17,7 @@ import 'package:unifiedpush/unifiedpush.dart';
 abstract interface class PushNotificationsBlocEvents {}
 
 @internal
-abstract interface class PushNotificationsBlocStates {
-  Stream<PushNotification> get notifications;
-}
+abstract interface class PushNotificationsBlocStates {}
 
 @internal
 class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
@@ -41,18 +38,13 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   late final _storage = const AppStorage(StorageKeys.notifications);
   final GlobalOptions _globalOptions;
 
-  final _notificationsController = StreamController<PushNotification>();
   StreamSubscription<List<Account>>? _accountsListener;
 
   @override
   void dispose() {
-    unawaited(_notificationsController.close());
     unawaited(_accountsListener?.cancel());
     _globalOptions.pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
   }
-
-  @override
-  late Stream<PushNotification> notifications = _notificationsController.stream.asBroadcastStream();
 
   String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 

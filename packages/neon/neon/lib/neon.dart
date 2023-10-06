@@ -51,7 +51,7 @@ Future<void> runNeon({
       ..addAccount(account)
       ..setActiveAccount(account);
   }
-  final pushNotificationsBloc = PushNotificationsBloc(
+  PushNotificationsBloc(
     accountsBloc,
     globalOptions,
   );
@@ -69,7 +69,6 @@ Future<void> runNeon({
       providers: [
         NeonProvider<GlobalOptions>.value(value: globalOptions),
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
-        NeonProvider<PushNotificationsBloc>.value(value: pushNotificationsBloc),
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
         Provider<Iterable<AppImplementation>>(
