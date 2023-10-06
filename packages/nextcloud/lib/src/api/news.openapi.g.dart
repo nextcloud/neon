@@ -6,25 +6,25 @@ part of 'news.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<NewsSupportedAPIVersions> _$newsSupportedAPIVersionsSerializer = _$NewsSupportedAPIVersionsSerializer();
-Serializer<NewsArticle> _$newsArticleSerializer = _$NewsArticleSerializer();
-Serializer<NewsFeed> _$newsFeedSerializer = _$NewsFeedSerializer();
-Serializer<NewsFolder> _$newsFolderSerializer = _$NewsFolderSerializer();
-Serializer<NewsListFolders> _$newsListFoldersSerializer = _$NewsListFoldersSerializer();
-Serializer<NewsListFeeds> _$newsListFeedsSerializer = _$NewsListFeedsSerializer();
-Serializer<NewsListArticles> _$newsListArticlesSerializer = _$NewsListArticlesSerializer();
-Serializer<NewsOCSMeta> _$newsOCSMetaSerializer = _$NewsOCSMetaSerializer();
-Serializer<NewsEmptyOCS_Ocs> _$newsEmptyOCSOcsSerializer = _$NewsEmptyOCS_OcsSerializer();
-Serializer<NewsEmptyOCS> _$newsEmptyOCSSerializer = _$NewsEmptyOCSSerializer();
+Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer = _$SupportedAPIVersionsSerializer();
+Serializer<Article> _$articleSerializer = _$ArticleSerializer();
+Serializer<Feed> _$feedSerializer = _$FeedSerializer();
+Serializer<Folder> _$folderSerializer = _$FolderSerializer();
+Serializer<ListFolders> _$listFoldersSerializer = _$ListFoldersSerializer();
+Serializer<ListFeeds> _$listFeedsSerializer = _$ListFeedsSerializer();
+Serializer<ListArticles> _$listArticlesSerializer = _$ListArticlesSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
+Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
 
-class _$NewsSupportedAPIVersionsSerializer implements StructuredSerializer<NewsSupportedAPIVersions> {
+class _$SupportedAPIVersionsSerializer implements StructuredSerializer<SupportedAPIVersions> {
   @override
-  final Iterable<Type> types = const [NewsSupportedAPIVersions, _$NewsSupportedAPIVersions];
+  final Iterable<Type> types = const [SupportedAPIVersions, _$SupportedAPIVersions];
   @override
-  final String wireName = 'NewsSupportedAPIVersions';
+  final String wireName = 'SupportedAPIVersions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsSupportedAPIVersions object,
+  Iterable<Object?> serialize(Serializers serializers, SupportedAPIVersions object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -38,9 +38,9 @@ class _$NewsSupportedAPIVersionsSerializer implements StructuredSerializer<NewsS
   }
 
   @override
-  NewsSupportedAPIVersions deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SupportedAPIVersions deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsSupportedAPIVersionsBuilder();
+    final result = SupportedAPIVersionsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -59,14 +59,14 @@ class _$NewsSupportedAPIVersionsSerializer implements StructuredSerializer<NewsS
   }
 }
 
-class _$NewsArticleSerializer implements StructuredSerializer<NewsArticle> {
+class _$ArticleSerializer implements StructuredSerializer<Article> {
   @override
-  final Iterable<Type> types = const [NewsArticle, _$NewsArticle];
+  final Iterable<Type> types = const [Article, _$Article];
   @override
-  final String wireName = 'NewsArticle';
+  final String wireName = 'Article';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsArticle object,
+  Iterable<Object?> serialize(Serializers serializers, Article object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -143,9 +143,9 @@ class _$NewsArticleSerializer implements StructuredSerializer<NewsArticle> {
   }
 
   @override
-  NewsArticle deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Article deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsArticleBuilder();
+    final result = ArticleBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -220,15 +220,14 @@ class _$NewsArticleSerializer implements StructuredSerializer<NewsArticle> {
   }
 }
 
-class _$NewsFeedSerializer implements StructuredSerializer<NewsFeed> {
+class _$FeedSerializer implements StructuredSerializer<Feed> {
   @override
-  final Iterable<Type> types = const [NewsFeed, _$NewsFeed];
+  final Iterable<Type> types = const [Feed, _$Feed];
   @override
-  final String wireName = 'NewsFeed';
+  final String wireName = 'Feed';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsFeed object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Feed object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -245,7 +244,7 @@ class _$NewsFeedSerializer implements StructuredSerializer<NewsFeed> {
       'updateErrorCount',
       serializers.serialize(object.updateErrorCount, specifiedType: const FullType(int)),
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(NewsArticle)])),
+      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
     ];
     Object? value;
     value = object.faviconLink;
@@ -282,9 +281,9 @@ class _$NewsFeedSerializer implements StructuredSerializer<NewsFeed> {
   }
 
   @override
-  NewsFeed deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Feed deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsFeedBuilder();
+    final result = FeedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -330,7 +329,7 @@ class _$NewsFeedSerializer implements StructuredSerializer<NewsFeed> {
           break;
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NewsArticle)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -339,15 +338,14 @@ class _$NewsFeedSerializer implements StructuredSerializer<NewsFeed> {
   }
 }
 
-class _$NewsFolderSerializer implements StructuredSerializer<NewsFolder> {
+class _$FolderSerializer implements StructuredSerializer<Folder> {
   @override
-  final Iterable<Type> types = const [NewsFolder, _$NewsFolder];
+  final Iterable<Type> types = const [Folder, _$Folder];
   @override
-  final String wireName = 'NewsFolder';
+  final String wireName = 'Folder';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsFolder object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Folder object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -356,16 +354,16 @@ class _$NewsFolderSerializer implements StructuredSerializer<NewsFolder> {
       'opened',
       serializers.serialize(object.opened, specifiedType: const FullType(bool)),
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(NewsFeed)])),
+      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
     ];
 
     return result;
   }
 
   @override
-  NewsFolder deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Folder deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsFolderBuilder();
+    final result = FolderBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -384,7 +382,7 @@ class _$NewsFolderSerializer implements StructuredSerializer<NewsFolder> {
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NewsFeed)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -393,27 +391,27 @@ class _$NewsFolderSerializer implements StructuredSerializer<NewsFolder> {
   }
 }
 
-class _$NewsListFoldersSerializer implements StructuredSerializer<NewsListFolders> {
+class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
   @override
-  final Iterable<Type> types = const [NewsListFolders, _$NewsListFolders];
+  final Iterable<Type> types = const [ListFolders, _$ListFolders];
   @override
-  final String wireName = 'NewsListFolders';
+  final String wireName = 'ListFolders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsListFolders object,
+  Iterable<Object?> serialize(Serializers serializers, ListFolders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'folders',
-      serializers.serialize(object.folders, specifiedType: const FullType(BuiltList, [FullType(NewsFolder)])),
+      serializers.serialize(object.folders, specifiedType: const FullType(BuiltList, [FullType(Folder)])),
     ];
 
     return result;
   }
 
   @override
-  NewsListFolders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ListFolders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsListFoldersBuilder();
+    final result = ListFoldersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -423,7 +421,7 @@ class _$NewsListFoldersSerializer implements StructuredSerializer<NewsListFolder
       switch (key) {
         case 'folders':
           result.folders.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NewsFolder)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Folder)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -432,18 +430,18 @@ class _$NewsListFoldersSerializer implements StructuredSerializer<NewsListFolder
   }
 }
 
-class _$NewsListFeedsSerializer implements StructuredSerializer<NewsListFeeds> {
+class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
   @override
-  final Iterable<Type> types = const [NewsListFeeds, _$NewsListFeeds];
+  final Iterable<Type> types = const [ListFeeds, _$ListFeeds];
   @override
-  final String wireName = 'NewsListFeeds';
+  final String wireName = 'ListFeeds';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsListFeeds object,
+  Iterable<Object?> serialize(Serializers serializers, ListFeeds object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(NewsFeed)])),
+      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
     ];
     Object? value;
     value = object.starredCount;
@@ -462,9 +460,9 @@ class _$NewsListFeedsSerializer implements StructuredSerializer<NewsListFeeds> {
   }
 
   @override
-  NewsListFeeds deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ListFeeds deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsListFeedsBuilder();
+    final result = ListFeedsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -480,7 +478,7 @@ class _$NewsListFeedsSerializer implements StructuredSerializer<NewsListFeeds> {
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NewsFeed)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -489,27 +487,27 @@ class _$NewsListFeedsSerializer implements StructuredSerializer<NewsListFeeds> {
   }
 }
 
-class _$NewsListArticlesSerializer implements StructuredSerializer<NewsListArticles> {
+class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
   @override
-  final Iterable<Type> types = const [NewsListArticles, _$NewsListArticles];
+  final Iterable<Type> types = const [ListArticles, _$ListArticles];
   @override
-  final String wireName = 'NewsListArticles';
+  final String wireName = 'ListArticles';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsListArticles object,
+  Iterable<Object?> serialize(Serializers serializers, ListArticles object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(NewsArticle)])),
+      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
     ];
 
     return result;
   }
 
   @override
-  NewsListArticles deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ListArticles deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsListArticlesBuilder();
+    final result = ListArticlesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -519,7 +517,7 @@ class _$NewsListArticlesSerializer implements StructuredSerializer<NewsListArtic
       switch (key) {
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NewsArticle)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -528,14 +526,14 @@ class _$NewsListArticlesSerializer implements StructuredSerializer<NewsListArtic
   }
 }
 
-class _$NewsOCSMetaSerializer implements StructuredSerializer<NewsOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [NewsOCSMeta, _$NewsOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'NewsOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -566,9 +564,9 @@ class _$NewsOCSMetaSerializer implements StructuredSerializer<NewsOCSMeta> {
   }
 
   @override
-  NewsOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -598,18 +596,18 @@ class _$NewsOCSMetaSerializer implements StructuredSerializer<NewsOCSMeta> {
   }
 }
 
-class _$NewsEmptyOCS_OcsSerializer implements StructuredSerializer<NewsEmptyOCS_Ocs> {
+class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
   @override
-  final Iterable<Type> types = const [NewsEmptyOCS_Ocs, _$NewsEmptyOCS_Ocs];
+  final Iterable<Type> types = const [EmptyOCS_Ocs, _$EmptyOCS_Ocs];
   @override
-  final String wireName = 'NewsEmptyOCS_Ocs';
+  final String wireName = 'EmptyOCS_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsEmptyOCS_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EmptyOCS_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NewsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
     ];
@@ -618,9 +616,9 @@ class _$NewsEmptyOCS_OcsSerializer implements StructuredSerializer<NewsEmptyOCS_
   }
 
   @override
-  NewsEmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsEmptyOCS_OcsBuilder();
+    final result = EmptyOCS_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -629,8 +627,7 @@ class _$NewsEmptyOCS_OcsSerializer implements StructuredSerializer<NewsEmptyOCS_
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(NewsOCSMeta))! as NewsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
@@ -643,27 +640,27 @@ class _$NewsEmptyOCS_OcsSerializer implements StructuredSerializer<NewsEmptyOCS_
   }
 }
 
-class _$NewsEmptyOCSSerializer implements StructuredSerializer<NewsEmptyOCS> {
+class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
   @override
-  final Iterable<Type> types = const [NewsEmptyOCS, _$NewsEmptyOCS];
+  final Iterable<Type> types = const [EmptyOCS, _$EmptyOCS];
   @override
-  final String wireName = 'NewsEmptyOCS';
+  final String wireName = 'EmptyOCS';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewsEmptyOCS object,
+  Iterable<Object?> serialize(Serializers serializers, EmptyOCS object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(NewsEmptyOCS_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(EmptyOCS_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NewsEmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
+  EmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewsEmptyOCSBuilder();
+    final result = EmptyOCSBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -672,8 +669,8 @@ class _$NewsEmptyOCSSerializer implements StructuredSerializer<NewsEmptyOCS> {
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(NewsEmptyOCS_Ocs))! as NewsEmptyOCS_Ocs);
+          result.ocs
+              .replace(serializers.deserialize(value, specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
           break;
       }
     }
@@ -682,33 +679,33 @@ class _$NewsEmptyOCSSerializer implements StructuredSerializer<NewsEmptyOCS> {
   }
 }
 
-abstract mixin class NewsSupportedAPIVersionsInterfaceBuilder {
-  void replace(NewsSupportedAPIVersionsInterface other);
-  void update(void Function(NewsSupportedAPIVersionsInterfaceBuilder) updates);
+abstract mixin class SupportedAPIVersionsInterfaceBuilder {
+  void replace(SupportedAPIVersionsInterface other);
+  void update(void Function(SupportedAPIVersionsInterfaceBuilder) updates);
   ListBuilder<String> get apiLevels;
   set apiLevels(ListBuilder<String>? apiLevels);
 }
 
-class _$NewsSupportedAPIVersions extends NewsSupportedAPIVersions {
+class _$SupportedAPIVersions extends SupportedAPIVersions {
   @override
   final BuiltList<String>? apiLevels;
 
-  factory _$NewsSupportedAPIVersions([void Function(NewsSupportedAPIVersionsBuilder)? updates]) =>
-      (NewsSupportedAPIVersionsBuilder()..update(updates))._build();
+  factory _$SupportedAPIVersions([void Function(SupportedAPIVersionsBuilder)? updates]) =>
+      (SupportedAPIVersionsBuilder()..update(updates))._build();
 
-  _$NewsSupportedAPIVersions._({this.apiLevels}) : super._();
+  _$SupportedAPIVersions._({this.apiLevels}) : super._();
 
   @override
-  NewsSupportedAPIVersions rebuild(void Function(NewsSupportedAPIVersionsBuilder) updates) =>
+  SupportedAPIVersions rebuild(void Function(SupportedAPIVersionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NewsSupportedAPIVersionsBuilder toBuilder() => NewsSupportedAPIVersionsBuilder()..replace(this);
+  SupportedAPIVersionsBuilder toBuilder() => SupportedAPIVersionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsSupportedAPIVersions && apiLevels == other.apiLevels;
+    return other is SupportedAPIVersions && apiLevels == other.apiLevels;
   }
 
   @override
@@ -721,23 +718,21 @@ class _$NewsSupportedAPIVersions extends NewsSupportedAPIVersions {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsSupportedAPIVersions')..add('apiLevels', apiLevels)).toString();
+    return (newBuiltValueToStringHelper(r'SupportedAPIVersions')..add('apiLevels', apiLevels)).toString();
   }
 }
 
-class NewsSupportedAPIVersionsBuilder
-    implements
-        Builder<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder>,
-        NewsSupportedAPIVersionsInterfaceBuilder {
-  _$NewsSupportedAPIVersions? _$v;
+class SupportedAPIVersionsBuilder
+    implements Builder<SupportedAPIVersions, SupportedAPIVersionsBuilder>, SupportedAPIVersionsInterfaceBuilder {
+  _$SupportedAPIVersions? _$v;
 
   ListBuilder<String>? _apiLevels;
   ListBuilder<String> get apiLevels => _$this._apiLevels ??= ListBuilder<String>();
   set apiLevels(covariant ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
 
-  NewsSupportedAPIVersionsBuilder();
+  SupportedAPIVersionsBuilder();
 
-  NewsSupportedAPIVersionsBuilder get _$this {
+  SupportedAPIVersionsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apiLevels = $v.apiLevels?.toBuilder();
@@ -747,30 +742,30 @@ class NewsSupportedAPIVersionsBuilder
   }
 
   @override
-  void replace(covariant NewsSupportedAPIVersions other) {
+  void replace(covariant SupportedAPIVersions other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsSupportedAPIVersions;
+    _$v = other as _$SupportedAPIVersions;
   }
 
   @override
-  void update(void Function(NewsSupportedAPIVersionsBuilder)? updates) {
+  void update(void Function(SupportedAPIVersionsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsSupportedAPIVersions build() => _build();
+  SupportedAPIVersions build() => _build();
 
-  _$NewsSupportedAPIVersions _build() {
-    _$NewsSupportedAPIVersions _$result;
+  _$SupportedAPIVersions _build() {
+    _$SupportedAPIVersions _$result;
     try {
-      _$result = _$v ?? _$NewsSupportedAPIVersions._(apiLevels: _apiLevels?.build());
+      _$result = _$v ?? _$SupportedAPIVersions._(apiLevels: _apiLevels?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'apiLevels';
         _apiLevels?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsSupportedAPIVersions', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SupportedAPIVersions', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -779,9 +774,9 @@ class NewsSupportedAPIVersionsBuilder
   }
 }
 
-abstract mixin class NewsArticleInterfaceBuilder {
-  void replace(NewsArticleInterface other);
-  void update(void Function(NewsArticleInterfaceBuilder) updates);
+abstract mixin class ArticleInterfaceBuilder {
+  void replace(ArticleInterface other);
+  void update(void Function(ArticleInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -843,7 +838,7 @@ abstract mixin class NewsArticleInterfaceBuilder {
   set contentHash(String? contentHash);
 }
 
-class _$NewsArticle extends NewsArticle {
+class _$Article extends Article {
   @override
   final int id;
   @override
@@ -885,10 +880,9 @@ class _$NewsArticle extends NewsArticle {
   @override
   final String contentHash;
 
-  factory _$NewsArticle([void Function(NewsArticleBuilder)? updates]) =>
-      (NewsArticleBuilder()..update(updates))._build();
+  factory _$Article([void Function(ArticleBuilder)? updates]) => (ArticleBuilder()..update(updates))._build();
 
-  _$NewsArticle._(
+  _$Article._(
       {required this.id,
       required this.guid,
       required this.guidHash,
@@ -910,31 +904,31 @@ class _$NewsArticle extends NewsArticle {
       required this.fingerprint,
       required this.contentHash})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'NewsArticle', 'id');
-    BuiltValueNullFieldError.checkNotNull(guid, r'NewsArticle', 'guid');
-    BuiltValueNullFieldError.checkNotNull(guidHash, r'NewsArticle', 'guidHash');
-    BuiltValueNullFieldError.checkNotNull(title, r'NewsArticle', 'title');
-    BuiltValueNullFieldError.checkNotNull(pubDate, r'NewsArticle', 'pubDate');
-    BuiltValueNullFieldError.checkNotNull(body, r'NewsArticle', 'body');
-    BuiltValueNullFieldError.checkNotNull(feedId, r'NewsArticle', 'feedId');
-    BuiltValueNullFieldError.checkNotNull(unread, r'NewsArticle', 'unread');
-    BuiltValueNullFieldError.checkNotNull(starred, r'NewsArticle', 'starred');
-    BuiltValueNullFieldError.checkNotNull(lastModified, r'NewsArticle', 'lastModified');
-    BuiltValueNullFieldError.checkNotNull(rtl, r'NewsArticle', 'rtl');
-    BuiltValueNullFieldError.checkNotNull(fingerprint, r'NewsArticle', 'fingerprint');
-    BuiltValueNullFieldError.checkNotNull(contentHash, r'NewsArticle', 'contentHash');
+    BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id');
+    BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid');
+    BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash');
+    BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title');
+    BuiltValueNullFieldError.checkNotNull(pubDate, r'Article', 'pubDate');
+    BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body');
+    BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId');
+    BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread');
+    BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred');
+    BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified');
+    BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl');
+    BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint');
+    BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash');
   }
 
   @override
-  NewsArticle rebuild(void Function(NewsArticleBuilder) updates) => (toBuilder()..update(updates)).build();
+  Article rebuild(void Function(ArticleBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsArticleBuilder toBuilder() => NewsArticleBuilder()..replace(this);
+  ArticleBuilder toBuilder() => ArticleBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsArticle &&
+    return other is Article &&
         id == other.id &&
         guid == other.guid &&
         guidHash == other.guidHash &&
@@ -986,7 +980,7 @@ class _$NewsArticle extends NewsArticle {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsArticle')
+    return (newBuiltValueToStringHelper(r'Article')
           ..add('id', id)
           ..add('guid', guid)
           ..add('guidHash', guidHash)
@@ -1011,8 +1005,8 @@ class _$NewsArticle extends NewsArticle {
   }
 }
 
-class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder>, NewsArticleInterfaceBuilder {
-  _$NewsArticle? _$v;
+class ArticleBuilder implements Builder<Article, ArticleBuilder>, ArticleInterfaceBuilder {
+  _$Article? _$v;
 
   int? _id;
   int? get id => _$this._id;
@@ -1094,9 +1088,9 @@ class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder>, Ne
   String? get contentHash => _$this._contentHash;
   set contentHash(covariant String? contentHash) => _$this._contentHash = contentHash;
 
-  NewsArticleBuilder();
+  ArticleBuilder();
 
-  NewsArticleBuilder get _$this {
+  ArticleBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -1125,50 +1119,50 @@ class NewsArticleBuilder implements Builder<NewsArticle, NewsArticleBuilder>, Ne
   }
 
   @override
-  void replace(covariant NewsArticle other) {
+  void replace(covariant Article other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsArticle;
+    _$v = other as _$Article;
   }
 
   @override
-  void update(void Function(NewsArticleBuilder)? updates) {
+  void update(void Function(ArticleBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsArticle build() => _build();
+  Article build() => _build();
 
-  _$NewsArticle _build() {
+  _$Article _build() {
     final _$result = _$v ??
-        _$NewsArticle._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'NewsArticle', 'id'),
-            guid: BuiltValueNullFieldError.checkNotNull(guid, r'NewsArticle', 'guid'),
-            guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'NewsArticle', 'guidHash'),
+        _$Article._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
+            guid: BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
+            guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash'),
             url: url,
-            title: BuiltValueNullFieldError.checkNotNull(title, r'NewsArticle', 'title'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title'),
             author: author,
-            pubDate: BuiltValueNullFieldError.checkNotNull(pubDate, r'NewsArticle', 'pubDate'),
+            pubDate: BuiltValueNullFieldError.checkNotNull(pubDate, r'Article', 'pubDate'),
             updatedDate: updatedDate,
-            body: BuiltValueNullFieldError.checkNotNull(body, r'NewsArticle', 'body'),
+            body: BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body'),
             enclosureMime: enclosureMime,
             enclosureLink: enclosureLink,
             mediaThumbnail: mediaThumbnail,
             mediaDescription: mediaDescription,
-            feedId: BuiltValueNullFieldError.checkNotNull(feedId, r'NewsArticle', 'feedId'),
-            unread: BuiltValueNullFieldError.checkNotNull(unread, r'NewsArticle', 'unread'),
-            starred: BuiltValueNullFieldError.checkNotNull(starred, r'NewsArticle', 'starred'),
-            lastModified: BuiltValueNullFieldError.checkNotNull(lastModified, r'NewsArticle', 'lastModified'),
-            rtl: BuiltValueNullFieldError.checkNotNull(rtl, r'NewsArticle', 'rtl'),
-            fingerprint: BuiltValueNullFieldError.checkNotNull(fingerprint, r'NewsArticle', 'fingerprint'),
-            contentHash: BuiltValueNullFieldError.checkNotNull(contentHash, r'NewsArticle', 'contentHash'));
+            feedId: BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId'),
+            unread: BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread'),
+            starred: BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred'),
+            lastModified: BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified'),
+            rtl: BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl'),
+            fingerprint: BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint'),
+            contentHash: BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class NewsFeedInterfaceBuilder {
-  void replace(NewsFeedInterface other);
-  void update(void Function(NewsFeedInterfaceBuilder) updates);
+abstract mixin class FeedInterfaceBuilder {
+  void replace(FeedInterface other);
+  void update(void Function(FeedInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -1205,11 +1199,11 @@ abstract mixin class NewsFeedInterfaceBuilder {
   String? get lastUpdateError;
   set lastUpdateError(String? lastUpdateError);
 
-  ListBuilder<NewsArticle> get items;
-  set items(ListBuilder<NewsArticle>? items);
+  ListBuilder<Article> get items;
+  set items(ListBuilder<Article>? items);
 }
 
-class _$NewsFeed extends NewsFeed {
+class _$Feed extends Feed {
   @override
   final int id;
   @override
@@ -1235,11 +1229,11 @@ class _$NewsFeed extends NewsFeed {
   @override
   final String? lastUpdateError;
   @override
-  final BuiltList<NewsArticle> items;
+  final BuiltList<Article> items;
 
-  factory _$NewsFeed([void Function(NewsFeedBuilder)? updates]) => (NewsFeedBuilder()..update(updates))._build();
+  factory _$Feed([void Function(FeedBuilder)? updates]) => (FeedBuilder()..update(updates))._build();
 
-  _$NewsFeed._(
+  _$Feed._(
       {required this.id,
       required this.url,
       required this.title,
@@ -1254,26 +1248,26 @@ class _$NewsFeed extends NewsFeed {
       this.lastUpdateError,
       required this.items})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'NewsFeed', 'id');
-    BuiltValueNullFieldError.checkNotNull(url, r'NewsFeed', 'url');
-    BuiltValueNullFieldError.checkNotNull(title, r'NewsFeed', 'title');
-    BuiltValueNullFieldError.checkNotNull(added, r'NewsFeed', 'added');
-    BuiltValueNullFieldError.checkNotNull(ordering, r'NewsFeed', 'ordering');
-    BuiltValueNullFieldError.checkNotNull(pinned, r'NewsFeed', 'pinned');
-    BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'NewsFeed', 'updateErrorCount');
-    BuiltValueNullFieldError.checkNotNull(items, r'NewsFeed', 'items');
+    BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id');
+    BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url');
+    BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title');
+    BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added');
+    BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering');
+    BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned');
+    BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount');
+    BuiltValueNullFieldError.checkNotNull(items, r'Feed', 'items');
   }
 
   @override
-  NewsFeed rebuild(void Function(NewsFeedBuilder) updates) => (toBuilder()..update(updates)).build();
+  Feed rebuild(void Function(FeedBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsFeedBuilder toBuilder() => NewsFeedBuilder()..replace(this);
+  FeedBuilder toBuilder() => FeedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsFeed &&
+    return other is Feed &&
         id == other.id &&
         url == other.url &&
         title == other.title &&
@@ -1311,7 +1305,7 @@ class _$NewsFeed extends NewsFeed {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsFeed')
+    return (newBuiltValueToStringHelper(r'Feed')
           ..add('id', id)
           ..add('url', url)
           ..add('title', title)
@@ -1329,8 +1323,8 @@ class _$NewsFeed extends NewsFeed {
   }
 }
 
-class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInterfaceBuilder {
-  _$NewsFeed? _$v;
+class FeedBuilder implements Builder<Feed, FeedBuilder>, FeedInterfaceBuilder {
+  _$Feed? _$v;
 
   int? _id;
   int? get id => _$this._id;
@@ -1380,13 +1374,13 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInt
   String? get lastUpdateError => _$this._lastUpdateError;
   set lastUpdateError(covariant String? lastUpdateError) => _$this._lastUpdateError = lastUpdateError;
 
-  ListBuilder<NewsArticle>? _items;
-  ListBuilder<NewsArticle> get items => _$this._items ??= ListBuilder<NewsArticle>();
-  set items(covariant ListBuilder<NewsArticle>? items) => _$this._items = items;
+  ListBuilder<Article>? _items;
+  ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
+  set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
-  NewsFeedBuilder();
+  FeedBuilder();
 
-  NewsFeedBuilder get _$this {
+  FeedBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -1408,36 +1402,35 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInt
   }
 
   @override
-  void replace(covariant NewsFeed other) {
+  void replace(covariant Feed other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsFeed;
+    _$v = other as _$Feed;
   }
 
   @override
-  void update(void Function(NewsFeedBuilder)? updates) {
+  void update(void Function(FeedBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsFeed build() => _build();
+  Feed build() => _build();
 
-  _$NewsFeed _build() {
-    _$NewsFeed _$result;
+  _$Feed _build() {
+    _$Feed _$result;
     try {
       _$result = _$v ??
-          _$NewsFeed._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'NewsFeed', 'id'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'NewsFeed', 'url'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'NewsFeed', 'title'),
+          _$Feed._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id'),
+              url: BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url'),
+              title: BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title'),
               faviconLink: faviconLink,
-              added: BuiltValueNullFieldError.checkNotNull(added, r'NewsFeed', 'added'),
+              added: BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added'),
               folderId: folderId,
               unreadCount: unreadCount,
-              ordering: BuiltValueNullFieldError.checkNotNull(ordering, r'NewsFeed', 'ordering'),
+              ordering: BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering'),
               link: link,
-              pinned: BuiltValueNullFieldError.checkNotNull(pinned, r'NewsFeed', 'pinned'),
-              updateErrorCount:
-                  BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'NewsFeed', 'updateErrorCount'),
+              pinned: BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned'),
+              updateErrorCount: BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount'),
               lastUpdateError: lastUpdateError,
               items: items.build());
     } catch (_) {
@@ -1446,7 +1439,7 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInt
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsFeed', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Feed', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1455,9 +1448,9 @@ class NewsFeedBuilder implements Builder<NewsFeed, NewsFeedBuilder>, NewsFeedInt
   }
 }
 
-abstract mixin class NewsFolderInterfaceBuilder {
-  void replace(NewsFolderInterface other);
-  void update(void Function(NewsFolderInterfaceBuilder) updates);
+abstract mixin class FolderInterfaceBuilder {
+  void replace(FolderInterface other);
+  void update(void Function(FolderInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -1467,11 +1460,11 @@ abstract mixin class NewsFolderInterfaceBuilder {
   bool? get opened;
   set opened(bool? opened);
 
-  ListBuilder<NewsFeed> get feeds;
-  set feeds(ListBuilder<NewsFeed>? feeds);
+  ListBuilder<Feed> get feeds;
+  set feeds(ListBuilder<Feed>? feeds);
 }
 
-class _$NewsFolder extends NewsFolder {
+class _$Folder extends Folder {
   @override
   final int id;
   @override
@@ -1479,31 +1472,27 @@ class _$NewsFolder extends NewsFolder {
   @override
   final bool opened;
   @override
-  final BuiltList<NewsFeed> feeds;
+  final BuiltList<Feed> feeds;
 
-  factory _$NewsFolder([void Function(NewsFolderBuilder)? updates]) => (NewsFolderBuilder()..update(updates))._build();
+  factory _$Folder([void Function(FolderBuilder)? updates]) => (FolderBuilder()..update(updates))._build();
 
-  _$NewsFolder._({required this.id, required this.name, required this.opened, required this.feeds}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'NewsFolder', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'NewsFolder', 'name');
-    BuiltValueNullFieldError.checkNotNull(opened, r'NewsFolder', 'opened');
-    BuiltValueNullFieldError.checkNotNull(feeds, r'NewsFolder', 'feeds');
+  _$Folder._({required this.id, required this.name, required this.opened, required this.feeds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name');
+    BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened');
+    BuiltValueNullFieldError.checkNotNull(feeds, r'Folder', 'feeds');
   }
 
   @override
-  NewsFolder rebuild(void Function(NewsFolderBuilder) updates) => (toBuilder()..update(updates)).build();
+  Folder rebuild(void Function(FolderBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsFolderBuilder toBuilder() => NewsFolderBuilder()..replace(this);
+  FolderBuilder toBuilder() => FolderBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsFolder &&
-        id == other.id &&
-        name == other.name &&
-        opened == other.opened &&
-        feeds == other.feeds;
+    return other is Folder && id == other.id && name == other.name && opened == other.opened && feeds == other.feeds;
   }
 
   @override
@@ -1519,7 +1508,7 @@ class _$NewsFolder extends NewsFolder {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsFolder')
+    return (newBuiltValueToStringHelper(r'Folder')
           ..add('id', id)
           ..add('name', name)
           ..add('opened', opened)
@@ -1528,8 +1517,8 @@ class _$NewsFolder extends NewsFolder {
   }
 }
 
-class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsFolderInterfaceBuilder {
-  _$NewsFolder? _$v;
+class FolderBuilder implements Builder<Folder, FolderBuilder>, FolderInterfaceBuilder {
+  _$Folder? _$v;
 
   int? _id;
   int? get id => _$this._id;
@@ -1543,13 +1532,13 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsF
   bool? get opened => _$this._opened;
   set opened(covariant bool? opened) => _$this._opened = opened;
 
-  ListBuilder<NewsFeed>? _feeds;
-  ListBuilder<NewsFeed> get feeds => _$this._feeds ??= ListBuilder<NewsFeed>();
-  set feeds(covariant ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
+  ListBuilder<Feed>? _feeds;
+  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
+  set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
-  NewsFolderBuilder();
+  FolderBuilder();
 
-  NewsFolderBuilder get _$this {
+  FolderBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -1562,27 +1551,27 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsF
   }
 
   @override
-  void replace(covariant NewsFolder other) {
+  void replace(covariant Folder other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsFolder;
+    _$v = other as _$Folder;
   }
 
   @override
-  void update(void Function(NewsFolderBuilder)? updates) {
+  void update(void Function(FolderBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsFolder build() => _build();
+  Folder build() => _build();
 
-  _$NewsFolder _build() {
-    _$NewsFolder _$result;
+  _$Folder _build() {
+    _$Folder _$result;
     try {
       _$result = _$v ??
-          _$NewsFolder._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'NewsFolder', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'NewsFolder', 'name'),
-              opened: BuiltValueNullFieldError.checkNotNull(opened, r'NewsFolder', 'opened'),
+          _$Folder._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id'),
+              name: BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name'),
+              opened: BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened'),
               feeds: feeds.build());
     } catch (_) {
       late String _$failedField;
@@ -1590,7 +1579,7 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsF
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsFolder', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Folder', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1599,34 +1588,34 @@ class NewsFolderBuilder implements Builder<NewsFolder, NewsFolderBuilder>, NewsF
   }
 }
 
-abstract mixin class NewsListFoldersInterfaceBuilder {
-  void replace(NewsListFoldersInterface other);
-  void update(void Function(NewsListFoldersInterfaceBuilder) updates);
-  ListBuilder<NewsFolder> get folders;
-  set folders(ListBuilder<NewsFolder>? folders);
+abstract mixin class ListFoldersInterfaceBuilder {
+  void replace(ListFoldersInterface other);
+  void update(void Function(ListFoldersInterfaceBuilder) updates);
+  ListBuilder<Folder> get folders;
+  set folders(ListBuilder<Folder>? folders);
 }
 
-class _$NewsListFolders extends NewsListFolders {
+class _$ListFolders extends ListFolders {
   @override
-  final BuiltList<NewsFolder> folders;
+  final BuiltList<Folder> folders;
 
-  factory _$NewsListFolders([void Function(NewsListFoldersBuilder)? updates]) =>
-      (NewsListFoldersBuilder()..update(updates))._build();
+  factory _$ListFolders([void Function(ListFoldersBuilder)? updates]) =>
+      (ListFoldersBuilder()..update(updates))._build();
 
-  _$NewsListFolders._({required this.folders}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(folders, r'NewsListFolders', 'folders');
+  _$ListFolders._({required this.folders}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(folders, r'ListFolders', 'folders');
   }
 
   @override
-  NewsListFolders rebuild(void Function(NewsListFoldersBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListFolders rebuild(void Function(ListFoldersBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsListFoldersBuilder toBuilder() => NewsListFoldersBuilder()..replace(this);
+  ListFoldersBuilder toBuilder() => ListFoldersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsListFolders && folders == other.folders;
+    return other is ListFolders && folders == other.folders;
   }
 
   @override
@@ -1639,21 +1628,20 @@ class _$NewsListFolders extends NewsListFolders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsListFolders')..add('folders', folders)).toString();
+    return (newBuiltValueToStringHelper(r'ListFolders')..add('folders', folders)).toString();
   }
 }
 
-class NewsListFoldersBuilder
-    implements Builder<NewsListFolders, NewsListFoldersBuilder>, NewsListFoldersInterfaceBuilder {
-  _$NewsListFolders? _$v;
+class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, ListFoldersInterfaceBuilder {
+  _$ListFolders? _$v;
 
-  ListBuilder<NewsFolder>? _folders;
-  ListBuilder<NewsFolder> get folders => _$this._folders ??= ListBuilder<NewsFolder>();
-  set folders(covariant ListBuilder<NewsFolder>? folders) => _$this._folders = folders;
+  ListBuilder<Folder>? _folders;
+  ListBuilder<Folder> get folders => _$this._folders ??= ListBuilder<Folder>();
+  set folders(covariant ListBuilder<Folder>? folders) => _$this._folders = folders;
 
-  NewsListFoldersBuilder();
+  ListFoldersBuilder();
 
-  NewsListFoldersBuilder get _$this {
+  ListFoldersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _folders = $v.folders.toBuilder();
@@ -1663,30 +1651,30 @@ class NewsListFoldersBuilder
   }
 
   @override
-  void replace(covariant NewsListFolders other) {
+  void replace(covariant ListFolders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsListFolders;
+    _$v = other as _$ListFolders;
   }
 
   @override
-  void update(void Function(NewsListFoldersBuilder)? updates) {
+  void update(void Function(ListFoldersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsListFolders build() => _build();
+  ListFolders build() => _build();
 
-  _$NewsListFolders _build() {
-    _$NewsListFolders _$result;
+  _$ListFolders _build() {
+    _$ListFolders _$result;
     try {
-      _$result = _$v ?? _$NewsListFolders._(folders: folders.build());
+      _$result = _$v ?? _$ListFolders._(folders: folders.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'folders';
         folders.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsListFolders', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ListFolders', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1695,44 +1683,43 @@ class NewsListFoldersBuilder
   }
 }
 
-abstract mixin class NewsListFeedsInterfaceBuilder {
-  void replace(NewsListFeedsInterface other);
-  void update(void Function(NewsListFeedsInterfaceBuilder) updates);
+abstract mixin class ListFeedsInterfaceBuilder {
+  void replace(ListFeedsInterface other);
+  void update(void Function(ListFeedsInterfaceBuilder) updates);
   int? get starredCount;
   set starredCount(int? starredCount);
 
   int? get newestItemId;
   set newestItemId(int? newestItemId);
 
-  ListBuilder<NewsFeed> get feeds;
-  set feeds(ListBuilder<NewsFeed>? feeds);
+  ListBuilder<Feed> get feeds;
+  set feeds(ListBuilder<Feed>? feeds);
 }
 
-class _$NewsListFeeds extends NewsListFeeds {
+class _$ListFeeds extends ListFeeds {
   @override
   final int? starredCount;
   @override
   final int? newestItemId;
   @override
-  final BuiltList<NewsFeed> feeds;
+  final BuiltList<Feed> feeds;
 
-  factory _$NewsListFeeds([void Function(NewsListFeedsBuilder)? updates]) =>
-      (NewsListFeedsBuilder()..update(updates))._build();
+  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (ListFeedsBuilder()..update(updates))._build();
 
-  _$NewsListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(feeds, r'NewsListFeeds', 'feeds');
+  _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(feeds, r'ListFeeds', 'feeds');
   }
 
   @override
-  NewsListFeeds rebuild(void Function(NewsListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListFeeds rebuild(void Function(ListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsListFeedsBuilder toBuilder() => NewsListFeedsBuilder()..replace(this);
+  ListFeedsBuilder toBuilder() => ListFeedsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsListFeeds &&
+    return other is ListFeeds &&
         starredCount == other.starredCount &&
         newestItemId == other.newestItemId &&
         feeds == other.feeds;
@@ -1750,7 +1737,7 @@ class _$NewsListFeeds extends NewsListFeeds {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsListFeeds')
+    return (newBuiltValueToStringHelper(r'ListFeeds')
           ..add('starredCount', starredCount)
           ..add('newestItemId', newestItemId)
           ..add('feeds', feeds))
@@ -1758,8 +1745,8 @@ class _$NewsListFeeds extends NewsListFeeds {
   }
 }
 
-class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilder>, NewsListFeedsInterfaceBuilder {
-  _$NewsListFeeds? _$v;
+class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, ListFeedsInterfaceBuilder {
+  _$ListFeeds? _$v;
 
   int? _starredCount;
   int? get starredCount => _$this._starredCount;
@@ -1769,13 +1756,13 @@ class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilde
   int? get newestItemId => _$this._newestItemId;
   set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
 
-  ListBuilder<NewsFeed>? _feeds;
-  ListBuilder<NewsFeed> get feeds => _$this._feeds ??= ListBuilder<NewsFeed>();
-  set feeds(covariant ListBuilder<NewsFeed>? feeds) => _$this._feeds = feeds;
+  ListBuilder<Feed>? _feeds;
+  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
+  set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
-  NewsListFeedsBuilder();
+  ListFeedsBuilder();
 
-  NewsListFeedsBuilder get _$this {
+  ListFeedsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _starredCount = $v.starredCount;
@@ -1787,30 +1774,30 @@ class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilde
   }
 
   @override
-  void replace(covariant NewsListFeeds other) {
+  void replace(covariant ListFeeds other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsListFeeds;
+    _$v = other as _$ListFeeds;
   }
 
   @override
-  void update(void Function(NewsListFeedsBuilder)? updates) {
+  void update(void Function(ListFeedsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsListFeeds build() => _build();
+  ListFeeds build() => _build();
 
-  _$NewsListFeeds _build() {
-    _$NewsListFeeds _$result;
+  _$ListFeeds _build() {
+    _$ListFeeds _$result;
     try {
-      _$result = _$v ?? _$NewsListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
+      _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsListFeeds', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1819,34 +1806,34 @@ class NewsListFeedsBuilder implements Builder<NewsListFeeds, NewsListFeedsBuilde
   }
 }
 
-abstract mixin class NewsListArticlesInterfaceBuilder {
-  void replace(NewsListArticlesInterface other);
-  void update(void Function(NewsListArticlesInterfaceBuilder) updates);
-  ListBuilder<NewsArticle> get items;
-  set items(ListBuilder<NewsArticle>? items);
+abstract mixin class ListArticlesInterfaceBuilder {
+  void replace(ListArticlesInterface other);
+  void update(void Function(ListArticlesInterfaceBuilder) updates);
+  ListBuilder<Article> get items;
+  set items(ListBuilder<Article>? items);
 }
 
-class _$NewsListArticles extends NewsListArticles {
+class _$ListArticles extends ListArticles {
   @override
-  final BuiltList<NewsArticle> items;
+  final BuiltList<Article> items;
 
-  factory _$NewsListArticles([void Function(NewsListArticlesBuilder)? updates]) =>
-      (NewsListArticlesBuilder()..update(updates))._build();
+  factory _$ListArticles([void Function(ListArticlesBuilder)? updates]) =>
+      (ListArticlesBuilder()..update(updates))._build();
 
-  _$NewsListArticles._({required this.items}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(items, r'NewsListArticles', 'items');
+  _$ListArticles._({required this.items}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(items, r'ListArticles', 'items');
   }
 
   @override
-  NewsListArticles rebuild(void Function(NewsListArticlesBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListArticles rebuild(void Function(ListArticlesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsListArticlesBuilder toBuilder() => NewsListArticlesBuilder()..replace(this);
+  ListArticlesBuilder toBuilder() => ListArticlesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsListArticles && items == other.items;
+    return other is ListArticles && items == other.items;
   }
 
   @override
@@ -1859,21 +1846,20 @@ class _$NewsListArticles extends NewsListArticles {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsListArticles')..add('items', items)).toString();
+    return (newBuiltValueToStringHelper(r'ListArticles')..add('items', items)).toString();
   }
 }
 
-class NewsListArticlesBuilder
-    implements Builder<NewsListArticles, NewsListArticlesBuilder>, NewsListArticlesInterfaceBuilder {
-  _$NewsListArticles? _$v;
+class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>, ListArticlesInterfaceBuilder {
+  _$ListArticles? _$v;
 
-  ListBuilder<NewsArticle>? _items;
-  ListBuilder<NewsArticle> get items => _$this._items ??= ListBuilder<NewsArticle>();
-  set items(covariant ListBuilder<NewsArticle>? items) => _$this._items = items;
+  ListBuilder<Article>? _items;
+  ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
+  set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
-  NewsListArticlesBuilder();
+  ListArticlesBuilder();
 
-  NewsListArticlesBuilder get _$this {
+  ListArticlesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _items = $v.items.toBuilder();
@@ -1883,30 +1869,30 @@ class NewsListArticlesBuilder
   }
 
   @override
-  void replace(covariant NewsListArticles other) {
+  void replace(covariant ListArticles other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsListArticles;
+    _$v = other as _$ListArticles;
   }
 
   @override
-  void update(void Function(NewsListArticlesBuilder)? updates) {
+  void update(void Function(ListArticlesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsListArticles build() => _build();
+  ListArticles build() => _build();
 
-  _$NewsListArticles _build() {
-    _$NewsListArticles _$result;
+  _$ListArticles _build() {
+    _$ListArticles _$result;
     try {
-      _$result = _$v ?? _$NewsListArticles._(items: items.build());
+      _$result = _$v ?? _$ListArticles._(items: items.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsListArticles', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ListArticles', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1915,9 +1901,9 @@ class NewsListArticlesBuilder
   }
 }
 
-abstract mixin class NewsOCSMetaInterfaceBuilder {
-  void replace(NewsOCSMetaInterface other);
-  void update(void Function(NewsOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1934,7 +1920,7 @@ abstract mixin class NewsOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$NewsOCSMeta extends NewsOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -1946,25 +1932,24 @@ class _$NewsOCSMeta extends NewsOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$NewsOCSMeta([void Function(NewsOCSMetaBuilder)? updates]) =>
-      (NewsOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$NewsOCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'NewsOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'NewsOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  NewsOCSMeta rebuild(void Function(NewsOCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsOCSMetaBuilder toBuilder() => NewsOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -1986,7 +1971,7 @@ class _$NewsOCSMeta extends NewsOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -1996,8 +1981,8 @@ class _$NewsOCSMeta extends NewsOCSMeta {
   }
 }
 
-class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder>, NewsOCSMetaInterfaceBuilder {
-  _$NewsOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -2019,9 +2004,9 @@ class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder>, Ne
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  NewsOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  NewsOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -2035,24 +2020,24 @@ class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder>, Ne
   }
 
   @override
-  void replace(covariant NewsOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(NewsOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$NewsOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$NewsOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'NewsOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'NewsOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -2061,40 +2046,40 @@ class NewsOCSMetaBuilder implements Builder<NewsOCSMeta, NewsOCSMetaBuilder>, Ne
   }
 }
 
-abstract mixin class NewsEmptyOCS_OcsInterfaceBuilder {
-  void replace(NewsEmptyOCS_OcsInterface other);
-  void update(void Function(NewsEmptyOCS_OcsInterfaceBuilder) updates);
-  NewsOCSMetaBuilder get meta;
-  set meta(NewsOCSMetaBuilder? meta);
+abstract mixin class EmptyOCS_OcsInterfaceBuilder {
+  void replace(EmptyOCS_OcsInterface other);
+  void update(void Function(EmptyOCS_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   ListBuilder<JsonObject> get data;
   set data(ListBuilder<JsonObject>? data);
 }
 
-class _$NewsEmptyOCS_Ocs extends NewsEmptyOCS_Ocs {
+class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   @override
-  final NewsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final BuiltList<JsonObject> data;
 
-  factory _$NewsEmptyOCS_Ocs([void Function(NewsEmptyOCS_OcsBuilder)? updates]) =>
-      (NewsEmptyOCS_OcsBuilder()..update(updates))._build();
+  factory _$EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? updates]) =>
+      (EmptyOCS_OcsBuilder()..update(updates))._build();
 
-  _$NewsEmptyOCS_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'NewsEmptyOCS_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'NewsEmptyOCS_Ocs', 'data');
+  _$EmptyOCS_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EmptyOCS_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EmptyOCS_Ocs', 'data');
   }
 
   @override
-  NewsEmptyOCS_Ocs rebuild(void Function(NewsEmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsEmptyOCS_OcsBuilder toBuilder() => NewsEmptyOCS_OcsBuilder()..replace(this);
+  EmptyOCS_OcsBuilder toBuilder() => EmptyOCS_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsEmptyOCS_Ocs && meta == other.meta && data == other.data;
+    return other is EmptyOCS_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -2108,28 +2093,27 @@ class _$NewsEmptyOCS_Ocs extends NewsEmptyOCS_Ocs {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsEmptyOCS_Ocs')
+    return (newBuiltValueToStringHelper(r'EmptyOCS_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NewsEmptyOCS_OcsBuilder
-    implements Builder<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder>, NewsEmptyOCS_OcsInterfaceBuilder {
-  _$NewsEmptyOCS_Ocs? _$v;
+class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, EmptyOCS_OcsInterfaceBuilder {
+  _$EmptyOCS_Ocs? _$v;
 
-  NewsOCSMetaBuilder? _meta;
-  NewsOCSMetaBuilder get meta => _$this._meta ??= NewsOCSMetaBuilder();
-  set meta(covariant NewsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
-  NewsEmptyOCS_OcsBuilder();
+  EmptyOCS_OcsBuilder();
 
-  NewsEmptyOCS_OcsBuilder get _$this {
+  EmptyOCS_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -2140,23 +2124,23 @@ class NewsEmptyOCS_OcsBuilder
   }
 
   @override
-  void replace(covariant NewsEmptyOCS_Ocs other) {
+  void replace(covariant EmptyOCS_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsEmptyOCS_Ocs;
+    _$v = other as _$EmptyOCS_Ocs;
   }
 
   @override
-  void update(void Function(NewsEmptyOCS_OcsBuilder)? updates) {
+  void update(void Function(EmptyOCS_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsEmptyOCS_Ocs build() => _build();
+  EmptyOCS_Ocs build() => _build();
 
-  _$NewsEmptyOCS_Ocs _build() {
-    _$NewsEmptyOCS_Ocs _$result;
+  _$EmptyOCS_Ocs _build() {
+    _$EmptyOCS_Ocs _$result;
     try {
-      _$result = _$v ?? _$NewsEmptyOCS_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2165,7 +2149,7 @@ class NewsEmptyOCS_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsEmptyOCS_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2174,34 +2158,33 @@ class NewsEmptyOCS_OcsBuilder
   }
 }
 
-abstract mixin class NewsEmptyOCSInterfaceBuilder {
-  void replace(NewsEmptyOCSInterface other);
-  void update(void Function(NewsEmptyOCSInterfaceBuilder) updates);
-  NewsEmptyOCS_OcsBuilder get ocs;
-  set ocs(NewsEmptyOCS_OcsBuilder? ocs);
+abstract mixin class EmptyOCSInterfaceBuilder {
+  void replace(EmptyOCSInterface other);
+  void update(void Function(EmptyOCSInterfaceBuilder) updates);
+  EmptyOCS_OcsBuilder get ocs;
+  set ocs(EmptyOCS_OcsBuilder? ocs);
 }
 
-class _$NewsEmptyOCS extends NewsEmptyOCS {
+class _$EmptyOCS extends EmptyOCS {
   @override
-  final NewsEmptyOCS_Ocs ocs;
+  final EmptyOCS_Ocs ocs;
 
-  factory _$NewsEmptyOCS([void Function(NewsEmptyOCSBuilder)? updates]) =>
-      (NewsEmptyOCSBuilder()..update(updates))._build();
+  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (EmptyOCSBuilder()..update(updates))._build();
 
-  _$NewsEmptyOCS._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NewsEmptyOCS', 'ocs');
+  _$EmptyOCS._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EmptyOCS', 'ocs');
   }
 
   @override
-  NewsEmptyOCS rebuild(void Function(NewsEmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewsEmptyOCSBuilder toBuilder() => NewsEmptyOCSBuilder()..replace(this);
+  EmptyOCSBuilder toBuilder() => EmptyOCSBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NewsEmptyOCS && ocs == other.ocs;
+    return other is EmptyOCS && ocs == other.ocs;
   }
 
   @override
@@ -2214,20 +2197,20 @@ class _$NewsEmptyOCS extends NewsEmptyOCS {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NewsEmptyOCS')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'EmptyOCS')..add('ocs', ocs)).toString();
   }
 }
 
-class NewsEmptyOCSBuilder implements Builder<NewsEmptyOCS, NewsEmptyOCSBuilder>, NewsEmptyOCSInterfaceBuilder {
-  _$NewsEmptyOCS? _$v;
+class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, EmptyOCSInterfaceBuilder {
+  _$EmptyOCS? _$v;
 
-  NewsEmptyOCS_OcsBuilder? _ocs;
-  NewsEmptyOCS_OcsBuilder get ocs => _$this._ocs ??= NewsEmptyOCS_OcsBuilder();
-  set ocs(covariant NewsEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
+  EmptyOCS_OcsBuilder? _ocs;
+  EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= EmptyOCS_OcsBuilder();
+  set ocs(covariant EmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NewsEmptyOCSBuilder();
+  EmptyOCSBuilder();
 
-  NewsEmptyOCSBuilder get _$this {
+  EmptyOCSBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -2237,30 +2220,30 @@ class NewsEmptyOCSBuilder implements Builder<NewsEmptyOCS, NewsEmptyOCSBuilder>,
   }
 
   @override
-  void replace(covariant NewsEmptyOCS other) {
+  void replace(covariant EmptyOCS other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NewsEmptyOCS;
+    _$v = other as _$EmptyOCS;
   }
 
   @override
-  void update(void Function(NewsEmptyOCSBuilder)? updates) {
+  void update(void Function(EmptyOCSBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NewsEmptyOCS build() => _build();
+  EmptyOCS build() => _build();
 
-  _$NewsEmptyOCS _build() {
-    _$NewsEmptyOCS _$result;
+  _$EmptyOCS _build() {
+    _$EmptyOCS _$result;
     try {
-      _$result = _$v ?? _$NewsEmptyOCS._(ocs: ocs.build());
+      _$result = _$v ?? _$EmptyOCS._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NewsEmptyOCS', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
       }
       rethrow;
     }

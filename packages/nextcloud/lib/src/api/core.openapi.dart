@@ -16,12 +16,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'core.openapi.g.dart';
 
-class CoreClient extends DynamiteClient {
-  CoreClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -30,7 +28,7 @@ class CoreClient extends DynamiteClient {
     super.authentications,
   });
 
-  CoreClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -39,43 +37,43 @@ class CoreClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  CoreAppPasswordClient get appPassword => CoreAppPasswordClient(this);
+  AppPasswordClient get appPassword => AppPasswordClient(this);
 
-  CoreAutoCompleteClient get autoComplete => CoreAutoCompleteClient(this);
+  AutoCompleteClient get autoComplete => AutoCompleteClient(this);
 
-  CoreAvatarClient get avatar => CoreAvatarClient(this);
+  AvatarClient get avatar => AvatarClient(this);
 
-  CoreClientFlowLoginV2Client get clientFlowLoginV2 => CoreClientFlowLoginV2Client(this);
+  ClientFlowLoginV2Client get clientFlowLoginV2 => ClientFlowLoginV2Client(this);
 
-  CoreCollaborationResourcesClient get collaborationResources => CoreCollaborationResourcesClient(this);
+  CollaborationResourcesClient get collaborationResources => CollaborationResourcesClient(this);
 
-  CoreGuestAvatarClient get guestAvatar => CoreGuestAvatarClient(this);
+  GuestAvatarClient get guestAvatar => GuestAvatarClient(this);
 
-  CoreHoverCardClient get hoverCard => CoreHoverCardClient(this);
+  HoverCardClient get hoverCard => HoverCardClient(this);
 
-  CoreNavigationClient get navigation => CoreNavigationClient(this);
+  NavigationClient get navigation => NavigationClient(this);
 
-  CoreOcmClient get ocm => CoreOcmClient(this);
+  OcmClient get ocm => OcmClient(this);
 
-  CoreOcsClient get ocs => CoreOcsClient(this);
+  OcsClient get ocs => OcsClient(this);
 
-  CorePreviewClient get preview => CorePreviewClient(this);
+  PreviewClient get preview => PreviewClient(this);
 
-  CoreProfileApiClient get profileApi => CoreProfileApiClient(this);
+  ProfileApiClient get profileApi => ProfileApiClient(this);
 
-  CoreReferenceClient get reference => CoreReferenceClient(this);
+  ReferenceClient get reference => ReferenceClient(this);
 
-  CoreReferenceApiClient get referenceApi => CoreReferenceApiClient(this);
+  ReferenceApiClient get referenceApi => ReferenceApiClient(this);
 
-  CoreTextProcessingApiClient get textProcessingApi => CoreTextProcessingApiClient(this);
+  TextProcessingApiClient get textProcessingApi => TextProcessingApiClient(this);
 
-  CoreTranslationApiClient get translationApi => CoreTranslationApiClient(this);
+  TranslationApiClient get translationApi => TranslationApiClient(this);
 
-  CoreUnifiedSearchClient get unifiedSearch => CoreUnifiedSearchClient(this);
+  UnifiedSearchClient get unifiedSearch => UnifiedSearchClient(this);
 
-  CoreWhatsNewClient get whatsNew => CoreWhatsNewClient(this);
+  WhatsNewClient get whatsNew => WhatsNewClient(this);
 
-  CoreWipeClient get wipe => CoreWipeClient(this);
+  WipeClient get wipe => WipeClient(this);
 
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -85,7 +83,7 @@ class CoreClient extends DynamiteClient {
   ///
   /// See:
   ///  * [getStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreStatus, void>> getStatus() async {
+  Future<DynamiteResponse<Status, void>> getStatus() async {
     final rawResponse = getStatusRaw();
 
     return rawResponse.future;
@@ -102,7 +100,7 @@ class CoreClient extends DynamiteClient {
   /// See:
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreStatus, void> getStatusRaw() {
+  DynamiteRawResponse<Status, void> getStatusRaw() {
     const path = '/status.php';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -111,7 +109,7 @@ class CoreClient extends DynamiteClient {
     Uint8List? body;
 
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreStatus, void>(
+    return DynamiteRawResponse<Status, void>(
       response: doRequest(
         'get',
         uri,
@@ -119,17 +117,17 @@ class CoreClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreStatus),
+      bodyType: const FullType(Status),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreAppPasswordClient {
-  CoreAppPasswordClient(this._rootClient);
+class AppPasswordClient {
+  AppPasswordClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Create app password.
   ///
@@ -145,7 +143,7 @@ class CoreAppPasswordClient {
   ///
   /// See:
   ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
+  Future<DynamiteResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getAppPasswordRaw(
@@ -172,7 +170,7 @@ class CoreAppPasswordClient {
   /// See:
   ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
+  DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/core/getapppassword';
@@ -201,7 +199,7 @@ class CoreAppPasswordClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreAppPasswordGetAppPasswordResponseApplicationJson, void>(
+    return DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -209,7 +207,7 @@ class CoreAppPasswordClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
+      bodyType: const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -229,7 +227,7 @@ class CoreAppPasswordClient {
   ///
   /// See:
   ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
+  Future<DynamiteResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = rotateAppPasswordRaw(
@@ -256,7 +254,7 @@ class CoreAppPasswordClient {
   /// See:
   ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
+  DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/core/apppassword/rotate';
@@ -285,7 +283,7 @@ class CoreAppPasswordClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreAppPasswordRotateAppPasswordResponseApplicationJson, void>(
+    return DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -293,7 +291,7 @@ class CoreAppPasswordClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
+      bodyType: const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -313,7 +311,7 @@ class CoreAppPasswordClient {
   ///
   /// See:
   ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
+  Future<DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = deleteAppPasswordRaw(
@@ -340,7 +338,7 @@ class CoreAppPasswordClient {
   /// See:
   ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
+  DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/core/apppassword';
@@ -369,7 +367,7 @@ class CoreAppPasswordClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreAppPasswordDeleteAppPasswordResponseApplicationJson, void>(
+    return DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'delete',
         uri,
@@ -377,17 +375,17 @@ class CoreAppPasswordClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
+      bodyType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreAutoCompleteClient {
-  CoreAutoCompleteClient(this._rootClient);
+class AutoCompleteClient {
+  AutoCompleteClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Autocomplete a query.
   ///
@@ -408,7 +406,7 @@ class CoreAutoCompleteClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreAutoCompleteGetResponseApplicationJson, void>> $get({
+  Future<DynamiteResponse<AutoCompleteGetResponseApplicationJson, void>> $get({
     required final String search,
     final String? itemType,
     final String? itemId,
@@ -452,7 +450,7 @@ class CoreAutoCompleteClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void> $getRaw({
+  DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void> $getRaw({
     required final String search,
     final String? itemType,
     final String? itemId,
@@ -503,7 +501,7 @@ class CoreAutoCompleteClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreAutoCompleteGetResponseApplicationJson, void>(
+    return DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -511,7 +509,7 @@ class CoreAutoCompleteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreAutoCompleteGetResponseApplicationJson),
+      bodyType: const FullType(AutoCompleteGetResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -519,10 +517,10 @@ class CoreAutoCompleteClient {
 }
 
 /// Class AvatarController.
-class CoreAvatarClient {
-  CoreAvatarClient(this._rootClient);
+class AvatarClient {
+  AvatarClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the dark avatar.
   ///
@@ -539,7 +537,7 @@ class CoreAvatarClient {
   ///
   /// See:
   ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
+  Future<DynamiteResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required final String userId,
     required final int size,
   }) async {
@@ -569,7 +567,7 @@ class CoreAvatarClient {
   /// See:
   ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
+  DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
     required final String userId,
     required final int size,
   }) {
@@ -598,7 +596,7 @@ class CoreAvatarClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarDarkHeaders>(
+    return DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -607,7 +605,7 @@ class CoreAvatarClient {
         const {200},
       ),
       bodyType: const FullType(Uint8List),
-      headersType: const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
+      headersType: const FullType(AvatarAvatarGetAvatarDarkHeaders),
       serializers: _jsonSerializers,
     );
   }
@@ -627,7 +625,7 @@ class CoreAvatarClient {
   ///
   /// See:
   ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>> getAvatar({
+  Future<DynamiteResponse<Uint8List, AvatarAvatarGetAvatarHeaders>> getAvatar({
     required final String userId,
     required final int size,
   }) async {
@@ -657,7 +655,7 @@ class CoreAvatarClient {
   /// See:
   ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders> getAvatarRaw({
+  DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders> getAvatarRaw({
     required final String userId,
     required final int size,
   }) {
@@ -686,7 +684,7 @@ class CoreAvatarClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<Uint8List, CoreAvatarAvatarGetAvatarHeaders>(
+    return DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -695,16 +693,16 @@ class CoreAvatarClient {
         const {200},
       ),
       bodyType: const FullType(Uint8List),
-      headersType: const FullType(CoreAvatarAvatarGetAvatarHeaders),
+      headersType: const FullType(AvatarAvatarGetAvatarHeaders),
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreClientFlowLoginV2Client {
-  CoreClientFlowLoginV2Client(this._rootClient);
+class ClientFlowLoginV2Client {
+  ClientFlowLoginV2Client(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Poll the login flow credentials.
   ///
@@ -720,7 +718,7 @@ class CoreClientFlowLoginV2Client {
   ///
   /// See:
   ///  * [pollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreLoginFlowV2Credentials, void>> poll({required final String token}) async {
+  Future<DynamiteResponse<LoginFlowV2Credentials, void>> poll({required final String token}) async {
     final rawResponse = pollRaw(
       token: token,
     );
@@ -745,7 +743,7 @@ class CoreClientFlowLoginV2Client {
   /// See:
   ///  * [poll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreLoginFlowV2Credentials, void> pollRaw({required final String token}) {
+  DynamiteRawResponse<LoginFlowV2Credentials, void> pollRaw({required final String token}) {
     const path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -770,7 +768,7 @@ class CoreClientFlowLoginV2Client {
 // coverage:ignore-end
     queryParameters['token'] = token;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreLoginFlowV2Credentials, void>(
+    return DynamiteRawResponse<LoginFlowV2Credentials, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -778,7 +776,7 @@ class CoreClientFlowLoginV2Client {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreLoginFlowV2Credentials),
+      bodyType: const FullType(LoginFlowV2Credentials),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -794,7 +792,7 @@ class CoreClientFlowLoginV2Client {
   ///
   /// See:
   ///  * [initRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreLoginFlowV2, void>> init() async {
+  Future<DynamiteResponse<LoginFlowV2, void>> init() async {
     final rawResponse = initRaw();
 
     return rawResponse.future;
@@ -813,7 +811,7 @@ class CoreClientFlowLoginV2Client {
   /// See:
   ///  * [init] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreLoginFlowV2, void> initRaw() {
+  DynamiteRawResponse<LoginFlowV2, void> initRaw() {
     const path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -837,7 +835,7 @@ class CoreClientFlowLoginV2Client {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreLoginFlowV2, void>(
+    return DynamiteRawResponse<LoginFlowV2, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -845,17 +843,17 @@ class CoreClientFlowLoginV2Client {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreLoginFlowV2),
+      bodyType: const FullType(LoginFlowV2),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreCollaborationResourcesClient {
-  CoreCollaborationResourcesClient(this._rootClient);
+class CollaborationResourcesClient {
+  CollaborationResourcesClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Search for collections.
   ///
@@ -872,7 +870,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
+  Future<DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
     final bool oCSAPIRequest = true,
   }) async {
@@ -902,7 +900,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [searchCollections] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
+  DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
     required final String filter,
     final bool oCSAPIRequest = true,
   }) {
@@ -933,7 +931,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -941,7 +939,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -963,7 +961,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
+  Future<DynamiteResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) async {
@@ -994,7 +992,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [listCollection] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
+  DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
     required final int collectionId,
     final bool oCSAPIRequest = true,
   }) {
@@ -1025,7 +1023,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesListCollectionResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -1033,7 +1031,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1056,7 +1054,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [renameCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
+  Future<DynamiteResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
     final bool oCSAPIRequest = true,
@@ -1090,7 +1088,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [renameCollection] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
+  DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
     required final String collectionName,
     required final int collectionId,
     final bool oCSAPIRequest = true,
@@ -1123,7 +1121,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesRenameCollectionResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'put',
         uri,
@@ -1131,7 +1129,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1155,7 +1153,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [addResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
+  Future<DynamiteResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
@@ -1192,7 +1190,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [addResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
+  DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
@@ -1227,7 +1225,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesAddResourceResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -1235,7 +1233,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1259,7 +1257,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [removeResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
+  Future<DynamiteResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
@@ -1296,7 +1294,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [removeResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
+  DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
@@ -1331,7 +1329,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesRemoveResourceResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'delete',
         uri,
@@ -1339,7 +1337,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1361,7 +1359,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [getCollectionsByResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
+  Future<DynamiteResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
       getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
@@ -1395,7 +1393,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [getCollectionsByResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
+  DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
       getCollectionsByResourceRaw({
     required final String resourceType,
     required final String resourceId,
@@ -1429,7 +1427,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -1437,7 +1435,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1462,7 +1460,7 @@ class CoreCollaborationResourcesClient {
   ///
   /// See:
   ///  * [createCollectionOnResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
+  Future<DynamiteResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
       createCollectionOnResource({
     required final String name,
     required final String baseResourceType,
@@ -1501,7 +1499,7 @@ class CoreCollaborationResourcesClient {
   /// See:
   ///  * [createCollectionOnResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
+  DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
       createCollectionOnResourceRaw({
     required final String name,
     required final String baseResourceType,
@@ -1537,7 +1535,7 @@ class CoreCollaborationResourcesClient {
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
+    return DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -1545,7 +1543,7 @@ class CoreCollaborationResourcesClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+      bodyType: const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1553,10 +1551,10 @@ class CoreCollaborationResourcesClient {
 }
 
 /// This controller handles guest avatar requests.
-class CoreGuestAvatarClient {
-  CoreGuestAvatarClient(this._rootClient);
+class GuestAvatarClient {
+  GuestAvatarClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Returns a dark guest avatar image response.
   ///
@@ -1749,10 +1747,10 @@ class CoreGuestAvatarClient {
   }
 }
 
-class CoreHoverCardClient {
-  CoreHoverCardClient(this._rootClient);
+class HoverCardClient {
+  HoverCardClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the user details for a hovercard.
   ///
@@ -1769,7 +1767,7 @@ class CoreHoverCardClient {
   ///
   /// See:
   ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreHoverCardGetUserResponseApplicationJson, void>> getUser({
+  Future<DynamiteResponse<HoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) async {
@@ -1799,7 +1797,7 @@ class CoreHoverCardClient {
   /// See:
   ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void> getUserRaw({
+  DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
     final bool oCSAPIRequest = true,
   }) {
@@ -1830,7 +1828,7 @@ class CoreHoverCardClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreHoverCardGetUserResponseApplicationJson, void>(
+    return DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -1838,17 +1836,17 @@ class CoreHoverCardClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreHoverCardGetUserResponseApplicationJson),
+      bodyType: const FullType(HoverCardGetUserResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreNavigationClient {
-  CoreNavigationClient(this._rootClient);
+class NavigationClient {
+  NavigationClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the apps navigation.
   ///
@@ -1865,7 +1863,7 @@ class CoreNavigationClient {
   ///
   /// See:
   ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
+  Future<DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
@@ -1895,7 +1893,7 @@ class CoreNavigationClient {
   /// See:
   ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
+  DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) {
@@ -1928,7 +1926,7 @@ class CoreNavigationClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreNavigationGetAppsNavigationResponseApplicationJson, void>(
+    return DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -1936,7 +1934,7 @@ class CoreNavigationClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
+      bodyType: const FullType(NavigationGetAppsNavigationResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1957,7 +1955,7 @@ class CoreNavigationClient {
   ///
   /// See:
   ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
+  Future<DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) async {
@@ -1987,7 +1985,7 @@ class CoreNavigationClient {
   /// See:
   ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
+  DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
     final int absolute = 0,
     final bool oCSAPIRequest = true,
   }) {
@@ -2020,7 +2018,7 @@ class CoreNavigationClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreNavigationGetSettingsNavigationResponseApplicationJson, void>(
+    return DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -2028,7 +2026,7 @@ class CoreNavigationClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
+      bodyType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -2036,10 +2034,10 @@ class CoreNavigationClient {
 }
 
 /// Controller about the endpoint /ocm-provider/.
-class CoreOcmClient {
-  CoreOcmClient(this._rootClient);
+class OcmClient {
+  OcmClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
   ///
@@ -2052,7 +2050,7 @@ class CoreOcmClient {
   ///
   /// See:
   ///  * [discoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>> discovery() async {
+  Future<DynamiteResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>> discovery() async {
     final rawResponse = discoveryRaw();
 
     return rawResponse.future;
@@ -2072,7 +2070,7 @@ class CoreOcmClient {
   /// See:
   ///  * [discovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders> discoveryRaw() {
+  DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders> discoveryRaw() {
     const path = '/index.php/ocm-provider';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2096,7 +2094,7 @@ class CoreOcmClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreOcmDiscoveryResponseApplicationJson, CoreOcmOcmDiscoveryHeaders>(
+    return DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -2104,17 +2102,17 @@ class CoreOcmClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreOcmDiscoveryResponseApplicationJson),
-      headersType: const FullType(CoreOcmOcmDiscoveryHeaders),
+      bodyType: const FullType(OcmDiscoveryResponseApplicationJson),
+      headersType: const FullType(OcmOcmDiscoveryHeaders),
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreOcsClient {
-  CoreOcsClient(this._rootClient);
+class OcsClient {
+  OcsClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the capabilities.
   ///
@@ -2129,7 +2127,7 @@ class CoreOcsClient {
   ///
   /// See:
   ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
+  Future<DynamiteResponse<OcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getCapabilitiesRaw(
@@ -2155,7 +2153,7 @@ class CoreOcsClient {
   /// See:
   ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
+  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/cloud/capabilities';
@@ -2182,7 +2180,7 @@ class CoreOcsClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreOcsGetCapabilitiesResponseApplicationJson, void>(
+    return DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -2190,17 +2188,17 @@ class CoreOcsClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
+      bodyType: const FullType(OcsGetCapabilitiesResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CorePreviewClient {
-  CorePreviewClient(this._rootClient);
+class PreviewClient {
+  PreviewClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get a preview by file ID.
   ///
@@ -2483,10 +2481,10 @@ class CorePreviewClient {
   }
 }
 
-class CoreProfileApiClient {
-  CoreProfileApiClient(this._rootClient);
+class ProfileApiClient {
+  ProfileApiClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Update the visibility of a parameter.
   ///
@@ -2507,7 +2505,7 @@ class CoreProfileApiClient {
   ///
   /// See:
   ///  * [setVisibilityRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
+  Future<DynamiteResponse<ProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
@@ -2545,7 +2543,7 @@ class CoreProfileApiClient {
   /// See:
   ///  * [setVisibility] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
+  DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
@@ -2580,7 +2578,7 @@ class CoreProfileApiClient {
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreProfileApiSetVisibilityResponseApplicationJson, void>(
+    return DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'put',
         uri,
@@ -2588,17 +2586,17 @@ class CoreProfileApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
+      bodyType: const FullType(ProfileApiSetVisibilityResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreReferenceClient {
-  CoreReferenceClient(this._rootClient);
+class ReferenceClient {
+  ReferenceClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get a preview for a reference.
   ///
@@ -2679,10 +2677,10 @@ class CoreReferenceClient {
   }
 }
 
-class CoreReferenceApiClient {
-  CoreReferenceApiClient(this._rootClient);
+class ReferenceApiClient {
+  ReferenceApiClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Resolve a reference.
   ///
@@ -2698,7 +2696,7 @@ class CoreReferenceApiClient {
   ///
   /// See:
   ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
+  Future<DynamiteResponse<ReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
     final bool oCSAPIRequest = true,
   }) async {
@@ -2727,7 +2725,7 @@ class CoreReferenceApiClient {
   /// See:
   ///  * [resolveOne] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
+  DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
     required final String reference,
     final bool oCSAPIRequest = true,
   }) {
@@ -2758,7 +2756,7 @@ class CoreReferenceApiClient {
     queryParameters['reference'] = reference;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreReferenceApiResolveOneResponseApplicationJson, void>(
+    return DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -2766,7 +2764,7 @@ class CoreReferenceApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
+      bodyType: const FullType(ReferenceApiResolveOneResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -2787,7 +2785,7 @@ class CoreReferenceApiClient {
   ///
   /// See:
   ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreReferenceApiResolveResponseApplicationJson, void>> resolve({
+  Future<DynamiteResponse<ReferenceApiResolveResponseApplicationJson, void>> resolve({
     required final List<String> references,
     final int limit = 1,
     final bool oCSAPIRequest = true,
@@ -2819,7 +2817,7 @@ class CoreReferenceApiClient {
   /// See:
   ///  * [resolve] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void> resolveRaw({
+  DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void> resolveRaw({
     required final List<String> references,
     final int limit = 1,
     final bool oCSAPIRequest = true,
@@ -2854,7 +2852,7 @@ class CoreReferenceApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreReferenceApiResolveResponseApplicationJson, void>(
+    return DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -2862,7 +2860,7 @@ class CoreReferenceApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreReferenceApiResolveResponseApplicationJson),
+      bodyType: const FullType(ReferenceApiResolveResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -2884,7 +2882,7 @@ class CoreReferenceApiClient {
   ///
   /// See:
   ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreReferenceApiExtractResponseApplicationJson, void>> extract({
+  Future<DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
     final int resolve = 0,
     final int limit = 1,
@@ -2919,7 +2917,7 @@ class CoreReferenceApiClient {
   /// See:
   ///  * [extract] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void> extractRaw({
+  DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required final String text,
     final int resolve = 0,
     final int limit = 1,
@@ -2958,7 +2956,7 @@ class CoreReferenceApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreReferenceApiExtractResponseApplicationJson, void>(
+    return DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -2966,7 +2964,7 @@ class CoreReferenceApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreReferenceApiExtractResponseApplicationJson),
+      bodyType: const FullType(ReferenceApiExtractResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -2985,7 +2983,7 @@ class CoreReferenceApiClient {
   ///
   /// See:
   ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
+  Future<DynamiteResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getProvidersInfoRaw(
@@ -3011,7 +3009,7 @@ class CoreReferenceApiClient {
   /// See:
   ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
+  DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/references/providers';
@@ -3040,7 +3038,7 @@ class CoreReferenceApiClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreReferenceApiGetProvidersInfoResponseApplicationJson, void>(
+    return DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3048,7 +3046,7 @@ class CoreReferenceApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
+      bodyType: const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3069,7 +3067,7 @@ class CoreReferenceApiClient {
   ///
   /// See:
   ///  * [touchProviderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
+  Future<DynamiteResponse<ReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
     final bool oCSAPIRequest = true,
@@ -3101,7 +3099,7 @@ class CoreReferenceApiClient {
   /// See:
   ///  * [touchProvider] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
+  DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
     required final String providerId,
     final int? timestamp,
     final bool oCSAPIRequest = true,
@@ -3136,7 +3134,7 @@ class CoreReferenceApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreReferenceApiTouchProviderResponseApplicationJson, void>(
+    return DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'put',
         uri,
@@ -3144,17 +3142,17 @@ class CoreReferenceApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
+      bodyType: const FullType(ReferenceApiTouchProviderResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreTextProcessingApiClient {
-  CoreTextProcessingApiClient(this._rootClient);
+class TextProcessingApiClient {
+  TextProcessingApiClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// This endpoint returns all available LanguageModel task types.
   ///
@@ -3169,7 +3167,7 @@ class CoreTextProcessingApiClient {
   ///
   /// See:
   ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
+  Future<DynamiteResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = taskTypesRaw(
@@ -3195,7 +3193,7 @@ class CoreTextProcessingApiClient {
   /// See:
   ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
+  DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/textprocessing/tasktypes';
@@ -3222,7 +3220,7 @@ class CoreTextProcessingApiClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTextProcessingApiTaskTypesResponseApplicationJson, void>(
+    return DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3230,7 +3228,7 @@ class CoreTextProcessingApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
+      bodyType: const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3255,7 +3253,7 @@ class CoreTextProcessingApiClient {
   ///
   /// See:
   ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>> schedule({
+  Future<DynamiteResponse<TextProcessingApiScheduleResponseApplicationJson, void>> schedule({
     required final String input,
     required final String type,
     required final String appId,
@@ -3295,7 +3293,7 @@ class CoreTextProcessingApiClient {
   /// See:
   ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
+  DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
     required final String input,
     required final String type,
     required final String appId,
@@ -3332,7 +3330,7 @@ class CoreTextProcessingApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTextProcessingApiScheduleResponseApplicationJson, void>(
+    return DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -3340,7 +3338,7 @@ class CoreTextProcessingApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
+      bodyType: const FullType(TextProcessingApiScheduleResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3362,7 +3360,7 @@ class CoreTextProcessingApiClient {
   ///
   /// See:
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
+  Future<DynamiteResponse<TextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
@@ -3393,7 +3391,7 @@ class CoreTextProcessingApiClient {
   /// See:
   ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
+  DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
     final bool oCSAPIRequest = true,
   }) {
@@ -3422,7 +3420,7 @@ class CoreTextProcessingApiClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTextProcessingApiGetTaskResponseApplicationJson, void>(
+    return DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3430,7 +3428,7 @@ class CoreTextProcessingApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
+      bodyType: const FullType(TextProcessingApiGetTaskResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3452,7 +3450,7 @@ class CoreTextProcessingApiClient {
   ///
   /// See:
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
+  Future<DynamiteResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
     final bool oCSAPIRequest = true,
   }) async {
@@ -3483,7 +3481,7 @@ class CoreTextProcessingApiClient {
   /// See:
   ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
+  DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required final int id,
     final bool oCSAPIRequest = true,
   }) {
@@ -3514,7 +3512,7 @@ class CoreTextProcessingApiClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTextProcessingApiDeleteTaskResponseApplicationJson, void>(
+    return DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'delete',
         uri,
@@ -3522,7 +3520,7 @@ class CoreTextProcessingApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
+      bodyType: const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3544,7 +3542,7 @@ class CoreTextProcessingApiClient {
   ///
   /// See:
   ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
+  Future<DynamiteResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
     final bool oCSAPIRequest = true,
@@ -3577,7 +3575,7 @@ class CoreTextProcessingApiClient {
   /// See:
   ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
+  DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required final String appId,
     final String? identifier,
     final bool oCSAPIRequest = true,
@@ -3612,7 +3610,7 @@ class CoreTextProcessingApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTextProcessingApiListTasksByAppResponseApplicationJson, void>(
+    return DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3620,17 +3618,17 @@ class CoreTextProcessingApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
+      bodyType: const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreTranslationApiClient {
-  CoreTranslationApiClient(this._rootClient);
+class TranslationApiClient {
+  TranslationApiClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the list of supported languages.
   ///
@@ -3645,7 +3643,7 @@ class CoreTranslationApiClient {
   ///
   /// See:
   ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>> languages({
+  Future<DynamiteResponse<TranslationApiLanguagesResponseApplicationJson, void>> languages({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = languagesRaw(
@@ -3671,7 +3669,7 @@ class CoreTranslationApiClient {
   /// See:
   ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
+  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/translation/languages';
@@ -3698,7 +3696,7 @@ class CoreTranslationApiClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTranslationApiLanguagesResponseApplicationJson, void>(
+    return DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3706,7 +3704,7 @@ class CoreTranslationApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
+      bodyType: const FullType(TranslationApiLanguagesResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3731,7 +3729,7 @@ class CoreTranslationApiClient {
   ///
   /// See:
   ///  * [translateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreTranslationApiTranslateResponseApplicationJson, void>> translate({
+  Future<DynamiteResponse<TranslationApiTranslateResponseApplicationJson, void>> translate({
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
@@ -3769,7 +3767,7 @@ class CoreTranslationApiClient {
   /// See:
   ///  * [translate] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void> translateRaw({
+  DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void> translateRaw({
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
@@ -3804,7 +3802,7 @@ class CoreTranslationApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreTranslationApiTranslateResponseApplicationJson, void>(
+    return DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -3812,17 +3810,17 @@ class CoreTranslationApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreTranslationApiTranslateResponseApplicationJson),
+      bodyType: const FullType(TranslationApiTranslateResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreUnifiedSearchClient {
-  CoreUnifiedSearchClient(this._rootClient);
+class UnifiedSearchClient {
+  UnifiedSearchClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the providers for unified search.
   ///
@@ -3838,7 +3836,7 @@ class CoreUnifiedSearchClient {
   ///
   /// See:
   ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
+  Future<DynamiteResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
@@ -3867,7 +3865,7 @@ class CoreUnifiedSearchClient {
   /// See:
   ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
+  DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
     final String from = '',
     final bool oCSAPIRequest = true,
   }) {
@@ -3900,7 +3898,7 @@ class CoreUnifiedSearchClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreUnifiedSearchGetProvidersResponseApplicationJson, void>(
+    return DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -3908,7 +3906,7 @@ class CoreUnifiedSearchClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
+      bodyType: const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -3934,12 +3932,12 @@ class CoreUnifiedSearchClient {
   ///
   /// See:
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>> search({
+  Future<DynamiteResponse<UnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
     final String term = '',
     final int? sortOrder,
     final int? limit,
-    final ContentString<CoreUnifiedSearchSearchCursor>? cursor,
+    final ContentString<UnifiedSearchSearchCursor>? cursor,
     final String from = '',
     final bool oCSAPIRequest = true,
   }) async {
@@ -3979,12 +3977,12 @@ class CoreUnifiedSearchClient {
   /// See:
   ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void> searchRaw({
+  DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void> searchRaw({
     required final String providerId,
     final String term = '',
     final int? sortOrder,
     final int? limit,
-    final ContentString<CoreUnifiedSearchSearchCursor>? cursor,
+    final ContentString<UnifiedSearchSearchCursor>? cursor,
     final String from = '',
     final bool oCSAPIRequest = true,
   }) {
@@ -4025,7 +4023,7 @@ class CoreUnifiedSearchClient {
     if (cursor != null) {
       queryParameters['cursor'] = _jsonSerializers.serialize(
         cursor,
-        specifiedType: const FullType(ContentString, [FullType(CoreUnifiedSearchSearchCursor)]),
+        specifiedType: const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
       );
     }
     if (from != '') {
@@ -4033,7 +4031,7 @@ class CoreUnifiedSearchClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreUnifiedSearchSearchResponseApplicationJson, void>(
+    return DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -4041,17 +4039,17 @@ class CoreUnifiedSearchClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
+      bodyType: const FullType(UnifiedSearchSearchResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreWhatsNewClient {
-  CoreWhatsNewClient(this._rootClient);
+class WhatsNewClient {
+  WhatsNewClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Get the changes.
   ///
@@ -4067,7 +4065,7 @@ class CoreWhatsNewClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreWhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
     final rawResponse = $getRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -4092,7 +4090,7 @@ class CoreWhatsNewClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4119,7 +4117,7 @@ class CoreWhatsNewClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreWhatsNewGetResponseApplicationJson, void>(
+    return DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -4127,7 +4125,7 @@ class CoreWhatsNewClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreWhatsNewGetResponseApplicationJson),
+      bodyType: const FullType(WhatsNewGetResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -4148,7 +4146,7 @@ class CoreWhatsNewClient {
   ///
   /// See:
   ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreWhatsNewDismissResponseApplicationJson, void>> dismiss({
+  Future<DynamiteResponse<WhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
     final bool oCSAPIRequest = true,
   }) async {
@@ -4178,7 +4176,7 @@ class CoreWhatsNewClient {
   /// See:
   ///  * [dismiss] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void> dismissRaw({
+  DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void> dismissRaw({
     required final String version,
     final bool oCSAPIRequest = true,
   }) {
@@ -4209,7 +4207,7 @@ class CoreWhatsNewClient {
     queryParameters['version'] = version;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreWhatsNewDismissResponseApplicationJson, void>(
+    return DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -4217,17 +4215,17 @@ class CoreWhatsNewClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreWhatsNewDismissResponseApplicationJson),
+      bodyType: const FullType(WhatsNewDismissResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class CoreWipeClient {
-  CoreWipeClient(this._rootClient);
+class WipeClient {
+  WipeClient(this._rootClient);
 
-  final CoreClient _rootClient;
+  final Client _rootClient;
 
   /// Check if the device should be wiped.
   ///
@@ -4243,9 +4241,7 @@ class CoreWipeClient {
   ///
   /// See:
   ///  * [checkWipeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CoreWipeCheckWipeResponseApplicationJson, void>> checkWipe({
-    required final String token,
-  }) async {
+  Future<DynamiteResponse<WipeCheckWipeResponseApplicationJson, void>> checkWipe({required final String token}) async {
     final rawResponse = checkWipeRaw(
       token: token,
     );
@@ -4270,7 +4266,7 @@ class CoreWipeClient {
   /// See:
   ///  * [checkWipe] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
+  DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
     const path = '/index.php/core/wipe/check';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4295,7 +4291,7 @@ class CoreWipeClient {
 // coverage:ignore-end
     queryParameters['token'] = token;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<CoreWipeCheckWipeResponseApplicationJson, void>(
+    return DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -4303,7 +4299,7 @@ class CoreWipeClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(CoreWipeCheckWipeResponseApplicationJson),
+      bodyType: const FullType(WipeCheckWipeResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -4389,7 +4385,7 @@ class CoreWipeClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreStatusInterface {
+abstract interface class StatusInterface {
   bool get installed;
   bool get maintenance;
   bool get needsDbUpgrade;
@@ -4398,81 +4394,81 @@ abstract interface class CoreStatusInterface {
   String get edition;
   String get productname;
   bool get extendedSupport;
-  CoreStatusInterface rebuild(final void Function(CoreStatusInterfaceBuilder) updates);
-  CoreStatusInterfaceBuilder toBuilder();
+  StatusInterface rebuild(final void Function(StatusInterfaceBuilder) updates);
+  StatusInterfaceBuilder toBuilder();
 }
 
-abstract class CoreStatus implements CoreStatusInterface, Built<CoreStatus, CoreStatusBuilder> {
-  factory CoreStatus([final void Function(CoreStatusBuilder)? b]) = _$CoreStatus;
+abstract class Status implements StatusInterface, Built<Status, StatusBuilder> {
+  factory Status([final void Function(StatusBuilder)? b]) = _$Status;
 
   // coverage:ignore-start
-  const CoreStatus._();
+  const Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreStatus.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Status.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreStatus> get serializer => _$coreStatusSerializer;
+  static Serializer<Status> get serializer => _$statusSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  CoreOCSMetaInterface rebuild(final void Function(CoreOCSMetaInterfaceBuilder) updates);
-  CoreOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOCSMeta implements CoreOCSMetaInterface, Built<CoreOCSMeta, CoreOCSMetaBuilder> {
-  factory CoreOCSMeta([final void Function(CoreOCSMetaBuilder)? b]) = _$CoreOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const CoreOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOCSMeta> get serializer => _$coreOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface {
+abstract interface class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
+abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
     implements
-        CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
-            CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data([
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data;
+        AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface,
+        Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
+            AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data([
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._();
+  const AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4480,35 +4476,35 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsDataSerializer;
+  static Serializer<AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
+      _$appPasswordGetAppPasswordResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data get data;
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data get data;
+  AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface rebuild(
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  AppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs
+abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
     implements
-        CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsInterface,
-        Built<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs,
-            CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder> {
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs([
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs;
+        AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface,
+        Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs,
+            AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder> {
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs([
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs._();
+  const AppPasswordGetAppPasswordResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4516,34 +4512,34 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs> get serializer =>
-      _$coreAppPasswordGetAppPasswordResponseApplicationJsonOcsSerializer;
+  static Serializer<AppPasswordGetAppPasswordResponseApplicationJson_Ocs> get serializer =>
+      _$appPasswordGetAppPasswordResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordGetAppPasswordResponseApplicationJsonInterface {
-  CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs get ocs;
-  CoreAppPasswordGetAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class AppPasswordGetAppPasswordResponseApplicationJsonInterface {
+  AppPasswordGetAppPasswordResponseApplicationJson_Ocs get ocs;
+  AppPasswordGetAppPasswordResponseApplicationJsonInterface rebuild(
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreAppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
+  AppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson
+abstract class AppPasswordGetAppPasswordResponseApplicationJson
     implements
-        CoreAppPasswordGetAppPasswordResponseApplicationJsonInterface,
-        Built<CoreAppPasswordGetAppPasswordResponseApplicationJson,
-            CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder> {
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson([
-    final void Function(CoreAppPasswordGetAppPasswordResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreAppPasswordGetAppPasswordResponseApplicationJson;
+        AppPasswordGetAppPasswordResponseApplicationJsonInterface,
+        Built<AppPasswordGetAppPasswordResponseApplicationJson,
+            AppPasswordGetAppPasswordResponseApplicationJsonBuilder> {
+  factory AppPasswordGetAppPasswordResponseApplicationJson([
+    final void Function(AppPasswordGetAppPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$AppPasswordGetAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreAppPasswordGetAppPasswordResponseApplicationJson._();
+  const AppPasswordGetAppPasswordResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordGetAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4551,34 +4547,34 @@ abstract class CoreAppPasswordGetAppPasswordResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordGetAppPasswordResponseApplicationJson> get serializer =>
-      _$coreAppPasswordGetAppPasswordResponseApplicationJsonSerializer;
+  static Serializer<AppPasswordGetAppPasswordResponseApplicationJson> get serializer =>
+      _$appPasswordGetAppPasswordResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
+abstract interface class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
+abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
     implements
-        CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
-            CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data([
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data;
+        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface,
+        Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
+            AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data([
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._();
+  const AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4586,35 +4582,35 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsDataSerializer;
+  static Serializer<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data> get serializer =>
+      _$appPasswordRotateAppPasswordResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data get data;
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data get data;
+  AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface rebuild(
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs
+abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
     implements
-        CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface,
-        Built<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
-            CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder> {
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs([
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs;
+        AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface,
+        Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
+            AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder> {
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs([
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs._();
+  const AppPasswordRotateAppPasswordResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4622,34 +4618,34 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs> get serializer =>
-      _$coreAppPasswordRotateAppPasswordResponseApplicationJsonOcsSerializer;
+  static Serializer<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs> get serializer =>
+      _$appPasswordRotateAppPasswordResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterface {
-  CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs get ocs;
-  CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class AppPasswordRotateAppPasswordResponseApplicationJsonInterface {
+  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs get ocs;
+  AppPasswordRotateAppPasswordResponseApplicationJsonInterface rebuild(
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
+  AppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson
+abstract class AppPasswordRotateAppPasswordResponseApplicationJson
     implements
-        CoreAppPasswordRotateAppPasswordResponseApplicationJsonInterface,
-        Built<CoreAppPasswordRotateAppPasswordResponseApplicationJson,
-            CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder> {
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson([
-    final void Function(CoreAppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreAppPasswordRotateAppPasswordResponseApplicationJson;
+        AppPasswordRotateAppPasswordResponseApplicationJsonInterface,
+        Built<AppPasswordRotateAppPasswordResponseApplicationJson,
+            AppPasswordRotateAppPasswordResponseApplicationJsonBuilder> {
+  factory AppPasswordRotateAppPasswordResponseApplicationJson([
+    final void Function(AppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreAppPasswordRotateAppPasswordResponseApplicationJson._();
+  const AppPasswordRotateAppPasswordResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordRotateAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4657,35 +4653,35 @@ abstract class CoreAppPasswordRotateAppPasswordResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordRotateAppPasswordResponseApplicationJson> get serializer =>
-      _$coreAppPasswordRotateAppPasswordResponseApplicationJsonSerializer;
+  static Serializer<AppPasswordRotateAppPasswordResponseApplicationJson> get serializer =>
+      _$appPasswordRotateAppPasswordResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
+abstract interface class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
   JsonObject get data;
-  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface rebuild(
+    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
     implements
-        CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface,
-        Built<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
-            CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
-  factory CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
-    final void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
+        AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface,
+        Built<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
+    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._();
+  const AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4693,34 +4689,34 @@ abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> get serializer =>
-      _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer;
+  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> get serializer =>
+      _$appPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
-  CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
-  CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
+  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
+  AppPasswordDeleteAppPasswordResponseApplicationJsonInterface rebuild(
+    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
+  AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson
+abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
     implements
-        CoreAppPasswordDeleteAppPasswordResponseApplicationJsonInterface,
-        Built<CoreAppPasswordDeleteAppPasswordResponseApplicationJson,
-            CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
-  factory CoreAppPasswordDeleteAppPasswordResponseApplicationJson([
-    final void Function(CoreAppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreAppPasswordDeleteAppPasswordResponseApplicationJson;
+        AppPasswordDeleteAppPasswordResponseApplicationJsonInterface,
+        Built<AppPasswordDeleteAppPasswordResponseApplicationJson,
+            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson([
+    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreAppPasswordDeleteAppPasswordResponseApplicationJson._();
+  const AppPasswordDeleteAppPasswordResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4728,35 +4724,33 @@ abstract class CoreAppPasswordDeleteAppPasswordResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAppPasswordDeleteAppPasswordResponseApplicationJson> get serializer =>
-      _$coreAppPasswordDeleteAppPasswordResponseApplicationJsonSerializer;
+  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson> get serializer =>
+      _$appPasswordDeleteAppPasswordResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAutocompleteResult_Status0Interface {
+abstract interface class AutocompleteResult_Status0Interface {
   String get status;
   String? get message;
   String? get icon;
   int? get clearAt;
-  CoreAutocompleteResult_Status0Interface rebuild(
-    final void Function(CoreAutocompleteResult_Status0InterfaceBuilder) updates,
-  );
-  CoreAutocompleteResult_Status0InterfaceBuilder toBuilder();
+  AutocompleteResult_Status0Interface rebuild(final void Function(AutocompleteResult_Status0InterfaceBuilder) updates);
+  AutocompleteResult_Status0InterfaceBuilder toBuilder();
 }
 
-abstract class CoreAutocompleteResult_Status0
+abstract class AutocompleteResult_Status0
     implements
-        CoreAutocompleteResult_Status0Interface,
-        Built<CoreAutocompleteResult_Status0, CoreAutocompleteResult_Status0Builder> {
-  factory CoreAutocompleteResult_Status0([final void Function(CoreAutocompleteResult_Status0Builder)? b]) =
-      _$CoreAutocompleteResult_Status0;
+        AutocompleteResult_Status0Interface,
+        Built<AutocompleteResult_Status0, AutocompleteResult_Status0Builder> {
+  factory AutocompleteResult_Status0([final void Function(AutocompleteResult_Status0Builder)? b]) =
+      _$AutocompleteResult_Status0;
 
   // coverage:ignore-start
-  const CoreAutocompleteResult_Status0._();
+  const AutocompleteResult_Status0._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAutocompleteResult_Status0.fromJson(final Map<String, dynamic> json) =>
+  factory AutocompleteResult_Status0.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4764,20 +4758,19 @@ abstract class CoreAutocompleteResult_Status0
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAutocompleteResult_Status0> get serializer => _$coreAutocompleteResultStatus0Serializer;
+  static Serializer<AutocompleteResult_Status0> get serializer => _$autocompleteResultStatus0Serializer;
 }
 
-abstract class CoreAutocompleteResult_Status
-    implements Built<CoreAutocompleteResult_Status, CoreAutocompleteResult_StatusBuilder> {
-  factory CoreAutocompleteResult_Status([final void Function(CoreAutocompleteResult_StatusBuilder)? b]) =
-      _$CoreAutocompleteResult_Status;
+abstract class AutocompleteResult_Status implements Built<AutocompleteResult_Status, AutocompleteResult_StatusBuilder> {
+  factory AutocompleteResult_Status([final void Function(AutocompleteResult_StatusBuilder)? b]) =
+      _$AutocompleteResult_Status;
 
   // coverage:ignore-start
-  const CoreAutocompleteResult_Status._();
+  const AutocompleteResult_Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAutocompleteResult_Status.fromJson(final Map<String, dynamic> json) =>
+  factory AutocompleteResult_Status.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4786,39 +4779,39 @@ abstract class CoreAutocompleteResult_Status
   // coverage:ignore-end
 
   JsonObject get data;
-  CoreAutocompleteResult_Status0? get autocompleteResultStatus0;
+  AutocompleteResult_Status0? get autocompleteResultStatus0;
   String? get string;
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreAutocompleteResult_Status> get serializer => _$CoreAutocompleteResult_StatusSerializer();
+  static Serializer<AutocompleteResult_Status> get serializer => _$AutocompleteResult_StatusSerializer();
 }
 
-class _$CoreAutocompleteResult_StatusSerializer implements PrimitiveSerializer<CoreAutocompleteResult_Status> {
+class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<AutocompleteResult_Status> {
   @override
-  final Iterable<Type> types = const [CoreAutocompleteResult_Status, _$CoreAutocompleteResult_Status];
+  final Iterable<Type> types = const [AutocompleteResult_Status, _$AutocompleteResult_Status];
 
   @override
-  final String wireName = 'CoreAutocompleteResult_Status';
+  final String wireName = 'AutocompleteResult_Status';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final CoreAutocompleteResult_Status object, {
+    final AutocompleteResult_Status object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  CoreAutocompleteResult_Status deserialize(
+  AutocompleteResult_Status deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreAutocompleteResult_StatusBuilder()..data = JsonObject(data);
+    final result = AutocompleteResult_StatusBuilder()..data = JsonObject(data);
     try {
       result._autocompleteResultStatus0 = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreAutocompleteResult_Status0),
-      )! as CoreAutocompleteResult_Status0)
+        specifiedType: const FullType(AutocompleteResult_Status0),
+      )! as AutocompleteResult_Status0)
           .toBuilder();
     } catch (_) {}
     try {
@@ -4833,28 +4826,28 @@ class _$CoreAutocompleteResult_StatusSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAutocompleteResultInterface {
+abstract interface class AutocompleteResultInterface {
   String get id;
   String get label;
   String get icon;
   String get source;
-  CoreAutocompleteResult_Status get status;
+  AutocompleteResult_Status get status;
   String get subline;
   String get shareWithDisplayNameUnique;
-  CoreAutocompleteResultInterface rebuild(final void Function(CoreAutocompleteResultInterfaceBuilder) updates);
-  CoreAutocompleteResultInterfaceBuilder toBuilder();
+  AutocompleteResultInterface rebuild(final void Function(AutocompleteResultInterfaceBuilder) updates);
+  AutocompleteResultInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAutocompleteResult
-    implements CoreAutocompleteResultInterface, Built<CoreAutocompleteResult, CoreAutocompleteResultBuilder> {
-  factory CoreAutocompleteResult([final void Function(CoreAutocompleteResultBuilder)? b]) = _$CoreAutocompleteResult;
+abstract class AutocompleteResult
+    implements AutocompleteResultInterface, Built<AutocompleteResult, AutocompleteResultBuilder> {
+  factory AutocompleteResult([final void Function(AutocompleteResultBuilder)? b]) = _$AutocompleteResult;
 
   // coverage:ignore-start
-  const CoreAutocompleteResult._();
+  const AutocompleteResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAutocompleteResult.fromJson(final Map<String, dynamic> json) =>
+  factory AutocompleteResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4862,33 +4855,33 @@ abstract class CoreAutocompleteResult
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAutocompleteResult> get serializer => _$coreAutocompleteResultSerializer;
+  static Serializer<AutocompleteResult> get serializer => _$autocompleteResultSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAutoCompleteGetResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreAutocompleteResult> get data;
-  CoreAutoCompleteGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreAutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class AutoCompleteGetResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<AutocompleteResult> get data;
+  AutoCompleteGetResponseApplicationJson_OcsInterface rebuild(
+    final void Function(AutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreAutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  AutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAutoCompleteGetResponseApplicationJson_Ocs
+abstract class AutoCompleteGetResponseApplicationJson_Ocs
     implements
-        CoreAutoCompleteGetResponseApplicationJson_OcsInterface,
-        Built<CoreAutoCompleteGetResponseApplicationJson_Ocs, CoreAutoCompleteGetResponseApplicationJson_OcsBuilder> {
-  factory CoreAutoCompleteGetResponseApplicationJson_Ocs([
-    final void Function(CoreAutoCompleteGetResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreAutoCompleteGetResponseApplicationJson_Ocs;
+        AutoCompleteGetResponseApplicationJson_OcsInterface,
+        Built<AutoCompleteGetResponseApplicationJson_Ocs, AutoCompleteGetResponseApplicationJson_OcsBuilder> {
+  factory AutoCompleteGetResponseApplicationJson_Ocs([
+    final void Function(AutoCompleteGetResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AutoCompleteGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreAutoCompleteGetResponseApplicationJson_Ocs._();
+  const AutoCompleteGetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAutoCompleteGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AutoCompleteGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4896,33 +4889,33 @@ abstract class CoreAutoCompleteGetResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAutoCompleteGetResponseApplicationJson_Ocs> get serializer =>
-      _$coreAutoCompleteGetResponseApplicationJsonOcsSerializer;
+  static Serializer<AutoCompleteGetResponseApplicationJson_Ocs> get serializer =>
+      _$autoCompleteGetResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAutoCompleteGetResponseApplicationJsonInterface {
-  CoreAutoCompleteGetResponseApplicationJson_Ocs get ocs;
-  CoreAutoCompleteGetResponseApplicationJsonInterface rebuild(
-    final void Function(CoreAutoCompleteGetResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class AutoCompleteGetResponseApplicationJsonInterface {
+  AutoCompleteGetResponseApplicationJson_Ocs get ocs;
+  AutoCompleteGetResponseApplicationJsonInterface rebuild(
+    final void Function(AutoCompleteGetResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreAutoCompleteGetResponseApplicationJsonInterfaceBuilder toBuilder();
+  AutoCompleteGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAutoCompleteGetResponseApplicationJson
+abstract class AutoCompleteGetResponseApplicationJson
     implements
-        CoreAutoCompleteGetResponseApplicationJsonInterface,
-        Built<CoreAutoCompleteGetResponseApplicationJson, CoreAutoCompleteGetResponseApplicationJsonBuilder> {
-  factory CoreAutoCompleteGetResponseApplicationJson([
-    final void Function(CoreAutoCompleteGetResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreAutoCompleteGetResponseApplicationJson;
+        AutoCompleteGetResponseApplicationJsonInterface,
+        Built<AutoCompleteGetResponseApplicationJson, AutoCompleteGetResponseApplicationJsonBuilder> {
+  factory AutoCompleteGetResponseApplicationJson([
+    final void Function(AutoCompleteGetResponseApplicationJsonBuilder)? b,
+  ]) = _$AutoCompleteGetResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreAutoCompleteGetResponseApplicationJson._();
+  const AutoCompleteGetResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAutoCompleteGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AutoCompleteGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4930,33 +4923,33 @@ abstract class CoreAutoCompleteGetResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreAutoCompleteGetResponseApplicationJson> get serializer =>
-      _$coreAutoCompleteGetResponseApplicationJsonSerializer;
+  static Serializer<AutoCompleteGetResponseApplicationJson> get serializer =>
+      _$autoCompleteGetResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAvatarAvatarGetAvatarDarkHeadersInterface {
+abstract interface class AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
-  CoreAvatarAvatarGetAvatarDarkHeadersInterface rebuild(
-    final void Function(CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates,
+  AvatarAvatarGetAvatarDarkHeadersInterface rebuild(
+    final void Function(AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates,
   );
-  CoreAvatarAvatarGetAvatarDarkHeadersInterfaceBuilder toBuilder();
+  AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAvatarAvatarGetAvatarDarkHeaders
+abstract class AvatarAvatarGetAvatarDarkHeaders
     implements
-        CoreAvatarAvatarGetAvatarDarkHeadersInterface,
-        Built<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder> {
-  factory CoreAvatarAvatarGetAvatarDarkHeaders([final void Function(CoreAvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
-      _$CoreAvatarAvatarGetAvatarDarkHeaders;
+        AvatarAvatarGetAvatarDarkHeadersInterface,
+        Built<AvatarAvatarGetAvatarDarkHeaders, AvatarAvatarGetAvatarDarkHeadersBuilder> {
+  factory AvatarAvatarGetAvatarDarkHeaders([final void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
+      _$AvatarAvatarGetAvatarDarkHeaders;
 
   // coverage:ignore-start
-  const CoreAvatarAvatarGetAvatarDarkHeaders._();
+  const AvatarAvatarGetAvatarDarkHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAvatarAvatarGetAvatarDarkHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarAvatarGetAvatarDarkHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4965,34 +4958,32 @@ abstract class CoreAvatarAvatarGetAvatarDarkHeaders
   // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreAvatarAvatarGetAvatarDarkHeaders> get serializer =>
-      _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer();
+  static Serializer<AvatarAvatarGetAvatarDarkHeaders> get serializer => _$AvatarAvatarGetAvatarDarkHeadersSerializer();
 }
 
-class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
-    implements StructuredSerializer<CoreAvatarAvatarGetAvatarDarkHeaders> {
+class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarDarkHeaders> {
   @override
-  final Iterable<Type> types = const [CoreAvatarAvatarGetAvatarDarkHeaders, _$CoreAvatarAvatarGetAvatarDarkHeaders];
+  final Iterable<Type> types = const [AvatarAvatarGetAvatarDarkHeaders, _$AvatarAvatarGetAvatarDarkHeaders];
 
   @override
-  final String wireName = 'CoreAvatarAvatarGetAvatarDarkHeaders';
+  final String wireName = 'AvatarAvatarGetAvatarDarkHeaders';
 
   @override
   Iterable<Object?> serialize(
     final Serializers serializers,
-    final CoreAvatarAvatarGetAvatarDarkHeaders object, {
+    final AvatarAvatarGetAvatarDarkHeaders object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     throw UnimplementedError();
   }
 
   @override
-  CoreAvatarAvatarGetAvatarDarkHeaders deserialize(
+  AvatarAvatarGetAvatarDarkHeaders deserialize(
     final Serializers serializers,
     final Iterable<Object?> serialized, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreAvatarAvatarGetAvatarDarkHeadersBuilder();
+    final result = AvatarAvatarGetAvatarDarkHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5011,28 +5002,28 @@ class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreAvatarAvatarGetAvatarHeadersInterface {
+abstract interface class AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
-  CoreAvatarAvatarGetAvatarHeadersInterface rebuild(
-    final void Function(CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder) updates,
+  AvatarAvatarGetAvatarHeadersInterface rebuild(
+    final void Function(AvatarAvatarGetAvatarHeadersInterfaceBuilder) updates,
   );
-  CoreAvatarAvatarGetAvatarHeadersInterfaceBuilder toBuilder();
+  AvatarAvatarGetAvatarHeadersInterfaceBuilder toBuilder();
 }
 
-abstract class CoreAvatarAvatarGetAvatarHeaders
+abstract class AvatarAvatarGetAvatarHeaders
     implements
-        CoreAvatarAvatarGetAvatarHeadersInterface,
-        Built<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder> {
-  factory CoreAvatarAvatarGetAvatarHeaders([final void Function(CoreAvatarAvatarGetAvatarHeadersBuilder)? b]) =
-      _$CoreAvatarAvatarGetAvatarHeaders;
+        AvatarAvatarGetAvatarHeadersInterface,
+        Built<AvatarAvatarGetAvatarHeaders, AvatarAvatarGetAvatarHeadersBuilder> {
+  factory AvatarAvatarGetAvatarHeaders([final void Function(AvatarAvatarGetAvatarHeadersBuilder)? b]) =
+      _$AvatarAvatarGetAvatarHeaders;
 
   // coverage:ignore-start
-  const CoreAvatarAvatarGetAvatarHeaders._();
+  const AvatarAvatarGetAvatarHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreAvatarAvatarGetAvatarHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarAvatarGetAvatarHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5041,32 +5032,32 @@ abstract class CoreAvatarAvatarGetAvatarHeaders
   // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreAvatarAvatarGetAvatarHeaders> get serializer => _$CoreAvatarAvatarGetAvatarHeadersSerializer();
+  static Serializer<AvatarAvatarGetAvatarHeaders> get serializer => _$AvatarAvatarGetAvatarHeadersSerializer();
 }
 
-class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<CoreAvatarAvatarGetAvatarHeaders> {
+class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarHeaders> {
   @override
-  final Iterable<Type> types = const [CoreAvatarAvatarGetAvatarHeaders, _$CoreAvatarAvatarGetAvatarHeaders];
+  final Iterable<Type> types = const [AvatarAvatarGetAvatarHeaders, _$AvatarAvatarGetAvatarHeaders];
 
   @override
-  final String wireName = 'CoreAvatarAvatarGetAvatarHeaders';
+  final String wireName = 'AvatarAvatarGetAvatarHeaders';
 
   @override
   Iterable<Object?> serialize(
     final Serializers serializers,
-    final CoreAvatarAvatarGetAvatarHeaders object, {
+    final AvatarAvatarGetAvatarHeaders object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     throw UnimplementedError();
   }
 
   @override
-  CoreAvatarAvatarGetAvatarHeaders deserialize(
+  AvatarAvatarGetAvatarHeaders deserialize(
     final Serializers serializers,
     final Iterable<Object?> serialized, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreAvatarAvatarGetAvatarHeadersBuilder();
+    final result = AvatarAvatarGetAvatarHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5085,27 +5076,24 @@ class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreLoginFlowV2CredentialsInterface {
+abstract interface class LoginFlowV2CredentialsInterface {
   String get server;
   String get loginName;
   String get appPassword;
-  CoreLoginFlowV2CredentialsInterface rebuild(final void Function(CoreLoginFlowV2CredentialsInterfaceBuilder) updates);
-  CoreLoginFlowV2CredentialsInterfaceBuilder toBuilder();
+  LoginFlowV2CredentialsInterface rebuild(final void Function(LoginFlowV2CredentialsInterfaceBuilder) updates);
+  LoginFlowV2CredentialsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreLoginFlowV2Credentials
-    implements
-        CoreLoginFlowV2CredentialsInterface,
-        Built<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder> {
-  factory CoreLoginFlowV2Credentials([final void Function(CoreLoginFlowV2CredentialsBuilder)? b]) =
-      _$CoreLoginFlowV2Credentials;
+abstract class LoginFlowV2Credentials
+    implements LoginFlowV2CredentialsInterface, Built<LoginFlowV2Credentials, LoginFlowV2CredentialsBuilder> {
+  factory LoginFlowV2Credentials([final void Function(LoginFlowV2CredentialsBuilder)? b]) = _$LoginFlowV2Credentials;
 
   // coverage:ignore-start
-  const CoreLoginFlowV2Credentials._();
+  const LoginFlowV2Credentials._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreLoginFlowV2Credentials.fromJson(final Map<String, dynamic> json) =>
+  factory LoginFlowV2Credentials.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5113,27 +5101,26 @@ abstract class CoreLoginFlowV2Credentials
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreLoginFlowV2Credentials> get serializer => _$coreLoginFlowV2CredentialsSerializer;
+  static Serializer<LoginFlowV2Credentials> get serializer => _$loginFlowV2CredentialsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreLoginFlowV2_PollInterface {
+abstract interface class LoginFlowV2_PollInterface {
   String get token;
   String get endpoint;
-  CoreLoginFlowV2_PollInterface rebuild(final void Function(CoreLoginFlowV2_PollInterfaceBuilder) updates);
-  CoreLoginFlowV2_PollInterfaceBuilder toBuilder();
+  LoginFlowV2_PollInterface rebuild(final void Function(LoginFlowV2_PollInterfaceBuilder) updates);
+  LoginFlowV2_PollInterfaceBuilder toBuilder();
 }
 
-abstract class CoreLoginFlowV2_Poll
-    implements CoreLoginFlowV2_PollInterface, Built<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder> {
-  factory CoreLoginFlowV2_Poll([final void Function(CoreLoginFlowV2_PollBuilder)? b]) = _$CoreLoginFlowV2_Poll;
+abstract class LoginFlowV2_Poll implements LoginFlowV2_PollInterface, Built<LoginFlowV2_Poll, LoginFlowV2_PollBuilder> {
+  factory LoginFlowV2_Poll([final void Function(LoginFlowV2_PollBuilder)? b]) = _$LoginFlowV2_Poll;
 
   // coverage:ignore-start
-  const CoreLoginFlowV2_Poll._();
+  const LoginFlowV2_Poll._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreLoginFlowV2_Poll.fromJson(final Map<String, dynamic> json) =>
+  factory LoginFlowV2_Poll.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5141,57 +5128,55 @@ abstract class CoreLoginFlowV2_Poll
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreLoginFlowV2_Poll> get serializer => _$coreLoginFlowV2PollSerializer;
+  static Serializer<LoginFlowV2_Poll> get serializer => _$loginFlowV2PollSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreLoginFlowV2Interface {
-  CoreLoginFlowV2_Poll get poll;
+abstract interface class LoginFlowV2Interface {
+  LoginFlowV2_Poll get poll;
   String get login;
-  CoreLoginFlowV2Interface rebuild(final void Function(CoreLoginFlowV2InterfaceBuilder) updates);
-  CoreLoginFlowV2InterfaceBuilder toBuilder();
+  LoginFlowV2Interface rebuild(final void Function(LoginFlowV2InterfaceBuilder) updates);
+  LoginFlowV2InterfaceBuilder toBuilder();
 }
 
-abstract class CoreLoginFlowV2 implements CoreLoginFlowV2Interface, Built<CoreLoginFlowV2, CoreLoginFlowV2Builder> {
-  factory CoreLoginFlowV2([final void Function(CoreLoginFlowV2Builder)? b]) = _$CoreLoginFlowV2;
+abstract class LoginFlowV2 implements LoginFlowV2Interface, Built<LoginFlowV2, LoginFlowV2Builder> {
+  factory LoginFlowV2([final void Function(LoginFlowV2Builder)? b]) = _$LoginFlowV2;
 
   // coverage:ignore-start
-  const CoreLoginFlowV2._();
+  const LoginFlowV2._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreLoginFlowV2.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory LoginFlowV2.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreLoginFlowV2> get serializer => _$coreLoginFlowV2Serializer;
+  static Serializer<LoginFlowV2> get serializer => _$loginFlowV2Serializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOpenGraphObjectInterface {
+abstract interface class OpenGraphObjectInterface {
   String get id;
   String get name;
   String? get description;
   String? get thumb;
   String get link;
-  CoreOpenGraphObjectInterface rebuild(final void Function(CoreOpenGraphObjectInterfaceBuilder) updates);
-  CoreOpenGraphObjectInterfaceBuilder toBuilder();
+  OpenGraphObjectInterface rebuild(final void Function(OpenGraphObjectInterfaceBuilder) updates);
+  OpenGraphObjectInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOpenGraphObject
-    implements CoreOpenGraphObjectInterface, Built<CoreOpenGraphObject, CoreOpenGraphObjectBuilder> {
-  factory CoreOpenGraphObject([final void Function(CoreOpenGraphObjectBuilder)? b]) = _$CoreOpenGraphObject;
+abstract class OpenGraphObject implements OpenGraphObjectInterface, Built<OpenGraphObject, OpenGraphObjectBuilder> {
+  factory OpenGraphObject([final void Function(OpenGraphObjectBuilder)? b]) = _$OpenGraphObject;
 
   // coverage:ignore-start
-  const CoreOpenGraphObject._();
+  const OpenGraphObject._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOpenGraphObject.fromJson(final Map<String, dynamic> json) =>
+  factory OpenGraphObject.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5199,90 +5184,89 @@ abstract class CoreOpenGraphObject
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOpenGraphObject> get serializer => _$coreOpenGraphObjectSerializer;
+  static Serializer<OpenGraphObject> get serializer => _$openGraphObjectSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreResourceInterface {
+abstract interface class ResourceInterface {
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
-  CoreOpenGraphObject get openGraphObject;
+  OpenGraphObject get openGraphObject;
   bool get accessible;
-  CoreResourceInterface rebuild(final void Function(CoreResourceInterfaceBuilder) updates);
-  CoreResourceInterfaceBuilder toBuilder();
+  ResourceInterface rebuild(final void Function(ResourceInterfaceBuilder) updates);
+  ResourceInterfaceBuilder toBuilder();
 }
 
-abstract class CoreResource implements CoreResourceInterface, Built<CoreResource, CoreResourceBuilder> {
-  factory CoreResource([final void Function(CoreResourceBuilder)? b]) = _$CoreResource;
+abstract class Resource implements ResourceInterface, Built<Resource, ResourceBuilder> {
+  factory Resource([final void Function(ResourceBuilder)? b]) = _$Resource;
 
   // coverage:ignore-start
-  const CoreResource._();
+  const Resource._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreResource.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Resource.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreResource> get serializer => _$coreResourceSerializer;
+  static Serializer<Resource> get serializer => _$resourceSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollectionInterface {
+abstract interface class CollectionInterface {
   int get id;
   String get name;
-  BuiltList<CoreResource> get resources;
-  CoreCollectionInterface rebuild(final void Function(CoreCollectionInterfaceBuilder) updates);
-  CoreCollectionInterfaceBuilder toBuilder();
+  BuiltList<Resource> get resources;
+  CollectionInterface rebuild(final void Function(CollectionInterfaceBuilder) updates);
+  CollectionInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollection implements CoreCollectionInterface, Built<CoreCollection, CoreCollectionBuilder> {
-  factory CoreCollection([final void Function(CoreCollectionBuilder)? b]) = _$CoreCollection;
+abstract class Collection implements CollectionInterface, Built<Collection, CollectionBuilder> {
+  factory Collection([final void Function(CollectionBuilder)? b]) = _$Collection;
 
   // coverage:ignore-start
-  const CoreCollection._();
+  const Collection._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollection.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Collection.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollection> get serializer => _$coreCollectionSerializer;
+  static Serializer<Collection> get serializer => _$collectionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreCollection> get data;
-  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<Collection> get data;
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
+abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
+        CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._();
+  const CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -5292,36 +5276,34 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJso
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
-  CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJson
+abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
     implements
-        CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson,
-            CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesSearchCollectionsResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesSearchCollectionsResponseApplicationJson;
+        CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface,
+        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson,
+            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson([
+    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesSearchCollectionsResponseApplicationJson._();
+  const CollaborationResourcesSearchCollectionsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5329,37 +5311,35 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponseApplicationJso
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesSearchCollectionsResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson> get serializer =>
+      _$collaborationResourcesSearchCollectionsResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreCollection get data;
-  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Collection get data;
+  CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs
+abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs;
+        CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesListCollectionResponseApplicationJson_Ocs,
+            CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesListCollectionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs._();
+  const CollaborationResourcesListCollectionResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5367,34 +5347,34 @@ abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson_O
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesListCollectionResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesListCollectionResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesListCollectionResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesListCollectionResponseApplicationJsonInterface {
-  CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesListCollectionResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesListCollectionResponseApplicationJsonInterface {
+  CollaborationResourcesListCollectionResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesListCollectionResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson
+abstract class CollaborationResourcesListCollectionResponseApplicationJson
     implements
-        CoreCollaborationResourcesListCollectionResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesListCollectionResponseApplicationJson,
-            CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesListCollectionResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesListCollectionResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesListCollectionResponseApplicationJson;
+        CollaborationResourcesListCollectionResponseApplicationJsonInterface,
+        Built<CollaborationResourcesListCollectionResponseApplicationJson,
+            CollaborationResourcesListCollectionResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesListCollectionResponseApplicationJson([
+    final void Function(CollaborationResourcesListCollectionResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesListCollectionResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesListCollectionResponseApplicationJson._();
+  const CollaborationResourcesListCollectionResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesListCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesListCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5402,37 +5382,35 @@ abstract class CoreCollaborationResourcesListCollectionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesListCollectionResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesListCollectionResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesListCollectionResponseApplicationJson> get serializer =>
+      _$collaborationResourcesListCollectionResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreCollection get data;
-  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Collection get data;
+  CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
+abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs;
+        CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
+            CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._();
+  const CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5440,34 +5418,34 @@ abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesRenameCollectionResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterface {
-  CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesRenameCollectionResponseApplicationJsonInterface {
+  CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesRenameCollectionResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson
+abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
     implements
-        CoreCollaborationResourcesRenameCollectionResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesRenameCollectionResponseApplicationJson,
-            CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesRenameCollectionResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesRenameCollectionResponseApplicationJson;
+        CollaborationResourcesRenameCollectionResponseApplicationJsonInterface,
+        Built<CollaborationResourcesRenameCollectionResponseApplicationJson,
+            CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson([
+    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesRenameCollectionResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesRenameCollectionResponseApplicationJson._();
+  const CollaborationResourcesRenameCollectionResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesRenameCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5475,35 +5453,35 @@ abstract class CoreCollaborationResourcesRenameCollectionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesRenameCollectionResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesRenameCollectionResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesRenameCollectionResponseApplicationJson> get serializer =>
+      _$collaborationResourcesRenameCollectionResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreCollection get data;
-  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Collection get data;
+  CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs
+abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs;
+        CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesAddResourceResponseApplicationJson_Ocs,
+            CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesAddResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs._();
+  const CollaborationResourcesAddResourceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5511,34 +5489,34 @@ abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesAddResourceResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesAddResourceResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesAddResourceResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesAddResourceResponseApplicationJsonInterface {
-  CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesAddResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesAddResourceResponseApplicationJsonInterface {
+  CollaborationResourcesAddResourceResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesAddResourceResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson
+abstract class CollaborationResourcesAddResourceResponseApplicationJson
     implements
-        CoreCollaborationResourcesAddResourceResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesAddResourceResponseApplicationJson,
-            CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesAddResourceResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesAddResourceResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesAddResourceResponseApplicationJson;
+        CollaborationResourcesAddResourceResponseApplicationJsonInterface,
+        Built<CollaborationResourcesAddResourceResponseApplicationJson,
+            CollaborationResourcesAddResourceResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesAddResourceResponseApplicationJson([
+    final void Function(CollaborationResourcesAddResourceResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesAddResourceResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesAddResourceResponseApplicationJson._();
+  const CollaborationResourcesAddResourceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesAddResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesAddResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5546,37 +5524,35 @@ abstract class CoreCollaborationResourcesAddResourceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesAddResourceResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesAddResourceResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesAddResourceResponseApplicationJson> get serializer =>
+      _$collaborationResourcesAddResourceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreCollection get data;
-  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Collection get data;
+  CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
+abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs;
+        CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
+            CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._();
+  const CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5584,34 +5560,34 @@ abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson_O
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesRemoveResourceResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterface {
-  CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class CollaborationResourcesRemoveResourceResponseApplicationJsonInterface {
+  CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesRemoveResourceResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson
+abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
     implements
-        CoreCollaborationResourcesRemoveResourceResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesRemoveResourceResponseApplicationJson,
-            CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesRemoveResourceResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesRemoveResourceResponseApplicationJson;
+        CollaborationResourcesRemoveResourceResponseApplicationJsonInterface,
+        Built<CollaborationResourcesRemoveResourceResponseApplicationJson,
+            CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson([
+    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesRemoveResourceResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesRemoveResourceResponseApplicationJson._();
+  const CollaborationResourcesRemoveResourceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesRemoveResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5619,36 +5595,36 @@ abstract class CoreCollaborationResourcesRemoveResourceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesRemoveResourceResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesRemoveResourceResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesRemoveResourceResponseApplicationJson> get serializer =>
+      _$collaborationResourcesRemoveResourceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreCollection> get data;
-  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder)
+abstract interface class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<Collection> get data;
+  CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder)
         updates,
   );
-  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
+abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs;
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
+            CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs._();
+  const CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.fromJson(
+  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -5658,35 +5634,73 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplica
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesGetCollectionsByResourceResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface {
-  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder)
+abstract interface class CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface {
+  CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder) updates,
+  );
+  CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder toBuilder();
+}
+
+abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson
+    implements
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface,
+        Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
+            CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson([
+    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CollaborationResourcesGetCollectionsByResourceResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson> get serializer =>
+      _$collaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Collection get data;
+  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface rebuild(
+    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder)
         updates,
   );
-  CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder toBuilder();
+  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson
+abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
     implements
-        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
-            CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
+            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder> {
+  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs([
+    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson._();
+  const CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson.fromJson(
+  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -5696,36 +5710,35 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponseApplica
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesGetCollectionsByResourceResponseApplicationJsonSerializer;
+  static Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesCreateCollectionOnResourceResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreCollection get data;
-  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder)
+abstract interface class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface {
+  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs get ocs;
+  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface rebuild(
+    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder)
         updates,
   );
-  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
+abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
     implements
-        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface,
-        Built<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder> {
-  factory CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs([
-    final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs;
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface,
+        Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
+            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder> {
+  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson([
+    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs._();
+  const CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.fromJson(
+  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -5735,68 +5748,29 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponseAppli
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs> get serializer =>
-      _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonOcsSerializer;
+  static Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> get serializer =>
+      _$collaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface {
-  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs get ocs;
-  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder)
-        updates,
-  );
-  CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder toBuilder();
-}
-
-abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
-    implements
-        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface,
-        Built<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
-            CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder> {
-  factory CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson([
-    final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
-
-  // coverage:ignore-start
-  const CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson> get serializer =>
-      _$coreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class CoreContactsActionInterface {
+abstract interface class ContactsActionInterface {
   String get title;
   String get icon;
   String get hyperlink;
   String get appId;
-  CoreContactsActionInterface rebuild(final void Function(CoreContactsActionInterfaceBuilder) updates);
-  CoreContactsActionInterfaceBuilder toBuilder();
+  ContactsActionInterface rebuild(final void Function(ContactsActionInterfaceBuilder) updates);
+  ContactsActionInterfaceBuilder toBuilder();
 }
 
-abstract class CoreContactsAction
-    implements CoreContactsActionInterface, Built<CoreContactsAction, CoreContactsActionBuilder> {
-  factory CoreContactsAction([final void Function(CoreContactsActionBuilder)? b]) = _$CoreContactsAction;
+abstract class ContactsAction implements ContactsActionInterface, Built<ContactsAction, ContactsActionBuilder> {
+  factory ContactsAction([final void Function(ContactsActionBuilder)? b]) = _$ContactsAction;
 
   // coverage:ignore-start
-  const CoreContactsAction._();
+  const ContactsAction._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreContactsAction.fromJson(final Map<String, dynamic> json) =>
+  factory ContactsAction.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5804,35 +5778,35 @@ abstract class CoreContactsAction
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreContactsAction> get serializer => _$coreContactsActionSerializer;
+  static Serializer<ContactsAction> get serializer => _$contactsActionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterface {
+abstract interface class HoverCardGetUserResponseApplicationJson_Ocs_DataInterface {
   String get userId;
   String get displayName;
-  BuiltList<CoreContactsAction> get actions;
-  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  BuiltList<ContactsAction> get actions;
+  HoverCardGetUserResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  HoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs_Data
+abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
     implements
-        CoreHoverCardGetUserResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data,
-            CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreHoverCardGetUserResponseApplicationJson_Ocs_Data([
-    final void Function(CoreHoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreHoverCardGetUserResponseApplicationJson_Ocs_Data;
+        HoverCardGetUserResponseApplicationJson_Ocs_DataInterface,
+        Built<HoverCardGetUserResponseApplicationJson_Ocs_Data,
+            HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder> {
+  factory HoverCardGetUserResponseApplicationJson_Ocs_Data([
+    final void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$HoverCardGetUserResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreHoverCardGetUserResponseApplicationJson_Ocs_Data._();
+  const HoverCardGetUserResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreHoverCardGetUserResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5840,34 +5814,34 @@ abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreHoverCardGetUserResponseApplicationJsonOcsDataSerializer;
+  static Serializer<HoverCardGetUserResponseApplicationJson_Ocs_Data> get serializer =>
+      _$hoverCardGetUserResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreHoverCardGetUserResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreHoverCardGetUserResponseApplicationJson_Ocs_Data get data;
-  CoreHoverCardGetUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreHoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class HoverCardGetUserResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  HoverCardGetUserResponseApplicationJson_Ocs_Data get data;
+  HoverCardGetUserResponseApplicationJson_OcsInterface rebuild(
+    final void Function(HoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreHoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  HoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs
+abstract class HoverCardGetUserResponseApplicationJson_Ocs
     implements
-        CoreHoverCardGetUserResponseApplicationJson_OcsInterface,
-        Built<CoreHoverCardGetUserResponseApplicationJson_Ocs, CoreHoverCardGetUserResponseApplicationJson_OcsBuilder> {
-  factory CoreHoverCardGetUserResponseApplicationJson_Ocs([
-    final void Function(CoreHoverCardGetUserResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreHoverCardGetUserResponseApplicationJson_Ocs;
+        HoverCardGetUserResponseApplicationJson_OcsInterface,
+        Built<HoverCardGetUserResponseApplicationJson_Ocs, HoverCardGetUserResponseApplicationJson_OcsBuilder> {
+  factory HoverCardGetUserResponseApplicationJson_Ocs([
+    final void Function(HoverCardGetUserResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$HoverCardGetUserResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreHoverCardGetUserResponseApplicationJson_Ocs._();
+  const HoverCardGetUserResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreHoverCardGetUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5875,33 +5849,33 @@ abstract class CoreHoverCardGetUserResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreHoverCardGetUserResponseApplicationJson_Ocs> get serializer =>
-      _$coreHoverCardGetUserResponseApplicationJsonOcsSerializer;
+  static Serializer<HoverCardGetUserResponseApplicationJson_Ocs> get serializer =>
+      _$hoverCardGetUserResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreHoverCardGetUserResponseApplicationJsonInterface {
-  CoreHoverCardGetUserResponseApplicationJson_Ocs get ocs;
-  CoreHoverCardGetUserResponseApplicationJsonInterface rebuild(
-    final void Function(CoreHoverCardGetUserResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class HoverCardGetUserResponseApplicationJsonInterface {
+  HoverCardGetUserResponseApplicationJson_Ocs get ocs;
+  HoverCardGetUserResponseApplicationJsonInterface rebuild(
+    final void Function(HoverCardGetUserResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreHoverCardGetUserResponseApplicationJsonInterfaceBuilder toBuilder();
+  HoverCardGetUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreHoverCardGetUserResponseApplicationJson
+abstract class HoverCardGetUserResponseApplicationJson
     implements
-        CoreHoverCardGetUserResponseApplicationJsonInterface,
-        Built<CoreHoverCardGetUserResponseApplicationJson, CoreHoverCardGetUserResponseApplicationJsonBuilder> {
-  factory CoreHoverCardGetUserResponseApplicationJson([
-    final void Function(CoreHoverCardGetUserResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreHoverCardGetUserResponseApplicationJson;
+        HoverCardGetUserResponseApplicationJsonInterface,
+        Built<HoverCardGetUserResponseApplicationJson, HoverCardGetUserResponseApplicationJsonBuilder> {
+  factory HoverCardGetUserResponseApplicationJson([
+    final void Function(HoverCardGetUserResponseApplicationJsonBuilder)? b,
+  ]) = _$HoverCardGetUserResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreHoverCardGetUserResponseApplicationJson._();
+  const HoverCardGetUserResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreHoverCardGetUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5909,20 +5883,19 @@ abstract class CoreHoverCardGetUserResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreHoverCardGetUserResponseApplicationJson> get serializer =>
-      _$coreHoverCardGetUserResponseApplicationJsonSerializer;
+  static Serializer<HoverCardGetUserResponseApplicationJson> get serializer =>
+      _$hoverCardGetUserResponseApplicationJsonSerializer;
 }
 
-abstract class CoreNavigationEntry_Order implements Built<CoreNavigationEntry_Order, CoreNavigationEntry_OrderBuilder> {
-  factory CoreNavigationEntry_Order([final void Function(CoreNavigationEntry_OrderBuilder)? b]) =
-      _$CoreNavigationEntry_Order;
+abstract class NavigationEntry_Order implements Built<NavigationEntry_Order, NavigationEntry_OrderBuilder> {
+  factory NavigationEntry_Order([final void Function(NavigationEntry_OrderBuilder)? b]) = _$NavigationEntry_Order;
 
   // coverage:ignore-start
-  const CoreNavigationEntry_Order._();
+  const NavigationEntry_Order._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationEntry_Order.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationEntry_Order.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5934,31 +5907,31 @@ abstract class CoreNavigationEntry_Order implements Built<CoreNavigationEntry_Or
   int? get $int;
   String? get string;
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreNavigationEntry_Order> get serializer => _$CoreNavigationEntry_OrderSerializer();
+  static Serializer<NavigationEntry_Order> get serializer => _$NavigationEntry_OrderSerializer();
 }
 
-class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreNavigationEntry_Order> {
+class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<NavigationEntry_Order> {
   @override
-  final Iterable<Type> types = const [CoreNavigationEntry_Order, _$CoreNavigationEntry_Order];
+  final Iterable<Type> types = const [NavigationEntry_Order, _$NavigationEntry_Order];
 
   @override
-  final String wireName = 'CoreNavigationEntry_Order';
+  final String wireName = 'NavigationEntry_Order';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final CoreNavigationEntry_Order object, {
+    final NavigationEntry_Order object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  CoreNavigationEntry_Order deserialize(
+  NavigationEntry_Order deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreNavigationEntry_OrderBuilder()..data = JsonObject(data);
+    final result = NavigationEntry_OrderBuilder()..data = JsonObject(data);
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
@@ -5971,9 +5944,9 @@ class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreN
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNavigationEntryInterface {
+abstract interface class NavigationEntryInterface {
   String get id;
-  CoreNavigationEntry_Order get order;
+  NavigationEntry_Order get order;
   String get href;
   String get icon;
   String get type;
@@ -5981,20 +5954,19 @@ abstract interface class CoreNavigationEntryInterface {
   bool get active;
   String get classes;
   int get unread;
-  CoreNavigationEntryInterface rebuild(final void Function(CoreNavigationEntryInterfaceBuilder) updates);
-  CoreNavigationEntryInterfaceBuilder toBuilder();
+  NavigationEntryInterface rebuild(final void Function(NavigationEntryInterfaceBuilder) updates);
+  NavigationEntryInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNavigationEntry
-    implements CoreNavigationEntryInterface, Built<CoreNavigationEntry, CoreNavigationEntryBuilder> {
-  factory CoreNavigationEntry([final void Function(CoreNavigationEntryBuilder)? b]) = _$CoreNavigationEntry;
+abstract class NavigationEntry implements NavigationEntryInterface, Built<NavigationEntry, NavigationEntryBuilder> {
+  factory NavigationEntry([final void Function(NavigationEntryBuilder)? b]) = _$NavigationEntry;
 
   // coverage:ignore-start
-  const CoreNavigationEntry._();
+  const NavigationEntry._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationEntry.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationEntry.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6002,34 +5974,34 @@ abstract class CoreNavigationEntry
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNavigationEntry> get serializer => _$coreNavigationEntrySerializer;
+  static Serializer<NavigationEntry> get serializer => _$navigationEntrySerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreNavigationEntry> get data;
-  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class NavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<NavigationEntry> get data;
+  NavigationGetAppsNavigationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  NavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs
+abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
     implements
-        CoreNavigationGetAppsNavigationResponseApplicationJson_OcsInterface,
-        Built<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs,
-            CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder> {
-  factory CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs([
-    final void Function(CoreNavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs;
+        NavigationGetAppsNavigationResponseApplicationJson_OcsInterface,
+        Built<NavigationGetAppsNavigationResponseApplicationJson_Ocs,
+            NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder> {
+  factory NavigationGetAppsNavigationResponseApplicationJson_Ocs([
+    final void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NavigationGetAppsNavigationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs._();
+  const NavigationGetAppsNavigationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetAppsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6037,34 +6009,34 @@ abstract class CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs> get serializer =>
-      _$coreNavigationGetAppsNavigationResponseApplicationJsonOcsSerializer;
+  static Serializer<NavigationGetAppsNavigationResponseApplicationJson_Ocs> get serializer =>
+      _$navigationGetAppsNavigationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNavigationGetAppsNavigationResponseApplicationJsonInterface {
-  CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs get ocs;
-  CoreNavigationGetAppsNavigationResponseApplicationJsonInterface rebuild(
-    final void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class NavigationGetAppsNavigationResponseApplicationJsonInterface {
+  NavigationGetAppsNavigationResponseApplicationJson_Ocs get ocs;
+  NavigationGetAppsNavigationResponseApplicationJsonInterface rebuild(
+    final void Function(NavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreNavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
+  NavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNavigationGetAppsNavigationResponseApplicationJson
+abstract class NavigationGetAppsNavigationResponseApplicationJson
     implements
-        CoreNavigationGetAppsNavigationResponseApplicationJsonInterface,
-        Built<CoreNavigationGetAppsNavigationResponseApplicationJson,
-            CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder> {
-  factory CoreNavigationGetAppsNavigationResponseApplicationJson([
-    final void Function(CoreNavigationGetAppsNavigationResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreNavigationGetAppsNavigationResponseApplicationJson;
+        NavigationGetAppsNavigationResponseApplicationJsonInterface,
+        Built<NavigationGetAppsNavigationResponseApplicationJson,
+            NavigationGetAppsNavigationResponseApplicationJsonBuilder> {
+  factory NavigationGetAppsNavigationResponseApplicationJson([
+    final void Function(NavigationGetAppsNavigationResponseApplicationJsonBuilder)? b,
+  ]) = _$NavigationGetAppsNavigationResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreNavigationGetAppsNavigationResponseApplicationJson._();
+  const NavigationGetAppsNavigationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationGetAppsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetAppsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6072,35 +6044,35 @@ abstract class CoreNavigationGetAppsNavigationResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNavigationGetAppsNavigationResponseApplicationJson> get serializer =>
-      _$coreNavigationGetAppsNavigationResponseApplicationJsonSerializer;
+  static Serializer<NavigationGetAppsNavigationResponseApplicationJson> get serializer =>
+      _$navigationGetAppsNavigationResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreNavigationEntry> get data;
-  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<NavigationEntry> get data;
+  NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface rebuild(
+    final void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  NavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs
+abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
     implements
-        CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsInterface,
-        Built<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs,
-            CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder> {
-  factory CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs([
-    final void Function(CoreNavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs;
+        NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface,
+        Built<NavigationGetSettingsNavigationResponseApplicationJson_Ocs,
+            NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder> {
+  factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs([
+    final void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$NavigationGetSettingsNavigationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs._();
+  const NavigationGetSettingsNavigationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6108,34 +6080,34 @@ abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs> get serializer =>
-      _$coreNavigationGetSettingsNavigationResponseApplicationJsonOcsSerializer;
+  static Serializer<NavigationGetSettingsNavigationResponseApplicationJson_Ocs> get serializer =>
+      _$navigationGetSettingsNavigationResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNavigationGetSettingsNavigationResponseApplicationJsonInterface {
-  CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs get ocs;
-  CoreNavigationGetSettingsNavigationResponseApplicationJsonInterface rebuild(
-    final void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class NavigationGetSettingsNavigationResponseApplicationJsonInterface {
+  NavigationGetSettingsNavigationResponseApplicationJson_Ocs get ocs;
+  NavigationGetSettingsNavigationResponseApplicationJsonInterface rebuild(
+    final void Function(NavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreNavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
+  NavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson
+abstract class NavigationGetSettingsNavigationResponseApplicationJson
     implements
-        CoreNavigationGetSettingsNavigationResponseApplicationJsonInterface,
-        Built<CoreNavigationGetSettingsNavigationResponseApplicationJson,
-            CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder> {
-  factory CoreNavigationGetSettingsNavigationResponseApplicationJson([
-    final void Function(CoreNavigationGetSettingsNavigationResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreNavigationGetSettingsNavigationResponseApplicationJson;
+        NavigationGetSettingsNavigationResponseApplicationJsonInterface,
+        Built<NavigationGetSettingsNavigationResponseApplicationJson,
+            NavigationGetSettingsNavigationResponseApplicationJsonBuilder> {
+  factory NavigationGetSettingsNavigationResponseApplicationJson([
+    final void Function(NavigationGetSettingsNavigationResponseApplicationJsonBuilder)? b,
+  ]) = _$NavigationGetSettingsNavigationResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreNavigationGetSettingsNavigationResponseApplicationJson._();
+  const NavigationGetSettingsNavigationResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNavigationGetSettingsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetSettingsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6143,31 +6115,28 @@ abstract class CoreNavigationGetSettingsNavigationResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNavigationGetSettingsNavigationResponseApplicationJson> get serializer =>
-      _$coreNavigationGetSettingsNavigationResponseApplicationJsonSerializer;
+  static Serializer<NavigationGetSettingsNavigationResponseApplicationJson> get serializer =>
+      _$navigationGetSettingsNavigationResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcmOcmDiscoveryHeadersInterface {
+abstract interface class OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
   bool? get xNextcloudOcmProviders;
-  CoreOcmOcmDiscoveryHeadersInterface rebuild(final void Function(CoreOcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  CoreOcmOcmDiscoveryHeadersInterfaceBuilder toBuilder();
+  OcmOcmDiscoveryHeadersInterface rebuild(final void Function(OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
+  OcmOcmDiscoveryHeadersInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcmOcmDiscoveryHeaders
-    implements
-        CoreOcmOcmDiscoveryHeadersInterface,
-        Built<CoreOcmOcmDiscoveryHeaders, CoreOcmOcmDiscoveryHeadersBuilder> {
-  factory CoreOcmOcmDiscoveryHeaders([final void Function(CoreOcmOcmDiscoveryHeadersBuilder)? b]) =
-      _$CoreOcmOcmDiscoveryHeaders;
+abstract class OcmOcmDiscoveryHeaders
+    implements OcmOcmDiscoveryHeadersInterface, Built<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder> {
+  factory OcmOcmDiscoveryHeaders([final void Function(OcmOcmDiscoveryHeadersBuilder)? b]) = _$OcmOcmDiscoveryHeaders;
 
   // coverage:ignore-start
-  const CoreOcmOcmDiscoveryHeaders._();
+  const OcmOcmDiscoveryHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcmOcmDiscoveryHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory OcmOcmDiscoveryHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6176,32 +6145,32 @@ abstract class CoreOcmOcmDiscoveryHeaders
   // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreOcmOcmDiscoveryHeaders> get serializer => _$CoreOcmOcmDiscoveryHeadersSerializer();
+  static Serializer<OcmOcmDiscoveryHeaders> get serializer => _$OcmOcmDiscoveryHeadersSerializer();
 }
 
-class _$CoreOcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<CoreOcmOcmDiscoveryHeaders> {
+class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmDiscoveryHeaders> {
   @override
-  final Iterable<Type> types = const [CoreOcmOcmDiscoveryHeaders, _$CoreOcmOcmDiscoveryHeaders];
+  final Iterable<Type> types = const [OcmOcmDiscoveryHeaders, _$OcmOcmDiscoveryHeaders];
 
   @override
-  final String wireName = 'CoreOcmOcmDiscoveryHeaders';
+  final String wireName = 'OcmOcmDiscoveryHeaders';
 
   @override
   Iterable<Object?> serialize(
     final Serializers serializers,
-    final CoreOcmOcmDiscoveryHeaders object, {
+    final OcmOcmDiscoveryHeaders object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     throw UnimplementedError();
   }
 
   @override
-  CoreOcmOcmDiscoveryHeaders deserialize(
+  OcmOcmDiscoveryHeaders deserialize(
     final Serializers serializers,
     final Iterable<Object?> serialized, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreOcmOcmDiscoveryHeadersBuilder();
+    final result = OcmOcmDiscoveryHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6222,29 +6191,29 @@ class _$CoreOcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<Cor
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
+abstract interface class OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
   String get webdav;
-  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface rebuild(
-    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates,
+  OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface rebuild(
+    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates,
   );
-  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder toBuilder();
+  OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
+abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
     implements
-        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface,
-        Built<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
-            CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder> {
-  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols([
-    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
-  ]) = _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols;
+        OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface,
+        Built<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
+            OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder> {
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols([
+    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
+  ]) = _$OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols;
 
   // coverage:ignore-start
-  const CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._();
+  const OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6252,36 +6221,36 @@ abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> get serializer =>
-      _$coreOcmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer;
+  static Serializer<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> get serializer =>
+      _$ocmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
+abstract interface class OcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
   String get name;
   BuiltList<String> get shareTypes;
-  CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols get protocols;
-  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface rebuild(
-    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder) updates,
+  OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols get protocols;
+  OcmDiscoveryResponseApplicationJson_ResourceTypesInterface rebuild(
+    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder) updates,
   );
-  CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder toBuilder();
+  OcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
+abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
     implements
-        CoreOcmDiscoveryResponseApplicationJson_ResourceTypesInterface,
-        Built<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes,
-            CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder> {
-  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes([
-    final void Function(CoreOcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
-  ]) = _$CoreOcmDiscoveryResponseApplicationJson_ResourceTypes;
+        OcmDiscoveryResponseApplicationJson_ResourceTypesInterface,
+        Built<OcmDiscoveryResponseApplicationJson_ResourceTypes,
+            OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder> {
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes([
+    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
+  ]) = _$OcmDiscoveryResponseApplicationJson_ResourceTypes;
 
   // coverage:ignore-start
-  const CoreOcmDiscoveryResponseApplicationJson_ResourceTypes._();
+  const OcmDiscoveryResponseApplicationJson_ResourceTypes._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6289,36 +6258,35 @@ abstract class CoreOcmDiscoveryResponseApplicationJson_ResourceTypes
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get serializer =>
-      _$coreOcmDiscoveryResponseApplicationJsonResourceTypesSerializer;
+  static Serializer<OcmDiscoveryResponseApplicationJson_ResourceTypes> get serializer =>
+      _$ocmDiscoveryResponseApplicationJsonResourceTypesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcmDiscoveryResponseApplicationJsonInterface {
+abstract interface class OcmDiscoveryResponseApplicationJsonInterface {
   bool get enabled;
   String get apiVersion;
   String get endPoint;
-  BuiltList<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes;
-  CoreOcmDiscoveryResponseApplicationJsonInterface rebuild(
-    final void Function(CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
+  BuiltList<OcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes;
+  OcmDiscoveryResponseApplicationJsonInterface rebuild(
+    final void Function(OcmDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreOcmDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
+  OcmDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcmDiscoveryResponseApplicationJson
+abstract class OcmDiscoveryResponseApplicationJson
     implements
-        CoreOcmDiscoveryResponseApplicationJsonInterface,
-        Built<CoreOcmDiscoveryResponseApplicationJson, CoreOcmDiscoveryResponseApplicationJsonBuilder> {
-  factory CoreOcmDiscoveryResponseApplicationJson([
-    final void Function(CoreOcmDiscoveryResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreOcmDiscoveryResponseApplicationJson;
+        OcmDiscoveryResponseApplicationJsonInterface,
+        Built<OcmDiscoveryResponseApplicationJson, OcmDiscoveryResponseApplicationJsonBuilder> {
+  factory OcmDiscoveryResponseApplicationJson([final void Function(OcmDiscoveryResponseApplicationJsonBuilder)? b]) =
+      _$OcmDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreOcmDiscoveryResponseApplicationJson._();
+  const OcmDiscoveryResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcmDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6326,39 +6294,39 @@ abstract class CoreOcmDiscoveryResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcmDiscoveryResponseApplicationJson> get serializer =>
-      _$coreOcmDiscoveryResponseApplicationJsonSerializer;
+  static Serializer<OcmDiscoveryResponseApplicationJson> get serializer =>
+      _$ocmDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface {
+abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface {
   int get major;
   int get minor;
   int get micro;
   String get string;
   String get edition;
   bool get extendedSupport;
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface rebuild(
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates,
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface rebuild(
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates,
   );
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder toBuilder();
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
+abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
     implements
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface,
-        Built<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
-            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder> {
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version([
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version;
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface,
+        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder> {
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version([
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? b,
+  ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._();
+  const OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6366,32 +6334,30 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version> get serializer =>
-      _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer;
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version> get serializer =>
+      _$ocsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCommentsCapabilities_FilesInterface {
+abstract interface class CommentsCapabilities_FilesInterface {
   bool get comments;
-  CoreCommentsCapabilities_FilesInterface rebuild(
-    final void Function(CoreCommentsCapabilities_FilesInterfaceBuilder) updates,
-  );
-  CoreCommentsCapabilities_FilesInterfaceBuilder toBuilder();
+  CommentsCapabilities_FilesInterface rebuild(final void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
+  CommentsCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCommentsCapabilities_Files
+abstract class CommentsCapabilities_Files
     implements
-        CoreCommentsCapabilities_FilesInterface,
-        Built<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
-  factory CoreCommentsCapabilities_Files([final void Function(CoreCommentsCapabilities_FilesBuilder)? b]) =
-      _$CoreCommentsCapabilities_Files;
+        CommentsCapabilities_FilesInterface,
+        Built<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
+  factory CommentsCapabilities_Files([final void Function(CommentsCapabilities_FilesBuilder)? b]) =
+      _$CommentsCapabilities_Files;
 
   // coverage:ignore-start
-  const CoreCommentsCapabilities_Files._();
+  const CommentsCapabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCommentsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory CommentsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6399,27 +6365,26 @@ abstract class CoreCommentsCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCommentsCapabilities_Files> get serializer => _$coreCommentsCapabilitiesFilesSerializer;
+  static Serializer<CommentsCapabilities_Files> get serializer => _$commentsCapabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreCommentsCapabilitiesInterface {
-  CoreCommentsCapabilities_Files get files;
-  CoreCommentsCapabilitiesInterface rebuild(final void Function(CoreCommentsCapabilitiesInterfaceBuilder) updates);
-  CoreCommentsCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class CommentsCapabilitiesInterface {
+  CommentsCapabilities_Files get files;
+  CommentsCapabilitiesInterface rebuild(final void Function(CommentsCapabilitiesInterfaceBuilder) updates);
+  CommentsCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreCommentsCapabilities
-    implements CoreCommentsCapabilitiesInterface, Built<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
-  factory CoreCommentsCapabilities([final void Function(CoreCommentsCapabilitiesBuilder)? b]) =
-      _$CoreCommentsCapabilities;
+abstract class CommentsCapabilities
+    implements CommentsCapabilitiesInterface, Built<CommentsCapabilities, CommentsCapabilitiesBuilder> {
+  factory CommentsCapabilities([final void Function(CommentsCapabilitiesBuilder)? b]) = _$CommentsCapabilities;
 
   // coverage:ignore-start
-  const CoreCommentsCapabilities._();
+  const CommentsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreCommentsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory CommentsCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6427,27 +6392,27 @@ abstract class CoreCommentsCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreCommentsCapabilities> get serializer => _$coreCommentsCapabilitiesSerializer;
+  static Serializer<CommentsCapabilities> get serializer => _$commentsCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreDavCapabilities_DavInterface {
+abstract interface class DavCapabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
-  CoreDavCapabilities_DavInterface rebuild(final void Function(CoreDavCapabilities_DavInterfaceBuilder) updates);
-  CoreDavCapabilities_DavInterfaceBuilder toBuilder();
+  DavCapabilities_DavInterface rebuild(final void Function(DavCapabilities_DavInterfaceBuilder) updates);
+  DavCapabilities_DavInterfaceBuilder toBuilder();
 }
 
-abstract class CoreDavCapabilities_Dav
-    implements CoreDavCapabilities_DavInterface, Built<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
-  factory CoreDavCapabilities_Dav([final void Function(CoreDavCapabilities_DavBuilder)? b]) = _$CoreDavCapabilities_Dav;
+abstract class DavCapabilities_Dav
+    implements DavCapabilities_DavInterface, Built<DavCapabilities_Dav, DavCapabilities_DavBuilder> {
+  factory DavCapabilities_Dav([final void Function(DavCapabilities_DavBuilder)? b]) = _$DavCapabilities_Dav;
 
   // coverage:ignore-start
-  const CoreDavCapabilities_Dav._();
+  const DavCapabilities_Dav._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreDavCapabilities_Dav.fromJson(final Map<String, dynamic> json) =>
+  factory DavCapabilities_Dav.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6455,26 +6420,25 @@ abstract class CoreDavCapabilities_Dav
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreDavCapabilities_Dav> get serializer => _$coreDavCapabilitiesDavSerializer;
+  static Serializer<DavCapabilities_Dav> get serializer => _$davCapabilitiesDavSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreDavCapabilitiesInterface {
-  CoreDavCapabilities_Dav get dav;
-  CoreDavCapabilitiesInterface rebuild(final void Function(CoreDavCapabilitiesInterfaceBuilder) updates);
-  CoreDavCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class DavCapabilitiesInterface {
+  DavCapabilities_Dav get dav;
+  DavCapabilitiesInterface rebuild(final void Function(DavCapabilitiesInterfaceBuilder) updates);
+  DavCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreDavCapabilities
-    implements CoreDavCapabilitiesInterface, Built<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
-  factory CoreDavCapabilities([final void Function(CoreDavCapabilitiesBuilder)? b]) = _$CoreDavCapabilities;
+abstract class DavCapabilities implements DavCapabilitiesInterface, Built<DavCapabilities, DavCapabilitiesBuilder> {
+  factory DavCapabilities([final void Function(DavCapabilitiesBuilder)? b]) = _$DavCapabilities;
 
   // coverage:ignore-start
-  const CoreDavCapabilities._();
+  const DavCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreDavCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory DavCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6482,34 +6446,34 @@ abstract class CoreDavCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreDavCapabilities> get serializer => _$coreDavCapabilitiesSerializer;
+  static Serializer<DavCapabilities> get serializer => _$davCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesCapabilities_Files_DirectEditingInterface {
+abstract interface class FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
   bool get supportsFileId;
-  CoreFilesCapabilities_Files_DirectEditingInterface rebuild(
-    final void Function(CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder) updates,
+  FilesCapabilities_Files_DirectEditingInterface rebuild(
+    final void Function(FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates,
   );
-  CoreFilesCapabilities_Files_DirectEditingInterfaceBuilder toBuilder();
+  FilesCapabilities_Files_DirectEditingInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesCapabilities_Files_DirectEditing
+abstract class FilesCapabilities_Files_DirectEditing
     implements
-        CoreFilesCapabilities_Files_DirectEditingInterface,
-        Built<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
-  factory CoreFilesCapabilities_Files_DirectEditing([
-    final void Function(CoreFilesCapabilities_Files_DirectEditingBuilder)? b,
-  ]) = _$CoreFilesCapabilities_Files_DirectEditing;
+        FilesCapabilities_Files_DirectEditingInterface,
+        Built<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder> {
+  factory FilesCapabilities_Files_DirectEditing([
+    final void Function(FilesCapabilities_Files_DirectEditingBuilder)? b,
+  ]) = _$FilesCapabilities_Files_DirectEditing;
 
   // coverage:ignore-start
-  const CoreFilesCapabilities_Files_DirectEditing._();
+  const FilesCapabilities_Files_DirectEditing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesCapabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
+  factory FilesCapabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6517,35 +6481,30 @@ abstract class CoreFilesCapabilities_Files_DirectEditing
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesCapabilities_Files_DirectEditing> get serializer =>
-      _$coreFilesCapabilitiesFilesDirectEditingSerializer;
+  static Serializer<FilesCapabilities_Files_DirectEditing> get serializer =>
+      _$filesCapabilitiesFilesDirectEditingSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesCapabilities_FilesInterface {
+abstract interface class FilesCapabilities_FilesInterface {
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
-  CoreFilesCapabilities_Files_DirectEditing get directEditing;
-  CoreFilesCapabilities_FilesInterface rebuild(
-    final void Function(CoreFilesCapabilities_FilesInterfaceBuilder) updates,
-  );
-  CoreFilesCapabilities_FilesInterfaceBuilder toBuilder();
+  FilesCapabilities_Files_DirectEditing get directEditing;
+  FilesCapabilities_FilesInterface rebuild(final void Function(FilesCapabilities_FilesInterfaceBuilder) updates);
+  FilesCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesCapabilities_Files
-    implements
-        CoreFilesCapabilities_FilesInterface,
-        Built<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
-  factory CoreFilesCapabilities_Files([final void Function(CoreFilesCapabilities_FilesBuilder)? b]) =
-      _$CoreFilesCapabilities_Files;
+abstract class FilesCapabilities_Files
+    implements FilesCapabilities_FilesInterface, Built<FilesCapabilities_Files, FilesCapabilities_FilesBuilder> {
+  factory FilesCapabilities_Files([final void Function(FilesCapabilities_FilesBuilder)? b]) = _$FilesCapabilities_Files;
 
   // coverage:ignore-start
-  const CoreFilesCapabilities_Files._();
+  const FilesCapabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6553,26 +6512,26 @@ abstract class CoreFilesCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesCapabilities_Files> get serializer => _$coreFilesCapabilitiesFilesSerializer;
+  static Serializer<FilesCapabilities_Files> get serializer => _$filesCapabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesCapabilitiesInterface {
-  CoreFilesCapabilities_Files get files;
-  CoreFilesCapabilitiesInterface rebuild(final void Function(CoreFilesCapabilitiesInterfaceBuilder) updates);
-  CoreFilesCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class FilesCapabilitiesInterface {
+  FilesCapabilities_Files get files;
+  FilesCapabilitiesInterface rebuild(final void Function(FilesCapabilitiesInterfaceBuilder) updates);
+  FilesCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesCapabilities
-    implements CoreFilesCapabilitiesInterface, Built<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
-  factory CoreFilesCapabilities([final void Function(CoreFilesCapabilitiesBuilder)? b]) = _$CoreFilesCapabilities;
+abstract class FilesCapabilities
+    implements FilesCapabilitiesInterface, Built<FilesCapabilities, FilesCapabilitiesBuilder> {
+  factory FilesCapabilities([final void Function(FilesCapabilitiesBuilder)? b]) = _$FilesCapabilities;
 
   // coverage:ignore-start
-  const CoreFilesCapabilities._();
+  const FilesCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6580,34 +6539,34 @@ abstract class CoreFilesCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesCapabilities> get serializer => _$coreFilesCapabilitiesSerializer;
+  static Serializer<FilesCapabilities> get serializer => _$filesCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
-  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Public_PasswordInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
+abstract class FilesSharingCapabilities_FilesSharing_Public_Password
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Public_PasswordInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
-            CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_Password([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_Password;
+        FilesSharingCapabilities_FilesSharing_Public_PasswordInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Public_Password,
+            FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Public_Password([
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Public_Password;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Public_Password._();
+  const FilesSharingCapabilities_FilesSharing_Public_Password._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6615,36 +6574,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
+abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate;
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate([
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate._();
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6652,38 +6611,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
+abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._();
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6691,36 +6648,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateIntern
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
+abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
-            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
+    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._();
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6728,48 +6685,47 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_PublicInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_PublicInterface {
   bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_Public_Password? get password;
+  FilesSharingCapabilities_FilesSharing_Public_Password? get password;
   @BuiltValueField(wireName: 'multiple_links')
   bool? get multipleLinks;
   @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
   @BuiltValueField(wireName: 'expire_date_internal')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
   @BuiltValueField(wireName: 'expire_date_remote')
-  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
+  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
   @BuiltValueField(wireName: 'send_mail')
   bool? get sendMail;
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
-  CoreFilesSharingCapabilities_FilesSharing_PublicInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_PublicInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Public
+abstract class FilesSharingCapabilities_FilesSharing_Public
     implements
-        CoreFilesSharingCapabilities_FilesSharing_PublicInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Public,
-            CoreFilesSharingCapabilities_FilesSharing_PublicBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Public([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public;
+        FilesSharingCapabilities_FilesSharing_PublicInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Public, FilesSharingCapabilities_FilesSharing_PublicBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Public([
+    final void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Public;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Public._();
+  const FilesSharingCapabilities_FilesSharing_Public._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6777,34 +6733,34 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Public
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingPublicSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Public> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingPublicSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
+abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
     implements
-        CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate;
+        FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface,
+        Built<FilesSharingCapabilities_FilesSharing_User_ExpireDate,
+            FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_User_ExpireDate([
+    final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_User_ExpireDate;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate._();
+  const FilesSharingCapabilities_FilesSharing_User_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6812,36 +6768,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_UserInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_UserInterface {
   @BuiltValueField(wireName: 'send_mail')
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
-  CoreFilesSharingCapabilities_FilesSharing_UserInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
+  FilesSharingCapabilities_FilesSharing_UserInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_UserInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_User
+abstract class FilesSharingCapabilities_FilesSharing_User
     implements
-        CoreFilesSharingCapabilities_FilesSharing_UserInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_User([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_User;
+        FilesSharingCapabilities_FilesSharing_UserInterface,
+        Built<FilesSharingCapabilities_FilesSharing_User, FilesSharingCapabilities_FilesSharing_UserBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_User([
+    final void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_User;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_User._();
+  const FilesSharingCapabilities_FilesSharing_User._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6849,34 +6805,34 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_User
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_User> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingUserSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_User> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingUserSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
+abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate;
+        FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
+            FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate([
+    final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate._();
+  const FilesSharingCapabilities_FilesSharing_Group_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6884,35 +6840,35 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_GroupInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
-  CoreFilesSharingCapabilities_FilesSharing_GroupInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  FilesSharingCapabilities_FilesSharing_GroupInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Group
+abstract class FilesSharingCapabilities_FilesSharing_Group
     implements
-        CoreFilesSharingCapabilities_FilesSharing_GroupInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Group, CoreFilesSharingCapabilities_FilesSharing_GroupBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Group([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Group;
+        FilesSharingCapabilities_FilesSharing_GroupInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Group, FilesSharingCapabilities_FilesSharing_GroupBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Group([
+    final void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Group;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Group._();
+  const FilesSharingCapabilities_FilesSharing_Group._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6920,34 +6876,34 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Group
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingGroupSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Group> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingGroupSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
+abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
-            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
+            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate._();
+  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6955,35 +6911,34 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder)
-        updates,
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
+abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
     implements
-        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
-            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
+            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
+    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._();
+  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -6993,39 +6948,39 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_FederationInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_FederationInterface {
   bool get outgoing;
   bool get incoming;
   @BuiltValueField(wireName: 'expire_date')
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
-  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
-  CoreFilesSharingCapabilities_FilesSharing_FederationInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+  FilesSharingCapabilities_FilesSharing_FederationInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
+abstract class FilesSharingCapabilities_FilesSharing_Federation
     implements
-        CoreFilesSharingCapabilities_FilesSharing_FederationInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Federation,
-            CoreFilesSharingCapabilities_FilesSharing_FederationBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation;
+        FilesSharingCapabilities_FilesSharing_FederationInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Federation,
+            FilesSharingCapabilities_FilesSharing_FederationBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Federation([
+    final void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Federation;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Federation._();
+  const FilesSharingCapabilities_FilesSharing_Federation._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7033,37 +6988,36 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingFederationSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Federation> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingFederationSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharing_ShareeInterface {
+abstract interface class FilesSharingCapabilities_FilesSharing_ShareeInterface {
   @BuiltValueField(wireName: 'query_lookup_default')
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
-  CoreFilesSharingCapabilities_FilesSharing_ShareeInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_ShareeInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
+abstract class FilesSharingCapabilities_FilesSharing_Sharee
     implements
-        CoreFilesSharingCapabilities_FilesSharing_ShareeInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing_Sharee,
-            CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing_Sharee([
-    final void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Sharee;
+        FilesSharingCapabilities_FilesSharing_ShareeInterface,
+        Built<FilesSharingCapabilities_FilesSharing_Sharee, FilesSharingCapabilities_FilesSharing_ShareeBuilder> {
+  factory FilesSharingCapabilities_FilesSharing_Sharee([
+    final void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing_Sharee;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing_Sharee._();
+  const FilesSharingCapabilities_FilesSharing_Sharee._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7071,44 +7025,44 @@ abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingShareeSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingShareeSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilities_FilesSharingInterface {
+abstract interface class FilesSharingCapabilities_FilesSharingInterface {
   @BuiltValueField(wireName: 'api_enabled')
   bool get apiEnabled;
-  CoreFilesSharingCapabilities_FilesSharing_Public get public;
-  CoreFilesSharingCapabilities_FilesSharing_User get user;
+  FilesSharingCapabilities_FilesSharing_Public get public;
+  FilesSharingCapabilities_FilesSharing_User get user;
   bool get resharing;
   @BuiltValueField(wireName: 'group_sharing')
   bool? get groupSharing;
-  CoreFilesSharingCapabilities_FilesSharing_Group? get group;
+  FilesSharingCapabilities_FilesSharing_Group? get group;
   @BuiltValueField(wireName: 'default_permissions')
   int? get defaultPermissions;
-  CoreFilesSharingCapabilities_FilesSharing_Federation get federation;
-  CoreFilesSharingCapabilities_FilesSharing_Sharee get sharee;
-  CoreFilesSharingCapabilities_FilesSharingInterface rebuild(
-    final void Function(CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder) updates,
+  FilesSharingCapabilities_FilesSharing_Federation get federation;
+  FilesSharingCapabilities_FilesSharing_Sharee get sharee;
+  FilesSharingCapabilities_FilesSharingInterface rebuild(
+    final void Function(FilesSharingCapabilities_FilesSharingInterfaceBuilder) updates,
   );
-  CoreFilesSharingCapabilities_FilesSharingInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities_FilesSharing
+abstract class FilesSharingCapabilities_FilesSharing
     implements
-        CoreFilesSharingCapabilities_FilesSharingInterface,
-        Built<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
-  factory CoreFilesSharingCapabilities_FilesSharing([
-    final void Function(CoreFilesSharingCapabilities_FilesSharingBuilder)? b,
-  ]) = _$CoreFilesSharingCapabilities_FilesSharing;
+        FilesSharingCapabilities_FilesSharingInterface,
+        Built<FilesSharingCapabilities_FilesSharing, FilesSharingCapabilities_FilesSharingBuilder> {
+  factory FilesSharingCapabilities_FilesSharing([
+    final void Function(FilesSharingCapabilities_FilesSharingBuilder)? b,
+  ]) = _$FilesSharingCapabilities_FilesSharing;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities_FilesSharing._();
+  const FilesSharingCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7116,33 +7070,29 @@ abstract class CoreFilesSharingCapabilities_FilesSharing
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities_FilesSharing> get serializer =>
-      _$coreFilesSharingCapabilitiesFilesSharingSerializer;
+  static Serializer<FilesSharingCapabilities_FilesSharing> get serializer =>
+      _$filesSharingCapabilitiesFilesSharingSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesSharingCapabilitiesInterface {
+abstract interface class FilesSharingCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
-  CoreFilesSharingCapabilities_FilesSharing get filesSharing;
-  CoreFilesSharingCapabilitiesInterface rebuild(
-    final void Function(CoreFilesSharingCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreFilesSharingCapabilitiesInterfaceBuilder toBuilder();
+  FilesSharingCapabilities_FilesSharing get filesSharing;
+  FilesSharingCapabilitiesInterface rebuild(final void Function(FilesSharingCapabilitiesInterfaceBuilder) updates);
+  FilesSharingCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesSharingCapabilities
-    implements
-        CoreFilesSharingCapabilitiesInterface,
-        Built<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
-  factory CoreFilesSharingCapabilities([final void Function(CoreFilesSharingCapabilitiesBuilder)? b]) =
-      _$CoreFilesSharingCapabilities;
+abstract class FilesSharingCapabilities
+    implements FilesSharingCapabilitiesInterface, Built<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder> {
+  factory FilesSharingCapabilities([final void Function(FilesSharingCapabilitiesBuilder)? b]) =
+      _$FilesSharingCapabilities;
 
   // coverage:ignore-start
-  const CoreFilesSharingCapabilities._();
+  const FilesSharingCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesSharingCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7150,31 +7100,31 @@ abstract class CoreFilesSharingCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesSharingCapabilities> get serializer => _$coreFilesSharingCapabilitiesSerializer;
+  static Serializer<FilesSharingCapabilities> get serializer => _$filesSharingCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesTrashbinCapabilities_FilesInterface {
+abstract interface class FilesTrashbinCapabilities_FilesInterface {
   bool get undelete;
-  CoreFilesTrashbinCapabilities_FilesInterface rebuild(
-    final void Function(CoreFilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
+  FilesTrashbinCapabilities_FilesInterface rebuild(
+    final void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
   );
-  CoreFilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
+  FilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesTrashbinCapabilities_Files
+abstract class FilesTrashbinCapabilities_Files
     implements
-        CoreFilesTrashbinCapabilities_FilesInterface,
-        Built<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
-  factory CoreFilesTrashbinCapabilities_Files([final void Function(CoreFilesTrashbinCapabilities_FilesBuilder)? b]) =
-      _$CoreFilesTrashbinCapabilities_Files;
+        FilesTrashbinCapabilities_FilesInterface,
+        Built<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
+  factory FilesTrashbinCapabilities_Files([final void Function(FilesTrashbinCapabilities_FilesBuilder)? b]) =
+      _$FilesTrashbinCapabilities_Files;
 
   // coverage:ignore-start
-  const CoreFilesTrashbinCapabilities_Files._();
+  const FilesTrashbinCapabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesTrashbinCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesTrashbinCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7182,32 +7132,27 @@ abstract class CoreFilesTrashbinCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesTrashbinCapabilities_Files> get serializer =>
-      _$coreFilesTrashbinCapabilitiesFilesSerializer;
+  static Serializer<FilesTrashbinCapabilities_Files> get serializer => _$filesTrashbinCapabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesTrashbinCapabilitiesInterface {
-  CoreFilesTrashbinCapabilities_Files get files;
-  CoreFilesTrashbinCapabilitiesInterface rebuild(
-    final void Function(CoreFilesTrashbinCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreFilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class FilesTrashbinCapabilitiesInterface {
+  FilesTrashbinCapabilities_Files get files;
+  FilesTrashbinCapabilitiesInterface rebuild(final void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
+  FilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesTrashbinCapabilities
-    implements
-        CoreFilesTrashbinCapabilitiesInterface,
-        Built<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
-  factory CoreFilesTrashbinCapabilities([final void Function(CoreFilesTrashbinCapabilitiesBuilder)? b]) =
-      _$CoreFilesTrashbinCapabilities;
+abstract class FilesTrashbinCapabilities
+    implements FilesTrashbinCapabilitiesInterface, Built<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
+  factory FilesTrashbinCapabilities([final void Function(FilesTrashbinCapabilitiesBuilder)? b]) =
+      _$FilesTrashbinCapabilities;
 
   // coverage:ignore-start
-  const CoreFilesTrashbinCapabilities._();
+  const FilesTrashbinCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesTrashbinCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesTrashbinCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7215,35 +7160,35 @@ abstract class CoreFilesTrashbinCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesTrashbinCapabilities> get serializer => _$coreFilesTrashbinCapabilitiesSerializer;
+  static Serializer<FilesTrashbinCapabilities> get serializer => _$filesTrashbinCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesVersionsCapabilities_FilesInterface {
+abstract interface class FilesVersionsCapabilities_FilesInterface {
   bool get versioning;
   @BuiltValueField(wireName: 'version_labeling')
   bool get versionLabeling;
   @BuiltValueField(wireName: 'version_deletion')
   bool get versionDeletion;
-  CoreFilesVersionsCapabilities_FilesInterface rebuild(
-    final void Function(CoreFilesVersionsCapabilities_FilesInterfaceBuilder) updates,
+  FilesVersionsCapabilities_FilesInterface rebuild(
+    final void Function(FilesVersionsCapabilities_FilesInterfaceBuilder) updates,
   );
-  CoreFilesVersionsCapabilities_FilesInterfaceBuilder toBuilder();
+  FilesVersionsCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesVersionsCapabilities_Files
+abstract class FilesVersionsCapabilities_Files
     implements
-        CoreFilesVersionsCapabilities_FilesInterface,
-        Built<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
-  factory CoreFilesVersionsCapabilities_Files([final void Function(CoreFilesVersionsCapabilities_FilesBuilder)? b]) =
-      _$CoreFilesVersionsCapabilities_Files;
+        FilesVersionsCapabilities_FilesInterface,
+        Built<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder> {
+  factory FilesVersionsCapabilities_Files([final void Function(FilesVersionsCapabilities_FilesBuilder)? b]) =
+      _$FilesVersionsCapabilities_Files;
 
   // coverage:ignore-start
-  const CoreFilesVersionsCapabilities_Files._();
+  const FilesVersionsCapabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesVersionsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesVersionsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7251,32 +7196,27 @@ abstract class CoreFilesVersionsCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesVersionsCapabilities_Files> get serializer =>
-      _$coreFilesVersionsCapabilitiesFilesSerializer;
+  static Serializer<FilesVersionsCapabilities_Files> get serializer => _$filesVersionsCapabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreFilesVersionsCapabilitiesInterface {
-  CoreFilesVersionsCapabilities_Files get files;
-  CoreFilesVersionsCapabilitiesInterface rebuild(
-    final void Function(CoreFilesVersionsCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreFilesVersionsCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class FilesVersionsCapabilitiesInterface {
+  FilesVersionsCapabilities_Files get files;
+  FilesVersionsCapabilitiesInterface rebuild(final void Function(FilesVersionsCapabilitiesInterfaceBuilder) updates);
+  FilesVersionsCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreFilesVersionsCapabilities
-    implements
-        CoreFilesVersionsCapabilitiesInterface,
-        Built<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
-  factory CoreFilesVersionsCapabilities([final void Function(CoreFilesVersionsCapabilitiesBuilder)? b]) =
-      _$CoreFilesVersionsCapabilities;
+abstract class FilesVersionsCapabilities
+    implements FilesVersionsCapabilitiesInterface, Built<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder> {
+  factory FilesVersionsCapabilities([final void Function(FilesVersionsCapabilitiesBuilder)? b]) =
+      _$FilesVersionsCapabilities;
 
   // coverage:ignore-start
-  const CoreFilesVersionsCapabilities._();
+  const FilesVersionsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreFilesVersionsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesVersionsCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7284,33 +7224,28 @@ abstract class CoreFilesVersionsCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreFilesVersionsCapabilities> get serializer => _$coreFilesVersionsCapabilitiesSerializer;
+  static Serializer<FilesVersionsCapabilities> get serializer => _$filesVersionsCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNotesCapabilities_NotesInterface {
+abstract interface class NotesCapabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
-  CoreNotesCapabilities_NotesInterface rebuild(
-    final void Function(CoreNotesCapabilities_NotesInterfaceBuilder) updates,
-  );
-  CoreNotesCapabilities_NotesInterfaceBuilder toBuilder();
+  NotesCapabilities_NotesInterface rebuild(final void Function(NotesCapabilities_NotesInterfaceBuilder) updates);
+  NotesCapabilities_NotesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNotesCapabilities_Notes
-    implements
-        CoreNotesCapabilities_NotesInterface,
-        Built<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
-  factory CoreNotesCapabilities_Notes([final void Function(CoreNotesCapabilities_NotesBuilder)? b]) =
-      _$CoreNotesCapabilities_Notes;
+abstract class NotesCapabilities_Notes
+    implements NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
+  factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
 
   // coverage:ignore-start
-  const CoreNotesCapabilities_Notes._();
+  const NotesCapabilities_Notes._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
+  factory NotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7318,26 +7253,26 @@ abstract class CoreNotesCapabilities_Notes
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNotesCapabilities_Notes> get serializer => _$coreNotesCapabilitiesNotesSerializer;
+  static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNotesCapabilitiesInterface {
-  CoreNotesCapabilities_Notes get notes;
-  CoreNotesCapabilitiesInterface rebuild(final void Function(CoreNotesCapabilitiesInterfaceBuilder) updates);
-  CoreNotesCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class NotesCapabilitiesInterface {
+  NotesCapabilities_Notes get notes;
+  NotesCapabilitiesInterface rebuild(final void Function(NotesCapabilitiesInterfaceBuilder) updates);
+  NotesCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNotesCapabilities
-    implements CoreNotesCapabilitiesInterface, Built<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
-  factory CoreNotesCapabilities([final void Function(CoreNotesCapabilitiesBuilder)? b]) = _$CoreNotesCapabilities;
+abstract class NotesCapabilities
+    implements NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
+  factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
 
   // coverage:ignore-start
-  const CoreNotesCapabilities._();
+  const NotesCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNotesCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory NotesCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7345,36 +7280,36 @@ abstract class CoreNotesCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNotesCapabilities> get serializer => _$coreNotesCapabilitiesSerializer;
+  static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNotificationsCapabilities_NotificationsInterface {
+abstract interface class NotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
   BuiltList<String> get push;
   @BuiltValueField(wireName: 'admin-notifications')
   BuiltList<String> get adminNotifications;
-  CoreNotificationsCapabilities_NotificationsInterface rebuild(
-    final void Function(CoreNotificationsCapabilities_NotificationsInterfaceBuilder) updates,
+  NotificationsCapabilities_NotificationsInterface rebuild(
+    final void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates,
   );
-  CoreNotificationsCapabilities_NotificationsInterfaceBuilder toBuilder();
+  NotificationsCapabilities_NotificationsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNotificationsCapabilities_Notifications
+abstract class NotificationsCapabilities_Notifications
     implements
-        CoreNotificationsCapabilities_NotificationsInterface,
-        Built<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
-  factory CoreNotificationsCapabilities_Notifications([
-    final void Function(CoreNotificationsCapabilities_NotificationsBuilder)? b,
-  ]) = _$CoreNotificationsCapabilities_Notifications;
+        NotificationsCapabilities_NotificationsInterface,
+        Built<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
+  factory NotificationsCapabilities_Notifications([
+    final void Function(NotificationsCapabilities_NotificationsBuilder)? b,
+  ]) = _$NotificationsCapabilities_Notifications;
 
   // coverage:ignore-start
-  const CoreNotificationsCapabilities_Notifications._();
+  const NotificationsCapabilities_Notifications._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNotificationsCapabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsCapabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7382,32 +7317,28 @@ abstract class CoreNotificationsCapabilities_Notifications
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNotificationsCapabilities_Notifications> get serializer =>
-      _$coreNotificationsCapabilitiesNotificationsSerializer;
+  static Serializer<NotificationsCapabilities_Notifications> get serializer =>
+      _$notificationsCapabilitiesNotificationsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreNotificationsCapabilitiesInterface {
-  CoreNotificationsCapabilities_Notifications get notifications;
-  CoreNotificationsCapabilitiesInterface rebuild(
-    final void Function(CoreNotificationsCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreNotificationsCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class NotificationsCapabilitiesInterface {
+  NotificationsCapabilities_Notifications get notifications;
+  NotificationsCapabilitiesInterface rebuild(final void Function(NotificationsCapabilitiesInterfaceBuilder) updates);
+  NotificationsCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreNotificationsCapabilities
-    implements
-        CoreNotificationsCapabilitiesInterface,
-        Built<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
-  factory CoreNotificationsCapabilities([final void Function(CoreNotificationsCapabilitiesBuilder)? b]) =
-      _$CoreNotificationsCapabilities;
+abstract class NotificationsCapabilities
+    implements NotificationsCapabilitiesInterface, Built<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
+  factory NotificationsCapabilities([final void Function(NotificationsCapabilitiesBuilder)? b]) =
+      _$NotificationsCapabilities;
 
   // coverage:ignore-start
-  const CoreNotificationsCapabilities._();
+  const NotificationsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreNotificationsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7415,11 +7346,11 @@ abstract class CoreNotificationsCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreNotificationsCapabilities> get serializer => _$coreNotificationsCapabilitiesSerializer;
+  static Serializer<NotificationsCapabilities> get serializer => _$notificationsCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreProvisioningApiCapabilities_ProvisioningApiInterface {
+abstract interface class ProvisioningApiCapabilities_ProvisioningApiInterface {
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
   int get accountPropertyScopesVersion;
@@ -7427,26 +7358,26 @@ abstract interface class CoreProvisioningApiCapabilities_ProvisioningApiInterfac
   bool get accountPropertyScopesFederatedEnabled;
   @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
   bool get accountPropertyScopesPublishedEnabled;
-  CoreProvisioningApiCapabilities_ProvisioningApiInterface rebuild(
-    final void Function(CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates,
+  ProvisioningApiCapabilities_ProvisioningApiInterface rebuild(
+    final void Function(ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates,
   );
-  CoreProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder toBuilder();
+  ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder toBuilder();
 }
 
-abstract class CoreProvisioningApiCapabilities_ProvisioningApi
+abstract class ProvisioningApiCapabilities_ProvisioningApi
     implements
-        CoreProvisioningApiCapabilities_ProvisioningApiInterface,
-        Built<CoreProvisioningApiCapabilities_ProvisioningApi, CoreProvisioningApiCapabilities_ProvisioningApiBuilder> {
-  factory CoreProvisioningApiCapabilities_ProvisioningApi([
-    final void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
-  ]) = _$CoreProvisioningApiCapabilities_ProvisioningApi;
+        ProvisioningApiCapabilities_ProvisioningApiInterface,
+        Built<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder> {
+  factory ProvisioningApiCapabilities_ProvisioningApi([
+    final void Function(ProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
+  ]) = _$ProvisioningApiCapabilities_ProvisioningApi;
 
   // coverage:ignore-start
-  const CoreProvisioningApiCapabilities_ProvisioningApi._();
+  const ProvisioningApiCapabilities_ProvisioningApi._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreProvisioningApiCapabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
+  factory ProvisioningApiCapabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7454,33 +7385,33 @@ abstract class CoreProvisioningApiCapabilities_ProvisioningApi
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> get serializer =>
-      _$coreProvisioningApiCapabilitiesProvisioningApiSerializer;
+  static Serializer<ProvisioningApiCapabilities_ProvisioningApi> get serializer =>
+      _$provisioningApiCapabilitiesProvisioningApiSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreProvisioningApiCapabilitiesInterface {
+abstract interface class ProvisioningApiCapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
-  CoreProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
-  CoreProvisioningApiCapabilitiesInterface rebuild(
-    final void Function(CoreProvisioningApiCapabilitiesInterfaceBuilder) updates,
+  ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
+  ProvisioningApiCapabilitiesInterface rebuild(
+    final void Function(ProvisioningApiCapabilitiesInterfaceBuilder) updates,
   );
-  CoreProvisioningApiCapabilitiesInterfaceBuilder toBuilder();
+  ProvisioningApiCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreProvisioningApiCapabilities
+abstract class ProvisioningApiCapabilities
     implements
-        CoreProvisioningApiCapabilitiesInterface,
-        Built<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
-  factory CoreProvisioningApiCapabilities([final void Function(CoreProvisioningApiCapabilitiesBuilder)? b]) =
-      _$CoreProvisioningApiCapabilities;
+        ProvisioningApiCapabilitiesInterface,
+        Built<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
+  factory ProvisioningApiCapabilities([final void Function(ProvisioningApiCapabilitiesBuilder)? b]) =
+      _$ProvisioningApiCapabilities;
 
   // coverage:ignore-start
-  const CoreProvisioningApiCapabilities._();
+  const ProvisioningApiCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreProvisioningApiCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory ProvisioningApiCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7488,35 +7419,33 @@ abstract class CoreProvisioningApiCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreProvisioningApiCapabilities> get serializer => _$coreProvisioningApiCapabilitiesSerializer;
+  static Serializer<ProvisioningApiCapabilities> get serializer => _$provisioningApiCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
+abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
   );
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
-  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7524,35 +7453,35 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesD
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$coreSharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
+abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
   );
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
     implements
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
-        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password([
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
-  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password;
+        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password([
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7560,35 +7489,35 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
-      _$coreSharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
   );
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
     implements
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
-    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
-  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
+    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7596,41 +7525,41 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$coreSharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilities_FilesSharing_SharebymailInterface {
+abstract interface class SharebymailCapabilities_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
   @BuiltValueField(wireName: 'upload_files_drop')
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
-  CoreSharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
-    final void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  SharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
+    final void Function(SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
   );
-  CoreSharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail
     implements
-        CoreSharebymailCapabilities_FilesSharing_SharebymailInterface,
-        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail,
-            CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder> {
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail([
-    final void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
-  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail;
+        SharebymailCapabilities_FilesSharing_SharebymailInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail,
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+  factory SharebymailCapabilities_FilesSharing_Sharebymail([
+    final void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities_FilesSharing_Sharebymail._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7638,33 +7567,32 @@ abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
-      _$coreSharebymailCapabilitiesFilesSharingSharebymailSerializer;
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilities_FilesSharingInterface {
-  CoreSharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
-  CoreSharebymailCapabilities_FilesSharingInterface rebuild(
-    final void Function(CoreSharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
+abstract interface class SharebymailCapabilities_FilesSharingInterface {
+  SharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
+  SharebymailCapabilities_FilesSharingInterface rebuild(
+    final void Function(SharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
   );
-  CoreSharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities_FilesSharing
+abstract class SharebymailCapabilities_FilesSharing
     implements
-        CoreSharebymailCapabilities_FilesSharingInterface,
-        Built<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
-  factory CoreSharebymailCapabilities_FilesSharing([
-    final void Function(CoreSharebymailCapabilities_FilesSharingBuilder)? b,
-  ]) = _$CoreSharebymailCapabilities_FilesSharing;
+        SharebymailCapabilities_FilesSharingInterface,
+        Built<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder> {
+  factory SharebymailCapabilities_FilesSharing([final void Function(SharebymailCapabilities_FilesSharingBuilder)? b]) =
+      _$SharebymailCapabilities_FilesSharing;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities_FilesSharing._();
+  const SharebymailCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7672,33 +7600,28 @@ abstract class CoreSharebymailCapabilities_FilesSharing
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities_FilesSharing> get serializer =>
-      _$coreSharebymailCapabilitiesFilesSharingSerializer;
+  static Serializer<SharebymailCapabilities_FilesSharing> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreSharebymailCapabilitiesInterface {
+abstract interface class SharebymailCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
-  CoreSharebymailCapabilities_FilesSharing get filesSharing;
-  CoreSharebymailCapabilitiesInterface rebuild(
-    final void Function(CoreSharebymailCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreSharebymailCapabilitiesInterfaceBuilder toBuilder();
+  SharebymailCapabilities_FilesSharing get filesSharing;
+  SharebymailCapabilitiesInterface rebuild(final void Function(SharebymailCapabilitiesInterfaceBuilder) updates);
+  SharebymailCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreSharebymailCapabilities
-    implements
-        CoreSharebymailCapabilitiesInterface,
-        Built<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
-  factory CoreSharebymailCapabilities([final void Function(CoreSharebymailCapabilitiesBuilder)? b]) =
-      _$CoreSharebymailCapabilities;
+abstract class SharebymailCapabilities
+    implements SharebymailCapabilitiesInterface, Built<SharebymailCapabilities, SharebymailCapabilitiesBuilder> {
+  factory SharebymailCapabilities([final void Function(SharebymailCapabilitiesBuilder)? b]) = _$SharebymailCapabilities;
 
   // coverage:ignore-start
-  const CoreSharebymailCapabilities._();
+  const SharebymailCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreSharebymailCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7706,11 +7629,11 @@ abstract class CoreSharebymailCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreSharebymailCapabilities> get serializer => _$coreSharebymailCapabilitiesSerializer;
+  static Serializer<SharebymailCapabilities> get serializer => _$sharebymailCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreThemingPublicCapabilities_ThemingInterface {
+abstract interface class ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -7731,26 +7654,25 @@ abstract interface class CoreThemingPublicCapabilities_ThemingInterface {
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
-  CoreThemingPublicCapabilities_ThemingInterface rebuild(
-    final void Function(CoreThemingPublicCapabilities_ThemingInterfaceBuilder) updates,
+  ThemingPublicCapabilities_ThemingInterface rebuild(
+    final void Function(ThemingPublicCapabilities_ThemingInterfaceBuilder) updates,
   );
-  CoreThemingPublicCapabilities_ThemingInterfaceBuilder toBuilder();
+  ThemingPublicCapabilities_ThemingInterfaceBuilder toBuilder();
 }
 
-abstract class CoreThemingPublicCapabilities_Theming
+abstract class ThemingPublicCapabilities_Theming
     implements
-        CoreThemingPublicCapabilities_ThemingInterface,
-        Built<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
-  factory CoreThemingPublicCapabilities_Theming([
-    final void Function(CoreThemingPublicCapabilities_ThemingBuilder)? b,
-  ]) = _$CoreThemingPublicCapabilities_Theming;
+        ThemingPublicCapabilities_ThemingInterface,
+        Built<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
+  factory ThemingPublicCapabilities_Theming([final void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
+      _$ThemingPublicCapabilities_Theming;
 
   // coverage:ignore-start
-  const CoreThemingPublicCapabilities_Theming._();
+  const ThemingPublicCapabilities_Theming._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7758,32 +7680,27 @@ abstract class CoreThemingPublicCapabilities_Theming
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreThemingPublicCapabilities_Theming> get serializer =>
-      _$coreThemingPublicCapabilitiesThemingSerializer;
+  static Serializer<ThemingPublicCapabilities_Theming> get serializer => _$themingPublicCapabilitiesThemingSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreThemingPublicCapabilitiesInterface {
-  CoreThemingPublicCapabilities_Theming get theming;
-  CoreThemingPublicCapabilitiesInterface rebuild(
-    final void Function(CoreThemingPublicCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreThemingPublicCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class ThemingPublicCapabilitiesInterface {
+  ThemingPublicCapabilities_Theming get theming;
+  ThemingPublicCapabilitiesInterface rebuild(final void Function(ThemingPublicCapabilitiesInterfaceBuilder) updates);
+  ThemingPublicCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreThemingPublicCapabilities
-    implements
-        CoreThemingPublicCapabilitiesInterface,
-        Built<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
-  factory CoreThemingPublicCapabilities([final void Function(CoreThemingPublicCapabilitiesBuilder)? b]) =
-      _$CoreThemingPublicCapabilities;
+abstract class ThemingPublicCapabilities
+    implements ThemingPublicCapabilitiesInterface, Built<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
+  factory ThemingPublicCapabilities([final void Function(ThemingPublicCapabilitiesBuilder)? b]) =
+      _$ThemingPublicCapabilities;
 
   // coverage:ignore-start
-  const CoreThemingPublicCapabilities._();
+  const ThemingPublicCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreThemingPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7791,35 +7708,34 @@ abstract class CoreThemingPublicCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreThemingPublicCapabilities> get serializer => _$coreThemingPublicCapabilitiesSerializer;
+  static Serializer<ThemingPublicCapabilities> get serializer => _$themingPublicCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUserStatusCapabilities_UserStatusInterface {
+abstract interface class UserStatusCapabilities_UserStatusInterface {
   bool get enabled;
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
-  CoreUserStatusCapabilities_UserStatusInterface rebuild(
-    final void Function(CoreUserStatusCapabilities_UserStatusInterfaceBuilder) updates,
+  UserStatusCapabilities_UserStatusInterface rebuild(
+    final void Function(UserStatusCapabilities_UserStatusInterfaceBuilder) updates,
   );
-  CoreUserStatusCapabilities_UserStatusInterfaceBuilder toBuilder();
+  UserStatusCapabilities_UserStatusInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUserStatusCapabilities_UserStatus
+abstract class UserStatusCapabilities_UserStatus
     implements
-        CoreUserStatusCapabilities_UserStatusInterface,
-        Built<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
-  factory CoreUserStatusCapabilities_UserStatus([
-    final void Function(CoreUserStatusCapabilities_UserStatusBuilder)? b,
-  ]) = _$CoreUserStatusCapabilities_UserStatus;
+        UserStatusCapabilities_UserStatusInterface,
+        Built<UserStatusCapabilities_UserStatus, UserStatusCapabilities_UserStatusBuilder> {
+  factory UserStatusCapabilities_UserStatus([final void Function(UserStatusCapabilities_UserStatusBuilder)? b]) =
+      _$UserStatusCapabilities_UserStatus;
 
   // coverage:ignore-start
-  const CoreUserStatusCapabilities_UserStatus._();
+  const UserStatusCapabilities_UserStatus._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7827,31 +7743,27 @@ abstract class CoreUserStatusCapabilities_UserStatus
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUserStatusCapabilities_UserStatus> get serializer =>
-      _$coreUserStatusCapabilitiesUserStatusSerializer;
+  static Serializer<UserStatusCapabilities_UserStatus> get serializer => _$userStatusCapabilitiesUserStatusSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUserStatusCapabilitiesInterface {
+abstract interface class UserStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
-  CoreUserStatusCapabilities_UserStatus get userStatus;
-  CoreUserStatusCapabilitiesInterface rebuild(final void Function(CoreUserStatusCapabilitiesInterfaceBuilder) updates);
-  CoreUserStatusCapabilitiesInterfaceBuilder toBuilder();
+  UserStatusCapabilities_UserStatus get userStatus;
+  UserStatusCapabilitiesInterface rebuild(final void Function(UserStatusCapabilitiesInterfaceBuilder) updates);
+  UserStatusCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUserStatusCapabilities
-    implements
-        CoreUserStatusCapabilitiesInterface,
-        Built<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
-  factory CoreUserStatusCapabilities([final void Function(CoreUserStatusCapabilitiesBuilder)? b]) =
-      _$CoreUserStatusCapabilities;
+abstract class UserStatusCapabilities
+    implements UserStatusCapabilitiesInterface, Built<UserStatusCapabilities, UserStatusCapabilitiesBuilder> {
+  factory UserStatusCapabilities([final void Function(UserStatusCapabilitiesBuilder)? b]) = _$UserStatusCapabilities;
 
   // coverage:ignore-start
-  const CoreUserStatusCapabilities._();
+  const UserStatusCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7859,32 +7771,32 @@ abstract class CoreUserStatusCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUserStatusCapabilities> get serializer => _$coreUserStatusCapabilitiesSerializer;
+  static Serializer<UserStatusCapabilities> get serializer => _$userStatusCapabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWeatherStatusCapabilities_WeatherStatusInterface {
+abstract interface class WeatherStatusCapabilities_WeatherStatusInterface {
   bool get enabled;
-  CoreWeatherStatusCapabilities_WeatherStatusInterface rebuild(
-    final void Function(CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates,
+  WeatherStatusCapabilities_WeatherStatusInterface rebuild(
+    final void Function(WeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates,
   );
-  CoreWeatherStatusCapabilities_WeatherStatusInterfaceBuilder toBuilder();
+  WeatherStatusCapabilities_WeatherStatusInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWeatherStatusCapabilities_WeatherStatus
+abstract class WeatherStatusCapabilities_WeatherStatus
     implements
-        CoreWeatherStatusCapabilities_WeatherStatusInterface,
-        Built<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
-  factory CoreWeatherStatusCapabilities_WeatherStatus([
-    final void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder)? b,
-  ]) = _$CoreWeatherStatusCapabilities_WeatherStatus;
+        WeatherStatusCapabilities_WeatherStatusInterface,
+        Built<WeatherStatusCapabilities_WeatherStatus, WeatherStatusCapabilities_WeatherStatusBuilder> {
+  factory WeatherStatusCapabilities_WeatherStatus([
+    final void Function(WeatherStatusCapabilities_WeatherStatusBuilder)? b,
+  ]) = _$WeatherStatusCapabilities_WeatherStatus;
 
   // coverage:ignore-start
-  const CoreWeatherStatusCapabilities_WeatherStatus._();
+  const WeatherStatusCapabilities_WeatherStatus._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWeatherStatusCapabilities_WeatherStatus.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusCapabilities_WeatherStatus.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7892,33 +7804,29 @@ abstract class CoreWeatherStatusCapabilities_WeatherStatus
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWeatherStatusCapabilities_WeatherStatus> get serializer =>
-      _$coreWeatherStatusCapabilitiesWeatherStatusSerializer;
+  static Serializer<WeatherStatusCapabilities_WeatherStatus> get serializer =>
+      _$weatherStatusCapabilitiesWeatherStatusSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWeatherStatusCapabilitiesInterface {
+abstract interface class WeatherStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
-  CoreWeatherStatusCapabilities_WeatherStatus get weatherStatus;
-  CoreWeatherStatusCapabilitiesInterface rebuild(
-    final void Function(CoreWeatherStatusCapabilitiesInterfaceBuilder) updates,
-  );
-  CoreWeatherStatusCapabilitiesInterfaceBuilder toBuilder();
+  WeatherStatusCapabilities_WeatherStatus get weatherStatus;
+  WeatherStatusCapabilitiesInterface rebuild(final void Function(WeatherStatusCapabilitiesInterfaceBuilder) updates);
+  WeatherStatusCapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWeatherStatusCapabilities
-    implements
-        CoreWeatherStatusCapabilitiesInterface,
-        Built<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
-  factory CoreWeatherStatusCapabilities([final void Function(CoreWeatherStatusCapabilitiesBuilder)? b]) =
-      _$CoreWeatherStatusCapabilities;
+abstract class WeatherStatusCapabilities
+    implements WeatherStatusCapabilitiesInterface, Built<WeatherStatusCapabilities, WeatherStatusCapabilitiesBuilder> {
+  factory WeatherStatusCapabilities([final void Function(WeatherStatusCapabilitiesBuilder)? b]) =
+      _$WeatherStatusCapabilities;
 
   // coverage:ignore-start
-  const CoreWeatherStatusCapabilities._();
+  const WeatherStatusCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWeatherStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7926,25 +7834,23 @@ abstract class CoreWeatherStatusCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWeatherStatusCapabilities> get serializer => _$coreWeatherStatusCapabilitiesSerializer;
+  static Serializer<WeatherStatusCapabilities> get serializer => _$weatherStatusCapabilitiesSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
+abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
     implements
-        Built<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities([
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
+        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities([
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
+  ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._();
+  const OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7953,138 +7859,133 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabiliti
   // coverage:ignore-end
 
   JsonObject get data;
-  CoreCommentsCapabilities? get commentsCapabilities;
-  CoreDavCapabilities? get davCapabilities;
-  CoreFilesCapabilities? get filesCapabilities;
-  CoreFilesSharingCapabilities? get filesSharingCapabilities;
-  CoreFilesTrashbinCapabilities? get filesTrashbinCapabilities;
-  CoreFilesVersionsCapabilities? get filesVersionsCapabilities;
-  CoreNotesCapabilities? get notesCapabilities;
-  CoreNotificationsCapabilities? get notificationsCapabilities;
-  CoreProvisioningApiCapabilities? get provisioningApiCapabilities;
-  CoreSharebymailCapabilities? get sharebymailCapabilities;
-  CoreThemingPublicCapabilities? get themingPublicCapabilities;
-  CoreUserStatusCapabilities? get userStatusCapabilities;
-  CoreWeatherStatusCapabilities? get weatherStatusCapabilities;
+  CommentsCapabilities? get commentsCapabilities;
+  DavCapabilities? get davCapabilities;
+  FilesCapabilities? get filesCapabilities;
+  FilesSharingCapabilities? get filesSharingCapabilities;
+  FilesTrashbinCapabilities? get filesTrashbinCapabilities;
+  FilesVersionsCapabilities? get filesVersionsCapabilities;
+  NotesCapabilities? get notesCapabilities;
+  NotificationsCapabilities? get notificationsCapabilities;
+  ProvisioningApiCapabilities? get provisioningApiCapabilities;
+  SharebymailCapabilities? get sharebymailCapabilities;
+  ThemingPublicCapabilities? get themingPublicCapabilities;
+  UserStatusCapabilities? get userStatusCapabilities;
+  WeatherStatusCapabilities? get weatherStatusCapabilities;
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
+      _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
 }
 
-class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer
-    implements PrimitiveSerializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> {
+class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer
+    implements PrimitiveSerializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-    _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
+    OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
+    _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
   ];
 
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities';
+  final String wireName = 'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities object, {
+    final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities deserialize(
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()
-      ..data = JsonObject(data);
+    final result = OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..data = JsonObject(data);
     try {
       result._commentsCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreCommentsCapabilities),
-      )! as CoreCommentsCapabilities)
+        specifiedType: const FullType(CommentsCapabilities),
+      )! as CommentsCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
-      result._davCapabilities = (_jsonSerializers.deserialize(data, specifiedType: const FullType(CoreDavCapabilities))!
-              as CoreDavCapabilities)
-          .toBuilder();
+      result._davCapabilities =
+          (_jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities)
+              .toBuilder();
     } catch (_) {}
     try {
-      result._filesCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(CoreFilesCapabilities),
-      )! as CoreFilesCapabilities)
-          .toBuilder();
+      result._filesCapabilities =
+          (_jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities)
+              .toBuilder();
     } catch (_) {}
     try {
       result._filesSharingCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreFilesSharingCapabilities),
-      )! as CoreFilesSharingCapabilities)
+        specifiedType: const FullType(FilesSharingCapabilities),
+      )! as FilesSharingCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._filesTrashbinCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreFilesTrashbinCapabilities),
-      )! as CoreFilesTrashbinCapabilities)
+        specifiedType: const FullType(FilesTrashbinCapabilities),
+      )! as FilesTrashbinCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._filesVersionsCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreFilesVersionsCapabilities),
-      )! as CoreFilesVersionsCapabilities)
+        specifiedType: const FullType(FilesVersionsCapabilities),
+      )! as FilesVersionsCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
-      result._notesCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(CoreNotesCapabilities),
-      )! as CoreNotesCapabilities)
-          .toBuilder();
+      result._notesCapabilities =
+          (_jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities)
+              .toBuilder();
     } catch (_) {}
     try {
       result._notificationsCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreNotificationsCapabilities),
-      )! as CoreNotificationsCapabilities)
+        specifiedType: const FullType(NotificationsCapabilities),
+      )! as NotificationsCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._provisioningApiCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreProvisioningApiCapabilities),
-      )! as CoreProvisioningApiCapabilities)
+        specifiedType: const FullType(ProvisioningApiCapabilities),
+      )! as ProvisioningApiCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._sharebymailCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreSharebymailCapabilities),
-      )! as CoreSharebymailCapabilities)
+        specifiedType: const FullType(SharebymailCapabilities),
+      )! as SharebymailCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._themingPublicCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreThemingPublicCapabilities),
-      )! as CoreThemingPublicCapabilities)
+        specifiedType: const FullType(ThemingPublicCapabilities),
+      )! as ThemingPublicCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._userStatusCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreUserStatusCapabilities),
-      )! as CoreUserStatusCapabilities)
+        specifiedType: const FullType(UserStatusCapabilities),
+      )! as UserStatusCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
       result._weatherStatusCapabilities = (_jsonSerializers.deserialize(
         data,
-        specifiedType: const FullType(CoreWeatherStatusCapabilities),
-      )! as CoreWeatherStatusCapabilities)
+        specifiedType: const FullType(WeatherStatusCapabilities),
+      )! as WeatherStatusCapabilities)
           .toBuilder();
     } catch (_) {}
     assert(
@@ -8110,30 +8011,30 @@ class _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSeria
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version get version;
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities get capabilities;
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version get version;
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities get capabilities;
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data
+abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
     implements
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
-            CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data([
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data;
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface,
+        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder> {
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data([
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data._();
+  const OcsGetCapabilitiesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8141,35 +8042,34 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreOcsGetCapabilitiesResponseApplicationJsonOcsDataSerializer;
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$ocsGetCapabilitiesResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
-  CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class OcsGetCapabilitiesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
+  OcsGetCapabilitiesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  OcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs
+abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
     implements
-        CoreOcsGetCapabilitiesResponseApplicationJson_OcsInterface,
-        Built<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs,
-            CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder> {
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs([
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponseApplicationJson_Ocs;
+        OcsGetCapabilitiesResponseApplicationJson_OcsInterface,
+        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs, OcsGetCapabilitiesResponseApplicationJson_OcsBuilder> {
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs([
+    final void Function(OcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponseApplicationJson_Ocs._();
+  const OcsGetCapabilitiesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8177,33 +8077,33 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson_Ocs> get serializer =>
-      _$coreOcsGetCapabilitiesResponseApplicationJsonOcsSerializer;
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs> get serializer =>
+      _$ocsGetCapabilitiesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreOcsGetCapabilitiesResponseApplicationJsonInterface {
-  CoreOcsGetCapabilitiesResponseApplicationJson_Ocs get ocs;
-  CoreOcsGetCapabilitiesResponseApplicationJsonInterface rebuild(
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class OcsGetCapabilitiesResponseApplicationJsonInterface {
+  OcsGetCapabilitiesResponseApplicationJson_Ocs get ocs;
+  OcsGetCapabilitiesResponseApplicationJsonInterface rebuild(
+    final void Function(OcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreOcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder toBuilder();
+  OcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreOcsGetCapabilitiesResponseApplicationJson
+abstract class OcsGetCapabilitiesResponseApplicationJson
     implements
-        CoreOcsGetCapabilitiesResponseApplicationJsonInterface,
-        Built<CoreOcsGetCapabilitiesResponseApplicationJson, CoreOcsGetCapabilitiesResponseApplicationJsonBuilder> {
-  factory CoreOcsGetCapabilitiesResponseApplicationJson([
-    final void Function(CoreOcsGetCapabilitiesResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponseApplicationJson;
+        OcsGetCapabilitiesResponseApplicationJsonInterface,
+        Built<OcsGetCapabilitiesResponseApplicationJson, OcsGetCapabilitiesResponseApplicationJsonBuilder> {
+  factory OcsGetCapabilitiesResponseApplicationJson([
+    final void Function(OcsGetCapabilitiesResponseApplicationJsonBuilder)? b,
+  ]) = _$OcsGetCapabilitiesResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponseApplicationJson._();
+  const OcsGetCapabilitiesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8211,35 +8111,35 @@ abstract class CoreOcsGetCapabilitiesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreOcsGetCapabilitiesResponseApplicationJson> get serializer =>
-      _$coreOcsGetCapabilitiesResponseApplicationJsonSerializer;
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson> get serializer =>
+      _$ocsGetCapabilitiesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
+abstract interface class ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
   JsonObject get data;
-  CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder) updates,
+  ProfileApiSetVisibilityResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreProfileApiSetVisibilityResponseApplicationJson_Ocs
+abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
     implements
-        CoreProfileApiSetVisibilityResponseApplicationJson_OcsInterface,
-        Built<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs,
-            CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder> {
-  factory CoreProfileApiSetVisibilityResponseApplicationJson_Ocs([
-    final void Function(CoreProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreProfileApiSetVisibilityResponseApplicationJson_Ocs;
+        ProfileApiSetVisibilityResponseApplicationJson_OcsInterface,
+        Built<ProfileApiSetVisibilityResponseApplicationJson_Ocs,
+            ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder> {
+  factory ProfileApiSetVisibilityResponseApplicationJson_Ocs([
+    final void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ProfileApiSetVisibilityResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreProfileApiSetVisibilityResponseApplicationJson_Ocs._();
+  const ProfileApiSetVisibilityResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreProfileApiSetVisibilityResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ProfileApiSetVisibilityResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8247,34 +8147,33 @@ abstract class CoreProfileApiSetVisibilityResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreProfileApiSetVisibilityResponseApplicationJson_Ocs> get serializer =>
-      _$coreProfileApiSetVisibilityResponseApplicationJsonOcsSerializer;
+  static Serializer<ProfileApiSetVisibilityResponseApplicationJson_Ocs> get serializer =>
+      _$profileApiSetVisibilityResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreProfileApiSetVisibilityResponseApplicationJsonInterface {
-  CoreProfileApiSetVisibilityResponseApplicationJson_Ocs get ocs;
-  CoreProfileApiSetVisibilityResponseApplicationJsonInterface rebuild(
-    final void Function(CoreProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ProfileApiSetVisibilityResponseApplicationJsonInterface {
+  ProfileApiSetVisibilityResponseApplicationJson_Ocs get ocs;
+  ProfileApiSetVisibilityResponseApplicationJsonInterface rebuild(
+    final void Function(ProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder toBuilder();
+  ProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreProfileApiSetVisibilityResponseApplicationJson
+abstract class ProfileApiSetVisibilityResponseApplicationJson
     implements
-        CoreProfileApiSetVisibilityResponseApplicationJsonInterface,
-        Built<CoreProfileApiSetVisibilityResponseApplicationJson,
-            CoreProfileApiSetVisibilityResponseApplicationJsonBuilder> {
-  factory CoreProfileApiSetVisibilityResponseApplicationJson([
-    final void Function(CoreProfileApiSetVisibilityResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreProfileApiSetVisibilityResponseApplicationJson;
+        ProfileApiSetVisibilityResponseApplicationJsonInterface,
+        Built<ProfileApiSetVisibilityResponseApplicationJson, ProfileApiSetVisibilityResponseApplicationJsonBuilder> {
+  factory ProfileApiSetVisibilityResponseApplicationJson([
+    final void Function(ProfileApiSetVisibilityResponseApplicationJsonBuilder)? b,
+  ]) = _$ProfileApiSetVisibilityResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreProfileApiSetVisibilityResponseApplicationJson._();
+  const ProfileApiSetVisibilityResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreProfileApiSetVisibilityResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ProfileApiSetVisibilityResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8282,63 +8181,62 @@ abstract class CoreProfileApiSetVisibilityResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreProfileApiSetVisibilityResponseApplicationJson> get serializer =>
-      _$coreProfileApiSetVisibilityResponseApplicationJsonSerializer;
+  static Serializer<ProfileApiSetVisibilityResponseApplicationJson> get serializer =>
+      _$profileApiSetVisibilityResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceInterface {
+abstract interface class ReferenceInterface {
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
-  CoreOpenGraphObject get openGraphObject;
+  OpenGraphObject get openGraphObject;
   bool get accessible;
-  CoreReferenceInterface rebuild(final void Function(CoreReferenceInterfaceBuilder) updates);
-  CoreReferenceInterfaceBuilder toBuilder();
+  ReferenceInterface rebuild(final void Function(ReferenceInterfaceBuilder) updates);
+  ReferenceInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReference implements CoreReferenceInterface, Built<CoreReference, CoreReferenceBuilder> {
-  factory CoreReference([final void Function(CoreReferenceBuilder)? b]) = _$CoreReference;
+abstract class Reference implements ReferenceInterface, Built<Reference, ReferenceBuilder> {
+  factory Reference([final void Function(ReferenceBuilder)? b]) = _$Reference;
 
   // coverage:ignore-start
-  const CoreReference._();
+  const Reference._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReference.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Reference.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReference> get serializer => _$coreReferenceSerializer;
+  static Serializer<Reference> get serializer => _$referenceSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, CoreReference> get references;
-  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference> get references;
+  ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data
+abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
     implements
-        CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data([
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data;
+        ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data([
+    final void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data._();
+  const ReferenceApiResolveOneResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8346,35 +8244,35 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreReferenceApiResolveOneResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiResolveOneResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveOneResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data get data;
-  CoreReferenceApiResolveOneResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveOneResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiResolveOneResponseApplicationJson_Ocs_Data get data;
+  ReferenceApiResolveOneResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs
+abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
     implements
-        CoreReferenceApiResolveOneResponseApplicationJson_OcsInterface,
-        Built<CoreReferenceApiResolveOneResponseApplicationJson_Ocs,
-            CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder> {
-  factory CoreReferenceApiResolveOneResponseApplicationJson_Ocs([
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreReferenceApiResolveOneResponseApplicationJson_Ocs;
+        ReferenceApiResolveOneResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiResolveOneResponseApplicationJson_Ocs,
+            ReferenceApiResolveOneResponseApplicationJson_OcsBuilder> {
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs([
+    final void Function(ReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiResolveOneResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveOneResponseApplicationJson_Ocs._();
+  const ReferenceApiResolveOneResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveOneResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8382,34 +8280,33 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveOneResponseApplicationJson_Ocs> get serializer =>
-      _$coreReferenceApiResolveOneResponseApplicationJsonOcsSerializer;
+  static Serializer<ReferenceApiResolveOneResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiResolveOneResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveOneResponseApplicationJsonInterface {
-  CoreReferenceApiResolveOneResponseApplicationJson_Ocs get ocs;
-  CoreReferenceApiResolveOneResponseApplicationJsonInterface rebuild(
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveOneResponseApplicationJsonInterface {
+  ReferenceApiResolveOneResponseApplicationJson_Ocs get ocs;
+  ReferenceApiResolveOneResponseApplicationJsonInterface rebuild(
+    final void Function(ReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder toBuilder();
+  ReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveOneResponseApplicationJson
+abstract class ReferenceApiResolveOneResponseApplicationJson
     implements
-        CoreReferenceApiResolveOneResponseApplicationJsonInterface,
-        Built<CoreReferenceApiResolveOneResponseApplicationJson,
-            CoreReferenceApiResolveOneResponseApplicationJsonBuilder> {
-  factory CoreReferenceApiResolveOneResponseApplicationJson([
-    final void Function(CoreReferenceApiResolveOneResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreReferenceApiResolveOneResponseApplicationJson;
+        ReferenceApiResolveOneResponseApplicationJsonInterface,
+        Built<ReferenceApiResolveOneResponseApplicationJson, ReferenceApiResolveOneResponseApplicationJsonBuilder> {
+  factory ReferenceApiResolveOneResponseApplicationJson([
+    final void Function(ReferenceApiResolveOneResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiResolveOneResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveOneResponseApplicationJson._();
+  const ReferenceApiResolveOneResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveOneResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8417,34 +8314,34 @@ abstract class CoreReferenceApiResolveOneResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveOneResponseApplicationJson> get serializer =>
-      _$coreReferenceApiResolveOneResponseApplicationJsonSerializer;
+  static Serializer<ReferenceApiResolveOneResponseApplicationJson> get serializer =>
+      _$referenceApiResolveOneResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, CoreReference> get references;
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference> get references;
+  ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
+abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
     implements
-        CoreReferenceApiResolveResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data,
-            CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs_Data([
-    final void Function(CoreReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreReferenceApiResolveResponseApplicationJson_Ocs_Data;
+        ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiResolveResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder> {
+  factory ReferenceApiResolveResponseApplicationJson_Ocs_Data([
+    final void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiResolveResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveResponseApplicationJson_Ocs_Data._();
+  const ReferenceApiResolveResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8452,35 +8349,34 @@ abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreReferenceApiResolveResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ReferenceApiResolveResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiResolveResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreReferenceApiResolveResponseApplicationJson_Ocs_Data get data;
-  CoreReferenceApiResolveResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiResolveResponseApplicationJson_Ocs_Data get data;
+  ReferenceApiResolveResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs
+abstract class ReferenceApiResolveResponseApplicationJson_Ocs
     implements
-        CoreReferenceApiResolveResponseApplicationJson_OcsInterface,
-        Built<CoreReferenceApiResolveResponseApplicationJson_Ocs,
-            CoreReferenceApiResolveResponseApplicationJson_OcsBuilder> {
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs([
-    final void Function(CoreReferenceApiResolveResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreReferenceApiResolveResponseApplicationJson_Ocs;
+        ReferenceApiResolveResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiResolveResponseApplicationJson_Ocs, ReferenceApiResolveResponseApplicationJson_OcsBuilder> {
+  factory ReferenceApiResolveResponseApplicationJson_Ocs([
+    final void Function(ReferenceApiResolveResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiResolveResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveResponseApplicationJson_Ocs._();
+  const ReferenceApiResolveResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8488,33 +8384,33 @@ abstract class CoreReferenceApiResolveResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveResponseApplicationJson_Ocs> get serializer =>
-      _$coreReferenceApiResolveResponseApplicationJsonOcsSerializer;
+  static Serializer<ReferenceApiResolveResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiResolveResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiResolveResponseApplicationJsonInterface {
-  CoreReferenceApiResolveResponseApplicationJson_Ocs get ocs;
-  CoreReferenceApiResolveResponseApplicationJsonInterface rebuild(
-    final void Function(CoreReferenceApiResolveResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ReferenceApiResolveResponseApplicationJsonInterface {
+  ReferenceApiResolveResponseApplicationJson_Ocs get ocs;
+  ReferenceApiResolveResponseApplicationJsonInterface rebuild(
+    final void Function(ReferenceApiResolveResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreReferenceApiResolveResponseApplicationJsonInterfaceBuilder toBuilder();
+  ReferenceApiResolveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiResolveResponseApplicationJson
+abstract class ReferenceApiResolveResponseApplicationJson
     implements
-        CoreReferenceApiResolveResponseApplicationJsonInterface,
-        Built<CoreReferenceApiResolveResponseApplicationJson, CoreReferenceApiResolveResponseApplicationJsonBuilder> {
-  factory CoreReferenceApiResolveResponseApplicationJson([
-    final void Function(CoreReferenceApiResolveResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreReferenceApiResolveResponseApplicationJson;
+        ReferenceApiResolveResponseApplicationJsonInterface,
+        Built<ReferenceApiResolveResponseApplicationJson, ReferenceApiResolveResponseApplicationJsonBuilder> {
+  factory ReferenceApiResolveResponseApplicationJson([
+    final void Function(ReferenceApiResolveResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiResolveResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreReferenceApiResolveResponseApplicationJson._();
+  const ReferenceApiResolveResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiResolveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8522,34 +8418,34 @@ abstract class CoreReferenceApiResolveResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiResolveResponseApplicationJson> get serializer =>
-      _$coreReferenceApiResolveResponseApplicationJsonSerializer;
+  static Serializer<ReferenceApiResolveResponseApplicationJson> get serializer =>
+      _$referenceApiResolveResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, CoreReference> get references;
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference> get references;
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
+abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
     implements
-        CoreReferenceApiExtractResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data,
-            CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs_Data([
-    final void Function(CoreReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreReferenceApiExtractResponseApplicationJson_Ocs_Data;
+        ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
+            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
+  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data([
+    final void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreReferenceApiExtractResponseApplicationJson_Ocs_Data._();
+  const ReferenceApiExtractResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8557,35 +8453,34 @@ abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreReferenceApiExtractResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiExtractResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
-  CoreReferenceApiExtractResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ReferenceApiExtractResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
+  ReferenceApiExtractResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs
+abstract class ReferenceApiExtractResponseApplicationJson_Ocs
     implements
-        CoreReferenceApiExtractResponseApplicationJson_OcsInterface,
-        Built<CoreReferenceApiExtractResponseApplicationJson_Ocs,
-            CoreReferenceApiExtractResponseApplicationJson_OcsBuilder> {
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs([
-    final void Function(CoreReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreReferenceApiExtractResponseApplicationJson_Ocs;
+        ReferenceApiExtractResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder> {
+  factory ReferenceApiExtractResponseApplicationJson_Ocs([
+    final void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreReferenceApiExtractResponseApplicationJson_Ocs._();
+  const ReferenceApiExtractResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiExtractResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8593,33 +8488,33 @@ abstract class CoreReferenceApiExtractResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiExtractResponseApplicationJson_Ocs> get serializer =>
-      _$coreReferenceApiExtractResponseApplicationJsonOcsSerializer;
+  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiExtractResponseApplicationJsonInterface {
-  CoreReferenceApiExtractResponseApplicationJson_Ocs get ocs;
-  CoreReferenceApiExtractResponseApplicationJsonInterface rebuild(
-    final void Function(CoreReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ReferenceApiExtractResponseApplicationJsonInterface {
+  ReferenceApiExtractResponseApplicationJson_Ocs get ocs;
+  ReferenceApiExtractResponseApplicationJsonInterface rebuild(
+    final void Function(ReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreReferenceApiExtractResponseApplicationJsonInterfaceBuilder toBuilder();
+  ReferenceApiExtractResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiExtractResponseApplicationJson
+abstract class ReferenceApiExtractResponseApplicationJson
     implements
-        CoreReferenceApiExtractResponseApplicationJsonInterface,
-        Built<CoreReferenceApiExtractResponseApplicationJson, CoreReferenceApiExtractResponseApplicationJsonBuilder> {
-  factory CoreReferenceApiExtractResponseApplicationJson([
-    final void Function(CoreReferenceApiExtractResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreReferenceApiExtractResponseApplicationJson;
+        ReferenceApiExtractResponseApplicationJsonInterface,
+        Built<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder> {
+  factory ReferenceApiExtractResponseApplicationJson([
+    final void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreReferenceApiExtractResponseApplicationJson._();
+  const ReferenceApiExtractResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiExtractResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8627,12 +8522,12 @@ abstract class CoreReferenceApiExtractResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiExtractResponseApplicationJson> get serializer =>
-      _$coreReferenceApiExtractResponseApplicationJsonSerializer;
+  static Serializer<ReferenceApiExtractResponseApplicationJson> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceProviderInterface {
+abstract interface class ReferenceProviderInterface {
   String get id;
   String get title;
   @BuiltValueField(wireName: 'icon_url')
@@ -8640,20 +8535,20 @@ abstract interface class CoreReferenceProviderInterface {
   int get order;
   @BuiltValueField(wireName: 'search_providers_ids')
   BuiltList<String>? get searchProvidersIds;
-  CoreReferenceProviderInterface rebuild(final void Function(CoreReferenceProviderInterfaceBuilder) updates);
-  CoreReferenceProviderInterfaceBuilder toBuilder();
+  ReferenceProviderInterface rebuild(final void Function(ReferenceProviderInterfaceBuilder) updates);
+  ReferenceProviderInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceProvider
-    implements CoreReferenceProviderInterface, Built<CoreReferenceProvider, CoreReferenceProviderBuilder> {
-  factory CoreReferenceProvider([final void Function(CoreReferenceProviderBuilder)? b]) = _$CoreReferenceProvider;
+abstract class ReferenceProvider
+    implements ReferenceProviderInterface, Built<ReferenceProvider, ReferenceProviderBuilder> {
+  factory ReferenceProvider([final void Function(ReferenceProviderBuilder)? b]) = _$ReferenceProvider;
 
   // coverage:ignore-start
-  const CoreReferenceProvider._();
+  const ReferenceProvider._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceProvider.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceProvider.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8661,34 +8556,34 @@ abstract class CoreReferenceProvider
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceProvider> get serializer => _$coreReferenceProviderSerializer;
+  static Serializer<ReferenceProvider> get serializer => _$referenceProviderSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreReferenceProvider> get data;
-  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<ReferenceProvider> get data;
+  ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
+abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
     implements
-        CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface,
-        Built<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
-            CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder> {
-  factory CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs([
-    final void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs;
+        ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
+            ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder> {
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs([
+    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._();
+  const ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8696,34 +8591,34 @@ abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs> get serializer =>
-      _$coreReferenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer;
+  static Serializer<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
-  CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs get ocs;
-  CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterface rebuild(
-    final void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
+  ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs get ocs;
+  ReferenceApiGetProvidersInfoResponseApplicationJsonInterface rebuild(
+    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder toBuilder();
+  ReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson
+abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
     implements
-        CoreReferenceApiGetProvidersInfoResponseApplicationJsonInterface,
-        Built<CoreReferenceApiGetProvidersInfoResponseApplicationJson,
-            CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder> {
-  factory CoreReferenceApiGetProvidersInfoResponseApplicationJson([
-    final void Function(CoreReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreReferenceApiGetProvidersInfoResponseApplicationJson;
+        ReferenceApiGetProvidersInfoResponseApplicationJsonInterface,
+        Built<ReferenceApiGetProvidersInfoResponseApplicationJson,
+            ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder> {
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson([
+    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiGetProvidersInfoResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreReferenceApiGetProvidersInfoResponseApplicationJson._();
+  const ReferenceApiGetProvidersInfoResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiGetProvidersInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8731,34 +8626,34 @@ abstract class CoreReferenceApiGetProvidersInfoResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiGetProvidersInfoResponseApplicationJson> get serializer =>
-      _$coreReferenceApiGetProvidersInfoResponseApplicationJsonSerializer;
+  static Serializer<ReferenceApiGetProvidersInfoResponseApplicationJson> get serializer =>
+      _$referenceApiGetProvidersInfoResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface {
+abstract interface class ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
+abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
     implements
-        CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
-            CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data([
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data;
+        ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
+            ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder> {
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data([
+    final void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._();
+  const ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8766,35 +8661,35 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreReferenceApiTouchProviderResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiTouchProviderResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data get data;
-  CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data get data;
+  ReferenceApiTouchProviderResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs
+abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
     implements
-        CoreReferenceApiTouchProviderResponseApplicationJson_OcsInterface,
-        Built<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs,
-            CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder> {
-  factory CoreReferenceApiTouchProviderResponseApplicationJson_Ocs([
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreReferenceApiTouchProviderResponseApplicationJson_Ocs;
+        ReferenceApiTouchProviderResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs,
+            ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder> {
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs([
+    final void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiTouchProviderResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreReferenceApiTouchProviderResponseApplicationJson_Ocs._();
+  const ReferenceApiTouchProviderResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiTouchProviderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8802,34 +8697,34 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson_Ocs> get serializer =>
-      _$coreReferenceApiTouchProviderResponseApplicationJsonOcsSerializer;
+  static Serializer<ReferenceApiTouchProviderResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiTouchProviderResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreReferenceApiTouchProviderResponseApplicationJsonInterface {
-  CoreReferenceApiTouchProviderResponseApplicationJson_Ocs get ocs;
-  CoreReferenceApiTouchProviderResponseApplicationJsonInterface rebuild(
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ReferenceApiTouchProviderResponseApplicationJsonInterface {
+  ReferenceApiTouchProviderResponseApplicationJson_Ocs get ocs;
+  ReferenceApiTouchProviderResponseApplicationJsonInterface rebuild(
+    final void Function(ReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder toBuilder();
+  ReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreReferenceApiTouchProviderResponseApplicationJson
+abstract class ReferenceApiTouchProviderResponseApplicationJson
     implements
-        CoreReferenceApiTouchProviderResponseApplicationJsonInterface,
-        Built<CoreReferenceApiTouchProviderResponseApplicationJson,
-            CoreReferenceApiTouchProviderResponseApplicationJsonBuilder> {
-  factory CoreReferenceApiTouchProviderResponseApplicationJson([
-    final void Function(CoreReferenceApiTouchProviderResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreReferenceApiTouchProviderResponseApplicationJson;
+        ReferenceApiTouchProviderResponseApplicationJsonInterface,
+        Built<ReferenceApiTouchProviderResponseApplicationJson,
+            ReferenceApiTouchProviderResponseApplicationJsonBuilder> {
+  factory ReferenceApiTouchProviderResponseApplicationJson([
+    final void Function(ReferenceApiTouchProviderResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiTouchProviderResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreReferenceApiTouchProviderResponseApplicationJson._();
+  const ReferenceApiTouchProviderResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreReferenceApiTouchProviderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8837,38 +8732,36 @@ abstract class CoreReferenceApiTouchProviderResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreReferenceApiTouchProviderResponseApplicationJson> get serializer =>
-      _$coreReferenceApiTouchProviderResponseApplicationJsonSerializer;
+  static Serializer<ReferenceApiTouchProviderResponseApplicationJson> get serializer =>
+      _$referenceApiTouchProviderResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface {
+abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface {
   String get id;
   String get name;
   String get description;
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface rebuild(
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates,
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface rebuild(
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder toBuilder();
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
+abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
     implements
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface,
-        Built<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
-            CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder> {
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types([
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? b,
-  ]) = _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types;
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface,
+        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
+            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder> {
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types([
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? b,
+  ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._();
+  const TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8876,34 +8769,34 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Ty
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get serializer =>
-      _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataTypesSerializer;
+  static Serializer<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get serializer =>
+      _$textProcessingApiTaskTypesResponseApplicationJsonOcsDataTypesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
-  BuiltList<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types;
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types;
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
+abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
     implements
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
-            CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface,
+        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._();
+  const TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8911,35 +8804,35 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data get data;
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data get data;
+  TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs
+abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
     implements
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsInterface,
-        Built<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs,
-            CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs([
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs;
+        TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface,
+        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs,
+            TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs([
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs._();
+  const TextProcessingApiTaskTypesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8947,34 +8840,34 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs> get serializer =>
-      _$coreTextProcessingApiTaskTypesResponseApplicationJsonOcsSerializer;
+  static Serializer<TextProcessingApiTaskTypesResponseApplicationJson_Ocs> get serializer =>
+      _$textProcessingApiTaskTypesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiTaskTypesResponseApplicationJsonInterface {
-  CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs get ocs;
-  CoreTextProcessingApiTaskTypesResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TextProcessingApiTaskTypesResponseApplicationJsonInterface {
+  TextProcessingApiTaskTypesResponseApplicationJson_Ocs get ocs;
+  TextProcessingApiTaskTypesResponseApplicationJsonInterface rebuild(
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder toBuilder();
+  TextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson
+abstract class TextProcessingApiTaskTypesResponseApplicationJson
     implements
-        CoreTextProcessingApiTaskTypesResponseApplicationJsonInterface,
-        Built<CoreTextProcessingApiTaskTypesResponseApplicationJson,
-            CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder> {
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson([
-    final void Function(CoreTextProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTextProcessingApiTaskTypesResponseApplicationJson;
+        TextProcessingApiTaskTypesResponseApplicationJsonInterface,
+        Built<TextProcessingApiTaskTypesResponseApplicationJson,
+            TextProcessingApiTaskTypesResponseApplicationJsonBuilder> {
+  factory TextProcessingApiTaskTypesResponseApplicationJson([
+    final void Function(TextProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
+  ]) = _$TextProcessingApiTaskTypesResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiTaskTypesResponseApplicationJson._();
+  const TextProcessingApiTaskTypesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiTaskTypesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8982,12 +8875,12 @@ abstract class CoreTextProcessingApiTaskTypesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiTaskTypesResponseApplicationJson> get serializer =>
-      _$coreTextProcessingApiTaskTypesResponseApplicationJsonSerializer;
+  static Serializer<TextProcessingApiTaskTypesResponseApplicationJson> get serializer =>
+      _$textProcessingApiTaskTypesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingTaskInterface {
+abstract interface class TextProcessingTaskInterface {
   int? get id;
   String get type;
   int get status;
@@ -8996,20 +8889,20 @@ abstract interface class CoreTextProcessingTaskInterface {
   String get input;
   String? get output;
   String get identifier;
-  CoreTextProcessingTaskInterface rebuild(final void Function(CoreTextProcessingTaskInterfaceBuilder) updates);
-  CoreTextProcessingTaskInterfaceBuilder toBuilder();
+  TextProcessingTaskInterface rebuild(final void Function(TextProcessingTaskInterfaceBuilder) updates);
+  TextProcessingTaskInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingTask
-    implements CoreTextProcessingTaskInterface, Built<CoreTextProcessingTask, CoreTextProcessingTaskBuilder> {
-  factory CoreTextProcessingTask([final void Function(CoreTextProcessingTaskBuilder)? b]) = _$CoreTextProcessingTask;
+abstract class TextProcessingTask
+    implements TextProcessingTaskInterface, Built<TextProcessingTask, TextProcessingTaskBuilder> {
+  factory TextProcessingTask([final void Function(TextProcessingTaskBuilder)? b]) = _$TextProcessingTask;
 
   // coverage:ignore-start
-  const CoreTextProcessingTask._();
+  const TextProcessingTask._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingTask.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingTask.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9017,33 +8910,33 @@ abstract class CoreTextProcessingTask
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingTask> get serializer => _$coreTextProcessingTaskSerializer;
+  static Serializer<TextProcessingTask> get serializer => _$textProcessingTaskSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
-  CoreTextProcessingTask get task;
-  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
+  TextProcessingTask get task;
+  TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data
+abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
     implements
-        CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
-            CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data;
+        TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface,
+        Built<TextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+            TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data([
+    final void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextProcessingApiScheduleResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data._();
+  const TextProcessingApiScheduleResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9051,35 +8944,35 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTextProcessingApiScheduleResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TextProcessingApiScheduleResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textProcessingApiScheduleResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data get data;
-  CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TextProcessingApiScheduleResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextProcessingApiScheduleResponseApplicationJson_Ocs_Data get data;
+  TextProcessingApiScheduleResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs
+abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
     implements
-        CoreTextProcessingApiScheduleResponseApplicationJson_OcsInterface,
-        Built<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs,
-            CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
-  factory CoreTextProcessingApiScheduleResponseApplicationJson_Ocs([
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTextProcessingApiScheduleResponseApplicationJson_Ocs;
+        TextProcessingApiScheduleResponseApplicationJson_OcsInterface,
+        Built<TextProcessingApiScheduleResponseApplicationJson_Ocs,
+            TextProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs([
+    final void Function(TextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextProcessingApiScheduleResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiScheduleResponseApplicationJson_Ocs._();
+  const TextProcessingApiScheduleResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiScheduleResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9087,34 +8980,34 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson_Ocs> get serializer =>
-      _$coreTextProcessingApiScheduleResponseApplicationJsonOcsSerializer;
+  static Serializer<TextProcessingApiScheduleResponseApplicationJson_Ocs> get serializer =>
+      _$textProcessingApiScheduleResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiScheduleResponseApplicationJsonInterface {
-  CoreTextProcessingApiScheduleResponseApplicationJson_Ocs get ocs;
-  CoreTextProcessingApiScheduleResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TextProcessingApiScheduleResponseApplicationJsonInterface {
+  TextProcessingApiScheduleResponseApplicationJson_Ocs get ocs;
+  TextProcessingApiScheduleResponseApplicationJsonInterface rebuild(
+    final void Function(TextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder toBuilder();
+  TextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiScheduleResponseApplicationJson
+abstract class TextProcessingApiScheduleResponseApplicationJson
     implements
-        CoreTextProcessingApiScheduleResponseApplicationJsonInterface,
-        Built<CoreTextProcessingApiScheduleResponseApplicationJson,
-            CoreTextProcessingApiScheduleResponseApplicationJsonBuilder> {
-  factory CoreTextProcessingApiScheduleResponseApplicationJson([
-    final void Function(CoreTextProcessingApiScheduleResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTextProcessingApiScheduleResponseApplicationJson;
+        TextProcessingApiScheduleResponseApplicationJsonInterface,
+        Built<TextProcessingApiScheduleResponseApplicationJson,
+            TextProcessingApiScheduleResponseApplicationJsonBuilder> {
+  factory TextProcessingApiScheduleResponseApplicationJson([
+    final void Function(TextProcessingApiScheduleResponseApplicationJsonBuilder)? b,
+  ]) = _$TextProcessingApiScheduleResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiScheduleResponseApplicationJson._();
+  const TextProcessingApiScheduleResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiScheduleResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9122,34 +9015,34 @@ abstract class CoreTextProcessingApiScheduleResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiScheduleResponseApplicationJson> get serializer =>
-      _$coreTextProcessingApiScheduleResponseApplicationJsonSerializer;
+  static Serializer<TextProcessingApiScheduleResponseApplicationJson> get serializer =>
+      _$textProcessingApiScheduleResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
-  CoreTextProcessingTask get task;
-  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
+  TextProcessingTask get task;
+  TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
+abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
     implements
-        CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
-            CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
+        TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+            TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
+    final void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._();
+  const TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9157,35 +9050,35 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data get data;
-  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data get data;
+  TextProcessingApiGetTaskResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs
+abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
     implements
-        CoreTextProcessingApiGetTaskResponseApplicationJson_OcsInterface,
-        Built<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs,
-            CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs([
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs;
+        TextProcessingApiGetTaskResponseApplicationJson_OcsInterface,
+        Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs,
+            TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs([
+    final void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextProcessingApiGetTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs._();
+  const TextProcessingApiGetTaskResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9193,34 +9086,33 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs> get serializer =>
-      _$coreTextProcessingApiGetTaskResponseApplicationJsonOcsSerializer;
+  static Serializer<TextProcessingApiGetTaskResponseApplicationJson_Ocs> get serializer =>
+      _$textProcessingApiGetTaskResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiGetTaskResponseApplicationJsonInterface {
-  CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs get ocs;
-  CoreTextProcessingApiGetTaskResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TextProcessingApiGetTaskResponseApplicationJsonInterface {
+  TextProcessingApiGetTaskResponseApplicationJson_Ocs get ocs;
+  TextProcessingApiGetTaskResponseApplicationJsonInterface rebuild(
+    final void Function(TextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  TextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiGetTaskResponseApplicationJson
+abstract class TextProcessingApiGetTaskResponseApplicationJson
     implements
-        CoreTextProcessingApiGetTaskResponseApplicationJsonInterface,
-        Built<CoreTextProcessingApiGetTaskResponseApplicationJson,
-            CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder> {
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson([
-    final void Function(CoreTextProcessingApiGetTaskResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTextProcessingApiGetTaskResponseApplicationJson;
+        TextProcessingApiGetTaskResponseApplicationJsonInterface,
+        Built<TextProcessingApiGetTaskResponseApplicationJson, TextProcessingApiGetTaskResponseApplicationJsonBuilder> {
+  factory TextProcessingApiGetTaskResponseApplicationJson([
+    final void Function(TextProcessingApiGetTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TextProcessingApiGetTaskResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiGetTaskResponseApplicationJson._();
+  const TextProcessingApiGetTaskResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiGetTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9228,34 +9120,34 @@ abstract class CoreTextProcessingApiGetTaskResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiGetTaskResponseApplicationJson> get serializer =>
-      _$coreTextProcessingApiGetTaskResponseApplicationJsonSerializer;
+  static Serializer<TextProcessingApiGetTaskResponseApplicationJson> get serializer =>
+      _$textProcessingApiGetTaskResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
-  CoreTextProcessingTask get task;
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
+  TextProcessingTask get task;
+  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
+abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
     implements
-        CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
-            CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data;
+        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
+            TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data([
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._();
+  const TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9263,35 +9155,35 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textProcessingApiDeleteTaskResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
+  TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs
+abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
     implements
-        CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface,
-        Built<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
-            CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs([
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs;
+        TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface,
+        Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+            TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs([
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs._();
+  const TextProcessingApiDeleteTaskResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9299,34 +9191,34 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs> get serializer =>
-      _$coreTextProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer;
+  static Serializer<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs> get serializer =>
+      _$textProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterface {
-  CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs get ocs;
-  CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TextProcessingApiDeleteTaskResponseApplicationJsonInterface {
+  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs get ocs;
+  TextProcessingApiDeleteTaskResponseApplicationJsonInterface rebuild(
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  TextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson
+abstract class TextProcessingApiDeleteTaskResponseApplicationJson
     implements
-        CoreTextProcessingApiDeleteTaskResponseApplicationJsonInterface,
-        Built<CoreTextProcessingApiDeleteTaskResponseApplicationJson,
-            CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson([
-    final void Function(CoreTextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTextProcessingApiDeleteTaskResponseApplicationJson;
+        TextProcessingApiDeleteTaskResponseApplicationJsonInterface,
+        Built<TextProcessingApiDeleteTaskResponseApplicationJson,
+            TextProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
+  factory TextProcessingApiDeleteTaskResponseApplicationJson([
+    final void Function(TextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiDeleteTaskResponseApplicationJson._();
+  const TextProcessingApiDeleteTaskResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiDeleteTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9334,36 +9226,34 @@ abstract class CoreTextProcessingApiDeleteTaskResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiDeleteTaskResponseApplicationJson> get serializer =>
-      _$coreTextProcessingApiDeleteTaskResponseApplicationJsonSerializer;
+  static Serializer<TextProcessingApiDeleteTaskResponseApplicationJson> get serializer =>
+      _$textProcessingApiDeleteTaskResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
-  BuiltList<CoreTextProcessingTask> get tasks;
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TextProcessingTask> get tasks;
+  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
+abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
     implements
-        CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
-            CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
+        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
+        Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._();
+  const TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9371,35 +9261,35 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Da
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
+  TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs
+abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
     implements
-        CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface,
-        Built<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
-            CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs([
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs;
+        TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface,
+        Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+            TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs([
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs._();
+  const TextProcessingApiListTasksByAppResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9407,34 +9297,34 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs> get serializer =>
-      _$coreTextProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer;
+  static Serializer<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs> get serializer =>
+      _$textProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterface {
-  CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs get ocs;
-  CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TextProcessingApiListTasksByAppResponseApplicationJsonInterface {
+  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs get ocs;
+  TextProcessingApiListTasksByAppResponseApplicationJsonInterface rebuild(
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder toBuilder();
+  TextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson
+abstract class TextProcessingApiListTasksByAppResponseApplicationJson
     implements
-        CoreTextProcessingApiListTasksByAppResponseApplicationJsonInterface,
-        Built<CoreTextProcessingApiListTasksByAppResponseApplicationJson,
-            CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson([
-    final void Function(CoreTextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTextProcessingApiListTasksByAppResponseApplicationJson;
+        TextProcessingApiListTasksByAppResponseApplicationJsonInterface,
+        Built<TextProcessingApiListTasksByAppResponseApplicationJson,
+            TextProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
+  factory TextProcessingApiListTasksByAppResponseApplicationJson([
+    final void Function(TextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
+  ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTextProcessingApiListTasksByAppResponseApplicationJson._();
+  const TextProcessingApiListTasksByAppResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTextProcessingApiListTasksByAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9442,39 +9332,37 @@ abstract class CoreTextProcessingApiListTasksByAppResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTextProcessingApiListTasksByAppResponseApplicationJson> get serializer =>
-      _$coreTextProcessingApiListTasksByAppResponseApplicationJsonSerializer;
+  static Serializer<TextProcessingApiListTasksByAppResponseApplicationJson> get serializer =>
+      _$textProcessingApiListTasksByAppResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface {
+abstract interface class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface {
   String get from;
   String get fromLabel;
   String get to;
   String get toLabel;
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface rebuild(
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates,
+  TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface rebuild(
+    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates,
   );
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder toBuilder();
+  TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
+abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
     implements
-        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface,
-        Built<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
-            CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder> {
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages([
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? b,
-  ]) = _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages;
+        TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface,
+        Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
+            TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder> {
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages([
+    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? b,
+  ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages;
 
   // coverage:ignore-start
-  const CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._();
+  const TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9482,35 +9370,35 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Langu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get serializer =>
-      _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataLanguagesSerializer;
+  static Serializer<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get serializer =>
+      _$translationApiLanguagesResponseApplicationJsonOcsDataLanguagesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
-  BuiltList<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages;
+abstract interface class TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages;
   bool get languageDetection;
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data
+abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
     implements
-        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data,
-            CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data;
+        TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface,
+        Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data,
+            TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder> {
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data([
+    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data._();
+  const TranslationApiLanguagesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9518,35 +9406,35 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTranslationApiLanguagesResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TranslationApiLanguagesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$translationApiLanguagesResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiLanguagesResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data get data;
-  CoreTranslationApiLanguagesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TranslationApiLanguagesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TranslationApiLanguagesResponseApplicationJson_Ocs_Data get data;
+  TranslationApiLanguagesResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs
+abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
     implements
-        CoreTranslationApiLanguagesResponseApplicationJson_OcsInterface,
-        Built<CoreTranslationApiLanguagesResponseApplicationJson_Ocs,
-            CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder> {
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs([
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTranslationApiLanguagesResponseApplicationJson_Ocs;
+        TranslationApiLanguagesResponseApplicationJson_OcsInterface,
+        Built<TranslationApiLanguagesResponseApplicationJson_Ocs,
+            TranslationApiLanguagesResponseApplicationJson_OcsBuilder> {
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs([
+    final void Function(TranslationApiLanguagesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTranslationApiLanguagesResponseApplicationJson_Ocs._();
+  const TranslationApiLanguagesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiLanguagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9554,34 +9442,33 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiLanguagesResponseApplicationJson_Ocs> get serializer =>
-      _$coreTranslationApiLanguagesResponseApplicationJsonOcsSerializer;
+  static Serializer<TranslationApiLanguagesResponseApplicationJson_Ocs> get serializer =>
+      _$translationApiLanguagesResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiLanguagesResponseApplicationJsonInterface {
-  CoreTranslationApiLanguagesResponseApplicationJson_Ocs get ocs;
-  CoreTranslationApiLanguagesResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TranslationApiLanguagesResponseApplicationJsonInterface {
+  TranslationApiLanguagesResponseApplicationJson_Ocs get ocs;
+  TranslationApiLanguagesResponseApplicationJsonInterface rebuild(
+    final void Function(TranslationApiLanguagesResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTranslationApiLanguagesResponseApplicationJsonInterfaceBuilder toBuilder();
+  TranslationApiLanguagesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiLanguagesResponseApplicationJson
+abstract class TranslationApiLanguagesResponseApplicationJson
     implements
-        CoreTranslationApiLanguagesResponseApplicationJsonInterface,
-        Built<CoreTranslationApiLanguagesResponseApplicationJson,
-            CoreTranslationApiLanguagesResponseApplicationJsonBuilder> {
-  factory CoreTranslationApiLanguagesResponseApplicationJson([
-    final void Function(CoreTranslationApiLanguagesResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTranslationApiLanguagesResponseApplicationJson;
+        TranslationApiLanguagesResponseApplicationJsonInterface,
+        Built<TranslationApiLanguagesResponseApplicationJson, TranslationApiLanguagesResponseApplicationJsonBuilder> {
+  factory TranslationApiLanguagesResponseApplicationJson([
+    final void Function(TranslationApiLanguagesResponseApplicationJsonBuilder)? b,
+  ]) = _$TranslationApiLanguagesResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTranslationApiLanguagesResponseApplicationJson._();
+  const TranslationApiLanguagesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiLanguagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9589,35 +9476,35 @@ abstract class CoreTranslationApiLanguagesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiLanguagesResponseApplicationJson> get serializer =>
-      _$coreTranslationApiLanguagesResponseApplicationJsonSerializer;
+  static Serializer<TranslationApiLanguagesResponseApplicationJson> get serializer =>
+      _$translationApiLanguagesResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
+abstract interface class TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
   String get text;
   String? get from;
-  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  TranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data
+abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
     implements
-        CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data,
-            CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data([
-    final void Function(CoreTranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data;
+        TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface,
+        Built<TranslationApiTranslateResponseApplicationJson_Ocs_Data,
+            TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder> {
+  factory TranslationApiTranslateResponseApplicationJson_Ocs_Data([
+    final void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TranslationApiTranslateResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data._();
+  const TranslationApiTranslateResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9625,35 +9512,35 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreTranslationApiTranslateResponseApplicationJsonOcsDataSerializer;
+  static Serializer<TranslationApiTranslateResponseApplicationJson_Ocs_Data> get serializer =>
+      _$translationApiTranslateResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiTranslateResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data get data;
-  CoreTranslationApiTranslateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class TranslationApiTranslateResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TranslationApiTranslateResponseApplicationJson_Ocs_Data get data;
+  TranslationApiTranslateResponseApplicationJson_OcsInterface rebuild(
+    final void Function(TranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreTranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  TranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs
+abstract class TranslationApiTranslateResponseApplicationJson_Ocs
     implements
-        CoreTranslationApiTranslateResponseApplicationJson_OcsInterface,
-        Built<CoreTranslationApiTranslateResponseApplicationJson_Ocs,
-            CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder> {
-  factory CoreTranslationApiTranslateResponseApplicationJson_Ocs([
-    final void Function(CoreTranslationApiTranslateResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreTranslationApiTranslateResponseApplicationJson_Ocs;
+        TranslationApiTranslateResponseApplicationJson_OcsInterface,
+        Built<TranslationApiTranslateResponseApplicationJson_Ocs,
+            TranslationApiTranslateResponseApplicationJson_OcsBuilder> {
+  factory TranslationApiTranslateResponseApplicationJson_Ocs([
+    final void Function(TranslationApiTranslateResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TranslationApiTranslateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreTranslationApiTranslateResponseApplicationJson_Ocs._();
+  const TranslationApiTranslateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiTranslateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9661,34 +9548,33 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiTranslateResponseApplicationJson_Ocs> get serializer =>
-      _$coreTranslationApiTranslateResponseApplicationJsonOcsSerializer;
+  static Serializer<TranslationApiTranslateResponseApplicationJson_Ocs> get serializer =>
+      _$translationApiTranslateResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreTranslationApiTranslateResponseApplicationJsonInterface {
-  CoreTranslationApiTranslateResponseApplicationJson_Ocs get ocs;
-  CoreTranslationApiTranslateResponseApplicationJsonInterface rebuild(
-    final void Function(CoreTranslationApiTranslateResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class TranslationApiTranslateResponseApplicationJsonInterface {
+  TranslationApiTranslateResponseApplicationJson_Ocs get ocs;
+  TranslationApiTranslateResponseApplicationJsonInterface rebuild(
+    final void Function(TranslationApiTranslateResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreTranslationApiTranslateResponseApplicationJsonInterfaceBuilder toBuilder();
+  TranslationApiTranslateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreTranslationApiTranslateResponseApplicationJson
+abstract class TranslationApiTranslateResponseApplicationJson
     implements
-        CoreTranslationApiTranslateResponseApplicationJsonInterface,
-        Built<CoreTranslationApiTranslateResponseApplicationJson,
-            CoreTranslationApiTranslateResponseApplicationJsonBuilder> {
-  factory CoreTranslationApiTranslateResponseApplicationJson([
-    final void Function(CoreTranslationApiTranslateResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreTranslationApiTranslateResponseApplicationJson;
+        TranslationApiTranslateResponseApplicationJsonInterface,
+        Built<TranslationApiTranslateResponseApplicationJson, TranslationApiTranslateResponseApplicationJsonBuilder> {
+  factory TranslationApiTranslateResponseApplicationJson([
+    final void Function(TranslationApiTranslateResponseApplicationJsonBuilder)? b,
+  ]) = _$TranslationApiTranslateResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreTranslationApiTranslateResponseApplicationJson._();
+  const TranslationApiTranslateResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreTranslationApiTranslateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9696,30 +9582,29 @@ abstract class CoreTranslationApiTranslateResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreTranslationApiTranslateResponseApplicationJson> get serializer =>
-      _$coreTranslationApiTranslateResponseApplicationJsonSerializer;
+  static Serializer<TranslationApiTranslateResponseApplicationJson> get serializer =>
+      _$translationApiTranslateResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchProviderInterface {
+abstract interface class UnifiedSearchProviderInterface {
   String get id;
   String get name;
   int get order;
-  CoreUnifiedSearchProviderInterface rebuild(final void Function(CoreUnifiedSearchProviderInterfaceBuilder) updates);
-  CoreUnifiedSearchProviderInterfaceBuilder toBuilder();
+  UnifiedSearchProviderInterface rebuild(final void Function(UnifiedSearchProviderInterfaceBuilder) updates);
+  UnifiedSearchProviderInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchProvider
-    implements CoreUnifiedSearchProviderInterface, Built<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
-  factory CoreUnifiedSearchProvider([final void Function(CoreUnifiedSearchProviderBuilder)? b]) =
-      _$CoreUnifiedSearchProvider;
+abstract class UnifiedSearchProvider
+    implements UnifiedSearchProviderInterface, Built<UnifiedSearchProvider, UnifiedSearchProviderBuilder> {
+  factory UnifiedSearchProvider([final void Function(UnifiedSearchProviderBuilder)? b]) = _$UnifiedSearchProvider;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchProvider._();
+  const UnifiedSearchProvider._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchProvider.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchProvider.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9727,34 +9612,34 @@ abstract class CoreUnifiedSearchProvider
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchProvider> get serializer => _$coreUnifiedSearchProviderSerializer;
+  static Serializer<UnifiedSearchProvider> get serializer => _$unifiedSearchProviderSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  BuiltList<CoreUnifiedSearchProvider> get data;
-  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<UnifiedSearchProvider> get data;
+  UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  UnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs
+abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
     implements
-        CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsInterface,
-        Built<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs,
-            CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder> {
-  factory CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs([
-    final void Function(CoreUnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs;
+        UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface,
+        Built<UnifiedSearchGetProvidersResponseApplicationJson_Ocs,
+            UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder> {
+  factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs([
+    final void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UnifiedSearchGetProvidersResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs._();
+  const UnifiedSearchGetProvidersResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9762,34 +9647,34 @@ abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs> get serializer =>
-      _$coreUnifiedSearchGetProvidersResponseApplicationJsonOcsSerializer;
+  static Serializer<UnifiedSearchGetProvidersResponseApplicationJson_Ocs> get serializer =>
+      _$unifiedSearchGetProvidersResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchGetProvidersResponseApplicationJsonInterface {
-  CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs get ocs;
-  CoreUnifiedSearchGetProvidersResponseApplicationJsonInterface rebuild(
-    final void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class UnifiedSearchGetProvidersResponseApplicationJsonInterface {
+  UnifiedSearchGetProvidersResponseApplicationJson_Ocs get ocs;
+  UnifiedSearchGetProvidersResponseApplicationJsonInterface rebuild(
+    final void Function(UnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreUnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder toBuilder();
+  UnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson
+abstract class UnifiedSearchGetProvidersResponseApplicationJson
     implements
-        CoreUnifiedSearchGetProvidersResponseApplicationJsonInterface,
-        Built<CoreUnifiedSearchGetProvidersResponseApplicationJson,
-            CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder> {
-  factory CoreUnifiedSearchGetProvidersResponseApplicationJson([
-    final void Function(CoreUnifiedSearchGetProvidersResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreUnifiedSearchGetProvidersResponseApplicationJson;
+        UnifiedSearchGetProvidersResponseApplicationJsonInterface,
+        Built<UnifiedSearchGetProvidersResponseApplicationJson,
+            UnifiedSearchGetProvidersResponseApplicationJsonBuilder> {
+  factory UnifiedSearchGetProvidersResponseApplicationJson([
+    final void Function(UnifiedSearchGetProvidersResponseApplicationJsonBuilder)? b,
+  ]) = _$UnifiedSearchGetProvidersResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchGetProvidersResponseApplicationJson._();
+  const UnifiedSearchGetProvidersResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchGetProvidersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchGetProvidersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9797,21 +9682,20 @@ abstract class CoreUnifiedSearchGetProvidersResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchGetProvidersResponseApplicationJson> get serializer =>
-      _$coreUnifiedSearchGetProvidersResponseApplicationJsonSerializer;
+  static Serializer<UnifiedSearchGetProvidersResponseApplicationJson> get serializer =>
+      _$unifiedSearchGetProvidersResponseApplicationJsonSerializer;
 }
 
-abstract class CoreUnifiedSearchSearchCursor
-    implements Built<CoreUnifiedSearchSearchCursor, CoreUnifiedSearchSearchCursorBuilder> {
-  factory CoreUnifiedSearchSearchCursor([final void Function(CoreUnifiedSearchSearchCursorBuilder)? b]) =
-      _$CoreUnifiedSearchSearchCursor;
+abstract class UnifiedSearchSearchCursor implements Built<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder> {
+  factory UnifiedSearchSearchCursor([final void Function(UnifiedSearchSearchCursorBuilder)? b]) =
+      _$UnifiedSearchSearchCursor;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchSearchCursor._();
+  const UnifiedSearchSearchCursor._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchSearchCursor.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchSearchCursor.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9823,31 +9707,31 @@ abstract class CoreUnifiedSearchSearchCursor
   int? get $int;
   String? get string;
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreUnifiedSearchSearchCursor> get serializer => _$CoreUnifiedSearchSearchCursorSerializer();
+  static Serializer<UnifiedSearchSearchCursor> get serializer => _$UnifiedSearchSearchCursorSerializer();
 }
 
-class _$CoreUnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<CoreUnifiedSearchSearchCursor> {
+class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<UnifiedSearchSearchCursor> {
   @override
-  final Iterable<Type> types = const [CoreUnifiedSearchSearchCursor, _$CoreUnifiedSearchSearchCursor];
+  final Iterable<Type> types = const [UnifiedSearchSearchCursor, _$UnifiedSearchSearchCursor];
 
   @override
-  final String wireName = 'CoreUnifiedSearchSearchCursor';
+  final String wireName = 'UnifiedSearchSearchCursor';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final CoreUnifiedSearchSearchCursor object, {
+    final UnifiedSearchSearchCursor object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  CoreUnifiedSearchSearchCursor deserialize(
+  UnifiedSearchSearchCursor deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreUnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
+    final result = UnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
@@ -9860,7 +9744,7 @@ class _$CoreUnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchResultEntryInterface {
+abstract interface class UnifiedSearchResultEntryInterface {
   String get thumbnailUrl;
   String get title;
   String get subline;
@@ -9868,25 +9752,21 @@ abstract interface class CoreUnifiedSearchResultEntryInterface {
   String get icon;
   bool get rounded;
   BuiltList<String> get attributes;
-  CoreUnifiedSearchResultEntryInterface rebuild(
-    final void Function(CoreUnifiedSearchResultEntryInterfaceBuilder) updates,
-  );
-  CoreUnifiedSearchResultEntryInterfaceBuilder toBuilder();
+  UnifiedSearchResultEntryInterface rebuild(final void Function(UnifiedSearchResultEntryInterfaceBuilder) updates);
+  UnifiedSearchResultEntryInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchResultEntry
-    implements
-        CoreUnifiedSearchResultEntryInterface,
-        Built<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
-  factory CoreUnifiedSearchResultEntry([final void Function(CoreUnifiedSearchResultEntryBuilder)? b]) =
-      _$CoreUnifiedSearchResultEntry;
+abstract class UnifiedSearchResultEntry
+    implements UnifiedSearchResultEntryInterface, Built<UnifiedSearchResultEntry, UnifiedSearchResultEntryBuilder> {
+  factory UnifiedSearchResultEntry([final void Function(UnifiedSearchResultEntryBuilder)? b]) =
+      _$UnifiedSearchResultEntry;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchResultEntry._();
+  const UnifiedSearchResultEntry._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchResultEntry.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchResultEntry.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9894,20 +9774,20 @@ abstract class CoreUnifiedSearchResultEntry
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchResultEntry> get serializer => _$coreUnifiedSearchResultEntrySerializer;
+  static Serializer<UnifiedSearchResultEntry> get serializer => _$unifiedSearchResultEntrySerializer;
 }
 
-abstract class CoreUnifiedSearchResult_Cursor
-    implements Built<CoreUnifiedSearchResult_Cursor, CoreUnifiedSearchResult_CursorBuilder> {
-  factory CoreUnifiedSearchResult_Cursor([final void Function(CoreUnifiedSearchResult_CursorBuilder)? b]) =
-      _$CoreUnifiedSearchResult_Cursor;
+abstract class UnifiedSearchResult_Cursor
+    implements Built<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder> {
+  factory UnifiedSearchResult_Cursor([final void Function(UnifiedSearchResult_CursorBuilder)? b]) =
+      _$UnifiedSearchResult_Cursor;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchResult_Cursor._();
+  const UnifiedSearchResult_Cursor._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchResult_Cursor.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchResult_Cursor.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9919,31 +9799,31 @@ abstract class CoreUnifiedSearchResult_Cursor
   int? get $int;
   String? get string;
   @BuiltValueSerializer(custom: true)
-  static Serializer<CoreUnifiedSearchResult_Cursor> get serializer => _$CoreUnifiedSearchResult_CursorSerializer();
+  static Serializer<UnifiedSearchResult_Cursor> get serializer => _$UnifiedSearchResult_CursorSerializer();
 }
 
-class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<CoreUnifiedSearchResult_Cursor> {
+class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<UnifiedSearchResult_Cursor> {
   @override
-  final Iterable<Type> types = const [CoreUnifiedSearchResult_Cursor, _$CoreUnifiedSearchResult_Cursor];
+  final Iterable<Type> types = const [UnifiedSearchResult_Cursor, _$UnifiedSearchResult_Cursor];
 
   @override
-  final String wireName = 'CoreUnifiedSearchResult_Cursor';
+  final String wireName = 'UnifiedSearchResult_Cursor';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final CoreUnifiedSearchResult_Cursor object, {
+    final UnifiedSearchResult_Cursor object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  CoreUnifiedSearchResult_Cursor deserialize(
+  UnifiedSearchResult_Cursor deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CoreUnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
+    final result = UnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
@@ -9956,25 +9836,25 @@ class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchResultInterface {
+abstract interface class UnifiedSearchResultInterface {
   String get name;
   bool get isPaginated;
-  BuiltList<CoreUnifiedSearchResultEntry> get entries;
-  CoreUnifiedSearchResult_Cursor? get cursor;
-  CoreUnifiedSearchResultInterface rebuild(final void Function(CoreUnifiedSearchResultInterfaceBuilder) updates);
-  CoreUnifiedSearchResultInterfaceBuilder toBuilder();
+  BuiltList<UnifiedSearchResultEntry> get entries;
+  UnifiedSearchResult_Cursor? get cursor;
+  UnifiedSearchResultInterface rebuild(final void Function(UnifiedSearchResultInterfaceBuilder) updates);
+  UnifiedSearchResultInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchResult
-    implements CoreUnifiedSearchResultInterface, Built<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
-  factory CoreUnifiedSearchResult([final void Function(CoreUnifiedSearchResultBuilder)? b]) = _$CoreUnifiedSearchResult;
+abstract class UnifiedSearchResult
+    implements UnifiedSearchResultInterface, Built<UnifiedSearchResult, UnifiedSearchResultBuilder> {
+  factory UnifiedSearchResult([final void Function(UnifiedSearchResultBuilder)? b]) = _$UnifiedSearchResult;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchResult._();
+  const UnifiedSearchResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchResult.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9982,34 +9862,33 @@ abstract class CoreUnifiedSearchResult
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchResult> get serializer => _$coreUnifiedSearchResultSerializer;
+  static Serializer<UnifiedSearchResult> get serializer => _$unifiedSearchResultSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchSearchResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreUnifiedSearchResult get data;
-  CoreUnifiedSearchSearchResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class UnifiedSearchSearchResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  UnifiedSearchResult get data;
+  UnifiedSearchSearchResponseApplicationJson_OcsInterface rebuild(
+    final void Function(UnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreUnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  UnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchSearchResponseApplicationJson_Ocs
+abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
     implements
-        CoreUnifiedSearchSearchResponseApplicationJson_OcsInterface,
-        Built<CoreUnifiedSearchSearchResponseApplicationJson_Ocs,
-            CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder> {
-  factory CoreUnifiedSearchSearchResponseApplicationJson_Ocs([
-    final void Function(CoreUnifiedSearchSearchResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreUnifiedSearchSearchResponseApplicationJson_Ocs;
+        UnifiedSearchSearchResponseApplicationJson_OcsInterface,
+        Built<UnifiedSearchSearchResponseApplicationJson_Ocs, UnifiedSearchSearchResponseApplicationJson_OcsBuilder> {
+  factory UnifiedSearchSearchResponseApplicationJson_Ocs([
+    final void Function(UnifiedSearchSearchResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UnifiedSearchSearchResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchSearchResponseApplicationJson_Ocs._();
+  const UnifiedSearchSearchResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchSearchResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchSearchResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10017,33 +9896,33 @@ abstract class CoreUnifiedSearchSearchResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchSearchResponseApplicationJson_Ocs> get serializer =>
-      _$coreUnifiedSearchSearchResponseApplicationJsonOcsSerializer;
+  static Serializer<UnifiedSearchSearchResponseApplicationJson_Ocs> get serializer =>
+      _$unifiedSearchSearchResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreUnifiedSearchSearchResponseApplicationJsonInterface {
-  CoreUnifiedSearchSearchResponseApplicationJson_Ocs get ocs;
-  CoreUnifiedSearchSearchResponseApplicationJsonInterface rebuild(
-    final void Function(CoreUnifiedSearchSearchResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class UnifiedSearchSearchResponseApplicationJsonInterface {
+  UnifiedSearchSearchResponseApplicationJson_Ocs get ocs;
+  UnifiedSearchSearchResponseApplicationJsonInterface rebuild(
+    final void Function(UnifiedSearchSearchResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreUnifiedSearchSearchResponseApplicationJsonInterfaceBuilder toBuilder();
+  UnifiedSearchSearchResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreUnifiedSearchSearchResponseApplicationJson
+abstract class UnifiedSearchSearchResponseApplicationJson
     implements
-        CoreUnifiedSearchSearchResponseApplicationJsonInterface,
-        Built<CoreUnifiedSearchSearchResponseApplicationJson, CoreUnifiedSearchSearchResponseApplicationJsonBuilder> {
-  factory CoreUnifiedSearchSearchResponseApplicationJson([
-    final void Function(CoreUnifiedSearchSearchResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreUnifiedSearchSearchResponseApplicationJson;
+        UnifiedSearchSearchResponseApplicationJsonInterface,
+        Built<UnifiedSearchSearchResponseApplicationJson, UnifiedSearchSearchResponseApplicationJsonBuilder> {
+  factory UnifiedSearchSearchResponseApplicationJson([
+    final void Function(UnifiedSearchSearchResponseApplicationJsonBuilder)? b,
+  ]) = _$UnifiedSearchSearchResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreUnifiedSearchSearchResponseApplicationJson._();
+  const UnifiedSearchSearchResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreUnifiedSearchSearchResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchSearchResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10051,35 +9930,35 @@ abstract class CoreUnifiedSearchSearchResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreUnifiedSearchSearchResponseApplicationJson> get serializer =>
-      _$coreUnifiedSearchSearchResponseApplicationJsonSerializer;
+  static Serializer<UnifiedSearchSearchResponseApplicationJson> get serializer =>
+      _$unifiedSearchSearchResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
+abstract interface class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
   BuiltList<String> get regular;
   BuiltList<String> get admin;
-  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface rebuild(
-    final void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates,
+  WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface rebuild(
+    final void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates,
   );
-  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder toBuilder();
+  WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
+abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
     implements
-        CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface,
-        Built<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
-            CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder> {
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew([
-    final void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
-  ]) = _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew;
+        WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface,
+        Built<WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
+            WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder> {
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew([
+    final void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
+  ]) = _$WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew;
 
   // coverage:ignore-start
-  const CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._();
+  const WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10087,36 +9966,36 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew> get serializer =>
-      _$coreWhatsNewGetResponseApplicationJsonOcsDataWhatsNewSerializer;
+  static Serializer<WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew> get serializer =>
+      _$whatsNewGetResponseApplicationJsonOcsDataWhatsNewSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterface {
+abstract interface class WhatsNewGetResponseApplicationJson_Ocs_DataInterface {
   String get changelogURL;
   String get product;
   String get version;
-  CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew? get whatsNew;
-  CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew? get whatsNew;
+  WhatsNewGetResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(WhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  WhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data
+abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
     implements
-        CoreWhatsNewGetResponseApplicationJson_Ocs_DataInterface,
-        Built<CoreWhatsNewGetResponseApplicationJson_Ocs_Data, CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder> {
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs_Data([
-    final void Function(CoreWhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CoreWhatsNewGetResponseApplicationJson_Ocs_Data;
+        WhatsNewGetResponseApplicationJson_Ocs_DataInterface,
+        Built<WhatsNewGetResponseApplicationJson_Ocs_Data, WhatsNewGetResponseApplicationJson_Ocs_DataBuilder> {
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data([
+    final void Function(WhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$WhatsNewGetResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const CoreWhatsNewGetResponseApplicationJson_Ocs_Data._();
+  const WhatsNewGetResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10124,34 +10003,34 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs_Data> get serializer =>
-      _$coreWhatsNewGetResponseApplicationJsonOcsDataSerializer;
+  static Serializer<WhatsNewGetResponseApplicationJson_Ocs_Data> get serializer =>
+      _$whatsNewGetResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewGetResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
-  CoreWhatsNewGetResponseApplicationJson_Ocs_Data get data;
-  CoreWhatsNewGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreWhatsNewGetResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class WhatsNewGetResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  WhatsNewGetResponseApplicationJson_Ocs_Data get data;
+  WhatsNewGetResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WhatsNewGetResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreWhatsNewGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  WhatsNewGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewGetResponseApplicationJson_Ocs
+abstract class WhatsNewGetResponseApplicationJson_Ocs
     implements
-        CoreWhatsNewGetResponseApplicationJson_OcsInterface,
-        Built<CoreWhatsNewGetResponseApplicationJson_Ocs, CoreWhatsNewGetResponseApplicationJson_OcsBuilder> {
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs([
-    final void Function(CoreWhatsNewGetResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreWhatsNewGetResponseApplicationJson_Ocs;
+        WhatsNewGetResponseApplicationJson_OcsInterface,
+        Built<WhatsNewGetResponseApplicationJson_Ocs, WhatsNewGetResponseApplicationJson_OcsBuilder> {
+  factory WhatsNewGetResponseApplicationJson_Ocs([
+    final void Function(WhatsNewGetResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WhatsNewGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreWhatsNewGetResponseApplicationJson_Ocs._();
+  const WhatsNewGetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10159,33 +10038,32 @@ abstract class CoreWhatsNewGetResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewGetResponseApplicationJson_Ocs> get serializer =>
-      _$coreWhatsNewGetResponseApplicationJsonOcsSerializer;
+  static Serializer<WhatsNewGetResponseApplicationJson_Ocs> get serializer =>
+      _$whatsNewGetResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewGetResponseApplicationJsonInterface {
-  CoreWhatsNewGetResponseApplicationJson_Ocs get ocs;
-  CoreWhatsNewGetResponseApplicationJsonInterface rebuild(
-    final void Function(CoreWhatsNewGetResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class WhatsNewGetResponseApplicationJsonInterface {
+  WhatsNewGetResponseApplicationJson_Ocs get ocs;
+  WhatsNewGetResponseApplicationJsonInterface rebuild(
+    final void Function(WhatsNewGetResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreWhatsNewGetResponseApplicationJsonInterfaceBuilder toBuilder();
+  WhatsNewGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewGetResponseApplicationJson
+abstract class WhatsNewGetResponseApplicationJson
     implements
-        CoreWhatsNewGetResponseApplicationJsonInterface,
-        Built<CoreWhatsNewGetResponseApplicationJson, CoreWhatsNewGetResponseApplicationJsonBuilder> {
-  factory CoreWhatsNewGetResponseApplicationJson([
-    final void Function(CoreWhatsNewGetResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreWhatsNewGetResponseApplicationJson;
+        WhatsNewGetResponseApplicationJsonInterface,
+        Built<WhatsNewGetResponseApplicationJson, WhatsNewGetResponseApplicationJsonBuilder> {
+  factory WhatsNewGetResponseApplicationJson([final void Function(WhatsNewGetResponseApplicationJsonBuilder)? b]) =
+      _$WhatsNewGetResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreWhatsNewGetResponseApplicationJson._();
+  const WhatsNewGetResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10193,34 +10071,34 @@ abstract class CoreWhatsNewGetResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewGetResponseApplicationJson> get serializer =>
-      _$coreWhatsNewGetResponseApplicationJsonSerializer;
+  static Serializer<WhatsNewGetResponseApplicationJson> get serializer =>
+      _$whatsNewGetResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewDismissResponseApplicationJson_OcsInterface {
-  CoreOCSMeta get meta;
+abstract interface class WhatsNewDismissResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
   JsonObject get data;
-  CoreWhatsNewDismissResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CoreWhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder) updates,
+  WhatsNewDismissResponseApplicationJson_OcsInterface rebuild(
+    final void Function(WhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  CoreWhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  WhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewDismissResponseApplicationJson_Ocs
+abstract class WhatsNewDismissResponseApplicationJson_Ocs
     implements
-        CoreWhatsNewDismissResponseApplicationJson_OcsInterface,
-        Built<CoreWhatsNewDismissResponseApplicationJson_Ocs, CoreWhatsNewDismissResponseApplicationJson_OcsBuilder> {
-  factory CoreWhatsNewDismissResponseApplicationJson_Ocs([
-    final void Function(CoreWhatsNewDismissResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CoreWhatsNewDismissResponseApplicationJson_Ocs;
+        WhatsNewDismissResponseApplicationJson_OcsInterface,
+        Built<WhatsNewDismissResponseApplicationJson_Ocs, WhatsNewDismissResponseApplicationJson_OcsBuilder> {
+  factory WhatsNewDismissResponseApplicationJson_Ocs([
+    final void Function(WhatsNewDismissResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$WhatsNewDismissResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const CoreWhatsNewDismissResponseApplicationJson_Ocs._();
+  const WhatsNewDismissResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewDismissResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewDismissResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10228,33 +10106,33 @@ abstract class CoreWhatsNewDismissResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewDismissResponseApplicationJson_Ocs> get serializer =>
-      _$coreWhatsNewDismissResponseApplicationJsonOcsSerializer;
+  static Serializer<WhatsNewDismissResponseApplicationJson_Ocs> get serializer =>
+      _$whatsNewDismissResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWhatsNewDismissResponseApplicationJsonInterface {
-  CoreWhatsNewDismissResponseApplicationJson_Ocs get ocs;
-  CoreWhatsNewDismissResponseApplicationJsonInterface rebuild(
-    final void Function(CoreWhatsNewDismissResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class WhatsNewDismissResponseApplicationJsonInterface {
+  WhatsNewDismissResponseApplicationJson_Ocs get ocs;
+  WhatsNewDismissResponseApplicationJsonInterface rebuild(
+    final void Function(WhatsNewDismissResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreWhatsNewDismissResponseApplicationJsonInterfaceBuilder toBuilder();
+  WhatsNewDismissResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWhatsNewDismissResponseApplicationJson
+abstract class WhatsNewDismissResponseApplicationJson
     implements
-        CoreWhatsNewDismissResponseApplicationJsonInterface,
-        Built<CoreWhatsNewDismissResponseApplicationJson, CoreWhatsNewDismissResponseApplicationJsonBuilder> {
-  factory CoreWhatsNewDismissResponseApplicationJson([
-    final void Function(CoreWhatsNewDismissResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreWhatsNewDismissResponseApplicationJson;
+        WhatsNewDismissResponseApplicationJsonInterface,
+        Built<WhatsNewDismissResponseApplicationJson, WhatsNewDismissResponseApplicationJsonBuilder> {
+  factory WhatsNewDismissResponseApplicationJson([
+    final void Function(WhatsNewDismissResponseApplicationJsonBuilder)? b,
+  ]) = _$WhatsNewDismissResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreWhatsNewDismissResponseApplicationJson._();
+  const WhatsNewDismissResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWhatsNewDismissResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewDismissResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10262,33 +10140,32 @@ abstract class CoreWhatsNewDismissResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWhatsNewDismissResponseApplicationJson> get serializer =>
-      _$coreWhatsNewDismissResponseApplicationJsonSerializer;
+  static Serializer<WhatsNewDismissResponseApplicationJson> get serializer =>
+      _$whatsNewDismissResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CoreWipeCheckWipeResponseApplicationJsonInterface {
+abstract interface class WipeCheckWipeResponseApplicationJsonInterface {
   bool get wipe;
-  CoreWipeCheckWipeResponseApplicationJsonInterface rebuild(
-    final void Function(CoreWipeCheckWipeResponseApplicationJsonInterfaceBuilder) updates,
+  WipeCheckWipeResponseApplicationJsonInterface rebuild(
+    final void Function(WipeCheckWipeResponseApplicationJsonInterfaceBuilder) updates,
   );
-  CoreWipeCheckWipeResponseApplicationJsonInterfaceBuilder toBuilder();
+  WipeCheckWipeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class CoreWipeCheckWipeResponseApplicationJson
+abstract class WipeCheckWipeResponseApplicationJson
     implements
-        CoreWipeCheckWipeResponseApplicationJsonInterface,
-        Built<CoreWipeCheckWipeResponseApplicationJson, CoreWipeCheckWipeResponseApplicationJsonBuilder> {
-  factory CoreWipeCheckWipeResponseApplicationJson([
-    final void Function(CoreWipeCheckWipeResponseApplicationJsonBuilder)? b,
-  ]) = _$CoreWipeCheckWipeResponseApplicationJson;
+        WipeCheckWipeResponseApplicationJsonInterface,
+        Built<WipeCheckWipeResponseApplicationJson, WipeCheckWipeResponseApplicationJsonBuilder> {
+  factory WipeCheckWipeResponseApplicationJson([final void Function(WipeCheckWipeResponseApplicationJsonBuilder)? b]) =
+      _$WipeCheckWipeResponseApplicationJson;
 
   // coverage:ignore-start
-  const CoreWipeCheckWipeResponseApplicationJson._();
+  const WipeCheckWipeResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreWipeCheckWipeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WipeCheckWipeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10296,731 +10173,707 @@ abstract class CoreWipeCheckWipeResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CoreWipeCheckWipeResponseApplicationJson> get serializer =>
-      _$coreWipeCheckWipeResponseApplicationJsonSerializer;
+  static Serializer<WipeCheckWipeResponseApplicationJson> get serializer =>
+      _$wipeCheckWipeResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(CoreStatus), CoreStatus.new)
-      ..add(CoreStatus.serializer)
+      ..addBuilderFactory(const FullType(Status), Status.new)
+      ..add(Status.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson),
-        CoreAppPasswordGetAppPasswordResponseApplicationJson.new,
+        const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
+        AppPasswordGetAppPasswordResponseApplicationJson.new,
       )
-      ..add(CoreAppPasswordGetAppPasswordResponseApplicationJson.serializer)
+      ..add(AppPasswordGetAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs),
-        CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs.new,
+        const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs),
+        AppPasswordGetAppPasswordResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreOCSMeta), CoreOCSMeta.new)
-      ..add(CoreOCSMeta.serializer)
+      ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data),
-        CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.new,
+        const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data),
+        AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreAppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
+      ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson),
-        CoreAppPasswordRotateAppPasswordResponseApplicationJson.new,
+        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
+        AppPasswordRotateAppPasswordResponseApplicationJson.new,
       )
-      ..add(CoreAppPasswordRotateAppPasswordResponseApplicationJson.serializer)
+      ..add(AppPasswordRotateAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs),
-        CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs.new,
+        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs),
+        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs.serializer)
+      ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data),
-        CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.new,
+        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data),
+        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreAppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
+      ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson),
-        CoreAppPasswordDeleteAppPasswordResponseApplicationJson.new,
+        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
+        AppPasswordDeleteAppPasswordResponseApplicationJson.new,
       )
-      ..add(CoreAppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
+      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
-        CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.new,
+        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
+        AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreAppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
+      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
-        const FullType(CoreAutoCompleteGetResponseApplicationJson),
-        CoreAutoCompleteGetResponseApplicationJson.new,
+        const FullType(AutoCompleteGetResponseApplicationJson),
+        AutoCompleteGetResponseApplicationJson.new,
       )
-      ..add(CoreAutoCompleteGetResponseApplicationJson.serializer)
+      ..add(AutoCompleteGetResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAutoCompleteGetResponseApplicationJson_Ocs),
-        CoreAutoCompleteGetResponseApplicationJson_Ocs.new,
+        const FullType(AutoCompleteGetResponseApplicationJson_Ocs),
+        AutoCompleteGetResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreAutoCompleteGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreAutocompleteResult), CoreAutocompleteResult.new)
-      ..add(CoreAutocompleteResult.serializer)
-      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Status), CoreAutocompleteResult_Status.new)
-      ..add(CoreAutocompleteResult_Status.serializer)
-      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Status0), CoreAutocompleteResult_Status0.new)
-      ..add(CoreAutocompleteResult_Status0.serializer)
+      ..add(AutoCompleteGetResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResult.new)
+      ..add(AutocompleteResult.serializer)
+      ..addBuilderFactory(const FullType(AutocompleteResult_Status), AutocompleteResult_Status.new)
+      ..add(AutocompleteResult_Status.serializer)
+      ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0.new)
+      ..add(AutocompleteResult_Status0.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreAutocompleteResult)]),
-        ListBuilder<CoreAutocompleteResult>.new,
+        const FullType(BuiltList, [FullType(AutocompleteResult)]),
+        ListBuilder<AutocompleteResult>.new,
       )
+      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeaders.new)
+      ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
+      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeaders.new)
+      ..add(AvatarAvatarGetAvatarHeaders.serializer)
+      ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2Credentials.new)
+      ..add(LoginFlowV2Credentials.serializer)
+      ..addBuilderFactory(const FullType(LoginFlowV2), LoginFlowV2.new)
+      ..add(LoginFlowV2.serializer)
+      ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_Poll.new)
+      ..add(LoginFlowV2_Poll.serializer)
       ..addBuilderFactory(
-        const FullType(CoreAvatarAvatarGetAvatarDarkHeaders),
-        CoreAvatarAvatarGetAvatarDarkHeaders.new,
+        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+        CollaborationResourcesSearchCollectionsResponseApplicationJson.new,
       )
-      ..add(CoreAvatarAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(const FullType(CoreAvatarAvatarGetAvatarHeaders), CoreAvatarAvatarGetAvatarHeaders.new)
-      ..add(CoreAvatarAvatarGetAvatarHeaders.serializer)
-      ..addBuilderFactory(const FullType(CoreLoginFlowV2Credentials), CoreLoginFlowV2Credentials.new)
-      ..add(CoreLoginFlowV2Credentials.serializer)
-      ..addBuilderFactory(const FullType(CoreLoginFlowV2), CoreLoginFlowV2.new)
-      ..add(CoreLoginFlowV2.serializer)
-      ..addBuilderFactory(const FullType(CoreLoginFlowV2_Poll), CoreLoginFlowV2_Poll.new)
-      ..add(CoreLoginFlowV2_Poll.serializer)
+      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson),
-        CoreCollaborationResourcesSearchCollectionsResponseApplicationJson.new,
+        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
+        CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.new,
-      )
-      ..add(CoreCollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreCollection), CoreCollection.new)
-      ..add(CoreCollection.serializer)
-      ..addBuilderFactory(const FullType(CoreResource), CoreResource.new)
-      ..add(CoreResource.serializer)
+      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Collection), Collection.new)
+      ..add(Collection.serializer)
+      ..addBuilderFactory(const FullType(Resource), Resource.new)
+      ..add(Resource.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
       )
-      ..addBuilderFactory(const FullType(CoreOpenGraphObject), CoreOpenGraphObject.new)
-      ..add(CoreOpenGraphObject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreResource)]), ListBuilder<CoreResource>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreCollection)]), ListBuilder<CoreCollection>.new)
+      ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObject.new)
+      ..add(OpenGraphObject.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Resource)]), ListBuilder<Resource>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson),
-        CoreCollaborationResourcesListCollectionResponseApplicationJson.new,
+        const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
+        CollaborationResourcesListCollectionResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesListCollectionResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
+        CollaborationResourcesListCollectionResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson),
-        CoreCollaborationResourcesRenameCollectionResponseApplicationJson.new,
+        const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
+        CollaborationResourcesRenameCollectionResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesRenameCollectionResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesRenameCollectionResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs),
+        CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson),
-        CoreCollaborationResourcesAddResourceResponseApplicationJson.new,
+        const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
+        CollaborationResourcesAddResourceResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesAddResourceResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesAddResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesAddResourceResponseApplicationJson_Ocs),
+        CollaborationResourcesAddResourceResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson),
-        CoreCollaborationResourcesRemoveResourceResponseApplicationJson.new,
+        const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
+        CollaborationResourcesRemoveResourceResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesRemoveResourceResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesRemoveResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs),
+        CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson.new,
+        const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs),
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.new,
+        const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.new,
       )
-      ..add(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs),
-        CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.new,
+        const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs),
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreCollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreHoverCardGetUserResponseApplicationJson),
-        CoreHoverCardGetUserResponseApplicationJson.new,
+        const FullType(HoverCardGetUserResponseApplicationJson),
+        HoverCardGetUserResponseApplicationJson.new,
       )
-      ..add(CoreHoverCardGetUserResponseApplicationJson.serializer)
+      ..add(HoverCardGetUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs),
-        CoreHoverCardGetUserResponseApplicationJson_Ocs.new,
+        const FullType(HoverCardGetUserResponseApplicationJson_Ocs),
+        HoverCardGetUserResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreHoverCardGetUserResponseApplicationJson_Ocs.serializer)
+      ..add(HoverCardGetUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreHoverCardGetUserResponseApplicationJson_Ocs_Data),
-        CoreHoverCardGetUserResponseApplicationJson_Ocs_Data.new,
+        const FullType(HoverCardGetUserResponseApplicationJson_Ocs_Data),
+        HoverCardGetUserResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreHoverCardGetUserResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(CoreContactsAction), CoreContactsAction.new)
-      ..add(CoreContactsAction.serializer)
+      ..add(HoverCardGetUserResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(ContactsAction), ContactsAction.new)
+      ..add(ContactsAction.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreContactsAction)]),
-        ListBuilder<CoreContactsAction>.new,
+        const FullType(NavigationGetAppsNavigationResponseApplicationJson),
+        NavigationGetAppsNavigationResponseApplicationJson.new,
       )
+      ..add(NavigationGetAppsNavigationResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson),
-        CoreNavigationGetAppsNavigationResponseApplicationJson.new,
+        const FullType(NavigationGetAppsNavigationResponseApplicationJson_Ocs),
+        NavigationGetAppsNavigationResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreNavigationGetAppsNavigationResponseApplicationJson.serializer)
+      ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntry.new)
+      ..add(NavigationEntry.serializer)
+      ..addBuilderFactory(const FullType(NavigationEntry_Order), NavigationEntry_Order.new)
+      ..add(NavigationEntry_Order.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
       ..addBuilderFactory(
-        const FullType(CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs),
-        CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs.new,
+        const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
+        NavigationGetSettingsNavigationResponseApplicationJson.new,
       )
-      ..add(CoreNavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreNavigationEntry), CoreNavigationEntry.new)
-      ..add(CoreNavigationEntry.serializer)
-      ..addBuilderFactory(const FullType(CoreNavigationEntry_Order), CoreNavigationEntry_Order.new)
-      ..add(CoreNavigationEntry_Order.serializer)
+      ..add(NavigationGetSettingsNavigationResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreNavigationEntry)]),
-        ListBuilder<CoreNavigationEntry>.new,
+        const FullType(NavigationGetSettingsNavigationResponseApplicationJson_Ocs),
+        NavigationGetSettingsNavigationResponseApplicationJson_Ocs.new,
       )
+      ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeaders.new)
+      ..add(OcmOcmDiscoveryHeaders.serializer)
+      ..addBuilderFactory(const FullType(OcmDiscoveryResponseApplicationJson), OcmDiscoveryResponseApplicationJson.new)
+      ..add(OcmDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson),
-        CoreNavigationGetSettingsNavigationResponseApplicationJson.new,
+        const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes),
+        OcmDiscoveryResponseApplicationJson_ResourceTypes.new,
       )
-      ..add(CoreNavigationGetSettingsNavigationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs),
-        CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs.new,
-      )
-      ..add(CoreNavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreOcmOcmDiscoveryHeaders), CoreOcmOcmDiscoveryHeaders.new)
-      ..add(CoreOcmOcmDiscoveryHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreOcmDiscoveryResponseApplicationJson),
-        CoreOcmDiscoveryResponseApplicationJson.new,
-      )
-      ..add(CoreOcmDiscoveryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes),
-        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.new,
-      )
-      ..add(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
+      ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
-        const FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
-        CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.new,
+        const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
+        OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.new,
       )
-      ..add(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
+      ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreOcmDiscoveryResponseApplicationJson_ResourceTypes)]),
-        ListBuilder<CoreOcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
+        const FullType(BuiltList, [FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes)]),
+        ListBuilder<OcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
       )
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponseApplicationJson),
-        CoreOcsGetCapabilitiesResponseApplicationJson.new,
+        const FullType(OcsGetCapabilitiesResponseApplicationJson),
+        OcsGetCapabilitiesResponseApplicationJson.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponseApplicationJson.serializer)
+      ..add(OcsGetCapabilitiesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs),
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs.new,
+        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs),
+        OcsGetCapabilitiesResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs.serializer)
+      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data),
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data.new,
+        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data),
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data.serializer)
+      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version),
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.new,
+        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version),
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
+      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities),
-        CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.new,
+        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities),
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreCommentsCapabilities), CoreCommentsCapabilities.new)
-      ..add(CoreCommentsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreCommentsCapabilities_Files), CoreCommentsCapabilities_Files.new)
-      ..add(CoreCommentsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(CoreDavCapabilities), CoreDavCapabilities.new)
-      ..add(CoreDavCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreDavCapabilities_Dav), CoreDavCapabilities_Dav.new)
-      ..add(CoreDavCapabilities_Dav.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesCapabilities), CoreFilesCapabilities.new)
-      ..add(CoreFilesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesCapabilities_Files), CoreFilesCapabilities_Files.new)
-      ..add(CoreFilesCapabilities_Files.serializer)
+      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.serializer)
+      ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilities.new)
+      ..add(CommentsCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_Files.new)
+      ..add(CommentsCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilities.new)
+      ..add(DavCapabilities.serializer)
+      ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_Dav.new)
+      ..add(DavCapabilities_Dav.serializer)
+      ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilities.new)
+      ..add(FilesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_Files.new)
+      ..add(FilesCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(
-        const FullType(CoreFilesCapabilities_Files_DirectEditing),
-        CoreFilesCapabilities_Files_DirectEditing.new,
+        const FullType(FilesCapabilities_Files_DirectEditing),
+        FilesCapabilities_Files_DirectEditing.new,
       )
-      ..add(CoreFilesCapabilities_Files_DirectEditing.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesSharingCapabilities), CoreFilesSharingCapabilities.new)
-      ..add(CoreFilesSharingCapabilities.serializer)
+      ..add(FilesCapabilities_Files_DirectEditing.serializer)
+      ..addBuilderFactory(const FullType(FilesSharingCapabilities), FilesSharingCapabilities.new)
+      ..add(FilesSharingCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing),
-        CoreFilesSharingCapabilities_FilesSharing.new,
+        const FullType(FilesSharingCapabilities_FilesSharing),
+        FilesSharingCapabilities_FilesSharing.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public),
-        CoreFilesSharingCapabilities_FilesSharing_Public.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Public),
+        FilesSharingCapabilities_FilesSharing_Public.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Public.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Public.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_Password),
-        CoreFilesSharingCapabilities_FilesSharing_Public_Password.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Public_Password),
+        FilesSharingCapabilities_FilesSharing_Public_Password.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_Password.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Public_Password.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate),
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate),
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDate.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
-        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_User),
-        CoreFilesSharingCapabilities_FilesSharing_User.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_User),
+        FilesSharingCapabilities_FilesSharing_User.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_User.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_User.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate),
-        CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate),
+        FilesSharingCapabilities_FilesSharing_User_ExpireDate.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Group),
-        CoreFilesSharingCapabilities_FilesSharing_Group.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Group),
+        FilesSharingCapabilities_FilesSharing_Group.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Group.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Group.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate),
-        CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate),
+        FilesSharingCapabilities_FilesSharing_Group_ExpireDate.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation),
-        CoreFilesSharingCapabilities_FilesSharing_Federation.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Federation),
+        FilesSharingCapabilities_FilesSharing_Federation.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Federation.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
-        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
-        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
       ..addBuilderFactory(
-        const FullType(CoreFilesSharingCapabilities_FilesSharing_Sharee),
-        CoreFilesSharingCapabilities_FilesSharing_Sharee.new,
+        const FullType(FilesSharingCapabilities_FilesSharing_Sharee),
+        FilesSharingCapabilities_FilesSharing_Sharee.new,
       )
-      ..add(CoreFilesSharingCapabilities_FilesSharing_Sharee.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesTrashbinCapabilities), CoreFilesTrashbinCapabilities.new)
-      ..add(CoreFilesTrashbinCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesTrashbinCapabilities_Files), CoreFilesTrashbinCapabilities_Files.new)
-      ..add(CoreFilesTrashbinCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesVersionsCapabilities), CoreFilesVersionsCapabilities.new)
-      ..add(CoreFilesVersionsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreFilesVersionsCapabilities_Files), CoreFilesVersionsCapabilities_Files.new)
-      ..add(CoreFilesVersionsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(CoreNotesCapabilities), CoreNotesCapabilities.new)
-      ..add(CoreNotesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreNotesCapabilities_Notes), CoreNotesCapabilities_Notes.new)
-      ..add(CoreNotesCapabilities_Notes.serializer)
-      ..addBuilderFactory(const FullType(CoreNotificationsCapabilities), CoreNotificationsCapabilities.new)
-      ..add(CoreNotificationsCapabilities.serializer)
+      ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer)
+      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilities.new)
+      ..add(FilesTrashbinCapabilities.serializer)
+      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities_Files), FilesTrashbinCapabilities_Files.new)
+      ..add(FilesTrashbinCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilities.new)
+      ..add(FilesVersionsCapabilities.serializer)
+      ..addBuilderFactory(const FullType(FilesVersionsCapabilities_Files), FilesVersionsCapabilities_Files.new)
+      ..add(FilesVersionsCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilities.new)
+      ..add(NotesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_Notes.new)
+      ..add(NotesCapabilities_Notes.serializer)
+      ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilities.new)
+      ..add(NotificationsCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreNotificationsCapabilities_Notifications),
-        CoreNotificationsCapabilities_Notifications.new,
+        const FullType(NotificationsCapabilities_Notifications),
+        NotificationsCapabilities_Notifications.new,
       )
-      ..add(CoreNotificationsCapabilities_Notifications.serializer)
-      ..addBuilderFactory(const FullType(CoreProvisioningApiCapabilities), CoreProvisioningApiCapabilities.new)
-      ..add(CoreProvisioningApiCapabilities.serializer)
+      ..add(NotificationsCapabilities_Notifications.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilities.new)
+      ..add(ProvisioningApiCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreProvisioningApiCapabilities_ProvisioningApi),
-        CoreProvisioningApiCapabilities_ProvisioningApi.new,
+        const FullType(ProvisioningApiCapabilities_ProvisioningApi),
+        ProvisioningApiCapabilities_ProvisioningApi.new,
       )
-      ..add(CoreProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(CoreSharebymailCapabilities), CoreSharebymailCapabilities.new)
-      ..add(CoreSharebymailCapabilities.serializer)
+      ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilities.new)
+      ..add(SharebymailCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreSharebymailCapabilities_FilesSharing),
-        CoreSharebymailCapabilities_FilesSharing.new,
+        const FullType(SharebymailCapabilities_FilesSharing),
+        SharebymailCapabilities_FilesSharing.new,
       )
-      ..add(CoreSharebymailCapabilities_FilesSharing.serializer)
+      ..add(SharebymailCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail),
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
+        SharebymailCapabilities_FilesSharing_Sharebymail.new,
       )
-      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
-        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.new,
       )
-      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
-        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password),
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
+        SharebymailCapabilities_FilesSharing_Sharebymail_Password.new,
       )
-      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
-        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
-        CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
+        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.new,
       )
-      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(CoreThemingPublicCapabilities), CoreThemingPublicCapabilities.new)
-      ..add(CoreThemingPublicCapabilities.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
+      ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilities.new)
+      ..add(ThemingPublicCapabilities.serializer)
+      ..addBuilderFactory(const FullType(ThemingPublicCapabilities_Theming), ThemingPublicCapabilities_Theming.new)
+      ..add(ThemingPublicCapabilities_Theming.serializer)
+      ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilities.new)
+      ..add(UserStatusCapabilities.serializer)
+      ..addBuilderFactory(const FullType(UserStatusCapabilities_UserStatus), UserStatusCapabilities_UserStatus.new)
+      ..add(UserStatusCapabilities_UserStatus.serializer)
+      ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilities.new)
+      ..add(WeatherStatusCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreThemingPublicCapabilities_Theming),
-        CoreThemingPublicCapabilities_Theming.new,
+        const FullType(WeatherStatusCapabilities_WeatherStatus),
+        WeatherStatusCapabilities_WeatherStatus.new,
       )
-      ..add(CoreThemingPublicCapabilities_Theming.serializer)
-      ..addBuilderFactory(const FullType(CoreUserStatusCapabilities), CoreUserStatusCapabilities.new)
-      ..add(CoreUserStatusCapabilities.serializer)
+      ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
       ..addBuilderFactory(
-        const FullType(CoreUserStatusCapabilities_UserStatus),
-        CoreUserStatusCapabilities_UserStatus.new,
+        const FullType(ProfileApiSetVisibilityResponseApplicationJson),
+        ProfileApiSetVisibilityResponseApplicationJson.new,
       )
-      ..add(CoreUserStatusCapabilities_UserStatus.serializer)
-      ..addBuilderFactory(const FullType(CoreWeatherStatusCapabilities), CoreWeatherStatusCapabilities.new)
-      ..add(CoreWeatherStatusCapabilities.serializer)
+      ..add(ProfileApiSetVisibilityResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWeatherStatusCapabilities_WeatherStatus),
-        CoreWeatherStatusCapabilities_WeatherStatus.new,
+        const FullType(ProfileApiSetVisibilityResponseApplicationJson_Ocs),
+        ProfileApiSetVisibilityResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreWeatherStatusCapabilities_WeatherStatus.serializer)
+      ..add(ProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreProfileApiSetVisibilityResponseApplicationJson),
-        CoreProfileApiSetVisibilityResponseApplicationJson.new,
+        const FullType(ReferenceApiResolveOneResponseApplicationJson),
+        ReferenceApiResolveOneResponseApplicationJson.new,
       )
-      ..add(CoreProfileApiSetVisibilityResponseApplicationJson.serializer)
+      ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreProfileApiSetVisibilityResponseApplicationJson_Ocs),
-        CoreProfileApiSetVisibilityResponseApplicationJson_Ocs.new,
+        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
+        ReferenceApiResolveOneResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
+      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveOneResponseApplicationJson),
-        CoreReferenceApiResolveOneResponseApplicationJson.new,
+        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreReferenceApiResolveOneResponseApplicationJson.serializer)
+      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(Reference), Reference.new)
+      ..add(Reference.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs),
-        CoreReferenceApiResolveOneResponseApplicationJson_Ocs.new,
+        const FullType(BuiltMap, [FullType(String), FullType(Reference)]),
+        MapBuilder<String, Reference>.new,
       )
-      ..add(CoreReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
-        CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data.new,
+        const FullType(ReferenceApiResolveResponseApplicationJson),
+        ReferenceApiResolveResponseApplicationJson.new,
       )
-      ..add(CoreReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(CoreReference), CoreReference.new)
-      ..add(CoreReference.serializer)
+      ..add(ReferenceApiResolveResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(CoreReference)]),
-        MapBuilder<String, CoreReference>.new,
+        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
+        ReferenceApiResolveResponseApplicationJson_Ocs.new,
       )
+      ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveResponseApplicationJson),
-        CoreReferenceApiResolveResponseApplicationJson.new,
+        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolveResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreReferenceApiResolveResponseApplicationJson.serializer)
+      ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs),
-        CoreReferenceApiResolveResponseApplicationJson_Ocs.new,
+        const FullType(ReferenceApiExtractResponseApplicationJson),
+        ReferenceApiExtractResponseApplicationJson.new,
       )
-      ..add(CoreReferenceApiResolveResponseApplicationJson_Ocs.serializer)
+      ..add(ReferenceApiExtractResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data),
-        CoreReferenceApiResolveResponseApplicationJson_Ocs_Data.new,
+        const FullType(ReferenceApiExtractResponseApplicationJson_Ocs),
+        ReferenceApiExtractResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
+      ..add(ReferenceApiExtractResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiExtractResponseApplicationJson),
-        CoreReferenceApiExtractResponseApplicationJson.new,
+        const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data),
+        ReferenceApiExtractResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreReferenceApiExtractResponseApplicationJson.serializer)
+      ..add(ReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs),
-        CoreReferenceApiExtractResponseApplicationJson_Ocs.new,
+        const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
+        ReferenceApiGetProvidersInfoResponseApplicationJson.new,
       )
-      ..add(CoreReferenceApiExtractResponseApplicationJson_Ocs.serializer)
+      ..add(ReferenceApiGetProvidersInfoResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data),
-        CoreReferenceApiExtractResponseApplicationJson_Ocs_Data.new,
+        const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs),
+        ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
+      ..add(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProvider.new)
+      ..add(ReferenceProvider.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ReferenceProvider)]), ListBuilder<ReferenceProvider>.new)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson),
-        CoreReferenceApiGetProvidersInfoResponseApplicationJson.new,
+        const FullType(ReferenceApiTouchProviderResponseApplicationJson),
+        ReferenceApiTouchProviderResponseApplicationJson.new,
       )
-      ..add(CoreReferenceApiGetProvidersInfoResponseApplicationJson.serializer)
+      ..add(ReferenceApiTouchProviderResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs),
-        CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.new,
+        const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs),
+        ReferenceApiTouchProviderResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreReferenceProvider), CoreReferenceProvider.new)
-      ..add(CoreReferenceProvider.serializer)
+      ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreReferenceProvider)]),
-        ListBuilder<CoreReferenceProvider>.new,
+        const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data),
+        ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.new,
       )
+      ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiTouchProviderResponseApplicationJson),
-        CoreReferenceApiTouchProviderResponseApplicationJson.new,
+        const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
+        TextProcessingApiTaskTypesResponseApplicationJson.new,
       )
-      ..add(CoreReferenceApiTouchProviderResponseApplicationJson.serializer)
+      ..add(TextProcessingApiTaskTypesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs),
-        CoreReferenceApiTouchProviderResponseApplicationJson_Ocs.new,
+        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs),
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs.serializer)
+      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data),
-        CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.new,
+        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson),
-        CoreTextProcessingApiTaskTypesResponseApplicationJson.new,
+        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types),
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.new,
       )
-      ..add(CoreTextProcessingApiTaskTypesResponseApplicationJson.serializer)
+      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs),
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs.new,
+        const FullType(BuiltList, [FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)]),
+        ListBuilder<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>.new,
       )
-      ..add(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.new,
+        const FullType(TextProcessingApiScheduleResponseApplicationJson),
+        TextProcessingApiScheduleResponseApplicationJson.new,
       )
-      ..add(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TextProcessingApiScheduleResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types),
-        CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.new,
+        const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs),
+        TextProcessingApiScheduleResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.serializer)
+      ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)]),
-        ListBuilder<CoreTextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>.new,
+        const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data),
+        TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.new,
       )
+      ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTask.new)
+      ..add(TextProcessingTask.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiScheduleResponseApplicationJson),
-        CoreTextProcessingApiScheduleResponseApplicationJson.new,
+        const FullType(TextProcessingApiGetTaskResponseApplicationJson),
+        TextProcessingApiGetTaskResponseApplicationJson.new,
       )
-      ..add(CoreTextProcessingApiScheduleResponseApplicationJson.serializer)
+      ..add(TextProcessingApiGetTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs),
-        CoreTextProcessingApiScheduleResponseApplicationJson_Ocs.new,
+        const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs),
+        TextProcessingApiGetTaskResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
+      ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data),
-        CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data.new,
+        const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
+        TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreTextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(CoreTextProcessingTask), CoreTextProcessingTask.new)
-      ..add(CoreTextProcessingTask.serializer)
+      ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson),
-        CoreTextProcessingApiGetTaskResponseApplicationJson.new,
+        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
+        TextProcessingApiDeleteTaskResponseApplicationJson.new,
       )
-      ..add(CoreTextProcessingApiGetTaskResponseApplicationJson.serializer)
+      ..add(TextProcessingApiDeleteTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs),
-        CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs.new,
+        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs),
+        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
+      ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
-        CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.new,
+        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data),
+        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreTextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson),
-        CoreTextProcessingApiDeleteTaskResponseApplicationJson.new,
+        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
+        TextProcessingApiListTasksByAppResponseApplicationJson.new,
       )
-      ..add(CoreTextProcessingApiDeleteTaskResponseApplicationJson.serializer)
+      ..add(TextProcessingApiListTasksByAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs),
-        CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs.new,
+        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs),
+        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+      ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data),
-        CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.new,
+        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
+        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreTextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson),
-        CoreTextProcessingApiListTasksByAppResponseApplicationJson.new,
+        const FullType(BuiltList, [FullType(TextProcessingTask)]),
+        ListBuilder<TextProcessingTask>.new,
       )
-      ..add(CoreTextProcessingApiListTasksByAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs),
-        CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs.new,
+        const FullType(TranslationApiLanguagesResponseApplicationJson),
+        TranslationApiLanguagesResponseApplicationJson.new,
       )
-      ..add(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+      ..add(TranslationApiLanguagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.new,
+        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs),
+        TranslationApiLanguagesResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreTextProcessingTask)]),
-        ListBuilder<CoreTextProcessingTask>.new,
+        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data),
+        TranslationApiLanguagesResponseApplicationJson_Ocs_Data.new,
       )
+      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiLanguagesResponseApplicationJson),
-        CoreTranslationApiLanguagesResponseApplicationJson.new,
+        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages),
+        TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.new,
       )
-      ..add(CoreTranslationApiLanguagesResponseApplicationJson.serializer)
+      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs),
-        CoreTranslationApiLanguagesResponseApplicationJson_Ocs.new,
+        const FullType(BuiltList, [FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)]),
+        ListBuilder<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>.new,
       )
-      ..add(CoreTranslationApiLanguagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data),
-        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data.new,
+        const FullType(TranslationApiTranslateResponseApplicationJson),
+        TranslationApiTranslateResponseApplicationJson.new,
       )
-      ..add(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data.serializer)
+      ..add(TranslationApiTranslateResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages),
-        CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.new,
+        const FullType(TranslationApiTranslateResponseApplicationJson_Ocs),
+        TranslationApiTranslateResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.serializer)
+      ..add(TranslationApiTranslateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)]),
-        ListBuilder<CoreTranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>.new,
+        const FullType(TranslationApiTranslateResponseApplicationJson_Ocs_Data),
+        TranslationApiTranslateResponseApplicationJson_Ocs_Data.new,
       )
+      ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiTranslateResponseApplicationJson),
-        CoreTranslationApiTranslateResponseApplicationJson.new,
+        const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
+        UnifiedSearchGetProvidersResponseApplicationJson.new,
       )
-      ..add(CoreTranslationApiTranslateResponseApplicationJson.serializer)
+      ..add(UnifiedSearchGetProvidersResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs),
-        CoreTranslationApiTranslateResponseApplicationJson_Ocs.new,
+        const FullType(UnifiedSearchGetProvidersResponseApplicationJson_Ocs),
+        UnifiedSearchGetProvidersResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreTranslationApiTranslateResponseApplicationJson_Ocs.serializer)
+      ..add(UnifiedSearchGetProvidersResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProvider.new)
+      ..add(UnifiedSearchProvider.serializer)
       ..addBuilderFactory(
-        const FullType(CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data),
-        CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data.new,
+        const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
+        ListBuilder<UnifiedSearchProvider>.new,
       )
-      ..add(CoreTranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(UnifiedSearchSearchCursor), UnifiedSearchSearchCursor.new)
+      ..add(UnifiedSearchSearchCursor.serializer)
       ..addBuilderFactory(
-        const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson),
-        CoreUnifiedSearchGetProvidersResponseApplicationJson.new,
-      )
-      ..add(CoreUnifiedSearchGetProvidersResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs),
-        CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs.new,
-      )
-      ..add(CoreUnifiedSearchGetProvidersResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreUnifiedSearchProvider), CoreUnifiedSearchProvider.new)
-      ..add(CoreUnifiedSearchProvider.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreUnifiedSearchProvider)]),
-        ListBuilder<CoreUnifiedSearchProvider>.new,
-      )
-      ..addBuilderFactory(const FullType(CoreUnifiedSearchSearchCursor), CoreUnifiedSearchSearchCursor.new)
-      ..add(CoreUnifiedSearchSearchCursor.serializer)
-      ..addBuilderFactory(
-        const FullType(ContentString, [FullType(CoreUnifiedSearchSearchCursor)]),
-        ContentString<CoreUnifiedSearchSearchCursor>.new,
+        const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
+        ContentString<UnifiedSearchSearchCursor>.new,
       )
       ..add(ContentString.serializer)
       ..addBuilderFactory(
-        const FullType(CoreUnifiedSearchSearchResponseApplicationJson),
-        CoreUnifiedSearchSearchResponseApplicationJson.new,
+        const FullType(UnifiedSearchSearchResponseApplicationJson),
+        UnifiedSearchSearchResponseApplicationJson.new,
       )
-      ..add(CoreUnifiedSearchSearchResponseApplicationJson.serializer)
+      ..add(UnifiedSearchSearchResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreUnifiedSearchSearchResponseApplicationJson_Ocs),
-        CoreUnifiedSearchSearchResponseApplicationJson_Ocs.new,
+        const FullType(UnifiedSearchSearchResponseApplicationJson_Ocs),
+        UnifiedSearchSearchResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreUnifiedSearchSearchResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CoreUnifiedSearchResult), CoreUnifiedSearchResult.new)
-      ..add(CoreUnifiedSearchResult.serializer)
-      ..addBuilderFactory(const FullType(CoreUnifiedSearchResultEntry), CoreUnifiedSearchResultEntry.new)
-      ..add(CoreUnifiedSearchResultEntry.serializer)
+      ..add(UnifiedSearchSearchResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UnifiedSearchResult), UnifiedSearchResult.new)
+      ..add(UnifiedSearchResult.serializer)
+      ..addBuilderFactory(const FullType(UnifiedSearchResultEntry), UnifiedSearchResultEntry.new)
+      ..add(UnifiedSearchResultEntry.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CoreUnifiedSearchResultEntry)]),
-        ListBuilder<CoreUnifiedSearchResultEntry>.new,
+        const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]),
+        ListBuilder<UnifiedSearchResultEntry>.new,
       )
-      ..addBuilderFactory(const FullType(CoreUnifiedSearchResult_Cursor), CoreUnifiedSearchResult_Cursor.new)
-      ..add(CoreUnifiedSearchResult_Cursor.serializer)
+      ..addBuilderFactory(const FullType(UnifiedSearchResult_Cursor), UnifiedSearchResult_Cursor.new)
+      ..add(UnifiedSearchResult_Cursor.serializer)
+      ..addBuilderFactory(const FullType(WhatsNewGetResponseApplicationJson), WhatsNewGetResponseApplicationJson.new)
+      ..add(WhatsNewGetResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewGetResponseApplicationJson),
-        CoreWhatsNewGetResponseApplicationJson.new,
+        const FullType(WhatsNewGetResponseApplicationJson_Ocs),
+        WhatsNewGetResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreWhatsNewGetResponseApplicationJson.serializer)
+      ..add(WhatsNewGetResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs),
-        CoreWhatsNewGetResponseApplicationJson_Ocs.new,
+        const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data),
+        WhatsNewGetResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(CoreWhatsNewGetResponseApplicationJson_Ocs.serializer)
+      ..add(WhatsNewGetResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data),
-        CoreWhatsNewGetResponseApplicationJson_Ocs_Data.new,
+        const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew),
+        WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.new,
       )
-      ..add(CoreWhatsNewGetResponseApplicationJson_Ocs_Data.serializer)
+      ..add(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew),
-        CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.new,
+        const FullType(WhatsNewDismissResponseApplicationJson),
+        WhatsNewDismissResponseApplicationJson.new,
       )
-      ..add(CoreWhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.serializer)
+      ..add(WhatsNewDismissResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewDismissResponseApplicationJson),
-        CoreWhatsNewDismissResponseApplicationJson.new,
+        const FullType(WhatsNewDismissResponseApplicationJson_Ocs),
+        WhatsNewDismissResponseApplicationJson_Ocs.new,
       )
-      ..add(CoreWhatsNewDismissResponseApplicationJson.serializer)
+      ..add(WhatsNewDismissResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CoreWhatsNewDismissResponseApplicationJson_Ocs),
-        CoreWhatsNewDismissResponseApplicationJson_Ocs.new,
+        const FullType(WipeCheckWipeResponseApplicationJson),
+        WipeCheckWipeResponseApplicationJson.new,
       )
-      ..add(CoreWhatsNewDismissResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreWipeCheckWipeResponseApplicationJson),
-        CoreWipeCheckWipeResponseApplicationJson.new,
-      )
-      ..add(CoreWipeCheckWipeResponseApplicationJson.serializer))
+      ..add(WipeCheckWipeResponseApplicationJson.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

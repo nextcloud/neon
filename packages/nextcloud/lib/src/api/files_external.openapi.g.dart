@@ -6,87 +6,78 @@ part of 'files_external.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const FilesExternalMount_Type _$filesExternalMountTypeDir = FilesExternalMount_Type._('dir');
+const Mount_Type _$mountTypeDir = Mount_Type._('dir');
 
-FilesExternalMount_Type _$valueOfFilesExternalMount_Type(String name) {
+Mount_Type _$valueOfMount_Type(String name) {
   switch (name) {
     case 'dir':
-      return _$filesExternalMountTypeDir;
+      return _$mountTypeDir;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<FilesExternalMount_Type> _$filesExternalMountTypeValues =
-    BuiltSet<FilesExternalMount_Type>(const <FilesExternalMount_Type>[
-  _$filesExternalMountTypeDir,
+final BuiltSet<Mount_Type> _$mountTypeValues = BuiltSet<Mount_Type>(const <Mount_Type>[
+  _$mountTypeDir,
 ]);
 
-const FilesExternalMount_Scope _$filesExternalMountScopeSystem = FilesExternalMount_Scope._('system');
-const FilesExternalMount_Scope _$filesExternalMountScopePersonal = FilesExternalMount_Scope._('personal');
+const Mount_Scope _$mountScopeSystem = Mount_Scope._('system');
+const Mount_Scope _$mountScopePersonal = Mount_Scope._('personal');
 
-FilesExternalMount_Scope _$valueOfFilesExternalMount_Scope(String name) {
+Mount_Scope _$valueOfMount_Scope(String name) {
   switch (name) {
     case 'system':
-      return _$filesExternalMountScopeSystem;
+      return _$mountScopeSystem;
     case 'personal':
-      return _$filesExternalMountScopePersonal;
+      return _$mountScopePersonal;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<FilesExternalMount_Scope> _$filesExternalMountScopeValues =
-    BuiltSet<FilesExternalMount_Scope>(const <FilesExternalMount_Scope>[
-  _$filesExternalMountScopeSystem,
-  _$filesExternalMountScopePersonal,
+final BuiltSet<Mount_Scope> _$mountScopeValues = BuiltSet<Mount_Scope>(const <Mount_Scope>[
+  _$mountScopeSystem,
+  _$mountScopePersonal,
 ]);
 
-const FilesExternalStorageConfig_Type _$filesExternalStorageConfigTypePersonal =
-    FilesExternalStorageConfig_Type._('personal');
-const FilesExternalStorageConfig_Type _$filesExternalStorageConfigTypeSystem =
-    FilesExternalStorageConfig_Type._('system');
+const StorageConfig_Type _$storageConfigTypePersonal = StorageConfig_Type._('personal');
+const StorageConfig_Type _$storageConfigTypeSystem = StorageConfig_Type._('system');
 
-FilesExternalStorageConfig_Type _$valueOfFilesExternalStorageConfig_Type(String name) {
+StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
   switch (name) {
     case 'personal':
-      return _$filesExternalStorageConfigTypePersonal;
+      return _$storageConfigTypePersonal;
     case 'system':
-      return _$filesExternalStorageConfigTypeSystem;
+      return _$storageConfigTypeSystem;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<FilesExternalStorageConfig_Type> _$filesExternalStorageConfigTypeValues =
-    BuiltSet<FilesExternalStorageConfig_Type>(const <FilesExternalStorageConfig_Type>[
-  _$filesExternalStorageConfigTypePersonal,
-  _$filesExternalStorageConfigTypeSystem,
+final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
+  _$storageConfigTypePersonal,
+  _$storageConfigTypeSystem,
 ]);
 
-Serializer<FilesExternalOCSMeta> _$filesExternalOCSMetaSerializer = _$FilesExternalOCSMetaSerializer();
-Serializer<FilesExternalMount_Type> _$filesExternalMountTypeSerializer = _$FilesExternalMount_TypeSerializer();
-Serializer<FilesExternalMount_Scope> _$filesExternalMountScopeSerializer = _$FilesExternalMount_ScopeSerializer();
-Serializer<FilesExternalStorageConfig_Type> _$filesExternalStorageConfigTypeSerializer =
-    _$FilesExternalStorageConfig_TypeSerializer();
-Serializer<FilesExternalStorageConfig> _$filesExternalStorageConfigSerializer =
-    _$FilesExternalStorageConfigSerializer();
-Serializer<FilesExternalMount> _$filesExternalMountSerializer = _$FilesExternalMountSerializer();
-Serializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs>
-    _$filesExternalApiGetUserMountsResponseApplicationJsonOcsSerializer =
-    _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer();
-Serializer<FilesExternalApiGetUserMountsResponseApplicationJson>
-    _$filesExternalApiGetUserMountsResponseApplicationJsonSerializer =
-    _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<Mount_Type> _$mountTypeSerializer = _$Mount_TypeSerializer();
+Serializer<Mount_Scope> _$mountScopeSerializer = _$Mount_ScopeSerializer();
+Serializer<StorageConfig_Type> _$storageConfigTypeSerializer = _$StorageConfig_TypeSerializer();
+Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
+Serializer<Mount> _$mountSerializer = _$MountSerializer();
+Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
+    _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
+Serializer<ApiGetUserMountsResponseApplicationJson> _$apiGetUserMountsResponseApplicationJsonSerializer =
+    _$ApiGetUserMountsResponseApplicationJsonSerializer();
 
-class _$FilesExternalOCSMetaSerializer implements StructuredSerializer<FilesExternalOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [FilesExternalOCSMeta, _$FilesExternalOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'FilesExternalOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -117,9 +108,9 @@ class _$FilesExternalOCSMetaSerializer implements StructuredSerializer<FilesExte
   }
 
   @override
-  FilesExternalOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -149,65 +140,62 @@ class _$FilesExternalOCSMetaSerializer implements StructuredSerializer<FilesExte
   }
 }
 
-class _$FilesExternalMount_TypeSerializer implements PrimitiveSerializer<FilesExternalMount_Type> {
+class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
   @override
-  final Iterable<Type> types = const <Type>[FilesExternalMount_Type];
+  final Iterable<Type> types = const <Type>[Mount_Type];
   @override
-  final String wireName = 'FilesExternalMount_Type';
+  final String wireName = 'Mount_Type';
 
   @override
-  Object serialize(Serializers serializers, FilesExternalMount_Type object,
+  Object serialize(Serializers serializers, Mount_Type object, {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  Mount_Type deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
+      Mount_Type.valueOf(serialized as String);
+}
+
+class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
+  @override
+  final Iterable<Type> types = const <Type>[Mount_Scope];
+  @override
+  final String wireName = 'Mount_Scope';
+
+  @override
+  Object serialize(Serializers serializers, Mount_Scope object, {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  Mount_Scope deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      Mount_Scope.valueOf(serialized as String);
+}
+
+class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfig_Type> {
+  @override
+  final Iterable<Type> types = const <Type>[StorageConfig_Type];
+  @override
+  final String wireName = 'StorageConfig_Type';
+
+  @override
+  Object serialize(Serializers serializers, StorageConfig_Type object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  FilesExternalMount_Type deserialize(Serializers serializers, Object serialized,
+  StorageConfig_Type deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      FilesExternalMount_Type.valueOf(serialized as String);
+      StorageConfig_Type.valueOf(serialized as String);
 }
 
-class _$FilesExternalMount_ScopeSerializer implements PrimitiveSerializer<FilesExternalMount_Scope> {
+class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
   @override
-  final Iterable<Type> types = const <Type>[FilesExternalMount_Scope];
+  final Iterable<Type> types = const [StorageConfig, _$StorageConfig];
   @override
-  final String wireName = 'FilesExternalMount_Scope';
+  final String wireName = 'StorageConfig';
 
   @override
-  Object serialize(Serializers serializers, FilesExternalMount_Scope object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FilesExternalMount_Scope deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FilesExternalMount_Scope.valueOf(serialized as String);
-}
-
-class _$FilesExternalStorageConfig_TypeSerializer implements PrimitiveSerializer<FilesExternalStorageConfig_Type> {
-  @override
-  final Iterable<Type> types = const <Type>[FilesExternalStorageConfig_Type];
-  @override
-  final String wireName = 'FilesExternalStorageConfig_Type';
-
-  @override
-  Object serialize(Serializers serializers, FilesExternalStorageConfig_Type object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FilesExternalStorageConfig_Type deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FilesExternalStorageConfig_Type.valueOf(serialized as String);
-}
-
-class _$FilesExternalStorageConfigSerializer implements StructuredSerializer<FilesExternalStorageConfig> {
-  @override
-  final Iterable<Type> types = const [FilesExternalStorageConfig, _$FilesExternalStorageConfig];
-  @override
-  final String wireName = 'FilesExternalStorageConfig';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalStorageConfig object,
+  Iterable<Object?> serialize(Serializers serializers, StorageConfig object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'authMechanism',
@@ -220,7 +208,7 @@ class _$FilesExternalStorageConfigSerializer implements StructuredSerializer<Fil
       'mountPoint',
       serializers.serialize(object.mountPoint, specifiedType: const FullType(String)),
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(FilesExternalStorageConfig_Type)),
+      serializers.serialize(object.type, specifiedType: const FullType(StorageConfig_Type)),
       'userProvided',
       serializers.serialize(object.userProvided, specifiedType: const FullType(bool)),
     ];
@@ -272,9 +260,9 @@ class _$FilesExternalStorageConfigSerializer implements StructuredSerializer<Fil
   }
 
   @override
-  FilesExternalStorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
+  StorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalStorageConfigBuilder();
+    final result = StorageConfigBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -320,8 +308,8 @@ class _$FilesExternalStorageConfigSerializer implements StructuredSerializer<Fil
           result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(FilesExternalStorageConfig_Type))!
-              as FilesExternalStorageConfig_Type;
+          result.type =
+              serializers.deserialize(value, specifiedType: const FullType(StorageConfig_Type))! as StorageConfig_Type;
           break;
         case 'userProvided':
           result.userProvided = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -333,26 +321,25 @@ class _$FilesExternalStorageConfigSerializer implements StructuredSerializer<Fil
   }
 }
 
-class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExternalMount> {
+class _$MountSerializer implements StructuredSerializer<Mount> {
   @override
-  final Iterable<Type> types = const [FilesExternalMount, _$FilesExternalMount];
+  final Iterable<Type> types = const [Mount, _$Mount];
   @override
-  final String wireName = 'FilesExternalMount';
+  final String wireName = 'Mount';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalMount object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Mount object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(FilesExternalMount_Type)),
+      serializers.serialize(object.type, specifiedType: const FullType(Mount_Type)),
       'backend',
       serializers.serialize(object.backend, specifiedType: const FullType(String)),
       'scope',
-      serializers.serialize(object.scope, specifiedType: const FullType(FilesExternalMount_Scope)),
+      serializers.serialize(object.scope, specifiedType: const FullType(Mount_Scope)),
       'permissions',
       serializers.serialize(object.permissions, specifiedType: const FullType(int)),
       'id',
@@ -360,16 +347,16 @@ class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExtern
       'class',
       serializers.serialize(object.$class, specifiedType: const FullType(String)),
       'config',
-      serializers.serialize(object.config, specifiedType: const FullType(FilesExternalStorageConfig)),
+      serializers.serialize(object.config, specifiedType: const FullType(StorageConfig)),
     ];
 
     return result;
   }
 
   @override
-  FilesExternalMount deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Mount deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalMountBuilder();
+    final result = MountBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -384,15 +371,13 @@ class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExtern
           result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(FilesExternalMount_Type))!
-              as FilesExternalMount_Type;
+          result.type = serializers.deserialize(value, specifiedType: const FullType(Mount_Type))! as Mount_Type;
           break;
         case 'backend':
           result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'scope':
-          result.scope = serializers.deserialize(value, specifiedType: const FullType(FilesExternalMount_Scope))!
-              as FilesExternalMount_Scope;
+          result.scope = serializers.deserialize(value, specifiedType: const FullType(Mount_Scope))! as Mount_Scope;
           break;
         case 'permissions':
           result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -404,8 +389,8 @@ class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExtern
           result.$class = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'config':
-          result.config.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesExternalStorageConfig))! as FilesExternalStorageConfig);
+          result.config
+              .replace(serializers.deserialize(value, specifiedType: const FullType(StorageConfig))! as StorageConfig);
           break;
       }
     }
@@ -414,34 +399,33 @@ class _$FilesExternalMountSerializer implements StructuredSerializer<FilesExtern
   }
 }
 
-class _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs> {
+class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGetUserMountsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesExternalApiGetUserMountsResponseApplicationJson_Ocs,
-    _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
+    ApiGetUserMountsResponseApplicationJson_Ocs,
+    _$ApiGetUserMountsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs';
+  final String wireName = 'ApiGetUserMountsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalApiGetUserMountsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesExternalOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesExternalMount)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Mount)])),
     ];
 
     return result;
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ApiGetUserMountsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
+    final result = ApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -450,12 +434,11 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesExternalOCSMeta))!
-              as FilesExternalOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesExternalMount)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Mount)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -464,33 +447,31 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesExternalApiGetUserMountsResponseApplicationJson> {
+class _$ApiGetUserMountsResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGetUserMountsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesExternalApiGetUserMountsResponseApplicationJson,
-    _$FilesExternalApiGetUserMountsResponseApplicationJson
+    ApiGetUserMountsResponseApplicationJson,
+    _$ApiGetUserMountsResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesExternalApiGetUserMountsResponseApplicationJson';
+  final String wireName = 'ApiGetUserMountsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesExternalApiGetUserMountsResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ApiGetUserMountsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesExternalApiGetUserMountsResponseApplicationJsonBuilder();
+    final result = ApiGetUserMountsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -500,8 +481,8 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesExternalApiGetUserMountsResponseApplicationJson_Ocs))!
-              as FilesExternalApiGetUserMountsResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs))!
+              as ApiGetUserMountsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -510,9 +491,9 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class FilesExternalOCSMetaInterfaceBuilder {
-  void replace(FilesExternalOCSMetaInterface other);
-  void update(void Function(FilesExternalOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -529,7 +510,7 @@ abstract mixin class FilesExternalOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -541,27 +522,24 @@ class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$FilesExternalOCSMeta([void Function(FilesExternalOCSMetaBuilder)? updates]) =>
-      (FilesExternalOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$FilesExternalOCSMeta._(
-      {required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesExternalOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesExternalOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  FilesExternalOCSMeta rebuild(void Function(FilesExternalOCSMetaBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalOCSMetaBuilder toBuilder() => FilesExternalOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -583,7 +561,7 @@ class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -593,9 +571,8 @@ class _$FilesExternalOCSMeta extends FilesExternalOCSMeta {
   }
 }
 
-class FilesExternalOCSMetaBuilder
-    implements Builder<FilesExternalOCSMeta, FilesExternalOCSMetaBuilder>, FilesExternalOCSMetaInterfaceBuilder {
-  _$FilesExternalOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -617,9 +594,9 @@ class FilesExternalOCSMetaBuilder
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  FilesExternalOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  FilesExternalOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -633,24 +610,24 @@ class FilesExternalOCSMetaBuilder
   }
 
   @override
-  void replace(covariant FilesExternalOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(FilesExternalOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$FilesExternalOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$FilesExternalOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'FilesExternalOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesExternalOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -659,9 +636,9 @@ class FilesExternalOCSMetaBuilder
   }
 }
 
-abstract mixin class FilesExternalStorageConfigInterfaceBuilder {
-  void replace(FilesExternalStorageConfigInterface other);
-  void update(void Function(FilesExternalStorageConfigInterfaceBuilder) updates);
+abstract mixin class StorageConfigInterfaceBuilder {
+  void replace(StorageConfigInterface other);
+  void update(void Function(StorageConfigInterfaceBuilder) updates);
   ListBuilder<String> get applicableGroups;
   set applicableGroups(ListBuilder<String>? applicableGroups);
 
@@ -695,14 +672,14 @@ abstract mixin class FilesExternalStorageConfigInterfaceBuilder {
   String? get statusMessage;
   set statusMessage(String? statusMessage);
 
-  FilesExternalStorageConfig_Type? get type;
-  set type(FilesExternalStorageConfig_Type? type);
+  StorageConfig_Type? get type;
+  set type(StorageConfig_Type? type);
 
   bool? get userProvided;
   set userProvided(bool? userProvided);
 }
 
-class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
+class _$StorageConfig extends StorageConfig {
   @override
   final BuiltList<String>? applicableGroups;
   @override
@@ -726,14 +703,14 @@ class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
   @override
   final String? statusMessage;
   @override
-  final FilesExternalStorageConfig_Type type;
+  final StorageConfig_Type type;
   @override
   final bool userProvided;
 
-  factory _$FilesExternalStorageConfig([void Function(FilesExternalStorageConfigBuilder)? updates]) =>
-      (FilesExternalStorageConfigBuilder()..update(updates))._build();
+  factory _$StorageConfig([void Function(StorageConfigBuilder)? updates]) =>
+      (StorageConfigBuilder()..update(updates))._build();
 
-  _$FilesExternalStorageConfig._(
+  _$StorageConfig._(
       {this.applicableGroups,
       this.applicableUsers,
       required this.authMechanism,
@@ -748,25 +725,24 @@ class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
       required this.type,
       required this.userProvided})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(authMechanism, r'FilesExternalStorageConfig', 'authMechanism');
-    BuiltValueNullFieldError.checkNotNull(backend, r'FilesExternalStorageConfig', 'backend');
-    BuiltValueNullFieldError.checkNotNull(backendOptions, r'FilesExternalStorageConfig', 'backendOptions');
-    BuiltValueNullFieldError.checkNotNull(mountPoint, r'FilesExternalStorageConfig', 'mountPoint');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesExternalStorageConfig', 'type');
-    BuiltValueNullFieldError.checkNotNull(userProvided, r'FilesExternalStorageConfig', 'userProvided');
+    BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism');
+    BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend');
+    BuiltValueNullFieldError.checkNotNull(backendOptions, r'StorageConfig', 'backendOptions');
+    BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint');
+    BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type');
+    BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided');
   }
 
   @override
-  FilesExternalStorageConfig rebuild(void Function(FilesExternalStorageConfigBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  StorageConfig rebuild(void Function(StorageConfigBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalStorageConfigBuilder toBuilder() => FilesExternalStorageConfigBuilder()..replace(this);
+  StorageConfigBuilder toBuilder() => StorageConfigBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalStorageConfig &&
+    return other is StorageConfig &&
         applicableGroups == other.applicableGroups &&
         applicableUsers == other.applicableUsers &&
         authMechanism == other.authMechanism &&
@@ -804,7 +780,7 @@ class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalStorageConfig')
+    return (newBuiltValueToStringHelper(r'StorageConfig')
           ..add('applicableGroups', applicableGroups)
           ..add('applicableUsers', applicableUsers)
           ..add('authMechanism', authMechanism)
@@ -822,11 +798,8 @@ class _$FilesExternalStorageConfig extends FilesExternalStorageConfig {
   }
 }
 
-class FilesExternalStorageConfigBuilder
-    implements
-        Builder<FilesExternalStorageConfig, FilesExternalStorageConfigBuilder>,
-        FilesExternalStorageConfigInterfaceBuilder {
-  _$FilesExternalStorageConfig? _$v;
+class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilder>, StorageConfigInterfaceBuilder {
+  _$StorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
   ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= ListBuilder<String>();
@@ -873,17 +846,17 @@ class FilesExternalStorageConfigBuilder
   String? get statusMessage => _$this._statusMessage;
   set statusMessage(covariant String? statusMessage) => _$this._statusMessage = statusMessage;
 
-  FilesExternalStorageConfig_Type? _type;
-  FilesExternalStorageConfig_Type? get type => _$this._type;
-  set type(covariant FilesExternalStorageConfig_Type? type) => _$this._type = type;
+  StorageConfig_Type? _type;
+  StorageConfig_Type? get type => _$this._type;
+  set type(covariant StorageConfig_Type? type) => _$this._type = type;
 
   bool? _userProvided;
   bool? get userProvided => _$this._userProvided;
   set userProvided(covariant bool? userProvided) => _$this._userProvided = userProvided;
 
-  FilesExternalStorageConfigBuilder();
+  StorageConfigBuilder();
 
-  FilesExternalStorageConfigBuilder get _$this {
+  StorageConfigBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _applicableGroups = $v.applicableGroups?.toBuilder();
@@ -905,40 +878,37 @@ class FilesExternalStorageConfigBuilder
   }
 
   @override
-  void replace(covariant FilesExternalStorageConfig other) {
+  void replace(covariant StorageConfig other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalStorageConfig;
+    _$v = other as _$StorageConfig;
   }
 
   @override
-  void update(void Function(FilesExternalStorageConfigBuilder)? updates) {
+  void update(void Function(StorageConfigBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalStorageConfig build() => _build();
+  StorageConfig build() => _build();
 
-  _$FilesExternalStorageConfig _build() {
-    _$FilesExternalStorageConfig _$result;
+  _$StorageConfig _build() {
+    _$StorageConfig _$result;
     try {
       _$result = _$v ??
-          _$FilesExternalStorageConfig._(
+          _$StorageConfig._(
               applicableGroups: _applicableGroups?.build(),
               applicableUsers: _applicableUsers?.build(),
-              authMechanism:
-                  BuiltValueNullFieldError.checkNotNull(authMechanism, r'FilesExternalStorageConfig', 'authMechanism'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'FilesExternalStorageConfig', 'backend'),
+              authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
+              backend: BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend'),
               backendOptions: backendOptions.build(),
               id: id,
               mountOptions: _mountOptions?.build(),
-              mountPoint:
-                  BuiltValueNullFieldError.checkNotNull(mountPoint, r'FilesExternalStorageConfig', 'mountPoint'),
+              mountPoint: BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint'),
               priority: priority,
               status: status,
               statusMessage: statusMessage,
-              type: BuiltValueNullFieldError.checkNotNull(type, r'FilesExternalStorageConfig', 'type'),
-              userProvided:
-                  BuiltValueNullFieldError.checkNotNull(userProvided, r'FilesExternalStorageConfig', 'userProvided'));
+              type: BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type'),
+              userProvided: BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -953,7 +923,7 @@ class FilesExternalStorageConfigBuilder
         _$failedField = 'mountOptions';
         _mountOptions?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesExternalStorageConfig', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -962,23 +932,23 @@ class FilesExternalStorageConfigBuilder
   }
 }
 
-abstract mixin class FilesExternalMountInterfaceBuilder {
-  void replace(FilesExternalMountInterface other);
-  void update(void Function(FilesExternalMountInterfaceBuilder) updates);
+abstract mixin class MountInterfaceBuilder {
+  void replace(MountInterface other);
+  void update(void Function(MountInterfaceBuilder) updates);
   String? get name;
   set name(String? name);
 
   String? get path;
   set path(String? path);
 
-  FilesExternalMount_Type? get type;
-  set type(FilesExternalMount_Type? type);
+  Mount_Type? get type;
+  set type(Mount_Type? type);
 
   String? get backend;
   set backend(String? backend);
 
-  FilesExternalMount_Scope? get scope;
-  set scope(FilesExternalMount_Scope? scope);
+  Mount_Scope? get scope;
+  set scope(Mount_Scope? scope);
 
   int? get permissions;
   set permissions(int? permissions);
@@ -989,21 +959,21 @@ abstract mixin class FilesExternalMountInterfaceBuilder {
   String? get $class;
   set $class(String? $class);
 
-  FilesExternalStorageConfigBuilder get config;
-  set config(FilesExternalStorageConfigBuilder? config);
+  StorageConfigBuilder get config;
+  set config(StorageConfigBuilder? config);
 }
 
-class _$FilesExternalMount extends FilesExternalMount {
+class _$Mount extends Mount {
   @override
   final String name;
   @override
   final String path;
   @override
-  final FilesExternalMount_Type type;
+  final Mount_Type type;
   @override
   final String backend;
   @override
-  final FilesExternalMount_Scope scope;
+  final Mount_Scope scope;
   @override
   final int permissions;
   @override
@@ -1011,12 +981,11 @@ class _$FilesExternalMount extends FilesExternalMount {
   @override
   final String $class;
   @override
-  final FilesExternalStorageConfig config;
+  final StorageConfig config;
 
-  factory _$FilesExternalMount([void Function(FilesExternalMountBuilder)? updates]) =>
-      (FilesExternalMountBuilder()..update(updates))._build();
+  factory _$Mount([void Function(MountBuilder)? updates]) => (MountBuilder()..update(updates))._build();
 
-  _$FilesExternalMount._(
+  _$Mount._(
       {required this.name,
       required this.path,
       required this.type,
@@ -1027,28 +996,27 @@ class _$FilesExternalMount extends FilesExternalMount {
       required this.$class,
       required this.config})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesExternalMount', 'name');
-    BuiltValueNullFieldError.checkNotNull(path, r'FilesExternalMount', 'path');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesExternalMount', 'type');
-    BuiltValueNullFieldError.checkNotNull(backend, r'FilesExternalMount', 'backend');
-    BuiltValueNullFieldError.checkNotNull(scope, r'FilesExternalMount', 'scope');
-    BuiltValueNullFieldError.checkNotNull(permissions, r'FilesExternalMount', 'permissions');
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesExternalMount', 'id');
-    BuiltValueNullFieldError.checkNotNull($class, r'FilesExternalMount', '\$class');
-    BuiltValueNullFieldError.checkNotNull(config, r'FilesExternalMount', 'config');
+    BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name');
+    BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path');
+    BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type');
+    BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend');
+    BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope');
+    BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions');
+    BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id');
+    BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class');
+    BuiltValueNullFieldError.checkNotNull(config, r'Mount', 'config');
   }
 
   @override
-  FilesExternalMount rebuild(void Function(FilesExternalMountBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Mount rebuild(void Function(MountBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalMountBuilder toBuilder() => FilesExternalMountBuilder()..replace(this);
+  MountBuilder toBuilder() => MountBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalMount &&
+    return other is Mount &&
         name == other.name &&
         path == other.path &&
         type == other.type &&
@@ -1078,7 +1046,7 @@ class _$FilesExternalMount extends FilesExternalMount {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalMount')
+    return (newBuiltValueToStringHelper(r'Mount')
           ..add('name', name)
           ..add('path', path)
           ..add('type', type)
@@ -1092,9 +1060,8 @@ class _$FilesExternalMount extends FilesExternalMount {
   }
 }
 
-class FilesExternalMountBuilder
-    implements Builder<FilesExternalMount, FilesExternalMountBuilder>, FilesExternalMountInterfaceBuilder {
-  _$FilesExternalMount? _$v;
+class MountBuilder implements Builder<Mount, MountBuilder>, MountInterfaceBuilder {
+  _$Mount? _$v;
 
   String? _name;
   String? get name => _$this._name;
@@ -1104,17 +1071,17 @@ class FilesExternalMountBuilder
   String? get path => _$this._path;
   set path(covariant String? path) => _$this._path = path;
 
-  FilesExternalMount_Type? _type;
-  FilesExternalMount_Type? get type => _$this._type;
-  set type(covariant FilesExternalMount_Type? type) => _$this._type = type;
+  Mount_Type? _type;
+  Mount_Type? get type => _$this._type;
+  set type(covariant Mount_Type? type) => _$this._type = type;
 
   String? _backend;
   String? get backend => _$this._backend;
   set backend(covariant String? backend) => _$this._backend = backend;
 
-  FilesExternalMount_Scope? _scope;
-  FilesExternalMount_Scope? get scope => _$this._scope;
-  set scope(covariant FilesExternalMount_Scope? scope) => _$this._scope = scope;
+  Mount_Scope? _scope;
+  Mount_Scope? get scope => _$this._scope;
+  set scope(covariant Mount_Scope? scope) => _$this._scope = scope;
 
   int? _permissions;
   int? get permissions => _$this._permissions;
@@ -1128,13 +1095,13 @@ class FilesExternalMountBuilder
   String? get $class => _$this._$class;
   set $class(covariant String? $class) => _$this._$class = $class;
 
-  FilesExternalStorageConfigBuilder? _config;
-  FilesExternalStorageConfigBuilder get config => _$this._config ??= FilesExternalStorageConfigBuilder();
-  set config(covariant FilesExternalStorageConfigBuilder? config) => _$this._config = config;
+  StorageConfigBuilder? _config;
+  StorageConfigBuilder get config => _$this._config ??= StorageConfigBuilder();
+  set config(covariant StorageConfigBuilder? config) => _$this._config = config;
 
-  FilesExternalMountBuilder();
+  MountBuilder();
 
-  FilesExternalMountBuilder get _$this {
+  MountBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -1152,32 +1119,32 @@ class FilesExternalMountBuilder
   }
 
   @override
-  void replace(covariant FilesExternalMount other) {
+  void replace(covariant Mount other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalMount;
+    _$v = other as _$Mount;
   }
 
   @override
-  void update(void Function(FilesExternalMountBuilder)? updates) {
+  void update(void Function(MountBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalMount build() => _build();
+  Mount build() => _build();
 
-  _$FilesExternalMount _build() {
-    _$FilesExternalMount _$result;
+  _$Mount _build() {
+    _$Mount _$result;
     try {
       _$result = _$v ??
-          _$FilesExternalMount._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'FilesExternalMount', 'name'),
-              path: BuiltValueNullFieldError.checkNotNull(path, r'FilesExternalMount', 'path'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'FilesExternalMount', 'type'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'FilesExternalMount', 'backend'),
-              scope: BuiltValueNullFieldError.checkNotNull(scope, r'FilesExternalMount', 'scope'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'FilesExternalMount', 'permissions'),
-              id: BuiltValueNullFieldError.checkNotNull(id, r'FilesExternalMount', 'id'),
-              $class: BuiltValueNullFieldError.checkNotNull($class, r'FilesExternalMount', '\$class'),
+          _$Mount._(
+              name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
+              path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
+              backend: BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend'),
+              scope: BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope'),
+              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id'),
+              $class: BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class'),
               config: config.build());
     } catch (_) {
       late String _$failedField;
@@ -1185,7 +1152,7 @@ class FilesExternalMountBuilder
         _$failedField = 'config';
         config.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesExternalMount', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Mount', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1194,47 +1161,44 @@ class FilesExternalMountBuilder
   }
 }
 
-abstract mixin class FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesExternalOCSMetaBuilder get meta;
-  set meta(FilesExternalOCSMetaBuilder? meta);
+abstract mixin class ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ApiGetUserMountsResponseApplicationJson_OcsInterface other);
+  void update(void Function(ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesExternalMount> get data;
-  set data(ListBuilder<FilesExternalMount>? data);
+  ListBuilder<Mount> get data;
+  set data(ListBuilder<Mount>? data);
 }
 
-class _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
-    extends FilesExternalApiGetUserMountsResponseApplicationJson_Ocs {
+class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResponseApplicationJson_Ocs {
   @override
-  final FilesExternalOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesExternalMount> data;
+  final BuiltList<Mount> data;
 
-  factory _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs(
-          [void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiGetUserMountsResponseApplicationJson_Ocs(
+          [void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', 'data');
+  _$ApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs rebuild(
-          void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder) updates) =>
+  ApiGetUserMountsResponseApplicationJson_Ocs rebuild(
+          void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalApiGetUserMountsResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ApiGetUserMountsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -1248,31 +1212,30 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ApiGetUserMountsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder
+class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesExternalApiGetUserMountsResponseApplicationJson_Ocs,
-            FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder>,
-        FilesExternalApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs? _$v;
+        Builder<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder>,
+        ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
-  FilesExternalOCSMetaBuilder? _meta;
-  FilesExternalOCSMetaBuilder get meta => _$this._meta ??= FilesExternalOCSMetaBuilder();
-  set meta(covariant FilesExternalOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesExternalMount>? _data;
-  ListBuilder<FilesExternalMount> get data => _$this._data ??= ListBuilder<FilesExternalMount>();
-  set data(covariant ListBuilder<FilesExternalMount>? data) => _$this._data = data;
+  ListBuilder<Mount>? _data;
+  ListBuilder<Mount> get data => _$this._data ??= ListBuilder<Mount>();
+  set data(covariant ListBuilder<Mount>? data) => _$this._data = data;
 
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get _$this {
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -1283,24 +1246,23 @@ class FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesExternalApiGetUserMountsResponseApplicationJson_Ocs other) {
+  void replace(covariant ApiGetUserMountsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs;
+    _$v = other as _$ApiGetUserMountsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson_Ocs build() => _build();
+  ApiGetUserMountsResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs _build() {
-    _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs _$result;
+  _$ApiGetUserMountsResponseApplicationJson_Ocs _build() {
+    _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesExternalApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1309,8 +1271,7 @@ class FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesExternalApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1319,39 +1280,38 @@ class FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesExternalApiGetUserMountsResponseApplicationJsonInterface other);
-  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+  void replace(ApiGetUserMountsResponseApplicationJsonInterface other);
+  void update(void Function(ApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesExternalApiGetUserMountsResponseApplicationJson
-    extends FilesExternalApiGetUserMountsResponseApplicationJson {
+class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponseApplicationJson {
   @override
-  final FilesExternalApiGetUserMountsResponseApplicationJson_Ocs ocs;
+  final ApiGetUserMountsResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesExternalApiGetUserMountsResponseApplicationJson(
-          [void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
-      (FilesExternalApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiGetUserMountsResponseApplicationJson(
+          [void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
+      (ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesExternalApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesExternalApiGetUserMountsResponseApplicationJson', 'ocs');
+  _$ApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetUserMountsResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson rebuild(
-          void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder) updates) =>
+  ApiGetUserMountsResponseApplicationJson rebuild(
+          void Function(ApiGetUserMountsResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder toBuilder() =>
-      FilesExternalApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
+  ApiGetUserMountsResponseApplicationJsonBuilder toBuilder() =>
+      ApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesExternalApiGetUserMountsResponseApplicationJson && ocs == other.ocs;
+    return other is ApiGetUserMountsResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -1364,26 +1324,24 @@ class _$FilesExternalApiGetUserMountsResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesExternalApiGetUserMountsResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiGetUserMountsResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesExternalApiGetUserMountsResponseApplicationJsonBuilder
+class ApiGetUserMountsResponseApplicationJsonBuilder
     implements
-        Builder<FilesExternalApiGetUserMountsResponseApplicationJson,
-            FilesExternalApiGetUserMountsResponseApplicationJsonBuilder>,
-        FilesExternalApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
-  _$FilesExternalApiGetUserMountsResponseApplicationJson? _$v;
+        Builder<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder>,
+        ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+  _$ApiGetUserMountsResponseApplicationJson? _$v;
 
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
-  FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesExternalApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder();
+  ApiGetUserMountsResponseApplicationJsonBuilder();
 
-  FilesExternalApiGetUserMountsResponseApplicationJsonBuilder get _$this {
+  ApiGetUserMountsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -1393,31 +1351,30 @@ class FilesExternalApiGetUserMountsResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesExternalApiGetUserMountsResponseApplicationJson other) {
+  void replace(covariant ApiGetUserMountsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesExternalApiGetUserMountsResponseApplicationJson;
+    _$v = other as _$ApiGetUserMountsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesExternalApiGetUserMountsResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesExternalApiGetUserMountsResponseApplicationJson build() => _build();
+  ApiGetUserMountsResponseApplicationJson build() => _build();
 
-  _$FilesExternalApiGetUserMountsResponseApplicationJson _build() {
-    _$FilesExternalApiGetUserMountsResponseApplicationJson _$result;
+  _$ApiGetUserMountsResponseApplicationJson _build() {
+    _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesExternalApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesExternalApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

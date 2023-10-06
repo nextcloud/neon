@@ -6,8 +6,8 @@ export 'src/api/files_trashbin.openapi.dart';
 
 // ignore: public_member_api_docs
 extension FilesTrashbinExtension on NextcloudClient {
-  static final _filesTrashbin = Expando<FilesTrashbinClient>();
+  static final _filesTrashbin = Expando<Client>();
 
   /// Client for the files_trashbin APIs
-  FilesTrashbinClient get filesTrashbin => _filesTrashbin[this] ??= FilesTrashbinClient.fromClient(this);
+  Client get filesTrashbin => _filesTrashbin[this] ??= Client.fromClient(this);
 }

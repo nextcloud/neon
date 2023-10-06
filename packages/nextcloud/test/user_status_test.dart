@@ -1,4 +1,4 @@
-import 'package:nextcloud/user_status.dart';
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -33,20 +33,20 @@ void main() {
         }
 
         final meeting = response.body.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt!;
-        expect(meeting.type, UserStatusClearAt_Type.period);
+        expect(meeting.type, user_status.ClearAt_Type.period);
         expect(meeting.time.$int, 3600);
 
         final commuting = response.body.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt!;
-        expect(commuting.type, UserStatusClearAt_Type.period);
+        expect(commuting.type, user_status.ClearAt_Type.period);
         expect(commuting.time.$int, 1800);
 
         final remoteWork = response.body.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt!;
-        expect(remoteWork.type, UserStatusClearAt_Type.endOf);
-        expect(remoteWork.time.clearAtTimeType, UserStatusClearAtTimeType.day);
+        expect(remoteWork.type, user_status.ClearAt_Type.endOf);
+        expect(remoteWork.time.clearAtTimeType, user_status.ClearAtTimeType.day);
 
         final sickLeave = response.body.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt!;
-        expect(sickLeave.type, UserStatusClearAt_Type.endOf);
-        expect(sickLeave.time.clearAtTimeType, UserStatusClearAtTimeType.day);
+        expect(sickLeave.type, user_status.ClearAt_Type.endOf);
+        expect(sickLeave.time.clearAtTimeType, user_status.ClearAtTimeType.day);
 
         final vacationing = response.body.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
         expect(vacationing, null);

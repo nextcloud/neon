@@ -6,8 +6,8 @@ export 'src/api/comments.openapi.dart';
 
 // ignore: public_member_api_docs
 extension CommentsExtension on NextcloudClient {
-  static final _comments = Expando<CommentsClient>();
+  static final _comments = Expando<Client>();
 
   /// Client for the comments APIs
-  CommentsClient get comments => _comments[this] ??= CommentsClient.fromClient(this);
+  Client get comments => _comments[this] ??= Client.fromClient(this);
 }

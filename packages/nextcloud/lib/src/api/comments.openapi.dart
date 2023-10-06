@@ -9,12 +9,10 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'comments.openapi.g.dart';
 
-class CommentsClient extends DynamiteClient {
-  CommentsClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -23,7 +21,7 @@ class CommentsClient extends DynamiteClient {
     super.authentications,
   });
 
-  CommentsClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -34,25 +32,22 @@ class CommentsClient extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CommentsCapabilities_FilesInterface {
+abstract interface class Capabilities_FilesInterface {
   bool get comments;
-  CommentsCapabilities_FilesInterface rebuild(final void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
-  CommentsCapabilities_FilesInterfaceBuilder toBuilder();
+  Capabilities_FilesInterface rebuild(final void Function(Capabilities_FilesInterfaceBuilder) updates);
+  Capabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class CommentsCapabilities_Files
-    implements
-        CommentsCapabilities_FilesInterface,
-        Built<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
-  factory CommentsCapabilities_Files([final void Function(CommentsCapabilities_FilesBuilder)? b]) =
-      _$CommentsCapabilities_Files;
+abstract class Capabilities_Files
+    implements Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
+  factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
-  const CommentsCapabilities_Files._();
+  const Capabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CommentsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -60,42 +55,40 @@ abstract class CommentsCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CommentsCapabilities_Files> get serializer => _$commentsCapabilitiesFilesSerializer;
+  static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CommentsCapabilitiesInterface {
-  CommentsCapabilities_Files get files;
-  CommentsCapabilitiesInterface rebuild(final void Function(CommentsCapabilitiesInterfaceBuilder) updates);
-  CommentsCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class CapabilitiesInterface {
+  Capabilities_Files get files;
+  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
+  CapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class CommentsCapabilities
-    implements CommentsCapabilitiesInterface, Built<CommentsCapabilities, CommentsCapabilitiesBuilder> {
-  factory CommentsCapabilities([final void Function(CommentsCapabilitiesBuilder)? b]) = _$CommentsCapabilities;
+abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
-  const CommentsCapabilities._();
+  const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CommentsCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CommentsCapabilities> get serializer => _$commentsCapabilitiesSerializer;
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilities.new)
-      ..add(CommentsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_Files.new)
-      ..add(CommentsCapabilities_Files.serializer))
+      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_Files.new)
+      ..add(Capabilities_Files.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

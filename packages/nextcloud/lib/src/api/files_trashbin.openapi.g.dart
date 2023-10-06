@@ -6,18 +6,17 @@ part of 'files_trashbin.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<FilesTrashbinCapabilities_Files> _$filesTrashbinCapabilitiesFilesSerializer =
-    _$FilesTrashbinCapabilities_FilesSerializer();
-Serializer<FilesTrashbinCapabilities> _$filesTrashbinCapabilitiesSerializer = _$FilesTrashbinCapabilitiesSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$FilesTrashbinCapabilities_FilesSerializer implements StructuredSerializer<FilesTrashbinCapabilities_Files> {
+class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
-  final Iterable<Type> types = const [FilesTrashbinCapabilities_Files, _$FilesTrashbinCapabilities_Files];
+  final Iterable<Type> types = const [Capabilities_Files, _$Capabilities_Files];
   @override
-  final String wireName = 'FilesTrashbinCapabilities_Files';
+  final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTrashbinCapabilities_Files object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'undelete',
@@ -28,9 +27,9 @@ class _$FilesTrashbinCapabilities_FilesSerializer implements StructuredSerialize
   }
 
   @override
-  FilesTrashbinCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTrashbinCapabilities_FilesBuilder();
+    final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -48,27 +47,27 @@ class _$FilesTrashbinCapabilities_FilesSerializer implements StructuredSerialize
   }
 }
 
-class _$FilesTrashbinCapabilitiesSerializer implements StructuredSerializer<FilesTrashbinCapabilities> {
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
-  final Iterable<Type> types = const [FilesTrashbinCapabilities, _$FilesTrashbinCapabilities];
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
   @override
-  final String wireName = 'FilesTrashbinCapabilities';
+  final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTrashbinCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files',
-      serializers.serialize(object.files, specifiedType: const FullType(FilesTrashbinCapabilities_Files)),
+      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
     ];
 
     return result;
   }
 
   @override
-  FilesTrashbinCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTrashbinCapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -77,8 +76,8 @@ class _$FilesTrashbinCapabilitiesSerializer implements StructuredSerializer<File
       final Object? value = iterator.current;
       switch (key) {
         case 'files':
-          result.files.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesTrashbinCapabilities_Files))! as FilesTrashbinCapabilities_Files);
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
           break;
       }
     }
@@ -87,35 +86,35 @@ class _$FilesTrashbinCapabilitiesSerializer implements StructuredSerializer<File
   }
 }
 
-abstract mixin class FilesTrashbinCapabilities_FilesInterfaceBuilder {
-  void replace(FilesTrashbinCapabilities_FilesInterface other);
-  void update(void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesInterfaceBuilder {
+  void replace(Capabilities_FilesInterface other);
+  void update(void Function(Capabilities_FilesInterfaceBuilder) updates);
   bool? get undelete;
   set undelete(bool? undelete);
 }
 
-class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files {
+class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool undelete;
 
-  factory _$FilesTrashbinCapabilities_Files([void Function(FilesTrashbinCapabilities_FilesBuilder)? updates]) =>
-      (FilesTrashbinCapabilities_FilesBuilder()..update(updates))._build();
+  factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
+      (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$FilesTrashbinCapabilities_Files._({required this.undelete}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete');
+  _$Capabilities_Files._({required this.undelete}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete');
   }
 
   @override
-  FilesTrashbinCapabilities_Files rebuild(void Function(FilesTrashbinCapabilities_FilesBuilder) updates) =>
+  Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTrashbinCapabilities_FilesBuilder toBuilder() => FilesTrashbinCapabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTrashbinCapabilities_Files && undelete == other.undelete;
+    return other is Capabilities_Files && undelete == other.undelete;
   }
 
   @override
@@ -128,23 +127,21 @@ class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTrashbinCapabilities_Files')..add('undelete', undelete)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')..add('undelete', undelete)).toString();
   }
 }
 
-class FilesTrashbinCapabilities_FilesBuilder
-    implements
-        Builder<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder>,
-        FilesTrashbinCapabilities_FilesInterfaceBuilder {
-  _$FilesTrashbinCapabilities_Files? _$v;
+class Capabilities_FilesBuilder
+    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, Capabilities_FilesInterfaceBuilder {
+  _$Capabilities_Files? _$v;
 
   bool? _undelete;
   bool? get undelete => _$this._undelete;
   set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
-  FilesTrashbinCapabilities_FilesBuilder();
+  Capabilities_FilesBuilder();
 
-  FilesTrashbinCapabilities_FilesBuilder get _$this {
+  Capabilities_FilesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _undelete = $v.undelete;
@@ -154,57 +151,56 @@ class FilesTrashbinCapabilities_FilesBuilder
   }
 
   @override
-  void replace(covariant FilesTrashbinCapabilities_Files other) {
+  void replace(covariant Capabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTrashbinCapabilities_Files;
+    _$v = other as _$Capabilities_Files;
   }
 
   @override
-  void update(void Function(FilesTrashbinCapabilities_FilesBuilder)? updates) {
+  void update(void Function(Capabilities_FilesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTrashbinCapabilities_Files build() => _build();
+  Capabilities_Files build() => _build();
 
-  _$FilesTrashbinCapabilities_Files _build() {
+  _$Capabilities_Files _build() {
     final _$result = _$v ??
-        _$FilesTrashbinCapabilities_Files._(
-            undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete'));
+        _$Capabilities_Files._(
+            undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesTrashbinCapabilitiesInterfaceBuilder {
-  void replace(FilesTrashbinCapabilitiesInterface other);
-  void update(void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
-  FilesTrashbinCapabilities_FilesBuilder get files;
-  set files(FilesTrashbinCapabilities_FilesBuilder? files);
+abstract mixin class CapabilitiesInterfaceBuilder {
+  void replace(CapabilitiesInterface other);
+  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+  Capabilities_FilesBuilder get files;
+  set files(Capabilities_FilesBuilder? files);
 }
 
-class _$FilesTrashbinCapabilities extends FilesTrashbinCapabilities {
+class _$Capabilities extends Capabilities {
   @override
-  final FilesTrashbinCapabilities_Files files;
+  final Capabilities_Files files;
 
-  factory _$FilesTrashbinCapabilities([void Function(FilesTrashbinCapabilitiesBuilder)? updates]) =>
-      (FilesTrashbinCapabilitiesBuilder()..update(updates))._build();
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$FilesTrashbinCapabilities._({required this.files}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(files, r'FilesTrashbinCapabilities', 'files');
+  _$Capabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
   }
 
   @override
-  FilesTrashbinCapabilities rebuild(void Function(FilesTrashbinCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesTrashbinCapabilitiesBuilder toBuilder() => FilesTrashbinCapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTrashbinCapabilities && files == other.files;
+    return other is Capabilities && files == other.files;
   }
 
   @override
@@ -217,23 +213,20 @@ class _$FilesTrashbinCapabilities extends FilesTrashbinCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTrashbinCapabilities')..add('files', files)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('files', files)).toString();
   }
 }
 
-class FilesTrashbinCapabilitiesBuilder
-    implements
-        Builder<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder>,
-        FilesTrashbinCapabilitiesInterfaceBuilder {
-  _$FilesTrashbinCapabilities? _$v;
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
 
-  FilesTrashbinCapabilities_FilesBuilder? _files;
-  FilesTrashbinCapabilities_FilesBuilder get files => _$this._files ??= FilesTrashbinCapabilities_FilesBuilder();
-  set files(covariant FilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
+  Capabilities_FilesBuilder? _files;
+  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
+  set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
-  FilesTrashbinCapabilitiesBuilder();
+  CapabilitiesBuilder();
 
-  FilesTrashbinCapabilitiesBuilder get _$this {
+  CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _files = $v.files.toBuilder();
@@ -243,30 +236,30 @@ class FilesTrashbinCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant FilesTrashbinCapabilities other) {
+  void replace(covariant Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTrashbinCapabilities;
+    _$v = other as _$Capabilities;
   }
 
   @override
-  void update(void Function(FilesTrashbinCapabilitiesBuilder)? updates) {
+  void update(void Function(CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTrashbinCapabilities build() => _build();
+  Capabilities build() => _build();
 
-  _$FilesTrashbinCapabilities _build() {
-    _$FilesTrashbinCapabilities _$result;
+  _$Capabilities _build() {
+    _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$FilesTrashbinCapabilities._(files: files.build());
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTrashbinCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

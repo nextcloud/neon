@@ -6,9 +6,8 @@ export 'src/api/updatenotification.openapi.dart';
 
 // ignore: public_member_api_docs
 extension UpdatenotificationExtension on NextcloudClient {
-  static final _updatenotification = Expando<UpdatenotificationClient>();
+  static final _updatenotification = Expando<Client>();
 
   /// Client for the updatenotification APIs
-  UpdatenotificationClient get updatenotification =>
-      _updatenotification[this] ??= UpdatenotificationClient.fromClient(this);
+  Client get updatenotification => _updatenotification[this] ??= Client.fromClient(this);
 }

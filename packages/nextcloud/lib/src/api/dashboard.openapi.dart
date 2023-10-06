@@ -14,12 +14,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'dashboard.openapi.g.dart';
 
-class DashboardClient extends DynamiteClient {
-  DashboardClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -28,7 +26,7 @@ class DashboardClient extends DynamiteClient {
     super.authentications,
   });
 
-  DashboardClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -37,13 +35,13 @@ class DashboardClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  DashboardDashboardApiClient get dashboardApi => DashboardDashboardApiClient(this);
+  DashboardApiClient get dashboardApi => DashboardApiClient(this);
 }
 
-class DashboardDashboardApiClient {
-  DashboardDashboardApiClient(this._rootClient);
+class DashboardApiClient {
+  DashboardApiClient(this._rootClient);
 
-  final DashboardClient _rootClient;
+  final Client _rootClient;
 
   /// Get the widgets.
   ///
@@ -58,7 +56,7 @@ class DashboardDashboardApiClient {
   ///
   /// See:
   ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
+  Future<DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getWidgetsRaw(
@@ -84,7 +82,7 @@ class DashboardDashboardApiClient {
   /// See:
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
+  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
     final bool oCSAPIRequest = true,
   }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
@@ -113,7 +111,7 @@ class DashboardDashboardApiClient {
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<DashboardDashboardApiGetWidgetsResponseApplicationJson, void>(
+    return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -121,7 +119,7 @@ class DashboardDashboardApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson),
+      bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -143,7 +141,7 @@ class DashboardDashboardApiClient {
   ///
   /// See:
   ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
+  Future<DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
@@ -178,7 +176,7 @@ class DashboardDashboardApiClient {
   /// See:
   ///  * [getWidgetItems] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
+  DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
@@ -224,7 +222,7 @@ class DashboardDashboardApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsResponseApplicationJson, void>(
+    return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -232,7 +230,7 @@ class DashboardDashboardApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson),
+      bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -254,7 +252,7 @@ class DashboardDashboardApiClient {
   ///
   /// See:
   ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
+  Future<DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
@@ -289,7 +287,7 @@ class DashboardDashboardApiClient {
   /// See:
   ///  * [getWidgetItemsV2] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
+  DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
     final int limit = 7,
     final List<String> widgets = const <String>[],
@@ -335,7 +333,7 @@ class DashboardDashboardApiClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
+    return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -343,7 +341,7 @@ class DashboardDashboardApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson),
+      bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -351,54 +349,52 @@ class DashboardDashboardApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  DashboardOCSMetaInterface rebuild(final void Function(DashboardOCSMetaInterfaceBuilder) updates);
-  DashboardOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardOCSMeta implements DashboardOCSMetaInterface, Built<DashboardOCSMeta, DashboardOCSMetaBuilder> {
-  factory DashboardOCSMeta([final void Function(DashboardOCSMetaBuilder)? b]) = _$DashboardOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const DashboardOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardOCSMeta.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardOCSMeta> get serializer => _$dashboardOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardWidget_ButtonsInterface {
+abstract interface class Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
-  DashboardWidget_ButtonsInterface rebuild(final void Function(DashboardWidget_ButtonsInterfaceBuilder) updates);
-  DashboardWidget_ButtonsInterfaceBuilder toBuilder();
+  Widget_ButtonsInterface rebuild(final void Function(Widget_ButtonsInterfaceBuilder) updates);
+  Widget_ButtonsInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardWidget_Buttons
-    implements DashboardWidget_ButtonsInterface, Built<DashboardWidget_Buttons, DashboardWidget_ButtonsBuilder> {
-  factory DashboardWidget_Buttons([final void Function(DashboardWidget_ButtonsBuilder)? b]) = _$DashboardWidget_Buttons;
+abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
+  factory Widget_Buttons([final void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
 
   // coverage:ignore-start
-  const DashboardWidget_Buttons._();
+  const Widget_Buttons._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardWidget_Buttons.fromJson(final Map<String, dynamic> json) =>
+  factory Widget_Buttons.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -406,11 +402,11 @@ abstract class DashboardWidget_Buttons
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardWidget_Buttons> get serializer => _$dashboardWidgetButtonsSerializer;
+  static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardWidgetInterface {
+abstract interface class WidgetInterface {
   String get id;
   String get title;
   int get order;
@@ -426,55 +422,54 @@ abstract interface class DashboardWidgetInterface {
   BuiltList<int> get itemApiVersions;
   @BuiltValueField(wireName: 'reload_interval')
   int get reloadInterval;
-  BuiltList<DashboardWidget_Buttons>? get buttons;
-  DashboardWidgetInterface rebuild(final void Function(DashboardWidgetInterfaceBuilder) updates);
-  DashboardWidgetInterfaceBuilder toBuilder();
+  BuiltList<Widget_Buttons>? get buttons;
+  WidgetInterface rebuild(final void Function(WidgetInterfaceBuilder) updates);
+  WidgetInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardWidget implements DashboardWidgetInterface, Built<DashboardWidget, DashboardWidgetBuilder> {
-  factory DashboardWidget([final void Function(DashboardWidgetBuilder)? b]) = _$DashboardWidget;
+abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
+  factory Widget([final void Function(WidgetBuilder)? b]) = _$Widget;
 
   // coverage:ignore-start
-  const DashboardWidget._();
+  const Widget._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardWidget.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardWidget> get serializer => _$dashboardWidgetSerializer;
+  static Serializer<Widget> get serializer => _$widgetSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
-  DashboardOCSMeta get meta;
-  BuiltMap<String, DashboardWidget> get data;
-  DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, Widget> get data;
+  DashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs
+abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
     implements
-        DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
-        Built<DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
-  factory DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs([
-    final void Function(DashboardDashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs;
+        DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
+  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
+    final void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs._();
+  const DashboardApiGetWidgetsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -482,34 +477,33 @@ abstract class DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardDashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
+  static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetsResponseApplicationJsonInterface {
-  DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
-  DashboardDashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetsResponseApplicationJsonInterface {
+  DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
+  DashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
+    final void Function(DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetsResponseApplicationJson
+abstract class DashboardApiGetWidgetsResponseApplicationJson
     implements
-        DashboardDashboardApiGetWidgetsResponseApplicationJsonInterface,
-        Built<DashboardDashboardApiGetWidgetsResponseApplicationJson,
-            DashboardDashboardApiGetWidgetsResponseApplicationJsonBuilder> {
-  factory DashboardDashboardApiGetWidgetsResponseApplicationJson([
-    final void Function(DashboardDashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetsResponseApplicationJson;
+        DashboardApiGetWidgetsResponseApplicationJsonInterface,
+        Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
+  factory DashboardApiGetWidgetsResponseApplicationJson([
+    final void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetsResponseApplicationJson;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetsResponseApplicationJson._();
+  const DashboardApiGetWidgetsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -517,67 +511,65 @@ abstract class DashboardDashboardApiGetWidgetsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetsResponseApplicationJson> get serializer =>
-      _$dashboardDashboardApiGetWidgetsResponseApplicationJsonSerializer;
+  static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardWidgetItemInterface {
+abstract interface class WidgetItemInterface {
   String get subtitle;
   String get title;
   String get link;
   String get iconUrl;
   String get overlayIconUrl;
   String get sinceId;
-  DashboardWidgetItemInterface rebuild(final void Function(DashboardWidgetItemInterfaceBuilder) updates);
-  DashboardWidgetItemInterfaceBuilder toBuilder();
+  WidgetItemInterface rebuild(final void Function(WidgetItemInterfaceBuilder) updates);
+  WidgetItemInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardWidgetItem
-    implements DashboardWidgetItemInterface, Built<DashboardWidgetItem, DashboardWidgetItemBuilder> {
-  factory DashboardWidgetItem([final void Function(DashboardWidgetItemBuilder)? b]) = _$DashboardWidgetItem;
+abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
+  factory WidgetItem([final void Function(WidgetItemBuilder)? b]) = _$WidgetItem;
 
   // coverage:ignore-start
-  const DashboardWidgetItem._();
+  const WidgetItem._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardWidgetItem.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItem.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardWidgetItem> get serializer => _$dashboardWidgetItemSerializer;
+  static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
-  DashboardOCSMeta get meta;
-  BuiltMap<String, BuiltList<DashboardWidgetItem>> get data;
-  DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, BuiltList<WidgetItem>> get data;
+  DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface rebuild(
+    final void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs
+abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
     implements
-        DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
-        Built<DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
-  factory DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
-    final void Function(DashboardDashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
+        DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+            DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
+  factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
+    final void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs._();
+  const DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -585,34 +577,34 @@ abstract class DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardDashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
+  static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetItemsResponseApplicationJsonInterface {
-  DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
-  DashboardDashboardApiGetWidgetItemsResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
+  DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
+  DashboardApiGetWidgetItemsResponseApplicationJsonInterface rebuild(
+    final void Function(DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetItemsResponseApplicationJson
+abstract class DashboardApiGetWidgetItemsResponseApplicationJson
     implements
-        DashboardDashboardApiGetWidgetItemsResponseApplicationJsonInterface,
-        Built<DashboardDashboardApiGetWidgetItemsResponseApplicationJson,
-            DashboardDashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
-  factory DashboardDashboardApiGetWidgetItemsResponseApplicationJson([
-    final void Function(DashboardDashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetItemsResponseApplicationJson;
+        DashboardApiGetWidgetItemsResponseApplicationJsonInterface,
+        Built<DashboardApiGetWidgetItemsResponseApplicationJson,
+            DashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
+  factory DashboardApiGetWidgetItemsResponseApplicationJson([
+    final void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetItemsResponseApplicationJson._();
+  const DashboardApiGetWidgetItemsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetItemsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -620,64 +612,62 @@ abstract class DashboardDashboardApiGetWidgetItemsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
-      _$dashboardDashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
+  static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardWidgetItemsInterface {
-  BuiltList<DashboardWidgetItem> get items;
+abstract interface class WidgetItemsInterface {
+  BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
-  DashboardWidgetItemsInterface rebuild(final void Function(DashboardWidgetItemsInterfaceBuilder) updates);
-  DashboardWidgetItemsInterfaceBuilder toBuilder();
+  WidgetItemsInterface rebuild(final void Function(WidgetItemsInterfaceBuilder) updates);
+  WidgetItemsInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardWidgetItems
-    implements DashboardWidgetItemsInterface, Built<DashboardWidgetItems, DashboardWidgetItemsBuilder> {
-  factory DashboardWidgetItems([final void Function(DashboardWidgetItemsBuilder)? b]) = _$DashboardWidgetItems;
+abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
+  factory WidgetItems([final void Function(WidgetItemsBuilder)? b]) = _$WidgetItems;
 
   // coverage:ignore-start
-  const DashboardWidgetItems._();
+  const WidgetItems._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardWidgetItems.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItems.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardWidgetItems> get serializer => _$dashboardWidgetItemsSerializer;
+  static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
-  DashboardOCSMeta get meta;
-  BuiltMap<String, DashboardWidgetItems> get data;
-  DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, WidgetItems> get data;
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface rebuild(
+    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
+abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
     implements
-        DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
-        Built<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
-            DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
-  factory DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
-    final void Function(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+            DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
+    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._();
+  const DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -685,34 +675,34 @@ abstract class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
+  static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
-  DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
-  DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
+  DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface rebuild(
+    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates,
   );
-  DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder toBuilder();
+  DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson
+abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
     implements
-        DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
-        Built<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson,
-            DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
-  factory DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson([
-    final void Function(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
-  ]) = _$DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson;
+        DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
+        Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
+            DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson([
+    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson;
 
   // coverage:ignore-start
-  const DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson._();
+  const DashboardApiGetWidgetItemsV2ResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -720,36 +710,33 @@ abstract class DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
-      _$dashboardDashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
+  static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson),
-        DashboardDashboardApiGetWidgetsResponseApplicationJson.new,
+        const FullType(DashboardApiGetWidgetsResponseApplicationJson),
+        DashboardApiGetWidgetsResponseApplicationJson.new,
       )
-      ..add(DashboardDashboardApiGetWidgetsResponseApplicationJson.serializer)
+      ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs),
-        DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs.new,
+        const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+        DashboardApiGetWidgetsResponseApplicationJson_Ocs.new,
       )
-      ..add(DashboardDashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DashboardOCSMeta), DashboardOCSMeta.new)
-      ..add(DashboardOCSMeta.serializer)
-      ..addBuilderFactory(const FullType(DashboardWidget), DashboardWidget.new)
-      ..add(DashboardWidget.serializer)
+      ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
+      ..addBuilderFactory(const FullType(Widget), Widget.new)
+      ..add(Widget.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(DashboardWidget_Buttons), DashboardWidget_Buttons.new)
-      ..add(DashboardWidget_Buttons.serializer)
+      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_Buttons.new)
+      ..add(Widget_Buttons.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DashboardWidget_Buttons)]),
-        ListBuilder<DashboardWidget_Buttons>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(DashboardWidget)]),
-        MapBuilder<String, DashboardWidget>.new,
+        const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
+        MapBuilder<String, Widget>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -764,43 +751,40 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson),
-        DashboardDashboardApiGetWidgetItemsResponseApplicationJson.new,
+        const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
+        DashboardApiGetWidgetItemsResponseApplicationJson.new,
       )
-      ..add(DashboardDashboardApiGetWidgetItemsResponseApplicationJson.serializer)
+      ..add(DashboardApiGetWidgetItemsResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
-        DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs.new,
+        const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+        DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.new,
       )
-      ..add(DashboardDashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DashboardWidgetItem), DashboardWidgetItem.new)
-      ..add(DashboardWidgetItem.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DashboardWidgetItem)]),
-        ListBuilder<DashboardWidgetItem>.new,
-      )
+      ..add(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(WidgetItem), WidgetItem.new)
+      ..add(WidgetItem.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(WidgetItem)]), ListBuilder<WidgetItem>.new)
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
-          FullType(BuiltList, [FullType(DashboardWidgetItem)]),
+          FullType(BuiltList, [FullType(WidgetItem)]),
         ]),
         MapBuilder<String, BuiltList>.new,
       )
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson),
-        DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson.new,
+        const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson.new,
       )
-      ..add(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson.serializer)
+      ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
-        DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.new,
+        const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.new,
       )
-      ..add(DashboardDashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DashboardWidgetItems), DashboardWidgetItems.new)
-      ..add(DashboardWidgetItems.serializer)
+      ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(WidgetItems), WidgetItems.new)
+      ..add(WidgetItems.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(DashboardWidgetItems)]),
-        MapBuilder<String, DashboardWidgetItems>.new,
+        const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
+        MapBuilder<String, WidgetItems>.new,
       ))
     .build();
 

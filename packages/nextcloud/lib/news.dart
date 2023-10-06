@@ -7,8 +7,8 @@ export 'src/helpers/news.dart';
 
 // ignore: public_member_api_docs
 extension NewsExtension on NextcloudClient {
-  static final _news = Expando<NewsClient>();
+  static final _news = Expando<Client>();
 
   /// Client for the news APIs
-  NewsClient get news => _news[this] ??= NewsClient.fromClient(this);
+  Client get news => _news[this] ??= Client.fromClient(this);
 }

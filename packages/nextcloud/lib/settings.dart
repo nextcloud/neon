@@ -6,8 +6,8 @@ export 'src/api/settings.openapi.dart';
 
 // ignore: public_member_api_docs
 extension SettingsExtension on NextcloudClient {
-  static final _settings = Expando<SettingsClient>();
+  static final _settings = Expando<Client>();
 
   /// Client for the settings APIs
-  SettingsClient get settings => _settings[this] ??= SettingsClient.fromClient(this);
+  Client get settings => _settings[this] ??= Client.fromClient(this);
 }

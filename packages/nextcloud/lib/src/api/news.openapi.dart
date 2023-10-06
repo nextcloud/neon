@@ -15,12 +15,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'news.openapi.g.dart';
 
-class NewsClient extends DynamiteClient {
-  NewsClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -29,7 +27,7 @@ class NewsClient extends DynamiteClient {
     super.authentications,
   });
 
-  NewsClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -46,7 +44,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsSupportedAPIVersions, void>> getSupportedApiVersions() async {
+  Future<DynamiteResponse<SupportedAPIVersions, void>> getSupportedApiVersions() async {
     final rawResponse = getSupportedApiVersionsRaw();
 
     return rawResponse.future;
@@ -63,7 +61,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsSupportedAPIVersions, void> getSupportedApiVersionsRaw() {
+  DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
     const path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -89,7 +87,7 @@ class NewsClient extends DynamiteClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsSupportedAPIVersions, void>(
+    return DynamiteRawResponse<SupportedAPIVersions, void>(
       response: doRequest(
         'get',
         uri,
@@ -97,7 +95,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsSupportedAPIVersions),
+      bodyType: const FullType(SupportedAPIVersions),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -111,7 +109,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [listFoldersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListFolders, void>> listFolders() async {
+  Future<DynamiteResponse<ListFolders, void>> listFolders() async {
     final rawResponse = listFoldersRaw();
 
     return rawResponse.future;
@@ -128,7 +126,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListFolders, void> listFoldersRaw() {
+  DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -154,7 +152,7 @@ class NewsClient extends DynamiteClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListFolders, void>(
+    return DynamiteRawResponse<ListFolders, void>(
       response: doRequest(
         'get',
         uri,
@@ -162,7 +160,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListFolders),
+      bodyType: const FullType(ListFolders),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -179,7 +177,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [createFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListFolders, void>> createFolder({required final String name}) async {
+  Future<DynamiteResponse<ListFolders, void>> createFolder({required final String name}) async {
     final rawResponse = createFolderRaw(
       name: name,
     );
@@ -201,7 +199,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListFolders, void> createFolderRaw({required final String name}) {
+  DynamiteRawResponse<ListFolders, void> createFolderRaw({required final String name}) {
     const path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -228,7 +226,7 @@ class NewsClient extends DynamiteClient {
 // coverage:ignore-end
     queryParameters['name'] = name;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListFolders, void>(
+    return DynamiteRawResponse<ListFolders, void>(
       response: doRequest(
         'post',
         uri,
@@ -236,7 +234,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListFolders),
+      bodyType: const FullType(ListFolders),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -476,7 +474,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [listFeedsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListFeeds, void>> listFeeds() async {
+  Future<DynamiteResponse<ListFeeds, void>> listFeeds() async {
     final rawResponse = listFeedsRaw();
 
     return rawResponse.future;
@@ -493,7 +491,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListFeeds, void> listFeedsRaw() {
+  DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
     const path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -519,7 +517,7 @@ class NewsClient extends DynamiteClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListFeeds, void>(
+    return DynamiteRawResponse<ListFeeds, void>(
       response: doRequest(
         'get',
         uri,
@@ -527,7 +525,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListFeeds),
+      bodyType: const FullType(ListFeeds),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -545,7 +543,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [addFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListFeeds, void>> addFeed({
+  Future<DynamiteResponse<ListFeeds, void>> addFeed({
     required final String url,
     final int? folderId,
   }) async {
@@ -572,7 +570,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [addFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListFeeds, void> addFeedRaw({
+  DynamiteRawResponse<ListFeeds, void> addFeedRaw({
     required final String url,
     final int? folderId,
   }) {
@@ -605,7 +603,7 @@ class NewsClient extends DynamiteClient {
       queryParameters['folderId'] = folderId.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListFeeds, void>(
+    return DynamiteRawResponse<ListFeeds, void>(
       response: doRequest(
         'post',
         uri,
@@ -613,7 +611,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListFeeds),
+      bodyType: const FullType(ListFeeds),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -943,7 +941,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListArticles, void>> listArticles({
+  Future<DynamiteResponse<ListArticles, void>> listArticles({
     final int type = 3,
     final int id = 0,
     final int getRead = 1,
@@ -982,7 +980,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListArticles, void> listArticlesRaw({
+  DynamiteRawResponse<ListArticles, void> listArticlesRaw({
     final int type = 3,
     final int id = 0,
     final int getRead = 1,
@@ -1033,7 +1031,7 @@ class NewsClient extends DynamiteClient {
       queryParameters['oldestFirst'] = oldestFirst.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListArticles, void>(
+    return DynamiteRawResponse<ListArticles, void>(
       response: doRequest(
         'get',
         uri,
@@ -1041,7 +1039,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListArticles),
+      bodyType: const FullType(ListArticles),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1060,7 +1058,7 @@ class NewsClient extends DynamiteClient {
   ///
   /// See:
   ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NewsListArticles, void>> listUpdatedArticles({
+  Future<DynamiteResponse<ListArticles, void>> listUpdatedArticles({
     final int type = 3,
     final int id = 0,
     final int lastModified = 0,
@@ -1090,7 +1088,7 @@ class NewsClient extends DynamiteClient {
   /// See:
   ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NewsListArticles, void> listUpdatedArticlesRaw({
+  DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
     final int type = 3,
     final int id = 0,
     final int lastModified = 0,
@@ -1129,7 +1127,7 @@ class NewsClient extends DynamiteClient {
       queryParameters['lastModified'] = lastModified.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NewsListArticles, void>(
+    return DynamiteRawResponse<ListArticles, void>(
       response: doRequest(
         'get',
         uri,
@@ -1137,7 +1135,7 @@ class NewsClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NewsListArticles),
+      bodyType: const FullType(ListArticles),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -1409,23 +1407,22 @@ class NewsClient extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsSupportedAPIVersionsInterface {
+abstract interface class SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
-  NewsSupportedAPIVersionsInterface rebuild(final void Function(NewsSupportedAPIVersionsInterfaceBuilder) updates);
-  NewsSupportedAPIVersionsInterfaceBuilder toBuilder();
+  SupportedAPIVersionsInterface rebuild(final void Function(SupportedAPIVersionsInterfaceBuilder) updates);
+  SupportedAPIVersionsInterfaceBuilder toBuilder();
 }
 
-abstract class NewsSupportedAPIVersions
-    implements NewsSupportedAPIVersionsInterface, Built<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder> {
-  factory NewsSupportedAPIVersions([final void Function(NewsSupportedAPIVersionsBuilder)? b]) =
-      _$NewsSupportedAPIVersions;
+abstract class SupportedAPIVersions
+    implements SupportedAPIVersionsInterface, Built<SupportedAPIVersions, SupportedAPIVersionsBuilder> {
+  factory SupportedAPIVersions([final void Function(SupportedAPIVersionsBuilder)? b]) = _$SupportedAPIVersions;
 
   // coverage:ignore-start
-  const NewsSupportedAPIVersions._();
+  const SupportedAPIVersions._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsSupportedAPIVersions.fromJson(final Map<String, dynamic> json) =>
+  factory SupportedAPIVersions.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1433,11 +1430,11 @@ abstract class NewsSupportedAPIVersions
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsSupportedAPIVersions> get serializer => _$newsSupportedAPIVersionsSerializer;
+  static Serializer<SupportedAPIVersions> get serializer => _$supportedAPIVersionsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsArticleInterface {
+abstract interface class ArticleInterface {
   int get id;
   String get guid;
   String get guidHash;
@@ -1458,30 +1455,30 @@ abstract interface class NewsArticleInterface {
   bool get rtl;
   String get fingerprint;
   String get contentHash;
-  NewsArticleInterface rebuild(final void Function(NewsArticleInterfaceBuilder) updates);
-  NewsArticleInterfaceBuilder toBuilder();
+  ArticleInterface rebuild(final void Function(ArticleInterfaceBuilder) updates);
+  ArticleInterfaceBuilder toBuilder();
 }
 
-abstract class NewsArticle implements NewsArticleInterface, Built<NewsArticle, NewsArticleBuilder> {
-  factory NewsArticle([final void Function(NewsArticleBuilder)? b]) = _$NewsArticle;
+abstract class Article implements ArticleInterface, Built<Article, ArticleBuilder> {
+  factory Article([final void Function(ArticleBuilder)? b]) = _$Article;
 
   // coverage:ignore-start
-  const NewsArticle._();
+  const Article._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsArticle.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Article.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsArticle> get serializer => _$newsArticleSerializer;
+  static Serializer<Article> get serializer => _$articleSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsFeedInterface {
+abstract interface class FeedInterface {
   int get id;
   String get url;
   String get title;
@@ -1494,246 +1491,242 @@ abstract interface class NewsFeedInterface {
   bool get pinned;
   int get updateErrorCount;
   String? get lastUpdateError;
-  BuiltList<NewsArticle> get items;
-  NewsFeedInterface rebuild(final void Function(NewsFeedInterfaceBuilder) updates);
-  NewsFeedInterfaceBuilder toBuilder();
+  BuiltList<Article> get items;
+  FeedInterface rebuild(final void Function(FeedInterfaceBuilder) updates);
+  FeedInterfaceBuilder toBuilder();
 }
 
-abstract class NewsFeed implements NewsFeedInterface, Built<NewsFeed, NewsFeedBuilder> {
-  factory NewsFeed([final void Function(NewsFeedBuilder)? b]) = _$NewsFeed;
+abstract class Feed implements FeedInterface, Built<Feed, FeedBuilder> {
+  factory Feed([final void Function(FeedBuilder)? b]) = _$Feed;
 
   // coverage:ignore-start
-  const NewsFeed._();
+  const Feed._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsFeed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Feed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsFeed> get serializer => _$newsFeedSerializer;
+  static Serializer<Feed> get serializer => _$feedSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsFolderInterface {
+abstract interface class FolderInterface {
   int get id;
   String get name;
   bool get opened;
 
   /// This seems to be broken. In testing it is always empty.
-  BuiltList<NewsFeed> get feeds;
-  NewsFolderInterface rebuild(final void Function(NewsFolderInterfaceBuilder) updates);
-  NewsFolderInterfaceBuilder toBuilder();
+  BuiltList<Feed> get feeds;
+  FolderInterface rebuild(final void Function(FolderInterfaceBuilder) updates);
+  FolderInterfaceBuilder toBuilder();
 }
 
-abstract class NewsFolder implements NewsFolderInterface, Built<NewsFolder, NewsFolderBuilder> {
-  factory NewsFolder([final void Function(NewsFolderBuilder)? b]) = _$NewsFolder;
+abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
+  factory Folder([final void Function(FolderBuilder)? b]) = _$Folder;
 
   // coverage:ignore-start
-  const NewsFolder._();
+  const Folder._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsFolder.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Folder.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsFolder> get serializer => _$newsFolderSerializer;
+  static Serializer<Folder> get serializer => _$folderSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsListFoldersInterface {
-  BuiltList<NewsFolder> get folders;
-  NewsListFoldersInterface rebuild(final void Function(NewsListFoldersInterfaceBuilder) updates);
-  NewsListFoldersInterfaceBuilder toBuilder();
+abstract interface class ListFoldersInterface {
+  BuiltList<Folder> get folders;
+  ListFoldersInterface rebuild(final void Function(ListFoldersInterfaceBuilder) updates);
+  ListFoldersInterfaceBuilder toBuilder();
 }
 
-abstract class NewsListFolders implements NewsListFoldersInterface, Built<NewsListFolders, NewsListFoldersBuilder> {
-  factory NewsListFolders([final void Function(NewsListFoldersBuilder)? b]) = _$NewsListFolders;
+abstract class ListFolders implements ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
+  factory ListFolders([final void Function(ListFoldersBuilder)? b]) = _$ListFolders;
 
   // coverage:ignore-start
-  const NewsListFolders._();
+  const ListFolders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsListFolders.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFolders.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsListFolders> get serializer => _$newsListFoldersSerializer;
+  static Serializer<ListFolders> get serializer => _$listFoldersSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsListFeedsInterface {
+abstract interface class ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
-  BuiltList<NewsFeed> get feeds;
-  NewsListFeedsInterface rebuild(final void Function(NewsListFeedsInterfaceBuilder) updates);
-  NewsListFeedsInterfaceBuilder toBuilder();
+  BuiltList<Feed> get feeds;
+  ListFeedsInterface rebuild(final void Function(ListFeedsInterfaceBuilder) updates);
+  ListFeedsInterfaceBuilder toBuilder();
 }
 
-abstract class NewsListFeeds implements NewsListFeedsInterface, Built<NewsListFeeds, NewsListFeedsBuilder> {
-  factory NewsListFeeds([final void Function(NewsListFeedsBuilder)? b]) = _$NewsListFeeds;
+abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
+  factory ListFeeds([final void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
 
   // coverage:ignore-start
-  const NewsListFeeds._();
+  const ListFeeds._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsListFeeds.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFeeds.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsListFeeds> get serializer => _$newsListFeedsSerializer;
+  static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsListArticlesInterface {
-  BuiltList<NewsArticle> get items;
-  NewsListArticlesInterface rebuild(final void Function(NewsListArticlesInterfaceBuilder) updates);
-  NewsListArticlesInterfaceBuilder toBuilder();
+abstract interface class ListArticlesInterface {
+  BuiltList<Article> get items;
+  ListArticlesInterface rebuild(final void Function(ListArticlesInterfaceBuilder) updates);
+  ListArticlesInterfaceBuilder toBuilder();
 }
 
-abstract class NewsListArticles implements NewsListArticlesInterface, Built<NewsListArticles, NewsListArticlesBuilder> {
-  factory NewsListArticles([final void Function(NewsListArticlesBuilder)? b]) = _$NewsListArticles;
+abstract class ListArticles implements ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
+  factory ListArticles([final void Function(ListArticlesBuilder)? b]) = _$ListArticles;
 
   // coverage:ignore-start
-  const NewsListArticles._();
+  const ListArticles._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsListArticles.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListArticles.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsListArticles> get serializer => _$newsListArticlesSerializer;
+  static Serializer<ListArticles> get serializer => _$listArticlesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  NewsOCSMetaInterface rebuild(final void Function(NewsOCSMetaInterfaceBuilder) updates);
-  NewsOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class NewsOCSMeta implements NewsOCSMetaInterface, Built<NewsOCSMeta, NewsOCSMetaBuilder> {
-  factory NewsOCSMeta([final void Function(NewsOCSMetaBuilder)? b]) = _$NewsOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const NewsOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsOCSMeta> get serializer => _$newsOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsEmptyOCS_OcsInterface {
-  NewsOCSMeta get meta;
+abstract interface class EmptyOCS_OcsInterface {
+  OCSMeta get meta;
   BuiltList<JsonObject> get data;
-  NewsEmptyOCS_OcsInterface rebuild(final void Function(NewsEmptyOCS_OcsInterfaceBuilder) updates);
-  NewsEmptyOCS_OcsInterfaceBuilder toBuilder();
+  EmptyOCS_OcsInterface rebuild(final void Function(EmptyOCS_OcsInterfaceBuilder) updates);
+  EmptyOCS_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NewsEmptyOCS_Ocs implements NewsEmptyOCS_OcsInterface, Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder> {
-  factory NewsEmptyOCS_Ocs([final void Function(NewsEmptyOCS_OcsBuilder)? b]) = _$NewsEmptyOCS_Ocs;
+abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
+  factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
-  const NewsEmptyOCS_Ocs._();
+  const EmptyOCS_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsEmptyOCS_Ocs> get serializer => _$newsEmptyOCSOcsSerializer;
+  static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewsEmptyOCSInterface {
-  NewsEmptyOCS_Ocs get ocs;
-  NewsEmptyOCSInterface rebuild(final void Function(NewsEmptyOCSInterfaceBuilder) updates);
-  NewsEmptyOCSInterfaceBuilder toBuilder();
+abstract interface class EmptyOCSInterface {
+  EmptyOCS_Ocs get ocs;
+  EmptyOCSInterface rebuild(final void Function(EmptyOCSInterfaceBuilder) updates);
+  EmptyOCSInterfaceBuilder toBuilder();
 }
 
-abstract class NewsEmptyOCS implements NewsEmptyOCSInterface, Built<NewsEmptyOCS, NewsEmptyOCSBuilder> {
-  factory NewsEmptyOCS([final void Function(NewsEmptyOCSBuilder)? b]) = _$NewsEmptyOCS;
+abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
+  factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start
-  const NewsEmptyOCS._();
+  const EmptyOCS._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewsEmptyOCS.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewsEmptyOCS> get serializer => _$newsEmptyOCSSerializer;
+  static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(NewsSupportedAPIVersions), NewsSupportedAPIVersions.new)
-      ..add(NewsSupportedAPIVersions.serializer)
+      ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersions.new)
+      ..add(SupportedAPIVersions.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(NewsListFolders), NewsListFolders.new)
-      ..add(NewsListFolders.serializer)
-      ..addBuilderFactory(const FullType(NewsFolder), NewsFolder.new)
-      ..add(NewsFolder.serializer)
-      ..addBuilderFactory(const FullType(NewsFeed), NewsFeed.new)
-      ..add(NewsFeed.serializer)
-      ..addBuilderFactory(const FullType(NewsArticle), NewsArticle.new)
-      ..add(NewsArticle.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsArticle)]), ListBuilder<NewsArticle>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFeed)]), ListBuilder<NewsFeed>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFolder)]), ListBuilder<NewsFolder>.new)
-      ..addBuilderFactory(const FullType(NewsListFeeds), NewsListFeeds.new)
-      ..add(NewsListFeeds.serializer)
-      ..addBuilderFactory(const FullType(NewsListArticles), NewsListArticles.new)
-      ..add(NewsListArticles.serializer)
-      ..addBuilderFactory(const FullType(NewsOCSMeta), NewsOCSMeta.new)
-      ..add(NewsOCSMeta.serializer)
-      ..addBuilderFactory(const FullType(NewsEmptyOCS), NewsEmptyOCS.new)
-      ..add(NewsEmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(NewsEmptyOCS_Ocs), NewsEmptyOCS_Ocs.new)
-      ..add(NewsEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ListFolders), ListFolders.new)
+      ..add(ListFolders.serializer)
+      ..addBuilderFactory(const FullType(Folder), Folder.new)
+      ..add(Folder.serializer)
+      ..addBuilderFactory(const FullType(Feed), Feed.new)
+      ..add(Feed.serializer)
+      ..addBuilderFactory(const FullType(Article), Article.new)
+      ..add(Article.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Article)]), ListBuilder<Article>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Feed)]), ListBuilder<Feed>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Folder)]), ListBuilder<Folder>.new)
+      ..addBuilderFactory(const FullType(ListFeeds), ListFeeds.new)
+      ..add(ListFeeds.serializer)
+      ..addBuilderFactory(const FullType(ListArticles), ListArticles.new)
+      ..add(ListArticles.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
+      ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCS.new)
+      ..add(EmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_Ocs.new)
+      ..add(EmptyOCS_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 

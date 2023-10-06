@@ -6,8 +6,8 @@ export 'src/api/sharebymail.openapi.dart';
 
 // ignore: public_member_api_docs
 extension SharebymailExtension on NextcloudClient {
-  static final _sharebymail = Expando<SharebymailClient>();
+  static final _sharebymail = Expando<Client>();
 
   /// Client for the sharebymail APIs
-  SharebymailClient get sharebymail => _sharebymail[this] ??= SharebymailClient.fromClient(this);
+  Client get sharebymail => _sharebymail[this] ??= Client.fromClient(this);
 }

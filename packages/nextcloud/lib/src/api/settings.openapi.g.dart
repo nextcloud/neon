@@ -6,36 +6,35 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
-  void replace(SettingsLogSettingsLogSettingsDownloadHeadersInterface other);
-  void update(void Function(SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
+abstract mixin class LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
+  void replace(LogSettingsLogSettingsDownloadHeadersInterface other);
+  void update(void Function(LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
   String? get contentDisposition;
   set contentDisposition(String? contentDisposition);
 }
 
-class _$SettingsLogSettingsLogSettingsDownloadHeaders extends SettingsLogSettingsLogSettingsDownloadHeaders {
+class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDownloadHeaders {
   @override
   final String? contentDisposition;
 
-  factory _$SettingsLogSettingsLogSettingsDownloadHeaders(
-          [void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder)? updates]) =>
-      (SettingsLogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))._build();
+  factory _$LogSettingsLogSettingsDownloadHeaders(
+          [void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates]) =>
+      (LogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))._build();
 
-  _$SettingsLogSettingsLogSettingsDownloadHeaders._({this.contentDisposition}) : super._();
+  _$LogSettingsLogSettingsDownloadHeaders._({this.contentDisposition}) : super._();
 
   @override
-  SettingsLogSettingsLogSettingsDownloadHeaders rebuild(
-          void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder) updates) =>
+  LogSettingsLogSettingsDownloadHeaders rebuild(void Function(LogSettingsLogSettingsDownloadHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SettingsLogSettingsLogSettingsDownloadHeadersBuilder toBuilder() =>
-      SettingsLogSettingsLogSettingsDownloadHeadersBuilder()..replace(this);
+  LogSettingsLogSettingsDownloadHeadersBuilder toBuilder() =>
+      LogSettingsLogSettingsDownloadHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SettingsLogSettingsLogSettingsDownloadHeaders && contentDisposition == other.contentDisposition;
+    return other is LogSettingsLogSettingsDownloadHeaders && contentDisposition == other.contentDisposition;
   }
 
   @override
@@ -48,25 +47,25 @@ class _$SettingsLogSettingsLogSettingsDownloadHeaders extends SettingsLogSetting
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SettingsLogSettingsLogSettingsDownloadHeaders')
+    return (newBuiltValueToStringHelper(r'LogSettingsLogSettingsDownloadHeaders')
           ..add('contentDisposition', contentDisposition))
         .toString();
   }
 }
 
-class SettingsLogSettingsLogSettingsDownloadHeadersBuilder
+class LogSettingsLogSettingsDownloadHeadersBuilder
     implements
-        Builder<SettingsLogSettingsLogSettingsDownloadHeaders, SettingsLogSettingsLogSettingsDownloadHeadersBuilder>,
-        SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
-  _$SettingsLogSettingsLogSettingsDownloadHeaders? _$v;
+        Builder<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder>,
+        LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
+  _$LogSettingsLogSettingsDownloadHeaders? _$v;
 
   String? _contentDisposition;
   String? get contentDisposition => _$this._contentDisposition;
   set contentDisposition(covariant String? contentDisposition) => _$this._contentDisposition = contentDisposition;
 
-  SettingsLogSettingsLogSettingsDownloadHeadersBuilder();
+  LogSettingsLogSettingsDownloadHeadersBuilder();
 
-  SettingsLogSettingsLogSettingsDownloadHeadersBuilder get _$this {
+  LogSettingsLogSettingsDownloadHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _contentDisposition = $v.contentDisposition;
@@ -76,21 +75,21 @@ class SettingsLogSettingsLogSettingsDownloadHeadersBuilder
   }
 
   @override
-  void replace(covariant SettingsLogSettingsLogSettingsDownloadHeaders other) {
+  void replace(covariant LogSettingsLogSettingsDownloadHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SettingsLogSettingsLogSettingsDownloadHeaders;
+    _$v = other as _$LogSettingsLogSettingsDownloadHeaders;
   }
 
   @override
-  void update(void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder)? updates) {
+  void update(void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SettingsLogSettingsLogSettingsDownloadHeaders build() => _build();
+  LogSettingsLogSettingsDownloadHeaders build() => _build();
 
-  _$SettingsLogSettingsLogSettingsDownloadHeaders _build() {
-    final _$result = _$v ?? _$SettingsLogSettingsLogSettingsDownloadHeaders._(contentDisposition: contentDisposition);
+  _$LogSettingsLogSettingsDownloadHeaders _build() {
+    final _$result = _$v ?? _$LogSettingsLogSettingsDownloadHeaders._(contentDisposition: contentDisposition);
     replace(_$result);
     return _$result;
   }

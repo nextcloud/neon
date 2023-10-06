@@ -6,333 +6,303 @@ part of 'notifications.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const NotificationsApiGenerateNotificationApiVersion _$notificationsApiGenerateNotificationApiVersionV1 =
-    NotificationsApiGenerateNotificationApiVersion._('v1');
-const NotificationsApiGenerateNotificationApiVersion _$notificationsApiGenerateNotificationApiVersionV2 =
-    NotificationsApiGenerateNotificationApiVersion._('v2');
+const ApiGenerateNotificationApiVersion _$apiGenerateNotificationApiVersionV1 =
+    ApiGenerateNotificationApiVersion._('v1');
+const ApiGenerateNotificationApiVersion _$apiGenerateNotificationApiVersionV2 =
+    ApiGenerateNotificationApiVersion._('v2');
 
-NotificationsApiGenerateNotificationApiVersion _$valueOfNotificationsApiGenerateNotificationApiVersion(String name) {
+ApiGenerateNotificationApiVersion _$valueOfApiGenerateNotificationApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsApiGenerateNotificationApiVersionV1;
+      return _$apiGenerateNotificationApiVersionV1;
     case 'v2':
-      return _$notificationsApiGenerateNotificationApiVersionV2;
+      return _$apiGenerateNotificationApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsApiGenerateNotificationApiVersion> _$notificationsApiGenerateNotificationApiVersionValues =
-    BuiltSet<NotificationsApiGenerateNotificationApiVersion>(const <NotificationsApiGenerateNotificationApiVersion>[
-  _$notificationsApiGenerateNotificationApiVersionV1,
-  _$notificationsApiGenerateNotificationApiVersionV2,
+final BuiltSet<ApiGenerateNotificationApiVersion> _$apiGenerateNotificationApiVersionValues =
+    BuiltSet<ApiGenerateNotificationApiVersion>(const <ApiGenerateNotificationApiVersion>[
+  _$apiGenerateNotificationApiVersionV1,
+  _$apiGenerateNotificationApiVersionV2,
 ]);
 
-const NotificationsEndpointListNotificationsApiVersion _$notificationsEndpointListNotificationsApiVersionV1 =
-    NotificationsEndpointListNotificationsApiVersion._('v1');
-const NotificationsEndpointListNotificationsApiVersion _$notificationsEndpointListNotificationsApiVersionV2 =
-    NotificationsEndpointListNotificationsApiVersion._('v2');
+const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV1 =
+    EndpointListNotificationsApiVersion._('v1');
+const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV2 =
+    EndpointListNotificationsApiVersion._('v2');
 
-NotificationsEndpointListNotificationsApiVersion _$valueOfNotificationsEndpointListNotificationsApiVersion(
-    String name) {
+EndpointListNotificationsApiVersion _$valueOfEndpointListNotificationsApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsEndpointListNotificationsApiVersionV1;
+      return _$endpointListNotificationsApiVersionV1;
     case 'v2':
-      return _$notificationsEndpointListNotificationsApiVersionV2;
+      return _$endpointListNotificationsApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsEndpointListNotificationsApiVersion>
-    _$notificationsEndpointListNotificationsApiVersionValues =
-    BuiltSet<NotificationsEndpointListNotificationsApiVersion>(const <NotificationsEndpointListNotificationsApiVersion>[
-  _$notificationsEndpointListNotificationsApiVersionV1,
-  _$notificationsEndpointListNotificationsApiVersionV2,
+final BuiltSet<EndpointListNotificationsApiVersion> _$endpointListNotificationsApiVersionValues =
+    BuiltSet<EndpointListNotificationsApiVersion>(const <EndpointListNotificationsApiVersion>[
+  _$endpointListNotificationsApiVersionV1,
+  _$endpointListNotificationsApiVersionV2,
 ]);
 
-const NotificationsEndpointDeleteAllNotificationsApiVersion _$notificationsEndpointDeleteAllNotificationsApiVersionV1 =
-    NotificationsEndpointDeleteAllNotificationsApiVersion._('v1');
-const NotificationsEndpointDeleteAllNotificationsApiVersion _$notificationsEndpointDeleteAllNotificationsApiVersionV2 =
-    NotificationsEndpointDeleteAllNotificationsApiVersion._('v2');
+const EndpointDeleteAllNotificationsApiVersion _$endpointDeleteAllNotificationsApiVersionV1 =
+    EndpointDeleteAllNotificationsApiVersion._('v1');
+const EndpointDeleteAllNotificationsApiVersion _$endpointDeleteAllNotificationsApiVersionV2 =
+    EndpointDeleteAllNotificationsApiVersion._('v2');
 
-NotificationsEndpointDeleteAllNotificationsApiVersion _$valueOfNotificationsEndpointDeleteAllNotificationsApiVersion(
-    String name) {
+EndpointDeleteAllNotificationsApiVersion _$valueOfEndpointDeleteAllNotificationsApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsEndpointDeleteAllNotificationsApiVersionV1;
+      return _$endpointDeleteAllNotificationsApiVersionV1;
     case 'v2':
-      return _$notificationsEndpointDeleteAllNotificationsApiVersionV2;
+      return _$endpointDeleteAllNotificationsApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsEndpointDeleteAllNotificationsApiVersion>
-    _$notificationsEndpointDeleteAllNotificationsApiVersionValues = BuiltSet<
-        NotificationsEndpointDeleteAllNotificationsApiVersion>(const <NotificationsEndpointDeleteAllNotificationsApiVersion>[
-  _$notificationsEndpointDeleteAllNotificationsApiVersionV1,
-  _$notificationsEndpointDeleteAllNotificationsApiVersionV2,
+final BuiltSet<EndpointDeleteAllNotificationsApiVersion> _$endpointDeleteAllNotificationsApiVersionValues =
+    BuiltSet<EndpointDeleteAllNotificationsApiVersion>(const <EndpointDeleteAllNotificationsApiVersion>[
+  _$endpointDeleteAllNotificationsApiVersionV1,
+  _$endpointDeleteAllNotificationsApiVersionV2,
 ]);
 
-const NotificationsEndpointGetNotificationApiVersion _$notificationsEndpointGetNotificationApiVersionV1 =
-    NotificationsEndpointGetNotificationApiVersion._('v1');
-const NotificationsEndpointGetNotificationApiVersion _$notificationsEndpointGetNotificationApiVersionV2 =
-    NotificationsEndpointGetNotificationApiVersion._('v2');
+const EndpointGetNotificationApiVersion _$endpointGetNotificationApiVersionV1 =
+    EndpointGetNotificationApiVersion._('v1');
+const EndpointGetNotificationApiVersion _$endpointGetNotificationApiVersionV2 =
+    EndpointGetNotificationApiVersion._('v2');
 
-NotificationsEndpointGetNotificationApiVersion _$valueOfNotificationsEndpointGetNotificationApiVersion(String name) {
+EndpointGetNotificationApiVersion _$valueOfEndpointGetNotificationApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsEndpointGetNotificationApiVersionV1;
+      return _$endpointGetNotificationApiVersionV1;
     case 'v2':
-      return _$notificationsEndpointGetNotificationApiVersionV2;
+      return _$endpointGetNotificationApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsEndpointGetNotificationApiVersion> _$notificationsEndpointGetNotificationApiVersionValues =
-    BuiltSet<NotificationsEndpointGetNotificationApiVersion>(const <NotificationsEndpointGetNotificationApiVersion>[
-  _$notificationsEndpointGetNotificationApiVersionV1,
-  _$notificationsEndpointGetNotificationApiVersionV2,
+final BuiltSet<EndpointGetNotificationApiVersion> _$endpointGetNotificationApiVersionValues =
+    BuiltSet<EndpointGetNotificationApiVersion>(const <EndpointGetNotificationApiVersion>[
+  _$endpointGetNotificationApiVersionV1,
+  _$endpointGetNotificationApiVersionV2,
 ]);
 
-const NotificationsEndpointDeleteNotificationApiVersion _$notificationsEndpointDeleteNotificationApiVersionV1 =
-    NotificationsEndpointDeleteNotificationApiVersion._('v1');
-const NotificationsEndpointDeleteNotificationApiVersion _$notificationsEndpointDeleteNotificationApiVersionV2 =
-    NotificationsEndpointDeleteNotificationApiVersion._('v2');
+const EndpointDeleteNotificationApiVersion _$endpointDeleteNotificationApiVersionV1 =
+    EndpointDeleteNotificationApiVersion._('v1');
+const EndpointDeleteNotificationApiVersion _$endpointDeleteNotificationApiVersionV2 =
+    EndpointDeleteNotificationApiVersion._('v2');
 
-NotificationsEndpointDeleteNotificationApiVersion _$valueOfNotificationsEndpointDeleteNotificationApiVersion(
-    String name) {
+EndpointDeleteNotificationApiVersion _$valueOfEndpointDeleteNotificationApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsEndpointDeleteNotificationApiVersionV1;
+      return _$endpointDeleteNotificationApiVersionV1;
     case 'v2':
-      return _$notificationsEndpointDeleteNotificationApiVersionV2;
+      return _$endpointDeleteNotificationApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsEndpointDeleteNotificationApiVersion>
-    _$notificationsEndpointDeleteNotificationApiVersionValues = BuiltSet<
-        NotificationsEndpointDeleteNotificationApiVersion>(const <NotificationsEndpointDeleteNotificationApiVersion>[
-  _$notificationsEndpointDeleteNotificationApiVersionV1,
-  _$notificationsEndpointDeleteNotificationApiVersionV2,
+final BuiltSet<EndpointDeleteNotificationApiVersion> _$endpointDeleteNotificationApiVersionValues =
+    BuiltSet<EndpointDeleteNotificationApiVersion>(const <EndpointDeleteNotificationApiVersion>[
+  _$endpointDeleteNotificationApiVersionV1,
+  _$endpointDeleteNotificationApiVersionV2,
 ]);
 
-const NotificationsEndpointConfirmIdsForUserApiVersion _$notificationsEndpointConfirmIdsForUserApiVersionV1 =
-    NotificationsEndpointConfirmIdsForUserApiVersion._('v1');
-const NotificationsEndpointConfirmIdsForUserApiVersion _$notificationsEndpointConfirmIdsForUserApiVersionV2 =
-    NotificationsEndpointConfirmIdsForUserApiVersion._('v2');
+const EndpointConfirmIdsForUserApiVersion _$endpointConfirmIdsForUserApiVersionV1 =
+    EndpointConfirmIdsForUserApiVersion._('v1');
+const EndpointConfirmIdsForUserApiVersion _$endpointConfirmIdsForUserApiVersionV2 =
+    EndpointConfirmIdsForUserApiVersion._('v2');
 
-NotificationsEndpointConfirmIdsForUserApiVersion _$valueOfNotificationsEndpointConfirmIdsForUserApiVersion(
-    String name) {
+EndpointConfirmIdsForUserApiVersion _$valueOfEndpointConfirmIdsForUserApiVersion(String name) {
   switch (name) {
     case 'v1':
-      return _$notificationsEndpointConfirmIdsForUserApiVersionV1;
+      return _$endpointConfirmIdsForUserApiVersionV1;
     case 'v2':
-      return _$notificationsEndpointConfirmIdsForUserApiVersionV2;
+      return _$endpointConfirmIdsForUserApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsEndpointConfirmIdsForUserApiVersion>
-    _$notificationsEndpointConfirmIdsForUserApiVersionValues =
-    BuiltSet<NotificationsEndpointConfirmIdsForUserApiVersion>(const <NotificationsEndpointConfirmIdsForUserApiVersion>[
-  _$notificationsEndpointConfirmIdsForUserApiVersionV1,
-  _$notificationsEndpointConfirmIdsForUserApiVersionV2,
+final BuiltSet<EndpointConfirmIdsForUserApiVersion> _$endpointConfirmIdsForUserApiVersionValues =
+    BuiltSet<EndpointConfirmIdsForUserApiVersion>(const <EndpointConfirmIdsForUserApiVersion>[
+  _$endpointConfirmIdsForUserApiVersionV1,
+  _$endpointConfirmIdsForUserApiVersionV2,
 ]);
 
-const NotificationsPushRegisterDeviceApiVersion _$notificationsPushRegisterDeviceApiVersionV2 =
-    NotificationsPushRegisterDeviceApiVersion._('v2');
+const PushRegisterDeviceApiVersion _$pushRegisterDeviceApiVersionV2 = PushRegisterDeviceApiVersion._('v2');
 
-NotificationsPushRegisterDeviceApiVersion _$valueOfNotificationsPushRegisterDeviceApiVersion(String name) {
+PushRegisterDeviceApiVersion _$valueOfPushRegisterDeviceApiVersion(String name) {
   switch (name) {
     case 'v2':
-      return _$notificationsPushRegisterDeviceApiVersionV2;
+      return _$pushRegisterDeviceApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsPushRegisterDeviceApiVersion> _$notificationsPushRegisterDeviceApiVersionValues =
-    BuiltSet<NotificationsPushRegisterDeviceApiVersion>(const <NotificationsPushRegisterDeviceApiVersion>[
-  _$notificationsPushRegisterDeviceApiVersionV2,
+final BuiltSet<PushRegisterDeviceApiVersion> _$pushRegisterDeviceApiVersionValues =
+    BuiltSet<PushRegisterDeviceApiVersion>(const <PushRegisterDeviceApiVersion>[
+  _$pushRegisterDeviceApiVersionV2,
 ]);
 
-const NotificationsPushRemoveDeviceApiVersion _$notificationsPushRemoveDeviceApiVersionV2 =
-    NotificationsPushRemoveDeviceApiVersion._('v2');
+const PushRemoveDeviceApiVersion _$pushRemoveDeviceApiVersionV2 = PushRemoveDeviceApiVersion._('v2');
 
-NotificationsPushRemoveDeviceApiVersion _$valueOfNotificationsPushRemoveDeviceApiVersion(String name) {
+PushRemoveDeviceApiVersion _$valueOfPushRemoveDeviceApiVersion(String name) {
   switch (name) {
     case 'v2':
-      return _$notificationsPushRemoveDeviceApiVersionV2;
+      return _$pushRemoveDeviceApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsPushRemoveDeviceApiVersion> _$notificationsPushRemoveDeviceApiVersionValues =
-    BuiltSet<NotificationsPushRemoveDeviceApiVersion>(const <NotificationsPushRemoveDeviceApiVersion>[
-  _$notificationsPushRemoveDeviceApiVersionV2,
+final BuiltSet<PushRemoveDeviceApiVersion> _$pushRemoveDeviceApiVersionValues =
+    BuiltSet<PushRemoveDeviceApiVersion>(const <PushRemoveDeviceApiVersion>[
+  _$pushRemoveDeviceApiVersionV2,
 ]);
 
-const NotificationsSettingsPersonalApiVersion _$notificationsSettingsPersonalApiVersionV2 =
-    NotificationsSettingsPersonalApiVersion._('v2');
+const SettingsPersonalApiVersion _$settingsPersonalApiVersionV2 = SettingsPersonalApiVersion._('v2');
 
-NotificationsSettingsPersonalApiVersion _$valueOfNotificationsSettingsPersonalApiVersion(String name) {
+SettingsPersonalApiVersion _$valueOfSettingsPersonalApiVersion(String name) {
   switch (name) {
     case 'v2':
-      return _$notificationsSettingsPersonalApiVersionV2;
+      return _$settingsPersonalApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsSettingsPersonalApiVersion> _$notificationsSettingsPersonalApiVersionValues =
-    BuiltSet<NotificationsSettingsPersonalApiVersion>(const <NotificationsSettingsPersonalApiVersion>[
-  _$notificationsSettingsPersonalApiVersionV2,
+final BuiltSet<SettingsPersonalApiVersion> _$settingsPersonalApiVersionValues =
+    BuiltSet<SettingsPersonalApiVersion>(const <SettingsPersonalApiVersion>[
+  _$settingsPersonalApiVersionV2,
 ]);
 
-const NotificationsSettingsAdminApiVersion _$notificationsSettingsAdminApiVersionV2 =
-    NotificationsSettingsAdminApiVersion._('v2');
+const SettingsAdminApiVersion _$settingsAdminApiVersionV2 = SettingsAdminApiVersion._('v2');
 
-NotificationsSettingsAdminApiVersion _$valueOfNotificationsSettingsAdminApiVersion(String name) {
+SettingsAdminApiVersion _$valueOfSettingsAdminApiVersion(String name) {
   switch (name) {
     case 'v2':
-      return _$notificationsSettingsAdminApiVersionV2;
+      return _$settingsAdminApiVersionV2;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<NotificationsSettingsAdminApiVersion> _$notificationsSettingsAdminApiVersionValues =
-    BuiltSet<NotificationsSettingsAdminApiVersion>(const <NotificationsSettingsAdminApiVersion>[
-  _$notificationsSettingsAdminApiVersionV2,
+final BuiltSet<SettingsAdminApiVersion> _$settingsAdminApiVersionValues =
+    BuiltSet<SettingsAdminApiVersion>(const <SettingsAdminApiVersion>[
+  _$settingsAdminApiVersionV2,
 ]);
 
-Serializer<NotificationsApiGenerateNotificationApiVersion> _$notificationsApiGenerateNotificationApiVersionSerializer =
-    _$NotificationsApiGenerateNotificationApiVersionSerializer();
-Serializer<NotificationsOCSMeta> _$notificationsOCSMetaSerializer = _$NotificationsOCSMetaSerializer();
-Serializer<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs>
-    _$notificationsApiGenerateNotificationResponseApplicationJsonOcsSerializer =
-    _$NotificationsApiGenerateNotificationResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsApiGenerateNotificationResponseApplicationJson>
-    _$notificationsApiGenerateNotificationResponseApplicationJsonSerializer =
-    _$NotificationsApiGenerateNotificationResponseApplicationJsonSerializer();
-Serializer<NotificationsEndpointListNotificationsApiVersion>
-    _$notificationsEndpointListNotificationsApiVersionSerializer =
-    _$NotificationsEndpointListNotificationsApiVersionSerializer();
-Serializer<NotificationsNotificationAction> _$notificationsNotificationActionSerializer =
-    _$NotificationsNotificationActionSerializer();
-Serializer<NotificationsNotification> _$notificationsNotificationSerializer = _$NotificationsNotificationSerializer();
-Serializer<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs>
-    _$notificationsEndpointListNotificationsResponseApplicationJsonOcsSerializer =
-    _$NotificationsEndpointListNotificationsResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsEndpointListNotificationsResponseApplicationJson>
-    _$notificationsEndpointListNotificationsResponseApplicationJsonSerializer =
-    _$NotificationsEndpointListNotificationsResponseApplicationJsonSerializer();
-Serializer<NotificationsEndpointDeleteAllNotificationsApiVersion>
-    _$notificationsEndpointDeleteAllNotificationsApiVersionSerializer =
-    _$NotificationsEndpointDeleteAllNotificationsApiVersionSerializer();
-Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs>
-    _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer =
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson>
-    _$notificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerializer =
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerializer();
-Serializer<NotificationsEndpointGetNotificationApiVersion> _$notificationsEndpointGetNotificationApiVersionSerializer =
-    _$NotificationsEndpointGetNotificationApiVersionSerializer();
-Serializer<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs>
-    _$notificationsEndpointGetNotificationResponseApplicationJsonOcsSerializer =
-    _$NotificationsEndpointGetNotificationResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsEndpointGetNotificationResponseApplicationJson>
-    _$notificationsEndpointGetNotificationResponseApplicationJsonSerializer =
-    _$NotificationsEndpointGetNotificationResponseApplicationJsonSerializer();
-Serializer<NotificationsEndpointDeleteNotificationApiVersion>
-    _$notificationsEndpointDeleteNotificationApiVersionSerializer =
-    _$NotificationsEndpointDeleteNotificationApiVersionSerializer();
-Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs>
-    _$notificationsEndpointDeleteNotificationResponseApplicationJsonOcsSerializer =
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsEndpointDeleteNotificationResponseApplicationJson>
-    _$notificationsEndpointDeleteNotificationResponseApplicationJsonSerializer =
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJsonSerializer();
-Serializer<NotificationsEndpointConfirmIdsForUserApiVersion>
-    _$notificationsEndpointConfirmIdsForUserApiVersionSerializer =
-    _$NotificationsEndpointConfirmIdsForUserApiVersionSerializer();
-Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs>
-    _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonOcsSerializer =
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson>
-    _$notificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer =
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer();
-Serializer<NotificationsPushRegisterDeviceApiVersion> _$notificationsPushRegisterDeviceApiVersionSerializer =
-    _$NotificationsPushRegisterDeviceApiVersionSerializer();
-Serializer<NotificationsPushDevice> _$notificationsPushDeviceSerializer = _$NotificationsPushDeviceSerializer();
-Serializer<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs>
-    _$notificationsPushRegisterDeviceResponseApplicationJsonOcsSerializer =
-    _$NotificationsPushRegisterDeviceResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsPushRegisterDeviceResponseApplicationJson>
-    _$notificationsPushRegisterDeviceResponseApplicationJsonSerializer =
-    _$NotificationsPushRegisterDeviceResponseApplicationJsonSerializer();
-Serializer<NotificationsPushRemoveDeviceApiVersion> _$notificationsPushRemoveDeviceApiVersionSerializer =
-    _$NotificationsPushRemoveDeviceApiVersionSerializer();
-Serializer<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs>
-    _$notificationsPushRemoveDeviceResponseApplicationJsonOcsSerializer =
-    _$NotificationsPushRemoveDeviceResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsPushRemoveDeviceResponseApplicationJson>
-    _$notificationsPushRemoveDeviceResponseApplicationJsonSerializer =
-    _$NotificationsPushRemoveDeviceResponseApplicationJsonSerializer();
-Serializer<NotificationsSettingsPersonalApiVersion> _$notificationsSettingsPersonalApiVersionSerializer =
-    _$NotificationsSettingsPersonalApiVersionSerializer();
-Serializer<NotificationsSettingsPersonalResponseApplicationJson_Ocs>
-    _$notificationsSettingsPersonalResponseApplicationJsonOcsSerializer =
-    _$NotificationsSettingsPersonalResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsSettingsPersonalResponseApplicationJson>
-    _$notificationsSettingsPersonalResponseApplicationJsonSerializer =
-    _$NotificationsSettingsPersonalResponseApplicationJsonSerializer();
-Serializer<NotificationsSettingsAdminApiVersion> _$notificationsSettingsAdminApiVersionSerializer =
-    _$NotificationsSettingsAdminApiVersionSerializer();
-Serializer<NotificationsSettingsAdminResponseApplicationJson_Ocs>
-    _$notificationsSettingsAdminResponseApplicationJsonOcsSerializer =
-    _$NotificationsSettingsAdminResponseApplicationJson_OcsSerializer();
-Serializer<NotificationsSettingsAdminResponseApplicationJson>
-    _$notificationsSettingsAdminResponseApplicationJsonSerializer =
-    _$NotificationsSettingsAdminResponseApplicationJsonSerializer();
-Serializer<NotificationsCapabilities_Notifications> _$notificationsCapabilitiesNotificationsSerializer =
-    _$NotificationsCapabilities_NotificationsSerializer();
-Serializer<NotificationsCapabilities> _$notificationsCapabilitiesSerializer = _$NotificationsCapabilitiesSerializer();
+Serializer<ApiGenerateNotificationApiVersion> _$apiGenerateNotificationApiVersionSerializer =
+    _$ApiGenerateNotificationApiVersionSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
+    _$apiGenerateNotificationResponseApplicationJsonOcsSerializer =
+    _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
+Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotificationResponseApplicationJsonSerializer =
+    _$ApiGenerateNotificationResponseApplicationJsonSerializer();
+Serializer<EndpointListNotificationsApiVersion> _$endpointListNotificationsApiVersionSerializer =
+    _$EndpointListNotificationsApiVersionSerializer();
+Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
+Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
+Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
+    _$endpointListNotificationsResponseApplicationJsonOcsSerializer =
+    _$EndpointListNotificationsResponseApplicationJson_OcsSerializer();
+Serializer<EndpointListNotificationsResponseApplicationJson>
+    _$endpointListNotificationsResponseApplicationJsonSerializer =
+    _$EndpointListNotificationsResponseApplicationJsonSerializer();
+Serializer<EndpointDeleteAllNotificationsApiVersion> _$endpointDeleteAllNotificationsApiVersionSerializer =
+    _$EndpointDeleteAllNotificationsApiVersionSerializer();
+Serializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs>
+    _$endpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer =
+    _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
+Serializer<EndpointDeleteAllNotificationsResponseApplicationJson>
+    _$endpointDeleteAllNotificationsResponseApplicationJsonSerializer =
+    _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer();
+Serializer<EndpointGetNotificationApiVersion> _$endpointGetNotificationApiVersionSerializer =
+    _$EndpointGetNotificationApiVersionSerializer();
+Serializer<EndpointGetNotificationResponseApplicationJson_Ocs>
+    _$endpointGetNotificationResponseApplicationJsonOcsSerializer =
+    _$EndpointGetNotificationResponseApplicationJson_OcsSerializer();
+Serializer<EndpointGetNotificationResponseApplicationJson> _$endpointGetNotificationResponseApplicationJsonSerializer =
+    _$EndpointGetNotificationResponseApplicationJsonSerializer();
+Serializer<EndpointDeleteNotificationApiVersion> _$endpointDeleteNotificationApiVersionSerializer =
+    _$EndpointDeleteNotificationApiVersionSerializer();
+Serializer<EndpointDeleteNotificationResponseApplicationJson_Ocs>
+    _$endpointDeleteNotificationResponseApplicationJsonOcsSerializer =
+    _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer();
+Serializer<EndpointDeleteNotificationResponseApplicationJson>
+    _$endpointDeleteNotificationResponseApplicationJsonSerializer =
+    _$EndpointDeleteNotificationResponseApplicationJsonSerializer();
+Serializer<EndpointConfirmIdsForUserApiVersion> _$endpointConfirmIdsForUserApiVersionSerializer =
+    _$EndpointConfirmIdsForUserApiVersionSerializer();
+Serializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs>
+    _$endpointConfirmIdsForUserResponseApplicationJsonOcsSerializer =
+    _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
+Serializer<EndpointConfirmIdsForUserResponseApplicationJson>
+    _$endpointConfirmIdsForUserResponseApplicationJsonSerializer =
+    _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer();
+Serializer<PushRegisterDeviceApiVersion> _$pushRegisterDeviceApiVersionSerializer =
+    _$PushRegisterDeviceApiVersionSerializer();
+Serializer<PushDevice> _$pushDeviceSerializer = _$PushDeviceSerializer();
+Serializer<PushRegisterDeviceResponseApplicationJson_Ocs> _$pushRegisterDeviceResponseApplicationJsonOcsSerializer =
+    _$PushRegisterDeviceResponseApplicationJson_OcsSerializer();
+Serializer<PushRegisterDeviceResponseApplicationJson> _$pushRegisterDeviceResponseApplicationJsonSerializer =
+    _$PushRegisterDeviceResponseApplicationJsonSerializer();
+Serializer<PushRemoveDeviceApiVersion> _$pushRemoveDeviceApiVersionSerializer =
+    _$PushRemoveDeviceApiVersionSerializer();
+Serializer<PushRemoveDeviceResponseApplicationJson_Ocs> _$pushRemoveDeviceResponseApplicationJsonOcsSerializer =
+    _$PushRemoveDeviceResponseApplicationJson_OcsSerializer();
+Serializer<PushRemoveDeviceResponseApplicationJson> _$pushRemoveDeviceResponseApplicationJsonSerializer =
+    _$PushRemoveDeviceResponseApplicationJsonSerializer();
+Serializer<SettingsPersonalApiVersion> _$settingsPersonalApiVersionSerializer =
+    _$SettingsPersonalApiVersionSerializer();
+Serializer<SettingsPersonalResponseApplicationJson_Ocs> _$settingsPersonalResponseApplicationJsonOcsSerializer =
+    _$SettingsPersonalResponseApplicationJson_OcsSerializer();
+Serializer<SettingsPersonalResponseApplicationJson> _$settingsPersonalResponseApplicationJsonSerializer =
+    _$SettingsPersonalResponseApplicationJsonSerializer();
+Serializer<SettingsAdminApiVersion> _$settingsAdminApiVersionSerializer = _$SettingsAdminApiVersionSerializer();
+Serializer<SettingsAdminResponseApplicationJson_Ocs> _$settingsAdminResponseApplicationJsonOcsSerializer =
+    _$SettingsAdminResponseApplicationJson_OcsSerializer();
+Serializer<SettingsAdminResponseApplicationJson> _$settingsAdminResponseApplicationJsonSerializer =
+    _$SettingsAdminResponseApplicationJsonSerializer();
+Serializer<Capabilities_Notifications> _$capabilitiesNotificationsSerializer = _$Capabilities_NotificationsSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$NotificationsApiGenerateNotificationApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsApiGenerateNotificationApiVersion> {
+class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializer<ApiGenerateNotificationApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsApiGenerateNotificationApiVersion];
+  final Iterable<Type> types = const <Type>[ApiGenerateNotificationApiVersion];
   @override
-  final String wireName = 'NotificationsApiGenerateNotificationApiVersion';
+  final String wireName = 'ApiGenerateNotificationApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsApiGenerateNotificationApiVersion object,
+  Object serialize(Serializers serializers, ApiGenerateNotificationApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsApiGenerateNotificationApiVersion deserialize(Serializers serializers, Object serialized,
+  ApiGenerateNotificationApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsApiGenerateNotificationApiVersion.valueOf(serialized as String);
+      ApiGenerateNotificationApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsOCSMetaSerializer implements StructuredSerializer<NotificationsOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [NotificationsOCSMeta, _$NotificationsOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'NotificationsOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -363,9 +333,9 @@ class _$NotificationsOCSMetaSerializer implements StructuredSerializer<Notificat
   }
 
   @override
-  NotificationsOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -395,23 +365,22 @@ class _$NotificationsOCSMetaSerializer implements StructuredSerializer<Notificat
   }
 }
 
-class _$NotificationsApiGenerateNotificationResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs> {
+class _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGenerateNotificationResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsApiGenerateNotificationResponseApplicationJson_Ocs,
-    _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs
+    ApiGenerateNotificationResponseApplicationJson_Ocs,
+    _$ApiGenerateNotificationResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs';
+  final String wireName = 'ApiGenerateNotificationResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsApiGenerateNotificationResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -420,10 +389,9 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJson_OcsSerialize
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ApiGenerateNotificationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+    final result = ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -432,8 +400,7 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJson_OcsSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -445,34 +412,32 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJson_OcsSerialize
   }
 }
 
-class _$NotificationsApiGenerateNotificationResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsApiGenerateNotificationResponseApplicationJson> {
+class _$ApiGenerateNotificationResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGenerateNotificationResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsApiGenerateNotificationResponseApplicationJson,
-    _$NotificationsApiGenerateNotificationResponseApplicationJson
+    ApiGenerateNotificationResponseApplicationJson,
+    _$ApiGenerateNotificationResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsApiGenerateNotificationResponseApplicationJson';
+  final String wireName = 'ApiGenerateNotificationResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsApiGenerateNotificationResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(ApiGenerateNotificationResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ApiGenerateNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsApiGenerateNotificationResponseApplicationJsonBuilder();
+    final result = ApiGenerateNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -482,8 +447,8 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsApiGenerateNotificationResponseApplicationJson_Ocs))!
-              as NotificationsApiGenerateNotificationResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ApiGenerateNotificationResponseApplicationJson_Ocs))!
+              as ApiGenerateNotificationResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -492,32 +457,32 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsEndpointListNotificationsApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsEndpointListNotificationsApiVersion> {
+class _$EndpointListNotificationsApiVersionSerializer
+    implements PrimitiveSerializer<EndpointListNotificationsApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsEndpointListNotificationsApiVersion];
+  final Iterable<Type> types = const <Type>[EndpointListNotificationsApiVersion];
   @override
-  final String wireName = 'NotificationsEndpointListNotificationsApiVersion';
+  final String wireName = 'EndpointListNotificationsApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsEndpointListNotificationsApiVersion object,
+  Object serialize(Serializers serializers, EndpointListNotificationsApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsEndpointListNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
+  EndpointListNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsEndpointListNotificationsApiVersion.valueOf(serialized as String);
+      EndpointListNotificationsApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsNotificationActionSerializer implements StructuredSerializer<NotificationsNotificationAction> {
+class _$NotificationActionSerializer implements StructuredSerializer<NotificationAction> {
   @override
-  final Iterable<Type> types = const [NotificationsNotificationAction, _$NotificationsNotificationAction];
+  final Iterable<Type> types = const [NotificationAction, _$NotificationAction];
   @override
-  final String wireName = 'NotificationsNotificationAction';
+  final String wireName = 'NotificationAction';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsNotificationAction object,
+  Iterable<Object?> serialize(Serializers serializers, NotificationAction object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -534,9 +499,9 @@ class _$NotificationsNotificationActionSerializer implements StructuredSerialize
   }
 
   @override
-  NotificationsNotificationAction deserialize(Serializers serializers, Iterable<Object?> serialized,
+  NotificationAction deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsNotificationActionBuilder();
+    final result = NotificationActionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -563,14 +528,14 @@ class _$NotificationsNotificationActionSerializer implements StructuredSerialize
   }
 }
 
-class _$NotificationsNotificationSerializer implements StructuredSerializer<NotificationsNotification> {
+class _$NotificationSerializer implements StructuredSerializer<Notification> {
   @override
-  final Iterable<Type> types = const [NotificationsNotification, _$NotificationsNotification];
+  final Iterable<Type> types = const [Notification, _$Notification];
   @override
-  final String wireName = 'NotificationsNotification';
+  final String wireName = 'Notification';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsNotification object,
+  Iterable<Object?> serialize(Serializers serializers, Notification object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'notification_id',
@@ -592,8 +557,7 @@ class _$NotificationsNotificationSerializer implements StructuredSerializer<Noti
       'link',
       serializers.serialize(object.link, specifiedType: const FullType(String)),
       'actions',
-      serializers.serialize(object.actions,
-          specifiedType: const FullType(BuiltList, [FullType(NotificationsNotificationAction)])),
+      serializers.serialize(object.actions, specifiedType: const FullType(BuiltList, [FullType(NotificationAction)])),
     ];
     Object? value;
     value = object.subjectRich;
@@ -638,9 +602,9 @@ class _$NotificationsNotificationSerializer implements StructuredSerializer<Noti
   }
 
   @override
-  NotificationsNotification deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Notification deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsNotificationBuilder();
+    final result = NotificationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -677,8 +641,7 @@ class _$NotificationsNotificationSerializer implements StructuredSerializer<Noti
           break;
         case 'actions':
           result.actions.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(NotificationsNotificationAction)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(NotificationAction)]))! as BuiltList<Object?>);
           break;
         case 'subjectRich':
           result.subjectRich = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -707,36 +670,34 @@ class _$NotificationsNotificationSerializer implements StructuredSerializer<Noti
   }
 }
 
-class _$NotificationsEndpointListNotificationsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs> {
+class _$EndpointListNotificationsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<EndpointListNotificationsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointListNotificationsResponseApplicationJson_Ocs,
-    _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs
+    EndpointListNotificationsResponseApplicationJson_Ocs,
+    _$EndpointListNotificationsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsEndpointListNotificationsResponseApplicationJson_Ocs';
+  final String wireName = 'EndpointListNotificationsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointListNotificationsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointListNotificationsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, [FullType(NotificationsNotification)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Notification)])),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson_Ocs deserialize(
+  EndpointListNotificationsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder();
+    final result = EndpointListNotificationsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -745,12 +706,11 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJson_OcsSeriali
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NotificationsNotification)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Notification)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -759,34 +719,32 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJson_OcsSeriali
   }
 }
 
-class _$NotificationsEndpointListNotificationsResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsEndpointListNotificationsResponseApplicationJson> {
+class _$EndpointListNotificationsResponseApplicationJsonSerializer
+    implements StructuredSerializer<EndpointListNotificationsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointListNotificationsResponseApplicationJson,
-    _$NotificationsEndpointListNotificationsResponseApplicationJson
+    EndpointListNotificationsResponseApplicationJson,
+    _$EndpointListNotificationsResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsEndpointListNotificationsResponseApplicationJson';
+  final String wireName = 'EndpointListNotificationsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointListNotificationsResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointListNotificationsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsEndpointListNotificationsResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(EndpointListNotificationsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  EndpointListNotificationsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointListNotificationsResponseApplicationJsonBuilder();
+    final result = EndpointListNotificationsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -796,8 +754,8 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsEndpointListNotificationsResponseApplicationJson_Ocs))!
-              as NotificationsEndpointListNotificationsResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(EndpointListNotificationsResponseApplicationJson_Ocs))!
+              as EndpointListNotificationsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -806,41 +764,40 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsEndpointDeleteAllNotificationsApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsEndpointDeleteAllNotificationsApiVersion> {
+class _$EndpointDeleteAllNotificationsApiVersionSerializer
+    implements PrimitiveSerializer<EndpointDeleteAllNotificationsApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsEndpointDeleteAllNotificationsApiVersion];
+  final Iterable<Type> types = const <Type>[EndpointDeleteAllNotificationsApiVersion];
   @override
-  final String wireName = 'NotificationsEndpointDeleteAllNotificationsApiVersion';
+  final String wireName = 'EndpointDeleteAllNotificationsApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsEndpointDeleteAllNotificationsApiVersion object,
+  Object serialize(Serializers serializers, EndpointDeleteAllNotificationsApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsEndpointDeleteAllNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
+  EndpointDeleteAllNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsEndpointDeleteAllNotificationsApiVersion.valueOf(serialized as String);
+      EndpointDeleteAllNotificationsApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs> {
+class _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs
+    EndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
+    _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs';
+  final String wireName = 'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointDeleteAllNotificationsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -849,10 +806,10 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsSe
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs deserialize(
+  EndpointDeleteAllNotificationsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+    final result = EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -861,8 +818,7 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsSe
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -874,34 +830,33 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsSe
   }
 }
 
-class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson> {
+class _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer
+    implements StructuredSerializer<EndpointDeleteAllNotificationsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointDeleteAllNotificationsResponseApplicationJson,
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson
+    EndpointDeleteAllNotificationsResponseApplicationJson,
+    _$EndpointDeleteAllNotificationsResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson';
+  final String wireName = 'EndpointDeleteAllNotificationsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointDeleteAllNotificationsResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointDeleteAllNotificationsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson deserialize(
+  EndpointDeleteAllNotificationsResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
+    final result = EndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -911,9 +866,8 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerial
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs))!
-              as NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson_Ocs))!
+              as EndpointDeleteAllNotificationsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -922,53 +876,50 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonSerial
   }
 }
 
-class _$NotificationsEndpointGetNotificationApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsEndpointGetNotificationApiVersion> {
+class _$EndpointGetNotificationApiVersionSerializer implements PrimitiveSerializer<EndpointGetNotificationApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsEndpointGetNotificationApiVersion];
+  final Iterable<Type> types = const <Type>[EndpointGetNotificationApiVersion];
   @override
-  final String wireName = 'NotificationsEndpointGetNotificationApiVersion';
+  final String wireName = 'EndpointGetNotificationApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsEndpointGetNotificationApiVersion object,
+  Object serialize(Serializers serializers, EndpointGetNotificationApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsEndpointGetNotificationApiVersion deserialize(Serializers serializers, Object serialized,
+  EndpointGetNotificationApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsEndpointGetNotificationApiVersion.valueOf(serialized as String);
+      EndpointGetNotificationApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsEndpointGetNotificationResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs> {
+class _$EndpointGetNotificationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<EndpointGetNotificationResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointGetNotificationResponseApplicationJson_Ocs,
-    _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs
+    EndpointGetNotificationResponseApplicationJson_Ocs,
+    _$EndpointGetNotificationResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsEndpointGetNotificationResponseApplicationJson_Ocs';
+  final String wireName = 'EndpointGetNotificationResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointGetNotificationResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointGetNotificationResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(NotificationsNotification)),
+      serializers.serialize(object.data, specifiedType: const FullType(Notification)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  EndpointGetNotificationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder();
+    final result = EndpointGetNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -977,12 +928,11 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJson_OcsSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsNotification))!
-              as NotificationsNotification);
+          result.data
+              .replace(serializers.deserialize(value, specifiedType: const FullType(Notification))! as Notification);
           break;
       }
     }
@@ -991,34 +941,32 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJson_OcsSerialize
   }
 }
 
-class _$NotificationsEndpointGetNotificationResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsEndpointGetNotificationResponseApplicationJson> {
+class _$EndpointGetNotificationResponseApplicationJsonSerializer
+    implements StructuredSerializer<EndpointGetNotificationResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointGetNotificationResponseApplicationJson,
-    _$NotificationsEndpointGetNotificationResponseApplicationJson
+    EndpointGetNotificationResponseApplicationJson,
+    _$EndpointGetNotificationResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsEndpointGetNotificationResponseApplicationJson';
+  final String wireName = 'EndpointGetNotificationResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointGetNotificationResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointGetNotificationResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(EndpointGetNotificationResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  EndpointGetNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointGetNotificationResponseApplicationJsonBuilder();
+    final result = EndpointGetNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1028,8 +976,8 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsEndpointGetNotificationResponseApplicationJson_Ocs))!
-              as NotificationsEndpointGetNotificationResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(EndpointGetNotificationResponseApplicationJson_Ocs))!
+              as EndpointGetNotificationResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1038,41 +986,40 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsEndpointDeleteNotificationApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsEndpointDeleteNotificationApiVersion> {
+class _$EndpointDeleteNotificationApiVersionSerializer
+    implements PrimitiveSerializer<EndpointDeleteNotificationApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsEndpointDeleteNotificationApiVersion];
+  final Iterable<Type> types = const <Type>[EndpointDeleteNotificationApiVersion];
   @override
-  final String wireName = 'NotificationsEndpointDeleteNotificationApiVersion';
+  final String wireName = 'EndpointDeleteNotificationApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsEndpointDeleteNotificationApiVersion object,
+  Object serialize(Serializers serializers, EndpointDeleteNotificationApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsEndpointDeleteNotificationApiVersion deserialize(Serializers serializers, Object serialized,
+  EndpointDeleteNotificationApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsEndpointDeleteNotificationApiVersion.valueOf(serialized as String);
+      EndpointDeleteNotificationApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs> {
+class _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<EndpointDeleteNotificationResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs,
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs
+    EndpointDeleteNotificationResponseApplicationJson_Ocs,
+    _$EndpointDeleteNotificationResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs';
+  final String wireName = 'EndpointDeleteNotificationResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointDeleteNotificationResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1081,10 +1028,10 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsSerial
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs deserialize(
+  EndpointDeleteNotificationResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+    final result = EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1093,8 +1040,7 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsSerial
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1106,34 +1052,32 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsSerial
   }
 }
 
-class _$NotificationsEndpointDeleteNotificationResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsEndpointDeleteNotificationResponseApplicationJson> {
+class _$EndpointDeleteNotificationResponseApplicationJsonSerializer
+    implements StructuredSerializer<EndpointDeleteNotificationResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointDeleteNotificationResponseApplicationJson,
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJson
+    EndpointDeleteNotificationResponseApplicationJson,
+    _$EndpointDeleteNotificationResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsEndpointDeleteNotificationResponseApplicationJson';
+  final String wireName = 'EndpointDeleteNotificationResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointDeleteNotificationResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointDeleteNotificationResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(EndpointDeleteNotificationResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  EndpointDeleteNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder();
+    final result = EndpointDeleteNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1143,8 +1087,8 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs))!
-              as NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(EndpointDeleteNotificationResponseApplicationJson_Ocs))!
+              as EndpointDeleteNotificationResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1153,41 +1097,40 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsEndpointConfirmIdsForUserApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsEndpointConfirmIdsForUserApiVersion> {
+class _$EndpointConfirmIdsForUserApiVersionSerializer
+    implements PrimitiveSerializer<EndpointConfirmIdsForUserApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsEndpointConfirmIdsForUserApiVersion];
+  final Iterable<Type> types = const <Type>[EndpointConfirmIdsForUserApiVersion];
   @override
-  final String wireName = 'NotificationsEndpointConfirmIdsForUserApiVersion';
+  final String wireName = 'EndpointConfirmIdsForUserApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsEndpointConfirmIdsForUserApiVersion object,
+  Object serialize(Serializers serializers, EndpointConfirmIdsForUserApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsEndpointConfirmIdsForUserApiVersion deserialize(Serializers serializers, Object serialized,
+  EndpointConfirmIdsForUserApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsEndpointConfirmIdsForUserApiVersion.valueOf(serialized as String);
+      EndpointConfirmIdsForUserApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs> {
+class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs,
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs
+    EndpointConfirmIdsForUserResponseApplicationJson_Ocs,
+    _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs';
+  final String wireName = 'EndpointConfirmIdsForUserResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointConfirmIdsForUserResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(int)])),
     ];
@@ -1196,10 +1139,10 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsSeriali
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs deserialize(
+  EndpointConfirmIdsForUserResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+    final result = EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1208,8 +1151,7 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsSeriali
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
@@ -1222,34 +1164,32 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsSeriali
   }
 }
 
-class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsEndpointConfirmIdsForUserResponseApplicationJson> {
+class _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer
+    implements StructuredSerializer<EndpointConfirmIdsForUserResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsEndpointConfirmIdsForUserResponseApplicationJson,
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson
+    EndpointConfirmIdsForUserResponseApplicationJson,
+    _$EndpointConfirmIdsForUserResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsEndpointConfirmIdsForUserResponseApplicationJson';
+  final String wireName = 'EndpointConfirmIdsForUserResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsEndpointConfirmIdsForUserResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, EndpointConfirmIdsForUserResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  EndpointConfirmIdsForUserResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder();
+    final result = EndpointConfirmIdsForUserResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1259,8 +1199,8 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs))!
-              as NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson_Ocs))!
+              as EndpointConfirmIdsForUserResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1269,32 +1209,31 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsPushRegisterDeviceApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsPushRegisterDeviceApiVersion> {
+class _$PushRegisterDeviceApiVersionSerializer implements PrimitiveSerializer<PushRegisterDeviceApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsPushRegisterDeviceApiVersion];
+  final Iterable<Type> types = const <Type>[PushRegisterDeviceApiVersion];
   @override
-  final String wireName = 'NotificationsPushRegisterDeviceApiVersion';
+  final String wireName = 'PushRegisterDeviceApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsPushRegisterDeviceApiVersion object,
+  Object serialize(Serializers serializers, PushRegisterDeviceApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsPushRegisterDeviceApiVersion deserialize(Serializers serializers, Object serialized,
+  PushRegisterDeviceApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsPushRegisterDeviceApiVersion.valueOf(serialized as String);
+      PushRegisterDeviceApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsPushDeviceSerializer implements StructuredSerializer<NotificationsPushDevice> {
+class _$PushDeviceSerializer implements StructuredSerializer<PushDevice> {
   @override
-  final Iterable<Type> types = const [NotificationsPushDevice, _$NotificationsPushDevice];
+  final Iterable<Type> types = const [PushDevice, _$PushDevice];
   @override
-  final String wireName = 'NotificationsPushDevice';
+  final String wireName = 'PushDevice';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsPushDevice object,
+  Iterable<Object?> serialize(Serializers serializers, PushDevice object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'publicKey',
@@ -1309,9 +1248,9 @@ class _$NotificationsPushDeviceSerializer implements StructuredSerializer<Notifi
   }
 
   @override
-  NotificationsPushDevice deserialize(Serializers serializers, Iterable<Object?> serialized,
+  PushDevice deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsPushDeviceBuilder();
+    final result = PushDeviceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1335,35 +1274,33 @@ class _$NotificationsPushDeviceSerializer implements StructuredSerializer<Notifi
   }
 }
 
-class _$NotificationsPushRegisterDeviceResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs> {
+class _$PushRegisterDeviceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PushRegisterDeviceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsPushRegisterDeviceResponseApplicationJson_Ocs,
-    _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs
+    PushRegisterDeviceResponseApplicationJson_Ocs,
+    _$PushRegisterDeviceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsPushRegisterDeviceResponseApplicationJson_Ocs';
+  final String wireName = 'PushRegisterDeviceResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, NotificationsPushRegisterDeviceResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, PushRegisterDeviceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(NotificationsPushDevice)),
+      serializers.serialize(object.data, specifiedType: const FullType(PushDevice)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  PushRegisterDeviceResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder();
+    final result = PushRegisterDeviceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1372,12 +1309,10 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsPushDevice))!
-              as NotificationsPushDevice);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(PushDevice))! as PushDevice);
           break;
       }
     }
@@ -1386,33 +1321,31 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$NotificationsPushRegisterDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsPushRegisterDeviceResponseApplicationJson> {
+class _$PushRegisterDeviceResponseApplicationJsonSerializer
+    implements StructuredSerializer<PushRegisterDeviceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsPushRegisterDeviceResponseApplicationJson,
-    _$NotificationsPushRegisterDeviceResponseApplicationJson
+    PushRegisterDeviceResponseApplicationJson,
+    _$PushRegisterDeviceResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsPushRegisterDeviceResponseApplicationJson';
+  final String wireName = 'PushRegisterDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsPushRegisterDeviceResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, PushRegisterDeviceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(PushRegisterDeviceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  PushRegisterDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsPushRegisterDeviceResponseApplicationJsonBuilder();
+    final result = PushRegisterDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1422,8 +1355,8 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsPushRegisterDeviceResponseApplicationJson_Ocs))!
-              as NotificationsPushRegisterDeviceResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(PushRegisterDeviceResponseApplicationJson_Ocs))!
+              as PushRegisterDeviceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1432,40 +1365,39 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsPushRemoveDeviceApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsPushRemoveDeviceApiVersion> {
+class _$PushRemoveDeviceApiVersionSerializer implements PrimitiveSerializer<PushRemoveDeviceApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsPushRemoveDeviceApiVersion];
+  final Iterable<Type> types = const <Type>[PushRemoveDeviceApiVersion];
   @override
-  final String wireName = 'NotificationsPushRemoveDeviceApiVersion';
+  final String wireName = 'PushRemoveDeviceApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsPushRemoveDeviceApiVersion object,
+  Object serialize(Serializers serializers, PushRemoveDeviceApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsPushRemoveDeviceApiVersion deserialize(Serializers serializers, Object serialized,
+  PushRemoveDeviceApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsPushRemoveDeviceApiVersion.valueOf(serialized as String);
+      PushRemoveDeviceApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsPushRemoveDeviceResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs> {
+class _$PushRemoveDeviceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PushRemoveDeviceResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsPushRemoveDeviceResponseApplicationJson_Ocs,
-    _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs
+    PushRemoveDeviceResponseApplicationJson_Ocs,
+    _$PushRemoveDeviceResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs';
+  final String wireName = 'PushRemoveDeviceResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsPushRemoveDeviceResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, PushRemoveDeviceResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1474,10 +1406,9 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJson_OcsSerializer
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  PushRemoveDeviceResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder();
+    final result = PushRemoveDeviceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1486,8 +1417,7 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1499,33 +1429,31 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$NotificationsPushRemoveDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsPushRemoveDeviceResponseApplicationJson> {
+class _$PushRemoveDeviceResponseApplicationJsonSerializer
+    implements StructuredSerializer<PushRemoveDeviceResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsPushRemoveDeviceResponseApplicationJson,
-    _$NotificationsPushRemoveDeviceResponseApplicationJson
+    PushRemoveDeviceResponseApplicationJson,
+    _$PushRemoveDeviceResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsPushRemoveDeviceResponseApplicationJson';
+  final String wireName = 'PushRemoveDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsPushRemoveDeviceResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, PushRemoveDeviceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(PushRemoveDeviceResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  PushRemoveDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsPushRemoveDeviceResponseApplicationJsonBuilder();
+    final result = PushRemoveDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1535,8 +1463,8 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsPushRemoveDeviceResponseApplicationJson_Ocs))!
-              as NotificationsPushRemoveDeviceResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(PushRemoveDeviceResponseApplicationJson_Ocs))!
+              as PushRemoveDeviceResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1545,40 +1473,39 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsSettingsPersonalApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsSettingsPersonalApiVersion> {
+class _$SettingsPersonalApiVersionSerializer implements PrimitiveSerializer<SettingsPersonalApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsSettingsPersonalApiVersion];
+  final Iterable<Type> types = const <Type>[SettingsPersonalApiVersion];
   @override
-  final String wireName = 'NotificationsSettingsPersonalApiVersion';
+  final String wireName = 'SettingsPersonalApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsSettingsPersonalApiVersion object,
+  Object serialize(Serializers serializers, SettingsPersonalApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsSettingsPersonalApiVersion deserialize(Serializers serializers, Object serialized,
+  SettingsPersonalApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsSettingsPersonalApiVersion.valueOf(serialized as String);
+      SettingsPersonalApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsSettingsPersonalResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsSettingsPersonalResponseApplicationJson_Ocs> {
+class _$SettingsPersonalResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SettingsPersonalResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsSettingsPersonalResponseApplicationJson_Ocs,
-    _$NotificationsSettingsPersonalResponseApplicationJson_Ocs
+    SettingsPersonalResponseApplicationJson_Ocs,
+    _$SettingsPersonalResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsSettingsPersonalResponseApplicationJson_Ocs';
+  final String wireName = 'SettingsPersonalResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsSettingsPersonalResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, SettingsPersonalResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1587,10 +1514,9 @@ class _$NotificationsSettingsPersonalResponseApplicationJson_OcsSerializer
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  SettingsPersonalResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder();
+    final result = SettingsPersonalResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1599,8 +1525,7 @@ class _$NotificationsSettingsPersonalResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1612,33 +1537,31 @@ class _$NotificationsSettingsPersonalResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$NotificationsSettingsPersonalResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsSettingsPersonalResponseApplicationJson> {
+class _$SettingsPersonalResponseApplicationJsonSerializer
+    implements StructuredSerializer<SettingsPersonalResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    NotificationsSettingsPersonalResponseApplicationJson,
-    _$NotificationsSettingsPersonalResponseApplicationJson
+    SettingsPersonalResponseApplicationJson,
+    _$SettingsPersonalResponseApplicationJson
   ];
   @override
-  final String wireName = 'NotificationsSettingsPersonalResponseApplicationJson';
+  final String wireName = 'SettingsPersonalResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsSettingsPersonalResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, SettingsPersonalResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsSettingsPersonalResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(SettingsPersonalResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  SettingsPersonalResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsSettingsPersonalResponseApplicationJsonBuilder();
+    final result = SettingsPersonalResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1648,8 +1571,8 @@ class _$NotificationsSettingsPersonalResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsSettingsPersonalResponseApplicationJson_Ocs))!
-              as NotificationsSettingsPersonalResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(SettingsPersonalResponseApplicationJson_Ocs))!
+              as SettingsPersonalResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1658,40 +1581,39 @@ class _$NotificationsSettingsPersonalResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsSettingsAdminApiVersionSerializer
-    implements PrimitiveSerializer<NotificationsSettingsAdminApiVersion> {
+class _$SettingsAdminApiVersionSerializer implements PrimitiveSerializer<SettingsAdminApiVersion> {
   @override
-  final Iterable<Type> types = const <Type>[NotificationsSettingsAdminApiVersion];
+  final Iterable<Type> types = const <Type>[SettingsAdminApiVersion];
   @override
-  final String wireName = 'NotificationsSettingsAdminApiVersion';
+  final String wireName = 'SettingsAdminApiVersion';
 
   @override
-  Object serialize(Serializers serializers, NotificationsSettingsAdminApiVersion object,
+  Object serialize(Serializers serializers, SettingsAdminApiVersion object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  NotificationsSettingsAdminApiVersion deserialize(Serializers serializers, Object serialized,
+  SettingsAdminApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      NotificationsSettingsAdminApiVersion.valueOf(serialized as String);
+      SettingsAdminApiVersion.valueOf(serialized as String);
 }
 
-class _$NotificationsSettingsAdminResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<NotificationsSettingsAdminResponseApplicationJson_Ocs> {
+class _$SettingsAdminResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SettingsAdminResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    NotificationsSettingsAdminResponseApplicationJson_Ocs,
-    _$NotificationsSettingsAdminResponseApplicationJson_Ocs
+    SettingsAdminResponseApplicationJson_Ocs,
+    _$SettingsAdminResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'NotificationsSettingsAdminResponseApplicationJson_Ocs';
+  final String wireName = 'SettingsAdminResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsSettingsAdminResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, SettingsAdminResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(NotificationsOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1700,10 +1622,9 @@ class _$NotificationsSettingsAdminResponseApplicationJson_OcsSerializer
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  SettingsAdminResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsSettingsAdminResponseApplicationJson_OcsBuilder();
+    final result = SettingsAdminResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1712,8 +1633,7 @@ class _$NotificationsSettingsAdminResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(NotificationsOCSMeta))!
-              as NotificationsOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1725,32 +1645,28 @@ class _$NotificationsSettingsAdminResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$NotificationsSettingsAdminResponseApplicationJsonSerializer
-    implements StructuredSerializer<NotificationsSettingsAdminResponseApplicationJson> {
+class _$SettingsAdminResponseApplicationJsonSerializer
+    implements StructuredSerializer<SettingsAdminResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    NotificationsSettingsAdminResponseApplicationJson,
-    _$NotificationsSettingsAdminResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [SettingsAdminResponseApplicationJson, _$SettingsAdminResponseApplicationJson];
   @override
-  final String wireName = 'NotificationsSettingsAdminResponseApplicationJson';
+  final String wireName = 'SettingsAdminResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsSettingsAdminResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, SettingsAdminResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(NotificationsSettingsAdminResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(SettingsAdminResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SettingsAdminResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsSettingsAdminResponseApplicationJsonBuilder();
+    final result = SettingsAdminResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1759,9 +1675,9 @@ class _$NotificationsSettingsAdminResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(NotificationsSettingsAdminResponseApplicationJson_Ocs))!
-              as NotificationsSettingsAdminResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SettingsAdminResponseApplicationJson_Ocs))!
+                  as SettingsAdminResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1770,18 +1686,14 @@ class _$NotificationsSettingsAdminResponseApplicationJsonSerializer
   }
 }
 
-class _$NotificationsCapabilities_NotificationsSerializer
-    implements StructuredSerializer<NotificationsCapabilities_Notifications> {
+class _$Capabilities_NotificationsSerializer implements StructuredSerializer<Capabilities_Notifications> {
   @override
-  final Iterable<Type> types = const [
-    NotificationsCapabilities_Notifications,
-    _$NotificationsCapabilities_Notifications
-  ];
+  final Iterable<Type> types = const [Capabilities_Notifications, _$Capabilities_Notifications];
   @override
-  final String wireName = 'NotificationsCapabilities_Notifications';
+  final String wireName = 'Capabilities_Notifications';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsCapabilities_Notifications object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Notifications object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs-endpoints',
@@ -1796,9 +1708,9 @@ class _$NotificationsCapabilities_NotificationsSerializer
   }
 
   @override
-  NotificationsCapabilities_Notifications deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Notifications deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsCapabilities_NotificationsBuilder();
+    final result = Capabilities_NotificationsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1825,28 +1737,27 @@ class _$NotificationsCapabilities_NotificationsSerializer
   }
 }
 
-class _$NotificationsCapabilitiesSerializer implements StructuredSerializer<NotificationsCapabilities> {
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
-  final Iterable<Type> types = const [NotificationsCapabilities, _$NotificationsCapabilities];
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
   @override
-  final String wireName = 'NotificationsCapabilities';
+  final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NotificationsCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'notifications',
-      serializers.serialize(object.notifications,
-          specifiedType: const FullType(NotificationsCapabilities_Notifications)),
+      serializers.serialize(object.notifications, specifiedType: const FullType(Capabilities_Notifications)),
     ];
 
     return result;
   }
 
   @override
-  NotificationsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationsCapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1855,9 +1766,8 @@ class _$NotificationsCapabilitiesSerializer implements StructuredSerializer<Noti
       final Object? value = iterator.current;
       switch (key) {
         case 'notifications':
-          result.notifications.replace(
-              serializers.deserialize(value, specifiedType: const FullType(NotificationsCapabilities_Notifications))!
-                  as NotificationsCapabilities_Notifications);
+          result.notifications.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_Notifications))! as Capabilities_Notifications);
           break;
       }
     }
@@ -1866,9 +1776,9 @@ class _$NotificationsCapabilitiesSerializer implements StructuredSerializer<Noti
   }
 }
 
-abstract mixin class NotificationsOCSMetaInterfaceBuilder {
-  void replace(NotificationsOCSMetaInterface other);
-  void update(void Function(NotificationsOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1885,7 +1795,7 @@ abstract mixin class NotificationsOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$NotificationsOCSMeta extends NotificationsOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -1897,27 +1807,24 @@ class _$NotificationsOCSMeta extends NotificationsOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$NotificationsOCSMeta([void Function(NotificationsOCSMetaBuilder)? updates]) =>
-      (NotificationsOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$NotificationsOCSMeta._(
-      {required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'NotificationsOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'NotificationsOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  NotificationsOCSMeta rebuild(void Function(NotificationsOCSMetaBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsOCSMetaBuilder toBuilder() => NotificationsOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -1939,7 +1846,7 @@ class _$NotificationsOCSMeta extends NotificationsOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -1949,9 +1856,8 @@ class _$NotificationsOCSMeta extends NotificationsOCSMeta {
   }
 }
 
-class NotificationsOCSMetaBuilder
-    implements Builder<NotificationsOCSMeta, NotificationsOCSMetaBuilder>, NotificationsOCSMetaInterfaceBuilder {
-  _$NotificationsOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -1973,9 +1879,9 @@ class NotificationsOCSMetaBuilder
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  NotificationsOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  NotificationsOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -1989,24 +1895,24 @@ class NotificationsOCSMetaBuilder
   }
 
   @override
-  void replace(covariant NotificationsOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(NotificationsOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$NotificationsOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$NotificationsOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'NotificationsOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'NotificationsOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -2015,50 +1921,44 @@ class NotificationsOCSMetaBuilder
   }
 }
 
-abstract mixin class NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ApiGenerateNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function(ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs
-    extends NotificationsApiGenerateNotificationResponseApplicationJson_Ocs {
+class _$ApiGenerateNotificationResponseApplicationJson_Ocs extends ApiGenerateNotificationResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs(
-          [void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiGenerateNotificationResponseApplicationJson_Ocs(
+          [void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs', 'data');
+  _$ApiGenerateNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder) updates) =>
+  ApiGenerateNotificationResponseApplicationJson_Ocs rebuild(
+          void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsApiGenerateNotificationResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ApiGenerateNotificationResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -2072,31 +1972,31 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder
+class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsApiGenerateNotificationResponseApplicationJson_Ocs,
-            NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder>,
-        NotificationsApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs? _$v;
+        Builder<ApiGenerateNotificationResponseApplicationJson_Ocs,
+            ApiGenerateNotificationResponseApplicationJson_OcsBuilder>,
+        ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiGenerateNotificationResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
 
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder get _$this {
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -2107,27 +2007,27 @@ class NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsApiGenerateNotificationResponseApplicationJson_Ocs other) {
+  void replace(covariant ApiGenerateNotificationResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs;
+    _$v = other as _$ApiGenerateNotificationResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson_Ocs build() => _build();
+  ApiGenerateNotificationResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs _build() {
-    _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs _$result;
+  _$ApiGenerateNotificationResponseApplicationJson_Ocs _build() {
+    _$ApiGenerateNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsApiGenerateNotificationResponseApplicationJson_Ocs._(
+          _$ApiGenerateNotificationResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs', 'data'));
+                  data, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -2135,7 +2035,7 @@ class NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsApiGenerateNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ApiGenerateNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2144,39 +2044,38 @@ class NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsApiGenerateNotificationResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace(ApiGenerateNotificationResponseApplicationJsonInterface other);
+  void update(void Function(ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates);
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsApiGenerateNotificationResponseApplicationJson
-    extends NotificationsApiGenerateNotificationResponseApplicationJson {
+class _$ApiGenerateNotificationResponseApplicationJson extends ApiGenerateNotificationResponseApplicationJson {
   @override
-  final NotificationsApiGenerateNotificationResponseApplicationJson_Ocs ocs;
+  final ApiGenerateNotificationResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsApiGenerateNotificationResponseApplicationJson(
-          [void Function(NotificationsApiGenerateNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsApiGenerateNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiGenerateNotificationResponseApplicationJson(
+          [void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? updates]) =>
+      (ApiGenerateNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsApiGenerateNotificationResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsApiGenerateNotificationResponseApplicationJson', 'ocs');
+  _$ApiGenerateNotificationResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGenerateNotificationResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson rebuild(
-          void Function(NotificationsApiGenerateNotificationResponseApplicationJsonBuilder) updates) =>
+  ApiGenerateNotificationResponseApplicationJson rebuild(
+          void Function(ApiGenerateNotificationResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsApiGenerateNotificationResponseApplicationJsonBuilder()..replace(this);
+  ApiGenerateNotificationResponseApplicationJsonBuilder toBuilder() =>
+      ApiGenerateNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsApiGenerateNotificationResponseApplicationJson && ocs == other.ocs;
+    return other is ApiGenerateNotificationResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -2189,27 +2088,24 @@ class _$NotificationsApiGenerateNotificationResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsApiGenerateNotificationResponseApplicationJson')
-          ..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsApiGenerateNotificationResponseApplicationJsonBuilder
+class ApiGenerateNotificationResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsApiGenerateNotificationResponseApplicationJson,
-            NotificationsApiGenerateNotificationResponseApplicationJsonBuilder>,
-        NotificationsApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsApiGenerateNotificationResponseApplicationJson? _$v;
+        Builder<ApiGenerateNotificationResponseApplicationJson, ApiGenerateNotificationResponseApplicationJsonBuilder>,
+        ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
+  _$ApiGenerateNotificationResponseApplicationJson? _$v;
 
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder? _ocs;
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsApiGenerateNotificationResponseApplicationJsonBuilder();
+  ApiGenerateNotificationResponseApplicationJsonBuilder();
 
-  NotificationsApiGenerateNotificationResponseApplicationJsonBuilder get _$this {
+  ApiGenerateNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -2219,23 +2115,23 @@ class NotificationsApiGenerateNotificationResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsApiGenerateNotificationResponseApplicationJson other) {
+  void replace(covariant ApiGenerateNotificationResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsApiGenerateNotificationResponseApplicationJson;
+    _$v = other as _$ApiGenerateNotificationResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsApiGenerateNotificationResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsApiGenerateNotificationResponseApplicationJson build() => _build();
+  ApiGenerateNotificationResponseApplicationJson build() => _build();
 
-  _$NotificationsApiGenerateNotificationResponseApplicationJson _build() {
-    _$NotificationsApiGenerateNotificationResponseApplicationJson _$result;
+  _$ApiGenerateNotificationResponseApplicationJson _build() {
+    _$ApiGenerateNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsApiGenerateNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ApiGenerateNotificationResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2243,7 +2139,7 @@ class NotificationsApiGenerateNotificationResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsApiGenerateNotificationResponseApplicationJson', _$failedField, e.toString());
+            r'ApiGenerateNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2252,38 +2148,36 @@ class NotificationsApiGenerateNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointEndpointListNotificationsHeadersInterfaceBuilder {
-  void replace(NotificationsEndpointEndpointListNotificationsHeadersInterface other);
-  void update(void Function(NotificationsEndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
+abstract mixin class EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+  void replace(EndpointEndpointListNotificationsHeadersInterface other);
+  void update(void Function(EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
   String? get xNextcloudUserStatus;
   set xNextcloudUserStatus(String? xNextcloudUserStatus);
 }
 
-class _$NotificationsEndpointEndpointListNotificationsHeaders
-    extends NotificationsEndpointEndpointListNotificationsHeaders {
+class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNotificationsHeaders {
   @override
   final String? xNextcloudUserStatus;
 
-  factory _$NotificationsEndpointEndpointListNotificationsHeaders(
-          [void Function(NotificationsEndpointEndpointListNotificationsHeadersBuilder)? updates]) =>
-      (NotificationsEndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
+  factory _$EndpointEndpointListNotificationsHeaders(
+          [void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates]) =>
+      (EndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointEndpointListNotificationsHeaders._({this.xNextcloudUserStatus}) : super._();
+  _$EndpointEndpointListNotificationsHeaders._({this.xNextcloudUserStatus}) : super._();
 
   @override
-  NotificationsEndpointEndpointListNotificationsHeaders rebuild(
-          void Function(NotificationsEndpointEndpointListNotificationsHeadersBuilder) updates) =>
+  EndpointEndpointListNotificationsHeaders rebuild(
+          void Function(EndpointEndpointListNotificationsHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointEndpointListNotificationsHeadersBuilder toBuilder() =>
-      NotificationsEndpointEndpointListNotificationsHeadersBuilder()..replace(this);
+  EndpointEndpointListNotificationsHeadersBuilder toBuilder() =>
+      EndpointEndpointListNotificationsHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointEndpointListNotificationsHeaders &&
-        xNextcloudUserStatus == other.xNextcloudUserStatus;
+    return other is EndpointEndpointListNotificationsHeaders && xNextcloudUserStatus == other.xNextcloudUserStatus;
   }
 
   @override
@@ -2296,27 +2190,26 @@ class _$NotificationsEndpointEndpointListNotificationsHeaders
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointEndpointListNotificationsHeaders')
+    return (newBuiltValueToStringHelper(r'EndpointEndpointListNotificationsHeaders')
           ..add('xNextcloudUserStatus', xNextcloudUserStatus))
         .toString();
   }
 }
 
-class NotificationsEndpointEndpointListNotificationsHeadersBuilder
+class EndpointEndpointListNotificationsHeadersBuilder
     implements
-        Builder<NotificationsEndpointEndpointListNotificationsHeaders,
-            NotificationsEndpointEndpointListNotificationsHeadersBuilder>,
-        NotificationsEndpointEndpointListNotificationsHeadersInterfaceBuilder {
-  _$NotificationsEndpointEndpointListNotificationsHeaders? _$v;
+        Builder<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder>,
+        EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+  _$EndpointEndpointListNotificationsHeaders? _$v;
 
   String? _xNextcloudUserStatus;
   String? get xNextcloudUserStatus => _$this._xNextcloudUserStatus;
   set xNextcloudUserStatus(covariant String? xNextcloudUserStatus) =>
       _$this._xNextcloudUserStatus = xNextcloudUserStatus;
 
-  NotificationsEndpointEndpointListNotificationsHeadersBuilder();
+  EndpointEndpointListNotificationsHeadersBuilder();
 
-  NotificationsEndpointEndpointListNotificationsHeadersBuilder get _$this {
+  EndpointEndpointListNotificationsHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xNextcloudUserStatus = $v.xNextcloudUserStatus;
@@ -2326,30 +2219,29 @@ class NotificationsEndpointEndpointListNotificationsHeadersBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointEndpointListNotificationsHeaders other) {
+  void replace(covariant EndpointEndpointListNotificationsHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointEndpointListNotificationsHeaders;
+    _$v = other as _$EndpointEndpointListNotificationsHeaders;
   }
 
   @override
-  void update(void Function(NotificationsEndpointEndpointListNotificationsHeadersBuilder)? updates) {
+  void update(void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointEndpointListNotificationsHeaders build() => _build();
+  EndpointEndpointListNotificationsHeaders build() => _build();
 
-  _$NotificationsEndpointEndpointListNotificationsHeaders _build() {
-    final _$result =
-        _$v ?? _$NotificationsEndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
+  _$EndpointEndpointListNotificationsHeaders _build() {
+    final _$result = _$v ?? _$EndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class NotificationsNotificationActionInterfaceBuilder {
-  void replace(NotificationsNotificationActionInterface other);
-  void update(void Function(NotificationsNotificationActionInterfaceBuilder) updates);
+abstract mixin class NotificationActionInterfaceBuilder {
+  void replace(NotificationActionInterface other);
+  void update(void Function(NotificationActionInterfaceBuilder) updates);
   String? get label;
   set label(String? label);
 
@@ -2363,7 +2255,7 @@ abstract mixin class NotificationsNotificationActionInterfaceBuilder {
   set primary(bool? primary);
 }
 
-class _$NotificationsNotificationAction extends NotificationsNotificationAction {
+class _$NotificationAction extends NotificationAction {
   @override
   final String label;
   @override
@@ -2373,29 +2265,28 @@ class _$NotificationsNotificationAction extends NotificationsNotificationAction 
   @override
   final bool primary;
 
-  factory _$NotificationsNotificationAction([void Function(NotificationsNotificationActionBuilder)? updates]) =>
-      (NotificationsNotificationActionBuilder()..update(updates))._build();
+  factory _$NotificationAction([void Function(NotificationActionBuilder)? updates]) =>
+      (NotificationActionBuilder()..update(updates))._build();
 
-  _$NotificationsNotificationAction._(
-      {required this.label, required this.link, required this.type, required this.primary})
+  _$NotificationAction._({required this.label, required this.link, required this.type, required this.primary})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'NotificationsNotificationAction', 'label');
-    BuiltValueNullFieldError.checkNotNull(link, r'NotificationsNotificationAction', 'link');
-    BuiltValueNullFieldError.checkNotNull(type, r'NotificationsNotificationAction', 'type');
-    BuiltValueNullFieldError.checkNotNull(primary, r'NotificationsNotificationAction', 'primary');
+    BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label');
+    BuiltValueNullFieldError.checkNotNull(link, r'NotificationAction', 'link');
+    BuiltValueNullFieldError.checkNotNull(type, r'NotificationAction', 'type');
+    BuiltValueNullFieldError.checkNotNull(primary, r'NotificationAction', 'primary');
   }
 
   @override
-  NotificationsNotificationAction rebuild(void Function(NotificationsNotificationActionBuilder) updates) =>
+  NotificationAction rebuild(void Function(NotificationActionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsNotificationActionBuilder toBuilder() => NotificationsNotificationActionBuilder()..replace(this);
+  NotificationActionBuilder toBuilder() => NotificationActionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsNotificationAction &&
+    return other is NotificationAction &&
         label == other.label &&
         link == other.link &&
         type == other.type &&
@@ -2415,7 +2306,7 @@ class _$NotificationsNotificationAction extends NotificationsNotificationAction 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsNotificationAction')
+    return (newBuiltValueToStringHelper(r'NotificationAction')
           ..add('label', label)
           ..add('link', link)
           ..add('type', type)
@@ -2424,11 +2315,9 @@ class _$NotificationsNotificationAction extends NotificationsNotificationAction 
   }
 }
 
-class NotificationsNotificationActionBuilder
-    implements
-        Builder<NotificationsNotificationAction, NotificationsNotificationActionBuilder>,
-        NotificationsNotificationActionInterfaceBuilder {
-  _$NotificationsNotificationAction? _$v;
+class NotificationActionBuilder
+    implements Builder<NotificationAction, NotificationActionBuilder>, NotificationActionInterfaceBuilder {
+  _$NotificationAction? _$v;
 
   String? _label;
   String? get label => _$this._label;
@@ -2446,9 +2335,9 @@ class NotificationsNotificationActionBuilder
   bool? get primary => _$this._primary;
   set primary(covariant bool? primary) => _$this._primary = primary;
 
-  NotificationsNotificationActionBuilder();
+  NotificationActionBuilder();
 
-  NotificationsNotificationActionBuilder get _$this {
+  NotificationActionBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _label = $v.label;
@@ -2461,34 +2350,34 @@ class NotificationsNotificationActionBuilder
   }
 
   @override
-  void replace(covariant NotificationsNotificationAction other) {
+  void replace(covariant NotificationAction other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsNotificationAction;
+    _$v = other as _$NotificationAction;
   }
 
   @override
-  void update(void Function(NotificationsNotificationActionBuilder)? updates) {
+  void update(void Function(NotificationActionBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsNotificationAction build() => _build();
+  NotificationAction build() => _build();
 
-  _$NotificationsNotificationAction _build() {
+  _$NotificationAction _build() {
     final _$result = _$v ??
-        _$NotificationsNotificationAction._(
-            label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationsNotificationAction', 'label'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationsNotificationAction', 'link'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'NotificationsNotificationAction', 'type'),
-            primary: BuiltValueNullFieldError.checkNotNull(primary, r'NotificationsNotificationAction', 'primary'));
+        _$NotificationAction._(
+            label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label'),
+            link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationAction', 'link'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'NotificationAction', 'type'),
+            primary: BuiltValueNullFieldError.checkNotNull(primary, r'NotificationAction', 'primary'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class NotificationsNotificationInterfaceBuilder {
-  void replace(NotificationsNotificationInterface other);
-  void update(void Function(NotificationsNotificationInterfaceBuilder) updates);
+abstract mixin class NotificationInterfaceBuilder {
+  void replace(NotificationInterface other);
+  void update(void Function(NotificationInterfaceBuilder) updates);
   int? get notificationId;
   set notificationId(int? notificationId);
 
@@ -2516,8 +2405,8 @@ abstract mixin class NotificationsNotificationInterfaceBuilder {
   String? get link;
   set link(String? link);
 
-  ListBuilder<NotificationsNotificationAction> get actions;
-  set actions(ListBuilder<NotificationsNotificationAction>? actions);
+  ListBuilder<NotificationAction> get actions;
+  set actions(ListBuilder<NotificationAction>? actions);
 
   String? get subjectRich;
   set subjectRich(String? subjectRich);
@@ -2538,7 +2427,7 @@ abstract mixin class NotificationsNotificationInterfaceBuilder {
   set shouldNotify(bool? shouldNotify);
 }
 
-class _$NotificationsNotification extends NotificationsNotification {
+class _$Notification extends Notification {
   @override
   final int notificationId;
   @override
@@ -2558,7 +2447,7 @@ class _$NotificationsNotification extends NotificationsNotification {
   @override
   final String link;
   @override
-  final BuiltList<NotificationsNotificationAction> actions;
+  final BuiltList<NotificationAction> actions;
   @override
   final String? subjectRich;
   @override
@@ -2572,10 +2461,10 @@ class _$NotificationsNotification extends NotificationsNotification {
   @override
   final bool? shouldNotify;
 
-  factory _$NotificationsNotification([void Function(NotificationsNotificationBuilder)? updates]) =>
-      (NotificationsNotificationBuilder()..update(updates))._build();
+  factory _$Notification([void Function(NotificationBuilder)? updates]) =>
+      (NotificationBuilder()..update(updates))._build();
 
-  _$NotificationsNotification._(
+  _$Notification._(
       {required this.notificationId,
       required this.app,
       required this.user,
@@ -2593,29 +2482,28 @@ class _$NotificationsNotification extends NotificationsNotification {
       this.icon,
       this.shouldNotify})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(notificationId, r'NotificationsNotification', 'notificationId');
-    BuiltValueNullFieldError.checkNotNull(app, r'NotificationsNotification', 'app');
-    BuiltValueNullFieldError.checkNotNull(user, r'NotificationsNotification', 'user');
-    BuiltValueNullFieldError.checkNotNull(datetime, r'NotificationsNotification', 'datetime');
-    BuiltValueNullFieldError.checkNotNull(objectType, r'NotificationsNotification', 'objectType');
-    BuiltValueNullFieldError.checkNotNull(objectId, r'NotificationsNotification', 'objectId');
-    BuiltValueNullFieldError.checkNotNull(subject, r'NotificationsNotification', 'subject');
-    BuiltValueNullFieldError.checkNotNull(message, r'NotificationsNotification', 'message');
-    BuiltValueNullFieldError.checkNotNull(link, r'NotificationsNotification', 'link');
-    BuiltValueNullFieldError.checkNotNull(actions, r'NotificationsNotification', 'actions');
+    BuiltValueNullFieldError.checkNotNull(notificationId, r'Notification', 'notificationId');
+    BuiltValueNullFieldError.checkNotNull(app, r'Notification', 'app');
+    BuiltValueNullFieldError.checkNotNull(user, r'Notification', 'user');
+    BuiltValueNullFieldError.checkNotNull(datetime, r'Notification', 'datetime');
+    BuiltValueNullFieldError.checkNotNull(objectType, r'Notification', 'objectType');
+    BuiltValueNullFieldError.checkNotNull(objectId, r'Notification', 'objectId');
+    BuiltValueNullFieldError.checkNotNull(subject, r'Notification', 'subject');
+    BuiltValueNullFieldError.checkNotNull(message, r'Notification', 'message');
+    BuiltValueNullFieldError.checkNotNull(link, r'Notification', 'link');
+    BuiltValueNullFieldError.checkNotNull(actions, r'Notification', 'actions');
   }
 
   @override
-  NotificationsNotification rebuild(void Function(NotificationsNotificationBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Notification rebuild(void Function(NotificationBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsNotificationBuilder toBuilder() => NotificationsNotificationBuilder()..replace(this);
+  NotificationBuilder toBuilder() => NotificationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsNotification &&
+    return other is Notification &&
         notificationId == other.notificationId &&
         app == other.app &&
         user == other.user &&
@@ -2659,7 +2547,7 @@ class _$NotificationsNotification extends NotificationsNotification {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsNotification')
+    return (newBuiltValueToStringHelper(r'Notification')
           ..add('notificationId', notificationId)
           ..add('app', app)
           ..add('user', user)
@@ -2680,11 +2568,8 @@ class _$NotificationsNotification extends NotificationsNotification {
   }
 }
 
-class NotificationsNotificationBuilder
-    implements
-        Builder<NotificationsNotification, NotificationsNotificationBuilder>,
-        NotificationsNotificationInterfaceBuilder {
-  _$NotificationsNotification? _$v;
+class NotificationBuilder implements Builder<Notification, NotificationBuilder>, NotificationInterfaceBuilder {
+  _$Notification? _$v;
 
   int? _notificationId;
   int? get notificationId => _$this._notificationId;
@@ -2722,10 +2607,9 @@ class NotificationsNotificationBuilder
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  ListBuilder<NotificationsNotificationAction>? _actions;
-  ListBuilder<NotificationsNotificationAction> get actions =>
-      _$this._actions ??= ListBuilder<NotificationsNotificationAction>();
-  set actions(covariant ListBuilder<NotificationsNotificationAction>? actions) => _$this._actions = actions;
+  ListBuilder<NotificationAction>? _actions;
+  ListBuilder<NotificationAction> get actions => _$this._actions ??= ListBuilder<NotificationAction>();
+  set actions(covariant ListBuilder<NotificationAction>? actions) => _$this._actions = actions;
 
   String? _subjectRich;
   String? get subjectRich => _$this._subjectRich;
@@ -2755,9 +2639,9 @@ class NotificationsNotificationBuilder
   bool? get shouldNotify => _$this._shouldNotify;
   set shouldNotify(covariant bool? shouldNotify) => _$this._shouldNotify = shouldNotify;
 
-  NotificationsNotificationBuilder();
+  NotificationBuilder();
 
-  NotificationsNotificationBuilder get _$this {
+  NotificationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _notificationId = $v.notificationId;
@@ -2782,34 +2666,33 @@ class NotificationsNotificationBuilder
   }
 
   @override
-  void replace(covariant NotificationsNotification other) {
+  void replace(covariant Notification other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsNotification;
+    _$v = other as _$Notification;
   }
 
   @override
-  void update(void Function(NotificationsNotificationBuilder)? updates) {
+  void update(void Function(NotificationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsNotification build() => _build();
+  Notification build() => _build();
 
-  _$NotificationsNotification _build() {
-    _$NotificationsNotification _$result;
+  _$Notification _build() {
+    _$Notification _$result;
     try {
       _$result = _$v ??
-          _$NotificationsNotification._(
-              notificationId:
-                  BuiltValueNullFieldError.checkNotNull(notificationId, r'NotificationsNotification', 'notificationId'),
-              app: BuiltValueNullFieldError.checkNotNull(app, r'NotificationsNotification', 'app'),
-              user: BuiltValueNullFieldError.checkNotNull(user, r'NotificationsNotification', 'user'),
-              datetime: BuiltValueNullFieldError.checkNotNull(datetime, r'NotificationsNotification', 'datetime'),
-              objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'NotificationsNotification', 'objectType'),
-              objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'NotificationsNotification', 'objectId'),
-              subject: BuiltValueNullFieldError.checkNotNull(subject, r'NotificationsNotification', 'subject'),
-              message: BuiltValueNullFieldError.checkNotNull(message, r'NotificationsNotification', 'message'),
-              link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationsNotification', 'link'),
+          _$Notification._(
+              notificationId: BuiltValueNullFieldError.checkNotNull(notificationId, r'Notification', 'notificationId'),
+              app: BuiltValueNullFieldError.checkNotNull(app, r'Notification', 'app'),
+              user: BuiltValueNullFieldError.checkNotNull(user, r'Notification', 'user'),
+              datetime: BuiltValueNullFieldError.checkNotNull(datetime, r'Notification', 'datetime'),
+              objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'Notification', 'objectType'),
+              objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'Notification', 'objectId'),
+              subject: BuiltValueNullFieldError.checkNotNull(subject, r'Notification', 'subject'),
+              message: BuiltValueNullFieldError.checkNotNull(message, r'Notification', 'message'),
+              link: BuiltValueNullFieldError.checkNotNull(link, r'Notification', 'link'),
               actions: actions.build(),
               subjectRich: subjectRich,
               subjectRichParameters: _subjectRichParameters?.build(),
@@ -2829,7 +2712,7 @@ class NotificationsNotificationBuilder
         _$failedField = 'messageRichParameters';
         _messageRichParameters?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NotificationsNotification', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Notification', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2838,50 +2721,45 @@ class NotificationsNotificationBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(EndpointListNotificationsResponseApplicationJson_OcsInterface other);
+  void update(void Function(EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<NotificationsNotification> get data;
-  set data(ListBuilder<NotificationsNotification>? data);
+  ListBuilder<Notification> get data;
+  set data(ListBuilder<Notification>? data);
 }
 
-class _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs
-    extends NotificationsEndpointListNotificationsResponseApplicationJson_Ocs {
+class _$EndpointListNotificationsResponseApplicationJson_Ocs
+    extends EndpointListNotificationsResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<NotificationsNotification> data;
+  final BuiltList<Notification> data;
 
-  factory _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs(
-          [void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$EndpointListNotificationsResponseApplicationJson_Ocs(
+          [void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (EndpointListNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsEndpointListNotificationsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsEndpointListNotificationsResponseApplicationJson_Ocs', 'data');
+  _$EndpointListNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EndpointListNotificationsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EndpointListNotificationsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder) updates) =>
+  EndpointListNotificationsResponseApplicationJson_Ocs rebuild(
+          void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
+      EndpointListNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointListNotificationsResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is EndpointListNotificationsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -2895,31 +2773,31 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointListNotificationsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'EndpointListNotificationsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder
+class EndpointListNotificationsResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsEndpointListNotificationsResponseApplicationJson_Ocs,
-            NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder>,
-        NotificationsEndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs? _$v;
+        Builder<EndpointListNotificationsResponseApplicationJson_Ocs,
+            EndpointListNotificationsResponseApplicationJson_OcsBuilder>,
+        EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  _$EndpointListNotificationsResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<NotificationsNotification>? _data;
-  ListBuilder<NotificationsNotification> get data => _$this._data ??= ListBuilder<NotificationsNotification>();
-  set data(covariant ListBuilder<NotificationsNotification>? data) => _$this._data = data;
+  ListBuilder<Notification>? _data;
+  ListBuilder<Notification> get data => _$this._data ??= ListBuilder<Notification>();
+  set data(covariant ListBuilder<Notification>? data) => _$this._data = data;
 
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder();
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder();
 
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder get _$this {
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -2930,24 +2808,24 @@ class NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointListNotificationsResponseApplicationJson_Ocs other) {
+  void replace(covariant EndpointListNotificationsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs;
+    _$v = other as _$EndpointListNotificationsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson_Ocs build() => _build();
+  EndpointListNotificationsResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs _build() {
-    _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs _$result;
+  _$EndpointListNotificationsResponseApplicationJson_Ocs _build() {
+    _$EndpointListNotificationsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$NotificationsEndpointListNotificationsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$EndpointListNotificationsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2957,7 +2835,7 @@ class NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointListNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'EndpointListNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2966,39 +2844,38 @@ class NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsEndpointListNotificationsResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsEndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
+  void replace(EndpointListNotificationsResponseApplicationJsonInterface other);
+  void update(void Function(EndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates);
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(EndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsEndpointListNotificationsResponseApplicationJson
-    extends NotificationsEndpointListNotificationsResponseApplicationJson {
+class _$EndpointListNotificationsResponseApplicationJson extends EndpointListNotificationsResponseApplicationJson {
   @override
-  final NotificationsEndpointListNotificationsResponseApplicationJson_Ocs ocs;
+  final EndpointListNotificationsResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsEndpointListNotificationsResponseApplicationJson(
-          [void Function(NotificationsEndpointListNotificationsResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsEndpointListNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$EndpointListNotificationsResponseApplicationJson(
+          [void Function(EndpointListNotificationsResponseApplicationJsonBuilder)? updates]) =>
+      (EndpointListNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointListNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsEndpointListNotificationsResponseApplicationJson', 'ocs');
+  _$EndpointListNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointListNotificationsResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson rebuild(
-          void Function(NotificationsEndpointListNotificationsResponseApplicationJsonBuilder) updates) =>
+  EndpointListNotificationsResponseApplicationJson rebuild(
+          void Function(EndpointListNotificationsResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsEndpointListNotificationsResponseApplicationJsonBuilder()..replace(this);
+  EndpointListNotificationsResponseApplicationJsonBuilder toBuilder() =>
+      EndpointListNotificationsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointListNotificationsResponseApplicationJson && ocs == other.ocs;
+    return other is EndpointListNotificationsResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3011,27 +2888,26 @@ class _$NotificationsEndpointListNotificationsResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointListNotificationsResponseApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'EndpointListNotificationsResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class NotificationsEndpointListNotificationsResponseApplicationJsonBuilder
+class EndpointListNotificationsResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsEndpointListNotificationsResponseApplicationJson,
-            NotificationsEndpointListNotificationsResponseApplicationJsonBuilder>,
-        NotificationsEndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsEndpointListNotificationsResponseApplicationJson? _$v;
+        Builder<EndpointListNotificationsResponseApplicationJson,
+            EndpointListNotificationsResponseApplicationJsonBuilder>,
+        EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
+  _$EndpointListNotificationsResponseApplicationJson? _$v;
 
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsEndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder? _ocs;
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= EndpointListNotificationsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant EndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsEndpointListNotificationsResponseApplicationJsonBuilder();
+  EndpointListNotificationsResponseApplicationJsonBuilder();
 
-  NotificationsEndpointListNotificationsResponseApplicationJsonBuilder get _$this {
+  EndpointListNotificationsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3041,23 +2917,23 @@ class NotificationsEndpointListNotificationsResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointListNotificationsResponseApplicationJson other) {
+  void replace(covariant EndpointListNotificationsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointListNotificationsResponseApplicationJson;
+    _$v = other as _$EndpointListNotificationsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsEndpointListNotificationsResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(EndpointListNotificationsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointListNotificationsResponseApplicationJson build() => _build();
+  EndpointListNotificationsResponseApplicationJson build() => _build();
 
-  _$NotificationsEndpointListNotificationsResponseApplicationJson _build() {
-    _$NotificationsEndpointListNotificationsResponseApplicationJson _$result;
+  _$EndpointListNotificationsResponseApplicationJson _build() {
+    _$EndpointListNotificationsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsEndpointListNotificationsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$EndpointListNotificationsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3065,7 +2941,7 @@ class NotificationsEndpointListNotificationsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointListNotificationsResponseApplicationJson', _$failedField, e.toString());
+            r'EndpointListNotificationsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3074,49 +2950,45 @@ class NotificationsEndpointListNotificationsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface other);
-  void update(
-      void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface other);
+  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs
-    extends NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs {
+class _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
+    extends EndpointDeleteAllNotificationsResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs(
-          [void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs(
+          [void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data');
+  _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder) updates) =>
+  EndpointDeleteAllNotificationsResponseApplicationJson_Ocs rebuild(
+          void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
+      EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs &&
+    return other is EndpointDeleteAllNotificationsResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -3132,31 +3004,31 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
+class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
-            NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder>,
-        NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs? _$v;
+        Builder<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
+            EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder>,
+        EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
 
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get _$this {
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3167,27 +3039,27 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuil
   }
 
   @override
-  void replace(covariant NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs other) {
+  void replace(covariant EndpointDeleteAllNotificationsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs;
+    _$v = other as _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs build() => _build();
+  EndpointDeleteAllNotificationsResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs _build() {
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs _$result;
+  _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs _build() {
+    _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs._(
+          _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data'));
+                  data, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -3195,7 +3067,7 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuil
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3204,41 +3076,39 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuil
   }
 }
 
-abstract mixin class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterface other);
-  void update(
-      void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
+  void replace(EndpointDeleteAllNotificationsResponseApplicationJsonInterface other);
+  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates);
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson
-    extends NotificationsEndpointDeleteAllNotificationsResponseApplicationJson {
+class _$EndpointDeleteAllNotificationsResponseApplicationJson
+    extends EndpointDeleteAllNotificationsResponseApplicationJson {
   @override
-  final NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_Ocs ocs;
+  final EndpointDeleteAllNotificationsResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson(
-          [void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$EndpointDeleteAllNotificationsResponseApplicationJson(
+          [void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? updates]) =>
+      (EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        ocs, r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson', 'ocs');
+  _$EndpointDeleteAllNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointDeleteAllNotificationsResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson rebuild(
-          void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder) updates) =>
+  EndpointDeleteAllNotificationsResponseApplicationJson rebuild(
+          void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..replace(this);
+  EndpointDeleteAllNotificationsResponseApplicationJsonBuilder toBuilder() =>
+      EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointDeleteAllNotificationsResponseApplicationJson && ocs == other.ocs;
+    return other is EndpointDeleteAllNotificationsResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3251,28 +3121,26 @@ class _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'EndpointDeleteAllNotificationsResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder
+class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsEndpointDeleteAllNotificationsResponseApplicationJson,
-            NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder>,
-        NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson? _$v;
+        Builder<EndpointDeleteAllNotificationsResponseApplicationJson,
+            EndpointDeleteAllNotificationsResponseApplicationJsonBuilder>,
+        EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
+  _$EndpointDeleteAllNotificationsResponseApplicationJson? _$v;
 
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsEndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs) =>
-      _$this._ocs = ocs;
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? _ocs;
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
+  EndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
 
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder get _$this {
+  EndpointDeleteAllNotificationsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3282,23 +3150,23 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointDeleteAllNotificationsResponseApplicationJson other) {
+  void replace(covariant EndpointDeleteAllNotificationsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson;
+    _$v = other as _$EndpointDeleteAllNotificationsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointDeleteAllNotificationsResponseApplicationJson build() => _build();
+  EndpointDeleteAllNotificationsResponseApplicationJson build() => _build();
 
-  _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson _build() {
-    _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson _$result;
+  _$EndpointDeleteAllNotificationsResponseApplicationJson _build() {
+    _$EndpointDeleteAllNotificationsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsEndpointDeleteAllNotificationsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$EndpointDeleteAllNotificationsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3306,7 +3174,7 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointDeleteAllNotificationsResponseApplicationJson', _$failedField, e.toString());
+            r'EndpointDeleteAllNotificationsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3315,50 +3183,44 @@ class NotificationsEndpointDeleteAllNotificationsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(EndpointGetNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function(EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  NotificationsNotificationBuilder get data;
-  set data(NotificationsNotificationBuilder? data);
+  NotificationBuilder get data;
+  set data(NotificationBuilder? data);
 }
 
-class _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs
-    extends NotificationsEndpointGetNotificationResponseApplicationJson_Ocs {
+class _$EndpointGetNotificationResponseApplicationJson_Ocs extends EndpointGetNotificationResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final NotificationsNotification data;
+  final Notification data;
 
-  factory _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs(
-          [void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$EndpointGetNotificationResponseApplicationJson_Ocs(
+          [void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
+      (EndpointGetNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsEndpointGetNotificationResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsEndpointGetNotificationResponseApplicationJson_Ocs', 'data');
+  _$EndpointGetNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EndpointGetNotificationResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EndpointGetNotificationResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder) updates) =>
+  EndpointGetNotificationResponseApplicationJson_Ocs rebuild(
+          void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
+      EndpointGetNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointGetNotificationResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is EndpointGetNotificationResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3372,31 +3234,31 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointGetNotificationResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'EndpointGetNotificationResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder
+class EndpointGetNotificationResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsEndpointGetNotificationResponseApplicationJson_Ocs,
-            NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder>,
-        NotificationsEndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs? _$v;
+        Builder<EndpointGetNotificationResponseApplicationJson_Ocs,
+            EndpointGetNotificationResponseApplicationJson_OcsBuilder>,
+        EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  _$EndpointGetNotificationResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  NotificationsNotificationBuilder? _data;
-  NotificationsNotificationBuilder get data => _$this._data ??= NotificationsNotificationBuilder();
-  set data(covariant NotificationsNotificationBuilder? data) => _$this._data = data;
+  NotificationBuilder? _data;
+  NotificationBuilder get data => _$this._data ??= NotificationBuilder();
+  set data(covariant NotificationBuilder? data) => _$this._data = data;
 
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder();
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder();
 
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder get _$this {
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3407,24 +3269,23 @@ class NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointGetNotificationResponseApplicationJson_Ocs other) {
+  void replace(covariant EndpointGetNotificationResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs;
+    _$v = other as _$EndpointGetNotificationResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson_Ocs build() => _build();
+  EndpointGetNotificationResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs _build() {
-    _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs _$result;
+  _$EndpointGetNotificationResponseApplicationJson_Ocs _build() {
+    _$EndpointGetNotificationResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$NotificationsEndpointGetNotificationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3434,7 +3295,7 @@ class NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointGetNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'EndpointGetNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3443,39 +3304,38 @@ class NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsEndpointGetNotificationResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsEndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace(EndpointGetNotificationResponseApplicationJsonInterface other);
+  void update(void Function(EndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates);
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(EndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsEndpointGetNotificationResponseApplicationJson
-    extends NotificationsEndpointGetNotificationResponseApplicationJson {
+class _$EndpointGetNotificationResponseApplicationJson extends EndpointGetNotificationResponseApplicationJson {
   @override
-  final NotificationsEndpointGetNotificationResponseApplicationJson_Ocs ocs;
+  final EndpointGetNotificationResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsEndpointGetNotificationResponseApplicationJson(
-          [void Function(NotificationsEndpointGetNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsEndpointGetNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$EndpointGetNotificationResponseApplicationJson(
+          [void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? updates]) =>
+      (EndpointGetNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointGetNotificationResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsEndpointGetNotificationResponseApplicationJson', 'ocs');
+  _$EndpointGetNotificationResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointGetNotificationResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson rebuild(
-          void Function(NotificationsEndpointGetNotificationResponseApplicationJsonBuilder) updates) =>
+  EndpointGetNotificationResponseApplicationJson rebuild(
+          void Function(EndpointGetNotificationResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsEndpointGetNotificationResponseApplicationJsonBuilder()..replace(this);
+  EndpointGetNotificationResponseApplicationJsonBuilder toBuilder() =>
+      EndpointGetNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointGetNotificationResponseApplicationJson && ocs == other.ocs;
+    return other is EndpointGetNotificationResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3488,27 +3348,24 @@ class _$NotificationsEndpointGetNotificationResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointGetNotificationResponseApplicationJson')
-          ..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'EndpointGetNotificationResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsEndpointGetNotificationResponseApplicationJsonBuilder
+class EndpointGetNotificationResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsEndpointGetNotificationResponseApplicationJson,
-            NotificationsEndpointGetNotificationResponseApplicationJsonBuilder>,
-        NotificationsEndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsEndpointGetNotificationResponseApplicationJson? _$v;
+        Builder<EndpointGetNotificationResponseApplicationJson, EndpointGetNotificationResponseApplicationJsonBuilder>,
+        EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
+  _$EndpointGetNotificationResponseApplicationJson? _$v;
 
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsEndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder? _ocs;
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= EndpointGetNotificationResponseApplicationJson_OcsBuilder();
+  set ocs(covariant EndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsEndpointGetNotificationResponseApplicationJsonBuilder();
+  EndpointGetNotificationResponseApplicationJsonBuilder();
 
-  NotificationsEndpointGetNotificationResponseApplicationJsonBuilder get _$this {
+  EndpointGetNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3518,23 +3375,23 @@ class NotificationsEndpointGetNotificationResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointGetNotificationResponseApplicationJson other) {
+  void replace(covariant EndpointGetNotificationResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointGetNotificationResponseApplicationJson;
+    _$v = other as _$EndpointGetNotificationResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsEndpointGetNotificationResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointGetNotificationResponseApplicationJson build() => _build();
+  EndpointGetNotificationResponseApplicationJson build() => _build();
 
-  _$NotificationsEndpointGetNotificationResponseApplicationJson _build() {
-    _$NotificationsEndpointGetNotificationResponseApplicationJson _$result;
+  _$EndpointGetNotificationResponseApplicationJson _build() {
+    _$EndpointGetNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsEndpointGetNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3542,7 +3399,7 @@ class NotificationsEndpointGetNotificationResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointGetNotificationResponseApplicationJson', _$failedField, e.toString());
+            r'EndpointGetNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3551,51 +3408,45 @@ class NotificationsEndpointGetNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterface other);
-  void update(
-      void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(EndpointDeleteNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function(EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs
-    extends NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs {
+class _$EndpointDeleteNotificationResponseApplicationJson_Ocs
+    extends EndpointDeleteNotificationResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs(
-          [void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$EndpointDeleteNotificationResponseApplicationJson_Ocs(
+          [void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
+      (EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs', 'data');
+  _$EndpointDeleteNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder) updates) =>
+  EndpointDeleteNotificationResponseApplicationJson_Ocs rebuild(
+          void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
+      EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is EndpointDeleteNotificationResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3609,31 +3460,31 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'EndpointDeleteNotificationResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder
+class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs,
-            NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder>,
-        NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs? _$v;
+        Builder<EndpointDeleteNotificationResponseApplicationJson_Ocs,
+            EndpointDeleteNotificationResponseApplicationJson_OcsBuilder>,
+        EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  _$EndpointDeleteNotificationResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
 
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder get _$this {
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3644,27 +3495,27 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs other) {
+  void replace(covariant EndpointDeleteNotificationResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs;
+    _$v = other as _$EndpointDeleteNotificationResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs build() => _build();
+  EndpointDeleteNotificationResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs _build() {
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs _$result;
+  _$EndpointDeleteNotificationResponseApplicationJson_Ocs _build() {
+    _$EndpointDeleteNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs._(
+          _$EndpointDeleteNotificationResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs', 'data'));
+                  data, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -3672,7 +3523,7 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'EndpointDeleteNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3681,40 +3532,38 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsEndpointDeleteNotificationResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace(EndpointDeleteNotificationResponseApplicationJsonInterface other);
+  void update(void Function(EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates);
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsEndpointDeleteNotificationResponseApplicationJson
-    extends NotificationsEndpointDeleteNotificationResponseApplicationJson {
+class _$EndpointDeleteNotificationResponseApplicationJson extends EndpointDeleteNotificationResponseApplicationJson {
   @override
-  final NotificationsEndpointDeleteNotificationResponseApplicationJson_Ocs ocs;
+  final EndpointDeleteNotificationResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsEndpointDeleteNotificationResponseApplicationJson(
-          [void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$EndpointDeleteNotificationResponseApplicationJson(
+          [void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder)? updates]) =>
+      (EndpointDeleteNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        ocs, r'NotificationsEndpointDeleteNotificationResponseApplicationJson', 'ocs');
+  _$EndpointDeleteNotificationResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointDeleteNotificationResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson rebuild(
-          void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder) updates) =>
+  EndpointDeleteNotificationResponseApplicationJson rebuild(
+          void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder()..replace(this);
+  EndpointDeleteNotificationResponseApplicationJsonBuilder toBuilder() =>
+      EndpointDeleteNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointDeleteNotificationResponseApplicationJson && ocs == other.ocs;
+    return other is EndpointDeleteNotificationResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3727,28 +3576,26 @@ class _$NotificationsEndpointDeleteNotificationResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointDeleteNotificationResponseApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'EndpointDeleteNotificationResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder
+class EndpointDeleteNotificationResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsEndpointDeleteNotificationResponseApplicationJson,
-            NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder>,
-        NotificationsEndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson? _$v;
+        Builder<EndpointDeleteNotificationResponseApplicationJson,
+            EndpointDeleteNotificationResponseApplicationJsonBuilder>,
+        EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
+  _$EndpointDeleteNotificationResponseApplicationJson? _$v;
 
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsEndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs) =>
-      _$this._ocs = ocs;
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? _ocs;
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+  set ocs(covariant EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder();
+  EndpointDeleteNotificationResponseApplicationJsonBuilder();
 
-  NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder get _$this {
+  EndpointDeleteNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3758,23 +3605,23 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointDeleteNotificationResponseApplicationJson other) {
+  void replace(covariant EndpointDeleteNotificationResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointDeleteNotificationResponseApplicationJson;
+    _$v = other as _$EndpointDeleteNotificationResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointDeleteNotificationResponseApplicationJson build() => _build();
+  EndpointDeleteNotificationResponseApplicationJson build() => _build();
 
-  _$NotificationsEndpointDeleteNotificationResponseApplicationJson _build() {
-    _$NotificationsEndpointDeleteNotificationResponseApplicationJson _$result;
+  _$EndpointDeleteNotificationResponseApplicationJson _build() {
+    _$EndpointDeleteNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsEndpointDeleteNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$EndpointDeleteNotificationResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3782,7 +3629,7 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointDeleteNotificationResponseApplicationJson', _$failedField, e.toString());
+            r'EndpointDeleteNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3791,50 +3638,45 @@ class NotificationsEndpointDeleteNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface other);
+  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   ListBuilder<int> get data;
   set data(ListBuilder<int>? data);
 }
 
-class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs
-    extends NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs {
+class _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs
+    extends EndpointConfirmIdsForUserResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final BuiltList<int> data;
 
-  factory _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs(
-          [void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs(
+          [void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? updates]) =>
+      (EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs', 'data');
+  _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder) updates) =>
+  EndpointConfirmIdsForUserResponseApplicationJson_Ocs rebuild(
+          void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..replace(this);
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder toBuilder() =>
+      EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is EndpointConfirmIdsForUserResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3848,31 +3690,31 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
+class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs,
-            NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder>,
-        NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs? _$v;
+        Builder<EndpointConfirmIdsForUserResponseApplicationJson_Ocs,
+            EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder>,
+        EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
+  _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<int>? _data;
   ListBuilder<int> get data => _$this._data ??= ListBuilder<int>();
   set data(covariant ListBuilder<int>? data) => _$this._data = data;
 
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
 
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get _$this {
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3883,24 +3725,24 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs other) {
+  void replace(covariant EndpointConfirmIdsForUserResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs;
+    _$v = other as _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs build() => _build();
+  EndpointConfirmIdsForUserResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs _build() {
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs _$result;
+  _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _build() {
+    _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3910,7 +3752,7 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3919,39 +3761,38 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
+  void replace(EndpointConfirmIdsForUserResponseApplicationJsonInterface other);
+  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates);
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson
-    extends NotificationsEndpointConfirmIdsForUserResponseApplicationJson {
+class _$EndpointConfirmIdsForUserResponseApplicationJson extends EndpointConfirmIdsForUserResponseApplicationJson {
   @override
-  final NotificationsEndpointConfirmIdsForUserResponseApplicationJson_Ocs ocs;
+  final EndpointConfirmIdsForUserResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson(
-          [void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$EndpointConfirmIdsForUserResponseApplicationJson(
+          [void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder)? updates]) =>
+      (EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson', 'ocs');
+  _$EndpointConfirmIdsForUserResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointConfirmIdsForUserResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson rebuild(
-          void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder) updates) =>
+  EndpointConfirmIdsForUserResponseApplicationJson rebuild(
+          void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder()..replace(this);
+  EndpointConfirmIdsForUserResponseApplicationJsonBuilder toBuilder() =>
+      EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsEndpointConfirmIdsForUserResponseApplicationJson && ocs == other.ocs;
+    return other is EndpointConfirmIdsForUserResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3964,27 +3805,26 @@ class _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'EndpointConfirmIdsForUserResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder
+class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsEndpointConfirmIdsForUserResponseApplicationJson,
-            NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder>,
-        NotificationsEndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson? _$v;
+        Builder<EndpointConfirmIdsForUserResponseApplicationJson,
+            EndpointConfirmIdsForUserResponseApplicationJsonBuilder>,
+        EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
+  _$EndpointConfirmIdsForUserResponseApplicationJson? _$v;
 
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsEndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? _ocs;
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+  set ocs(covariant EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder();
+  EndpointConfirmIdsForUserResponseApplicationJsonBuilder();
 
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder get _$this {
+  EndpointConfirmIdsForUserResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3994,23 +3834,23 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsEndpointConfirmIdsForUserResponseApplicationJson other) {
+  void replace(covariant EndpointConfirmIdsForUserResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson;
+    _$v = other as _$EndpointConfirmIdsForUserResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsEndpointConfirmIdsForUserResponseApplicationJson build() => _build();
+  EndpointConfirmIdsForUserResponseApplicationJson build() => _build();
 
-  _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson _build() {
-    _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson _$result;
+  _$EndpointConfirmIdsForUserResponseApplicationJson _build() {
+    _$EndpointConfirmIdsForUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsEndpointConfirmIdsForUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$EndpointConfirmIdsForUserResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4018,7 +3858,7 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'NotificationsEndpointConfirmIdsForUserResponseApplicationJson', _$failedField, e.toString());
+            r'EndpointConfirmIdsForUserResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4027,9 +3867,9 @@ class NotificationsEndpointConfirmIdsForUserResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsPushDeviceInterfaceBuilder {
-  void replace(NotificationsPushDeviceInterface other);
-  void update(void Function(NotificationsPushDeviceInterfaceBuilder) updates);
+abstract mixin class PushDeviceInterfaceBuilder {
+  void replace(PushDeviceInterface other);
+  void update(void Function(PushDeviceInterfaceBuilder) updates);
   String? get publicKey;
   set publicKey(String? publicKey);
 
@@ -4040,7 +3880,7 @@ abstract mixin class NotificationsPushDeviceInterfaceBuilder {
   set signature(String? signature);
 }
 
-class _$NotificationsPushDevice extends NotificationsPushDevice {
+class _$PushDevice extends PushDevice {
   @override
   final String publicKey;
   @override
@@ -4048,27 +3888,24 @@ class _$NotificationsPushDevice extends NotificationsPushDevice {
   @override
   final String signature;
 
-  factory _$NotificationsPushDevice([void Function(NotificationsPushDeviceBuilder)? updates]) =>
-      (NotificationsPushDeviceBuilder()..update(updates))._build();
+  factory _$PushDevice([void Function(PushDeviceBuilder)? updates]) => (PushDeviceBuilder()..update(updates))._build();
 
-  _$NotificationsPushDevice._({required this.publicKey, required this.deviceIdentifier, required this.signature})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(publicKey, r'NotificationsPushDevice', 'publicKey');
-    BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'NotificationsPushDevice', 'deviceIdentifier');
-    BuiltValueNullFieldError.checkNotNull(signature, r'NotificationsPushDevice', 'signature');
+  _$PushDevice._({required this.publicKey, required this.deviceIdentifier, required this.signature}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey');
+    BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'PushDevice', 'deviceIdentifier');
+    BuiltValueNullFieldError.checkNotNull(signature, r'PushDevice', 'signature');
   }
 
   @override
-  NotificationsPushDevice rebuild(void Function(NotificationsPushDeviceBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  PushDevice rebuild(void Function(PushDeviceBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsPushDeviceBuilder toBuilder() => NotificationsPushDeviceBuilder()..replace(this);
+  PushDeviceBuilder toBuilder() => PushDeviceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsPushDevice &&
+    return other is PushDevice &&
         publicKey == other.publicKey &&
         deviceIdentifier == other.deviceIdentifier &&
         signature == other.signature;
@@ -4086,7 +3923,7 @@ class _$NotificationsPushDevice extends NotificationsPushDevice {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsPushDevice')
+    return (newBuiltValueToStringHelper(r'PushDevice')
           ..add('publicKey', publicKey)
           ..add('deviceIdentifier', deviceIdentifier)
           ..add('signature', signature))
@@ -4094,11 +3931,8 @@ class _$NotificationsPushDevice extends NotificationsPushDevice {
   }
 }
 
-class NotificationsPushDeviceBuilder
-    implements
-        Builder<NotificationsPushDevice, NotificationsPushDeviceBuilder>,
-        NotificationsPushDeviceInterfaceBuilder {
-  _$NotificationsPushDevice? _$v;
+class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, PushDeviceInterfaceBuilder {
+  _$PushDevice? _$v;
 
   String? _publicKey;
   String? get publicKey => _$this._publicKey;
@@ -4112,9 +3946,9 @@ class NotificationsPushDeviceBuilder
   String? get signature => _$this._signature;
   set signature(covariant String? signature) => _$this._signature = signature;
 
-  NotificationsPushDeviceBuilder();
+  PushDeviceBuilder();
 
-  NotificationsPushDeviceBuilder get _$this {
+  PushDeviceBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _publicKey = $v.publicKey;
@@ -4126,72 +3960,69 @@ class NotificationsPushDeviceBuilder
   }
 
   @override
-  void replace(covariant NotificationsPushDevice other) {
+  void replace(covariant PushDevice other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsPushDevice;
+    _$v = other as _$PushDevice;
   }
 
   @override
-  void update(void Function(NotificationsPushDeviceBuilder)? updates) {
+  void update(void Function(PushDeviceBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsPushDevice build() => _build();
+  PushDevice build() => _build();
 
-  _$NotificationsPushDevice _build() {
+  _$PushDevice _build() {
     final _$result = _$v ??
-        _$NotificationsPushDevice._(
-            publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'NotificationsPushDevice', 'publicKey'),
+        _$PushDevice._(
+            publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey'),
             deviceIdentifier:
-                BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'NotificationsPushDevice', 'deviceIdentifier'),
-            signature: BuiltValueNullFieldError.checkNotNull(signature, r'NotificationsPushDevice', 'signature'));
+                BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'PushDevice', 'deviceIdentifier'),
+            signature: BuiltValueNullFieldError.checkNotNull(signature, r'PushDevice', 'signature'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(PushRegisterDeviceResponseApplicationJson_OcsInterface other);
+  void update(void Function(PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  NotificationsPushDeviceBuilder get data;
-  set data(NotificationsPushDeviceBuilder? data);
+  PushDeviceBuilder get data;
+  set data(PushDeviceBuilder? data);
 }
 
-class _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs
-    extends NotificationsPushRegisterDeviceResponseApplicationJson_Ocs {
+class _$PushRegisterDeviceResponseApplicationJson_Ocs extends PushRegisterDeviceResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final NotificationsPushDevice data;
+  final PushDevice data;
 
-  factory _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs(
-          [void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$PushRegisterDeviceResponseApplicationJson_Ocs(
+          [void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
+      (PushRegisterDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'NotificationsPushRegisterDeviceResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'NotificationsPushRegisterDeviceResponseApplicationJson_Ocs', 'data');
+  _$PushRegisterDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'PushRegisterDeviceResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'PushRegisterDeviceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder) updates) =>
+  PushRegisterDeviceResponseApplicationJson_Ocs rebuild(
+          void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder()..replace(this);
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
+      PushRegisterDeviceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsPushRegisterDeviceResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is PushRegisterDeviceResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4205,31 +4036,30 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsPushRegisterDeviceResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'PushRegisterDeviceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder
+class PushRegisterDeviceResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsPushRegisterDeviceResponseApplicationJson_Ocs,
-            NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder>,
-        NotificationsPushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs? _$v;
+        Builder<PushRegisterDeviceResponseApplicationJson_Ocs, PushRegisterDeviceResponseApplicationJson_OcsBuilder>,
+        PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  _$PushRegisterDeviceResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  NotificationsPushDeviceBuilder? _data;
-  NotificationsPushDeviceBuilder get data => _$this._data ??= NotificationsPushDeviceBuilder();
-  set data(covariant NotificationsPushDeviceBuilder? data) => _$this._data = data;
+  PushDeviceBuilder? _data;
+  PushDeviceBuilder get data => _$this._data ??= PushDeviceBuilder();
+  set data(covariant PushDeviceBuilder? data) => _$this._data = data;
 
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder();
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder();
 
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder get _$this {
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4240,24 +4070,23 @@ class NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsPushRegisterDeviceResponseApplicationJson_Ocs other) {
+  void replace(covariant PushRegisterDeviceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs;
+    _$v = other as _$PushRegisterDeviceResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson_Ocs build() => _build();
+  PushRegisterDeviceResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs _build() {
-    _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs _$result;
+  _$PushRegisterDeviceResponseApplicationJson_Ocs _build() {
+    _$PushRegisterDeviceResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$NotificationsPushRegisterDeviceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4266,8 +4095,7 @@ class NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsPushRegisterDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PushRegisterDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4276,39 +4104,38 @@ class NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsPushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsPushRegisterDeviceResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsPushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace(PushRegisterDeviceResponseApplicationJsonInterface other);
+  void update(void Function(PushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates);
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(PushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsPushRegisterDeviceResponseApplicationJson
-    extends NotificationsPushRegisterDeviceResponseApplicationJson {
+class _$PushRegisterDeviceResponseApplicationJson extends PushRegisterDeviceResponseApplicationJson {
   @override
-  final NotificationsPushRegisterDeviceResponseApplicationJson_Ocs ocs;
+  final PushRegisterDeviceResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsPushRegisterDeviceResponseApplicationJson(
-          [void Function(NotificationsPushRegisterDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsPushRegisterDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$PushRegisterDeviceResponseApplicationJson(
+          [void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? updates]) =>
+      (PushRegisterDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsPushRegisterDeviceResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsPushRegisterDeviceResponseApplicationJson', 'ocs');
+  _$PushRegisterDeviceResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'PushRegisterDeviceResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson rebuild(
-          void Function(NotificationsPushRegisterDeviceResponseApplicationJsonBuilder) updates) =>
+  PushRegisterDeviceResponseApplicationJson rebuild(
+          void Function(PushRegisterDeviceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsPushRegisterDeviceResponseApplicationJsonBuilder()..replace(this);
+  PushRegisterDeviceResponseApplicationJsonBuilder toBuilder() =>
+      PushRegisterDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsPushRegisterDeviceResponseApplicationJson && ocs == other.ocs;
+    return other is PushRegisterDeviceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -4321,26 +4148,24 @@ class _$NotificationsPushRegisterDeviceResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsPushRegisterDeviceResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'PushRegisterDeviceResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsPushRegisterDeviceResponseApplicationJsonBuilder
+class PushRegisterDeviceResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsPushRegisterDeviceResponseApplicationJson,
-            NotificationsPushRegisterDeviceResponseApplicationJsonBuilder>,
-        NotificationsPushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsPushRegisterDeviceResponseApplicationJson? _$v;
+        Builder<PushRegisterDeviceResponseApplicationJson, PushRegisterDeviceResponseApplicationJsonBuilder>,
+        PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
+  _$PushRegisterDeviceResponseApplicationJson? _$v;
 
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsPushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder? _ocs;
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= PushRegisterDeviceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant PushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsPushRegisterDeviceResponseApplicationJsonBuilder();
+  PushRegisterDeviceResponseApplicationJsonBuilder();
 
-  NotificationsPushRegisterDeviceResponseApplicationJsonBuilder get _$this {
+  PushRegisterDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -4350,31 +4175,30 @@ class NotificationsPushRegisterDeviceResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsPushRegisterDeviceResponseApplicationJson other) {
+  void replace(covariant PushRegisterDeviceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsPushRegisterDeviceResponseApplicationJson;
+    _$v = other as _$PushRegisterDeviceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsPushRegisterDeviceResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsPushRegisterDeviceResponseApplicationJson build() => _build();
+  PushRegisterDeviceResponseApplicationJson build() => _build();
 
-  _$NotificationsPushRegisterDeviceResponseApplicationJson _build() {
-    _$NotificationsPushRegisterDeviceResponseApplicationJson _$result;
+  _$PushRegisterDeviceResponseApplicationJson _build() {
+    _$PushRegisterDeviceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsPushRegisterDeviceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsPushRegisterDeviceResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PushRegisterDeviceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4383,47 +4207,44 @@ class NotificationsPushRegisterDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(PushRemoveDeviceResponseApplicationJson_OcsInterface other);
+  void update(void Function(PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs
-    extends NotificationsPushRemoveDeviceResponseApplicationJson_Ocs {
+class _$PushRemoveDeviceResponseApplicationJson_Ocs extends PushRemoveDeviceResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs(
-          [void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$PushRemoveDeviceResponseApplicationJson_Ocs(
+          [void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
+      (PushRemoveDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs', 'data');
+  _$PushRemoveDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder) updates) =>
+  PushRemoveDeviceResponseApplicationJson_Ocs rebuild(
+          void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder()..replace(this);
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
+      PushRemoveDeviceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsPushRemoveDeviceResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is PushRemoveDeviceResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4437,31 +4258,30 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'PushRemoveDeviceResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder
+class PushRemoveDeviceResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsPushRemoveDeviceResponseApplicationJson_Ocs,
-            NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder>,
-        NotificationsPushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs? _$v;
+        Builder<PushRemoveDeviceResponseApplicationJson_Ocs, PushRemoveDeviceResponseApplicationJson_OcsBuilder>,
+        PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  _$PushRemoveDeviceResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder();
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder();
 
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder get _$this {
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4472,35 +4292,34 @@ class NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsPushRemoveDeviceResponseApplicationJson_Ocs other) {
+  void replace(covariant PushRemoveDeviceResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs;
+    _$v = other as _$PushRemoveDeviceResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson_Ocs build() => _build();
+  PushRemoveDeviceResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs _build() {
-    _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs _$result;
+  _$PushRemoveDeviceResponseApplicationJson_Ocs _build() {
+    _$PushRemoveDeviceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsPushRemoveDeviceResponseApplicationJson_Ocs._(
+          _$PushRemoveDeviceResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs', 'data'));
+              data:
+                  BuiltValueNullFieldError.checkNotNull(data, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsPushRemoveDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PushRemoveDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4509,39 +4328,38 @@ class NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsPushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsPushRemoveDeviceResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsPushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace(PushRemoveDeviceResponseApplicationJsonInterface other);
+  void update(void Function(PushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates);
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(PushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsPushRemoveDeviceResponseApplicationJson
-    extends NotificationsPushRemoveDeviceResponseApplicationJson {
+class _$PushRemoveDeviceResponseApplicationJson extends PushRemoveDeviceResponseApplicationJson {
   @override
-  final NotificationsPushRemoveDeviceResponseApplicationJson_Ocs ocs;
+  final PushRemoveDeviceResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsPushRemoveDeviceResponseApplicationJson(
-          [void Function(NotificationsPushRemoveDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsPushRemoveDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$PushRemoveDeviceResponseApplicationJson(
+          [void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? updates]) =>
+      (PushRemoveDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsPushRemoveDeviceResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsPushRemoveDeviceResponseApplicationJson', 'ocs');
+  _$PushRemoveDeviceResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'PushRemoveDeviceResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson rebuild(
-          void Function(NotificationsPushRemoveDeviceResponseApplicationJsonBuilder) updates) =>
+  PushRemoveDeviceResponseApplicationJson rebuild(
+          void Function(PushRemoveDeviceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsPushRemoveDeviceResponseApplicationJsonBuilder()..replace(this);
+  PushRemoveDeviceResponseApplicationJsonBuilder toBuilder() =>
+      PushRemoveDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsPushRemoveDeviceResponseApplicationJson && ocs == other.ocs;
+    return other is PushRemoveDeviceResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -4554,26 +4372,24 @@ class _$NotificationsPushRemoveDeviceResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsPushRemoveDeviceResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'PushRemoveDeviceResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsPushRemoveDeviceResponseApplicationJsonBuilder
+class PushRemoveDeviceResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsPushRemoveDeviceResponseApplicationJson,
-            NotificationsPushRemoveDeviceResponseApplicationJsonBuilder>,
-        NotificationsPushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsPushRemoveDeviceResponseApplicationJson? _$v;
+        Builder<PushRemoveDeviceResponseApplicationJson, PushRemoveDeviceResponseApplicationJsonBuilder>,
+        PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
+  _$PushRemoveDeviceResponseApplicationJson? _$v;
 
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsPushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder? _ocs;
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= PushRemoveDeviceResponseApplicationJson_OcsBuilder();
+  set ocs(covariant PushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsPushRemoveDeviceResponseApplicationJsonBuilder();
+  PushRemoveDeviceResponseApplicationJsonBuilder();
 
-  NotificationsPushRemoveDeviceResponseApplicationJsonBuilder get _$this {
+  PushRemoveDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -4583,31 +4399,30 @@ class NotificationsPushRemoveDeviceResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsPushRemoveDeviceResponseApplicationJson other) {
+  void replace(covariant PushRemoveDeviceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsPushRemoveDeviceResponseApplicationJson;
+    _$v = other as _$PushRemoveDeviceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsPushRemoveDeviceResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsPushRemoveDeviceResponseApplicationJson build() => _build();
+  PushRemoveDeviceResponseApplicationJson build() => _build();
 
-  _$NotificationsPushRemoveDeviceResponseApplicationJson _build() {
-    _$NotificationsPushRemoveDeviceResponseApplicationJson _$result;
+  _$PushRemoveDeviceResponseApplicationJson _build() {
+    _$PushRemoveDeviceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsPushRemoveDeviceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$PushRemoveDeviceResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsPushRemoveDeviceResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PushRemoveDeviceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4616,47 +4431,44 @@ class NotificationsPushRemoveDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsSettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsSettingsPersonalResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(SettingsPersonalResponseApplicationJson_OcsInterface other);
+  void update(void Function(SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsSettingsPersonalResponseApplicationJson_Ocs
-    extends NotificationsSettingsPersonalResponseApplicationJson_Ocs {
+class _$SettingsPersonalResponseApplicationJson_Ocs extends SettingsPersonalResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsSettingsPersonalResponseApplicationJson_Ocs(
-          [void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$SettingsPersonalResponseApplicationJson_Ocs(
+          [void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? updates]) =>
+      (SettingsPersonalResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsSettingsPersonalResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'NotificationsSettingsPersonalResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'NotificationsSettingsPersonalResponseApplicationJson_Ocs', 'data');
+  _$SettingsPersonalResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'SettingsPersonalResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'SettingsPersonalResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder) updates) =>
+  SettingsPersonalResponseApplicationJson_Ocs rebuild(
+          void Function(SettingsPersonalResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder()..replace(this);
+  SettingsPersonalResponseApplicationJson_OcsBuilder toBuilder() =>
+      SettingsPersonalResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsSettingsPersonalResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is SettingsPersonalResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4670,31 +4482,30 @@ class _$NotificationsSettingsPersonalResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsSettingsPersonalResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'SettingsPersonalResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder
+class SettingsPersonalResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsSettingsPersonalResponseApplicationJson_Ocs,
-            NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder>,
-        NotificationsSettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsSettingsPersonalResponseApplicationJson_Ocs? _$v;
+        Builder<SettingsPersonalResponseApplicationJson_Ocs, SettingsPersonalResponseApplicationJson_OcsBuilder>,
+        SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
+  _$SettingsPersonalResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder();
+  SettingsPersonalResponseApplicationJson_OcsBuilder();
 
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder get _$this {
+  SettingsPersonalResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4705,35 +4516,34 @@ class NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsSettingsPersonalResponseApplicationJson_Ocs other) {
+  void replace(covariant SettingsPersonalResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsSettingsPersonalResponseApplicationJson_Ocs;
+    _$v = other as _$SettingsPersonalResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson_Ocs build() => _build();
+  SettingsPersonalResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsSettingsPersonalResponseApplicationJson_Ocs _build() {
-    _$NotificationsSettingsPersonalResponseApplicationJson_Ocs _$result;
+  _$SettingsPersonalResponseApplicationJson_Ocs _build() {
+    _$SettingsPersonalResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsSettingsPersonalResponseApplicationJson_Ocs._(
+          _$SettingsPersonalResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsSettingsPersonalResponseApplicationJson_Ocs', 'data'));
+              data:
+                  BuiltValueNullFieldError.checkNotNull(data, r'SettingsPersonalResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsSettingsPersonalResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SettingsPersonalResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4742,39 +4552,38 @@ class NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsSettingsPersonalResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsSettingsPersonalResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsSettingsPersonalResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class SettingsPersonalResponseApplicationJsonInterfaceBuilder {
+  void replace(SettingsPersonalResponseApplicationJsonInterface other);
+  void update(void Function(SettingsPersonalResponseApplicationJsonInterfaceBuilder) updates);
+  SettingsPersonalResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(SettingsPersonalResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsSettingsPersonalResponseApplicationJson
-    extends NotificationsSettingsPersonalResponseApplicationJson {
+class _$SettingsPersonalResponseApplicationJson extends SettingsPersonalResponseApplicationJson {
   @override
-  final NotificationsSettingsPersonalResponseApplicationJson_Ocs ocs;
+  final SettingsPersonalResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsSettingsPersonalResponseApplicationJson(
-          [void Function(NotificationsSettingsPersonalResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsSettingsPersonalResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SettingsPersonalResponseApplicationJson(
+          [void Function(SettingsPersonalResponseApplicationJsonBuilder)? updates]) =>
+      (SettingsPersonalResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsSettingsPersonalResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsSettingsPersonalResponseApplicationJson', 'ocs');
+  _$SettingsPersonalResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsPersonalResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson rebuild(
-          void Function(NotificationsSettingsPersonalResponseApplicationJsonBuilder) updates) =>
+  SettingsPersonalResponseApplicationJson rebuild(
+          void Function(SettingsPersonalResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsSettingsPersonalResponseApplicationJsonBuilder()..replace(this);
+  SettingsPersonalResponseApplicationJsonBuilder toBuilder() =>
+      SettingsPersonalResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsSettingsPersonalResponseApplicationJson && ocs == other.ocs;
+    return other is SettingsPersonalResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -4787,26 +4596,24 @@ class _$NotificationsSettingsPersonalResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsSettingsPersonalResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SettingsPersonalResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsSettingsPersonalResponseApplicationJsonBuilder
+class SettingsPersonalResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsSettingsPersonalResponseApplicationJson,
-            NotificationsSettingsPersonalResponseApplicationJsonBuilder>,
-        NotificationsSettingsPersonalResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsSettingsPersonalResponseApplicationJson? _$v;
+        Builder<SettingsPersonalResponseApplicationJson, SettingsPersonalResponseApplicationJsonBuilder>,
+        SettingsPersonalResponseApplicationJsonInterfaceBuilder {
+  _$SettingsPersonalResponseApplicationJson? _$v;
 
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsSettingsPersonalResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  SettingsPersonalResponseApplicationJson_OcsBuilder? _ocs;
+  SettingsPersonalResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= SettingsPersonalResponseApplicationJson_OcsBuilder();
+  set ocs(covariant SettingsPersonalResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsSettingsPersonalResponseApplicationJsonBuilder();
+  SettingsPersonalResponseApplicationJsonBuilder();
 
-  NotificationsSettingsPersonalResponseApplicationJsonBuilder get _$this {
+  SettingsPersonalResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -4816,31 +4623,30 @@ class NotificationsSettingsPersonalResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsSettingsPersonalResponseApplicationJson other) {
+  void replace(covariant SettingsPersonalResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsSettingsPersonalResponseApplicationJson;
+    _$v = other as _$SettingsPersonalResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsSettingsPersonalResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(SettingsPersonalResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsSettingsPersonalResponseApplicationJson build() => _build();
+  SettingsPersonalResponseApplicationJson build() => _build();
 
-  _$NotificationsSettingsPersonalResponseApplicationJson _build() {
-    _$NotificationsSettingsPersonalResponseApplicationJson _$result;
+  _$SettingsPersonalResponseApplicationJson _build() {
+    _$SettingsPersonalResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsSettingsPersonalResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$SettingsPersonalResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsSettingsPersonalResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SettingsPersonalResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4849,45 +4655,44 @@ class NotificationsSettingsPersonalResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsSettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(NotificationsSettingsAdminResponseApplicationJson_OcsInterface other);
-  void update(void Function(NotificationsSettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates);
-  NotificationsOCSMetaBuilder get meta;
-  set meta(NotificationsOCSMetaBuilder? meta);
+abstract mixin class SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(SettingsAdminResponseApplicationJson_OcsInterface other);
+  void update(void Function(SettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$NotificationsSettingsAdminResponseApplicationJson_Ocs
-    extends NotificationsSettingsAdminResponseApplicationJson_Ocs {
+class _$SettingsAdminResponseApplicationJson_Ocs extends SettingsAdminResponseApplicationJson_Ocs {
   @override
-  final NotificationsOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$NotificationsSettingsAdminResponseApplicationJson_Ocs(
-          [void Function(NotificationsSettingsAdminResponseApplicationJson_OcsBuilder)? updates]) =>
-      (NotificationsSettingsAdminResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$SettingsAdminResponseApplicationJson_Ocs(
+          [void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? updates]) =>
+      (SettingsAdminResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$NotificationsSettingsAdminResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'NotificationsSettingsAdminResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'NotificationsSettingsAdminResponseApplicationJson_Ocs', 'data');
+  _$SettingsAdminResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'SettingsAdminResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'SettingsAdminResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson_Ocs rebuild(
-          void Function(NotificationsSettingsAdminResponseApplicationJson_OcsBuilder) updates) =>
+  SettingsAdminResponseApplicationJson_Ocs rebuild(
+          void Function(SettingsAdminResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder toBuilder() =>
-      NotificationsSettingsAdminResponseApplicationJson_OcsBuilder()..replace(this);
+  SettingsAdminResponseApplicationJson_OcsBuilder toBuilder() =>
+      SettingsAdminResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsSettingsAdminResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is SettingsAdminResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4901,31 +4706,30 @@ class _$NotificationsSettingsAdminResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsSettingsAdminResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'SettingsAdminResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class NotificationsSettingsAdminResponseApplicationJson_OcsBuilder
+class SettingsAdminResponseApplicationJson_OcsBuilder
     implements
-        Builder<NotificationsSettingsAdminResponseApplicationJson_Ocs,
-            NotificationsSettingsAdminResponseApplicationJson_OcsBuilder>,
-        NotificationsSettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
-  _$NotificationsSettingsAdminResponseApplicationJson_Ocs? _$v;
+        Builder<SettingsAdminResponseApplicationJson_Ocs, SettingsAdminResponseApplicationJson_OcsBuilder>,
+        SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
+  _$SettingsAdminResponseApplicationJson_Ocs? _$v;
 
-  NotificationsOCSMetaBuilder? _meta;
-  NotificationsOCSMetaBuilder get meta => _$this._meta ??= NotificationsOCSMetaBuilder();
-  set meta(covariant NotificationsOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder();
+  SettingsAdminResponseApplicationJson_OcsBuilder();
 
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder get _$this {
+  SettingsAdminResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4936,35 +4740,33 @@ class NotificationsSettingsAdminResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant NotificationsSettingsAdminResponseApplicationJson_Ocs other) {
+  void replace(covariant SettingsAdminResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsSettingsAdminResponseApplicationJson_Ocs;
+    _$v = other as _$SettingsAdminResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(NotificationsSettingsAdminResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson_Ocs build() => _build();
+  SettingsAdminResponseApplicationJson_Ocs build() => _build();
 
-  _$NotificationsSettingsAdminResponseApplicationJson_Ocs _build() {
-    _$NotificationsSettingsAdminResponseApplicationJson_Ocs _$result;
+  _$SettingsAdminResponseApplicationJson_Ocs _build() {
+    _$SettingsAdminResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$NotificationsSettingsAdminResponseApplicationJson_Ocs._(
+          _$SettingsAdminResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'NotificationsSettingsAdminResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsAdminResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsSettingsAdminResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4973,38 +4775,37 @@ class NotificationsSettingsAdminResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class NotificationsSettingsAdminResponseApplicationJsonInterfaceBuilder {
-  void replace(NotificationsSettingsAdminResponseApplicationJsonInterface other);
-  void update(void Function(NotificationsSettingsAdminResponseApplicationJsonInterfaceBuilder) updates);
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(NotificationsSettingsAdminResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class SettingsAdminResponseApplicationJsonInterfaceBuilder {
+  void replace(SettingsAdminResponseApplicationJsonInterface other);
+  void update(void Function(SettingsAdminResponseApplicationJsonInterfaceBuilder) updates);
+  SettingsAdminResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(SettingsAdminResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$NotificationsSettingsAdminResponseApplicationJson extends NotificationsSettingsAdminResponseApplicationJson {
+class _$SettingsAdminResponseApplicationJson extends SettingsAdminResponseApplicationJson {
   @override
-  final NotificationsSettingsAdminResponseApplicationJson_Ocs ocs;
+  final SettingsAdminResponseApplicationJson_Ocs ocs;
 
-  factory _$NotificationsSettingsAdminResponseApplicationJson(
-          [void Function(NotificationsSettingsAdminResponseApplicationJsonBuilder)? updates]) =>
-      (NotificationsSettingsAdminResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SettingsAdminResponseApplicationJson(
+          [void Function(SettingsAdminResponseApplicationJsonBuilder)? updates]) =>
+      (SettingsAdminResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$NotificationsSettingsAdminResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'NotificationsSettingsAdminResponseApplicationJson', 'ocs');
+  _$SettingsAdminResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsAdminResponseApplicationJson', 'ocs');
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson rebuild(
-          void Function(NotificationsSettingsAdminResponseApplicationJsonBuilder) updates) =>
+  SettingsAdminResponseApplicationJson rebuild(void Function(SettingsAdminResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsSettingsAdminResponseApplicationJsonBuilder toBuilder() =>
-      NotificationsSettingsAdminResponseApplicationJsonBuilder()..replace(this);
+  SettingsAdminResponseApplicationJsonBuilder toBuilder() =>
+      SettingsAdminResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsSettingsAdminResponseApplicationJson && ocs == other.ocs;
+    return other is SettingsAdminResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5017,26 +4818,24 @@ class _$NotificationsSettingsAdminResponseApplicationJson extends NotificationsS
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsSettingsAdminResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SettingsAdminResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class NotificationsSettingsAdminResponseApplicationJsonBuilder
+class SettingsAdminResponseApplicationJsonBuilder
     implements
-        Builder<NotificationsSettingsAdminResponseApplicationJson,
-            NotificationsSettingsAdminResponseApplicationJsonBuilder>,
-        NotificationsSettingsAdminResponseApplicationJsonInterfaceBuilder {
-  _$NotificationsSettingsAdminResponseApplicationJson? _$v;
+        Builder<SettingsAdminResponseApplicationJson, SettingsAdminResponseApplicationJsonBuilder>,
+        SettingsAdminResponseApplicationJsonInterfaceBuilder {
+  _$SettingsAdminResponseApplicationJson? _$v;
 
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder? _ocs;
-  NotificationsSettingsAdminResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= NotificationsSettingsAdminResponseApplicationJson_OcsBuilder();
-  set ocs(covariant NotificationsSettingsAdminResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  SettingsAdminResponseApplicationJson_OcsBuilder? _ocs;
+  SettingsAdminResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= SettingsAdminResponseApplicationJson_OcsBuilder();
+  set ocs(covariant SettingsAdminResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  NotificationsSettingsAdminResponseApplicationJsonBuilder();
+  SettingsAdminResponseApplicationJsonBuilder();
 
-  NotificationsSettingsAdminResponseApplicationJsonBuilder get _$this {
+  SettingsAdminResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5046,31 +4845,30 @@ class NotificationsSettingsAdminResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant NotificationsSettingsAdminResponseApplicationJson other) {
+  void replace(covariant SettingsAdminResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsSettingsAdminResponseApplicationJson;
+    _$v = other as _$SettingsAdminResponseApplicationJson;
   }
 
   @override
-  void update(void Function(NotificationsSettingsAdminResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(SettingsAdminResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsSettingsAdminResponseApplicationJson build() => _build();
+  SettingsAdminResponseApplicationJson build() => _build();
 
-  _$NotificationsSettingsAdminResponseApplicationJson _build() {
-    _$NotificationsSettingsAdminResponseApplicationJson _$result;
+  _$SettingsAdminResponseApplicationJson _build() {
+    _$SettingsAdminResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NotificationsSettingsAdminResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$SettingsAdminResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'NotificationsSettingsAdminResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5079,9 +4877,9 @@ class NotificationsSettingsAdminResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class NotificationsCapabilities_NotificationsInterfaceBuilder {
-  void replace(NotificationsCapabilities_NotificationsInterface other);
-  void update(void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates);
+abstract mixin class Capabilities_NotificationsInterfaceBuilder {
+  void replace(Capabilities_NotificationsInterface other);
+  void update(void Function(Capabilities_NotificationsInterfaceBuilder) updates);
   ListBuilder<String> get ocsEndpoints;
   set ocsEndpoints(ListBuilder<String>? ocsEndpoints);
 
@@ -5092,7 +4890,7 @@ abstract mixin class NotificationsCapabilities_NotificationsInterfaceBuilder {
   set adminNotifications(ListBuilder<String>? adminNotifications);
 }
 
-class _$NotificationsCapabilities_Notifications extends NotificationsCapabilities_Notifications {
+class _$Capabilities_Notifications extends Capabilities_Notifications {
   @override
   final BuiltList<String> ocsEndpoints;
   @override
@@ -5100,32 +4898,27 @@ class _$NotificationsCapabilities_Notifications extends NotificationsCapabilitie
   @override
   final BuiltList<String> adminNotifications;
 
-  factory _$NotificationsCapabilities_Notifications(
-          [void Function(NotificationsCapabilities_NotificationsBuilder)? updates]) =>
-      (NotificationsCapabilities_NotificationsBuilder()..update(updates))._build();
+  factory _$Capabilities_Notifications([void Function(Capabilities_NotificationsBuilder)? updates]) =>
+      (Capabilities_NotificationsBuilder()..update(updates))._build();
 
-  _$NotificationsCapabilities_Notifications._(
-      {required this.ocsEndpoints, required this.push, required this.adminNotifications})
+  _$Capabilities_Notifications._({required this.ocsEndpoints, required this.push, required this.adminNotifications})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocsEndpoints, r'NotificationsCapabilities_Notifications', 'ocsEndpoints');
-    BuiltValueNullFieldError.checkNotNull(push, r'NotificationsCapabilities_Notifications', 'push');
-    BuiltValueNullFieldError.checkNotNull(
-        adminNotifications, r'NotificationsCapabilities_Notifications', 'adminNotifications');
+    BuiltValueNullFieldError.checkNotNull(ocsEndpoints, r'Capabilities_Notifications', 'ocsEndpoints');
+    BuiltValueNullFieldError.checkNotNull(push, r'Capabilities_Notifications', 'push');
+    BuiltValueNullFieldError.checkNotNull(adminNotifications, r'Capabilities_Notifications', 'adminNotifications');
   }
 
   @override
-  NotificationsCapabilities_Notifications rebuild(
-          void Function(NotificationsCapabilities_NotificationsBuilder) updates) =>
+  Capabilities_Notifications rebuild(void Function(Capabilities_NotificationsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsCapabilities_NotificationsBuilder toBuilder() =>
-      NotificationsCapabilities_NotificationsBuilder()..replace(this);
+  Capabilities_NotificationsBuilder toBuilder() => Capabilities_NotificationsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsCapabilities_Notifications &&
+    return other is Capabilities_Notifications &&
         ocsEndpoints == other.ocsEndpoints &&
         push == other.push &&
         adminNotifications == other.adminNotifications;
@@ -5143,7 +4936,7 @@ class _$NotificationsCapabilities_Notifications extends NotificationsCapabilitie
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsCapabilities_Notifications')
+    return (newBuiltValueToStringHelper(r'Capabilities_Notifications')
           ..add('ocsEndpoints', ocsEndpoints)
           ..add('push', push)
           ..add('adminNotifications', adminNotifications))
@@ -5151,11 +4944,11 @@ class _$NotificationsCapabilities_Notifications extends NotificationsCapabilitie
   }
 }
 
-class NotificationsCapabilities_NotificationsBuilder
+class Capabilities_NotificationsBuilder
     implements
-        Builder<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder>,
-        NotificationsCapabilities_NotificationsInterfaceBuilder {
-  _$NotificationsCapabilities_Notifications? _$v;
+        Builder<Capabilities_Notifications, Capabilities_NotificationsBuilder>,
+        Capabilities_NotificationsInterfaceBuilder {
+  _$Capabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
   ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
@@ -5170,9 +4963,9 @@ class NotificationsCapabilities_NotificationsBuilder
   set adminNotifications(covariant ListBuilder<String>? adminNotifications) =>
       _$this._adminNotifications = adminNotifications;
 
-  NotificationsCapabilities_NotificationsBuilder();
+  Capabilities_NotificationsBuilder();
 
-  NotificationsCapabilities_NotificationsBuilder get _$this {
+  Capabilities_NotificationsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocsEndpoints = $v.ocsEndpoints.toBuilder();
@@ -5184,24 +4977,24 @@ class NotificationsCapabilities_NotificationsBuilder
   }
 
   @override
-  void replace(covariant NotificationsCapabilities_Notifications other) {
+  void replace(covariant Capabilities_Notifications other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsCapabilities_Notifications;
+    _$v = other as _$Capabilities_Notifications;
   }
 
   @override
-  void update(void Function(NotificationsCapabilities_NotificationsBuilder)? updates) {
+  void update(void Function(Capabilities_NotificationsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsCapabilities_Notifications build() => _build();
+  Capabilities_Notifications build() => _build();
 
-  _$NotificationsCapabilities_Notifications _build() {
-    _$NotificationsCapabilities_Notifications _$result;
+  _$Capabilities_Notifications _build() {
+    _$Capabilities_Notifications _$result;
     try {
       _$result = _$v ??
-          _$NotificationsCapabilities_Notifications._(
+          _$Capabilities_Notifications._(
               ocsEndpoints: ocsEndpoints.build(), push: push.build(), adminNotifications: adminNotifications.build());
     } catch (_) {
       late String _$failedField;
@@ -5213,7 +5006,7 @@ class NotificationsCapabilities_NotificationsBuilder
         _$failedField = 'adminNotifications';
         adminNotifications.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NotificationsCapabilities_Notifications', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_Notifications', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5222,35 +5015,34 @@ class NotificationsCapabilities_NotificationsBuilder
   }
 }
 
-abstract mixin class NotificationsCapabilitiesInterfaceBuilder {
-  void replace(NotificationsCapabilitiesInterface other);
-  void update(void Function(NotificationsCapabilitiesInterfaceBuilder) updates);
-  NotificationsCapabilities_NotificationsBuilder get notifications;
-  set notifications(NotificationsCapabilities_NotificationsBuilder? notifications);
+abstract mixin class CapabilitiesInterfaceBuilder {
+  void replace(CapabilitiesInterface other);
+  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+  Capabilities_NotificationsBuilder get notifications;
+  set notifications(Capabilities_NotificationsBuilder? notifications);
 }
 
-class _$NotificationsCapabilities extends NotificationsCapabilities {
+class _$Capabilities extends Capabilities {
   @override
-  final NotificationsCapabilities_Notifications notifications;
+  final Capabilities_Notifications notifications;
 
-  factory _$NotificationsCapabilities([void Function(NotificationsCapabilitiesBuilder)? updates]) =>
-      (NotificationsCapabilitiesBuilder()..update(updates))._build();
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$NotificationsCapabilities._({required this.notifications}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(notifications, r'NotificationsCapabilities', 'notifications');
+  _$Capabilities._({required this.notifications}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(notifications, r'Capabilities', 'notifications');
   }
 
   @override
-  NotificationsCapabilities rebuild(void Function(NotificationsCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NotificationsCapabilitiesBuilder toBuilder() => NotificationsCapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationsCapabilities && notifications == other.notifications;
+    return other is Capabilities && notifications == other.notifications;
   }
 
   @override
@@ -5263,25 +5055,21 @@ class _$NotificationsCapabilities extends NotificationsCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NotificationsCapabilities')..add('notifications', notifications)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('notifications', notifications)).toString();
   }
 }
 
-class NotificationsCapabilitiesBuilder
-    implements
-        Builder<NotificationsCapabilities, NotificationsCapabilitiesBuilder>,
-        NotificationsCapabilitiesInterfaceBuilder {
-  _$NotificationsCapabilities? _$v;
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
 
-  NotificationsCapabilities_NotificationsBuilder? _notifications;
-  NotificationsCapabilities_NotificationsBuilder get notifications =>
-      _$this._notifications ??= NotificationsCapabilities_NotificationsBuilder();
-  set notifications(covariant NotificationsCapabilities_NotificationsBuilder? notifications) =>
+  Capabilities_NotificationsBuilder? _notifications;
+  Capabilities_NotificationsBuilder get notifications => _$this._notifications ??= Capabilities_NotificationsBuilder();
+  set notifications(covariant Capabilities_NotificationsBuilder? notifications) =>
       _$this._notifications = notifications;
 
-  NotificationsCapabilitiesBuilder();
+  CapabilitiesBuilder();
 
-  NotificationsCapabilitiesBuilder get _$this {
+  CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _notifications = $v.notifications.toBuilder();
@@ -5291,30 +5079,30 @@ class NotificationsCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant NotificationsCapabilities other) {
+  void replace(covariant Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotificationsCapabilities;
+    _$v = other as _$Capabilities;
   }
 
   @override
-  void update(void Function(NotificationsCapabilitiesBuilder)? updates) {
+  void update(void Function(CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NotificationsCapabilities build() => _build();
+  Capabilities build() => _build();
 
-  _$NotificationsCapabilities _build() {
-    _$NotificationsCapabilities _$result;
+  _$Capabilities _build() {
+    _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$NotificationsCapabilities._(notifications: notifications.build());
+      _$result = _$v ?? _$Capabilities._(notifications: notifications.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'notifications';
         notifications.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NotificationsCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

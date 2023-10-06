@@ -13,12 +13,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'settings.openapi.g.dart';
 
-class SettingsClient extends DynamiteClient {
-  SettingsClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -27,7 +25,7 @@ class SettingsClient extends DynamiteClient {
     super.authentications,
   });
 
-  SettingsClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -36,13 +34,13 @@ class SettingsClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  SettingsLogSettingsClient get logSettings => SettingsLogSettingsClient(this);
+  LogSettingsClient get logSettings => LogSettingsClient(this);
 }
 
-class SettingsLogSettingsClient {
-  SettingsLogSettingsClient(this._rootClient);
+class LogSettingsClient {
+  LogSettingsClient(this._rootClient);
 
-  final SettingsClient _rootClient;
+  final Client _rootClient;
 
   /// download logfile.
   ///
@@ -56,7 +54,7 @@ class SettingsLogSettingsClient {
   ///
   /// See:
   ///  * [downloadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>> download() async {
+  Future<DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
     final rawResponse = downloadRaw();
 
     return rawResponse.future;
@@ -77,7 +75,7 @@ class SettingsLogSettingsClient {
   /// See:
   ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders> downloadRaw() {
+  DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
     const path = '/index.php/settings/admin/log/download';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -103,7 +101,7 @@ class SettingsLogSettingsClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<Uint8List, SettingsLogSettingsLogSettingsDownloadHeaders>(
+    return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -112,36 +110,36 @@ class SettingsLogSettingsClient {
         const {200},
       ),
       bodyType: const FullType(Uint8List),
-      headersType: const FullType(SettingsLogSettingsLogSettingsDownloadHeaders),
+      headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
       serializers: _jsonSerializers,
     );
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsLogSettingsLogSettingsDownloadHeadersInterface {
+abstract interface class LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
-  SettingsLogSettingsLogSettingsDownloadHeadersInterface rebuild(
-    final void Function(SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates,
+  LogSettingsLogSettingsDownloadHeadersInterface rebuild(
+    final void Function(LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates,
   );
-  SettingsLogSettingsLogSettingsDownloadHeadersInterfaceBuilder toBuilder();
+  LogSettingsLogSettingsDownloadHeadersInterfaceBuilder toBuilder();
 }
 
-abstract class SettingsLogSettingsLogSettingsDownloadHeaders
+abstract class LogSettingsLogSettingsDownloadHeaders
     implements
-        SettingsLogSettingsLogSettingsDownloadHeadersInterface,
-        Built<SettingsLogSettingsLogSettingsDownloadHeaders, SettingsLogSettingsLogSettingsDownloadHeadersBuilder> {
-  factory SettingsLogSettingsLogSettingsDownloadHeaders([
-    final void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder)? b,
-  ]) = _$SettingsLogSettingsLogSettingsDownloadHeaders;
+        LogSettingsLogSettingsDownloadHeadersInterface,
+        Built<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder> {
+  factory LogSettingsLogSettingsDownloadHeaders([
+    final void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b,
+  ]) = _$LogSettingsLogSettingsDownloadHeaders;
 
   // coverage:ignore-start
-  const SettingsLogSettingsLogSettingsDownloadHeaders._();
+  const LogSettingsLogSettingsDownloadHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsLogSettingsLogSettingsDownloadHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory LogSettingsLogSettingsDownloadHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -150,37 +148,34 @@ abstract class SettingsLogSettingsLogSettingsDownloadHeaders
   // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SettingsLogSettingsLogSettingsDownloadHeaders> get serializer =>
-      _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer();
+  static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
+      _$LogSettingsLogSettingsDownloadHeadersSerializer();
 }
 
-class _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer
-    implements StructuredSerializer<SettingsLogSettingsLogSettingsDownloadHeaders> {
+class _$LogSettingsLogSettingsDownloadHeadersSerializer
+    implements StructuredSerializer<LogSettingsLogSettingsDownloadHeaders> {
   @override
-  final Iterable<Type> types = const [
-    SettingsLogSettingsLogSettingsDownloadHeaders,
-    _$SettingsLogSettingsLogSettingsDownloadHeaders,
-  ];
+  final Iterable<Type> types = const [LogSettingsLogSettingsDownloadHeaders, _$LogSettingsLogSettingsDownloadHeaders];
 
   @override
-  final String wireName = 'SettingsLogSettingsLogSettingsDownloadHeaders';
+  final String wireName = 'LogSettingsLogSettingsDownloadHeaders';
 
   @override
   Iterable<Object?> serialize(
     final Serializers serializers,
-    final SettingsLogSettingsLogSettingsDownloadHeaders object, {
+    final LogSettingsLogSettingsDownloadHeaders object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     throw UnimplementedError();
   }
 
   @override
-  SettingsLogSettingsLogSettingsDownloadHeaders deserialize(
+  LogSettingsLogSettingsDownloadHeaders deserialize(
     final Serializers serializers,
     final Iterable<Object?> serialized, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = SettingsLogSettingsLogSettingsDownloadHeadersBuilder();
+    final result = LogSettingsLogSettingsDownloadHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -200,10 +195,10 @@ class _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(SettingsLogSettingsLogSettingsDownloadHeaders),
-        SettingsLogSettingsLogSettingsDownloadHeaders.new,
+        const FullType(LogSettingsLogSettingsDownloadHeaders),
+        LogSettingsLogSettingsDownloadHeaders.new,
       )
-      ..add(SettingsLogSettingsLogSettingsDownloadHeaders.serializer))
+      ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

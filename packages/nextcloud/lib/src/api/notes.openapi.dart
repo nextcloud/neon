@@ -16,12 +16,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'notes.openapi.g.dart';
 
-class NotesClient extends DynamiteClient {
-  NotesClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -30,7 +28,7 @@ class NotesClient extends DynamiteClient {
     super.authentications,
   });
 
-  NotesClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -55,7 +53,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BuiltList<NotesNote>, void>> getNotes({
+  Future<DynamiteResponse<BuiltList<Note>, void>> getNotes({
     final String? category,
     final String exclude = '',
     final int pruneBefore = 0,
@@ -94,7 +92,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [getNotes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<BuiltList<NotesNote>, void> getNotesRaw({
+  DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     final String? category,
     final String exclude = '',
     final int pruneBefore = 0,
@@ -145,7 +143,7 @@ class NotesClient extends DynamiteClient {
       headers['If-None-Match'] = ifNoneMatch;
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<BuiltList<NotesNote>, void>(
+    return DynamiteRawResponse<BuiltList<Note>, void>(
       response: doRequest(
         'get',
         uri,
@@ -153,7 +151,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(BuiltList, [FullType(NotesNote)]),
+      bodyType: const FullType(BuiltList, [FullType(Note)]),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -174,7 +172,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NotesNote, void>> createNote({
+  Future<DynamiteResponse<Note, void>> createNote({
     final String category = '',
     final String title = '',
     final String content = '',
@@ -210,7 +208,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NotesNote, void> createNoteRaw({
+  DynamiteRawResponse<Note, void> createNoteRaw({
     final String category = '',
     final String title = '',
     final String content = '',
@@ -257,7 +255,7 @@ class NotesClient extends DynamiteClient {
       queryParameters['favorite'] = favorite.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NotesNote, void>(
+    return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'post',
         uri,
@@ -265,7 +263,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NotesNote),
+      bodyType: const FullType(Note),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -283,7 +281,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NotesNote, void>> getNote({
+  Future<DynamiteResponse<Note, void>> getNote({
     required final int id,
     final String exclude = '',
     final String? ifNoneMatch,
@@ -312,7 +310,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [getNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NotesNote, void> getNoteRaw({
+  DynamiteRawResponse<Note, void> getNoteRaw({
     required final int id,
     final String exclude = '',
     final String? ifNoneMatch,
@@ -349,7 +347,7 @@ class NotesClient extends DynamiteClient {
       headers['If-None-Match'] = ifNoneMatch;
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NotesNote, void>(
+    return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'get',
         uri,
@@ -357,7 +355,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NotesNote),
+      bodyType: const FullType(Note),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -379,7 +377,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [updateNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NotesNote, void>> updateNote({
+  Future<DynamiteResponse<Note, void>> updateNote({
     required final int id,
     final String? content,
     final int? modified,
@@ -420,7 +418,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [updateNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NotesNote, void> updateNoteRaw({
+  DynamiteRawResponse<Note, void> updateNoteRaw({
     required final int id,
     final String? content,
     final int? modified,
@@ -473,7 +471,7 @@ class NotesClient extends DynamiteClient {
       headers['If-Match'] = ifMatch;
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NotesNote, void>(
+    return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'put',
         uri,
@@ -481,7 +479,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NotesNote),
+      bodyType: const FullType(Note),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -563,7 +561,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NotesSettings, void>> getSettings() async {
+  Future<DynamiteResponse<Settings, void>> getSettings() async {
     final rawResponse = getSettingsRaw();
 
     return rawResponse.future;
@@ -580,7 +578,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NotesSettings, void> getSettingsRaw() {
+  DynamiteRawResponse<Settings, void> getSettingsRaw() {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -606,7 +604,7 @@ class NotesClient extends DynamiteClient {
 
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NotesSettings, void>(
+    return DynamiteRawResponse<Settings, void>(
       response: doRequest(
         'get',
         uri,
@@ -614,7 +612,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NotesSettings),
+      bodyType: const FullType(Settings),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -628,7 +626,7 @@ class NotesClient extends DynamiteClient {
   ///
   /// See:
   ///  * [updateSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<NotesSettings, void>> updateSettings({required final NotesSettings settings}) async {
+  Future<DynamiteResponse<Settings, void>> updateSettings({required final Settings settings}) async {
     final rawResponse = updateSettingsRaw(
       settings: settings,
     );
@@ -647,7 +645,7 @@ class NotesClient extends DynamiteClient {
   /// See:
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<NotesSettings, void> updateSettingsRaw({required final NotesSettings settings}) {
+  DynamiteRawResponse<Settings, void> updateSettingsRaw({required final Settings settings}) {
     const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -673,10 +671,10 @@ class NotesClient extends DynamiteClient {
 
 // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
-    body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings))))
+    body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))))
         as Uint8List;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<NotesSettings, void>(
+    return DynamiteRawResponse<Settings, void>(
       response: doRequest(
         'put',
         uri,
@@ -684,7 +682,7 @@ class NotesClient extends DynamiteClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(NotesSettings),
+      bodyType: const FullType(Settings),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -692,7 +690,7 @@ class NotesClient extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesNoteInterface {
+abstract interface class NoteInterface {
   int get id;
   String get etag;
   bool get readonly;
@@ -703,93 +701,92 @@ abstract interface class NotesNoteInterface {
   int get modified;
   bool get error;
   String get errorType;
-  NotesNoteInterface rebuild(final void Function(NotesNoteInterfaceBuilder) updates);
-  NotesNoteInterfaceBuilder toBuilder();
+  NoteInterface rebuild(final void Function(NoteInterfaceBuilder) updates);
+  NoteInterfaceBuilder toBuilder();
 }
 
-abstract class NotesNote implements NotesNoteInterface, Built<NotesNote, NotesNoteBuilder> {
-  factory NotesNote([final void Function(NotesNoteBuilder)? b]) = _$NotesNote;
+abstract class Note implements NoteInterface, Built<Note, NoteBuilder> {
+  factory Note([final void Function(NoteBuilder)? b]) = _$Note;
 
   // coverage:ignore-start
-  const NotesNote._();
+  const Note._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesNote.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Note.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesNote> get serializer => _$notesNoteSerializer;
+  static Serializer<Note> get serializer => _$noteSerializer;
 }
 
-class NotesSettings_NoteMode extends EnumClass {
-  const NotesSettings_NoteMode._(super.name);
+class Settings_NoteMode extends EnumClass {
+  const Settings_NoteMode._(super.name);
 
-  static const NotesSettings_NoteMode edit = _$notesSettingsNoteModeEdit;
+  static const Settings_NoteMode edit = _$settingsNoteModeEdit;
 
-  static const NotesSettings_NoteMode preview = _$notesSettingsNoteModePreview;
+  static const Settings_NoteMode preview = _$settingsNoteModePreview;
 
-  static const NotesSettings_NoteMode rich = _$notesSettingsNoteModeRich;
+  static const Settings_NoteMode rich = _$settingsNoteModeRich;
 
   // coverage:ignore-start
-  static BuiltSet<NotesSettings_NoteMode> get values => _$notesSettingsNoteModeValues;
+  static BuiltSet<Settings_NoteMode> get values => _$settingsNoteModeValues;
   // coverage:ignore-end
 
-  static NotesSettings_NoteMode valueOf(final String name) => _$valueOfNotesSettings_NoteMode(name);
+  static Settings_NoteMode valueOf(final String name) => _$valueOfSettings_NoteMode(name);
 
-  static Serializer<NotesSettings_NoteMode> get serializer => _$notesSettingsNoteModeSerializer;
+  static Serializer<Settings_NoteMode> get serializer => _$settingsNoteModeSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesSettingsInterface {
+abstract interface class SettingsInterface {
   String get notesPath;
   String get fileSuffix;
-  NotesSettings_NoteMode get noteMode;
-  NotesSettingsInterface rebuild(final void Function(NotesSettingsInterfaceBuilder) updates);
-  NotesSettingsInterfaceBuilder toBuilder();
+  Settings_NoteMode get noteMode;
+  SettingsInterface rebuild(final void Function(SettingsInterfaceBuilder) updates);
+  SettingsInterfaceBuilder toBuilder();
 }
 
-abstract class NotesSettings implements NotesSettingsInterface, Built<NotesSettings, NotesSettingsBuilder> {
-  factory NotesSettings([final void Function(NotesSettingsBuilder)? b]) = _$NotesSettings;
+abstract class Settings implements SettingsInterface, Built<Settings, SettingsBuilder> {
+  factory Settings([final void Function(SettingsBuilder)? b]) = _$Settings;
 
   // coverage:ignore-start
-  const NotesSettings._();
+  const Settings._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesSettings.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Settings.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesSettings> get serializer => _$notesSettingsSerializer;
+  static Serializer<Settings> get serializer => _$settingsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesCapabilities_NotesInterface {
+abstract interface class Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
-  NotesCapabilities_NotesInterface rebuild(final void Function(NotesCapabilities_NotesInterfaceBuilder) updates);
-  NotesCapabilities_NotesInterfaceBuilder toBuilder();
+  Capabilities_NotesInterface rebuild(final void Function(Capabilities_NotesInterfaceBuilder) updates);
+  Capabilities_NotesInterfaceBuilder toBuilder();
 }
 
-abstract class NotesCapabilities_Notes
-    implements NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
-  factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
+abstract class Capabilities_Notes
+    implements Capabilities_NotesInterface, Built<Capabilities_Notes, Capabilities_NotesBuilder> {
+  factory Capabilities_Notes([final void Function(Capabilities_NotesBuilder)? b]) = _$Capabilities_Notes;
 
   // coverage:ignore-start
-  const NotesCapabilities_Notes._();
+  const Capabilities_Notes._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Notes.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -797,138 +794,133 @@ abstract class NotesCapabilities_Notes
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
+  static Serializer<Capabilities_Notes> get serializer => _$capabilitiesNotesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesCapabilitiesInterface {
-  NotesCapabilities_Notes get notes;
-  NotesCapabilitiesInterface rebuild(final void Function(NotesCapabilitiesInterfaceBuilder) updates);
-  NotesCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class CapabilitiesInterface {
+  Capabilities_Notes get notes;
+  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
+  CapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class NotesCapabilities
-    implements NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
-  factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
+abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
-  const NotesCapabilities._();
+  const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  NotesOCSMetaInterface rebuild(final void Function(NotesOCSMetaInterfaceBuilder) updates);
-  NotesOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class NotesOCSMeta implements NotesOCSMetaInterface, Built<NotesOCSMeta, NotesOCSMetaBuilder> {
-  factory NotesOCSMeta([final void Function(NotesOCSMetaBuilder)? b]) = _$NotesOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const NotesOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesOCSMeta> get serializer => _$notesOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesEmptyOCS_OcsInterface {
-  NotesOCSMeta get meta;
+abstract interface class EmptyOCS_OcsInterface {
+  OCSMeta get meta;
   BuiltList<JsonObject> get data;
-  NotesEmptyOCS_OcsInterface rebuild(final void Function(NotesEmptyOCS_OcsInterfaceBuilder) updates);
-  NotesEmptyOCS_OcsInterfaceBuilder toBuilder();
+  EmptyOCS_OcsInterface rebuild(final void Function(EmptyOCS_OcsInterfaceBuilder) updates);
+  EmptyOCS_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class NotesEmptyOCS_Ocs
-    implements NotesEmptyOCS_OcsInterface, Built<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder> {
-  factory NotesEmptyOCS_Ocs([final void Function(NotesEmptyOCS_OcsBuilder)? b]) = _$NotesEmptyOCS_Ocs;
+abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
+  factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
-  const NotesEmptyOCS_Ocs._();
+  const EmptyOCS_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesEmptyOCS_Ocs> get serializer => _$notesEmptyOCSOcsSerializer;
+  static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotesEmptyOCSInterface {
-  NotesEmptyOCS_Ocs get ocs;
-  NotesEmptyOCSInterface rebuild(final void Function(NotesEmptyOCSInterfaceBuilder) updates);
-  NotesEmptyOCSInterfaceBuilder toBuilder();
+abstract interface class EmptyOCSInterface {
+  EmptyOCS_Ocs get ocs;
+  EmptyOCSInterface rebuild(final void Function(EmptyOCSInterfaceBuilder) updates);
+  EmptyOCSInterfaceBuilder toBuilder();
 }
 
-abstract class NotesEmptyOCS implements NotesEmptyOCSInterface, Built<NotesEmptyOCS, NotesEmptyOCSBuilder> {
-  factory NotesEmptyOCS([final void Function(NotesEmptyOCSBuilder)? b]) = _$NotesEmptyOCS;
+abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
+  factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start
-  const NotesEmptyOCS._();
+  const EmptyOCS._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesEmptyOCS.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NotesEmptyOCS> get serializer => _$notesEmptyOCSSerializer;
+  static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(NotesNote), NotesNote.new)
-      ..add(NotesNote.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NotesNote)]), ListBuilder<NotesNote>.new)
-      ..addBuilderFactory(const FullType(NotesSettings), NotesSettings.new)
-      ..add(NotesSettings.serializer)
-      ..add(NotesSettings_NoteMode.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilities.new)
-      ..add(NotesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_Notes.new)
-      ..add(NotesCapabilities_Notes.serializer)
+      ..addBuilderFactory(const FullType(Note), Note.new)
+      ..add(Note.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Note)]), ListBuilder<Note>.new)
+      ..addBuilderFactory(const FullType(Settings), Settings.new)
+      ..add(Settings.serializer)
+      ..add(Settings_NoteMode.serializer)
+      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Notes), Capabilities_Notes.new)
+      ..add(Capabilities_Notes.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(NotesOCSMeta), NotesOCSMeta.new)
-      ..add(NotesOCSMeta.serializer)
-      ..addBuilderFactory(const FullType(NotesEmptyOCS), NotesEmptyOCS.new)
-      ..add(NotesEmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(NotesEmptyOCS_Ocs), NotesEmptyOCS_Ocs.new)
-      ..add(NotesEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
+      ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCS.new)
+      ..add(EmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_Ocs.new)
+      ..add(EmptyOCS_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 

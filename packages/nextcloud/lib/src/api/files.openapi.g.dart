@@ -6,117 +6,107 @@ part of 'files.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<FilesOCSMeta> _$filesOCSMetaSerializer = _$FilesOCSMetaSerializer();
-Serializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
-    _$filesDirectEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer();
-Serializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>
-    _$filesDirectEditingInfoResponseApplicationJsonOcsDataCreatorsSerializer =
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer();
-Serializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data>
-    _$filesDirectEditingInfoResponseApplicationJsonOcsDataSerializer =
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesDirectEditingInfoResponseApplicationJson_Ocs>
-    _$filesDirectEditingInfoResponseApplicationJsonOcsSerializer =
-    _$FilesDirectEditingInfoResponseApplicationJson_OcsSerializer();
-Serializer<FilesDirectEditingInfoResponseApplicationJson> _$filesDirectEditingInfoResponseApplicationJsonSerializer =
-    _$FilesDirectEditingInfoResponseApplicationJsonSerializer();
-Serializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>
-    _$filesDirectEditingTemplatesResponseApplicationJsonOcsDataTemplatesSerializer =
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializer();
-Serializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data>
-    _$filesDirectEditingTemplatesResponseApplicationJsonOcsDataSerializer =
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs>
-    _$filesDirectEditingTemplatesResponseApplicationJsonOcsSerializer =
-    _$FilesDirectEditingTemplatesResponseApplicationJson_OcsSerializer();
-Serializer<FilesDirectEditingTemplatesResponseApplicationJson>
-    _$filesDirectEditingTemplatesResponseApplicationJsonSerializer =
-    _$FilesDirectEditingTemplatesResponseApplicationJsonSerializer();
-Serializer<FilesDirectEditingOpenResponseApplicationJson_Ocs_Data>
-    _$filesDirectEditingOpenResponseApplicationJsonOcsDataSerializer =
-    _$FilesDirectEditingOpenResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesDirectEditingOpenResponseApplicationJson_Ocs>
-    _$filesDirectEditingOpenResponseApplicationJsonOcsSerializer =
-    _$FilesDirectEditingOpenResponseApplicationJson_OcsSerializer();
-Serializer<FilesDirectEditingOpenResponseApplicationJson> _$filesDirectEditingOpenResponseApplicationJsonSerializer =
-    _$FilesDirectEditingOpenResponseApplicationJsonSerializer();
-Serializer<FilesDirectEditingCreateResponseApplicationJson_Ocs_Data>
-    _$filesDirectEditingCreateResponseApplicationJsonOcsDataSerializer =
-    _$FilesDirectEditingCreateResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesDirectEditingCreateResponseApplicationJson_Ocs>
-    _$filesDirectEditingCreateResponseApplicationJsonOcsSerializer =
-    _$FilesDirectEditingCreateResponseApplicationJson_OcsSerializer();
-Serializer<FilesDirectEditingCreateResponseApplicationJson>
-    _$filesDirectEditingCreateResponseApplicationJsonSerializer =
-    _$FilesDirectEditingCreateResponseApplicationJsonSerializer();
-Serializer<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data>
-    _$filesOpenLocalEditorCreateResponseApplicationJsonOcsDataSerializer =
-    _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs>
-    _$filesOpenLocalEditorCreateResponseApplicationJsonOcsSerializer =
-    _$FilesOpenLocalEditorCreateResponseApplicationJson_OcsSerializer();
-Serializer<FilesOpenLocalEditorCreateResponseApplicationJson>
-    _$filesOpenLocalEditorCreateResponseApplicationJsonSerializer =
-    _$FilesOpenLocalEditorCreateResponseApplicationJsonSerializer();
-Serializer<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data>
-    _$filesOpenLocalEditorValidateResponseApplicationJsonOcsDataSerializer =
-    _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs>
-    _$filesOpenLocalEditorValidateResponseApplicationJsonOcsSerializer =
-    _$FilesOpenLocalEditorValidateResponseApplicationJson_OcsSerializer();
-Serializer<FilesOpenLocalEditorValidateResponseApplicationJson>
-    _$filesOpenLocalEditorValidateResponseApplicationJsonSerializer =
-    _$FilesOpenLocalEditorValidateResponseApplicationJsonSerializer();
-Serializer<FilesTemplateFileCreator> _$filesTemplateFileCreatorSerializer = _$FilesTemplateFileCreatorSerializer();
-Serializer<FilesTemplateListResponseApplicationJson_Ocs> _$filesTemplateListResponseApplicationJsonOcsSerializer =
-    _$FilesTemplateListResponseApplicationJson_OcsSerializer();
-Serializer<FilesTemplateListResponseApplicationJson> _$filesTemplateListResponseApplicationJsonSerializer =
-    _$FilesTemplateListResponseApplicationJsonSerializer();
-Serializer<FilesTemplateFile> _$filesTemplateFileSerializer = _$FilesTemplateFileSerializer();
-Serializer<FilesTemplateCreateResponseApplicationJson_Ocs> _$filesTemplateCreateResponseApplicationJsonOcsSerializer =
-    _$FilesTemplateCreateResponseApplicationJson_OcsSerializer();
-Serializer<FilesTemplateCreateResponseApplicationJson> _$filesTemplateCreateResponseApplicationJsonSerializer =
-    _$FilesTemplateCreateResponseApplicationJsonSerializer();
-Serializer<FilesTemplatePathResponseApplicationJson_Ocs_Data>
-    _$filesTemplatePathResponseApplicationJsonOcsDataSerializer =
-    _$FilesTemplatePathResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesTemplatePathResponseApplicationJson_Ocs> _$filesTemplatePathResponseApplicationJsonOcsSerializer =
-    _$FilesTemplatePathResponseApplicationJson_OcsSerializer();
-Serializer<FilesTemplatePathResponseApplicationJson> _$filesTemplatePathResponseApplicationJsonSerializer =
-    _$FilesTemplatePathResponseApplicationJsonSerializer();
-Serializer<FilesTransferOwnershipTransferResponseApplicationJson_Ocs>
-    _$filesTransferOwnershipTransferResponseApplicationJsonOcsSerializer =
-    _$FilesTransferOwnershipTransferResponseApplicationJson_OcsSerializer();
-Serializer<FilesTransferOwnershipTransferResponseApplicationJson>
-    _$filesTransferOwnershipTransferResponseApplicationJsonSerializer =
-    _$FilesTransferOwnershipTransferResponseApplicationJsonSerializer();
-Serializer<FilesTransferOwnershipAcceptResponseApplicationJson_Ocs>
-    _$filesTransferOwnershipAcceptResponseApplicationJsonOcsSerializer =
-    _$FilesTransferOwnershipAcceptResponseApplicationJson_OcsSerializer();
-Serializer<FilesTransferOwnershipAcceptResponseApplicationJson>
-    _$filesTransferOwnershipAcceptResponseApplicationJsonSerializer =
-    _$FilesTransferOwnershipAcceptResponseApplicationJsonSerializer();
-Serializer<FilesTransferOwnershipRejectResponseApplicationJson_Ocs>
-    _$filesTransferOwnershipRejectResponseApplicationJsonOcsSerializer =
-    _$FilesTransferOwnershipRejectResponseApplicationJson_OcsSerializer();
-Serializer<FilesTransferOwnershipRejectResponseApplicationJson>
-    _$filesTransferOwnershipRejectResponseApplicationJsonSerializer =
-    _$FilesTransferOwnershipRejectResponseApplicationJsonSerializer();
-Serializer<FilesCapabilities_Files_DirectEditing> _$filesCapabilitiesFilesDirectEditingSerializer =
-    _$FilesCapabilities_Files_DirectEditingSerializer();
-Serializer<FilesCapabilities_Files> _$filesCapabilitiesFilesSerializer = _$FilesCapabilities_FilesSerializer();
-Serializer<FilesCapabilities> _$filesCapabilitiesSerializer = _$FilesCapabilitiesSerializer();
-Serializer<FilesTemplate> _$filesTemplateSerializer = _$FilesTemplateSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
+    _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer();
+Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>
+    _$directEditingInfoResponseApplicationJsonOcsDataCreatorsSerializer =
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer();
+Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data>
+    _$directEditingInfoResponseApplicationJsonOcsDataSerializer =
+    _$DirectEditingInfoResponseApplicationJson_Ocs_DataSerializer();
+Serializer<DirectEditingInfoResponseApplicationJson_Ocs> _$directEditingInfoResponseApplicationJsonOcsSerializer =
+    _$DirectEditingInfoResponseApplicationJson_OcsSerializer();
+Serializer<DirectEditingInfoResponseApplicationJson> _$directEditingInfoResponseApplicationJsonSerializer =
+    _$DirectEditingInfoResponseApplicationJsonSerializer();
+Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>
+    _$directEditingTemplatesResponseApplicationJsonOcsDataTemplatesSerializer =
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializer();
+Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data>
+    _$directEditingTemplatesResponseApplicationJsonOcsDataSerializer =
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs>
+    _$directEditingTemplatesResponseApplicationJsonOcsSerializer =
+    _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer();
+Serializer<DirectEditingTemplatesResponseApplicationJson> _$directEditingTemplatesResponseApplicationJsonSerializer =
+    _$DirectEditingTemplatesResponseApplicationJsonSerializer();
+Serializer<DirectEditingOpenResponseApplicationJson_Ocs_Data>
+    _$directEditingOpenResponseApplicationJsonOcsDataSerializer =
+    _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer();
+Serializer<DirectEditingOpenResponseApplicationJson_Ocs> _$directEditingOpenResponseApplicationJsonOcsSerializer =
+    _$DirectEditingOpenResponseApplicationJson_OcsSerializer();
+Serializer<DirectEditingOpenResponseApplicationJson> _$directEditingOpenResponseApplicationJsonSerializer =
+    _$DirectEditingOpenResponseApplicationJsonSerializer();
+Serializer<DirectEditingCreateResponseApplicationJson_Ocs_Data>
+    _$directEditingCreateResponseApplicationJsonOcsDataSerializer =
+    _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer();
+Serializer<DirectEditingCreateResponseApplicationJson_Ocs> _$directEditingCreateResponseApplicationJsonOcsSerializer =
+    _$DirectEditingCreateResponseApplicationJson_OcsSerializer();
+Serializer<DirectEditingCreateResponseApplicationJson> _$directEditingCreateResponseApplicationJsonSerializer =
+    _$DirectEditingCreateResponseApplicationJsonSerializer();
+Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data>
+    _$openLocalEditorCreateResponseApplicationJsonOcsDataSerializer =
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer();
+Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs>
+    _$openLocalEditorCreateResponseApplicationJsonOcsSerializer =
+    _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer();
+Serializer<OpenLocalEditorCreateResponseApplicationJson> _$openLocalEditorCreateResponseApplicationJsonSerializer =
+    _$OpenLocalEditorCreateResponseApplicationJsonSerializer();
+Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data>
+    _$openLocalEditorValidateResponseApplicationJsonOcsDataSerializer =
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer();
+Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs>
+    _$openLocalEditorValidateResponseApplicationJsonOcsSerializer =
+    _$OpenLocalEditorValidateResponseApplicationJson_OcsSerializer();
+Serializer<OpenLocalEditorValidateResponseApplicationJson> _$openLocalEditorValidateResponseApplicationJsonSerializer =
+    _$OpenLocalEditorValidateResponseApplicationJsonSerializer();
+Serializer<TemplateFileCreator> _$templateFileCreatorSerializer = _$TemplateFileCreatorSerializer();
+Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplicationJsonOcsSerializer =
+    _$TemplateListResponseApplicationJson_OcsSerializer();
+Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
+    _$TemplateListResponseApplicationJsonSerializer();
+Serializer<TemplateFile> _$templateFileSerializer = _$TemplateFileSerializer();
+Serializer<TemplateCreateResponseApplicationJson_Ocs> _$templateCreateResponseApplicationJsonOcsSerializer =
+    _$TemplateCreateResponseApplicationJson_OcsSerializer();
+Serializer<TemplateCreateResponseApplicationJson> _$templateCreateResponseApplicationJsonSerializer =
+    _$TemplateCreateResponseApplicationJsonSerializer();
+Serializer<TemplatePathResponseApplicationJson_Ocs_Data> _$templatePathResponseApplicationJsonOcsDataSerializer =
+    _$TemplatePathResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TemplatePathResponseApplicationJson_Ocs> _$templatePathResponseApplicationJsonOcsSerializer =
+    _$TemplatePathResponseApplicationJson_OcsSerializer();
+Serializer<TemplatePathResponseApplicationJson> _$templatePathResponseApplicationJsonSerializer =
+    _$TemplatePathResponseApplicationJsonSerializer();
+Serializer<TransferOwnershipTransferResponseApplicationJson_Ocs>
+    _$transferOwnershipTransferResponseApplicationJsonOcsSerializer =
+    _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer();
+Serializer<TransferOwnershipTransferResponseApplicationJson>
+    _$transferOwnershipTransferResponseApplicationJsonSerializer =
+    _$TransferOwnershipTransferResponseApplicationJsonSerializer();
+Serializer<TransferOwnershipAcceptResponseApplicationJson_Ocs>
+    _$transferOwnershipAcceptResponseApplicationJsonOcsSerializer =
+    _$TransferOwnershipAcceptResponseApplicationJson_OcsSerializer();
+Serializer<TransferOwnershipAcceptResponseApplicationJson> _$transferOwnershipAcceptResponseApplicationJsonSerializer =
+    _$TransferOwnershipAcceptResponseApplicationJsonSerializer();
+Serializer<TransferOwnershipRejectResponseApplicationJson_Ocs>
+    _$transferOwnershipRejectResponseApplicationJsonOcsSerializer =
+    _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer();
+Serializer<TransferOwnershipRejectResponseApplicationJson> _$transferOwnershipRejectResponseApplicationJsonSerializer =
+    _$TransferOwnershipRejectResponseApplicationJsonSerializer();
+Serializer<Capabilities_Files_DirectEditing> _$capabilitiesFilesDirectEditingSerializer =
+    _$Capabilities_Files_DirectEditingSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+Serializer<Template> _$templateSerializer = _$TemplateSerializer();
 
-class _$FilesOCSMetaSerializer implements StructuredSerializer<FilesOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [FilesOCSMeta, _$FilesOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'FilesOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -147,9 +137,9 @@ class _$FilesOCSMetaSerializer implements StructuredSerializer<FilesOCSMeta> {
   }
 
   @override
-  FilesOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -179,19 +169,18 @@ class _$FilesOCSMetaSerializer implements StructuredSerializer<FilesOCSMeta> {
   }
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
-    implements StructuredSerializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
+    implements StructuredSerializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   ];
   @override
-  final String wireName = 'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors';
+  final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -210,10 +199,10 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors deserialize(
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
+    final result = DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -245,19 +234,19 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
   }
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer
-    implements StructuredSerializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer
+    implements StructuredSerializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   ];
   @override
-  final String wireName = 'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators';
+  final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object,
+      Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -278,10 +267,10 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerialize
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators deserialize(
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
+    final result = DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -315,38 +304,37 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerialize
   }
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data> {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<DirectEditingInfoResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingInfoResponseApplicationJson_Ocs_Data,
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data
+    DirectEditingInfoResponseApplicationJson_Ocs_Data,
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data';
+  final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'editors',
       serializers.serialize(object.editors,
           specifiedType: const FullType(
-              BuiltMap, [FullType(String), FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)])),
+              BuiltMap, [FullType(String), FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)])),
       'creators',
       serializers.serialize(object.creators,
           specifiedType: const FullType(
-              BuiltMap, [FullType(String), FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)])),
+              BuiltMap, [FullType(String), FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)])),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingInfoResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
+    final result = DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -356,13 +344,13 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'editors':
           result.editors.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap,
-                  [FullType(String), FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)]))!);
           break;
         case 'creators':
           result.creators.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap,
-                  [FullType(String), FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)]))!);
+                  [FullType(String), FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)]))!);
           break;
       }
     }
@@ -371,34 +359,34 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesDirectEditingInfoResponseApplicationJson_Ocs> {
+class _$DirectEditingInfoResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DirectEditingInfoResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingInfoResponseApplicationJson_Ocs,
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs
+    DirectEditingInfoResponseApplicationJson_Ocs,
+    _$DirectEditingInfoResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesDirectEditingInfoResponseApplicationJson_Ocs';
+  final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingInfoResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingInfoResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingInfoResponseApplicationJson_OcsBuilder();
+    final result = DirectEditingInfoResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -407,13 +395,12 @@ class _$FilesDirectEditingInfoResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data))!
-              as FilesDirectEditingInfoResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data))!
+              as DirectEditingInfoResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -422,32 +409,31 @@ class _$FilesDirectEditingInfoResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesDirectEditingInfoResponseApplicationJson> {
+class _$DirectEditingInfoResponseApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingInfoResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingInfoResponseApplicationJson,
-    _$FilesDirectEditingInfoResponseApplicationJson
+    DirectEditingInfoResponseApplicationJson,
+    _$DirectEditingInfoResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesDirectEditingInfoResponseApplicationJson';
+  final String wireName = 'DirectEditingInfoResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingInfoResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingInfoResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingInfoResponseApplicationJsonBuilder();
+    final result = DirectEditingInfoResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -457,8 +443,8 @@ class _$FilesDirectEditingInfoResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingInfoResponseApplicationJson_Ocs))!
-              as FilesDirectEditingInfoResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs))!
+              as DirectEditingInfoResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -467,19 +453,19 @@ class _$FilesDirectEditingInfoResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializer
-    implements StructuredSerializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> {
+class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializer
+    implements StructuredSerializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   ];
   @override
-  final String wireName = 'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates';
+  final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object,
+      Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -502,10 +488,10 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSer
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates deserialize(
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
+    final result = DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -535,35 +521,34 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSer
   }
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data> {
+class _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data,
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data';
+  final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'templates',
       serializers.serialize(object.templates,
           specifiedType: const FullType(BuiltMap,
-              [FullType(String), FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)])),
+              [FullType(String), FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)])),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data deserialize(
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
+    final result = DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -573,10 +558,8 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'templates':
           result.templates.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)
-              ]))!);
+              specifiedType: const FullType(BuiltMap,
+                  [FullType(String), FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)]))!);
           break;
       }
     }
@@ -585,35 +568,34 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesDirectEditingTemplatesResponseApplicationJson_Ocs> {
+class _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DirectEditingTemplatesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingTemplatesResponseApplicationJson_Ocs,
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs
+    DirectEditingTemplatesResponseApplicationJson_Ocs,
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesDirectEditingTemplatesResponseApplicationJson_Ocs';
+  final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingTemplatesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingTemplatesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder();
+    final result = DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -622,13 +604,12 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data))!
-              as FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data))!
+              as DirectEditingTemplatesResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -637,32 +618,32 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesDirectEditingTemplatesResponseApplicationJson> {
+class _$DirectEditingTemplatesResponseApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingTemplatesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingTemplatesResponseApplicationJson,
-    _$FilesDirectEditingTemplatesResponseApplicationJson
+    DirectEditingTemplatesResponseApplicationJson,
+    _$DirectEditingTemplatesResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesDirectEditingTemplatesResponseApplicationJson';
+  final String wireName = 'DirectEditingTemplatesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingTemplatesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingTemplatesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingTemplatesResponseApplicationJsonBuilder();
+    final result = DirectEditingTemplatesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -672,8 +653,8 @@ class _$FilesDirectEditingTemplatesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingTemplatesResponseApplicationJson_Ocs))!
-              as FilesDirectEditingTemplatesResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs))!
+              as DirectEditingTemplatesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -682,18 +663,18 @@ class _$FilesDirectEditingTemplatesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesDirectEditingOpenResponseApplicationJson_Ocs_Data> {
+class _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<DirectEditingOpenResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingOpenResponseApplicationJson_Ocs_Data,
-    _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data
+    DirectEditingOpenResponseApplicationJson_Ocs_Data,
+    _$DirectEditingOpenResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesDirectEditingOpenResponseApplicationJson_Ocs_Data';
+  final String wireName = 'DirectEditingOpenResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingOpenResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
@@ -704,10 +685,9 @@ class _$FilesDirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingOpenResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
+    final result = DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -725,34 +705,34 @@ class _$FilesDirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesDirectEditingOpenResponseApplicationJson_Ocs> {
+class _$DirectEditingOpenResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DirectEditingOpenResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingOpenResponseApplicationJson_Ocs,
-    _$FilesDirectEditingOpenResponseApplicationJson_Ocs
+    DirectEditingOpenResponseApplicationJson_Ocs,
+    _$DirectEditingOpenResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesDirectEditingOpenResponseApplicationJson_Ocs';
+  final String wireName = 'DirectEditingOpenResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingOpenResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingOpenResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingOpenResponseApplicationJson_OcsBuilder();
+    final result = DirectEditingOpenResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -761,13 +741,12 @@ class _$FilesDirectEditingOpenResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson_Ocs_Data))!
-              as FilesDirectEditingOpenResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data))!
+              as DirectEditingOpenResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -776,32 +755,31 @@ class _$FilesDirectEditingOpenResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesDirectEditingOpenResponseApplicationJson> {
+class _$DirectEditingOpenResponseApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingOpenResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingOpenResponseApplicationJson,
-    _$FilesDirectEditingOpenResponseApplicationJson
+    DirectEditingOpenResponseApplicationJson,
+    _$DirectEditingOpenResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesDirectEditingOpenResponseApplicationJson';
+  final String wireName = 'DirectEditingOpenResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingOpenResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingOpenResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingOpenResponseApplicationJsonBuilder();
+    final result = DirectEditingOpenResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -811,8 +789,8 @@ class _$FilesDirectEditingOpenResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingOpenResponseApplicationJson_Ocs))!
-              as FilesDirectEditingOpenResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs))!
+              as DirectEditingOpenResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -821,18 +799,18 @@ class _$FilesDirectEditingOpenResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesDirectEditingCreateResponseApplicationJson_Ocs_Data> {
+class _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<DirectEditingCreateResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingCreateResponseApplicationJson_Ocs_Data,
-    _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data
+    DirectEditingCreateResponseApplicationJson_Ocs_Data,
+    _$DirectEditingCreateResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesDirectEditingCreateResponseApplicationJson_Ocs_Data';
+  final String wireName = 'DirectEditingCreateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingCreateResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
@@ -843,10 +821,9 @@ class _$FilesDirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingCreateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
+    final result = DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -864,34 +841,34 @@ class _$FilesDirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesDirectEditingCreateResponseApplicationJson_Ocs> {
+class _$DirectEditingCreateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DirectEditingCreateResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingCreateResponseApplicationJson_Ocs,
-    _$FilesDirectEditingCreateResponseApplicationJson_Ocs
+    DirectEditingCreateResponseApplicationJson_Ocs,
+    _$DirectEditingCreateResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesDirectEditingCreateResponseApplicationJson_Ocs';
+  final String wireName = 'DirectEditingCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingCreateResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingCreateResponseApplicationJson_OcsBuilder();
+    final result = DirectEditingCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -900,13 +877,12 @@ class _$FilesDirectEditingCreateResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson_Ocs_Data))!
-              as FilesDirectEditingCreateResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data))!
+              as DirectEditingCreateResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -915,32 +891,31 @@ class _$FilesDirectEditingCreateResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesDirectEditingCreateResponseApplicationJson> {
+class _$DirectEditingCreateResponseApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingCreateResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesDirectEditingCreateResponseApplicationJson,
-    _$FilesDirectEditingCreateResponseApplicationJson
+    DirectEditingCreateResponseApplicationJson,
+    _$DirectEditingCreateResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesDirectEditingCreateResponseApplicationJson';
+  final String wireName = 'DirectEditingCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesDirectEditingCreateResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectEditingCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesDirectEditingCreateResponseApplicationJsonBuilder();
+    final result = DirectEditingCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -950,8 +925,8 @@ class _$FilesDirectEditingCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesDirectEditingCreateResponseApplicationJson_Ocs))!
-              as FilesDirectEditingCreateResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs))!
+              as DirectEditingCreateResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -960,19 +935,18 @@ class _$FilesDirectEditingCreateResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data> {
+class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
-    _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data
+    OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data';
+  final String wireName = 'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'pathHash',
@@ -993,10 +967,10 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data deserialize(
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
+    final result = OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1023,35 +997,34 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs> {
+class _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OpenLocalEditorCreateResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorCreateResponseApplicationJson_Ocs,
-    _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs
+    OpenLocalEditorCreateResponseApplicationJson_Ocs,
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs';
+  final String wireName = 'OpenLocalEditorCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesOpenLocalEditorCreateResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  OpenLocalEditorCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
+    final result = OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1060,13 +1033,12 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data))!
-              as FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data))!
+              as OpenLocalEditorCreateResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -1075,32 +1047,32 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorCreateResponseApplicationJson> {
+class _$OpenLocalEditorCreateResponseApplicationJsonSerializer
+    implements StructuredSerializer<OpenLocalEditorCreateResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorCreateResponseApplicationJson,
-    _$FilesOpenLocalEditorCreateResponseApplicationJson
+    OpenLocalEditorCreateResponseApplicationJson,
+    _$OpenLocalEditorCreateResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorCreateResponseApplicationJson';
+  final String wireName = 'OpenLocalEditorCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesOpenLocalEditorCreateResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OpenLocalEditorCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorCreateResponseApplicationJsonBuilder();
+    final result = OpenLocalEditorCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1110,8 +1082,8 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs))!
-              as FilesOpenLocalEditorCreateResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs))!
+              as OpenLocalEditorCreateResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1120,19 +1092,18 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data> {
+class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
-    _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data
+    OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data';
+  final String wireName = 'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
@@ -1149,10 +1120,10 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data deserialize(
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
+    final result = OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1179,35 +1150,34 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs> {
+class _$OpenLocalEditorValidateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OpenLocalEditorValidateResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorValidateResponseApplicationJson_Ocs,
-    _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs
+    OpenLocalEditorValidateResponseApplicationJson_Ocs,
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs';
+  final String wireName = 'OpenLocalEditorValidateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesOpenLocalEditorValidateResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data)),
+          specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  OpenLocalEditorValidateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
+    final result = OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1216,13 +1186,12 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data))!
-              as FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data))!
+              as OpenLocalEditorValidateResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -1231,32 +1200,32 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesOpenLocalEditorValidateResponseApplicationJson> {
+class _$OpenLocalEditorValidateResponseApplicationJsonSerializer
+    implements StructuredSerializer<OpenLocalEditorValidateResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesOpenLocalEditorValidateResponseApplicationJson,
-    _$FilesOpenLocalEditorValidateResponseApplicationJson
+    OpenLocalEditorValidateResponseApplicationJson,
+    _$OpenLocalEditorValidateResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesOpenLocalEditorValidateResponseApplicationJson';
+  final String wireName = 'OpenLocalEditorValidateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesOpenLocalEditorValidateResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OpenLocalEditorValidateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesOpenLocalEditorValidateResponseApplicationJsonBuilder();
+    final result = OpenLocalEditorValidateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1266,8 +1235,8 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs))!
-              as FilesOpenLocalEditorValidateResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs))!
+              as OpenLocalEditorValidateResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1276,14 +1245,14 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTemplateFileCreatorSerializer implements StructuredSerializer<FilesTemplateFileCreator> {
+class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFileCreator> {
   @override
-  final Iterable<Type> types = const [FilesTemplateFileCreator, _$FilesTemplateFileCreator];
+  final Iterable<Type> types = const [TemplateFileCreator, _$TemplateFileCreator];
   @override
-  final String wireName = 'FilesTemplateFileCreator';
+  final String wireName = 'TemplateFileCreator';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateFileCreator object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateFileCreator object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'app',
@@ -1314,9 +1283,9 @@ class _$FilesTemplateFileCreatorSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesTemplateFileCreator deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateFileCreator deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateFileCreatorBuilder();
+    final result = TemplateFileCreatorBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1353,34 +1322,33 @@ class _$FilesTemplateFileCreatorSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesTemplateListResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTemplateListResponseApplicationJson_Ocs> {
+class _$TemplateListResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TemplateListResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTemplateListResponseApplicationJson_Ocs,
-    _$FilesTemplateListResponseApplicationJson_Ocs
+    TemplateListResponseApplicationJson_Ocs,
+    _$TemplateListResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTemplateListResponseApplicationJson_Ocs';
+  final String wireName = 'TemplateListResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateListResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateListResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, [FullType(FilesTemplateFileCreator)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)])),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplateListResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateListResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateListResponseApplicationJson_OcsBuilder();
+    final result = TemplateListResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1389,12 +1357,11 @@ class _$FilesTemplateListResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesTemplateFileCreator)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1403,31 +1370,28 @@ class _$FilesTemplateListResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTemplateListResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTemplateListResponseApplicationJson> {
+class _$TemplateListResponseApplicationJsonSerializer
+    implements StructuredSerializer<TemplateListResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesTemplateListResponseApplicationJson,
-    _$FilesTemplateListResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [TemplateListResponseApplicationJson, _$TemplateListResponseApplicationJson];
   @override
-  final String wireName = 'FilesTemplateListResponseApplicationJson';
+  final String wireName = 'TemplateListResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateListResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateListResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FilesTemplateListResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplateListResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateListResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateListResponseApplicationJsonBuilder();
+    final result = TemplateListResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1436,9 +1400,9 @@ class _$FilesTemplateListResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTemplateListResponseApplicationJson_Ocs))!
-              as FilesTemplateListResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs))!
+                  as TemplateListResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1447,14 +1411,14 @@ class _$FilesTemplateListResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTemplateFileSerializer implements StructuredSerializer<FilesTemplateFile> {
+class _$TemplateFileSerializer implements StructuredSerializer<TemplateFile> {
   @override
-  final Iterable<Type> types = const [FilesTemplateFile, _$FilesTemplateFile];
+  final Iterable<Type> types = const [TemplateFile, _$TemplateFile];
   @override
-  final String wireName = 'FilesTemplateFile';
+  final String wireName = 'TemplateFile';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateFile object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateFile object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'basename',
@@ -1485,9 +1449,9 @@ class _$FilesTemplateFileSerializer implements StructuredSerializer<FilesTemplat
   }
 
   @override
-  FilesTemplateFile deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateFile deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateFileBuilder();
+    final result = TemplateFileBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1529,33 +1493,33 @@ class _$FilesTemplateFileSerializer implements StructuredSerializer<FilesTemplat
   }
 }
 
-class _$FilesTemplateCreateResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTemplateCreateResponseApplicationJson_Ocs> {
+class _$TemplateCreateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TemplateCreateResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTemplateCreateResponseApplicationJson_Ocs,
-    _$FilesTemplateCreateResponseApplicationJson_Ocs
+    TemplateCreateResponseApplicationJson_Ocs,
+    _$TemplateCreateResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTemplateCreateResponseApplicationJson_Ocs';
+  final String wireName = 'TemplateCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateCreateResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateCreateResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesTemplateFile)),
+      serializers.serialize(object.data, specifiedType: const FullType(TemplateFile)),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateCreateResponseApplicationJson_OcsBuilder();
+    final result = TemplateCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1564,12 +1528,11 @@ class _$FilesTemplateCreateResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesTemplateFile))! as FilesTemplateFile);
+          result.data
+              .replace(serializers.deserialize(value, specifiedType: const FullType(TemplateFile))! as TemplateFile);
           break;
       }
     }
@@ -1578,31 +1541,28 @@ class _$FilesTemplateCreateResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTemplateCreateResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTemplateCreateResponseApplicationJson> {
+class _$TemplateCreateResponseApplicationJsonSerializer
+    implements StructuredSerializer<TemplateCreateResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesTemplateCreateResponseApplicationJson,
-    _$FilesTemplateCreateResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [TemplateCreateResponseApplicationJson, _$TemplateCreateResponseApplicationJson];
   @override
-  final String wireName = 'FilesTemplateCreateResponseApplicationJson';
+  final String wireName = 'TemplateCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplateCreateResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TemplateCreateResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FilesTemplateCreateResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(TemplateCreateResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplateCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateCreateResponseApplicationJsonBuilder();
+    final result = TemplateCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1611,9 +1571,9 @@ class _$FilesTemplateCreateResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTemplateCreateResponseApplicationJson_Ocs))!
-              as FilesTemplateCreateResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TemplateCreateResponseApplicationJson_Ocs))!
+                  as TemplateCreateResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1622,34 +1582,34 @@ class _$FilesTemplateCreateResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTemplatePathResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesTemplatePathResponseApplicationJson_Ocs_Data> {
+class _$TemplatePathResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TemplatePathResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    FilesTemplatePathResponseApplicationJson_Ocs_Data,
-    _$FilesTemplatePathResponseApplicationJson_Ocs_Data
+    TemplatePathResponseApplicationJson_Ocs_Data,
+    _$TemplatePathResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'FilesTemplatePathResponseApplicationJson_Ocs_Data';
+  final String wireName = 'TemplatePathResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplatePathResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'template_path',
       serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
       'templates',
       serializers.serialize(object.templates,
-          specifiedType: const FullType(BuiltList, [FullType(FilesTemplateFileCreator)])),
+          specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)])),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplatePathResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder();
+    final result = TemplatePathResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1662,7 +1622,7 @@ class _$FilesTemplatePathResponseApplicationJson_Ocs_DataSerializer
           break;
         case 'templates':
           result.templates.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesTemplateFileCreator)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1671,34 +1631,33 @@ class _$FilesTemplatePathResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesTemplatePathResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTemplatePathResponseApplicationJson_Ocs> {
+class _$TemplatePathResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TemplatePathResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTemplatePathResponseApplicationJson_Ocs,
-    _$FilesTemplatePathResponseApplicationJson_Ocs
+    TemplatePathResponseApplicationJson_Ocs,
+    _$TemplatePathResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTemplatePathResponseApplicationJson_Ocs';
+  final String wireName = 'TemplatePathResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplatePathResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(FilesTemplatePathResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(object.data, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplatePathResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplatePathResponseApplicationJson_OcsBuilder();
+    final result = TemplatePathResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1707,13 +1666,12 @@ class _$FilesTemplatePathResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTemplatePathResponseApplicationJson_Ocs_Data))!
-              as FilesTemplatePathResponseApplicationJson_Ocs_Data);
+                  specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs_Data))!
+              as TemplatePathResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -1722,31 +1680,28 @@ class _$FilesTemplatePathResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTemplatePathResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTemplatePathResponseApplicationJson> {
+class _$TemplatePathResponseApplicationJsonSerializer
+    implements StructuredSerializer<TemplatePathResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesTemplatePathResponseApplicationJson,
-    _$FilesTemplatePathResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [TemplatePathResponseApplicationJson, _$TemplatePathResponseApplicationJson];
   @override
-  final String wireName = 'FilesTemplatePathResponseApplicationJson';
+  final String wireName = 'TemplatePathResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplatePathResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FilesTemplatePathResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TemplatePathResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplatePathResponseApplicationJsonBuilder();
+    final result = TemplatePathResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1755,9 +1710,9 @@ class _$FilesTemplatePathResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTemplatePathResponseApplicationJson_Ocs))!
-              as FilesTemplatePathResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs))!
+                  as TemplatePathResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1766,22 +1721,22 @@ class _$FilesTemplatePathResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTransferOwnershipTransferResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTransferOwnershipTransferResponseApplicationJson_Ocs> {
+class _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TransferOwnershipTransferResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipTransferResponseApplicationJson_Ocs,
-    _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs
+    TransferOwnershipTransferResponseApplicationJson_Ocs,
+    _$TransferOwnershipTransferResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipTransferResponseApplicationJson_Ocs';
+  final String wireName = 'TransferOwnershipTransferResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipTransferResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1790,10 +1745,10 @@ class _$FilesTransferOwnershipTransferResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson_Ocs deserialize(
+  TransferOwnershipTransferResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder();
+    final result = TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1802,8 +1757,7 @@ class _$FilesTransferOwnershipTransferResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1815,33 +1769,32 @@ class _$FilesTransferOwnershipTransferResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTransferOwnershipTransferResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTransferOwnershipTransferResponseApplicationJson> {
+class _$TransferOwnershipTransferResponseApplicationJsonSerializer
+    implements StructuredSerializer<TransferOwnershipTransferResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipTransferResponseApplicationJson,
-    _$FilesTransferOwnershipTransferResponseApplicationJson
+    TransferOwnershipTransferResponseApplicationJson,
+    _$TransferOwnershipTransferResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipTransferResponseApplicationJson';
+  final String wireName = 'TransferOwnershipTransferResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipTransferResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesTransferOwnershipTransferResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  TransferOwnershipTransferResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipTransferResponseApplicationJsonBuilder();
+    final result = TransferOwnershipTransferResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1851,8 +1804,8 @@ class _$FilesTransferOwnershipTransferResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTransferOwnershipTransferResponseApplicationJson_Ocs))!
-              as FilesTransferOwnershipTransferResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs))!
+              as TransferOwnershipTransferResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1861,22 +1814,22 @@ class _$FilesTransferOwnershipTransferResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTransferOwnershipAcceptResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTransferOwnershipAcceptResponseApplicationJson_Ocs> {
+class _$TransferOwnershipAcceptResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TransferOwnershipAcceptResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipAcceptResponseApplicationJson_Ocs,
-    _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs
+    TransferOwnershipAcceptResponseApplicationJson_Ocs,
+    _$TransferOwnershipAcceptResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs';
+  final String wireName = 'TransferOwnershipAcceptResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipAcceptResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipAcceptResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1885,10 +1838,9 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  TransferOwnershipAcceptResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
+    final result = TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1897,8 +1849,7 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1910,32 +1861,32 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTransferOwnershipAcceptResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTransferOwnershipAcceptResponseApplicationJson> {
+class _$TransferOwnershipAcceptResponseApplicationJsonSerializer
+    implements StructuredSerializer<TransferOwnershipAcceptResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipAcceptResponseApplicationJson,
-    _$FilesTransferOwnershipAcceptResponseApplicationJson
+    TransferOwnershipAcceptResponseApplicationJson,
+    _$TransferOwnershipAcceptResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipAcceptResponseApplicationJson';
+  final String wireName = 'TransferOwnershipAcceptResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipAcceptResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipAcceptResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesTransferOwnershipAcceptResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TransferOwnershipAcceptResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipAcceptResponseApplicationJsonBuilder();
+    final result = TransferOwnershipAcceptResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1945,8 +1896,8 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTransferOwnershipAcceptResponseApplicationJson_Ocs))!
-              as FilesTransferOwnershipAcceptResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs))!
+              as TransferOwnershipAcceptResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1955,22 +1906,22 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesTransferOwnershipRejectResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesTransferOwnershipRejectResponseApplicationJson_Ocs> {
+class _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TransferOwnershipRejectResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipRejectResponseApplicationJson_Ocs,
-    _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs
+    TransferOwnershipRejectResponseApplicationJson_Ocs,
+    _$TransferOwnershipRejectResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipRejectResponseApplicationJson_Ocs';
+  final String wireName = 'TransferOwnershipRejectResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipRejectResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipRejectResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1979,10 +1930,9 @@ class _$FilesTransferOwnershipRejectResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  TransferOwnershipRejectResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder();
+    final result = TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1991,8 +1941,7 @@ class _$FilesTransferOwnershipRejectResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta
-              .replace(serializers.deserialize(value, specifiedType: const FullType(FilesOCSMeta))! as FilesOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -2004,32 +1953,32 @@ class _$FilesTransferOwnershipRejectResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesTransferOwnershipRejectResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesTransferOwnershipRejectResponseApplicationJson> {
+class _$TransferOwnershipRejectResponseApplicationJsonSerializer
+    implements StructuredSerializer<TransferOwnershipRejectResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesTransferOwnershipRejectResponseApplicationJson,
-    _$FilesTransferOwnershipRejectResponseApplicationJson
+    TransferOwnershipRejectResponseApplicationJson,
+    _$TransferOwnershipRejectResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesTransferOwnershipRejectResponseApplicationJson';
+  final String wireName = 'TransferOwnershipRejectResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTransferOwnershipRejectResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipRejectResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesTransferOwnershipRejectResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  TransferOwnershipRejectResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTransferOwnershipRejectResponseApplicationJsonBuilder();
+    final result = TransferOwnershipRejectResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2039,8 +1988,8 @@ class _$FilesTransferOwnershipRejectResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesTransferOwnershipRejectResponseApplicationJson_Ocs))!
-              as FilesTransferOwnershipRejectResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs))!
+              as TransferOwnershipRejectResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2049,15 +1998,14 @@ class _$FilesTransferOwnershipRejectResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesCapabilities_Files_DirectEditingSerializer
-    implements StructuredSerializer<FilesCapabilities_Files_DirectEditing> {
+class _$Capabilities_Files_DirectEditingSerializer implements StructuredSerializer<Capabilities_Files_DirectEditing> {
   @override
-  final Iterable<Type> types = const [FilesCapabilities_Files_DirectEditing, _$FilesCapabilities_Files_DirectEditing];
+  final Iterable<Type> types = const [Capabilities_Files_DirectEditing, _$Capabilities_Files_DirectEditing];
   @override
-  final String wireName = 'FilesCapabilities_Files_DirectEditing';
+  final String wireName = 'Capabilities_Files_DirectEditing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesCapabilities_Files_DirectEditing object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_DirectEditing object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
@@ -2072,9 +2020,9 @@ class _$FilesCapabilities_Files_DirectEditingSerializer
   }
 
   @override
-  FilesCapabilities_Files_DirectEditing deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Files_DirectEditing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesCapabilities_Files_DirectEditingBuilder();
+    final result = Capabilities_Files_DirectEditingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2098,14 +2046,14 @@ class _$FilesCapabilities_Files_DirectEditingSerializer
   }
 }
 
-class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesCapabilities_Files> {
+class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
-  final Iterable<Type> types = const [FilesCapabilities_Files, _$FilesCapabilities_Files];
+  final Iterable<Type> types = const [Capabilities_Files, _$Capabilities_Files];
   @override
-  final String wireName = 'FilesCapabilities_Files';
+  final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesCapabilities_Files object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'bigfilechunking',
@@ -2113,16 +2061,16 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
       'blacklisted_files',
       serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
       'directEditing',
-      serializers.serialize(object.directEditing, specifiedType: const FullType(FilesCapabilities_Files_DirectEditing)),
+      serializers.serialize(object.directEditing, specifiedType: const FullType(Capabilities_Files_DirectEditing)),
     ];
 
     return result;
   }
 
   @override
-  FilesCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesCapabilities_FilesBuilder();
+    final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2138,9 +2086,8 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'directEditing':
-          result.directEditing.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesCapabilities_Files_DirectEditing))!
-                  as FilesCapabilities_Files_DirectEditing);
+          result.directEditing.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_Files_DirectEditing))! as Capabilities_Files_DirectEditing);
           break;
       }
     }
@@ -2149,27 +2096,27 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
   }
 }
 
-class _$FilesCapabilitiesSerializer implements StructuredSerializer<FilesCapabilities> {
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
-  final Iterable<Type> types = const [FilesCapabilities, _$FilesCapabilities];
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
   @override
-  final String wireName = 'FilesCapabilities';
+  final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files',
-      serializers.serialize(object.files, specifiedType: const FullType(FilesCapabilities_Files)),
+      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
     ];
 
     return result;
   }
 
   @override
-  FilesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesCapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2178,8 +2125,8 @@ class _$FilesCapabilitiesSerializer implements StructuredSerializer<FilesCapabil
       final Object? value = iterator.current;
       switch (key) {
         case 'files':
-          result.files.replace(serializers.deserialize(value, specifiedType: const FullType(FilesCapabilities_Files))!
-              as FilesCapabilities_Files);
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
           break;
       }
     }
@@ -2188,14 +2135,14 @@ class _$FilesCapabilitiesSerializer implements StructuredSerializer<FilesCapabil
   }
 }
 
-class _$FilesTemplateSerializer implements StructuredSerializer<FilesTemplate> {
+class _$TemplateSerializer implements StructuredSerializer<Template> {
   @override
-  final Iterable<Type> types = const [FilesTemplate, _$FilesTemplate];
+  final Iterable<Type> types = const [Template, _$Template];
   @override
-  final String wireName = 'FilesTemplate';
+  final String wireName = 'Template';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesTemplate object,
+  Iterable<Object?> serialize(Serializers serializers, Template object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'templateType',
@@ -2232,9 +2179,9 @@ class _$FilesTemplateSerializer implements StructuredSerializer<FilesTemplate> {
   }
 
   @override
-  FilesTemplate deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Template deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesTemplateBuilder();
+    final result = TemplateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2285,9 +2232,9 @@ class _$FilesTemplateSerializer implements StructuredSerializer<FilesTemplate> {
   }
 }
 
-abstract mixin class FilesOCSMetaInterfaceBuilder {
-  void replace(FilesOCSMetaInterface other);
-  void update(void Function(FilesOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -2304,7 +2251,7 @@ abstract mixin class FilesOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$FilesOCSMeta extends FilesOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -2316,25 +2263,24 @@ class _$FilesOCSMeta extends FilesOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$FilesOCSMeta([void Function(FilesOCSMetaBuilder)? updates]) =>
-      (FilesOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$FilesOCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  FilesOCSMeta rebuild(void Function(FilesOCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesOCSMetaBuilder toBuilder() => FilesOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -2356,7 +2302,7 @@ class _$FilesOCSMeta extends FilesOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -2366,8 +2312,8 @@ class _$FilesOCSMeta extends FilesOCSMeta {
   }
 }
 
-class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder>, FilesOCSMetaInterfaceBuilder {
-  _$FilesOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -2389,9 +2335,9 @@ class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder>,
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  FilesOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  FilesOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -2405,24 +2351,24 @@ class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder>,
   }
 
   @override
-  void replace(covariant FilesOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(FilesOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$FilesOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$FilesOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'FilesOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -2431,9 +2377,9 @@ class FilesOCSMetaBuilder implements Builder<FilesOCSMeta, FilesOCSMetaBuilder>,
   }
 }
 
-abstract mixin class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
-  void replace(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface other);
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates);
+abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
+  void replace(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface other);
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -2450,8 +2396,8 @@ abstract mixin class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Edit
   set secure(bool? secure);
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
-    extends FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
+    extends DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors {
   @override
   final String id;
   @override
@@ -2463,41 +2409,40 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   @override
   final bool secure;
 
-  factory _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors(
-          [void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates]) =>
-      (FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors(
+          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates]) =>
+      (DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
       {required this.id,
       required this.name,
       required this.mimetypes,
       required this.optionalMimetypes,
       required this.secure})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name');
+        mimetypes, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'mimetypes');
     BuiltValueNullFieldError.checkNotNull(
-        mimetypes, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'mimetypes');
+        optionalMimetypes, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'optionalMimetypes');
     BuiltValueNullFieldError.checkNotNull(
-        optionalMimetypes, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'optionalMimetypes');
-    BuiltValueNullFieldError.checkNotNull(
-        secure, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure');
+        secure, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure');
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors rebuild(
-          void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder) updates) =>
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors rebuild(
+          void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder toBuilder() =>
-      FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..replace(this);
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder toBuilder() =>
+      DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors &&
+    return other is DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors &&
         id == other.id &&
         name == other.name &&
         mimetypes == other.mimetypes &&
@@ -2519,7 +2464,7 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors')
+    return (newBuiltValueToStringHelper(r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors')
           ..add('id', id)
           ..add('name', name)
           ..add('mimetypes', mimetypes)
@@ -2529,12 +2474,12 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   }
 }
 
-class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
+class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
     implements
-        Builder<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
-            FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder>,
-        FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors? _$v;
+        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
+            DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder>,
+        DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -2557,9 +2502,9 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   bool? get secure => _$this._secure;
   set secure(covariant bool? secure) => _$this._secure = secure;
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder get _$this {
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -2573,32 +2518,32 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors other) {
+  void replace(covariant DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors;
+    _$v = other as _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors;
   }
 
   @override
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates) {
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors build() => _build();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors build() => _build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _build() {
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _$result;
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _build() {
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _$result;
     try {
       _$result = _$v ??
-          _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
+          _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id'),
+                  id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name'),
+                  name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name'),
               mimetypes: mimetypes.build(),
               optionalMimetypes: optionalMimetypes.build(),
               secure: BuiltValueNullFieldError.checkNotNull(
-                  secure, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure'));
+                  secure, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -2608,7 +2553,7 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
         optionalMimetypes.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', _$failedField, e.toString());
+            r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2617,9 +2562,9 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
-  void replace(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface other);
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates);
+abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
+  void replace(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface other);
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -2639,8 +2584,8 @@ abstract mixin class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Crea
   set mimetypes(ListBuilder<String>? mimetypes);
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
-    extends FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
+    extends DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators {
   @override
   final String id;
   @override
@@ -2654,11 +2599,11 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   @override
   final BuiltList<String> mimetypes;
 
-  factory _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators(
-          [void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates]) =>
-      (FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators(
+          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates]) =>
+      (DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
       {required this.id,
       required this.editor,
       required this.name,
@@ -2666,32 +2611,31 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
       required this.templates,
       required this.mimetypes})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        editor, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor');
+        editor, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor');
+    BuiltValueNullFieldError.checkNotNull(name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name');
+        $extension, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension');
     BuiltValueNullFieldError.checkNotNull(
-        $extension, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension');
+        templates, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates');
     BuiltValueNullFieldError.checkNotNull(
-        templates, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates');
-    BuiltValueNullFieldError.checkNotNull(
-        mimetypes, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'mimetypes');
+        mimetypes, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'mimetypes');
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators rebuild(
-          void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder) updates) =>
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators rebuild(
+          void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder toBuilder() =>
-      FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..replace(this);
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder toBuilder() =>
+      DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators &&
+    return other is DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators &&
         id == other.id &&
         editor == other.editor &&
         name == other.name &&
@@ -2715,7 +2659,7 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators')
+    return (newBuiltValueToStringHelper(r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators')
           ..add('id', id)
           ..add('editor', editor)
           ..add('name', name)
@@ -2726,12 +2670,12 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   }
 }
 
-class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
+class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
     implements
-        Builder<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
-            FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder>,
-        FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators? _$v;
+        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
+            DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder>,
+        DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -2757,9 +2701,9 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
   set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder get _$this {
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -2774,34 +2718,34 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators other) {
+  void replace(covariant DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators;
+    _$v = other as _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators;
   }
 
   @override
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates) {
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators build() => _build();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators build() => _build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _build() {
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _$result;
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _build() {
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _$result;
     try {
       _$result = _$v ??
-          _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
+          _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id'),
+                  id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id'),
               editor: BuiltValueNullFieldError.checkNotNull(
-                  editor, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor'),
+                  editor, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name'),
+                  name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name'),
               $extension: BuiltValueNullFieldError.checkNotNull(
-                  $extension, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension'),
+                  $extension, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension'),
               templates: BuiltValueNullFieldError.checkNotNull(
-                  templates, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates'),
+                  templates, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates'),
               mimetypes: mimetypes.build());
     } catch (_) {
       late String _$failedField;
@@ -2810,7 +2754,7 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
         mimetypes.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', _$failedField, e.toString());
+            r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2819,48 +2763,44 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors;
-  set editors(MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? editors);
+abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DirectEditingInfoResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors;
+  set editors(MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? editors);
 
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators;
-  set creators(MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? creators);
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators;
+  set creators(MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? creators);
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data
-    extends FilesDirectEditingInfoResponseApplicationJson_Ocs_Data {
+class _$DirectEditingInfoResponseApplicationJson_Ocs_Data extends DirectEditingInfoResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> editors;
+  final BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> editors;
   @override
-  final BuiltMap<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> creators;
+  final BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> creators;
 
-  factory _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data(
-          [void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data(
+          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data._({required this.editors, required this.creators})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        editors, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data', 'editors');
-    BuiltValueNullFieldError.checkNotNull(
-        creators, r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data', 'creators');
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data._({required this.editors, required this.creators}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(editors, r'DirectEditingInfoResponseApplicationJson_Ocs_Data', 'editors');
+    BuiltValueNullFieldError.checkNotNull(creators, r'DirectEditingInfoResponseApplicationJson_Ocs_Data', 'creators');
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  DirectEditingInfoResponseApplicationJson_Ocs_Data rebuild(
+          void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingInfoResponseApplicationJson_Ocs_Data &&
+    return other is DirectEditingInfoResponseApplicationJson_Ocs_Data &&
         editors == other.editors &&
         creators == other.creators;
   }
@@ -2876,36 +2816,35 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'DirectEditingInfoResponseApplicationJson_Ocs_Data')
           ..add('editors', editors)
           ..add('creators', creators))
         .toString();
   }
 }
 
-class FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
+class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesDirectEditingInfoResponseApplicationJson_Ocs_Data,
-            FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder>,
-        FilesDirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data? _$v;
+        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data,
+            DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder>,
+        DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? _editors;
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors =>
-      _$this._editors ??= MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>();
-  set editors(covariant MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? editors) =>
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? _editors;
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors =>
+      _$this._editors ??= MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>();
+  set editors(covariant MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? editors) =>
       _$this._editors = editors;
 
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? _creators;
-  MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators =>
-      _$this._creators ??= MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>();
-  set creators(
-          covariant MapBuilder<String, FilesDirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? creators) =>
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? _creators;
+  MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators =>
+      _$this._creators ??= MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>();
+  set creators(covariant MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? creators) =>
       _$this._creators = creators;
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get _$this {
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _editors = $v.editors.toBuilder();
@@ -2916,25 +2855,24 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingInfoResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant DirectEditingInfoResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data;
+    _$v = other as _$DirectEditingInfoResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_Data build() => _build();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data _build() {
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data _$result;
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data _build() {
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$FilesDirectEditingInfoResponseApplicationJson_Ocs_Data._(
-              editors: editors.build(), creators: creators.build());
+          _$DirectEditingInfoResponseApplicationJson_Ocs_Data._(editors: editors.build(), creators: creators.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2944,7 +2882,7 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
         creators.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingInfoResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'DirectEditingInfoResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2953,44 +2891,44 @@ class FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesDirectEditingInfoResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DirectEditingInfoResponseApplicationJson_OcsInterface other);
+  void update(void Function(DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? data);
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson_Ocs extends FilesDirectEditingInfoResponseApplicationJson_Ocs {
+class _$DirectEditingInfoResponseApplicationJson_Ocs extends DirectEditingInfoResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesDirectEditingInfoResponseApplicationJson_Ocs_Data data;
+  final DirectEditingInfoResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesDirectEditingInfoResponseApplicationJson_Ocs(
-          [void Function(FilesDirectEditingInfoResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesDirectEditingInfoResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs(
+          [void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DirectEditingInfoResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesDirectEditingInfoResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesDirectEditingInfoResponseApplicationJson_Ocs', 'data');
+  _$DirectEditingInfoResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DirectEditingInfoResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DirectEditingInfoResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs rebuild(
-          void Function(FilesDirectEditingInfoResponseApplicationJson_OcsBuilder) updates) =>
+  DirectEditingInfoResponseApplicationJson_Ocs rebuild(
+          void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesDirectEditingInfoResponseApplicationJson_OcsBuilder()..replace(this);
+  DirectEditingInfoResponseApplicationJson_OcsBuilder toBuilder() =>
+      DirectEditingInfoResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingInfoResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DirectEditingInfoResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3004,32 +2942,31 @@ class _$FilesDirectEditingInfoResponseApplicationJson_Ocs extends FilesDirectEdi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingInfoResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DirectEditingInfoResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesDirectEditingInfoResponseApplicationJson_OcsBuilder
+class DirectEditingInfoResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesDirectEditingInfoResponseApplicationJson_Ocs,
-            FilesDirectEditingInfoResponseApplicationJson_OcsBuilder>,
-        FilesDirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs? _$v;
+        Builder<DirectEditingInfoResponseApplicationJson_Ocs, DirectEditingInfoResponseApplicationJson_OcsBuilder>,
+        DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
+  _$DirectEditingInfoResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesDirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? _data;
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder();
+  DirectEditingInfoResponseApplicationJson_OcsBuilder();
 
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder get _$this {
+  DirectEditingInfoResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3040,23 +2977,23 @@ class FilesDirectEditingInfoResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingInfoResponseApplicationJson_Ocs other) {
+  void replace(covariant DirectEditingInfoResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingInfoResponseApplicationJson_Ocs;
+    _$v = other as _$DirectEditingInfoResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson_Ocs build() => _build();
+  DirectEditingInfoResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson_Ocs _build() {
-    _$FilesDirectEditingInfoResponseApplicationJson_Ocs _$result;
+  _$DirectEditingInfoResponseApplicationJson_Ocs _build() {
+    _$DirectEditingInfoResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3065,8 +3002,7 @@ class FilesDirectEditingInfoResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingInfoResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingInfoResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3075,38 +3011,38 @@ class FilesDirectEditingInfoResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingInfoResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesDirectEditingInfoResponseApplicationJsonInterface other);
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJsonInterfaceBuilder) updates);
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesDirectEditingInfoResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
+  void replace(DirectEditingInfoResponseApplicationJsonInterface other);
+  void update(void Function(DirectEditingInfoResponseApplicationJsonInterfaceBuilder) updates);
+  DirectEditingInfoResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DirectEditingInfoResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesDirectEditingInfoResponseApplicationJson extends FilesDirectEditingInfoResponseApplicationJson {
+class _$DirectEditingInfoResponseApplicationJson extends DirectEditingInfoResponseApplicationJson {
   @override
-  final FilesDirectEditingInfoResponseApplicationJson_Ocs ocs;
+  final DirectEditingInfoResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesDirectEditingInfoResponseApplicationJson(
-          [void Function(FilesDirectEditingInfoResponseApplicationJsonBuilder)? updates]) =>
-      (FilesDirectEditingInfoResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson(
+          [void Function(DirectEditingInfoResponseApplicationJsonBuilder)? updates]) =>
+      (DirectEditingInfoResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesDirectEditingInfoResponseApplicationJson', 'ocs');
+  _$DirectEditingInfoResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectEditingInfoResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson rebuild(
-          void Function(FilesDirectEditingInfoResponseApplicationJsonBuilder) updates) =>
+  DirectEditingInfoResponseApplicationJson rebuild(
+          void Function(DirectEditingInfoResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingInfoResponseApplicationJsonBuilder toBuilder() =>
-      FilesDirectEditingInfoResponseApplicationJsonBuilder()..replace(this);
+  DirectEditingInfoResponseApplicationJsonBuilder toBuilder() =>
+      DirectEditingInfoResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingInfoResponseApplicationJson && ocs == other.ocs;
+    return other is DirectEditingInfoResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3119,24 +3055,24 @@ class _$FilesDirectEditingInfoResponseApplicationJson extends FilesDirectEditing
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingInfoResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingInfoResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesDirectEditingInfoResponseApplicationJsonBuilder
+class DirectEditingInfoResponseApplicationJsonBuilder
     implements
-        Builder<FilesDirectEditingInfoResponseApplicationJson, FilesDirectEditingInfoResponseApplicationJsonBuilder>,
-        FilesDirectEditingInfoResponseApplicationJsonInterfaceBuilder {
-  _$FilesDirectEditingInfoResponseApplicationJson? _$v;
+        Builder<DirectEditingInfoResponseApplicationJson, DirectEditingInfoResponseApplicationJsonBuilder>,
+        DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
+  _$DirectEditingInfoResponseApplicationJson? _$v;
 
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder? _ocs;
-  FilesDirectEditingInfoResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesDirectEditingInfoResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesDirectEditingInfoResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DirectEditingInfoResponseApplicationJson_OcsBuilder? _ocs;
+  DirectEditingInfoResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DirectEditingInfoResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DirectEditingInfoResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesDirectEditingInfoResponseApplicationJsonBuilder();
+  DirectEditingInfoResponseApplicationJsonBuilder();
 
-  FilesDirectEditingInfoResponseApplicationJsonBuilder get _$this {
+  DirectEditingInfoResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3146,30 +3082,30 @@ class FilesDirectEditingInfoResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingInfoResponseApplicationJson other) {
+  void replace(covariant DirectEditingInfoResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingInfoResponseApplicationJson;
+    _$v = other as _$DirectEditingInfoResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesDirectEditingInfoResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DirectEditingInfoResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingInfoResponseApplicationJson build() => _build();
+  DirectEditingInfoResponseApplicationJson build() => _build();
 
-  _$FilesDirectEditingInfoResponseApplicationJson _build() {
-    _$FilesDirectEditingInfoResponseApplicationJson _$result;
+  _$DirectEditingInfoResponseApplicationJson _build() {
+    _$DirectEditingInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingInfoResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesDirectEditingInfoResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingInfoResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3178,10 +3114,9 @@ class FilesDirectEditingInfoResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
-  void replace(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface other);
-  void update(
-      void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates);
+abstract mixin class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
+  void replace(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface other);
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -3198,8 +3133,8 @@ abstract mixin class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data
   set mimetype(String? mimetype);
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
-    extends FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates {
+class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
+    extends DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates {
   @override
   final String id;
   @override
@@ -3211,36 +3146,36 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   @override
   final String mimetype;
 
-  factory _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates(
-          [void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates]) =>
-      (FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates(
+          [void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates]) =>
+      (DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
       {required this.id, required this.title, this.preview, required this.$extension, required this.mimetype})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        id, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id');
+        id, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        title, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title');
+        title, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title');
     BuiltValueNullFieldError.checkNotNull(
-        $extension, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension');
+        $extension, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension');
     BuiltValueNullFieldError.checkNotNull(
-        mimetype, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype');
+        mimetype, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype');
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates rebuild(
-          void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder) updates) =>
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates rebuild(
+          void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder toBuilder() =>
-      FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..replace(this);
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder toBuilder() =>
+      DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates &&
+    return other is DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates &&
         id == other.id &&
         title == other.title &&
         preview == other.preview &&
@@ -3262,7 +3197,7 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates')
+    return (newBuiltValueToStringHelper(r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates')
           ..add('id', id)
           ..add('title', title)
           ..add('preview', preview)
@@ -3272,12 +3207,12 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   }
 }
 
-class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
+class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
     implements
-        Builder<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
-            FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder>,
-        FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates? _$v;
+        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
+            DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder>,
+        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -3299,9 +3234,9 @@ class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuild
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder get _$this {
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -3315,70 +3250,70 @@ class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuild
   }
 
   @override
-  void replace(covariant FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates other) {
+  void replace(covariant DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates;
+    _$v = other as _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates;
   }
 
   @override
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates) {
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates build() => _build();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates build() => _build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates _build() {
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates _build() {
     final _$result = _$v ??
-        _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
+        _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id'),
+                id, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title'),
+                title, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title'),
             preview: preview,
             $extension: BuiltValueNullFieldError.checkNotNull(
-                $extension, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension'),
+                $extension, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension'),
             mimetype: BuiltValueNullFieldError.checkNotNull(
-                mimetype, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype'));
+                mimetype, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates;
-  set templates(MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates);
+abstract mixin class DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates;
+  set templates(MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates);
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data
-    extends FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data {
+class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data
+    extends DirectEditingTemplatesResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> templates;
+  final BuiltMap<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> templates;
 
-  factory _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data(
-          [void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data(
+          [void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data._({required this.templates}) : super._() {
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._({required this.templates}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        templates, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data', 'templates');
+        templates, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data', 'templates');
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data rebuild(
+          void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data && templates == other.templates;
+    return other is DirectEditingTemplatesResponseApplicationJson_Ocs_Data && templates == other.templates;
   }
 
   @override
@@ -3391,30 +3326,29 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data')
           ..add('templates', templates))
         .toString();
   }
 }
 
-class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
+class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data,
-            FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder>,
-        FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data? _$v;
+        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
+            DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder>,
+        DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? _templates;
-  MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates =>
-      _$this._templates ??= MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>();
+  MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? _templates;
+  MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates =>
+      _$this._templates ??= MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>();
   set templates(
-          covariant MapBuilder<String, FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>?
-              templates) =>
+          covariant MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates) =>
       _$this._templates = templates;
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get _$this {
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _templates = $v.templates.toBuilder();
@@ -3424,23 +3358,23 @@ class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant DirectEditingTemplatesResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data;
+    _$v = other as _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data build() => _build();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data _build() {
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data _$result;
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _build() {
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data._(templates: templates.build());
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(templates: templates.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3448,7 +3382,7 @@ class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
         templates.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3457,45 +3391,44 @@ class FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesDirectEditingTemplatesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DirectEditingTemplatesResponseApplicationJson_OcsInterface other);
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? data);
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs
-    extends FilesDirectEditingTemplatesResponseApplicationJson_Ocs {
+class _$DirectEditingTemplatesResponseApplicationJson_Ocs extends DirectEditingTemplatesResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesDirectEditingTemplatesResponseApplicationJson_Ocs_Data data;
+  final DirectEditingTemplatesResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs(
-          [void Function(FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs(
+          [void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DirectEditingTemplatesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs', 'data');
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DirectEditingTemplatesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DirectEditingTemplatesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder) updates) =>
+  DirectEditingTemplatesResponseApplicationJson_Ocs rebuild(
+          void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder()..replace(this);
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder toBuilder() =>
+      DirectEditingTemplatesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingTemplatesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DirectEditingTemplatesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3509,32 +3442,32 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DirectEditingTemplatesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder
+class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesDirectEditingTemplatesResponseApplicationJson_Ocs,
-            FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder>,
-        FilesDirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs? _$v;
+        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs,
+            DirectEditingTemplatesResponseApplicationJson_OcsBuilder>,
+        DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesDirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? _data;
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder();
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
 
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder get _$this {
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3545,24 +3478,23 @@ class FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingTemplatesResponseApplicationJson_Ocs other) {
+  void replace(covariant DirectEditingTemplatesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs;
+    _$v = other as _$DirectEditingTemplatesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson_Ocs build() => _build();
+  DirectEditingTemplatesResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs _build() {
-    _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs _$result;
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs _build() {
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesDirectEditingTemplatesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3572,7 +3504,7 @@ class FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingTemplatesResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3581,38 +3513,38 @@ class FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesDirectEditingTemplatesResponseApplicationJsonInterface other);
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
+  void replace(DirectEditingTemplatesResponseApplicationJsonInterface other);
+  void update(void Function(DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder) updates);
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesDirectEditingTemplatesResponseApplicationJson extends FilesDirectEditingTemplatesResponseApplicationJson {
+class _$DirectEditingTemplatesResponseApplicationJson extends DirectEditingTemplatesResponseApplicationJson {
   @override
-  final FilesDirectEditingTemplatesResponseApplicationJson_Ocs ocs;
+  final DirectEditingTemplatesResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesDirectEditingTemplatesResponseApplicationJson(
-          [void Function(FilesDirectEditingTemplatesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesDirectEditingTemplatesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson(
+          [void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? updates]) =>
+      (DirectEditingTemplatesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesDirectEditingTemplatesResponseApplicationJson', 'ocs');
+  _$DirectEditingTemplatesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectEditingTemplatesResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson rebuild(
-          void Function(FilesDirectEditingTemplatesResponseApplicationJsonBuilder) updates) =>
+  DirectEditingTemplatesResponseApplicationJson rebuild(
+          void Function(DirectEditingTemplatesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJsonBuilder toBuilder() =>
-      FilesDirectEditingTemplatesResponseApplicationJsonBuilder()..replace(this);
+  DirectEditingTemplatesResponseApplicationJsonBuilder toBuilder() =>
+      DirectEditingTemplatesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingTemplatesResponseApplicationJson && ocs == other.ocs;
+    return other is DirectEditingTemplatesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3625,26 +3557,24 @@ class _$FilesDirectEditingTemplatesResponseApplicationJson extends FilesDirectEd
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingTemplatesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingTemplatesResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesDirectEditingTemplatesResponseApplicationJsonBuilder
+class DirectEditingTemplatesResponseApplicationJsonBuilder
     implements
-        Builder<FilesDirectEditingTemplatesResponseApplicationJson,
-            FilesDirectEditingTemplatesResponseApplicationJsonBuilder>,
-        FilesDirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
-  _$FilesDirectEditingTemplatesResponseApplicationJson? _$v;
+        Builder<DirectEditingTemplatesResponseApplicationJson, DirectEditingTemplatesResponseApplicationJsonBuilder>,
+        DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
+  _$DirectEditingTemplatesResponseApplicationJson? _$v;
 
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesDirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder? _ocs;
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesDirectEditingTemplatesResponseApplicationJsonBuilder();
+  DirectEditingTemplatesResponseApplicationJsonBuilder();
 
-  FilesDirectEditingTemplatesResponseApplicationJsonBuilder get _$this {
+  DirectEditingTemplatesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3654,31 +3584,30 @@ class FilesDirectEditingTemplatesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingTemplatesResponseApplicationJson other) {
+  void replace(covariant DirectEditingTemplatesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingTemplatesResponseApplicationJson;
+    _$v = other as _$DirectEditingTemplatesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesDirectEditingTemplatesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingTemplatesResponseApplicationJson build() => _build();
+  DirectEditingTemplatesResponseApplicationJson build() => _build();
 
-  _$FilesDirectEditingTemplatesResponseApplicationJson _build() {
-    _$FilesDirectEditingTemplatesResponseApplicationJson _$result;
+  _$DirectEditingTemplatesResponseApplicationJson _build() {
+    _$DirectEditingTemplatesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingTemplatesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingTemplatesResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingTemplatesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3687,39 +3616,38 @@ class FilesDirectEditingTemplatesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DirectEditingOpenResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data
-    extends FilesDirectEditingOpenResponseApplicationJson_Ocs_Data {
+class _$DirectEditingOpenResponseApplicationJson_Ocs_Data extends DirectEditingOpenResponseApplicationJson_Ocs_Data {
   @override
   final String url;
 
-  factory _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data(
-          [void Function(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson_Ocs_Data(
+          [void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'FilesDirectEditingOpenResponseApplicationJson_Ocs_Data', 'url');
+  _$DirectEditingOpenResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingOpenResponseApplicationJson_Ocs_Data', 'url');
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  DirectEditingOpenResponseApplicationJson_Ocs_Data rebuild(
+          void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingOpenResponseApplicationJson_Ocs_Data && url == other.url;
+    return other is DirectEditingOpenResponseApplicationJson_Ocs_Data && url == other.url;
   }
 
   @override
@@ -3732,25 +3660,25 @@ class _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingOpenResponseApplicationJson_Ocs_Data')..add('url', url))
+    return (newBuiltValueToStringHelper(r'DirectEditingOpenResponseApplicationJson_Ocs_Data')..add('url', url))
         .toString();
   }
 }
 
-class FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
+class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesDirectEditingOpenResponseApplicationJson_Ocs_Data,
-            FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder>,
-        FilesDirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data? _$v;
+        Builder<DirectEditingOpenResponseApplicationJson_Ocs_Data,
+            DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder>,
+        DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$DirectEditingOpenResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get _$this {
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _url = $v.url;
@@ -3760,67 +3688,67 @@ class FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingOpenResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant DirectEditingOpenResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data;
+    _$v = other as _$DirectEditingOpenResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_Data build() => _build();
+  DirectEditingOpenResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data _build() {
+  _$DirectEditingOpenResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$FilesDirectEditingOpenResponseApplicationJson_Ocs_Data._(
+        _$DirectEditingOpenResponseApplicationJson_Ocs_Data._(
             url: BuiltValueNullFieldError.checkNotNull(
-                url, r'FilesDirectEditingOpenResponseApplicationJson_Ocs_Data', 'url'));
+                url, r'DirectEditingOpenResponseApplicationJson_Ocs_Data', 'url'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesDirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesDirectEditingOpenResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DirectEditingOpenResponseApplicationJson_OcsInterface other);
+  void update(void Function(DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? data);
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJson_Ocs extends FilesDirectEditingOpenResponseApplicationJson_Ocs {
+class _$DirectEditingOpenResponseApplicationJson_Ocs extends DirectEditingOpenResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesDirectEditingOpenResponseApplicationJson_Ocs_Data data;
+  final DirectEditingOpenResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesDirectEditingOpenResponseApplicationJson_Ocs(
-          [void Function(FilesDirectEditingOpenResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesDirectEditingOpenResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson_Ocs(
+          [void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DirectEditingOpenResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesDirectEditingOpenResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesDirectEditingOpenResponseApplicationJson_Ocs', 'data');
+  _$DirectEditingOpenResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DirectEditingOpenResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DirectEditingOpenResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs rebuild(
-          void Function(FilesDirectEditingOpenResponseApplicationJson_OcsBuilder) updates) =>
+  DirectEditingOpenResponseApplicationJson_Ocs rebuild(
+          void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesDirectEditingOpenResponseApplicationJson_OcsBuilder()..replace(this);
+  DirectEditingOpenResponseApplicationJson_OcsBuilder toBuilder() =>
+      DirectEditingOpenResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingOpenResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DirectEditingOpenResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -3834,32 +3762,31 @@ class _$FilesDirectEditingOpenResponseApplicationJson_Ocs extends FilesDirectEdi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingOpenResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DirectEditingOpenResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesDirectEditingOpenResponseApplicationJson_OcsBuilder
+class DirectEditingOpenResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesDirectEditingOpenResponseApplicationJson_Ocs,
-            FilesDirectEditingOpenResponseApplicationJson_OcsBuilder>,
-        FilesDirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs? _$v;
+        Builder<DirectEditingOpenResponseApplicationJson_Ocs, DirectEditingOpenResponseApplicationJson_OcsBuilder>,
+        DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
+  _$DirectEditingOpenResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesDirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? _data;
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder();
+  DirectEditingOpenResponseApplicationJson_OcsBuilder();
 
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder get _$this {
+  DirectEditingOpenResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3870,23 +3797,23 @@ class FilesDirectEditingOpenResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingOpenResponseApplicationJson_Ocs other) {
+  void replace(covariant DirectEditingOpenResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingOpenResponseApplicationJson_Ocs;
+    _$v = other as _$DirectEditingOpenResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson_Ocs build() => _build();
+  DirectEditingOpenResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson_Ocs _build() {
-    _$FilesDirectEditingOpenResponseApplicationJson_Ocs _$result;
+  _$DirectEditingOpenResponseApplicationJson_Ocs _build() {
+    _$DirectEditingOpenResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingOpenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3895,8 +3822,7 @@ class FilesDirectEditingOpenResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingOpenResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingOpenResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3905,38 +3831,38 @@ class FilesDirectEditingOpenResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingOpenResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesDirectEditingOpenResponseApplicationJsonInterface other);
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJsonInterfaceBuilder) updates);
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesDirectEditingOpenResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
+  void replace(DirectEditingOpenResponseApplicationJsonInterface other);
+  void update(void Function(DirectEditingOpenResponseApplicationJsonInterfaceBuilder) updates);
+  DirectEditingOpenResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DirectEditingOpenResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesDirectEditingOpenResponseApplicationJson extends FilesDirectEditingOpenResponseApplicationJson {
+class _$DirectEditingOpenResponseApplicationJson extends DirectEditingOpenResponseApplicationJson {
   @override
-  final FilesDirectEditingOpenResponseApplicationJson_Ocs ocs;
+  final DirectEditingOpenResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesDirectEditingOpenResponseApplicationJson(
-          [void Function(FilesDirectEditingOpenResponseApplicationJsonBuilder)? updates]) =>
-      (FilesDirectEditingOpenResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson(
+          [void Function(DirectEditingOpenResponseApplicationJsonBuilder)? updates]) =>
+      (DirectEditingOpenResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesDirectEditingOpenResponseApplicationJson', 'ocs');
+  _$DirectEditingOpenResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectEditingOpenResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson rebuild(
-          void Function(FilesDirectEditingOpenResponseApplicationJsonBuilder) updates) =>
+  DirectEditingOpenResponseApplicationJson rebuild(
+          void Function(DirectEditingOpenResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingOpenResponseApplicationJsonBuilder toBuilder() =>
-      FilesDirectEditingOpenResponseApplicationJsonBuilder()..replace(this);
+  DirectEditingOpenResponseApplicationJsonBuilder toBuilder() =>
+      DirectEditingOpenResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingOpenResponseApplicationJson && ocs == other.ocs;
+    return other is DirectEditingOpenResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3949,24 +3875,24 @@ class _$FilesDirectEditingOpenResponseApplicationJson extends FilesDirectEditing
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingOpenResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingOpenResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesDirectEditingOpenResponseApplicationJsonBuilder
+class DirectEditingOpenResponseApplicationJsonBuilder
     implements
-        Builder<FilesDirectEditingOpenResponseApplicationJson, FilesDirectEditingOpenResponseApplicationJsonBuilder>,
-        FilesDirectEditingOpenResponseApplicationJsonInterfaceBuilder {
-  _$FilesDirectEditingOpenResponseApplicationJson? _$v;
+        Builder<DirectEditingOpenResponseApplicationJson, DirectEditingOpenResponseApplicationJsonBuilder>,
+        DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
+  _$DirectEditingOpenResponseApplicationJson? _$v;
 
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder? _ocs;
-  FilesDirectEditingOpenResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesDirectEditingOpenResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesDirectEditingOpenResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DirectEditingOpenResponseApplicationJson_OcsBuilder? _ocs;
+  DirectEditingOpenResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DirectEditingOpenResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DirectEditingOpenResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesDirectEditingOpenResponseApplicationJsonBuilder();
+  DirectEditingOpenResponseApplicationJsonBuilder();
 
-  FilesDirectEditingOpenResponseApplicationJsonBuilder get _$this {
+  DirectEditingOpenResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3976,30 +3902,30 @@ class FilesDirectEditingOpenResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingOpenResponseApplicationJson other) {
+  void replace(covariant DirectEditingOpenResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingOpenResponseApplicationJson;
+    _$v = other as _$DirectEditingOpenResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesDirectEditingOpenResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DirectEditingOpenResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingOpenResponseApplicationJson build() => _build();
+  DirectEditingOpenResponseApplicationJson build() => _build();
 
-  _$FilesDirectEditingOpenResponseApplicationJson _build() {
-    _$FilesDirectEditingOpenResponseApplicationJson _$result;
+  _$DirectEditingOpenResponseApplicationJson _build() {
+    _$DirectEditingOpenResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingOpenResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesDirectEditingOpenResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingOpenResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4008,39 +3934,39 @@ class FilesDirectEditingOpenResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(DirectEditingCreateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data
-    extends FilesDirectEditingCreateResponseApplicationJson_Ocs_Data {
+class _$DirectEditingCreateResponseApplicationJson_Ocs_Data
+    extends DirectEditingCreateResponseApplicationJson_Ocs_Data {
   @override
   final String url;
 
-  factory _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data(
-          [void Function(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson_Ocs_Data(
+          [void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'FilesDirectEditingCreateResponseApplicationJson_Ocs_Data', 'url');
+  _$DirectEditingCreateResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingCreateResponseApplicationJson_Ocs_Data', 'url');
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  DirectEditingCreateResponseApplicationJson_Ocs_Data rebuild(
+          void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingCreateResponseApplicationJson_Ocs_Data && url == other.url;
+    return other is DirectEditingCreateResponseApplicationJson_Ocs_Data && url == other.url;
   }
 
   @override
@@ -4053,25 +3979,25 @@ class _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingCreateResponseApplicationJson_Ocs_Data')..add('url', url))
+    return (newBuiltValueToStringHelper(r'DirectEditingCreateResponseApplicationJson_Ocs_Data')..add('url', url))
         .toString();
   }
 }
 
-class FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
+class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesDirectEditingCreateResponseApplicationJson_Ocs_Data,
-            FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder>,
-        FilesDirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data? _$v;
+        Builder<DirectEditingCreateResponseApplicationJson_Ocs_Data,
+            DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder>,
+        DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$DirectEditingCreateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _url = $v.url;
@@ -4081,68 +4007,67 @@ class FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingCreateResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant DirectEditingCreateResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data;
+    _$v = other as _$DirectEditingCreateResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_Data build() => _build();
+  DirectEditingCreateResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data _build() {
+  _$DirectEditingCreateResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$FilesDirectEditingCreateResponseApplicationJson_Ocs_Data._(
+        _$DirectEditingCreateResponseApplicationJson_Ocs_Data._(
             url: BuiltValueNullFieldError.checkNotNull(
-                url, r'FilesDirectEditingCreateResponseApplicationJson_Ocs_Data', 'url'));
+                url, r'DirectEditingCreateResponseApplicationJson_Ocs_Data', 'url'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesDirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesDirectEditingCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DirectEditingCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function(DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? data);
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJson_Ocs
-    extends FilesDirectEditingCreateResponseApplicationJson_Ocs {
+class _$DirectEditingCreateResponseApplicationJson_Ocs extends DirectEditingCreateResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesDirectEditingCreateResponseApplicationJson_Ocs_Data data;
+  final DirectEditingCreateResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesDirectEditingCreateResponseApplicationJson_Ocs(
-          [void Function(FilesDirectEditingCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesDirectEditingCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson_Ocs(
+          [void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DirectEditingCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesDirectEditingCreateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesDirectEditingCreateResponseApplicationJson_Ocs', 'data');
+  _$DirectEditingCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DirectEditingCreateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DirectEditingCreateResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs rebuild(
-          void Function(FilesDirectEditingCreateResponseApplicationJson_OcsBuilder) updates) =>
+  DirectEditingCreateResponseApplicationJson_Ocs rebuild(
+          void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesDirectEditingCreateResponseApplicationJson_OcsBuilder()..replace(this);
+  DirectEditingCreateResponseApplicationJson_OcsBuilder toBuilder() =>
+      DirectEditingCreateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DirectEditingCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4156,32 +4081,31 @@ class _$FilesDirectEditingCreateResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingCreateResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DirectEditingCreateResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesDirectEditingCreateResponseApplicationJson_OcsBuilder
+class DirectEditingCreateResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesDirectEditingCreateResponseApplicationJson_Ocs,
-            FilesDirectEditingCreateResponseApplicationJson_OcsBuilder>,
-        FilesDirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs? _$v;
+        Builder<DirectEditingCreateResponseApplicationJson_Ocs, DirectEditingCreateResponseApplicationJson_OcsBuilder>,
+        DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
+  _$DirectEditingCreateResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesDirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? _data;
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder();
+  DirectEditingCreateResponseApplicationJson_OcsBuilder();
 
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder get _$this {
+  DirectEditingCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4192,23 +4116,23 @@ class FilesDirectEditingCreateResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingCreateResponseApplicationJson_Ocs other) {
+  void replace(covariant DirectEditingCreateResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingCreateResponseApplicationJson_Ocs;
+    _$v = other as _$DirectEditingCreateResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson_Ocs build() => _build();
+  DirectEditingCreateResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson_Ocs _build() {
-    _$FilesDirectEditingCreateResponseApplicationJson_Ocs _$result;
+  _$DirectEditingCreateResponseApplicationJson_Ocs _build() {
+    _$DirectEditingCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4218,7 +4142,7 @@ class FilesDirectEditingCreateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DirectEditingCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4227,38 +4151,38 @@ class FilesDirectEditingCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesDirectEditingCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesDirectEditingCreateResponseApplicationJsonInterface other);
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJsonInterfaceBuilder) updates);
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesDirectEditingCreateResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
+  void replace(DirectEditingCreateResponseApplicationJsonInterface other);
+  void update(void Function(DirectEditingCreateResponseApplicationJsonInterfaceBuilder) updates);
+  DirectEditingCreateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DirectEditingCreateResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesDirectEditingCreateResponseApplicationJson extends FilesDirectEditingCreateResponseApplicationJson {
+class _$DirectEditingCreateResponseApplicationJson extends DirectEditingCreateResponseApplicationJson {
   @override
-  final FilesDirectEditingCreateResponseApplicationJson_Ocs ocs;
+  final DirectEditingCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesDirectEditingCreateResponseApplicationJson(
-          [void Function(FilesDirectEditingCreateResponseApplicationJsonBuilder)? updates]) =>
-      (FilesDirectEditingCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson(
+          [void Function(DirectEditingCreateResponseApplicationJsonBuilder)? updates]) =>
+      (DirectEditingCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesDirectEditingCreateResponseApplicationJson', 'ocs');
+  _$DirectEditingCreateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectEditingCreateResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson rebuild(
-          void Function(FilesDirectEditingCreateResponseApplicationJsonBuilder) updates) =>
+  DirectEditingCreateResponseApplicationJson rebuild(
+          void Function(DirectEditingCreateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesDirectEditingCreateResponseApplicationJsonBuilder toBuilder() =>
-      FilesDirectEditingCreateResponseApplicationJsonBuilder()..replace(this);
+  DirectEditingCreateResponseApplicationJsonBuilder toBuilder() =>
+      DirectEditingCreateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesDirectEditingCreateResponseApplicationJson && ocs == other.ocs;
+    return other is DirectEditingCreateResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -4271,26 +4195,24 @@ class _$FilesDirectEditingCreateResponseApplicationJson extends FilesDirectEditi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesDirectEditingCreateResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingCreateResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesDirectEditingCreateResponseApplicationJsonBuilder
+class DirectEditingCreateResponseApplicationJsonBuilder
     implements
-        Builder<FilesDirectEditingCreateResponseApplicationJson,
-            FilesDirectEditingCreateResponseApplicationJsonBuilder>,
-        FilesDirectEditingCreateResponseApplicationJsonInterfaceBuilder {
-  _$FilesDirectEditingCreateResponseApplicationJson? _$v;
+        Builder<DirectEditingCreateResponseApplicationJson, DirectEditingCreateResponseApplicationJsonBuilder>,
+        DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
+  _$DirectEditingCreateResponseApplicationJson? _$v;
 
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder? _ocs;
-  FilesDirectEditingCreateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesDirectEditingCreateResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesDirectEditingCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DirectEditingCreateResponseApplicationJson_OcsBuilder? _ocs;
+  DirectEditingCreateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DirectEditingCreateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DirectEditingCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesDirectEditingCreateResponseApplicationJsonBuilder();
+  DirectEditingCreateResponseApplicationJsonBuilder();
 
-  FilesDirectEditingCreateResponseApplicationJsonBuilder get _$this {
+  DirectEditingCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -4300,31 +4222,30 @@ class FilesDirectEditingCreateResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesDirectEditingCreateResponseApplicationJson other) {
+  void replace(covariant DirectEditingCreateResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesDirectEditingCreateResponseApplicationJson;
+    _$v = other as _$DirectEditingCreateResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesDirectEditingCreateResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DirectEditingCreateResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesDirectEditingCreateResponseApplicationJson build() => _build();
+  DirectEditingCreateResponseApplicationJson build() => _build();
 
-  _$FilesDirectEditingCreateResponseApplicationJson _build() {
-    _$FilesDirectEditingCreateResponseApplicationJson _$result;
+  _$DirectEditingCreateResponseApplicationJson _build() {
+    _$DirectEditingCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesDirectEditingCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesDirectEditingCreateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectEditingCreateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4333,9 +4254,9 @@ class FilesDirectEditingCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -4349,8 +4270,8 @@ abstract mixin class FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataI
   set token(String? token);
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data
-    extends FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data {
+class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
+    extends OpenLocalEditorCreateResponseApplicationJson_Ocs_Data {
   @override
   final String? userId;
   @override
@@ -4360,34 +4281,33 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   @override
   final String token;
 
-  factory _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data(
-          [void Function(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data(
+          [void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
       {this.userId, required this.pathHash, required this.expirationTime, required this.token})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        pathHash, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash');
+        pathHash, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash');
     BuiltValueNullFieldError.checkNotNull(
-        expirationTime, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime');
-    BuiltValueNullFieldError.checkNotNull(
-        token, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token');
+        expirationTime, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime');
+    BuiltValueNullFieldError.checkNotNull(token, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token');
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_Data rebuild(
+          void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data &&
+    return other is OpenLocalEditorCreateResponseApplicationJson_Ocs_Data &&
         userId == other.userId &&
         pathHash == other.pathHash &&
         expirationTime == other.expirationTime &&
@@ -4407,7 +4327,7 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data')
           ..add('userId', userId)
           ..add('pathHash', pathHash)
           ..add('expirationTime', expirationTime)
@@ -4416,12 +4336,12 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   }
 }
 
-class FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
+class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
-            FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder>,
-        FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data? _$v;
+        Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
+            OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder>,
+        OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -4439,9 +4359,9 @@ class FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _userId = $v.userId;
@@ -4454,73 +4374,72 @@ class FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant OpenLocalEditorCreateResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data;
+    _$v = other as _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data build() => _build();
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data _build() {
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
+        _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
             userId: userId,
             pathHash: BuiltValueNullFieldError.checkNotNull(
-                pathHash, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash'),
+                pathHash, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash'),
             expirationTime: BuiltValueNullFieldError.checkNotNull(
-                expirationTime, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+                expirationTime, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime'),
             token: BuiltValueNullFieldError.checkNotNull(
-                token, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token'));
+                token, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesOpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesOpenLocalEditorCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(OpenLocalEditorCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? data);
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs
-    extends FilesOpenLocalEditorCreateResponseApplicationJson_Ocs {
+class _$OpenLocalEditorCreateResponseApplicationJson_Ocs extends OpenLocalEditorCreateResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_Data data;
+  final OpenLocalEditorCreateResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs(
-          [void Function(FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs(
+          [void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs', 'data');
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'OpenLocalEditorCreateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'OpenLocalEditorCreateResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs rebuild(
-          void Function(FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder) updates) =>
+  OpenLocalEditorCreateResponseApplicationJson_Ocs rebuild(
+          void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..replace(this);
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder toBuilder() =>
+      OpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is OpenLocalEditorCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4534,32 +4453,32 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorCreateResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder
+class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesOpenLocalEditorCreateResponseApplicationJson_Ocs,
-            FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder>,
-        FilesOpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs? _$v;
+        Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs,
+            OpenLocalEditorCreateResponseApplicationJson_OcsBuilder>,
+        OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesOpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? _data;
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder get _$this {
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4570,24 +4489,23 @@ class FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorCreateResponseApplicationJson_Ocs other) {
+  void replace(covariant OpenLocalEditorCreateResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs;
+    _$v = other as _$OpenLocalEditorCreateResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson_Ocs build() => _build();
+  OpenLocalEditorCreateResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs _build() {
-    _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs _$result;
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs _build() {
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesOpenLocalEditorCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4597,7 +4515,7 @@ class FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesOpenLocalEditorCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OpenLocalEditorCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4606,38 +4524,38 @@ class FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesOpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesOpenLocalEditorCreateResponseApplicationJsonInterface other);
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder) updates);
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
+  void replace(OpenLocalEditorCreateResponseApplicationJsonInterface other);
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder) updates);
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesOpenLocalEditorCreateResponseApplicationJson extends FilesOpenLocalEditorCreateResponseApplicationJson {
+class _$OpenLocalEditorCreateResponseApplicationJson extends OpenLocalEditorCreateResponseApplicationJson {
   @override
-  final FilesOpenLocalEditorCreateResponseApplicationJson_Ocs ocs;
+  final OpenLocalEditorCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesOpenLocalEditorCreateResponseApplicationJson(
-          [void Function(FilesOpenLocalEditorCreateResponseApplicationJsonBuilder)? updates]) =>
-      (FilesOpenLocalEditorCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson(
+          [void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? updates]) =>
+      (OpenLocalEditorCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesOpenLocalEditorCreateResponseApplicationJson', 'ocs');
+  _$OpenLocalEditorCreateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OpenLocalEditorCreateResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson rebuild(
-          void Function(FilesOpenLocalEditorCreateResponseApplicationJsonBuilder) updates) =>
+  OpenLocalEditorCreateResponseApplicationJson rebuild(
+          void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJsonBuilder toBuilder() =>
-      FilesOpenLocalEditorCreateResponseApplicationJsonBuilder()..replace(this);
+  OpenLocalEditorCreateResponseApplicationJsonBuilder toBuilder() =>
+      OpenLocalEditorCreateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorCreateResponseApplicationJson && ocs == other.ocs;
+    return other is OpenLocalEditorCreateResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -4650,26 +4568,24 @@ class _$FilesOpenLocalEditorCreateResponseApplicationJson extends FilesOpenLocal
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorCreateResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorCreateResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesOpenLocalEditorCreateResponseApplicationJsonBuilder
+class OpenLocalEditorCreateResponseApplicationJsonBuilder
     implements
-        Builder<FilesOpenLocalEditorCreateResponseApplicationJson,
-            FilesOpenLocalEditorCreateResponseApplicationJsonBuilder>,
-        FilesOpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
-  _$FilesOpenLocalEditorCreateResponseApplicationJson? _$v;
+        Builder<OpenLocalEditorCreateResponseApplicationJson, OpenLocalEditorCreateResponseApplicationJsonBuilder>,
+        OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
+  _$OpenLocalEditorCreateResponseApplicationJson? _$v;
 
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder? _ocs;
-  FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesOpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? _ocs;
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesOpenLocalEditorCreateResponseApplicationJsonBuilder();
+  OpenLocalEditorCreateResponseApplicationJsonBuilder();
 
-  FilesOpenLocalEditorCreateResponseApplicationJsonBuilder get _$this {
+  OpenLocalEditorCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -4679,31 +4595,30 @@ class FilesOpenLocalEditorCreateResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorCreateResponseApplicationJson other) {
+  void replace(covariant OpenLocalEditorCreateResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorCreateResponseApplicationJson;
+    _$v = other as _$OpenLocalEditorCreateResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorCreateResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorCreateResponseApplicationJson build() => _build();
+  OpenLocalEditorCreateResponseApplicationJson build() => _build();
 
-  _$FilesOpenLocalEditorCreateResponseApplicationJson _build() {
-    _$FilesOpenLocalEditorCreateResponseApplicationJson _$result;
+  _$OpenLocalEditorCreateResponseApplicationJson _build() {
+    _$OpenLocalEditorCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesOpenLocalEditorCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesOpenLocalEditorCreateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'OpenLocalEditorCreateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4712,9 +4627,9 @@ class FilesOpenLocalEditorCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -4728,8 +4643,8 @@ abstract mixin class FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Dat
   set token(String? token);
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data
-    extends FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data {
+class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
+    extends OpenLocalEditorValidateResponseApplicationJson_Ocs_Data {
   @override
   final String userId;
   @override
@@ -4739,36 +4654,34 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   @override
   final String token;
 
-  factory _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data(
-          [void Function(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data(
+          [void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
       {required this.userId, required this.pathHash, required this.expirationTime, required this.token})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId');
     BuiltValueNullFieldError.checkNotNull(
-        userId, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId');
+        pathHash, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash');
     BuiltValueNullFieldError.checkNotNull(
-        pathHash, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash');
-    BuiltValueNullFieldError.checkNotNull(
-        expirationTime, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime');
-    BuiltValueNullFieldError.checkNotNull(
-        token, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token');
+        expirationTime, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime');
+    BuiltValueNullFieldError.checkNotNull(token, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token');
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_Data rebuild(
+          void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data &&
+    return other is OpenLocalEditorValidateResponseApplicationJson_Ocs_Data &&
         userId == other.userId &&
         pathHash == other.pathHash &&
         expirationTime == other.expirationTime &&
@@ -4788,7 +4701,7 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data')
           ..add('userId', userId)
           ..add('pathHash', pathHash)
           ..add('expirationTime', expirationTime)
@@ -4797,12 +4710,12 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   }
 }
 
-class FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
+class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
-            FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder>,
-        FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data? _$v;
+        Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
+            OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder>,
+        OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -4820,9 +4733,9 @@ class FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get _$this {
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _userId = $v.userId;
@@ -4835,74 +4748,73 @@ class FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant OpenLocalEditorValidateResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data;
+    _$v = other as _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data build() => _build();
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data _build() {
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
-        _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
+        _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
             userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId'),
+                userId, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId'),
             pathHash: BuiltValueNullFieldError.checkNotNull(
-                pathHash, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash'),
+                pathHash, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash'),
             expirationTime: BuiltValueNullFieldError.checkNotNull(
-                expirationTime, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+                expirationTime, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime'),
             token: BuiltValueNullFieldError.checkNotNull(
-                token, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token'));
+                token, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesOpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesOpenLocalEditorValidateResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(OpenLocalEditorValidateResponseApplicationJson_OcsInterface other);
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? data);
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs
-    extends FilesOpenLocalEditorValidateResponseApplicationJson_Ocs {
+class _$OpenLocalEditorValidateResponseApplicationJson_Ocs extends OpenLocalEditorValidateResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_Data data;
+  final OpenLocalEditorValidateResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs(
-          [void Function(FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs(
+          [void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs', 'data');
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'OpenLocalEditorValidateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'OpenLocalEditorValidateResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs rebuild(
-          void Function(FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder) updates) =>
+  OpenLocalEditorValidateResponseApplicationJson_Ocs rebuild(
+          void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..replace(this);
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder toBuilder() =>
+      OpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorValidateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is OpenLocalEditorValidateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -4916,32 +4828,32 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder
+class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesOpenLocalEditorValidateResponseApplicationJson_Ocs,
-            FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder>,
-        FilesOpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs? _$v;
+        Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs,
+            OpenLocalEditorValidateResponseApplicationJson_OcsBuilder>,
+        OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesOpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? _data;
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder get _$this {
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -4952,24 +4864,23 @@ class FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorValidateResponseApplicationJson_Ocs other) {
+  void replace(covariant OpenLocalEditorValidateResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs;
+    _$v = other as _$OpenLocalEditorValidateResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson_Ocs build() => _build();
+  OpenLocalEditorValidateResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs _build() {
-    _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs _$result;
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs _build() {
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesOpenLocalEditorValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4979,7 +4890,7 @@ class FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesOpenLocalEditorValidateResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OpenLocalEditorValidateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4988,39 +4899,38 @@ class FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesOpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesOpenLocalEditorValidateResponseApplicationJsonInterface other);
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder) updates);
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
+  void replace(OpenLocalEditorValidateResponseApplicationJsonInterface other);
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder) updates);
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesOpenLocalEditorValidateResponseApplicationJson
-    extends FilesOpenLocalEditorValidateResponseApplicationJson {
+class _$OpenLocalEditorValidateResponseApplicationJson extends OpenLocalEditorValidateResponseApplicationJson {
   @override
-  final FilesOpenLocalEditorValidateResponseApplicationJson_Ocs ocs;
+  final OpenLocalEditorValidateResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesOpenLocalEditorValidateResponseApplicationJson(
-          [void Function(FilesOpenLocalEditorValidateResponseApplicationJsonBuilder)? updates]) =>
-      (FilesOpenLocalEditorValidateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson(
+          [void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? updates]) =>
+      (OpenLocalEditorValidateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesOpenLocalEditorValidateResponseApplicationJson', 'ocs');
+  _$OpenLocalEditorValidateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OpenLocalEditorValidateResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson rebuild(
-          void Function(FilesOpenLocalEditorValidateResponseApplicationJsonBuilder) updates) =>
+  OpenLocalEditorValidateResponseApplicationJson rebuild(
+          void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJsonBuilder toBuilder() =>
-      FilesOpenLocalEditorValidateResponseApplicationJsonBuilder()..replace(this);
+  OpenLocalEditorValidateResponseApplicationJsonBuilder toBuilder() =>
+      OpenLocalEditorValidateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesOpenLocalEditorValidateResponseApplicationJson && ocs == other.ocs;
+    return other is OpenLocalEditorValidateResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5033,26 +4943,24 @@ class _$FilesOpenLocalEditorValidateResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesOpenLocalEditorValidateResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesOpenLocalEditorValidateResponseApplicationJsonBuilder
+class OpenLocalEditorValidateResponseApplicationJsonBuilder
     implements
-        Builder<FilesOpenLocalEditorValidateResponseApplicationJson,
-            FilesOpenLocalEditorValidateResponseApplicationJsonBuilder>,
-        FilesOpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
-  _$FilesOpenLocalEditorValidateResponseApplicationJson? _$v;
+        Builder<OpenLocalEditorValidateResponseApplicationJson, OpenLocalEditorValidateResponseApplicationJsonBuilder>,
+        OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
+  _$OpenLocalEditorValidateResponseApplicationJson? _$v;
 
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder? _ocs;
-  FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesOpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? _ocs;
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesOpenLocalEditorValidateResponseApplicationJsonBuilder();
+  OpenLocalEditorValidateResponseApplicationJsonBuilder();
 
-  FilesOpenLocalEditorValidateResponseApplicationJsonBuilder get _$this {
+  OpenLocalEditorValidateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5062,23 +4970,23 @@ class FilesOpenLocalEditorValidateResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesOpenLocalEditorValidateResponseApplicationJson other) {
+  void replace(covariant OpenLocalEditorValidateResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesOpenLocalEditorValidateResponseApplicationJson;
+    _$v = other as _$OpenLocalEditorValidateResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesOpenLocalEditorValidateResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesOpenLocalEditorValidateResponseApplicationJson build() => _build();
+  OpenLocalEditorValidateResponseApplicationJson build() => _build();
 
-  _$FilesOpenLocalEditorValidateResponseApplicationJson _build() {
-    _$FilesOpenLocalEditorValidateResponseApplicationJson _$result;
+  _$OpenLocalEditorValidateResponseApplicationJson _build() {
+    _$OpenLocalEditorValidateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesOpenLocalEditorValidateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5086,7 +4994,7 @@ class FilesOpenLocalEditorValidateResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesOpenLocalEditorValidateResponseApplicationJson', _$failedField, e.toString());
+            r'OpenLocalEditorValidateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5095,9 +5003,9 @@ class FilesOpenLocalEditorValidateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTemplateFileCreatorInterfaceBuilder {
-  void replace(FilesTemplateFileCreatorInterface other);
-  void update(void Function(FilesTemplateFileCreatorInterfaceBuilder) updates);
+abstract mixin class TemplateFileCreatorInterfaceBuilder {
+  void replace(TemplateFileCreatorInterface other);
+  void update(void Function(TemplateFileCreatorInterfaceBuilder) updates);
   String? get app;
   set app(String? app);
 
@@ -5120,7 +5028,7 @@ abstract mixin class FilesTemplateFileCreatorInterfaceBuilder {
   set actionLabel(String? actionLabel);
 }
 
-class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
+class _$TemplateFileCreator extends TemplateFileCreator {
   @override
   final String app;
   @override
@@ -5136,10 +5044,10 @@ class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
   @override
   final String actionLabel;
 
-  factory _$FilesTemplateFileCreator([void Function(FilesTemplateFileCreatorBuilder)? updates]) =>
-      (FilesTemplateFileCreatorBuilder()..update(updates))._build();
+  factory _$TemplateFileCreator([void Function(TemplateFileCreatorBuilder)? updates]) =>
+      (TemplateFileCreatorBuilder()..update(updates))._build();
 
-  _$FilesTemplateFileCreator._(
+  _$TemplateFileCreator._(
       {required this.app,
       required this.label,
       required this.$extension,
@@ -5148,24 +5056,24 @@ class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
       this.ratio,
       required this.actionLabel})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(app, r'FilesTemplateFileCreator', 'app');
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesTemplateFileCreator', 'label');
-    BuiltValueNullFieldError.checkNotNull($extension, r'FilesTemplateFileCreator', '\$extension');
-    BuiltValueNullFieldError.checkNotNull(mimetypes, r'FilesTemplateFileCreator', 'mimetypes');
-    BuiltValueNullFieldError.checkNotNull(actionLabel, r'FilesTemplateFileCreator', 'actionLabel');
+    BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreator', 'app');
+    BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label');
+    BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreator', '\$extension');
+    BuiltValueNullFieldError.checkNotNull(mimetypes, r'TemplateFileCreator', 'mimetypes');
+    BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreator', 'actionLabel');
   }
 
   @override
-  FilesTemplateFileCreator rebuild(void Function(FilesTemplateFileCreatorBuilder) updates) =>
+  TemplateFileCreator rebuild(void Function(TemplateFileCreatorBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateFileCreatorBuilder toBuilder() => FilesTemplateFileCreatorBuilder()..replace(this);
+  TemplateFileCreatorBuilder toBuilder() => TemplateFileCreatorBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateFileCreator &&
+    return other is TemplateFileCreator &&
         app == other.app &&
         label == other.label &&
         $extension == other.$extension &&
@@ -5191,7 +5099,7 @@ class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateFileCreator')
+    return (newBuiltValueToStringHelper(r'TemplateFileCreator')
           ..add('app', app)
           ..add('label', label)
           ..add('\$extension', $extension)
@@ -5203,11 +5111,9 @@ class _$FilesTemplateFileCreator extends FilesTemplateFileCreator {
   }
 }
 
-class FilesTemplateFileCreatorBuilder
-    implements
-        Builder<FilesTemplateFileCreator, FilesTemplateFileCreatorBuilder>,
-        FilesTemplateFileCreatorInterfaceBuilder {
-  _$FilesTemplateFileCreator? _$v;
+class TemplateFileCreatorBuilder
+    implements Builder<TemplateFileCreator, TemplateFileCreatorBuilder>, TemplateFileCreatorInterfaceBuilder {
+  _$TemplateFileCreator? _$v;
 
   String? _app;
   String? get app => _$this._app;
@@ -5237,9 +5143,9 @@ class FilesTemplateFileCreatorBuilder
   String? get actionLabel => _$this._actionLabel;
   set actionLabel(covariant String? actionLabel) => _$this._actionLabel = actionLabel;
 
-  FilesTemplateFileCreatorBuilder();
+  TemplateFileCreatorBuilder();
 
-  FilesTemplateFileCreatorBuilder get _$this {
+  TemplateFileCreatorBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _app = $v.app;
@@ -5255,39 +5161,38 @@ class FilesTemplateFileCreatorBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateFileCreator other) {
+  void replace(covariant TemplateFileCreator other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateFileCreator;
+    _$v = other as _$TemplateFileCreator;
   }
 
   @override
-  void update(void Function(FilesTemplateFileCreatorBuilder)? updates) {
+  void update(void Function(TemplateFileCreatorBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateFileCreator build() => _build();
+  TemplateFileCreator build() => _build();
 
-  _$FilesTemplateFileCreator _build() {
-    _$FilesTemplateFileCreator _$result;
+  _$TemplateFileCreator _build() {
+    _$TemplateFileCreator _$result;
     try {
       _$result = _$v ??
-          _$FilesTemplateFileCreator._(
-              app: BuiltValueNullFieldError.checkNotNull(app, r'FilesTemplateFileCreator', 'app'),
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesTemplateFileCreator', 'label'),
-              $extension: BuiltValueNullFieldError.checkNotNull($extension, r'FilesTemplateFileCreator', '\$extension'),
+          _$TemplateFileCreator._(
+              app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreator', 'app'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label'),
+              $extension: BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreator', '\$extension'),
               iconClass: iconClass,
               mimetypes: mimetypes.build(),
               ratio: ratio,
-              actionLabel:
-                  BuiltValueNullFieldError.checkNotNull(actionLabel, r'FilesTemplateFileCreator', 'actionLabel'));
+              actionLabel: BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreator', 'actionLabel'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'mimetypes';
         mimetypes.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplateFileCreator', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplateFileCreator', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5296,44 +5201,44 @@ class FilesTemplateFileCreatorBuilder
   }
 }
 
-abstract mixin class FilesTemplateListResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTemplateListResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTemplateListResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TemplateListResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TemplateListResponseApplicationJson_OcsInterface other);
+  void update(void Function(TemplateListResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesTemplateFileCreator> get data;
-  set data(ListBuilder<FilesTemplateFileCreator>? data);
+  ListBuilder<TemplateFileCreator> get data;
+  set data(ListBuilder<TemplateFileCreator>? data);
 }
 
-class _$FilesTemplateListResponseApplicationJson_Ocs extends FilesTemplateListResponseApplicationJson_Ocs {
+class _$TemplateListResponseApplicationJson_Ocs extends TemplateListResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesTemplateFileCreator> data;
+  final BuiltList<TemplateFileCreator> data;
 
-  factory _$FilesTemplateListResponseApplicationJson_Ocs(
-          [void Function(FilesTemplateListResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTemplateListResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplateListResponseApplicationJson_Ocs(
+          [void Function(TemplateListResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TemplateListResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTemplateListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTemplateListResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTemplateListResponseApplicationJson_Ocs', 'data');
+  _$TemplateListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TemplateListResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TemplateListResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTemplateListResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTemplateListResponseApplicationJson_OcsBuilder) updates) =>
+  TemplateListResponseApplicationJson_Ocs rebuild(
+          void Function(TemplateListResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateListResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTemplateListResponseApplicationJson_OcsBuilder()..replace(this);
+  TemplateListResponseApplicationJson_OcsBuilder toBuilder() =>
+      TemplateListResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateListResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is TemplateListResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -5347,30 +5252,30 @@ class _$FilesTemplateListResponseApplicationJson_Ocs extends FilesTemplateListRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateListResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TemplateListResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTemplateListResponseApplicationJson_OcsBuilder
+class TemplateListResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTemplateListResponseApplicationJson_Ocs, FilesTemplateListResponseApplicationJson_OcsBuilder>,
-        FilesTemplateListResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTemplateListResponseApplicationJson_Ocs? _$v;
+        Builder<TemplateListResponseApplicationJson_Ocs, TemplateListResponseApplicationJson_OcsBuilder>,
+        TemplateListResponseApplicationJson_OcsInterfaceBuilder {
+  _$TemplateListResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesTemplateFileCreator>? _data;
-  ListBuilder<FilesTemplateFileCreator> get data => _$this._data ??= ListBuilder<FilesTemplateFileCreator>();
-  set data(covariant ListBuilder<FilesTemplateFileCreator>? data) => _$this._data = data;
+  ListBuilder<TemplateFileCreator>? _data;
+  ListBuilder<TemplateFileCreator> get data => _$this._data ??= ListBuilder<TemplateFileCreator>();
+  set data(covariant ListBuilder<TemplateFileCreator>? data) => _$this._data = data;
 
-  FilesTemplateListResponseApplicationJson_OcsBuilder();
+  TemplateListResponseApplicationJson_OcsBuilder();
 
-  FilesTemplateListResponseApplicationJson_OcsBuilder get _$this {
+  TemplateListResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -5381,23 +5286,23 @@ class FilesTemplateListResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateListResponseApplicationJson_Ocs other) {
+  void replace(covariant TemplateListResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateListResponseApplicationJson_Ocs;
+    _$v = other as _$TemplateListResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTemplateListResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TemplateListResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateListResponseApplicationJson_Ocs build() => _build();
+  TemplateListResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTemplateListResponseApplicationJson_Ocs _build() {
-    _$FilesTemplateListResponseApplicationJson_Ocs _$result;
+  _$TemplateListResponseApplicationJson_Ocs _build() {
+    _$TemplateListResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesTemplateListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$TemplateListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5406,7 +5311,7 @@ class FilesTemplateListResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplateListResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplateListResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5415,38 +5320,35 @@ class FilesTemplateListResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTemplateListResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTemplateListResponseApplicationJsonInterface other);
-  void update(void Function(FilesTemplateListResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTemplateListResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTemplateListResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TemplateListResponseApplicationJsonInterfaceBuilder {
+  void replace(TemplateListResponseApplicationJsonInterface other);
+  void update(void Function(TemplateListResponseApplicationJsonInterfaceBuilder) updates);
+  TemplateListResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TemplateListResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTemplateListResponseApplicationJson extends FilesTemplateListResponseApplicationJson {
+class _$TemplateListResponseApplicationJson extends TemplateListResponseApplicationJson {
   @override
-  final FilesTemplateListResponseApplicationJson_Ocs ocs;
+  final TemplateListResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTemplateListResponseApplicationJson(
-          [void Function(FilesTemplateListResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTemplateListResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplateListResponseApplicationJson([void Function(TemplateListResponseApplicationJsonBuilder)? updates]) =>
+      (TemplateListResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTemplateListResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTemplateListResponseApplicationJson', 'ocs');
+  _$TemplateListResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TemplateListResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTemplateListResponseApplicationJson rebuild(
-          void Function(FilesTemplateListResponseApplicationJsonBuilder) updates) =>
+  TemplateListResponseApplicationJson rebuild(void Function(TemplateListResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateListResponseApplicationJsonBuilder toBuilder() =>
-      FilesTemplateListResponseApplicationJsonBuilder()..replace(this);
+  TemplateListResponseApplicationJsonBuilder toBuilder() => TemplateListResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateListResponseApplicationJson && ocs == other.ocs;
+    return other is TemplateListResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5459,24 +5361,24 @@ class _$FilesTemplateListResponseApplicationJson extends FilesTemplateListRespon
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateListResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'TemplateListResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesTemplateListResponseApplicationJsonBuilder
+class TemplateListResponseApplicationJsonBuilder
     implements
-        Builder<FilesTemplateListResponseApplicationJson, FilesTemplateListResponseApplicationJsonBuilder>,
-        FilesTemplateListResponseApplicationJsonInterfaceBuilder {
-  _$FilesTemplateListResponseApplicationJson? _$v;
+        Builder<TemplateListResponseApplicationJson, TemplateListResponseApplicationJsonBuilder>,
+        TemplateListResponseApplicationJsonInterfaceBuilder {
+  _$TemplateListResponseApplicationJson? _$v;
 
-  FilesTemplateListResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTemplateListResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTemplateListResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTemplateListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TemplateListResponseApplicationJson_OcsBuilder? _ocs;
+  TemplateListResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TemplateListResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TemplateListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTemplateListResponseApplicationJsonBuilder();
+  TemplateListResponseApplicationJsonBuilder();
 
-  FilesTemplateListResponseApplicationJsonBuilder get _$this {
+  TemplateListResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5486,30 +5388,30 @@ class FilesTemplateListResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateListResponseApplicationJson other) {
+  void replace(covariant TemplateListResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateListResponseApplicationJson;
+    _$v = other as _$TemplateListResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTemplateListResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TemplateListResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateListResponseApplicationJson build() => _build();
+  TemplateListResponseApplicationJson build() => _build();
 
-  _$FilesTemplateListResponseApplicationJson _build() {
-    _$FilesTemplateListResponseApplicationJson _$result;
+  _$TemplateListResponseApplicationJson _build() {
+    _$TemplateListResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTemplateListResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TemplateListResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplateListResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplateListResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5518,9 +5420,9 @@ class FilesTemplateListResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTemplateFileInterfaceBuilder {
-  void replace(FilesTemplateFileInterface other);
-  void update(void Function(FilesTemplateFileInterfaceBuilder) updates);
+abstract mixin class TemplateFileInterfaceBuilder {
+  void replace(TemplateFileInterface other);
+  void update(void Function(TemplateFileInterfaceBuilder) updates);
   String? get basename;
   set basename(String? basename);
 
@@ -5549,7 +5451,7 @@ abstract mixin class FilesTemplateFileInterfaceBuilder {
   set hasPreview(bool? hasPreview);
 }
 
-class _$FilesTemplateFile extends FilesTemplateFile {
+class _$TemplateFile extends TemplateFile {
   @override
   final String basename;
   @override
@@ -5569,10 +5471,10 @@ class _$FilesTemplateFile extends FilesTemplateFile {
   @override
   final bool hasPreview;
 
-  factory _$FilesTemplateFile([void Function(FilesTemplateFileBuilder)? updates]) =>
-      (FilesTemplateFileBuilder()..update(updates))._build();
+  factory _$TemplateFile([void Function(TemplateFileBuilder)? updates]) =>
+      (TemplateFileBuilder()..update(updates))._build();
 
-  _$FilesTemplateFile._(
+  _$TemplateFile._(
       {required this.basename,
       required this.etag,
       required this.fileid,
@@ -5583,26 +5485,26 @@ class _$FilesTemplateFile extends FilesTemplateFile {
       required this.type,
       required this.hasPreview})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(basename, r'FilesTemplateFile', 'basename');
-    BuiltValueNullFieldError.checkNotNull(etag, r'FilesTemplateFile', 'etag');
-    BuiltValueNullFieldError.checkNotNull(fileid, r'FilesTemplateFile', 'fileid');
-    BuiltValueNullFieldError.checkNotNull(lastmod, r'FilesTemplateFile', 'lastmod');
-    BuiltValueNullFieldError.checkNotNull(mime, r'FilesTemplateFile', 'mime');
-    BuiltValueNullFieldError.checkNotNull(size, r'FilesTemplateFile', 'size');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesTemplateFile', 'type');
-    BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesTemplateFile', 'hasPreview');
+    BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename');
+    BuiltValueNullFieldError.checkNotNull(etag, r'TemplateFile', 'etag');
+    BuiltValueNullFieldError.checkNotNull(fileid, r'TemplateFile', 'fileid');
+    BuiltValueNullFieldError.checkNotNull(lastmod, r'TemplateFile', 'lastmod');
+    BuiltValueNullFieldError.checkNotNull(mime, r'TemplateFile', 'mime');
+    BuiltValueNullFieldError.checkNotNull(size, r'TemplateFile', 'size');
+    BuiltValueNullFieldError.checkNotNull(type, r'TemplateFile', 'type');
+    BuiltValueNullFieldError.checkNotNull(hasPreview, r'TemplateFile', 'hasPreview');
   }
 
   @override
-  FilesTemplateFile rebuild(void Function(FilesTemplateFileBuilder) updates) => (toBuilder()..update(updates)).build();
+  TemplateFile rebuild(void Function(TemplateFileBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateFileBuilder toBuilder() => FilesTemplateFileBuilder()..replace(this);
+  TemplateFileBuilder toBuilder() => TemplateFileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateFile &&
+    return other is TemplateFile &&
         basename == other.basename &&
         etag == other.etag &&
         fileid == other.fileid &&
@@ -5632,7 +5534,7 @@ class _$FilesTemplateFile extends FilesTemplateFile {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateFile')
+    return (newBuiltValueToStringHelper(r'TemplateFile')
           ..add('basename', basename)
           ..add('etag', etag)
           ..add('fileid', fileid)
@@ -5646,9 +5548,8 @@ class _$FilesTemplateFile extends FilesTemplateFile {
   }
 }
 
-class FilesTemplateFileBuilder
-    implements Builder<FilesTemplateFile, FilesTemplateFileBuilder>, FilesTemplateFileInterfaceBuilder {
-  _$FilesTemplateFile? _$v;
+class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>, TemplateFileInterfaceBuilder {
+  _$TemplateFile? _$v;
 
   String? _basename;
   String? get basename => _$this._basename;
@@ -5686,9 +5587,9 @@ class FilesTemplateFileBuilder
   bool? get hasPreview => _$this._hasPreview;
   set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
 
-  FilesTemplateFileBuilder();
+  TemplateFileBuilder();
 
-  FilesTemplateFileBuilder get _$this {
+  TemplateFileBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _basename = $v.basename;
@@ -5706,74 +5607,74 @@ class FilesTemplateFileBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateFile other) {
+  void replace(covariant TemplateFile other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateFile;
+    _$v = other as _$TemplateFile;
   }
 
   @override
-  void update(void Function(FilesTemplateFileBuilder)? updates) {
+  void update(void Function(TemplateFileBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateFile build() => _build();
+  TemplateFile build() => _build();
 
-  _$FilesTemplateFile _build() {
+  _$TemplateFile _build() {
     final _$result = _$v ??
-        _$FilesTemplateFile._(
-            basename: BuiltValueNullFieldError.checkNotNull(basename, r'FilesTemplateFile', 'basename'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesTemplateFile', 'etag'),
-            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'FilesTemplateFile', 'fileid'),
+        _$TemplateFile._(
+            basename: BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'TemplateFile', 'etag'),
+            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'TemplateFile', 'fileid'),
             filename: filename,
-            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'FilesTemplateFile', 'lastmod'),
-            mime: BuiltValueNullFieldError.checkNotNull(mime, r'FilesTemplateFile', 'mime'),
-            size: BuiltValueNullFieldError.checkNotNull(size, r'FilesTemplateFile', 'size'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'FilesTemplateFile', 'type'),
-            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesTemplateFile', 'hasPreview'));
+            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'TemplateFile', 'lastmod'),
+            mime: BuiltValueNullFieldError.checkNotNull(mime, r'TemplateFile', 'mime'),
+            size: BuiltValueNullFieldError.checkNotNull(size, r'TemplateFile', 'size'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateFile', 'type'),
+            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'TemplateFile', 'hasPreview'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesTemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTemplateCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTemplateCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TemplateCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function(TemplateCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesTemplateFileBuilder get data;
-  set data(FilesTemplateFileBuilder? data);
+  TemplateFileBuilder get data;
+  set data(TemplateFileBuilder? data);
 }
 
-class _$FilesTemplateCreateResponseApplicationJson_Ocs extends FilesTemplateCreateResponseApplicationJson_Ocs {
+class _$TemplateCreateResponseApplicationJson_Ocs extends TemplateCreateResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesTemplateFile data;
+  final TemplateFile data;
 
-  factory _$FilesTemplateCreateResponseApplicationJson_Ocs(
-          [void Function(FilesTemplateCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTemplateCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplateCreateResponseApplicationJson_Ocs(
+          [void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TemplateCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTemplateCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTemplateCreateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTemplateCreateResponseApplicationJson_Ocs', 'data');
+  _$TemplateCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TemplateCreateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TemplateCreateResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTemplateCreateResponseApplicationJson_OcsBuilder) updates) =>
+  TemplateCreateResponseApplicationJson_Ocs rebuild(
+          void Function(TemplateCreateResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTemplateCreateResponseApplicationJson_OcsBuilder()..replace(this);
+  TemplateCreateResponseApplicationJson_OcsBuilder toBuilder() =>
+      TemplateCreateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is TemplateCreateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -5787,30 +5688,30 @@ class _$FilesTemplateCreateResponseApplicationJson_Ocs extends FilesTemplateCrea
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateCreateResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TemplateCreateResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTemplateCreateResponseApplicationJson_OcsBuilder
+class TemplateCreateResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTemplateCreateResponseApplicationJson_Ocs, FilesTemplateCreateResponseApplicationJson_OcsBuilder>,
-        FilesTemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTemplateCreateResponseApplicationJson_Ocs? _$v;
+        Builder<TemplateCreateResponseApplicationJson_Ocs, TemplateCreateResponseApplicationJson_OcsBuilder>,
+        TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
+  _$TemplateCreateResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesTemplateFileBuilder? _data;
-  FilesTemplateFileBuilder get data => _$this._data ??= FilesTemplateFileBuilder();
-  set data(covariant FilesTemplateFileBuilder? data) => _$this._data = data;
+  TemplateFileBuilder? _data;
+  TemplateFileBuilder get data => _$this._data ??= TemplateFileBuilder();
+  set data(covariant TemplateFileBuilder? data) => _$this._data = data;
 
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder();
+  TemplateCreateResponseApplicationJson_OcsBuilder();
 
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder get _$this {
+  TemplateCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -5821,23 +5722,23 @@ class FilesTemplateCreateResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateCreateResponseApplicationJson_Ocs other) {
+  void replace(covariant TemplateCreateResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateCreateResponseApplicationJson_Ocs;
+    _$v = other as _$TemplateCreateResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTemplateCreateResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson_Ocs build() => _build();
+  TemplateCreateResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTemplateCreateResponseApplicationJson_Ocs _build() {
-    _$FilesTemplateCreateResponseApplicationJson_Ocs _$result;
+  _$TemplateCreateResponseApplicationJson_Ocs _build() {
+    _$TemplateCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesTemplateCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$TemplateCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5846,8 +5747,7 @@ class FilesTemplateCreateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesTemplateCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplateCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5856,38 +5756,37 @@ class FilesTemplateCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTemplateCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTemplateCreateResponseApplicationJsonInterface other);
-  void update(void Function(FilesTemplateCreateResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTemplateCreateResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TemplateCreateResponseApplicationJsonInterfaceBuilder {
+  void replace(TemplateCreateResponseApplicationJsonInterface other);
+  void update(void Function(TemplateCreateResponseApplicationJsonInterfaceBuilder) updates);
+  TemplateCreateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TemplateCreateResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTemplateCreateResponseApplicationJson extends FilesTemplateCreateResponseApplicationJson {
+class _$TemplateCreateResponseApplicationJson extends TemplateCreateResponseApplicationJson {
   @override
-  final FilesTemplateCreateResponseApplicationJson_Ocs ocs;
+  final TemplateCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTemplateCreateResponseApplicationJson(
-          [void Function(FilesTemplateCreateResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTemplateCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplateCreateResponseApplicationJson(
+          [void Function(TemplateCreateResponseApplicationJsonBuilder)? updates]) =>
+      (TemplateCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTemplateCreateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTemplateCreateResponseApplicationJson', 'ocs');
+  _$TemplateCreateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TemplateCreateResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson rebuild(
-          void Function(FilesTemplateCreateResponseApplicationJsonBuilder) updates) =>
+  TemplateCreateResponseApplicationJson rebuild(void Function(TemplateCreateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateCreateResponseApplicationJsonBuilder toBuilder() =>
-      FilesTemplateCreateResponseApplicationJsonBuilder()..replace(this);
+  TemplateCreateResponseApplicationJsonBuilder toBuilder() =>
+      TemplateCreateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplateCreateResponseApplicationJson && ocs == other.ocs;
+    return other is TemplateCreateResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5900,24 +5799,24 @@ class _$FilesTemplateCreateResponseApplicationJson extends FilesTemplateCreateRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplateCreateResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'TemplateCreateResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesTemplateCreateResponseApplicationJsonBuilder
+class TemplateCreateResponseApplicationJsonBuilder
     implements
-        Builder<FilesTemplateCreateResponseApplicationJson, FilesTemplateCreateResponseApplicationJsonBuilder>,
-        FilesTemplateCreateResponseApplicationJsonInterfaceBuilder {
-  _$FilesTemplateCreateResponseApplicationJson? _$v;
+        Builder<TemplateCreateResponseApplicationJson, TemplateCreateResponseApplicationJsonBuilder>,
+        TemplateCreateResponseApplicationJsonInterfaceBuilder {
+  _$TemplateCreateResponseApplicationJson? _$v;
 
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTemplateCreateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTemplateCreateResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTemplateCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TemplateCreateResponseApplicationJson_OcsBuilder? _ocs;
+  TemplateCreateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TemplateCreateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TemplateCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTemplateCreateResponseApplicationJsonBuilder();
+  TemplateCreateResponseApplicationJsonBuilder();
 
-  FilesTemplateCreateResponseApplicationJsonBuilder get _$this {
+  TemplateCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5927,30 +5826,30 @@ class FilesTemplateCreateResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTemplateCreateResponseApplicationJson other) {
+  void replace(covariant TemplateCreateResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplateCreateResponseApplicationJson;
+    _$v = other as _$TemplateCreateResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTemplateCreateResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TemplateCreateResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplateCreateResponseApplicationJson build() => _build();
+  TemplateCreateResponseApplicationJson build() => _build();
 
-  _$FilesTemplateCreateResponseApplicationJson _build() {
-    _$FilesTemplateCreateResponseApplicationJson _$result;
+  _$TemplateCreateResponseApplicationJson _build() {
+    _$TemplateCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTemplateCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TemplateCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplateCreateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplateCreateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5959,46 +5858,45 @@ class FilesTemplateCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesTemplatePathResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesTemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TemplatePathResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get templatePath;
   set templatePath(String? templatePath);
 
-  ListBuilder<FilesTemplateFileCreator> get templates;
-  set templates(ListBuilder<FilesTemplateFileCreator>? templates);
+  ListBuilder<TemplateFileCreator> get templates;
+  set templates(ListBuilder<TemplateFileCreator>? templates);
 }
 
-class _$FilesTemplatePathResponseApplicationJson_Ocs_Data extends FilesTemplatePathResponseApplicationJson_Ocs_Data {
+class _$TemplatePathResponseApplicationJson_Ocs_Data extends TemplatePathResponseApplicationJson_Ocs_Data {
   @override
   final String templatePath;
   @override
-  final BuiltList<FilesTemplateFileCreator> templates;
+  final BuiltList<TemplateFileCreator> templates;
 
-  factory _$FilesTemplatePathResponseApplicationJson_Ocs_Data(
-          [void Function(FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$TemplatePathResponseApplicationJson_Ocs_Data(
+          [void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TemplatePathResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesTemplatePathResponseApplicationJson_Ocs_Data._({required this.templatePath, required this.templates})
-      : super._() {
+  _$TemplatePathResponseApplicationJson_Ocs_Data._({required this.templatePath, required this.templates}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        templatePath, r'FilesTemplatePathResponseApplicationJson_Ocs_Data', 'templatePath');
-    BuiltValueNullFieldError.checkNotNull(templates, r'FilesTemplatePathResponseApplicationJson_Ocs_Data', 'templates');
+        templatePath, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templatePath');
+    BuiltValueNullFieldError.checkNotNull(templates, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templates');
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  TemplatePathResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TemplatePathResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplatePathResponseApplicationJson_Ocs_Data &&
+    return other is TemplatePathResponseApplicationJson_Ocs_Data &&
         templatePath == other.templatePath &&
         templates == other.templates;
   }
@@ -6014,31 +5912,30 @@ class _$FilesTemplatePathResponseApplicationJson_Ocs_Data extends FilesTemplateP
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplatePathResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'TemplatePathResponseApplicationJson_Ocs_Data')
           ..add('templatePath', templatePath)
           ..add('templates', templates))
         .toString();
   }
 }
 
-class FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder
+class TemplatePathResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesTemplatePathResponseApplicationJson_Ocs_Data,
-            FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder>,
-        FilesTemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesTemplatePathResponseApplicationJson_Ocs_Data? _$v;
+        Builder<TemplatePathResponseApplicationJson_Ocs_Data, TemplatePathResponseApplicationJson_Ocs_DataBuilder>,
+        TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TemplatePathResponseApplicationJson_Ocs_Data? _$v;
 
   String? _templatePath;
   String? get templatePath => _$this._templatePath;
   set templatePath(covariant String? templatePath) => _$this._templatePath = templatePath;
 
-  ListBuilder<FilesTemplateFileCreator>? _templates;
-  ListBuilder<FilesTemplateFileCreator> get templates => _$this._templates ??= ListBuilder<FilesTemplateFileCreator>();
-  set templates(covariant ListBuilder<FilesTemplateFileCreator>? templates) => _$this._templates = templates;
+  ListBuilder<TemplateFileCreator>? _templates;
+  ListBuilder<TemplateFileCreator> get templates => _$this._templates ??= ListBuilder<TemplateFileCreator>();
+  set templates(covariant ListBuilder<TemplateFileCreator>? templates) => _$this._templates = templates;
 
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder();
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder get _$this {
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _templatePath = $v.templatePath;
@@ -6049,26 +5946,26 @@ class FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesTemplatePathResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant TemplatePathResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplatePathResponseApplicationJson_Ocs_Data;
+    _$v = other as _$TemplatePathResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs_Data build() => _build();
+  TemplatePathResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesTemplatePathResponseApplicationJson_Ocs_Data _build() {
-    _$FilesTemplatePathResponseApplicationJson_Ocs_Data _$result;
+  _$TemplatePathResponseApplicationJson_Ocs_Data _build() {
+    _$TemplatePathResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$FilesTemplatePathResponseApplicationJson_Ocs_Data._(
+          _$TemplatePathResponseApplicationJson_Ocs_Data._(
               templatePath: BuiltValueNullFieldError.checkNotNull(
-                  templatePath, r'FilesTemplatePathResponseApplicationJson_Ocs_Data', 'templatePath'),
+                  templatePath, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templatePath'),
               templates: templates.build());
     } catch (_) {
       late String _$failedField;
@@ -6076,8 +5973,7 @@ class FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'templates';
         templates.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesTemplatePathResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplatePathResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6086,44 +5982,44 @@ class FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class FilesTemplatePathResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTemplatePathResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTemplatePathResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TemplatePathResponseApplicationJson_OcsInterface other);
+  void update(void Function(TemplatePathResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder? data);
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TemplatePathResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesTemplatePathResponseApplicationJson_Ocs extends FilesTemplatePathResponseApplicationJson_Ocs {
+class _$TemplatePathResponseApplicationJson_Ocs extends TemplatePathResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesTemplatePathResponseApplicationJson_Ocs_Data data;
+  final TemplatePathResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesTemplatePathResponseApplicationJson_Ocs(
-          [void Function(FilesTemplatePathResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTemplatePathResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplatePathResponseApplicationJson_Ocs(
+          [void Function(TemplatePathResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TemplatePathResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTemplatePathResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTemplatePathResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTemplatePathResponseApplicationJson_Ocs', 'data');
+  _$TemplatePathResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TemplatePathResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TemplatePathResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTemplatePathResponseApplicationJson_OcsBuilder) updates) =>
+  TemplatePathResponseApplicationJson_Ocs rebuild(
+          void Function(TemplatePathResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplatePathResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTemplatePathResponseApplicationJson_OcsBuilder()..replace(this);
+  TemplatePathResponseApplicationJson_OcsBuilder toBuilder() =>
+      TemplatePathResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplatePathResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is TemplatePathResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6137,31 +6033,31 @@ class _$FilesTemplatePathResponseApplicationJson_Ocs extends FilesTemplatePathRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplatePathResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TemplatePathResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTemplatePathResponseApplicationJson_OcsBuilder
+class TemplatePathResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTemplatePathResponseApplicationJson_Ocs, FilesTemplatePathResponseApplicationJson_OcsBuilder>,
-        FilesTemplatePathResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTemplatePathResponseApplicationJson_Ocs? _$v;
+        Builder<TemplatePathResponseApplicationJson_Ocs, TemplatePathResponseApplicationJson_OcsBuilder>,
+        TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
+  _$TemplatePathResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesTemplatePathResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder? _data;
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TemplatePathResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TemplatePathResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesTemplatePathResponseApplicationJson_OcsBuilder();
+  TemplatePathResponseApplicationJson_OcsBuilder();
 
-  FilesTemplatePathResponseApplicationJson_OcsBuilder get _$this {
+  TemplatePathResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6172,23 +6068,23 @@ class FilesTemplatePathResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTemplatePathResponseApplicationJson_Ocs other) {
+  void replace(covariant TemplatePathResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplatePathResponseApplicationJson_Ocs;
+    _$v = other as _$TemplatePathResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTemplatePathResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TemplatePathResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson_Ocs build() => _build();
+  TemplatePathResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTemplatePathResponseApplicationJson_Ocs _build() {
-    _$FilesTemplatePathResponseApplicationJson_Ocs _$result;
+  _$TemplatePathResponseApplicationJson_Ocs _build() {
+    _$TemplatePathResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesTemplatePathResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$TemplatePathResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6197,7 +6093,7 @@ class FilesTemplatePathResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplatePathResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplatePathResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6206,38 +6102,35 @@ class FilesTemplatePathResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTemplatePathResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTemplatePathResponseApplicationJsonInterface other);
-  void update(void Function(FilesTemplatePathResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTemplatePathResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTemplatePathResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TemplatePathResponseApplicationJsonInterfaceBuilder {
+  void replace(TemplatePathResponseApplicationJsonInterface other);
+  void update(void Function(TemplatePathResponseApplicationJsonInterfaceBuilder) updates);
+  TemplatePathResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TemplatePathResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTemplatePathResponseApplicationJson extends FilesTemplatePathResponseApplicationJson {
+class _$TemplatePathResponseApplicationJson extends TemplatePathResponseApplicationJson {
   @override
-  final FilesTemplatePathResponseApplicationJson_Ocs ocs;
+  final TemplatePathResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTemplatePathResponseApplicationJson(
-          [void Function(FilesTemplatePathResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTemplatePathResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplatePathResponseApplicationJson([void Function(TemplatePathResponseApplicationJsonBuilder)? updates]) =>
+      (TemplatePathResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTemplatePathResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTemplatePathResponseApplicationJson', 'ocs');
+  _$TemplatePathResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TemplatePathResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson rebuild(
-          void Function(FilesTemplatePathResponseApplicationJsonBuilder) updates) =>
+  TemplatePathResponseApplicationJson rebuild(void Function(TemplatePathResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplatePathResponseApplicationJsonBuilder toBuilder() =>
-      FilesTemplatePathResponseApplicationJsonBuilder()..replace(this);
+  TemplatePathResponseApplicationJsonBuilder toBuilder() => TemplatePathResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplatePathResponseApplicationJson && ocs == other.ocs;
+    return other is TemplatePathResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6250,24 +6143,24 @@ class _$FilesTemplatePathResponseApplicationJson extends FilesTemplatePathRespon
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplatePathResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'TemplatePathResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesTemplatePathResponseApplicationJsonBuilder
+class TemplatePathResponseApplicationJsonBuilder
     implements
-        Builder<FilesTemplatePathResponseApplicationJson, FilesTemplatePathResponseApplicationJsonBuilder>,
-        FilesTemplatePathResponseApplicationJsonInterfaceBuilder {
-  _$FilesTemplatePathResponseApplicationJson? _$v;
+        Builder<TemplatePathResponseApplicationJson, TemplatePathResponseApplicationJsonBuilder>,
+        TemplatePathResponseApplicationJsonInterfaceBuilder {
+  _$TemplatePathResponseApplicationJson? _$v;
 
-  FilesTemplatePathResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTemplatePathResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTemplatePathResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTemplatePathResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TemplatePathResponseApplicationJson_OcsBuilder? _ocs;
+  TemplatePathResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TemplatePathResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TemplatePathResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTemplatePathResponseApplicationJsonBuilder();
+  TemplatePathResponseApplicationJsonBuilder();
 
-  FilesTemplatePathResponseApplicationJsonBuilder get _$this {
+  TemplatePathResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6277,30 +6170,30 @@ class FilesTemplatePathResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTemplatePathResponseApplicationJson other) {
+  void replace(covariant TemplatePathResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplatePathResponseApplicationJson;
+    _$v = other as _$TemplatePathResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTemplatePathResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TemplatePathResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplatePathResponseApplicationJson build() => _build();
+  TemplatePathResponseApplicationJson build() => _build();
 
-  _$FilesTemplatePathResponseApplicationJson _build() {
-    _$FilesTemplatePathResponseApplicationJson _$result;
+  _$TemplatePathResponseApplicationJson _build() {
+    _$TemplatePathResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTemplatePathResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TemplatePathResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesTemplatePathResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TemplatePathResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6309,47 +6202,45 @@ class FilesTemplatePathResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTransferOwnershipTransferResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TransferOwnershipTransferResponseApplicationJson_OcsInterface other);
+  void update(void Function(TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs
-    extends FilesTransferOwnershipTransferResponseApplicationJson_Ocs {
+class _$TransferOwnershipTransferResponseApplicationJson_Ocs
+    extends TransferOwnershipTransferResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs(
-          [void Function(FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipTransferResponseApplicationJson_Ocs(
+          [void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TransferOwnershipTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTransferOwnershipTransferResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTransferOwnershipTransferResponseApplicationJson_Ocs', 'data');
+  _$TransferOwnershipTransferResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder) updates) =>
+  TransferOwnershipTransferResponseApplicationJson_Ocs rebuild(
+          void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder()..replace(this);
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder toBuilder() =>
+      TransferOwnershipTransferResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipTransferResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is TransferOwnershipTransferResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6363,31 +6254,31 @@ class _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipTransferResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TransferOwnershipTransferResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder
+class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTransferOwnershipTransferResponseApplicationJson_Ocs,
-            FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder>,
-        FilesTransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs? _$v;
+        Builder<TransferOwnershipTransferResponseApplicationJson_Ocs,
+            TransferOwnershipTransferResponseApplicationJson_OcsBuilder>,
+        TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
+  _$TransferOwnershipTransferResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder();
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
 
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder get _$this {
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6398,27 +6289,27 @@ class FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipTransferResponseApplicationJson_Ocs other) {
+  void replace(covariant TransferOwnershipTransferResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs;
+    _$v = other as _$TransferOwnershipTransferResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson_Ocs build() => _build();
+  TransferOwnershipTransferResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs _build() {
-    _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs _$result;
+  _$TransferOwnershipTransferResponseApplicationJson_Ocs _build() {
+    _$TransferOwnershipTransferResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesTransferOwnershipTransferResponseApplicationJson_Ocs._(
+          _$TransferOwnershipTransferResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesTransferOwnershipTransferResponseApplicationJson_Ocs', 'data'));
+                  data, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -6426,7 +6317,7 @@ class FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipTransferResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'TransferOwnershipTransferResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6435,39 +6326,38 @@ class FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTransferOwnershipTransferResponseApplicationJsonInterface other);
-  void update(void Function(FilesTransferOwnershipTransferResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
+  void replace(TransferOwnershipTransferResponseApplicationJsonInterface other);
+  void update(void Function(TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder) updates);
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTransferOwnershipTransferResponseApplicationJson
-    extends FilesTransferOwnershipTransferResponseApplicationJson {
+class _$TransferOwnershipTransferResponseApplicationJson extends TransferOwnershipTransferResponseApplicationJson {
   @override
-  final FilesTransferOwnershipTransferResponseApplicationJson_Ocs ocs;
+  final TransferOwnershipTransferResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTransferOwnershipTransferResponseApplicationJson(
-          [void Function(FilesTransferOwnershipTransferResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTransferOwnershipTransferResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipTransferResponseApplicationJson(
+          [void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? updates]) =>
+      (TransferOwnershipTransferResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipTransferResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTransferOwnershipTransferResponseApplicationJson', 'ocs');
+  _$TransferOwnershipTransferResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TransferOwnershipTransferResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson rebuild(
-          void Function(FilesTransferOwnershipTransferResponseApplicationJsonBuilder) updates) =>
+  TransferOwnershipTransferResponseApplicationJson rebuild(
+          void Function(TransferOwnershipTransferResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJsonBuilder toBuilder() =>
-      FilesTransferOwnershipTransferResponseApplicationJsonBuilder()..replace(this);
+  TransferOwnershipTransferResponseApplicationJsonBuilder toBuilder() =>
+      TransferOwnershipTransferResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipTransferResponseApplicationJson && ocs == other.ocs;
+    return other is TransferOwnershipTransferResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6480,26 +6370,26 @@ class _$FilesTransferOwnershipTransferResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipTransferResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'TransferOwnershipTransferResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class FilesTransferOwnershipTransferResponseApplicationJsonBuilder
+class TransferOwnershipTransferResponseApplicationJsonBuilder
     implements
-        Builder<FilesTransferOwnershipTransferResponseApplicationJson,
-            FilesTransferOwnershipTransferResponseApplicationJsonBuilder>,
-        FilesTransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
-  _$FilesTransferOwnershipTransferResponseApplicationJson? _$v;
+        Builder<TransferOwnershipTransferResponseApplicationJson,
+            TransferOwnershipTransferResponseApplicationJsonBuilder>,
+        TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
+  _$TransferOwnershipTransferResponseApplicationJson? _$v;
 
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder? _ocs;
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTransferOwnershipTransferResponseApplicationJsonBuilder();
+  TransferOwnershipTransferResponseApplicationJsonBuilder();
 
-  FilesTransferOwnershipTransferResponseApplicationJsonBuilder get _$this {
+  TransferOwnershipTransferResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6509,23 +6399,23 @@ class FilesTransferOwnershipTransferResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipTransferResponseApplicationJson other) {
+  void replace(covariant TransferOwnershipTransferResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipTransferResponseApplicationJson;
+    _$v = other as _$TransferOwnershipTransferResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipTransferResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipTransferResponseApplicationJson build() => _build();
+  TransferOwnershipTransferResponseApplicationJson build() => _build();
 
-  _$FilesTransferOwnershipTransferResponseApplicationJson _build() {
-    _$FilesTransferOwnershipTransferResponseApplicationJson _$result;
+  _$TransferOwnershipTransferResponseApplicationJson _build() {
+    _$TransferOwnershipTransferResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTransferOwnershipTransferResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TransferOwnershipTransferResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6533,7 +6423,7 @@ class FilesTransferOwnershipTransferResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipTransferResponseApplicationJson', _$failedField, e.toString());
+            r'TransferOwnershipTransferResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6542,45 +6432,44 @@ class FilesTransferOwnershipTransferResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTransferOwnershipAcceptResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TransferOwnershipAcceptResponseApplicationJson_OcsInterface other);
+  void update(void Function(TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs
-    extends FilesTransferOwnershipAcceptResponseApplicationJson_Ocs {
+class _$TransferOwnershipAcceptResponseApplicationJson_Ocs extends TransferOwnershipAcceptResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs(
-          [void Function(FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipAcceptResponseApplicationJson_Ocs(
+          [void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs', 'data');
+  _$TransferOwnershipAcceptResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder) updates) =>
+  TransferOwnershipAcceptResponseApplicationJson_Ocs rebuild(
+          void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..replace(this);
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder toBuilder() =>
+      TransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipAcceptResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is TransferOwnershipAcceptResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6594,31 +6483,31 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TransferOwnershipAcceptResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder
+class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTransferOwnershipAcceptResponseApplicationJson_Ocs,
-            FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder>,
-        FilesTransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs? _$v;
+        Builder<TransferOwnershipAcceptResponseApplicationJson_Ocs,
+            TransferOwnershipAcceptResponseApplicationJson_OcsBuilder>,
+        TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
+  _$TransferOwnershipAcceptResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
 
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder get _$this {
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6629,27 +6518,27 @@ class FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipAcceptResponseApplicationJson_Ocs other) {
+  void replace(covariant TransferOwnershipAcceptResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs;
+    _$v = other as _$TransferOwnershipAcceptResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson_Ocs build() => _build();
+  TransferOwnershipAcceptResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs _build() {
-    _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs _$result;
+  _$TransferOwnershipAcceptResponseApplicationJson_Ocs _build() {
+    _$TransferOwnershipAcceptResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesTransferOwnershipAcceptResponseApplicationJson_Ocs._(
+          _$TransferOwnershipAcceptResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs', 'data'));
+                  data, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -6657,7 +6546,7 @@ class FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipAcceptResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'TransferOwnershipAcceptResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6666,39 +6555,38 @@ class FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTransferOwnershipAcceptResponseApplicationJsonInterface other);
-  void update(void Function(FilesTransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
+  void replace(TransferOwnershipAcceptResponseApplicationJsonInterface other);
+  void update(void Function(TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder) updates);
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTransferOwnershipAcceptResponseApplicationJson
-    extends FilesTransferOwnershipAcceptResponseApplicationJson {
+class _$TransferOwnershipAcceptResponseApplicationJson extends TransferOwnershipAcceptResponseApplicationJson {
   @override
-  final FilesTransferOwnershipAcceptResponseApplicationJson_Ocs ocs;
+  final TransferOwnershipAcceptResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTransferOwnershipAcceptResponseApplicationJson(
-          [void Function(FilesTransferOwnershipAcceptResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTransferOwnershipAcceptResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipAcceptResponseApplicationJson(
+          [void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? updates]) =>
+      (TransferOwnershipAcceptResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipAcceptResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTransferOwnershipAcceptResponseApplicationJson', 'ocs');
+  _$TransferOwnershipAcceptResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TransferOwnershipAcceptResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson rebuild(
-          void Function(FilesTransferOwnershipAcceptResponseApplicationJsonBuilder) updates) =>
+  TransferOwnershipAcceptResponseApplicationJson rebuild(
+          void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJsonBuilder toBuilder() =>
-      FilesTransferOwnershipAcceptResponseApplicationJsonBuilder()..replace(this);
+  TransferOwnershipAcceptResponseApplicationJsonBuilder toBuilder() =>
+      TransferOwnershipAcceptResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipAcceptResponseApplicationJson && ocs == other.ocs;
+    return other is TransferOwnershipAcceptResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6711,26 +6599,24 @@ class _$FilesTransferOwnershipAcceptResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipAcceptResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'TransferOwnershipAcceptResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesTransferOwnershipAcceptResponseApplicationJsonBuilder
+class TransferOwnershipAcceptResponseApplicationJsonBuilder
     implements
-        Builder<FilesTransferOwnershipAcceptResponseApplicationJson,
-            FilesTransferOwnershipAcceptResponseApplicationJsonBuilder>,
-        FilesTransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
-  _$FilesTransferOwnershipAcceptResponseApplicationJson? _$v;
+        Builder<TransferOwnershipAcceptResponseApplicationJson, TransferOwnershipAcceptResponseApplicationJsonBuilder>,
+        TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
+  _$TransferOwnershipAcceptResponseApplicationJson? _$v;
 
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? _ocs;
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTransferOwnershipAcceptResponseApplicationJsonBuilder();
+  TransferOwnershipAcceptResponseApplicationJsonBuilder();
 
-  FilesTransferOwnershipAcceptResponseApplicationJsonBuilder get _$this {
+  TransferOwnershipAcceptResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6740,23 +6626,23 @@ class FilesTransferOwnershipAcceptResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipAcceptResponseApplicationJson other) {
+  void replace(covariant TransferOwnershipAcceptResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipAcceptResponseApplicationJson;
+    _$v = other as _$TransferOwnershipAcceptResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipAcceptResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipAcceptResponseApplicationJson build() => _build();
+  TransferOwnershipAcceptResponseApplicationJson build() => _build();
 
-  _$FilesTransferOwnershipAcceptResponseApplicationJson _build() {
-    _$FilesTransferOwnershipAcceptResponseApplicationJson _$result;
+  _$TransferOwnershipAcceptResponseApplicationJson _build() {
+    _$TransferOwnershipAcceptResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTransferOwnershipAcceptResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TransferOwnershipAcceptResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6764,7 +6650,7 @@ class FilesTransferOwnershipAcceptResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipAcceptResponseApplicationJson', _$failedField, e.toString());
+            r'TransferOwnershipAcceptResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6773,45 +6659,44 @@ class FilesTransferOwnershipAcceptResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesTransferOwnershipRejectResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesTransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesOCSMetaBuilder get meta;
-  set meta(FilesOCSMetaBuilder? meta);
+abstract mixin class TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TransferOwnershipRejectResponseApplicationJson_OcsInterface other);
+  void update(void Function(TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs
-    extends FilesTransferOwnershipRejectResponseApplicationJson_Ocs {
+class _$TransferOwnershipRejectResponseApplicationJson_Ocs extends TransferOwnershipRejectResponseApplicationJson_Ocs {
   @override
-  final FilesOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs(
-          [void Function(FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipRejectResponseApplicationJson_Ocs(
+          [void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TransferOwnershipRejectResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesTransferOwnershipRejectResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesTransferOwnershipRejectResponseApplicationJson_Ocs', 'data');
+  _$TransferOwnershipRejectResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson_Ocs rebuild(
-          void Function(FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder) updates) =>
+  TransferOwnershipRejectResponseApplicationJson_Ocs rebuild(
+          void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder()..replace(this);
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder toBuilder() =>
+      TransferOwnershipRejectResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipRejectResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is TransferOwnershipRejectResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6825,31 +6710,31 @@ class _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipRejectResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'TransferOwnershipRejectResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder
+class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesTransferOwnershipRejectResponseApplicationJson_Ocs,
-            FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder>,
-        FilesTransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs? _$v;
+        Builder<TransferOwnershipRejectResponseApplicationJson_Ocs,
+            TransferOwnershipRejectResponseApplicationJson_OcsBuilder>,
+        TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
+  _$TransferOwnershipRejectResponseApplicationJson_Ocs? _$v;
 
-  FilesOCSMetaBuilder? _meta;
-  FilesOCSMetaBuilder get meta => _$this._meta ??= FilesOCSMetaBuilder();
-  set meta(covariant FilesOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder();
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
 
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder get _$this {
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6860,27 +6745,27 @@ class FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipRejectResponseApplicationJson_Ocs other) {
+  void replace(covariant TransferOwnershipRejectResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs;
+    _$v = other as _$TransferOwnershipRejectResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson_Ocs build() => _build();
+  TransferOwnershipRejectResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs _build() {
-    _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs _$result;
+  _$TransferOwnershipRejectResponseApplicationJson_Ocs _build() {
+    _$TransferOwnershipRejectResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesTransferOwnershipRejectResponseApplicationJson_Ocs._(
+          _$TransferOwnershipRejectResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesTransferOwnershipRejectResponseApplicationJson_Ocs', 'data'));
+                  data, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -6888,7 +6773,7 @@ class FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipRejectResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'TransferOwnershipRejectResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6897,39 +6782,38 @@ class FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesTransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesTransferOwnershipRejectResponseApplicationJsonInterface other);
-  void update(void Function(FilesTransferOwnershipRejectResponseApplicationJsonInterfaceBuilder) updates);
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
+  void replace(TransferOwnershipRejectResponseApplicationJsonInterface other);
+  void update(void Function(TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder) updates);
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesTransferOwnershipRejectResponseApplicationJson
-    extends FilesTransferOwnershipRejectResponseApplicationJson {
+class _$TransferOwnershipRejectResponseApplicationJson extends TransferOwnershipRejectResponseApplicationJson {
   @override
-  final FilesTransferOwnershipRejectResponseApplicationJson_Ocs ocs;
+  final TransferOwnershipRejectResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesTransferOwnershipRejectResponseApplicationJson(
-          [void Function(FilesTransferOwnershipRejectResponseApplicationJsonBuilder)? updates]) =>
-      (FilesTransferOwnershipRejectResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipRejectResponseApplicationJson(
+          [void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? updates]) =>
+      (TransferOwnershipRejectResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesTransferOwnershipRejectResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesTransferOwnershipRejectResponseApplicationJson', 'ocs');
+  _$TransferOwnershipRejectResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TransferOwnershipRejectResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson rebuild(
-          void Function(FilesTransferOwnershipRejectResponseApplicationJsonBuilder) updates) =>
+  TransferOwnershipRejectResponseApplicationJson rebuild(
+          void Function(TransferOwnershipRejectResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJsonBuilder toBuilder() =>
-      FilesTransferOwnershipRejectResponseApplicationJsonBuilder()..replace(this);
+  TransferOwnershipRejectResponseApplicationJsonBuilder toBuilder() =>
+      TransferOwnershipRejectResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTransferOwnershipRejectResponseApplicationJson && ocs == other.ocs;
+    return other is TransferOwnershipRejectResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6942,26 +6826,24 @@ class _$FilesTransferOwnershipRejectResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTransferOwnershipRejectResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'TransferOwnershipRejectResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesTransferOwnershipRejectResponseApplicationJsonBuilder
+class TransferOwnershipRejectResponseApplicationJsonBuilder
     implements
-        Builder<FilesTransferOwnershipRejectResponseApplicationJson,
-            FilesTransferOwnershipRejectResponseApplicationJsonBuilder>,
-        FilesTransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
-  _$FilesTransferOwnershipRejectResponseApplicationJson? _$v;
+        Builder<TransferOwnershipRejectResponseApplicationJson, TransferOwnershipRejectResponseApplicationJsonBuilder>,
+        TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
+  _$TransferOwnershipRejectResponseApplicationJson? _$v;
 
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder? _ocs;
-  FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesTransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder? _ocs;
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesTransferOwnershipRejectResponseApplicationJsonBuilder();
+  TransferOwnershipRejectResponseApplicationJsonBuilder();
 
-  FilesTransferOwnershipRejectResponseApplicationJsonBuilder get _$this {
+  TransferOwnershipRejectResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6971,23 +6853,23 @@ class FilesTransferOwnershipRejectResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesTransferOwnershipRejectResponseApplicationJson other) {
+  void replace(covariant TransferOwnershipRejectResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTransferOwnershipRejectResponseApplicationJson;
+    _$v = other as _$TransferOwnershipRejectResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesTransferOwnershipRejectResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTransferOwnershipRejectResponseApplicationJson build() => _build();
+  TransferOwnershipRejectResponseApplicationJson build() => _build();
 
-  _$FilesTransferOwnershipRejectResponseApplicationJson _build() {
-    _$FilesTransferOwnershipRejectResponseApplicationJson _$result;
+  _$TransferOwnershipRejectResponseApplicationJson _build() {
+    _$TransferOwnershipRejectResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesTransferOwnershipRejectResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$TransferOwnershipRejectResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6995,7 +6877,7 @@ class FilesTransferOwnershipRejectResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesTransferOwnershipRejectResponseApplicationJson', _$failedField, e.toString());
+            r'TransferOwnershipRejectResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7004,9 +6886,9 @@ class FilesTransferOwnershipRejectResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesCapabilities_Files_DirectEditingInterfaceBuilder {
-  void replace(FilesCapabilities_Files_DirectEditingInterface other);
-  void update(void Function(FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates);
+abstract mixin class Capabilities_Files_DirectEditingInterfaceBuilder {
+  void replace(Capabilities_Files_DirectEditingInterface other);
+  void update(void Function(Capabilities_Files_DirectEditingInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 
@@ -7017,7 +6899,7 @@ abstract mixin class FilesCapabilities_Files_DirectEditingInterfaceBuilder {
   set supportsFileId(bool? supportsFileId);
 }
 
-class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_DirectEditing {
+class _$Capabilities_Files_DirectEditing extends Capabilities_Files_DirectEditing {
   @override
   final String url;
   @override
@@ -7025,29 +6907,27 @@ class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_Di
   @override
   final bool supportsFileId;
 
-  factory _$FilesCapabilities_Files_DirectEditing(
-          [void Function(FilesCapabilities_Files_DirectEditingBuilder)? updates]) =>
-      (FilesCapabilities_Files_DirectEditingBuilder()..update(updates))._build();
+  factory _$Capabilities_Files_DirectEditing([void Function(Capabilities_Files_DirectEditingBuilder)? updates]) =>
+      (Capabilities_Files_DirectEditingBuilder()..update(updates))._build();
 
-  _$FilesCapabilities_Files_DirectEditing._({required this.url, required this.etag, required this.supportsFileId})
+  _$Capabilities_Files_DirectEditing._({required this.url, required this.etag, required this.supportsFileId})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'FilesCapabilities_Files_DirectEditing', 'url');
-    BuiltValueNullFieldError.checkNotNull(etag, r'FilesCapabilities_Files_DirectEditing', 'etag');
-    BuiltValueNullFieldError.checkNotNull(supportsFileId, r'FilesCapabilities_Files_DirectEditing', 'supportsFileId');
+    BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url');
+    BuiltValueNullFieldError.checkNotNull(etag, r'Capabilities_Files_DirectEditing', 'etag');
+    BuiltValueNullFieldError.checkNotNull(supportsFileId, r'Capabilities_Files_DirectEditing', 'supportsFileId');
   }
 
   @override
-  FilesCapabilities_Files_DirectEditing rebuild(void Function(FilesCapabilities_Files_DirectEditingBuilder) updates) =>
+  Capabilities_Files_DirectEditing rebuild(void Function(Capabilities_Files_DirectEditingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesCapabilities_Files_DirectEditingBuilder toBuilder() =>
-      FilesCapabilities_Files_DirectEditingBuilder()..replace(this);
+  Capabilities_Files_DirectEditingBuilder toBuilder() => Capabilities_Files_DirectEditingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesCapabilities_Files_DirectEditing &&
+    return other is Capabilities_Files_DirectEditing &&
         url == other.url &&
         etag == other.etag &&
         supportsFileId == other.supportsFileId;
@@ -7065,7 +6945,7 @@ class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_Di
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesCapabilities_Files_DirectEditing')
+    return (newBuiltValueToStringHelper(r'Capabilities_Files_DirectEditing')
           ..add('url', url)
           ..add('etag', etag)
           ..add('supportsFileId', supportsFileId))
@@ -7073,11 +6953,11 @@ class _$FilesCapabilities_Files_DirectEditing extends FilesCapabilities_Files_Di
   }
 }
 
-class FilesCapabilities_Files_DirectEditingBuilder
+class Capabilities_Files_DirectEditingBuilder
     implements
-        Builder<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder>,
-        FilesCapabilities_Files_DirectEditingInterfaceBuilder {
-  _$FilesCapabilities_Files_DirectEditing? _$v;
+        Builder<Capabilities_Files_DirectEditing, Capabilities_Files_DirectEditingBuilder>,
+        Capabilities_Files_DirectEditingInterfaceBuilder {
+  _$Capabilities_Files_DirectEditing? _$v;
 
   String? _url;
   String? get url => _$this._url;
@@ -7091,9 +6971,9 @@ class FilesCapabilities_Files_DirectEditingBuilder
   bool? get supportsFileId => _$this._supportsFileId;
   set supportsFileId(covariant bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
 
-  FilesCapabilities_Files_DirectEditingBuilder();
+  Capabilities_Files_DirectEditingBuilder();
 
-  FilesCapabilities_Files_DirectEditingBuilder get _$this {
+  Capabilities_Files_DirectEditingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _url = $v.url;
@@ -7105,74 +6985,73 @@ class FilesCapabilities_Files_DirectEditingBuilder
   }
 
   @override
-  void replace(covariant FilesCapabilities_Files_DirectEditing other) {
+  void replace(covariant Capabilities_Files_DirectEditing other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesCapabilities_Files_DirectEditing;
+    _$v = other as _$Capabilities_Files_DirectEditing;
   }
 
   @override
-  void update(void Function(FilesCapabilities_Files_DirectEditingBuilder)? updates) {
+  void update(void Function(Capabilities_Files_DirectEditingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesCapabilities_Files_DirectEditing build() => _build();
+  Capabilities_Files_DirectEditing build() => _build();
 
-  _$FilesCapabilities_Files_DirectEditing _build() {
+  _$Capabilities_Files_DirectEditing _build() {
     final _$result = _$v ??
-        _$FilesCapabilities_Files_DirectEditing._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'FilesCapabilities_Files_DirectEditing', 'url'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesCapabilities_Files_DirectEditing', 'etag'),
+        _$Capabilities_Files_DirectEditing._(
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'Capabilities_Files_DirectEditing', 'etag'),
             supportsFileId: BuiltValueNullFieldError.checkNotNull(
-                supportsFileId, r'FilesCapabilities_Files_DirectEditing', 'supportsFileId'));
+                supportsFileId, r'Capabilities_Files_DirectEditing', 'supportsFileId'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesCapabilities_FilesInterfaceBuilder {
-  void replace(FilesCapabilities_FilesInterface other);
-  void update(void Function(FilesCapabilities_FilesInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesInterfaceBuilder {
+  void replace(Capabilities_FilesInterface other);
+  void update(void Function(Capabilities_FilesInterfaceBuilder) updates);
   bool? get bigfilechunking;
   set bigfilechunking(bool? bigfilechunking);
 
   ListBuilder<JsonObject> get blacklistedFiles;
   set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
 
-  FilesCapabilities_Files_DirectEditingBuilder get directEditing;
-  set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing);
+  Capabilities_Files_DirectEditingBuilder get directEditing;
+  set directEditing(Capabilities_Files_DirectEditingBuilder? directEditing);
 }
 
-class _$FilesCapabilities_Files extends FilesCapabilities_Files {
+class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool bigfilechunking;
   @override
   final BuiltList<JsonObject> blacklistedFiles;
   @override
-  final FilesCapabilities_Files_DirectEditing directEditing;
+  final Capabilities_Files_DirectEditing directEditing;
 
-  factory _$FilesCapabilities_Files([void Function(FilesCapabilities_FilesBuilder)? updates]) =>
-      (FilesCapabilities_FilesBuilder()..update(updates))._build();
+  factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
+      (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$FilesCapabilities_Files._(
-      {required this.bigfilechunking, required this.blacklistedFiles, required this.directEditing})
+  _$Capabilities_Files._({required this.bigfilechunking, required this.blacklistedFiles, required this.directEditing})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking');
-    BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'FilesCapabilities_Files', 'blacklistedFiles');
-    BuiltValueNullFieldError.checkNotNull(directEditing, r'FilesCapabilities_Files', 'directEditing');
+    BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking');
+    BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'Capabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(directEditing, r'Capabilities_Files', 'directEditing');
   }
 
   @override
-  FilesCapabilities_Files rebuild(void Function(FilesCapabilities_FilesBuilder) updates) =>
+  Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesCapabilities_FilesBuilder toBuilder() => FilesCapabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesCapabilities_Files &&
+    return other is Capabilities_Files &&
         bigfilechunking == other.bigfilechunking &&
         blacklistedFiles == other.blacklistedFiles &&
         directEditing == other.directEditing;
@@ -7190,7 +7069,7 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesCapabilities_Files')
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')
           ..add('bigfilechunking', bigfilechunking)
           ..add('blacklistedFiles', blacklistedFiles)
           ..add('directEditing', directEditing))
@@ -7198,11 +7077,9 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   }
 }
 
-class FilesCapabilities_FilesBuilder
-    implements
-        Builder<FilesCapabilities_Files, FilesCapabilities_FilesBuilder>,
-        FilesCapabilities_FilesInterfaceBuilder {
-  _$FilesCapabilities_Files? _$v;
+class Capabilities_FilesBuilder
+    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, Capabilities_FilesInterfaceBuilder {
+  _$Capabilities_Files? _$v;
 
   bool? _bigfilechunking;
   bool? get bigfilechunking => _$this._bigfilechunking;
@@ -7213,15 +7090,15 @@ class FilesCapabilities_FilesBuilder
   set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
       _$this._blacklistedFiles = blacklistedFiles;
 
-  FilesCapabilities_Files_DirectEditingBuilder? _directEditing;
-  FilesCapabilities_Files_DirectEditingBuilder get directEditing =>
-      _$this._directEditing ??= FilesCapabilities_Files_DirectEditingBuilder();
-  set directEditing(covariant FilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
+  Capabilities_Files_DirectEditingBuilder? _directEditing;
+  Capabilities_Files_DirectEditingBuilder get directEditing =>
+      _$this._directEditing ??= Capabilities_Files_DirectEditingBuilder();
+  set directEditing(covariant Capabilities_Files_DirectEditingBuilder? directEditing) =>
       _$this._directEditing = directEditing;
 
-  FilesCapabilities_FilesBuilder();
+  Capabilities_FilesBuilder();
 
-  FilesCapabilities_FilesBuilder get _$this {
+  Capabilities_FilesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _bigfilechunking = $v.bigfilechunking;
@@ -7233,26 +7110,26 @@ class FilesCapabilities_FilesBuilder
   }
 
   @override
-  void replace(covariant FilesCapabilities_Files other) {
+  void replace(covariant Capabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesCapabilities_Files;
+    _$v = other as _$Capabilities_Files;
   }
 
   @override
-  void update(void Function(FilesCapabilities_FilesBuilder)? updates) {
+  void update(void Function(Capabilities_FilesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesCapabilities_Files build() => _build();
+  Capabilities_Files build() => _build();
 
-  _$FilesCapabilities_Files _build() {
-    _$FilesCapabilities_Files _$result;
+  _$Capabilities_Files _build() {
+    _$Capabilities_Files _$result;
     try {
       _$result = _$v ??
-          _$FilesCapabilities_Files._(
+          _$Capabilities_Files._(
               bigfilechunking:
-                  BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking'),
+                  BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
               blacklistedFiles: blacklistedFiles.build(),
               directEditing: directEditing.build());
     } catch (_) {
@@ -7263,7 +7140,7 @@ class FilesCapabilities_FilesBuilder
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesCapabilities_Files', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_Files', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7272,34 +7149,34 @@ class FilesCapabilities_FilesBuilder
   }
 }
 
-abstract mixin class FilesCapabilitiesInterfaceBuilder {
-  void replace(FilesCapabilitiesInterface other);
-  void update(void Function(FilesCapabilitiesInterfaceBuilder) updates);
-  FilesCapabilities_FilesBuilder get files;
-  set files(FilesCapabilities_FilesBuilder? files);
+abstract mixin class CapabilitiesInterfaceBuilder {
+  void replace(CapabilitiesInterface other);
+  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+  Capabilities_FilesBuilder get files;
+  set files(Capabilities_FilesBuilder? files);
 }
 
-class _$FilesCapabilities extends FilesCapabilities {
+class _$Capabilities extends Capabilities {
   @override
-  final FilesCapabilities_Files files;
+  final Capabilities_Files files;
 
-  factory _$FilesCapabilities([void Function(FilesCapabilitiesBuilder)? updates]) =>
-      (FilesCapabilitiesBuilder()..update(updates))._build();
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$FilesCapabilities._({required this.files}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(files, r'FilesCapabilities', 'files');
+  _$Capabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
   }
 
   @override
-  FilesCapabilities rebuild(void Function(FilesCapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesCapabilitiesBuilder toBuilder() => FilesCapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesCapabilities && files == other.files;
+    return other is Capabilities && files == other.files;
   }
 
   @override
@@ -7312,21 +7189,20 @@ class _$FilesCapabilities extends FilesCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesCapabilities')..add('files', files)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('files', files)).toString();
   }
 }
 
-class FilesCapabilitiesBuilder
-    implements Builder<FilesCapabilities, FilesCapabilitiesBuilder>, FilesCapabilitiesInterfaceBuilder {
-  _$FilesCapabilities? _$v;
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
 
-  FilesCapabilities_FilesBuilder? _files;
-  FilesCapabilities_FilesBuilder get files => _$this._files ??= FilesCapabilities_FilesBuilder();
-  set files(covariant FilesCapabilities_FilesBuilder? files) => _$this._files = files;
+  Capabilities_FilesBuilder? _files;
+  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
+  set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
-  FilesCapabilitiesBuilder();
+  CapabilitiesBuilder();
 
-  FilesCapabilitiesBuilder get _$this {
+  CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _files = $v.files.toBuilder();
@@ -7336,30 +7212,30 @@ class FilesCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant FilesCapabilities other) {
+  void replace(covariant Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesCapabilities;
+    _$v = other as _$Capabilities;
   }
 
   @override
-  void update(void Function(FilesCapabilitiesBuilder)? updates) {
+  void update(void Function(CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesCapabilities build() => _build();
+  Capabilities build() => _build();
 
-  _$FilesCapabilities _build() {
-    _$FilesCapabilities _$result;
+  _$Capabilities _build() {
+    _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$FilesCapabilities._(files: files.build());
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7368,9 +7244,9 @@ class FilesCapabilitiesBuilder
   }
 }
 
-abstract mixin class FilesTemplateInterfaceBuilder {
-  void replace(FilesTemplateInterface other);
-  void update(void Function(FilesTemplateInterfaceBuilder) updates);
+abstract mixin class TemplateInterfaceBuilder {
+  void replace(TemplateInterface other);
+  void update(void Function(TemplateInterfaceBuilder) updates);
   String? get templateType;
   set templateType(String? templateType);
 
@@ -7408,7 +7284,7 @@ abstract mixin class FilesTemplateInterfaceBuilder {
   set previewUrl(String? previewUrl);
 }
 
-class _$FilesTemplate extends FilesTemplate {
+class _$Template extends Template {
   @override
   final String templateType;
   @override
@@ -7434,10 +7310,9 @@ class _$FilesTemplate extends FilesTemplate {
   @override
   final String? previewUrl;
 
-  factory _$FilesTemplate([void Function(FilesTemplateBuilder)? updates]) =>
-      (FilesTemplateBuilder()..update(updates))._build();
+  factory _$Template([void Function(TemplateBuilder)? updates]) => (TemplateBuilder()..update(updates))._build();
 
-  _$FilesTemplate._(
+  _$Template._(
       {required this.templateType,
       required this.templateId,
       required this.basename,
@@ -7451,29 +7326,29 @@ class _$FilesTemplate extends FilesTemplate {
       required this.hasPreview,
       this.previewUrl})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(templateType, r'FilesTemplate', 'templateType');
-    BuiltValueNullFieldError.checkNotNull(templateId, r'FilesTemplate', 'templateId');
-    BuiltValueNullFieldError.checkNotNull(basename, r'FilesTemplate', 'basename');
-    BuiltValueNullFieldError.checkNotNull(etag, r'FilesTemplate', 'etag');
-    BuiltValueNullFieldError.checkNotNull(fileid, r'FilesTemplate', 'fileid');
-    BuiltValueNullFieldError.checkNotNull(filename, r'FilesTemplate', 'filename');
-    BuiltValueNullFieldError.checkNotNull(lastmod, r'FilesTemplate', 'lastmod');
-    BuiltValueNullFieldError.checkNotNull(mime, r'FilesTemplate', 'mime');
-    BuiltValueNullFieldError.checkNotNull(size, r'FilesTemplate', 'size');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesTemplate', 'type');
-    BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesTemplate', 'hasPreview');
+    BuiltValueNullFieldError.checkNotNull(templateType, r'Template', 'templateType');
+    BuiltValueNullFieldError.checkNotNull(templateId, r'Template', 'templateId');
+    BuiltValueNullFieldError.checkNotNull(basename, r'Template', 'basename');
+    BuiltValueNullFieldError.checkNotNull(etag, r'Template', 'etag');
+    BuiltValueNullFieldError.checkNotNull(fileid, r'Template', 'fileid');
+    BuiltValueNullFieldError.checkNotNull(filename, r'Template', 'filename');
+    BuiltValueNullFieldError.checkNotNull(lastmod, r'Template', 'lastmod');
+    BuiltValueNullFieldError.checkNotNull(mime, r'Template', 'mime');
+    BuiltValueNullFieldError.checkNotNull(size, r'Template', 'size');
+    BuiltValueNullFieldError.checkNotNull(type, r'Template', 'type');
+    BuiltValueNullFieldError.checkNotNull(hasPreview, r'Template', 'hasPreview');
   }
 
   @override
-  FilesTemplate rebuild(void Function(FilesTemplateBuilder) updates) => (toBuilder()..update(updates)).build();
+  Template rebuild(void Function(TemplateBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesTemplateBuilder toBuilder() => FilesTemplateBuilder()..replace(this);
+  TemplateBuilder toBuilder() => TemplateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTemplate &&
+    return other is Template &&
         templateType == other.templateType &&
         templateId == other.templateId &&
         basename == other.basename &&
@@ -7509,7 +7384,7 @@ class _$FilesTemplate extends FilesTemplate {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTemplate')
+    return (newBuiltValueToStringHelper(r'Template')
           ..add('templateType', templateType)
           ..add('templateId', templateId)
           ..add('basename', basename)
@@ -7526,8 +7401,8 @@ class _$FilesTemplate extends FilesTemplate {
   }
 }
 
-class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilder>, FilesTemplateInterfaceBuilder {
-  _$FilesTemplate? _$v;
+class TemplateBuilder implements Builder<Template, TemplateBuilder>, TemplateInterfaceBuilder {
+  _$Template? _$v;
 
   String? _templateType;
   String? get templateType => _$this._templateType;
@@ -7577,9 +7452,9 @@ class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilde
   String? get previewUrl => _$this._previewUrl;
   set previewUrl(covariant String? previewUrl) => _$this._previewUrl = previewUrl;
 
-  FilesTemplateBuilder();
+  TemplateBuilder();
 
-  FilesTemplateBuilder get _$this {
+  TemplateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _templateType = $v.templateType;
@@ -7600,33 +7475,33 @@ class FilesTemplateBuilder implements Builder<FilesTemplate, FilesTemplateBuilde
   }
 
   @override
-  void replace(covariant FilesTemplate other) {
+  void replace(covariant Template other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesTemplate;
+    _$v = other as _$Template;
   }
 
   @override
-  void update(void Function(FilesTemplateBuilder)? updates) {
+  void update(void Function(TemplateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesTemplate build() => _build();
+  Template build() => _build();
 
-  _$FilesTemplate _build() {
+  _$Template _build() {
     final _$result = _$v ??
-        _$FilesTemplate._(
-            templateType: BuiltValueNullFieldError.checkNotNull(templateType, r'FilesTemplate', 'templateType'),
-            templateId: BuiltValueNullFieldError.checkNotNull(templateId, r'FilesTemplate', 'templateId'),
-            basename: BuiltValueNullFieldError.checkNotNull(basename, r'FilesTemplate', 'basename'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesTemplate', 'etag'),
-            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'FilesTemplate', 'fileid'),
-            filename: BuiltValueNullFieldError.checkNotNull(filename, r'FilesTemplate', 'filename'),
-            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'FilesTemplate', 'lastmod'),
-            mime: BuiltValueNullFieldError.checkNotNull(mime, r'FilesTemplate', 'mime'),
-            size: BuiltValueNullFieldError.checkNotNull(size, r'FilesTemplate', 'size'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'FilesTemplate', 'type'),
-            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesTemplate', 'hasPreview'),
+        _$Template._(
+            templateType: BuiltValueNullFieldError.checkNotNull(templateType, r'Template', 'templateType'),
+            templateId: BuiltValueNullFieldError.checkNotNull(templateId, r'Template', 'templateId'),
+            basename: BuiltValueNullFieldError.checkNotNull(basename, r'Template', 'basename'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'Template', 'etag'),
+            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'Template', 'fileid'),
+            filename: BuiltValueNullFieldError.checkNotNull(filename, r'Template', 'filename'),
+            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'Template', 'lastmod'),
+            mime: BuiltValueNullFieldError.checkNotNull(mime, r'Template', 'mime'),
+            size: BuiltValueNullFieldError.checkNotNull(size, r'Template', 'size'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Template', 'type'),
+            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Template', 'hasPreview'),
             previewUrl: previewUrl);
     replace(_$result);
     return _$result;

@@ -1,5 +1,6 @@
-import 'package:nextcloud/core.dart';
-import 'package:nextcloud/notes.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notes.dart' as notes;
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -149,16 +150,16 @@ void main() {
 
         expect(response.body.notesPath, 'Notes');
         expect(response.body.fileSuffix, '.md');
-        expect(response.body.noteMode, NotesSettings_NoteMode.rich);
+        expect(response.body.noteMode, notes.Settings_NoteMode.rich);
       });
 
       test('Update settings', () async {
         var response = await client.notes.updateSettings(
-          settings: NotesSettings(
+          settings: notes.Settings(
             (final b) => b
               ..notesPath = 'Test Notes'
               ..fileSuffix = '.txt'
-              ..noteMode = NotesSettings_NoteMode.preview,
+              ..noteMode = notes.Settings_NoteMode.preview,
           ),
         );
         expect(response.statusCode, 200);
@@ -166,7 +167,7 @@ void main() {
 
         expect(response.body.notesPath, 'Test Notes');
         expect(response.body.fileSuffix, '.txt');
-        expect(response.body.noteMode, NotesSettings_NoteMode.preview);
+        expect(response.body.noteMode, notes.Settings_NoteMode.preview);
 
         response = await client.notes.getSettings();
         expect(response.statusCode, 200);
@@ -174,7 +175,7 @@ void main() {
 
         expect(response.body.notesPath, 'Test Notes');
         expect(response.body.fileSuffix, '.txt');
-        expect(response.body.noteMode, NotesSettings_NoteMode.preview);
+        expect(response.body.noteMode, notes.Settings_NoteMode.preview);
       });
     },
     retry: retryCount,

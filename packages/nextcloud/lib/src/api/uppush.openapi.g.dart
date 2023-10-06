@@ -6,46 +6,43 @@ part of 'uppush.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UppushCheckResponseApplicationJson> _$uppushCheckResponseApplicationJsonSerializer =
-    _$UppushCheckResponseApplicationJsonSerializer();
-Serializer<UppushSetKeepaliveResponseApplicationJson> _$uppushSetKeepaliveResponseApplicationJsonSerializer =
-    _$UppushSetKeepaliveResponseApplicationJsonSerializer();
-Serializer<UppushCreateDeviceResponseApplicationJson> _$uppushCreateDeviceResponseApplicationJsonSerializer =
-    _$UppushCreateDeviceResponseApplicationJsonSerializer();
-Serializer<UppushSyncDeviceResponseApplicationJson> _$uppushSyncDeviceResponseApplicationJsonSerializer =
-    _$UppushSyncDeviceResponseApplicationJsonSerializer();
-Serializer<UppushDeleteDeviceResponseApplicationJson> _$uppushDeleteDeviceResponseApplicationJsonSerializer =
-    _$UppushDeleteDeviceResponseApplicationJsonSerializer();
-Serializer<UppushCreateAppResponseApplicationJson> _$uppushCreateAppResponseApplicationJsonSerializer =
-    _$UppushCreateAppResponseApplicationJsonSerializer();
-Serializer<UppushDeleteAppResponseApplicationJson> _$uppushDeleteAppResponseApplicationJsonSerializer =
-    _$UppushDeleteAppResponseApplicationJsonSerializer();
-Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush>
-    _$uppushUnifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer =
-    _$UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-Serializer<UppushUnifiedpushDiscoveryResponseApplicationJson>
-    _$uppushUnifiedpushDiscoveryResponseApplicationJsonSerializer =
-    _$UppushUnifiedpushDiscoveryResponseApplicationJsonSerializer();
-Serializer<UppushPushResponseApplicationJson> _$uppushPushResponseApplicationJsonSerializer =
-    _$UppushPushResponseApplicationJsonSerializer();
-Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush>
-    _$uppushGatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer =
-    _$UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-Serializer<UppushGatewayMatrixDiscoveryResponseApplicationJson>
-    _$uppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer =
-    _$UppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer();
-Serializer<UppushGatewayMatrixResponseApplicationJson> _$uppushGatewayMatrixResponseApplicationJsonSerializer =
-    _$UppushGatewayMatrixResponseApplicationJsonSerializer();
+Serializer<CheckResponseApplicationJson> _$checkResponseApplicationJsonSerializer =
+    _$CheckResponseApplicationJsonSerializer();
+Serializer<SetKeepaliveResponseApplicationJson> _$setKeepaliveResponseApplicationJsonSerializer =
+    _$SetKeepaliveResponseApplicationJsonSerializer();
+Serializer<CreateDeviceResponseApplicationJson> _$createDeviceResponseApplicationJsonSerializer =
+    _$CreateDeviceResponseApplicationJsonSerializer();
+Serializer<SyncDeviceResponseApplicationJson> _$syncDeviceResponseApplicationJsonSerializer =
+    _$SyncDeviceResponseApplicationJsonSerializer();
+Serializer<DeleteDeviceResponseApplicationJson> _$deleteDeviceResponseApplicationJsonSerializer =
+    _$DeleteDeviceResponseApplicationJsonSerializer();
+Serializer<CreateAppResponseApplicationJson> _$createAppResponseApplicationJsonSerializer =
+    _$CreateAppResponseApplicationJsonSerializer();
+Serializer<DeleteAppResponseApplicationJson> _$deleteAppResponseApplicationJsonSerializer =
+    _$DeleteAppResponseApplicationJsonSerializer();
+Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush>
+    _$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer =
+    _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
+Serializer<UnifiedpushDiscoveryResponseApplicationJson> _$unifiedpushDiscoveryResponseApplicationJsonSerializer =
+    _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
+Serializer<PushResponseApplicationJson> _$pushResponseApplicationJsonSerializer =
+    _$PushResponseApplicationJsonSerializer();
+Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush>
+    _$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer =
+    _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
+Serializer<GatewayMatrixDiscoveryResponseApplicationJson> _$gatewayMatrixDiscoveryResponseApplicationJsonSerializer =
+    _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
+Serializer<GatewayMatrixResponseApplicationJson> _$gatewayMatrixResponseApplicationJsonSerializer =
+    _$GatewayMatrixResponseApplicationJsonSerializer();
 
-class _$UppushCheckResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushCheckResponseApplicationJson> {
+class _$CheckResponseApplicationJsonSerializer implements StructuredSerializer<CheckResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [UppushCheckResponseApplicationJson, _$UppushCheckResponseApplicationJson];
+  final Iterable<Type> types = const [CheckResponseApplicationJson, _$CheckResponseApplicationJson];
   @override
-  final String wireName = 'UppushCheckResponseApplicationJson';
+  final String wireName = 'CheckResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushCheckResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CheckResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -56,9 +53,9 @@ class _$UppushCheckResponseApplicationJsonSerializer
   }
 
   @override
-  UppushCheckResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CheckResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushCheckResponseApplicationJsonBuilder();
+    final result = CheckResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,18 +73,15 @@ class _$UppushCheckResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushSetKeepaliveResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushSetKeepaliveResponseApplicationJson> {
+class _$SetKeepaliveResponseApplicationJsonSerializer
+    implements StructuredSerializer<SetKeepaliveResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    UppushSetKeepaliveResponseApplicationJson,
-    _$UppushSetKeepaliveResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [SetKeepaliveResponseApplicationJson, _$SetKeepaliveResponseApplicationJson];
   @override
-  final String wireName = 'UppushSetKeepaliveResponseApplicationJson';
+  final String wireName = 'SetKeepaliveResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushSetKeepaliveResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, SetKeepaliveResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -98,9 +92,9 @@ class _$UppushSetKeepaliveResponseApplicationJsonSerializer
   }
 
   @override
-  UppushSetKeepaliveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SetKeepaliveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushSetKeepaliveResponseApplicationJsonBuilder();
+    final result = SetKeepaliveResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -118,18 +112,15 @@ class _$UppushSetKeepaliveResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushCreateDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushCreateDeviceResponseApplicationJson> {
+class _$CreateDeviceResponseApplicationJsonSerializer
+    implements StructuredSerializer<CreateDeviceResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    UppushCreateDeviceResponseApplicationJson,
-    _$UppushCreateDeviceResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [CreateDeviceResponseApplicationJson, _$CreateDeviceResponseApplicationJson];
   @override
-  final String wireName = 'UppushCreateDeviceResponseApplicationJson';
+  final String wireName = 'CreateDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushCreateDeviceResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CreateDeviceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -142,9 +133,9 @@ class _$UppushCreateDeviceResponseApplicationJsonSerializer
   }
 
   @override
-  UppushCreateDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CreateDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushCreateDeviceResponseApplicationJsonBuilder();
+    final result = CreateDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -165,18 +156,14 @@ class _$UppushCreateDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushSyncDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushSyncDeviceResponseApplicationJson> {
+class _$SyncDeviceResponseApplicationJsonSerializer implements StructuredSerializer<SyncDeviceResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    UppushSyncDeviceResponseApplicationJson,
-    _$UppushSyncDeviceResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [SyncDeviceResponseApplicationJson, _$SyncDeviceResponseApplicationJson];
   @override
-  final String wireName = 'UppushSyncDeviceResponseApplicationJson';
+  final String wireName = 'SyncDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushSyncDeviceResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, SyncDeviceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -187,9 +174,9 @@ class _$UppushSyncDeviceResponseApplicationJsonSerializer
   }
 
   @override
-  UppushSyncDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SyncDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushSyncDeviceResponseApplicationJsonBuilder();
+    final result = SyncDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -207,18 +194,15 @@ class _$UppushSyncDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushDeleteDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushDeleteDeviceResponseApplicationJson> {
+class _$DeleteDeviceResponseApplicationJsonSerializer
+    implements StructuredSerializer<DeleteDeviceResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    UppushDeleteDeviceResponseApplicationJson,
-    _$UppushDeleteDeviceResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [DeleteDeviceResponseApplicationJson, _$DeleteDeviceResponseApplicationJson];
   @override
-  final String wireName = 'UppushDeleteDeviceResponseApplicationJson';
+  final String wireName = 'DeleteDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushDeleteDeviceResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DeleteDeviceResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -229,9 +213,9 @@ class _$UppushDeleteDeviceResponseApplicationJsonSerializer
   }
 
   @override
-  UppushDeleteDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DeleteDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushDeleteDeviceResponseApplicationJsonBuilder();
+    final result = DeleteDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -249,15 +233,14 @@ class _$UppushDeleteDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushCreateAppResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushCreateAppResponseApplicationJson> {
+class _$CreateAppResponseApplicationJsonSerializer implements StructuredSerializer<CreateAppResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [UppushCreateAppResponseApplicationJson, _$UppushCreateAppResponseApplicationJson];
+  final Iterable<Type> types = const [CreateAppResponseApplicationJson, _$CreateAppResponseApplicationJson];
   @override
-  final String wireName = 'UppushCreateAppResponseApplicationJson';
+  final String wireName = 'CreateAppResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushCreateAppResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, CreateAppResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -270,9 +253,9 @@ class _$UppushCreateAppResponseApplicationJsonSerializer
   }
 
   @override
-  UppushCreateAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CreateAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushCreateAppResponseApplicationJsonBuilder();
+    final result = CreateAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -293,15 +276,14 @@ class _$UppushCreateAppResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushDeleteAppResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushDeleteAppResponseApplicationJson> {
+class _$DeleteAppResponseApplicationJsonSerializer implements StructuredSerializer<DeleteAppResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [UppushDeleteAppResponseApplicationJson, _$UppushDeleteAppResponseApplicationJson];
+  final Iterable<Type> types = const [DeleteAppResponseApplicationJson, _$DeleteAppResponseApplicationJson];
   @override
-  final String wireName = 'UppushDeleteAppResponseApplicationJson';
+  final String wireName = 'DeleteAppResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushDeleteAppResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DeleteAppResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -312,9 +294,9 @@ class _$UppushDeleteAppResponseApplicationJsonSerializer
   }
 
   @override
-  UppushDeleteAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DeleteAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushDeleteAppResponseApplicationJsonBuilder();
+    final result = DeleteAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -332,19 +314,18 @@ class _$UppushDeleteAppResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
-    implements StructuredSerializer<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> {
+class _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
+    implements StructuredSerializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> {
   @override
   final Iterable<Type> types = const [
-    UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-    _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
+    UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+    _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   ];
   @override
-  final String wireName = 'UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush';
+  final String wireName = 'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object,
+  Iterable<Object?> serialize(Serializers serializers, UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'version',
@@ -355,10 +336,10 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush deserialize(
+  UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+    final result = UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -376,32 +357,32 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
   }
 }
 
-class _$UppushUnifiedpushDiscoveryResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushUnifiedpushDiscoveryResponseApplicationJson> {
+class _$UnifiedpushDiscoveryResponseApplicationJsonSerializer
+    implements StructuredSerializer<UnifiedpushDiscoveryResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    UppushUnifiedpushDiscoveryResponseApplicationJson,
-    _$UppushUnifiedpushDiscoveryResponseApplicationJson
+    UnifiedpushDiscoveryResponseApplicationJson,
+    _$UnifiedpushDiscoveryResponseApplicationJson
   ];
   @override
-  final String wireName = 'UppushUnifiedpushDiscoveryResponseApplicationJson';
+  final String wireName = 'UnifiedpushDiscoveryResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushUnifiedpushDiscoveryResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, UnifiedpushDiscoveryResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'unifiedpush',
       serializers.serialize(object.unifiedpush,
-          specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush)),
+          specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush)),
     ];
 
     return result;
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UnifiedpushDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder();
+    final result = UnifiedpushDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -411,8 +392,8 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJsonSerializer
       switch (key) {
         case 'unifiedpush':
           result.unifiedpush.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush))!
-              as UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush);
+                  specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush))!
+              as UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush);
           break;
       }
     }
@@ -421,14 +402,14 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushPushResponseApplicationJsonSerializer implements StructuredSerializer<UppushPushResponseApplicationJson> {
+class _$PushResponseApplicationJsonSerializer implements StructuredSerializer<PushResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [UppushPushResponseApplicationJson, _$UppushPushResponseApplicationJson];
+  final Iterable<Type> types = const [PushResponseApplicationJson, _$PushResponseApplicationJson];
   @override
-  final String wireName = 'UppushPushResponseApplicationJson';
+  final String wireName = 'PushResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushPushResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, PushResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'success',
@@ -439,9 +420,9 @@ class _$UppushPushResponseApplicationJsonSerializer implements StructuredSeriali
   }
 
   @override
-  UppushPushResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  PushResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushPushResponseApplicationJsonBuilder();
+    final result = PushResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -459,19 +440,18 @@ class _$UppushPushResponseApplicationJsonSerializer implements StructuredSeriali
   }
 }
 
-class _$UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer
-    implements StructuredSerializer<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> {
+class _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer
+    implements StructuredSerializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> {
   @override
   final Iterable<Type> types = const [
-    UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-    _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
+    GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+    _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   ];
   @override
-  final String wireName = 'UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush';
+  final String wireName = 'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object,
+  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'gateway',
@@ -482,10 +462,10 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerialize
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush deserialize(
+  GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+    final result = GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -503,32 +483,32 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerialize
   }
 }
 
-class _$UppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushGatewayMatrixDiscoveryResponseApplicationJson> {
+class _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer
+    implements StructuredSerializer<GatewayMatrixDiscoveryResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    UppushGatewayMatrixDiscoveryResponseApplicationJson,
-    _$UppushGatewayMatrixDiscoveryResponseApplicationJson
+    GatewayMatrixDiscoveryResponseApplicationJson,
+    _$GatewayMatrixDiscoveryResponseApplicationJson
   ];
   @override
-  final String wireName = 'UppushGatewayMatrixDiscoveryResponseApplicationJson';
+  final String wireName = 'GatewayMatrixDiscoveryResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushGatewayMatrixDiscoveryResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixDiscoveryResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'unifiedpush',
       serializers.serialize(object.unifiedpush,
-          specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush)),
+          specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush)),
     ];
 
     return result;
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GatewayMatrixDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder();
+    final result = GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -538,8 +518,8 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer
       switch (key) {
         case 'unifiedpush':
           result.unifiedpush.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush))!
-              as UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush);
+                  specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush))!
+              as GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush);
           break;
       }
     }
@@ -548,18 +528,15 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJsonSerializer
   }
 }
 
-class _$UppushGatewayMatrixResponseApplicationJsonSerializer
-    implements StructuredSerializer<UppushGatewayMatrixResponseApplicationJson> {
+class _$GatewayMatrixResponseApplicationJsonSerializer
+    implements StructuredSerializer<GatewayMatrixResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    UppushGatewayMatrixResponseApplicationJson,
-    _$UppushGatewayMatrixResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [GatewayMatrixResponseApplicationJson, _$GatewayMatrixResponseApplicationJson];
   @override
-  final String wireName = 'UppushGatewayMatrixResponseApplicationJson';
+  final String wireName = 'GatewayMatrixResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UppushGatewayMatrixResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'rejected',
@@ -570,9 +547,9 @@ class _$UppushGatewayMatrixResponseApplicationJsonSerializer
   }
 
   @override
-  UppushGatewayMatrixResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GatewayMatrixResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UppushGatewayMatrixResponseApplicationJsonBuilder();
+    final result = GatewayMatrixResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -591,35 +568,35 @@ class _$UppushGatewayMatrixResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class UppushCheckResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushCheckResponseApplicationJsonInterface other);
-  void update(void Function(UppushCheckResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class CheckResponseApplicationJsonInterfaceBuilder {
+  void replace(CheckResponseApplicationJsonInterface other);
+  void update(void Function(CheckResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushCheckResponseApplicationJson extends UppushCheckResponseApplicationJson {
+class _$CheckResponseApplicationJson extends CheckResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushCheckResponseApplicationJson([void Function(UppushCheckResponseApplicationJsonBuilder)? updates]) =>
-      (UppushCheckResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$CheckResponseApplicationJson([void Function(CheckResponseApplicationJsonBuilder)? updates]) =>
+      (CheckResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushCheckResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushCheckResponseApplicationJson', 'success');
+  _$CheckResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success');
   }
 
   @override
-  UppushCheckResponseApplicationJson rebuild(void Function(UppushCheckResponseApplicationJsonBuilder) updates) =>
+  CheckResponseApplicationJson rebuild(void Function(CheckResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushCheckResponseApplicationJsonBuilder toBuilder() => UppushCheckResponseApplicationJsonBuilder()..replace(this);
+  CheckResponseApplicationJsonBuilder toBuilder() => CheckResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushCheckResponseApplicationJson && success == other.success;
+    return other is CheckResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -632,23 +609,23 @@ class _$UppushCheckResponseApplicationJson extends UppushCheckResponseApplicatio
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushCheckResponseApplicationJson')..add('success', success)).toString();
+    return (newBuiltValueToStringHelper(r'CheckResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushCheckResponseApplicationJsonBuilder
+class CheckResponseApplicationJsonBuilder
     implements
-        Builder<UppushCheckResponseApplicationJson, UppushCheckResponseApplicationJsonBuilder>,
-        UppushCheckResponseApplicationJsonInterfaceBuilder {
-  _$UppushCheckResponseApplicationJson? _$v;
+        Builder<CheckResponseApplicationJson, CheckResponseApplicationJsonBuilder>,
+        CheckResponseApplicationJsonInterfaceBuilder {
+  _$CheckResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushCheckResponseApplicationJsonBuilder();
+  CheckResponseApplicationJsonBuilder();
 
-  UppushCheckResponseApplicationJsonBuilder get _$this {
+  CheckResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -658,60 +635,57 @@ class UppushCheckResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushCheckResponseApplicationJson other) {
+  void replace(covariant CheckResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushCheckResponseApplicationJson;
+    _$v = other as _$CheckResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushCheckResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(CheckResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushCheckResponseApplicationJson build() => _build();
+  CheckResponseApplicationJson build() => _build();
 
-  _$UppushCheckResponseApplicationJson _build() {
+  _$CheckResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushCheckResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'UppushCheckResponseApplicationJson', 'success'));
+        _$CheckResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushSetKeepaliveResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushSetKeepaliveResponseApplicationJsonInterface other);
-  void update(void Function(UppushSetKeepaliveResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class SetKeepaliveResponseApplicationJsonInterfaceBuilder {
+  void replace(SetKeepaliveResponseApplicationJsonInterface other);
+  void update(void Function(SetKeepaliveResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushSetKeepaliveResponseApplicationJson extends UppushSetKeepaliveResponseApplicationJson {
+class _$SetKeepaliveResponseApplicationJson extends SetKeepaliveResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushSetKeepaliveResponseApplicationJson(
-          [void Function(UppushSetKeepaliveResponseApplicationJsonBuilder)? updates]) =>
-      (UppushSetKeepaliveResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SetKeepaliveResponseApplicationJson([void Function(SetKeepaliveResponseApplicationJsonBuilder)? updates]) =>
+      (SetKeepaliveResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushSetKeepaliveResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushSetKeepaliveResponseApplicationJson', 'success');
+  _$SetKeepaliveResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success');
   }
 
   @override
-  UppushSetKeepaliveResponseApplicationJson rebuild(
-          void Function(UppushSetKeepaliveResponseApplicationJsonBuilder) updates) =>
+  SetKeepaliveResponseApplicationJson rebuild(void Function(SetKeepaliveResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushSetKeepaliveResponseApplicationJsonBuilder toBuilder() =>
-      UppushSetKeepaliveResponseApplicationJsonBuilder()..replace(this);
+  SetKeepaliveResponseApplicationJsonBuilder toBuilder() => SetKeepaliveResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushSetKeepaliveResponseApplicationJson && success == other.success;
+    return other is SetKeepaliveResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -724,24 +698,23 @@ class _$UppushSetKeepaliveResponseApplicationJson extends UppushSetKeepaliveResp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushSetKeepaliveResponseApplicationJson')..add('success', success))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SetKeepaliveResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushSetKeepaliveResponseApplicationJsonBuilder
+class SetKeepaliveResponseApplicationJsonBuilder
     implements
-        Builder<UppushSetKeepaliveResponseApplicationJson, UppushSetKeepaliveResponseApplicationJsonBuilder>,
-        UppushSetKeepaliveResponseApplicationJsonInterfaceBuilder {
-  _$UppushSetKeepaliveResponseApplicationJson? _$v;
+        Builder<SetKeepaliveResponseApplicationJson, SetKeepaliveResponseApplicationJsonBuilder>,
+        SetKeepaliveResponseApplicationJsonInterfaceBuilder {
+  _$SetKeepaliveResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushSetKeepaliveResponseApplicationJsonBuilder();
+  SetKeepaliveResponseApplicationJsonBuilder();
 
-  UppushSetKeepaliveResponseApplicationJsonBuilder get _$this {
+  SetKeepaliveResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -751,32 +724,31 @@ class UppushSetKeepaliveResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushSetKeepaliveResponseApplicationJson other) {
+  void replace(covariant SetKeepaliveResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushSetKeepaliveResponseApplicationJson;
+    _$v = other as _$SetKeepaliveResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushSetKeepaliveResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(SetKeepaliveResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushSetKeepaliveResponseApplicationJson build() => _build();
+  SetKeepaliveResponseApplicationJson build() => _build();
 
-  _$UppushSetKeepaliveResponseApplicationJson _build() {
+  _$SetKeepaliveResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushSetKeepaliveResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(
-                success, r'UppushSetKeepaliveResponseApplicationJson', 'success'));
+        _$SetKeepaliveResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushCreateDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushCreateDeviceResponseApplicationJsonInterface other);
-  void update(void Function(UppushCreateDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class CreateDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace(CreateDeviceResponseApplicationJsonInterface other);
+  void update(void Function(CreateDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -784,34 +756,31 @@ abstract mixin class UppushCreateDeviceResponseApplicationJsonInterfaceBuilder {
   set deviceId(String? deviceId);
 }
 
-class _$UppushCreateDeviceResponseApplicationJson extends UppushCreateDeviceResponseApplicationJson {
+class _$CreateDeviceResponseApplicationJson extends CreateDeviceResponseApplicationJson {
   @override
   final bool success;
   @override
   final String deviceId;
 
-  factory _$UppushCreateDeviceResponseApplicationJson(
-          [void Function(UppushCreateDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (UppushCreateDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$CreateDeviceResponseApplicationJson([void Function(CreateDeviceResponseApplicationJsonBuilder)? updates]) =>
+      (CreateDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushCreateDeviceResponseApplicationJson._({required this.success, required this.deviceId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushCreateDeviceResponseApplicationJson', 'success');
-    BuiltValueNullFieldError.checkNotNull(deviceId, r'UppushCreateDeviceResponseApplicationJson', 'deviceId');
+  _$CreateDeviceResponseApplicationJson._({required this.success, required this.deviceId}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success');
+    BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId');
   }
 
   @override
-  UppushCreateDeviceResponseApplicationJson rebuild(
-          void Function(UppushCreateDeviceResponseApplicationJsonBuilder) updates) =>
+  CreateDeviceResponseApplicationJson rebuild(void Function(CreateDeviceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushCreateDeviceResponseApplicationJsonBuilder toBuilder() =>
-      UppushCreateDeviceResponseApplicationJsonBuilder()..replace(this);
+  CreateDeviceResponseApplicationJsonBuilder toBuilder() => CreateDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushCreateDeviceResponseApplicationJson && success == other.success && deviceId == other.deviceId;
+    return other is CreateDeviceResponseApplicationJson && success == other.success && deviceId == other.deviceId;
   }
 
   @override
@@ -825,18 +794,18 @@ class _$UppushCreateDeviceResponseApplicationJson extends UppushCreateDeviceResp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushCreateDeviceResponseApplicationJson')
+    return (newBuiltValueToStringHelper(r'CreateDeviceResponseApplicationJson')
           ..add('success', success)
           ..add('deviceId', deviceId))
         .toString();
   }
 }
 
-class UppushCreateDeviceResponseApplicationJsonBuilder
+class CreateDeviceResponseApplicationJsonBuilder
     implements
-        Builder<UppushCreateDeviceResponseApplicationJson, UppushCreateDeviceResponseApplicationJsonBuilder>,
-        UppushCreateDeviceResponseApplicationJsonInterfaceBuilder {
-  _$UppushCreateDeviceResponseApplicationJson? _$v;
+        Builder<CreateDeviceResponseApplicationJson, CreateDeviceResponseApplicationJsonBuilder>,
+        CreateDeviceResponseApplicationJsonInterfaceBuilder {
+  _$CreateDeviceResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
@@ -846,9 +815,9 @@ class UppushCreateDeviceResponseApplicationJsonBuilder
   String? get deviceId => _$this._deviceId;
   set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
 
-  UppushCreateDeviceResponseApplicationJsonBuilder();
+  CreateDeviceResponseApplicationJsonBuilder();
 
-  UppushCreateDeviceResponseApplicationJsonBuilder get _$this {
+  CreateDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -859,63 +828,59 @@ class UppushCreateDeviceResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushCreateDeviceResponseApplicationJson other) {
+  void replace(covariant CreateDeviceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushCreateDeviceResponseApplicationJson;
+    _$v = other as _$CreateDeviceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushCreateDeviceResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(CreateDeviceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushCreateDeviceResponseApplicationJson build() => _build();
+  CreateDeviceResponseApplicationJson build() => _build();
 
-  _$UppushCreateDeviceResponseApplicationJson _build() {
+  _$CreateDeviceResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushCreateDeviceResponseApplicationJson._(
-            success:
-                BuiltValueNullFieldError.checkNotNull(success, r'UppushCreateDeviceResponseApplicationJson', 'success'),
-            deviceId: BuiltValueNullFieldError.checkNotNull(
-                deviceId, r'UppushCreateDeviceResponseApplicationJson', 'deviceId'));
+        _$CreateDeviceResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
+            deviceId:
+                BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushSyncDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushSyncDeviceResponseApplicationJsonInterface other);
-  void update(void Function(UppushSyncDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class SyncDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace(SyncDeviceResponseApplicationJsonInterface other);
+  void update(void Function(SyncDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushSyncDeviceResponseApplicationJson extends UppushSyncDeviceResponseApplicationJson {
+class _$SyncDeviceResponseApplicationJson extends SyncDeviceResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushSyncDeviceResponseApplicationJson(
-          [void Function(UppushSyncDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (UppushSyncDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SyncDeviceResponseApplicationJson([void Function(SyncDeviceResponseApplicationJsonBuilder)? updates]) =>
+      (SyncDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushSyncDeviceResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushSyncDeviceResponseApplicationJson', 'success');
+  _$SyncDeviceResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success');
   }
 
   @override
-  UppushSyncDeviceResponseApplicationJson rebuild(
-          void Function(UppushSyncDeviceResponseApplicationJsonBuilder) updates) =>
+  SyncDeviceResponseApplicationJson rebuild(void Function(SyncDeviceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushSyncDeviceResponseApplicationJsonBuilder toBuilder() =>
-      UppushSyncDeviceResponseApplicationJsonBuilder()..replace(this);
+  SyncDeviceResponseApplicationJsonBuilder toBuilder() => SyncDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushSyncDeviceResponseApplicationJson && success == other.success;
+    return other is SyncDeviceResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -928,24 +893,23 @@ class _$UppushSyncDeviceResponseApplicationJson extends UppushSyncDeviceResponse
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushSyncDeviceResponseApplicationJson')..add('success', success))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SyncDeviceResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushSyncDeviceResponseApplicationJsonBuilder
+class SyncDeviceResponseApplicationJsonBuilder
     implements
-        Builder<UppushSyncDeviceResponseApplicationJson, UppushSyncDeviceResponseApplicationJsonBuilder>,
-        UppushSyncDeviceResponseApplicationJsonInterfaceBuilder {
-  _$UppushSyncDeviceResponseApplicationJson? _$v;
+        Builder<SyncDeviceResponseApplicationJson, SyncDeviceResponseApplicationJsonBuilder>,
+        SyncDeviceResponseApplicationJsonInterfaceBuilder {
+  _$SyncDeviceResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushSyncDeviceResponseApplicationJsonBuilder();
+  SyncDeviceResponseApplicationJsonBuilder();
 
-  UppushSyncDeviceResponseApplicationJsonBuilder get _$this {
+  SyncDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -955,61 +919,57 @@ class UppushSyncDeviceResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushSyncDeviceResponseApplicationJson other) {
+  void replace(covariant SyncDeviceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushSyncDeviceResponseApplicationJson;
+    _$v = other as _$SyncDeviceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushSyncDeviceResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(SyncDeviceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushSyncDeviceResponseApplicationJson build() => _build();
+  SyncDeviceResponseApplicationJson build() => _build();
 
-  _$UppushSyncDeviceResponseApplicationJson _build() {
+  _$SyncDeviceResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushSyncDeviceResponseApplicationJson._(
-            success:
-                BuiltValueNullFieldError.checkNotNull(success, r'UppushSyncDeviceResponseApplicationJson', 'success'));
+        _$SyncDeviceResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushDeleteDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushDeleteDeviceResponseApplicationJsonInterface other);
-  void update(void Function(UppushDeleteDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class DeleteDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace(DeleteDeviceResponseApplicationJsonInterface other);
+  void update(void Function(DeleteDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushDeleteDeviceResponseApplicationJson extends UppushDeleteDeviceResponseApplicationJson {
+class _$DeleteDeviceResponseApplicationJson extends DeleteDeviceResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushDeleteDeviceResponseApplicationJson(
-          [void Function(UppushDeleteDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (UppushDeleteDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeleteDeviceResponseApplicationJson([void Function(DeleteDeviceResponseApplicationJsonBuilder)? updates]) =>
+      (DeleteDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushDeleteDeviceResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushDeleteDeviceResponseApplicationJson', 'success');
+  _$DeleteDeviceResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success');
   }
 
   @override
-  UppushDeleteDeviceResponseApplicationJson rebuild(
-          void Function(UppushDeleteDeviceResponseApplicationJsonBuilder) updates) =>
+  DeleteDeviceResponseApplicationJson rebuild(void Function(DeleteDeviceResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushDeleteDeviceResponseApplicationJsonBuilder toBuilder() =>
-      UppushDeleteDeviceResponseApplicationJsonBuilder()..replace(this);
+  DeleteDeviceResponseApplicationJsonBuilder toBuilder() => DeleteDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushDeleteDeviceResponseApplicationJson && success == other.success;
+    return other is DeleteDeviceResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -1022,24 +982,23 @@ class _$UppushDeleteDeviceResponseApplicationJson extends UppushDeleteDeviceResp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushDeleteDeviceResponseApplicationJson')..add('success', success))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DeleteDeviceResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushDeleteDeviceResponseApplicationJsonBuilder
+class DeleteDeviceResponseApplicationJsonBuilder
     implements
-        Builder<UppushDeleteDeviceResponseApplicationJson, UppushDeleteDeviceResponseApplicationJsonBuilder>,
-        UppushDeleteDeviceResponseApplicationJsonInterfaceBuilder {
-  _$UppushDeleteDeviceResponseApplicationJson? _$v;
+        Builder<DeleteDeviceResponseApplicationJson, DeleteDeviceResponseApplicationJsonBuilder>,
+        DeleteDeviceResponseApplicationJsonInterfaceBuilder {
+  _$DeleteDeviceResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushDeleteDeviceResponseApplicationJsonBuilder();
+  DeleteDeviceResponseApplicationJsonBuilder();
 
-  UppushDeleteDeviceResponseApplicationJsonBuilder get _$this {
+  DeleteDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -1049,32 +1008,31 @@ class UppushDeleteDeviceResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushDeleteDeviceResponseApplicationJson other) {
+  void replace(covariant DeleteDeviceResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushDeleteDeviceResponseApplicationJson;
+    _$v = other as _$DeleteDeviceResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushDeleteDeviceResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DeleteDeviceResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushDeleteDeviceResponseApplicationJson build() => _build();
+  DeleteDeviceResponseApplicationJson build() => _build();
 
-  _$UppushDeleteDeviceResponseApplicationJson _build() {
+  _$DeleteDeviceResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushDeleteDeviceResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(
-                success, r'UppushDeleteDeviceResponseApplicationJson', 'success'));
+        _$DeleteDeviceResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushCreateAppResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushCreateAppResponseApplicationJsonInterface other);
-  void update(void Function(UppushCreateAppResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class CreateAppResponseApplicationJsonInterfaceBuilder {
+  void replace(CreateAppResponseApplicationJsonInterface other);
+  void update(void Function(CreateAppResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -1082,34 +1040,31 @@ abstract mixin class UppushCreateAppResponseApplicationJsonInterfaceBuilder {
   set token(String? token);
 }
 
-class _$UppushCreateAppResponseApplicationJson extends UppushCreateAppResponseApplicationJson {
+class _$CreateAppResponseApplicationJson extends CreateAppResponseApplicationJson {
   @override
   final bool success;
   @override
   final String token;
 
-  factory _$UppushCreateAppResponseApplicationJson(
-          [void Function(UppushCreateAppResponseApplicationJsonBuilder)? updates]) =>
-      (UppushCreateAppResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$CreateAppResponseApplicationJson([void Function(CreateAppResponseApplicationJsonBuilder)? updates]) =>
+      (CreateAppResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushCreateAppResponseApplicationJson._({required this.success, required this.token}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushCreateAppResponseApplicationJson', 'success');
-    BuiltValueNullFieldError.checkNotNull(token, r'UppushCreateAppResponseApplicationJson', 'token');
+  _$CreateAppResponseApplicationJson._({required this.success, required this.token}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success');
+    BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token');
   }
 
   @override
-  UppushCreateAppResponseApplicationJson rebuild(
-          void Function(UppushCreateAppResponseApplicationJsonBuilder) updates) =>
+  CreateAppResponseApplicationJson rebuild(void Function(CreateAppResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushCreateAppResponseApplicationJsonBuilder toBuilder() =>
-      UppushCreateAppResponseApplicationJsonBuilder()..replace(this);
+  CreateAppResponseApplicationJsonBuilder toBuilder() => CreateAppResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushCreateAppResponseApplicationJson && success == other.success && token == other.token;
+    return other is CreateAppResponseApplicationJson && success == other.success && token == other.token;
   }
 
   @override
@@ -1123,18 +1078,18 @@ class _$UppushCreateAppResponseApplicationJson extends UppushCreateAppResponseAp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushCreateAppResponseApplicationJson')
+    return (newBuiltValueToStringHelper(r'CreateAppResponseApplicationJson')
           ..add('success', success)
           ..add('token', token))
         .toString();
   }
 }
 
-class UppushCreateAppResponseApplicationJsonBuilder
+class CreateAppResponseApplicationJsonBuilder
     implements
-        Builder<UppushCreateAppResponseApplicationJson, UppushCreateAppResponseApplicationJsonBuilder>,
-        UppushCreateAppResponseApplicationJsonInterfaceBuilder {
-  _$UppushCreateAppResponseApplicationJson? _$v;
+        Builder<CreateAppResponseApplicationJson, CreateAppResponseApplicationJsonBuilder>,
+        CreateAppResponseApplicationJsonInterfaceBuilder {
+  _$CreateAppResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
@@ -1144,9 +1099,9 @@ class UppushCreateAppResponseApplicationJsonBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  UppushCreateAppResponseApplicationJsonBuilder();
+  CreateAppResponseApplicationJsonBuilder();
 
-  UppushCreateAppResponseApplicationJsonBuilder get _$this {
+  CreateAppResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -1157,62 +1112,58 @@ class UppushCreateAppResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushCreateAppResponseApplicationJson other) {
+  void replace(covariant CreateAppResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushCreateAppResponseApplicationJson;
+    _$v = other as _$CreateAppResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushCreateAppResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(CreateAppResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushCreateAppResponseApplicationJson build() => _build();
+  CreateAppResponseApplicationJson build() => _build();
 
-  _$UppushCreateAppResponseApplicationJson _build() {
+  _$CreateAppResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushCreateAppResponseApplicationJson._(
-            success:
-                BuiltValueNullFieldError.checkNotNull(success, r'UppushCreateAppResponseApplicationJson', 'success'),
-            token: BuiltValueNullFieldError.checkNotNull(token, r'UppushCreateAppResponseApplicationJson', 'token'));
+        _$CreateAppResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
+            token: BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushDeleteAppResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushDeleteAppResponseApplicationJsonInterface other);
-  void update(void Function(UppushDeleteAppResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class DeleteAppResponseApplicationJsonInterfaceBuilder {
+  void replace(DeleteAppResponseApplicationJsonInterface other);
+  void update(void Function(DeleteAppResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushDeleteAppResponseApplicationJson extends UppushDeleteAppResponseApplicationJson {
+class _$DeleteAppResponseApplicationJson extends DeleteAppResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushDeleteAppResponseApplicationJson(
-          [void Function(UppushDeleteAppResponseApplicationJsonBuilder)? updates]) =>
-      (UppushDeleteAppResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeleteAppResponseApplicationJson([void Function(DeleteAppResponseApplicationJsonBuilder)? updates]) =>
+      (DeleteAppResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushDeleteAppResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushDeleteAppResponseApplicationJson', 'success');
+  _$DeleteAppResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success');
   }
 
   @override
-  UppushDeleteAppResponseApplicationJson rebuild(
-          void Function(UppushDeleteAppResponseApplicationJsonBuilder) updates) =>
+  DeleteAppResponseApplicationJson rebuild(void Function(DeleteAppResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushDeleteAppResponseApplicationJsonBuilder toBuilder() =>
-      UppushDeleteAppResponseApplicationJsonBuilder()..replace(this);
+  DeleteAppResponseApplicationJsonBuilder toBuilder() => DeleteAppResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushDeleteAppResponseApplicationJson && success == other.success;
+    return other is DeleteAppResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -1225,23 +1176,23 @@ class _$UppushDeleteAppResponseApplicationJson extends UppushDeleteAppResponseAp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushDeleteAppResponseApplicationJson')..add('success', success)).toString();
+    return (newBuiltValueToStringHelper(r'DeleteAppResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushDeleteAppResponseApplicationJsonBuilder
+class DeleteAppResponseApplicationJsonBuilder
     implements
-        Builder<UppushDeleteAppResponseApplicationJson, UppushDeleteAppResponseApplicationJsonBuilder>,
-        UppushDeleteAppResponseApplicationJsonInterfaceBuilder {
-  _$UppushDeleteAppResponseApplicationJson? _$v;
+        Builder<DeleteAppResponseApplicationJson, DeleteAppResponseApplicationJsonBuilder>,
+        DeleteAppResponseApplicationJsonInterfaceBuilder {
+  _$DeleteAppResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushDeleteAppResponseApplicationJsonBuilder();
+  DeleteAppResponseApplicationJsonBuilder();
 
-  UppushDeleteAppResponseApplicationJsonBuilder get _$this {
+  DeleteAppResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -1251,63 +1202,62 @@ class UppushDeleteAppResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushDeleteAppResponseApplicationJson other) {
+  void replace(covariant DeleteAppResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushDeleteAppResponseApplicationJson;
+    _$v = other as _$DeleteAppResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushDeleteAppResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DeleteAppResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushDeleteAppResponseApplicationJson build() => _build();
+  DeleteAppResponseApplicationJson build() => _build();
 
-  _$UppushDeleteAppResponseApplicationJson _build() {
+  _$DeleteAppResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushDeleteAppResponseApplicationJson._(
-            success:
-                BuiltValueNullFieldError.checkNotNull(success, r'UppushDeleteAppResponseApplicationJson', 'success'));
+        _$DeleteAppResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  void replace(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface other);
-  void update(void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
+abstract mixin class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface other);
+  void update(void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
   int? get version;
   set version(int? version);
 }
 
-class _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
-    extends UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush {
+class _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
+    extends UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush {
   @override
   final int version;
 
-  factory _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush(
-          [void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+  factory _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush(
+          [void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
+      (UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._({required this.version}) : super._() {
+  _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._({required this.version}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        version, r'UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version');
+        version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version');
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush rebuild(
-          void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
+  UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush rebuild(
+          void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
-      UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
+      UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush && version == other.version;
+    return other is UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush && version == other.version;
   }
 
   @override
@@ -1320,26 +1270,26 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush')
+    return (newBuiltValueToStringHelper(r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush')
           ..add('version', version))
         .toString();
   }
 }
 
-class UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
+class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
-        Builder<UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-            UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
-        UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush? _$v;
+        Builder<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+            UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
+        UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
   int? _version;
   int? get version => _$this._version;
   set version(covariant int? version) => _$this._version = version;
 
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _version = $v.version;
@@ -1349,62 +1299,61 @@ class UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
   }
 
   @override
-  void replace(covariant UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush other) {
+  void replace(covariant UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush;
+    _$v = other as _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush;
   }
 
   @override
-  void update(void Function(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates) {
+  void update(void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
+  UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
 
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush _build() {
+  _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush _build() {
     final _$result = _$v ??
-        _$UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
+        _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
             version: BuiltValueNullFieldError.checkNotNull(
-                version, r'UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'));
+                version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushUnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushUnifiedpushDiscoveryResponseApplicationJsonInterface other);
-  void update(void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
-  set unifiedpush(UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
+abstract mixin class UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
+  void replace(UnifiedpushDiscoveryResponseApplicationJsonInterface other);
+  void update(void Function(UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
+  set unifiedpush(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
 
-class _$UppushUnifiedpushDiscoveryResponseApplicationJson extends UppushUnifiedpushDiscoveryResponseApplicationJson {
+class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscoveryResponseApplicationJson {
   @override
-  final UppushUnifiedpushDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
+  final UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
 
-  factory _$UppushUnifiedpushDiscoveryResponseApplicationJson(
-          [void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UnifiedpushDiscoveryResponseApplicationJson(
+          [void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates]) =>
+      (UnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        unifiedpush, r'UppushUnifiedpushDiscoveryResponseApplicationJson', 'unifiedpush');
+  _$UnifiedpushDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(unifiedpush, r'UnifiedpushDiscoveryResponseApplicationJson', 'unifiedpush');
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson rebuild(
-          void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder) updates) =>
+  UnifiedpushDiscoveryResponseApplicationJson rebuild(
+          void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder toBuilder() =>
-      UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder()..replace(this);
+  UnifiedpushDiscoveryResponseApplicationJsonBuilder toBuilder() =>
+      UnifiedpushDiscoveryResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushUnifiedpushDiscoveryResponseApplicationJson && unifiedpush == other.unifiedpush;
+    return other is UnifiedpushDiscoveryResponseApplicationJson && unifiedpush == other.unifiedpush;
   }
 
   @override
@@ -1417,28 +1366,27 @@ class _$UppushUnifiedpushDiscoveryResponseApplicationJson extends UppushUnifiedp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushUnifiedpushDiscoveryResponseApplicationJson')
+    return (newBuiltValueToStringHelper(r'UnifiedpushDiscoveryResponseApplicationJson')
           ..add('unifiedpush', unifiedpush))
         .toString();
   }
 }
 
-class UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder
+class UnifiedpushDiscoveryResponseApplicationJsonBuilder
     implements
-        Builder<UppushUnifiedpushDiscoveryResponseApplicationJson,
-            UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder>,
-        UppushUnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson? _$v;
+        Builder<UnifiedpushDiscoveryResponseApplicationJson, UnifiedpushDiscoveryResponseApplicationJsonBuilder>,
+        UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
+  _$UnifiedpushDiscoveryResponseApplicationJson? _$v;
 
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
-  UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
-      _$this._unifiedpush ??= UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
-  set unifiedpush(covariant UppushUnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
+      _$this._unifiedpush ??= UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  set unifiedpush(covariant UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
-  UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder();
+  UnifiedpushDiscoveryResponseApplicationJsonBuilder();
 
-  UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder get _$this {
+  UnifiedpushDiscoveryResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _unifiedpush = $v.unifiedpush.toBuilder();
@@ -1448,31 +1396,30 @@ class UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushUnifiedpushDiscoveryResponseApplicationJson other) {
+  void replace(covariant UnifiedpushDiscoveryResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushUnifiedpushDiscoveryResponseApplicationJson;
+    _$v = other as _$UnifiedpushDiscoveryResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushUnifiedpushDiscoveryResponseApplicationJson build() => _build();
+  UnifiedpushDiscoveryResponseApplicationJson build() => _build();
 
-  _$UppushUnifiedpushDiscoveryResponseApplicationJson _build() {
-    _$UppushUnifiedpushDiscoveryResponseApplicationJson _$result;
+  _$UnifiedpushDiscoveryResponseApplicationJson _build() {
+    _$UnifiedpushDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UppushUnifiedpushDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
+      _$result = _$v ?? _$UnifiedpushDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'unifiedpush';
         unifiedpush.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'UppushUnifiedpushDiscoveryResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UnifiedpushDiscoveryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1481,35 +1428,35 @@ class UppushUnifiedpushDiscoveryResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UppushPushResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushPushResponseApplicationJsonInterface other);
-  void update(void Function(UppushPushResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class PushResponseApplicationJsonInterfaceBuilder {
+  void replace(PushResponseApplicationJsonInterface other);
+  void update(void Function(PushResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
 
-class _$UppushPushResponseApplicationJson extends UppushPushResponseApplicationJson {
+class _$PushResponseApplicationJson extends PushResponseApplicationJson {
   @override
   final bool success;
 
-  factory _$UppushPushResponseApplicationJson([void Function(UppushPushResponseApplicationJsonBuilder)? updates]) =>
-      (UppushPushResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$PushResponseApplicationJson([void Function(PushResponseApplicationJsonBuilder)? updates]) =>
+      (PushResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushPushResponseApplicationJson._({required this.success}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(success, r'UppushPushResponseApplicationJson', 'success');
+  _$PushResponseApplicationJson._({required this.success}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success');
   }
 
   @override
-  UppushPushResponseApplicationJson rebuild(void Function(UppushPushResponseApplicationJsonBuilder) updates) =>
+  PushResponseApplicationJson rebuild(void Function(PushResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushPushResponseApplicationJsonBuilder toBuilder() => UppushPushResponseApplicationJsonBuilder()..replace(this);
+  PushResponseApplicationJsonBuilder toBuilder() => PushResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushPushResponseApplicationJson && success == other.success;
+    return other is PushResponseApplicationJson && success == other.success;
   }
 
   @override
@@ -1522,23 +1469,23 @@ class _$UppushPushResponseApplicationJson extends UppushPushResponseApplicationJ
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushPushResponseApplicationJson')..add('success', success)).toString();
+    return (newBuiltValueToStringHelper(r'PushResponseApplicationJson')..add('success', success)).toString();
   }
 }
 
-class UppushPushResponseApplicationJsonBuilder
+class PushResponseApplicationJsonBuilder
     implements
-        Builder<UppushPushResponseApplicationJson, UppushPushResponseApplicationJsonBuilder>,
-        UppushPushResponseApplicationJsonInterfaceBuilder {
-  _$UppushPushResponseApplicationJson? _$v;
+        Builder<PushResponseApplicationJson, PushResponseApplicationJsonBuilder>,
+        PushResponseApplicationJsonInterfaceBuilder {
+  _$PushResponseApplicationJson? _$v;
 
   bool? _success;
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  UppushPushResponseApplicationJsonBuilder();
+  PushResponseApplicationJsonBuilder();
 
-  UppushPushResponseApplicationJsonBuilder get _$this {
+  PushResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _success = $v.success;
@@ -1548,62 +1495,62 @@ class UppushPushResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushPushResponseApplicationJson other) {
+  void replace(covariant PushResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushPushResponseApplicationJson;
+    _$v = other as _$PushResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushPushResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(PushResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushPushResponseApplicationJson build() => _build();
+  PushResponseApplicationJson build() => _build();
 
-  _$UppushPushResponseApplicationJson _build() {
+  _$PushResponseApplicationJson _build() {
     final _$result = _$v ??
-        _$UppushPushResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'UppushPushResponseApplicationJson', 'success'));
+        _$PushResponseApplicationJson._(
+            success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  void replace(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface other);
-  void update(void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
+abstract mixin class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface other);
+  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
   String? get gateway;
   set gateway(String? gateway);
 }
 
-class _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
-    extends UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush {
+class _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
+    extends GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush {
   @override
   final String gateway;
 
-  factory _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush(
-          [void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+  factory _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush(
+          [void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
+      (GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._({required this.gateway}) : super._() {
+  _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._({required this.gateway}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        gateway, r'UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway');
+        gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway');
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush rebuild(
-          void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
+  GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush rebuild(
+          void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
-      UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
+      GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush && gateway == other.gateway;
+    return other is GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush && gateway == other.gateway;
   }
 
   @override
@@ -1616,26 +1563,26 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush')
+    return (newBuiltValueToStringHelper(r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush')
           ..add('gateway', gateway))
         .toString();
   }
 }
 
-class UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
+class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
-        Builder<UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-            UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
-        UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush? _$v;
+        Builder<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+            GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
+        GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
   String? _gateway;
   String? get gateway => _$this._gateway;
   set gateway(covariant String? gateway) => _$this._gateway = gateway;
 
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _gateway = $v.gateway;
@@ -1645,63 +1592,61 @@ class UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
   }
 
   @override
-  void replace(covariant UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush other) {
+  void replace(covariant GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush;
+    _$v = other as _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush;
   }
 
   @override
-  void update(void Function(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates) {
+  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
+  GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
 
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush _build() {
+  _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush _build() {
     final _$result = _$v ??
-        _$UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
+        _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
             gateway: BuiltValueNullFieldError.checkNotNull(
-                gateway, r'UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'));
+                gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class UppushGatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushGatewayMatrixDiscoveryResponseApplicationJsonInterface other);
-  void update(void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
-  set unifiedpush(UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
+abstract mixin class GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
+  void replace(GatewayMatrixDiscoveryResponseApplicationJsonInterface other);
+  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
+  set unifiedpush(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
 
-class _$UppushGatewayMatrixDiscoveryResponseApplicationJson
-    extends UppushGatewayMatrixDiscoveryResponseApplicationJson {
+class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDiscoveryResponseApplicationJson {
   @override
-  final UppushGatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
+  final GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
 
-  factory _$UppushGatewayMatrixDiscoveryResponseApplicationJson(
-          [void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$GatewayMatrixDiscoveryResponseApplicationJson(
+          [void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates]) =>
+      (GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        unifiedpush, r'UppushGatewayMatrixDiscoveryResponseApplicationJson', 'unifiedpush');
+  _$GatewayMatrixDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(unifiedpush, r'GatewayMatrixDiscoveryResponseApplicationJson', 'unifiedpush');
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson rebuild(
-          void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder) updates) =>
+  GatewayMatrixDiscoveryResponseApplicationJson rebuild(
+          void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder toBuilder() =>
-      UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder()..replace(this);
+  GatewayMatrixDiscoveryResponseApplicationJsonBuilder toBuilder() =>
+      GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushGatewayMatrixDiscoveryResponseApplicationJson && unifiedpush == other.unifiedpush;
+    return other is GatewayMatrixDiscoveryResponseApplicationJson && unifiedpush == other.unifiedpush;
   }
 
   @override
@@ -1714,28 +1659,27 @@ class _$UppushGatewayMatrixDiscoveryResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushGatewayMatrixDiscoveryResponseApplicationJson')
+    return (newBuiltValueToStringHelper(r'GatewayMatrixDiscoveryResponseApplicationJson')
           ..add('unifiedpush', unifiedpush))
         .toString();
   }
 }
 
-class UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder
+class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
     implements
-        Builder<UppushGatewayMatrixDiscoveryResponseApplicationJson,
-            UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder>,
-        UppushGatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson? _$v;
+        Builder<GatewayMatrixDiscoveryResponseApplicationJson, GatewayMatrixDiscoveryResponseApplicationJsonBuilder>,
+        GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
+  _$GatewayMatrixDiscoveryResponseApplicationJson? _$v;
 
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
-  UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
-      _$this._unifiedpush ??= UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
-  set unifiedpush(covariant UppushGatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
+      _$this._unifiedpush ??= GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  set unifiedpush(covariant GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
-  UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder();
+  GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
 
-  UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder get _$this {
+  GatewayMatrixDiscoveryResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _unifiedpush = $v.unifiedpush.toBuilder();
@@ -1745,31 +1689,30 @@ class UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushGatewayMatrixDiscoveryResponseApplicationJson other) {
+  void replace(covariant GatewayMatrixDiscoveryResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushGatewayMatrixDiscoveryResponseApplicationJson;
+    _$v = other as _$GatewayMatrixDiscoveryResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushGatewayMatrixDiscoveryResponseApplicationJson build() => _build();
+  GatewayMatrixDiscoveryResponseApplicationJson build() => _build();
 
-  _$UppushGatewayMatrixDiscoveryResponseApplicationJson _build() {
-    _$UppushGatewayMatrixDiscoveryResponseApplicationJson _$result;
+  _$GatewayMatrixDiscoveryResponseApplicationJson _build() {
+    _$GatewayMatrixDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UppushGatewayMatrixDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
+      _$result = _$v ?? _$GatewayMatrixDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'unifiedpush';
         unifiedpush.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'UppushGatewayMatrixDiscoveryResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'GatewayMatrixDiscoveryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1778,38 +1721,37 @@ class UppushGatewayMatrixDiscoveryResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UppushGatewayMatrixResponseApplicationJsonInterfaceBuilder {
-  void replace(UppushGatewayMatrixResponseApplicationJsonInterface other);
-  void update(void Function(UppushGatewayMatrixResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class GatewayMatrixResponseApplicationJsonInterfaceBuilder {
+  void replace(GatewayMatrixResponseApplicationJsonInterface other);
+  void update(void Function(GatewayMatrixResponseApplicationJsonInterfaceBuilder) updates);
   ListBuilder<String> get rejected;
   set rejected(ListBuilder<String>? rejected);
 }
 
-class _$UppushGatewayMatrixResponseApplicationJson extends UppushGatewayMatrixResponseApplicationJson {
+class _$GatewayMatrixResponseApplicationJson extends GatewayMatrixResponseApplicationJson {
   @override
   final BuiltList<String> rejected;
 
-  factory _$UppushGatewayMatrixResponseApplicationJson(
-          [void Function(UppushGatewayMatrixResponseApplicationJsonBuilder)? updates]) =>
-      (UppushGatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$GatewayMatrixResponseApplicationJson(
+          [void Function(GatewayMatrixResponseApplicationJsonBuilder)? updates]) =>
+      (GatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UppushGatewayMatrixResponseApplicationJson._({required this.rejected}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(rejected, r'UppushGatewayMatrixResponseApplicationJson', 'rejected');
+  _$GatewayMatrixResponseApplicationJson._({required this.rejected}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(rejected, r'GatewayMatrixResponseApplicationJson', 'rejected');
   }
 
   @override
-  UppushGatewayMatrixResponseApplicationJson rebuild(
-          void Function(UppushGatewayMatrixResponseApplicationJsonBuilder) updates) =>
+  GatewayMatrixResponseApplicationJson rebuild(void Function(GatewayMatrixResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UppushGatewayMatrixResponseApplicationJsonBuilder toBuilder() =>
-      UppushGatewayMatrixResponseApplicationJsonBuilder()..replace(this);
+  GatewayMatrixResponseApplicationJsonBuilder toBuilder() =>
+      GatewayMatrixResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UppushGatewayMatrixResponseApplicationJson && rejected == other.rejected;
+    return other is GatewayMatrixResponseApplicationJson && rejected == other.rejected;
   }
 
   @override
@@ -1822,24 +1764,23 @@ class _$UppushGatewayMatrixResponseApplicationJson extends UppushGatewayMatrixRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UppushGatewayMatrixResponseApplicationJson')..add('rejected', rejected))
-        .toString();
+    return (newBuiltValueToStringHelper(r'GatewayMatrixResponseApplicationJson')..add('rejected', rejected)).toString();
   }
 }
 
-class UppushGatewayMatrixResponseApplicationJsonBuilder
+class GatewayMatrixResponseApplicationJsonBuilder
     implements
-        Builder<UppushGatewayMatrixResponseApplicationJson, UppushGatewayMatrixResponseApplicationJsonBuilder>,
-        UppushGatewayMatrixResponseApplicationJsonInterfaceBuilder {
-  _$UppushGatewayMatrixResponseApplicationJson? _$v;
+        Builder<GatewayMatrixResponseApplicationJson, GatewayMatrixResponseApplicationJsonBuilder>,
+        GatewayMatrixResponseApplicationJsonInterfaceBuilder {
+  _$GatewayMatrixResponseApplicationJson? _$v;
 
   ListBuilder<String>? _rejected;
   ListBuilder<String> get rejected => _$this._rejected ??= ListBuilder<String>();
   set rejected(covariant ListBuilder<String>? rejected) => _$this._rejected = rejected;
 
-  UppushGatewayMatrixResponseApplicationJsonBuilder();
+  GatewayMatrixResponseApplicationJsonBuilder();
 
-  UppushGatewayMatrixResponseApplicationJsonBuilder get _$this {
+  GatewayMatrixResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _rejected = $v.rejected.toBuilder();
@@ -1849,30 +1790,30 @@ class UppushGatewayMatrixResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant UppushGatewayMatrixResponseApplicationJson other) {
+  void replace(covariant GatewayMatrixResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UppushGatewayMatrixResponseApplicationJson;
+    _$v = other as _$GatewayMatrixResponseApplicationJson;
   }
 
   @override
-  void update(void Function(UppushGatewayMatrixResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(GatewayMatrixResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UppushGatewayMatrixResponseApplicationJson build() => _build();
+  GatewayMatrixResponseApplicationJson build() => _build();
 
-  _$UppushGatewayMatrixResponseApplicationJson _build() {
-    _$UppushGatewayMatrixResponseApplicationJson _$result;
+  _$GatewayMatrixResponseApplicationJson _build() {
+    _$GatewayMatrixResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UppushGatewayMatrixResponseApplicationJson._(rejected: rejected.build());
+      _$result = _$v ?? _$GatewayMatrixResponseApplicationJson._(rejected: rejected.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'rejected';
         rejected.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UppushGatewayMatrixResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'GatewayMatrixResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
