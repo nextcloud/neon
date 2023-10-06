@@ -22,8 +22,6 @@ List<Spec> generateImports(final AssetId outputId) => [
       Directive.import('package:meta/meta.dart'),
       Directive.import('package:universal_io/io.dart'),
       const Code(''),
-      Directive.export('package:dynamite_runtime/http_client.dart'),
-      const Code(''),
       Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
       const Code(''),
     ];
