@@ -12,6 +12,14 @@
   },
   "packageRules": [
     {
+      "matchDatasources": ["dart-version", "flutter-version"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    },
+    {
       "groupName": "built_value",
       "matchPackagePatterns": "^built"
     },
