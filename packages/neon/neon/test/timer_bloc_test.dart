@@ -1,5 +1,3 @@
-// ignore_for_file: inference_failure_on_instance_creation
-
 import 'package:neon/blocs.dart';
 import 'package:test/test.dart';
 
@@ -15,7 +13,7 @@ void main() {
       final stopwatch = Stopwatch()..start();
       final callback = stopwatch.stop;
       TimerBloc().registerTimer(duration, callback);
-      await Future.delayed(duration);
+      await Future<void>.delayed(duration);
 
       expect(stopwatch.elapsedMilliseconds, greaterThan(duration.inMilliseconds));
       expect(stopwatch.elapsedMilliseconds, lessThan(duration.inMilliseconds * 2));
@@ -28,7 +26,7 @@ void main() {
       final callback = neverCalled;
 
       TimerBloc().registerTimer(duration, callback).cancel();
-      await Future.delayed(duration);
+      await Future<void>.delayed(duration);
 
       expect(TimerBloc().callbacks[duration.inSeconds], isNot(contains(callback)));
     });

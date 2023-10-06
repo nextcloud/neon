@@ -1,5 +1,3 @@
-// ignore_for_file: cascade_invocations
-
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/src/models/disposable.dart';
 import 'package:test/test.dart';
@@ -18,6 +16,7 @@ void main() {
       disposable3,
     ];
 
+    // ignore: cascade_invocations
     list.disposeAll();
 
     verify(disposable0.dispose).called(1);
@@ -30,6 +29,7 @@ void main() {
       'disposable3': disposable3,
     };
 
+    // ignore: cascade_invocations
     map.disposeAll();
 
     verify(disposable0.dispose).called(1);

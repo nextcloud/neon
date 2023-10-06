@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_lambdas
-
 part of '../neon_files.dart';
 
 sealed class FilesTask {
@@ -29,10 +27,9 @@ class FilesDownloadTask extends FilesTask {
     await client.webdav.getFile(
       Uri(pathSegments: path),
       file,
-      onProgress: (final progress) {
-        streamController.add(progress);
-      },
+      onProgress: streamController.add,
     );
+    await streamController.close();
   }
 }
 
@@ -51,9 +48,8 @@ class FilesUploadTask extends FilesTask {
       stat,
       Uri(pathSegments: path),
       lastModified: stat.modified,
-      onProgress: (final progress) {
-        streamController.add(progress);
-      },
+      onProgress: streamController.add,
     );
+    await streamController.close();
   }
 }

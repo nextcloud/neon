@@ -1,5 +1,3 @@
-// ignore_for_file: inference_failure_on_instance_creation
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -143,7 +141,7 @@ Future<TestNextcloudClient> getTestClient(
       break;
     } on DynamiteApiException catch (error) {
       i++;
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
       if (i >= 30) {
         throw TimeoutException('Failed to get the status of the Server. $error');
       }

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_redundant_argument_values, inference_failure_on_instance_creation
+// ignore_for_file: avoid_redundant_argument_values
 
 import 'dart:convert';
 
@@ -131,7 +131,7 @@ void main() {
   });
 
   group('ContentString with unknown specifiedType holding list', () {
-    final data = ContentString((final b) => b..content = BuiltList([1, 2, 3]));
+    final data = ContentString((final b) => b..content = BuiltList<int>([1, 2, 3]));
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
@@ -176,7 +176,7 @@ void main() {
   });
 
   group('ContentString with unknown specifiedType holding map', () {
-    final data = ContentString((final b) => b..content = BuiltMap({'one': 1, 'two': 2, 'three': 3}));
+    final data = ContentString((final b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
