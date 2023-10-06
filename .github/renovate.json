@@ -20,6 +20,15 @@
       "enabled": false
     },
     {
+      "matchManagers": ["pub"],
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    },
+    {
       "groupName": "built_value",
       "matchPackagePatterns": "^built"
     },
