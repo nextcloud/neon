@@ -135,48 +135,46 @@ class NeonCachedImage extends StatefulWidget {
 
 class _NeonCachedImageState extends State<NeonCachedImage> {
   @override
-  Widget build(final BuildContext context) => Center(
-        child: FutureBuilder(
-          future: widget.image,
-          builder: (final context, final fileSnapshot) {
-            if (fileSnapshot.hasError) {
-              return _buildError(fileSnapshot.error);
-            }
+  Widget build(final BuildContext context) => FutureBuilder(
+        future: widget.image,
+        builder: (final context, final fileSnapshot) {
+          if (fileSnapshot.hasError) {
+            return _buildError(fileSnapshot.error);
+          }
 
-            if (!fileSnapshot.hasData) {
-              return SizedBox(
+          if (!fileSnapshot.hasData) {
+            return SizedBox(
+              width: widget.size?.width,
+              child: const NeonLinearProgressIndicator(),
+            );
+          }
+
+          final content = fileSnapshot.requireData;
+
+          try {
+            // TODO: Is this safe enough?
+            if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
+              return SvgPicture.memory(
+                content,
+                height: widget.size?.height,
                 width: widget.size?.width,
-                child: const NeonLinearProgressIndicator(),
+                fit: widget.fit ?? BoxFit.contain,
+                colorFilter: widget.svgColorFilter,
               );
             }
+          } catch (_) {
+            // If the data is not UTF-8
+          }
 
-            final content = fileSnapshot.requireData;
-
-            try {
-              // TODO: Is this safe enough?
-              if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
-                return SvgPicture.memory(
-                  content,
-                  height: widget.size?.height,
-                  width: widget.size?.width,
-                  fit: widget.fit ?? BoxFit.contain,
-                  colorFilter: widget.svgColorFilter,
-                );
-              }
-            } catch (_) {
-              // If the data is not UTF-8
-            }
-
-            return Image.memory(
-              content,
-              height: widget.size?.height,
-              width: widget.size?.width,
-              fit: widget.fit,
-              gaplessPlayback: true,
-              errorBuilder: (final context, final error, final stacktrace) => _buildError(error),
-            );
-          },
-        ),
+          return Image.memory(
+            content,
+            height: widget.size?.height,
+            width: widget.size?.width,
+            fit: widget.fit,
+            gaplessPlayback: true,
+            errorBuilder: (final context, final error, final stacktrace) => _buildError(error),
+          );
+        },
       );
 
   Widget _buildError(final Object? error) =>
