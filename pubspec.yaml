@@ -2,7 +2,7 @@ name: neon_workspace
 publish_to: none
 
 environment:
-  sdk: '>=3.1.3 <4.0.0'
+  sdk: '>=3.1.0 <4.0.0'
 dev_dependencies:
   commitlint_cli: ^0.7.0
   fvm: ^2.4.1

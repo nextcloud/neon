@@ -23,3 +23,6 @@ Check out our little [overview](architecture.md) of how the Neon project is buil
 
 ## [Neon workflows](workflows.md)
 We have documented various workflows for working with the mono repo structure like adding a new package.
+
+## [Dependencies](dependencies.md)
+How we pin and upgrade our dependencies
