@@ -14,7 +14,7 @@ import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/list_view.dart';
 import 'package:neon/src/widgets/server_icon.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 
 @internal
 class NeonUnifiedSearchResults extends StatelessWidget {
@@ -59,10 +59,10 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final BuildContext context,
     final AccountsBloc accountsBloc,
     final UnifiedSearchBloc bloc,
-    final CoreUnifiedSearchProvider provider,
-    final Result<CoreUnifiedSearchResult> result,
+    final core.UnifiedSearchProvider provider,
+    final Result<core.UnifiedSearchResult> result,
   ) {
-    final entries = result.data?.entries ?? <CoreUnifiedSearchResultEntry>[];
+    final entries = result.data?.entries ?? <core.UnifiedSearchResultEntry>[];
     return Card(
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -108,7 +108,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnail(final BuildContext context, final Account account, final CoreUnifiedSearchResultEntry entry) {
+  Widget _buildThumbnail(final BuildContext context, final Account account, final core.UnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonCachedImage.url(
         size: const Size.square(largeIconSize),
@@ -125,7 +125,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   Widget? _buildFallbackIcon(
     final BuildContext context,
     final Account account,
-    final CoreUnifiedSearchResultEntry entry,
+    final core.UnifiedSearchResultEntry entry,
   ) {
     if (entry.icon.startsWith('/')) {
       return NeonCachedImage.url(

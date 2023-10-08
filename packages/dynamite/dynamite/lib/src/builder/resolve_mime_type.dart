@@ -71,7 +71,7 @@ Iterable<String> resolveMimeTypeEncode(
         mediaType.schema!,
         nullable: dartParameterNullable,
       );
-      final parameterName = toDartName(result.name.replaceFirst(state.classPrefix, ''));
+      final parameterName = toDartName(result.name);
       switch (mimeType) {
         case 'application/json':
         case 'application/x-www-form-urlencoded':

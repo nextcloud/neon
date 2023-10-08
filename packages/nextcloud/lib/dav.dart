@@ -6,8 +6,8 @@ export 'src/api/dav.openapi.dart';
 
 // ignore: public_member_api_docs
 extension DavExtension on NextcloudClient {
-  static final _dav = Expando<DavClient>();
+  static final _dav = Expando<Client>();
 
   /// Client for the dav APIs
-  DavClient get dav => _dav[this] ??= DavClient.fromClient(this);
+  Client get dav => _dav[this] ??= Client.fromClient(this);
 }

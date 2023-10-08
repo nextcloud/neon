@@ -7,8 +7,8 @@ export 'src/helpers/notes.dart';
 
 // ignore: public_member_api_docs
 extension NotesExtension on NextcloudClient {
-  static final _notes = Expando<NotesClient>();
+  static final _notes = Expando<Client>();
 
   /// Client for the notes APIs
-  NotesClient get notes => _notes[this] ??= NotesClient.fromClient(this);
+  Client get notes => _notes[this] ??= Client.fromClient(this);
 }

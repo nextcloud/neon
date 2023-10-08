@@ -33,7 +33,7 @@ Class buildRootClient(
       (final b) {
         b
           ..extend = refer('DynamiteClient')
-          ..name = '${state.classPrefix}Client'
+          ..name = 'Client'
           ..docs.addAll(spec.formattedTagsFor(null))
           ..constructors.addAll([
             Constructor(
@@ -105,7 +105,7 @@ super(
           ]);
 
         for (final tag in tags.where((final t) => !t.contains('/'))) {
-          final client = '${state.classPrefix}${clientName(tag)}';
+          final client = clientName(tag);
 
           b.methods.add(
             Method(
@@ -132,7 +132,7 @@ Class buildClient(
     Class(
       (final b) {
         b
-          ..name = '${state.classPrefix}${clientName(tag)}'
+          ..name = clientName(tag)
           ..docs.addAll(spec.formattedTagsFor(tag))
           ..constructors.add(
             Constructor(
@@ -149,7 +149,7 @@ Class buildClient(
             Field(
               (final b) => b
                 ..name = '_rootClient'
-                ..type = refer('${state.classPrefix}Client')
+                ..type = refer('Client')
                 ..modifier = FieldModifier.final$,
             ),
           );
@@ -161,8 +161,8 @@ Class buildClient(
                 ..name = toDartName(t.substring('$tag/'.length))
                 ..lambda = true
                 ..type = MethodType.getter
-                ..returns = refer('${state.classPrefix}${clientName(t)}')
-                ..body = Code('${state.classPrefix}${clientName(t)}(_rootClient)'),
+                ..returns = refer(clientName(t))
+                ..body = Code('${clientName(t)}(_rootClient)'),
             ),
           );
         }

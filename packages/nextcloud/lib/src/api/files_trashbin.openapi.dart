@@ -13,12 +13,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'files_trashbin.openapi.g.dart';
 
-class FilesTrashbinClient extends DynamiteClient {
-  FilesTrashbinClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -27,7 +25,7 @@ class FilesTrashbinClient extends DynamiteClient {
     super.authentications,
   });
 
-  FilesTrashbinClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -36,13 +34,13 @@ class FilesTrashbinClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  FilesTrashbinPreviewClient get preview => FilesTrashbinPreviewClient(this);
+  PreviewClient get preview => PreviewClient(this);
 }
 
-class FilesTrashbinPreviewClient {
-  FilesTrashbinPreviewClient(this._rootClient);
+class PreviewClient {
+  PreviewClient(this._rootClient);
 
-  final FilesTrashbinClient _rootClient;
+  final Client _rootClient;
 
   /// Get the preview for a file.
   ///
@@ -158,27 +156,22 @@ class FilesTrashbinPreviewClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesTrashbinCapabilities_FilesInterface {
+abstract interface class Capabilities_FilesInterface {
   bool get undelete;
-  FilesTrashbinCapabilities_FilesInterface rebuild(
-    final void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
-  );
-  FilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
+  Capabilities_FilesInterface rebuild(final void Function(Capabilities_FilesInterfaceBuilder) updates);
+  Capabilities_FilesInterfaceBuilder toBuilder();
 }
 
-abstract class FilesTrashbinCapabilities_Files
-    implements
-        FilesTrashbinCapabilities_FilesInterface,
-        Built<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
-  factory FilesTrashbinCapabilities_Files([final void Function(FilesTrashbinCapabilities_FilesBuilder)? b]) =
-      _$FilesTrashbinCapabilities_Files;
+abstract class Capabilities_Files
+    implements Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
+  factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
-  const FilesTrashbinCapabilities_Files._();
+  const Capabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesTrashbinCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Files.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -186,43 +179,40 @@ abstract class FilesTrashbinCapabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesTrashbinCapabilities_Files> get serializer => _$filesTrashbinCapabilitiesFilesSerializer;
+  static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesTrashbinCapabilitiesInterface {
-  FilesTrashbinCapabilities_Files get files;
-  FilesTrashbinCapabilitiesInterface rebuild(final void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
-  FilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class CapabilitiesInterface {
+  Capabilities_Files get files;
+  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
+  CapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class FilesTrashbinCapabilities
-    implements FilesTrashbinCapabilitiesInterface, Built<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
-  factory FilesTrashbinCapabilities([final void Function(FilesTrashbinCapabilitiesBuilder)? b]) =
-      _$FilesTrashbinCapabilities;
+abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
-  const FilesTrashbinCapabilities._();
+  const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesTrashbinCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesTrashbinCapabilities> get serializer => _$filesTrashbinCapabilitiesSerializer;
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilities.new)
-      ..add(FilesTrashbinCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities_Files), FilesTrashbinCapabilities_Files.new)
-      ..add(FilesTrashbinCapabilities_Files.serializer))
+      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_Files.new)
+      ..add(Capabilities_Files.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

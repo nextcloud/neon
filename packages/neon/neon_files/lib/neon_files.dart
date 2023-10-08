@@ -13,7 +13,6 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/platform.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
@@ -23,6 +22,8 @@ import 'package:neon/widgets.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/routes.dart';
 import 'package:neon_files/widgets/file_list_tile.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -75,7 +76,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   @override
   (bool? supported, String? minimumVersion) isSupported(
     final Account account,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       const (null, null);
 }

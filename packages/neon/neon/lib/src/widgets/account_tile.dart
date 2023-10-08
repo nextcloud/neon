@@ -7,7 +7,7 @@ import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
 @internal
 class NeonAccountTile extends StatelessWidget {
@@ -50,7 +50,7 @@ class NeonAccountTile extends StatelessWidget {
         showStatus: showStatus,
       ),
       trailing: trailing,
-      title: ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
+      title: ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [

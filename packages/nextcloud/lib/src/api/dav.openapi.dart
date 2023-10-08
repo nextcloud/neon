@@ -13,12 +13,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'dav.openapi.g.dart';
 
-class DavClient extends DynamiteClient {
-  DavClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -27,7 +25,7 @@ class DavClient extends DynamiteClient {
     super.authentications,
   });
 
-  DavClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -36,13 +34,13 @@ class DavClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  DavDirectClient get direct => DavDirectClient(this);
+  DirectClient get direct => DirectClient(this);
 }
 
-class DavDirectClient {
-  DavDirectClient(this._rootClient);
+class DirectClient {
+  DirectClient(this._rootClient);
 
-  final DavClient _rootClient;
+  final Client _rootClient;
 
   /// Get a direct link to a file.
   ///
@@ -62,7 +60,7 @@ class DavDirectClient {
   ///
   /// See:
   ///  * [getUrlRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DavDirectGetUrlResponseApplicationJson, void>> getUrl({
+  Future<DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required final int fileId,
     final int? expirationTime,
     final bool oCSAPIRequest = true,
@@ -97,7 +95,7 @@ class DavDirectClient {
   /// See:
   ///  * [getUrl] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DavDirectGetUrlResponseApplicationJson, void> getUrlRaw({
+  DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required final int fileId,
     final int? expirationTime,
     final bool oCSAPIRequest = true,
@@ -132,7 +130,7 @@ class DavDirectClient {
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<DavDirectGetUrlResponseApplicationJson, void>(
+    return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',
         uri,
@@ -140,7 +138,7 @@ class DavDirectClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(DavDirectGetUrlResponseApplicationJson),
+      bodyType: const FullType(DirectGetUrlResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -148,57 +146,57 @@ class DavDirectClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  DavOCSMetaInterface rebuild(final void Function(DavOCSMetaInterfaceBuilder) updates);
-  DavOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class DavOCSMeta implements DavOCSMetaInterface, Built<DavOCSMeta, DavOCSMetaBuilder> {
-  factory DavOCSMeta([final void Function(DavOCSMetaBuilder)? b]) = _$DavOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const DavOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavOCSMeta> get serializer => _$davOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface {
+abstract interface class DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
-  DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  DirectGetUrlResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponseApplicationJson_Ocs_Data
+abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
     implements
-        DavDirectGetUrlResponseApplicationJson_Ocs_DataInterface,
-        Built<DavDirectGetUrlResponseApplicationJson_Ocs_Data, DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
-  factory DavDirectGetUrlResponseApplicationJson_Ocs_Data([
-    final void Function(DavDirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$DavDirectGetUrlResponseApplicationJson_Ocs_Data;
+        DirectGetUrlResponseApplicationJson_Ocs_DataInterface,
+        Built<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
+  factory DirectGetUrlResponseApplicationJson_Ocs_Data([
+    final void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DirectGetUrlResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponseApplicationJson_Ocs_Data._();
+  const DirectGetUrlResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -206,34 +204,34 @@ abstract class DavDirectGetUrlResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
-      _$davDirectGetUrlResponseApplicationJsonOcsDataSerializer;
+  static Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
+      _$directGetUrlResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponseApplicationJson_OcsInterface {
-  DavOCSMeta get meta;
-  DavDirectGetUrlResponseApplicationJson_Ocs_Data get data;
-  DavDirectGetUrlResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class DirectGetUrlResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  DirectGetUrlResponseApplicationJson_Ocs_Data get data;
+  DirectGetUrlResponseApplicationJson_OcsInterface rebuild(
+    final void Function(DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponseApplicationJson_Ocs
+abstract class DirectGetUrlResponseApplicationJson_Ocs
     implements
-        DavDirectGetUrlResponseApplicationJson_OcsInterface,
-        Built<DavDirectGetUrlResponseApplicationJson_Ocs, DavDirectGetUrlResponseApplicationJson_OcsBuilder> {
-  factory DavDirectGetUrlResponseApplicationJson_Ocs([
-    final void Function(DavDirectGetUrlResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DavDirectGetUrlResponseApplicationJson_Ocs;
+        DirectGetUrlResponseApplicationJson_OcsInterface,
+        Built<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder> {
+  factory DirectGetUrlResponseApplicationJson_Ocs([
+    final void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DirectGetUrlResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponseApplicationJson_Ocs._();
+  const DirectGetUrlResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -241,33 +239,32 @@ abstract class DavDirectGetUrlResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavDirectGetUrlResponseApplicationJson_Ocs> get serializer =>
-      _$davDirectGetUrlResponseApplicationJsonOcsSerializer;
+  static Serializer<DirectGetUrlResponseApplicationJson_Ocs> get serializer =>
+      _$directGetUrlResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavDirectGetUrlResponseApplicationJsonInterface {
-  DavDirectGetUrlResponseApplicationJson_Ocs get ocs;
-  DavDirectGetUrlResponseApplicationJsonInterface rebuild(
-    final void Function(DavDirectGetUrlResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class DirectGetUrlResponseApplicationJsonInterface {
+  DirectGetUrlResponseApplicationJson_Ocs get ocs;
+  DirectGetUrlResponseApplicationJsonInterface rebuild(
+    final void Function(DirectGetUrlResponseApplicationJsonInterfaceBuilder) updates,
   );
-  DavDirectGetUrlResponseApplicationJsonInterfaceBuilder toBuilder();
+  DirectGetUrlResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class DavDirectGetUrlResponseApplicationJson
+abstract class DirectGetUrlResponseApplicationJson
     implements
-        DavDirectGetUrlResponseApplicationJsonInterface,
-        Built<DavDirectGetUrlResponseApplicationJson, DavDirectGetUrlResponseApplicationJsonBuilder> {
-  factory DavDirectGetUrlResponseApplicationJson([
-    final void Function(DavDirectGetUrlResponseApplicationJsonBuilder)? b,
-  ]) = _$DavDirectGetUrlResponseApplicationJson;
+        DirectGetUrlResponseApplicationJsonInterface,
+        Built<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder> {
+  factory DirectGetUrlResponseApplicationJson([final void Function(DirectGetUrlResponseApplicationJsonBuilder)? b]) =
+      _$DirectGetUrlResponseApplicationJson;
 
   // coverage:ignore-start
-  const DavDirectGetUrlResponseApplicationJson._();
+  const DirectGetUrlResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavDirectGetUrlResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -275,28 +272,27 @@ abstract class DavDirectGetUrlResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavDirectGetUrlResponseApplicationJson> get serializer =>
-      _$davDirectGetUrlResponseApplicationJsonSerializer;
+  static Serializer<DirectGetUrlResponseApplicationJson> get serializer =>
+      _$directGetUrlResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavCapabilities_DavInterface {
+abstract interface class Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
-  DavCapabilities_DavInterface rebuild(final void Function(DavCapabilities_DavInterfaceBuilder) updates);
-  DavCapabilities_DavInterfaceBuilder toBuilder();
+  Capabilities_DavInterface rebuild(final void Function(Capabilities_DavInterfaceBuilder) updates);
+  Capabilities_DavInterfaceBuilder toBuilder();
 }
 
-abstract class DavCapabilities_Dav
-    implements DavCapabilities_DavInterface, Built<DavCapabilities_Dav, DavCapabilities_DavBuilder> {
-  factory DavCapabilities_Dav([final void Function(DavCapabilities_DavBuilder)? b]) = _$DavCapabilities_Dav;
+abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
+  factory Capabilities_Dav([final void Function(Capabilities_DavBuilder)? b]) = _$Capabilities_Dav;
 
   // coverage:ignore-start
-  const DavCapabilities_Dav._();
+  const Capabilities_Dav._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavCapabilities_Dav.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Dav.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -304,58 +300,54 @@ abstract class DavCapabilities_Dav
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavCapabilities_Dav> get serializer => _$davCapabilitiesDavSerializer;
+  static Serializer<Capabilities_Dav> get serializer => _$capabilitiesDavSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DavCapabilitiesInterface {
-  DavCapabilities_Dav get dav;
-  DavCapabilitiesInterface rebuild(final void Function(DavCapabilitiesInterfaceBuilder) updates);
-  DavCapabilitiesInterfaceBuilder toBuilder();
+abstract interface class CapabilitiesInterface {
+  Capabilities_Dav get dav;
+  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
+  CapabilitiesInterfaceBuilder toBuilder();
 }
 
-abstract class DavCapabilities implements DavCapabilitiesInterface, Built<DavCapabilities, DavCapabilitiesBuilder> {
-  factory DavCapabilities([final void Function(DavCapabilitiesBuilder)? b]) = _$DavCapabilities;
+abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
-  const DavCapabilities._();
+  const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<DavCapabilities> get serializer => _$davCapabilitiesSerializer;
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(DirectGetUrlResponseApplicationJson), DirectGetUrlResponseApplicationJson.new)
+      ..add(DirectGetUrlResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponseApplicationJson),
-        DavDirectGetUrlResponseApplicationJson.new,
+        const FullType(DirectGetUrlResponseApplicationJson_Ocs),
+        DirectGetUrlResponseApplicationJson_Ocs.new,
       )
-      ..add(DavDirectGetUrlResponseApplicationJson.serializer)
+      ..add(DirectGetUrlResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponseApplicationJson_Ocs),
-        DavDirectGetUrlResponseApplicationJson_Ocs.new,
+        const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data),
+        DirectGetUrlResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(DavDirectGetUrlResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DavOCSMeta), DavOCSMeta.new)
-      ..add(DavOCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(DavDirectGetUrlResponseApplicationJson_Ocs_Data),
-        DavDirectGetUrlResponseApplicationJson_Ocs_Data.new,
-      )
-      ..add(DavDirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilities.new)
-      ..add(DavCapabilities.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_Dav.new)
-      ..add(DavCapabilities_Dav.serializer))
+      ..add(DirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_Dav.new)
+      ..add(Capabilities_Dav.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

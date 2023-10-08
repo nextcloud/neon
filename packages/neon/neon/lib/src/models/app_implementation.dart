@@ -14,7 +14,7 @@ import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -45,7 +45,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   /// The first value of the record is the supported status and the second value is the supported minimum version.
   FutureOr<(bool? supported, String? minimumVersion)> isSupported(
     final Account account,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   );
 
   final blocsCache = AccountCache<T>();

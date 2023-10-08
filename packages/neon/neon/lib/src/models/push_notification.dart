@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' show DecryptedSubject;
 
 part 'push_notification.g.dart';
 
@@ -24,5 +24,5 @@ class PushNotification {
 
   final String type;
 
-  final NotificationsDecryptedSubject subject;
+  final DecryptedSubject subject;
 }

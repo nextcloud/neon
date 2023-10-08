@@ -6,32 +6,30 @@ part of 'files_reminders.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<FilesRemindersOCSMeta> _$filesRemindersOCSMetaSerializer = _$FilesRemindersOCSMetaSerializer();
-Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs_Data>
-    _$filesRemindersApiGetResponseApplicationJsonOcsDataSerializer =
-    _$FilesRemindersApiGetResponseApplicationJson_Ocs_DataSerializer();
-Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs> _$filesRemindersApiGetResponseApplicationJsonOcsSerializer =
-    _$FilesRemindersApiGetResponseApplicationJson_OcsSerializer();
-Serializer<FilesRemindersApiGetResponseApplicationJson> _$filesRemindersApiGetResponseApplicationJsonSerializer =
-    _$FilesRemindersApiGetResponseApplicationJsonSerializer();
-Serializer<FilesRemindersApiSetResponseApplicationJson_Ocs> _$filesRemindersApiSetResponseApplicationJsonOcsSerializer =
-    _$FilesRemindersApiSetResponseApplicationJson_OcsSerializer();
-Serializer<FilesRemindersApiSetResponseApplicationJson> _$filesRemindersApiSetResponseApplicationJsonSerializer =
-    _$FilesRemindersApiSetResponseApplicationJsonSerializer();
-Serializer<FilesRemindersApiRemoveResponseApplicationJson_Ocs>
-    _$filesRemindersApiRemoveResponseApplicationJsonOcsSerializer =
-    _$FilesRemindersApiRemoveResponseApplicationJson_OcsSerializer();
-Serializer<FilesRemindersApiRemoveResponseApplicationJson> _$filesRemindersApiRemoveResponseApplicationJsonSerializer =
-    _$FilesRemindersApiRemoveResponseApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<ApiGetResponseApplicationJson_Ocs_Data> _$apiGetResponseApplicationJsonOcsDataSerializer =
+    _$ApiGetResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ApiGetResponseApplicationJson_Ocs> _$apiGetResponseApplicationJsonOcsSerializer =
+    _$ApiGetResponseApplicationJson_OcsSerializer();
+Serializer<ApiGetResponseApplicationJson> _$apiGetResponseApplicationJsonSerializer =
+    _$ApiGetResponseApplicationJsonSerializer();
+Serializer<ApiSetResponseApplicationJson_Ocs> _$apiSetResponseApplicationJsonOcsSerializer =
+    _$ApiSetResponseApplicationJson_OcsSerializer();
+Serializer<ApiSetResponseApplicationJson> _$apiSetResponseApplicationJsonSerializer =
+    _$ApiSetResponseApplicationJsonSerializer();
+Serializer<ApiRemoveResponseApplicationJson_Ocs> _$apiRemoveResponseApplicationJsonOcsSerializer =
+    _$ApiRemoveResponseApplicationJson_OcsSerializer();
+Serializer<ApiRemoveResponseApplicationJson> _$apiRemoveResponseApplicationJsonSerializer =
+    _$ApiRemoveResponseApplicationJsonSerializer();
 
-class _$FilesRemindersOCSMetaSerializer implements StructuredSerializer<FilesRemindersOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [FilesRemindersOCSMeta, _$FilesRemindersOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'FilesRemindersOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -62,9 +60,9 @@ class _$FilesRemindersOCSMetaSerializer implements StructuredSerializer<FilesRem
   }
 
   @override
-  FilesRemindersOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -94,18 +92,15 @@ class _$FilesRemindersOCSMetaSerializer implements StructuredSerializer<FilesRem
   }
 }
 
-class _$FilesRemindersApiGetResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<FilesRemindersApiGetResponseApplicationJson_Ocs_Data> {
+class _$ApiGetResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ApiGetResponseApplicationJson_Ocs_Data> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiGetResponseApplicationJson_Ocs_Data,
-    _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data
-  ];
+  final Iterable<Type> types = const [ApiGetResponseApplicationJson_Ocs_Data, _$ApiGetResponseApplicationJson_Ocs_Data];
   @override
-  final String wireName = 'FilesRemindersApiGetResponseApplicationJson_Ocs_Data';
+  final String wireName = 'ApiGetResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiGetResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -119,10 +114,9 @@ class _$FilesRemindersApiGetResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder();
+    final result = ApiGetResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -140,34 +134,29 @@ class _$FilesRemindersApiGetResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$FilesRemindersApiGetResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesRemindersApiGetResponseApplicationJson_Ocs> {
+class _$ApiGetResponseApplicationJson_OcsSerializer implements StructuredSerializer<ApiGetResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiGetResponseApplicationJson_Ocs,
-    _$FilesRemindersApiGetResponseApplicationJson_Ocs
-  ];
+  final Iterable<Type> types = const [ApiGetResponseApplicationJson_Ocs, _$ApiGetResponseApplicationJson_Ocs];
   @override
-  final String wireName = 'FilesRemindersApiGetResponseApplicationJson_Ocs';
+  final String wireName = 'ApiGetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiGetResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesRemindersOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(object.data, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiGetResponseApplicationJson_OcsBuilder();
+    final result = ApiGetResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -176,13 +165,12 @@ class _$FilesRemindersApiGetResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesRemindersOCSMeta))!
-              as FilesRemindersOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs_Data))!
-              as FilesRemindersApiGetResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs_Data))!
+                  as ApiGetResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -191,31 +179,27 @@ class _$FilesRemindersApiGetResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesRemindersApiGetResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesRemindersApiGetResponseApplicationJson> {
+class _$ApiGetResponseApplicationJsonSerializer implements StructuredSerializer<ApiGetResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiGetResponseApplicationJson,
-    _$FilesRemindersApiGetResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [ApiGetResponseApplicationJson, _$ApiGetResponseApplicationJson];
   @override
-  final String wireName = 'FilesRemindersApiGetResponseApplicationJson';
+  final String wireName = 'ApiGetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiGetResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiGetResponseApplicationJsonBuilder();
+    final result = ApiGetResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -225,8 +209,7 @@ class _$FilesRemindersApiGetResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs))!
-              as FilesRemindersApiGetResponseApplicationJson_Ocs);
+              specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs))! as ApiGetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -235,22 +218,18 @@ class _$FilesRemindersApiGetResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesRemindersApiSetResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesRemindersApiSetResponseApplicationJson_Ocs> {
+class _$ApiSetResponseApplicationJson_OcsSerializer implements StructuredSerializer<ApiSetResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiSetResponseApplicationJson_Ocs,
-    _$FilesRemindersApiSetResponseApplicationJson_Ocs
-  ];
+  final Iterable<Type> types = const [ApiSetResponseApplicationJson_Ocs, _$ApiSetResponseApplicationJson_Ocs];
   @override
-  final String wireName = 'FilesRemindersApiSetResponseApplicationJson_Ocs';
+  final String wireName = 'ApiSetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiSetResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ApiSetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesRemindersOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -259,9 +238,9 @@ class _$FilesRemindersApiSetResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiSetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiSetResponseApplicationJson_OcsBuilder();
+    final result = ApiSetResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -270,8 +249,7 @@ class _$FilesRemindersApiSetResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesRemindersOCSMeta))!
-              as FilesRemindersOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -283,31 +261,27 @@ class _$FilesRemindersApiSetResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesRemindersApiSetResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesRemindersApiSetResponseApplicationJson> {
+class _$ApiSetResponseApplicationJsonSerializer implements StructuredSerializer<ApiSetResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiSetResponseApplicationJson,
-    _$FilesRemindersApiSetResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [ApiSetResponseApplicationJson, _$ApiSetResponseApplicationJson];
   @override
-  final String wireName = 'FilesRemindersApiSetResponseApplicationJson';
+  final String wireName = 'ApiSetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiSetResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ApiSetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FilesRemindersApiSetResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiSetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiSetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiSetResponseApplicationJsonBuilder();
+    final result = ApiSetResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -317,8 +291,7 @@ class _$FilesRemindersApiSetResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesRemindersApiSetResponseApplicationJson_Ocs))!
-              as FilesRemindersApiSetResponseApplicationJson_Ocs);
+              specifiedType: const FullType(ApiSetResponseApplicationJson_Ocs))! as ApiSetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -327,22 +300,19 @@ class _$FilesRemindersApiSetResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesRemindersApiRemoveResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesRemindersApiRemoveResponseApplicationJson_Ocs> {
+class _$ApiRemoveResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiRemoveResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiRemoveResponseApplicationJson_Ocs,
-    _$FilesRemindersApiRemoveResponseApplicationJson_Ocs
-  ];
+  final Iterable<Type> types = const [ApiRemoveResponseApplicationJson_Ocs, _$ApiRemoveResponseApplicationJson_Ocs];
   @override
-  final String wireName = 'FilesRemindersApiRemoveResponseApplicationJson_Ocs';
+  final String wireName = 'ApiRemoveResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiRemoveResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ApiRemoveResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesRemindersOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -351,9 +321,9 @@ class _$FilesRemindersApiRemoveResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiRemoveResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder();
+    final result = ApiRemoveResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -362,8 +332,7 @@ class _$FilesRemindersApiRemoveResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesRemindersOCSMeta))!
-              as FilesRemindersOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -375,32 +344,27 @@ class _$FilesRemindersApiRemoveResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesRemindersApiRemoveResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesRemindersApiRemoveResponseApplicationJson> {
+class _$ApiRemoveResponseApplicationJsonSerializer implements StructuredSerializer<ApiRemoveResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesRemindersApiRemoveResponseApplicationJson,
-    _$FilesRemindersApiRemoveResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [ApiRemoveResponseApplicationJson, _$ApiRemoveResponseApplicationJson];
   @override
-  final String wireName = 'FilesRemindersApiRemoveResponseApplicationJson';
+  final String wireName = 'ApiRemoveResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesRemindersApiRemoveResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ApiRemoveResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesRemindersApiRemoveResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiRemoveResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiRemoveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesRemindersApiRemoveResponseApplicationJsonBuilder();
+    final result = ApiRemoveResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -409,9 +373,9 @@ class _$FilesRemindersApiRemoveResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesRemindersApiRemoveResponseApplicationJson_Ocs))!
-              as FilesRemindersApiRemoveResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ApiRemoveResponseApplicationJson_Ocs))!
+                  as ApiRemoveResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -420,9 +384,9 @@ class _$FilesRemindersApiRemoveResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class FilesRemindersOCSMetaInterfaceBuilder {
-  void replace(FilesRemindersOCSMetaInterface other);
-  void update(void Function(FilesRemindersOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -439,7 +403,7 @@ abstract mixin class FilesRemindersOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -451,27 +415,24 @@ class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$FilesRemindersOCSMeta([void Function(FilesRemindersOCSMetaBuilder)? updates]) =>
-      (FilesRemindersOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$FilesRemindersOCSMeta._(
-      {required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesRemindersOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesRemindersOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  FilesRemindersOCSMeta rebuild(void Function(FilesRemindersOCSMetaBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersOCSMetaBuilder toBuilder() => FilesRemindersOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -493,7 +454,7 @@ class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -503,9 +464,8 @@ class _$FilesRemindersOCSMeta extends FilesRemindersOCSMeta {
   }
 }
 
-class FilesRemindersOCSMetaBuilder
-    implements Builder<FilesRemindersOCSMeta, FilesRemindersOCSMetaBuilder>, FilesRemindersOCSMetaInterfaceBuilder {
-  _$FilesRemindersOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -527,9 +487,9 @@ class FilesRemindersOCSMetaBuilder
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  FilesRemindersOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  FilesRemindersOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -543,24 +503,24 @@ class FilesRemindersOCSMetaBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(FilesRemindersOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$FilesRemindersOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$FilesRemindersOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'FilesRemindersOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesRemindersOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -569,37 +529,36 @@ class FilesRemindersOCSMetaBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(ApiGetResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get dueDate;
   set dueDate(String? dueDate);
 }
 
-class _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data
-    extends FilesRemindersApiGetResponseApplicationJson_Ocs_Data {
+class _$ApiGetResponseApplicationJson_Ocs_Data extends ApiGetResponseApplicationJson_Ocs_Data {
   @override
   final String? dueDate;
 
-  factory _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data(
-          [void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ApiGetResponseApplicationJson_Ocs_Data(
+          [void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ApiGetResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data._({this.dueDate}) : super._();
+  _$ApiGetResponseApplicationJson_Ocs_Data._({this.dueDate}) : super._();
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs_Data rebuild(
-          void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder) updates) =>
+  ApiGetResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  ApiGetResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ApiGetResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiGetResponseApplicationJson_Ocs_Data && dueDate == other.dueDate;
+    return other is ApiGetResponseApplicationJson_Ocs_Data && dueDate == other.dueDate;
   }
 
   @override
@@ -612,26 +571,23 @@ class _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiGetResponseApplicationJson_Ocs_Data')
-          ..add('dueDate', dueDate))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson_Ocs_Data')..add('dueDate', dueDate)).toString();
   }
 }
 
-class FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder
+class ApiGetResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<FilesRemindersApiGetResponseApplicationJson_Ocs_Data,
-            FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder>,
-        FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data? _$v;
+        Builder<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder>,
+        ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ApiGetResponseApplicationJson_Ocs_Data? _$v;
 
   String? _dueDate;
   String? get dueDate => _$this._dueDate;
   set dueDate(covariant String? dueDate) => _$this._dueDate = dueDate;
 
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder();
+  ApiGetResponseApplicationJson_Ocs_DataBuilder();
 
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder get _$this {
+  ApiGetResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _dueDate = $v.dueDate;
@@ -641,64 +597,61 @@ class FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiGetResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant ApiGetResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data;
+    _$v = other as _$ApiGetResponseApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs_Data build() => _build();
+  ApiGetResponseApplicationJson_Ocs_Data build() => _build();
 
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data _build() {
-    final _$result = _$v ?? _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
+  _$ApiGetResponseApplicationJson_Ocs_Data _build() {
+    final _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesRemindersApiGetResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesRemindersApiGetResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesRemindersApiGetResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesRemindersOCSMetaBuilder get meta;
-  set meta(FilesRemindersOCSMetaBuilder? meta);
+abstract mixin class ApiGetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ApiGetResponseApplicationJson_OcsInterface other);
+  void update(void Function(ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder? data);
+  ApiGetResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ApiGetResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$FilesRemindersApiGetResponseApplicationJson_Ocs extends FilesRemindersApiGetResponseApplicationJson_Ocs {
+class _$ApiGetResponseApplicationJson_Ocs extends ApiGetResponseApplicationJson_Ocs {
   @override
-  final FilesRemindersOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesRemindersApiGetResponseApplicationJson_Ocs_Data data;
+  final ApiGetResponseApplicationJson_Ocs_Data data;
 
-  factory _$FilesRemindersApiGetResponseApplicationJson_Ocs(
-          [void Function(FilesRemindersApiGetResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesRemindersApiGetResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiGetResponseApplicationJson_Ocs([void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiGetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesRemindersApiGetResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesRemindersApiGetResponseApplicationJson_Ocs', 'data');
+  _$ApiGetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs rebuild(
-          void Function(FilesRemindersApiGetResponseApplicationJson_OcsBuilder) updates) =>
+  ApiGetResponseApplicationJson_Ocs rebuild(void Function(ApiGetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesRemindersApiGetResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiGetResponseApplicationJson_OcsBuilder toBuilder() => ApiGetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiGetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiGetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -712,32 +665,31 @@ class _$FilesRemindersApiGetResponseApplicationJson_Ocs extends FilesRemindersAp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiGetResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesRemindersApiGetResponseApplicationJson_OcsBuilder
+class ApiGetResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesRemindersApiGetResponseApplicationJson_Ocs,
-            FilesRemindersApiGetResponseApplicationJson_OcsBuilder>,
-        FilesRemindersApiGetResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs? _$v;
+        Builder<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder>,
+        ApiGetResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiGetResponseApplicationJson_Ocs? _$v;
 
-  FilesRemindersOCSMetaBuilder? _meta;
-  FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder? _data;
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  ApiGetResponseApplicationJson_Ocs_DataBuilder? _data;
+  ApiGetResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ApiGetResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ApiGetResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder();
+  ApiGetResponseApplicationJson_OcsBuilder();
 
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder get _$this {
+  ApiGetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -748,23 +700,23 @@ class FilesRemindersApiGetResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiGetResponseApplicationJson_Ocs other) {
+  void replace(covariant ApiGetResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiGetResponseApplicationJson_Ocs;
+    _$v = other as _$ApiGetResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesRemindersApiGetResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson_Ocs build() => _build();
+  ApiGetResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesRemindersApiGetResponseApplicationJson_Ocs _build() {
-    _$FilesRemindersApiGetResponseApplicationJson_Ocs _$result;
+  _$ApiGetResponseApplicationJson_Ocs _build() {
+    _$ApiGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$FilesRemindersApiGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -773,8 +725,7 @@ class FilesRemindersApiGetResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesRemindersApiGetResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -783,38 +734,35 @@ class FilesRemindersApiGetResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiGetResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesRemindersApiGetResponseApplicationJsonInterface other);
-  void update(void Function(FilesRemindersApiGetResponseApplicationJsonInterfaceBuilder) updates);
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesRemindersApiGetResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ApiGetResponseApplicationJsonInterfaceBuilder {
+  void replace(ApiGetResponseApplicationJsonInterface other);
+  void update(void Function(ApiGetResponseApplicationJsonInterfaceBuilder) updates);
+  ApiGetResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiGetResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesRemindersApiGetResponseApplicationJson extends FilesRemindersApiGetResponseApplicationJson {
+class _$ApiGetResponseApplicationJson extends ApiGetResponseApplicationJson {
   @override
-  final FilesRemindersApiGetResponseApplicationJson_Ocs ocs;
+  final ApiGetResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesRemindersApiGetResponseApplicationJson(
-          [void Function(FilesRemindersApiGetResponseApplicationJsonBuilder)? updates]) =>
-      (FilesRemindersApiGetResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiGetResponseApplicationJson([void Function(ApiGetResponseApplicationJsonBuilder)? updates]) =>
+      (ApiGetResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiGetResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesRemindersApiGetResponseApplicationJson', 'ocs');
+  _$ApiGetResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson rebuild(
-          void Function(FilesRemindersApiGetResponseApplicationJsonBuilder) updates) =>
+  ApiGetResponseApplicationJson rebuild(void Function(ApiGetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiGetResponseApplicationJsonBuilder toBuilder() =>
-      FilesRemindersApiGetResponseApplicationJsonBuilder()..replace(this);
+  ApiGetResponseApplicationJsonBuilder toBuilder() => ApiGetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiGetResponseApplicationJson && ocs == other.ocs;
+    return other is ApiGetResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -827,24 +775,23 @@ class _$FilesRemindersApiGetResponseApplicationJson extends FilesRemindersApiGet
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiGetResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesRemindersApiGetResponseApplicationJsonBuilder
+class ApiGetResponseApplicationJsonBuilder
     implements
-        Builder<FilesRemindersApiGetResponseApplicationJson, FilesRemindersApiGetResponseApplicationJsonBuilder>,
-        FilesRemindersApiGetResponseApplicationJsonInterfaceBuilder {
-  _$FilesRemindersApiGetResponseApplicationJson? _$v;
+        Builder<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder>,
+        ApiGetResponseApplicationJsonInterfaceBuilder {
+  _$ApiGetResponseApplicationJson? _$v;
 
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder? _ocs;
-  FilesRemindersApiGetResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesRemindersApiGetResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesRemindersApiGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiGetResponseApplicationJson_OcsBuilder? _ocs;
+  ApiGetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiGetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesRemindersApiGetResponseApplicationJsonBuilder();
+  ApiGetResponseApplicationJsonBuilder();
 
-  FilesRemindersApiGetResponseApplicationJsonBuilder get _$this {
+  ApiGetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -854,30 +801,30 @@ class FilesRemindersApiGetResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiGetResponseApplicationJson other) {
+  void replace(covariant ApiGetResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiGetResponseApplicationJson;
+    _$v = other as _$ApiGetResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesRemindersApiGetResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ApiGetResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiGetResponseApplicationJson build() => _build();
+  ApiGetResponseApplicationJson build() => _build();
 
-  _$FilesRemindersApiGetResponseApplicationJson _build() {
-    _$FilesRemindersApiGetResponseApplicationJson _$result;
+  _$ApiGetResponseApplicationJson _build() {
+    _$ApiGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesRemindersApiGetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ApiGetResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesRemindersApiGetResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -886,44 +833,41 @@ class FilesRemindersApiGetResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiSetResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesRemindersApiSetResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesRemindersApiSetResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesRemindersOCSMetaBuilder get meta;
-  set meta(FilesRemindersOCSMetaBuilder? meta);
+abstract mixin class ApiSetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ApiSetResponseApplicationJson_OcsInterface other);
+  void update(void Function(ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesRemindersApiSetResponseApplicationJson_Ocs extends FilesRemindersApiSetResponseApplicationJson_Ocs {
+class _$ApiSetResponseApplicationJson_Ocs extends ApiSetResponseApplicationJson_Ocs {
   @override
-  final FilesRemindersOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesRemindersApiSetResponseApplicationJson_Ocs(
-          [void Function(FilesRemindersApiSetResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesRemindersApiSetResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiSetResponseApplicationJson_Ocs([void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiSetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiSetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesRemindersApiSetResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesRemindersApiSetResponseApplicationJson_Ocs', 'data');
+  _$ApiSetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiSetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson_Ocs rebuild(
-          void Function(FilesRemindersApiSetResponseApplicationJson_OcsBuilder) updates) =>
+  ApiSetResponseApplicationJson_Ocs rebuild(void Function(ApiSetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesRemindersApiSetResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiSetResponseApplicationJson_OcsBuilder toBuilder() => ApiSetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiSetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiSetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -937,31 +881,30 @@ class _$FilesRemindersApiSetResponseApplicationJson_Ocs extends FilesRemindersAp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiSetResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ApiSetResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesRemindersApiSetResponseApplicationJson_OcsBuilder
+class ApiSetResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesRemindersApiSetResponseApplicationJson_Ocs,
-            FilesRemindersApiSetResponseApplicationJson_OcsBuilder>,
-        FilesRemindersApiSetResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesRemindersApiSetResponseApplicationJson_Ocs? _$v;
+        Builder<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder>,
+        ApiSetResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiSetResponseApplicationJson_Ocs? _$v;
 
-  FilesRemindersOCSMetaBuilder? _meta;
-  FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder();
+  ApiSetResponseApplicationJson_OcsBuilder();
 
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder get _$this {
+  ApiSetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -972,35 +915,33 @@ class FilesRemindersApiSetResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiSetResponseApplicationJson_Ocs other) {
+  void replace(covariant ApiSetResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiSetResponseApplicationJson_Ocs;
+    _$v = other as _$ApiSetResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesRemindersApiSetResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson_Ocs build() => _build();
+  ApiSetResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesRemindersApiSetResponseApplicationJson_Ocs _build() {
-    _$FilesRemindersApiSetResponseApplicationJson_Ocs _$result;
+  _$ApiSetResponseApplicationJson_Ocs _build() {
+    _$ApiSetResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesRemindersApiSetResponseApplicationJson_Ocs._(
+          _$ApiSetResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesRemindersApiSetResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesRemindersApiSetResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiSetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1009,38 +950,35 @@ class FilesRemindersApiSetResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiSetResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesRemindersApiSetResponseApplicationJsonInterface other);
-  void update(void Function(FilesRemindersApiSetResponseApplicationJsonInterfaceBuilder) updates);
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesRemindersApiSetResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ApiSetResponseApplicationJsonInterfaceBuilder {
+  void replace(ApiSetResponseApplicationJsonInterface other);
+  void update(void Function(ApiSetResponseApplicationJsonInterfaceBuilder) updates);
+  ApiSetResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiSetResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesRemindersApiSetResponseApplicationJson extends FilesRemindersApiSetResponseApplicationJson {
+class _$ApiSetResponseApplicationJson extends ApiSetResponseApplicationJson {
   @override
-  final FilesRemindersApiSetResponseApplicationJson_Ocs ocs;
+  final ApiSetResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesRemindersApiSetResponseApplicationJson(
-          [void Function(FilesRemindersApiSetResponseApplicationJsonBuilder)? updates]) =>
-      (FilesRemindersApiSetResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiSetResponseApplicationJson([void Function(ApiSetResponseApplicationJsonBuilder)? updates]) =>
+      (ApiSetResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiSetResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesRemindersApiSetResponseApplicationJson', 'ocs');
+  _$ApiSetResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiSetResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson rebuild(
-          void Function(FilesRemindersApiSetResponseApplicationJsonBuilder) updates) =>
+  ApiSetResponseApplicationJson rebuild(void Function(ApiSetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiSetResponseApplicationJsonBuilder toBuilder() =>
-      FilesRemindersApiSetResponseApplicationJsonBuilder()..replace(this);
+  ApiSetResponseApplicationJsonBuilder toBuilder() => ApiSetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiSetResponseApplicationJson && ocs == other.ocs;
+    return other is ApiSetResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -1053,24 +991,23 @@ class _$FilesRemindersApiSetResponseApplicationJson extends FilesRemindersApiSet
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiSetResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiSetResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesRemindersApiSetResponseApplicationJsonBuilder
+class ApiSetResponseApplicationJsonBuilder
     implements
-        Builder<FilesRemindersApiSetResponseApplicationJson, FilesRemindersApiSetResponseApplicationJsonBuilder>,
-        FilesRemindersApiSetResponseApplicationJsonInterfaceBuilder {
-  _$FilesRemindersApiSetResponseApplicationJson? _$v;
+        Builder<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder>,
+        ApiSetResponseApplicationJsonInterfaceBuilder {
+  _$ApiSetResponseApplicationJson? _$v;
 
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder? _ocs;
-  FilesRemindersApiSetResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesRemindersApiSetResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesRemindersApiSetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiSetResponseApplicationJson_OcsBuilder? _ocs;
+  ApiSetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiSetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiSetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesRemindersApiSetResponseApplicationJsonBuilder();
+  ApiSetResponseApplicationJsonBuilder();
 
-  FilesRemindersApiSetResponseApplicationJsonBuilder get _$this {
+  ApiSetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -1080,30 +1017,30 @@ class FilesRemindersApiSetResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiSetResponseApplicationJson other) {
+  void replace(covariant ApiSetResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiSetResponseApplicationJson;
+    _$v = other as _$ApiSetResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesRemindersApiSetResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ApiSetResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiSetResponseApplicationJson build() => _build();
+  ApiSetResponseApplicationJson build() => _build();
 
-  _$FilesRemindersApiSetResponseApplicationJson _build() {
-    _$FilesRemindersApiSetResponseApplicationJson _$result;
+  _$ApiSetResponseApplicationJson _build() {
+    _$ApiSetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesRemindersApiSetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ApiSetResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesRemindersApiSetResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiSetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1112,44 +1049,43 @@ class FilesRemindersApiSetResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesRemindersApiRemoveResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesRemindersOCSMetaBuilder get meta;
-  set meta(FilesRemindersOCSMetaBuilder? meta);
+abstract mixin class ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ApiRemoveResponseApplicationJson_OcsInterface other);
+  void update(void Function(ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesRemindersApiRemoveResponseApplicationJson_Ocs extends FilesRemindersApiRemoveResponseApplicationJson_Ocs {
+class _$ApiRemoveResponseApplicationJson_Ocs extends ApiRemoveResponseApplicationJson_Ocs {
   @override
-  final FilesRemindersOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesRemindersApiRemoveResponseApplicationJson_Ocs(
-          [void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiRemoveResponseApplicationJson_Ocs(
+          [void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiRemoveResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiRemoveResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesRemindersApiRemoveResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesRemindersApiRemoveResponseApplicationJson_Ocs', 'data');
+  _$ApiRemoveResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiRemoveResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson_Ocs rebuild(
-          void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder) updates) =>
+  ApiRemoveResponseApplicationJson_Ocs rebuild(void Function(ApiRemoveResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiRemoveResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiRemoveResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiRemoveResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiRemoveResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -1163,31 +1099,30 @@ class _$FilesRemindersApiRemoveResponseApplicationJson_Ocs extends FilesReminder
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiRemoveResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ApiRemoveResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder
+class ApiRemoveResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesRemindersApiRemoveResponseApplicationJson_Ocs,
-            FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder>,
-        FilesRemindersApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesRemindersApiRemoveResponseApplicationJson_Ocs? _$v;
+        Builder<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder>,
+        ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiRemoveResponseApplicationJson_Ocs? _$v;
 
-  FilesRemindersOCSMetaBuilder? _meta;
-  FilesRemindersOCSMetaBuilder get meta => _$this._meta ??= FilesRemindersOCSMetaBuilder();
-  set meta(covariant FilesRemindersOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder();
+  ApiRemoveResponseApplicationJson_OcsBuilder();
 
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder get _$this {
+  ApiRemoveResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -1198,35 +1133,33 @@ class FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiRemoveResponseApplicationJson_Ocs other) {
+  void replace(covariant ApiRemoveResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiRemoveResponseApplicationJson_Ocs;
+    _$v = other as _$ApiRemoveResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson_Ocs build() => _build();
+  ApiRemoveResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesRemindersApiRemoveResponseApplicationJson_Ocs _build() {
-    _$FilesRemindersApiRemoveResponseApplicationJson_Ocs _$result;
+  _$ApiRemoveResponseApplicationJson_Ocs _build() {
+    _$ApiRemoveResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesRemindersApiRemoveResponseApplicationJson_Ocs._(
+          _$ApiRemoveResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesRemindersApiRemoveResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesRemindersApiRemoveResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiRemoveResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1235,38 +1168,35 @@ class FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesRemindersApiRemoveResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesRemindersApiRemoveResponseApplicationJsonInterface other);
-  void update(void Function(FilesRemindersApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ApiRemoveResponseApplicationJsonInterfaceBuilder {
+  void replace(ApiRemoveResponseApplicationJsonInterface other);
+  void update(void Function(ApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
+  ApiRemoveResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiRemoveResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesRemindersApiRemoveResponseApplicationJson extends FilesRemindersApiRemoveResponseApplicationJson {
+class _$ApiRemoveResponseApplicationJson extends ApiRemoveResponseApplicationJson {
   @override
-  final FilesRemindersApiRemoveResponseApplicationJson_Ocs ocs;
+  final ApiRemoveResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesRemindersApiRemoveResponseApplicationJson(
-          [void Function(FilesRemindersApiRemoveResponseApplicationJsonBuilder)? updates]) =>
-      (FilesRemindersApiRemoveResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiRemoveResponseApplicationJson([void Function(ApiRemoveResponseApplicationJsonBuilder)? updates]) =>
+      (ApiRemoveResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesRemindersApiRemoveResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesRemindersApiRemoveResponseApplicationJson', 'ocs');
+  _$ApiRemoveResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiRemoveResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson rebuild(
-          void Function(FilesRemindersApiRemoveResponseApplicationJsonBuilder) updates) =>
+  ApiRemoveResponseApplicationJson rebuild(void Function(ApiRemoveResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJsonBuilder toBuilder() =>
-      FilesRemindersApiRemoveResponseApplicationJsonBuilder()..replace(this);
+  ApiRemoveResponseApplicationJsonBuilder toBuilder() => ApiRemoveResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesRemindersApiRemoveResponseApplicationJson && ocs == other.ocs;
+    return other is ApiRemoveResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -1279,24 +1209,23 @@ class _$FilesRemindersApiRemoveResponseApplicationJson extends FilesRemindersApi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesRemindersApiRemoveResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiRemoveResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesRemindersApiRemoveResponseApplicationJsonBuilder
+class ApiRemoveResponseApplicationJsonBuilder
     implements
-        Builder<FilesRemindersApiRemoveResponseApplicationJson, FilesRemindersApiRemoveResponseApplicationJsonBuilder>,
-        FilesRemindersApiRemoveResponseApplicationJsonInterfaceBuilder {
-  _$FilesRemindersApiRemoveResponseApplicationJson? _$v;
+        Builder<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder>,
+        ApiRemoveResponseApplicationJsonInterfaceBuilder {
+  _$ApiRemoveResponseApplicationJson? _$v;
 
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder? _ocs;
-  FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiRemoveResponseApplicationJson_OcsBuilder? _ocs;
+  ApiRemoveResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiRemoveResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiRemoveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesRemindersApiRemoveResponseApplicationJsonBuilder();
+  ApiRemoveResponseApplicationJsonBuilder();
 
-  FilesRemindersApiRemoveResponseApplicationJsonBuilder get _$this {
+  ApiRemoveResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -1306,31 +1235,30 @@ class FilesRemindersApiRemoveResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesRemindersApiRemoveResponseApplicationJson other) {
+  void replace(covariant ApiRemoveResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesRemindersApiRemoveResponseApplicationJson;
+    _$v = other as _$ApiRemoveResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesRemindersApiRemoveResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ApiRemoveResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesRemindersApiRemoveResponseApplicationJson build() => _build();
+  ApiRemoveResponseApplicationJson build() => _build();
 
-  _$FilesRemindersApiRemoveResponseApplicationJson _build() {
-    _$FilesRemindersApiRemoveResponseApplicationJson _$result;
+  _$ApiRemoveResponseApplicationJson _build() {
+    _$ApiRemoveResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesRemindersApiRemoveResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ApiRemoveResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesRemindersApiRemoveResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiRemoveResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

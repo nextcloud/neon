@@ -17,7 +17,7 @@ TypeResultObject resolveObject(
   final bool isHeader = false,
 }) {
   final result = TypeResultObject(
-    '${state.classPrefix}$identifier',
+    identifier,
     nullable: nullable,
   );
   if (state.resolvedTypes.add(result)) {
@@ -45,7 +45,7 @@ TypeResultObject resolveObject(
 
     state.output.addAll([
       buildBuiltClass(
-        '${state.classPrefix}$identifier',
+        identifier,
         defaults: defaults,
         customSerializer: isHeader,
         interfaces: [

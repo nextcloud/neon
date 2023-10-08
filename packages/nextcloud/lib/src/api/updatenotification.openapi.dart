@@ -14,12 +14,10 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'updatenotification.openapi.g.dart';
 
-class UpdatenotificationClient extends DynamiteClient {
-  UpdatenotificationClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -28,7 +26,7 @@ class UpdatenotificationClient extends DynamiteClient {
     super.authentications,
   });
 
-  UpdatenotificationClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -37,13 +35,13 @@ class UpdatenotificationClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  UpdatenotificationApiClient get api => UpdatenotificationApiClient(this);
+  ApiClient get api => ApiClient(this);
 }
 
-class UpdatenotificationApiClient {
-  UpdatenotificationApiClient(this._rootClient);
+class ApiClient {
+  ApiClient(this._rootClient);
 
-  final UpdatenotificationClient _rootClient;
+  final Client _rootClient;
 
   /// List available updates for apps.
   ///
@@ -63,9 +61,9 @@ class UpdatenotificationApiClient {
   ///
   /// See:
   ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void>> getAppList({
+  Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
-    final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
+    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getAppListRaw(
@@ -98,9 +96,9 @@ class UpdatenotificationApiClient {
   /// See:
   ///  * [getAppList] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void> getAppListRaw({
+  DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required final String newVersion,
-    final UpdatenotificationApiGetAppListApiVersion apiVersion = UpdatenotificationApiGetAppListApiVersion.v1,
+    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
     final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}';
@@ -131,7 +129,7 @@ class UpdatenotificationApiClient {
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<UpdatenotificationApiGetAppListResponseApplicationJson, void>(
+    return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -139,115 +137,106 @@ class UpdatenotificationApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(UpdatenotificationApiGetAppListResponseApplicationJson),
+      bodyType: const FullType(ApiGetAppListResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
   }
 }
 
-class UpdatenotificationApiGetAppListApiVersion extends EnumClass {
-  const UpdatenotificationApiGetAppListApiVersion._(super.name);
+class ApiGetAppListApiVersion extends EnumClass {
+  const ApiGetAppListApiVersion._(super.name);
 
-  static const UpdatenotificationApiGetAppListApiVersion v1 = _$updatenotificationApiGetAppListApiVersionV1;
+  static const ApiGetAppListApiVersion v1 = _$apiGetAppListApiVersionV1;
 
   // coverage:ignore-start
-  static BuiltSet<UpdatenotificationApiGetAppListApiVersion> get values =>
-      _$updatenotificationApiGetAppListApiVersionValues;
+  static BuiltSet<ApiGetAppListApiVersion> get values => _$apiGetAppListApiVersionValues;
   // coverage:ignore-end
 
-  static UpdatenotificationApiGetAppListApiVersion valueOf(final String name) =>
-      _$valueOfUpdatenotificationApiGetAppListApiVersion(name);
+  static ApiGetAppListApiVersion valueOf(final String name) => _$valueOfApiGetAppListApiVersion(name);
 
-  static Serializer<UpdatenotificationApiGetAppListApiVersion> get serializer =>
-      _$updatenotificationApiGetAppListApiVersionSerializer;
+  static Serializer<ApiGetAppListApiVersion> get serializer => _$apiGetAppListApiVersionSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UpdatenotificationOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  UpdatenotificationOCSMetaInterface rebuild(final void Function(UpdatenotificationOCSMetaInterfaceBuilder) updates);
-  UpdatenotificationOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class UpdatenotificationOCSMeta
-    implements UpdatenotificationOCSMetaInterface, Built<UpdatenotificationOCSMeta, UpdatenotificationOCSMetaBuilder> {
-  factory UpdatenotificationOCSMeta([final void Function(UpdatenotificationOCSMetaBuilder)? b]) =
-      _$UpdatenotificationOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const UpdatenotificationOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UpdatenotificationOCSMeta.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<UpdatenotificationOCSMeta> get serializer => _$updatenotificationOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UpdatenotificationAppInterface {
+abstract interface class AppInterface {
   String get appId;
   String get appName;
-  UpdatenotificationAppInterface rebuild(final void Function(UpdatenotificationAppInterfaceBuilder) updates);
-  UpdatenotificationAppInterfaceBuilder toBuilder();
+  AppInterface rebuild(final void Function(AppInterfaceBuilder) updates);
+  AppInterfaceBuilder toBuilder();
 }
 
-abstract class UpdatenotificationApp
-    implements UpdatenotificationAppInterface, Built<UpdatenotificationApp, UpdatenotificationAppBuilder> {
-  factory UpdatenotificationApp([final void Function(UpdatenotificationAppBuilder)? b]) = _$UpdatenotificationApp;
+abstract class App implements AppInterface, Built<App, AppBuilder> {
+  factory App([final void Function(AppBuilder)? b]) = _$App;
 
   // coverage:ignore-start
-  const UpdatenotificationApp._();
+  const App._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UpdatenotificationApp.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory App.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<UpdatenotificationApp> get serializer => _$updatenotificationAppSerializer;
+  static Serializer<App> get serializer => _$appSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterface {
-  BuiltList<UpdatenotificationApp> get missing;
-  BuiltList<UpdatenotificationApp> get available;
-  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+abstract interface class ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<App> get missing;
+  BuiltList<App> get available;
+  ApiGetAppListResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data
+abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
     implements
-        UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataInterface,
-        Built<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data,
-            UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder> {
-  factory UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data([
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data;
+        ApiGetAppListResponseApplicationJson_Ocs_DataInterface,
+        Built<ApiGetAppListResponseApplicationJson_Ocs_Data, ApiGetAppListResponseApplicationJson_Ocs_DataBuilder> {
+  factory ApiGetAppListResponseApplicationJson_Ocs_Data([
+    final void Function(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ApiGetAppListResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data._();
+  const ApiGetAppListResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -255,35 +244,34 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
-      _$updatenotificationApiGetAppListResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
+      _$apiGetAppListResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterface {
-  UpdatenotificationOCSMeta get meta;
-  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data get data;
-  UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ApiGetAppListResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ApiGetAppListResponseApplicationJson_Ocs_Data get data;
+  ApiGetAppListResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs
+abstract class ApiGetAppListResponseApplicationJson_Ocs
     implements
-        UpdatenotificationApiGetAppListResponseApplicationJson_OcsInterface,
-        Built<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs,
-            UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder> {
-  factory UpdatenotificationApiGetAppListResponseApplicationJson_Ocs([
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$UpdatenotificationApiGetAppListResponseApplicationJson_Ocs;
+        ApiGetAppListResponseApplicationJson_OcsInterface,
+        Built<ApiGetAppListResponseApplicationJson_Ocs, ApiGetAppListResponseApplicationJson_OcsBuilder> {
+  factory ApiGetAppListResponseApplicationJson_Ocs([
+    final void Function(ApiGetAppListResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiGetAppListResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const UpdatenotificationApiGetAppListResponseApplicationJson_Ocs._();
+  const ApiGetAppListResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UpdatenotificationApiGetAppListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -291,34 +279,32 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson_Ocs> get serializer =>
-      _$updatenotificationApiGetAppListResponseApplicationJsonOcsSerializer;
+  static Serializer<ApiGetAppListResponseApplicationJson_Ocs> get serializer =>
+      _$apiGetAppListResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UpdatenotificationApiGetAppListResponseApplicationJsonInterface {
-  UpdatenotificationApiGetAppListResponseApplicationJson_Ocs get ocs;
-  UpdatenotificationApiGetAppListResponseApplicationJsonInterface rebuild(
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ApiGetAppListResponseApplicationJsonInterface {
+  ApiGetAppListResponseApplicationJson_Ocs get ocs;
+  ApiGetAppListResponseApplicationJsonInterface rebuild(
+    final void Function(ApiGetAppListResponseApplicationJsonInterfaceBuilder) updates,
   );
-  UpdatenotificationApiGetAppListResponseApplicationJsonInterfaceBuilder toBuilder();
+  ApiGetAppListResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class UpdatenotificationApiGetAppListResponseApplicationJson
+abstract class ApiGetAppListResponseApplicationJson
     implements
-        UpdatenotificationApiGetAppListResponseApplicationJsonInterface,
-        Built<UpdatenotificationApiGetAppListResponseApplicationJson,
-            UpdatenotificationApiGetAppListResponseApplicationJsonBuilder> {
-  factory UpdatenotificationApiGetAppListResponseApplicationJson([
-    final void Function(UpdatenotificationApiGetAppListResponseApplicationJsonBuilder)? b,
-  ]) = _$UpdatenotificationApiGetAppListResponseApplicationJson;
+        ApiGetAppListResponseApplicationJsonInterface,
+        Built<ApiGetAppListResponseApplicationJson, ApiGetAppListResponseApplicationJsonBuilder> {
+  factory ApiGetAppListResponseApplicationJson([final void Function(ApiGetAppListResponseApplicationJsonBuilder)? b]) =
+      _$ApiGetAppListResponseApplicationJson;
 
   // coverage:ignore-start
-  const UpdatenotificationApiGetAppListResponseApplicationJson._();
+  const ApiGetAppListResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UpdatenotificationApiGetAppListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -326,36 +312,33 @@ abstract class UpdatenotificationApiGetAppListResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<UpdatenotificationApiGetAppListResponseApplicationJson> get serializer =>
-      _$updatenotificationApiGetAppListResponseApplicationJsonSerializer;
+  static Serializer<ApiGetAppListResponseApplicationJson> get serializer =>
+      _$apiGetAppListResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..add(UpdatenotificationApiGetAppListApiVersion.serializer)
+      ..add(ApiGetAppListApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(UpdatenotificationApiGetAppListResponseApplicationJson),
-        UpdatenotificationApiGetAppListResponseApplicationJson.new,
+        const FullType(ApiGetAppListResponseApplicationJson),
+        ApiGetAppListResponseApplicationJson.new,
       )
-      ..add(UpdatenotificationApiGetAppListResponseApplicationJson.serializer)
+      ..add(ApiGetAppListResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs),
-        UpdatenotificationApiGetAppListResponseApplicationJson_Ocs.new,
+        const FullType(ApiGetAppListResponseApplicationJson_Ocs),
+        ApiGetAppListResponseApplicationJson_Ocs.new,
       )
-      ..add(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UpdatenotificationOCSMeta), UpdatenotificationOCSMeta.new)
-      ..add(UpdatenotificationOCSMeta.serializer)
+      ..add(ApiGetAppListResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data),
-        UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data.new,
+        const FullType(ApiGetAppListResponseApplicationJson_Ocs_Data),
+        ApiGetAppListResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(UpdatenotificationApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(UpdatenotificationApp), UpdatenotificationApp.new)
-      ..add(UpdatenotificationApp.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(UpdatenotificationApp)]),
-        ListBuilder<UpdatenotificationApp>.new,
-      ))
+      ..add(ApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(App), App.new)
+      ..add(App.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

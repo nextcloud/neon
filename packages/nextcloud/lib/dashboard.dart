@@ -6,8 +6,8 @@ export 'src/api/dashboard.openapi.dart';
 
 // ignore: public_member_api_docs
 extension DashboardExtension on NextcloudClient {
-  static final _dashboard = Expando<DashboardClient>();
+  static final _dashboard = Expando<Client>();
 
   /// Client for the dashboard APIs
-  DashboardClient get dashboard => _dashboard[this] ??= DashboardClient.fromClient(this);
+  Client get dashboard => _dashboard[this] ??= Client.fromClient(this);
 }

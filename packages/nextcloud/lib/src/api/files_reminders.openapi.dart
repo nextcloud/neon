@@ -15,12 +15,10 @@ import 'package:dynamite_runtime/utils.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-export 'package:dynamite_runtime/http_client.dart';
-
 part 'files_reminders.openapi.g.dart';
 
-class FilesRemindersClient extends DynamiteClient {
-  FilesRemindersClient(
+class Client extends DynamiteClient {
+  Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -29,7 +27,7 @@ class FilesRemindersClient extends DynamiteClient {
     super.authentications,
   });
 
-  FilesRemindersClient.fromClient(final DynamiteClient client)
+  Client.fromClient(final DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -38,13 +36,13 @@ class FilesRemindersClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  FilesRemindersApiClient get api => FilesRemindersApiClient(this);
+  ApiClient get api => ApiClient(this);
 }
 
-class FilesRemindersApiClient {
-  FilesRemindersApiClient(this._rootClient);
+class ApiClient {
+  ApiClient(this._rootClient);
 
-  final FilesRemindersClient _rootClient;
+  final Client _rootClient;
 
   /// Get a reminder.
   ///
@@ -62,7 +60,7 @@ class FilesRemindersApiClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FilesRemindersApiGetResponseApplicationJson, void>> $get({
+  Future<DynamiteResponse<ApiGetResponseApplicationJson, void>> $get({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
@@ -95,7 +93,7 @@ class FilesRemindersApiClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<FilesRemindersApiGetResponseApplicationJson, void> $getRaw({
+  DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
@@ -129,7 +127,7 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<FilesRemindersApiGetResponseApplicationJson, void>(
+    return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
         uri,
@@ -137,7 +135,7 @@ class FilesRemindersApiClient {
         body,
         const {200},
       ),
-      bodyType: const FullType(FilesRemindersApiGetResponseApplicationJson),
+      bodyType: const FullType(ApiGetResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -163,7 +161,7 @@ class FilesRemindersApiClient {
   ///
   /// See:
   ///  * [$setRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FilesRemindersApiSetResponseApplicationJson, void>> $set({
+  Future<DynamiteResponse<ApiSetResponseApplicationJson, void>> $set({
     required final String dueDate,
     required final String version,
     required final int fileId,
@@ -202,7 +200,7 @@ class FilesRemindersApiClient {
   /// See:
   ///  * [$set] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<FilesRemindersApiSetResponseApplicationJson, void> $setRaw({
+  DynamiteRawResponse<ApiSetResponseApplicationJson, void> $setRaw({
     required final String dueDate,
     required final String version,
     required final int fileId,
@@ -238,7 +236,7 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<FilesRemindersApiSetResponseApplicationJson, void>(
+    return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'put',
         uri,
@@ -246,7 +244,7 @@ class FilesRemindersApiClient {
         body,
         const {200, 201, 400, 401, 404},
       ),
-      bodyType: const FullType(FilesRemindersApiSetResponseApplicationJson),
+      bodyType: const FullType(ApiSetResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -269,7 +267,7 @@ class FilesRemindersApiClient {
   ///
   /// See:
   ///  * [removeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FilesRemindersApiRemoveResponseApplicationJson, void>> remove({
+  Future<DynamiteResponse<ApiRemoveResponseApplicationJson, void>> remove({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
@@ -303,7 +301,7 @@ class FilesRemindersApiClient {
   /// See:
   ///  * [remove] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<FilesRemindersApiRemoveResponseApplicationJson, void> removeRaw({
+  DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
     required final String version,
     required final int fileId,
     final bool oCSAPIRequest = true,
@@ -337,7 +335,7 @@ class FilesRemindersApiClient {
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
-    return DynamiteRawResponse<FilesRemindersApiRemoveResponseApplicationJson, void>(
+    return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'delete',
         uri,
@@ -345,7 +343,7 @@ class FilesRemindersApiClient {
         body,
         const {200, 401, 404},
       ),
-      bodyType: const FullType(FilesRemindersApiRemoveResponseApplicationJson),
+      bodyType: const FullType(ApiRemoveResponseApplicationJson),
       headersType: null,
       serializers: _jsonSerializers,
     );
@@ -353,60 +351,57 @@ class FilesRemindersApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersOCSMetaInterface {
+abstract interface class OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  FilesRemindersOCSMetaInterface rebuild(final void Function(FilesRemindersOCSMetaInterfaceBuilder) updates);
-  FilesRemindersOCSMetaInterfaceBuilder toBuilder();
+  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
+  OCSMetaInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersOCSMeta
-    implements FilesRemindersOCSMetaInterface, Built<FilesRemindersOCSMeta, FilesRemindersOCSMetaBuilder> {
-  factory FilesRemindersOCSMeta([final void Function(FilesRemindersOCSMetaBuilder)? b]) = _$FilesRemindersOCSMeta;
+abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
-  const FilesRemindersOCSMeta._();
+  const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersOCSMeta.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersOCSMeta> get serializer => _$filesRemindersOCSMetaSerializer;
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterface {
+abstract interface class ApiGetResponseApplicationJson_Ocs_DataInterface {
   String? get dueDate;
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  ApiGetResponseApplicationJson_Ocs_DataInterface rebuild(
+    final void Function(ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
-  FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiGetResponseApplicationJson_Ocs_Data
+abstract class ApiGetResponseApplicationJson_Ocs_Data
     implements
-        FilesRemindersApiGetResponseApplicationJson_Ocs_DataInterface,
-        Built<FilesRemindersApiGetResponseApplicationJson_Ocs_Data,
-            FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder> {
-  factory FilesRemindersApiGetResponseApplicationJson_Ocs_Data([
-    final void Function(FilesRemindersApiGetResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$FilesRemindersApiGetResponseApplicationJson_Ocs_Data;
+        ApiGetResponseApplicationJson_Ocs_DataInterface,
+        Built<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder> {
+  factory ApiGetResponseApplicationJson_Ocs_Data([
+    final void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ApiGetResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const FilesRemindersApiGetResponseApplicationJson_Ocs_Data._();
+  const ApiGetResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -414,34 +409,33 @@ abstract class FilesRemindersApiGetResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs_Data> get serializer =>
-      _$filesRemindersApiGetResponseApplicationJsonOcsDataSerializer;
+  static Serializer<ApiGetResponseApplicationJson_Ocs_Data> get serializer =>
+      _$apiGetResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiGetResponseApplicationJson_OcsInterface {
-  FilesRemindersOCSMeta get meta;
-  FilesRemindersApiGetResponseApplicationJson_Ocs_Data get data;
-  FilesRemindersApiGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(FilesRemindersApiGetResponseApplicationJson_OcsInterfaceBuilder) updates,
+abstract interface class ApiGetResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ApiGetResponseApplicationJson_Ocs_Data get data;
+  ApiGetResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesRemindersApiGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ApiGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiGetResponseApplicationJson_Ocs
+abstract class ApiGetResponseApplicationJson_Ocs
     implements
-        FilesRemindersApiGetResponseApplicationJson_OcsInterface,
-        Built<FilesRemindersApiGetResponseApplicationJson_Ocs, FilesRemindersApiGetResponseApplicationJson_OcsBuilder> {
-  factory FilesRemindersApiGetResponseApplicationJson_Ocs([
-    final void Function(FilesRemindersApiGetResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesRemindersApiGetResponseApplicationJson_Ocs;
+        ApiGetResponseApplicationJson_OcsInterface,
+        Built<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder> {
+  factory ApiGetResponseApplicationJson_Ocs([final void Function(ApiGetResponseApplicationJson_OcsBuilder)? b]) =
+      _$ApiGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesRemindersApiGetResponseApplicationJson_Ocs._();
+  const ApiGetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -449,33 +443,31 @@ abstract class FilesRemindersApiGetResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiGetResponseApplicationJson_Ocs> get serializer =>
-      _$filesRemindersApiGetResponseApplicationJsonOcsSerializer;
+  static Serializer<ApiGetResponseApplicationJson_Ocs> get serializer => _$apiGetResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiGetResponseApplicationJsonInterface {
-  FilesRemindersApiGetResponseApplicationJson_Ocs get ocs;
-  FilesRemindersApiGetResponseApplicationJsonInterface rebuild(
-    final void Function(FilesRemindersApiGetResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ApiGetResponseApplicationJsonInterface {
+  ApiGetResponseApplicationJson_Ocs get ocs;
+  ApiGetResponseApplicationJsonInterface rebuild(
+    final void Function(ApiGetResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesRemindersApiGetResponseApplicationJsonInterfaceBuilder toBuilder();
+  ApiGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiGetResponseApplicationJson
+abstract class ApiGetResponseApplicationJson
     implements
-        FilesRemindersApiGetResponseApplicationJsonInterface,
-        Built<FilesRemindersApiGetResponseApplicationJson, FilesRemindersApiGetResponseApplicationJsonBuilder> {
-  factory FilesRemindersApiGetResponseApplicationJson([
-    final void Function(FilesRemindersApiGetResponseApplicationJsonBuilder)? b,
-  ]) = _$FilesRemindersApiGetResponseApplicationJson;
+        ApiGetResponseApplicationJsonInterface,
+        Built<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder> {
+  factory ApiGetResponseApplicationJson([final void Function(ApiGetResponseApplicationJsonBuilder)? b]) =
+      _$ApiGetResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesRemindersApiGetResponseApplicationJson._();
+  const ApiGetResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -483,34 +475,32 @@ abstract class FilesRemindersApiGetResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiGetResponseApplicationJson> get serializer =>
-      _$filesRemindersApiGetResponseApplicationJsonSerializer;
+  static Serializer<ApiGetResponseApplicationJson> get serializer => _$apiGetResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiSetResponseApplicationJson_OcsInterface {
-  FilesRemindersOCSMeta get meta;
+abstract interface class ApiSetResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
   JsonObject get data;
-  FilesRemindersApiSetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(FilesRemindersApiSetResponseApplicationJson_OcsInterfaceBuilder) updates,
+  ApiSetResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesRemindersApiSetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ApiSetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiSetResponseApplicationJson_Ocs
+abstract class ApiSetResponseApplicationJson_Ocs
     implements
-        FilesRemindersApiSetResponseApplicationJson_OcsInterface,
-        Built<FilesRemindersApiSetResponseApplicationJson_Ocs, FilesRemindersApiSetResponseApplicationJson_OcsBuilder> {
-  factory FilesRemindersApiSetResponseApplicationJson_Ocs([
-    final void Function(FilesRemindersApiSetResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesRemindersApiSetResponseApplicationJson_Ocs;
+        ApiSetResponseApplicationJson_OcsInterface,
+        Built<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder> {
+  factory ApiSetResponseApplicationJson_Ocs([final void Function(ApiSetResponseApplicationJson_OcsBuilder)? b]) =
+      _$ApiSetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesRemindersApiSetResponseApplicationJson_Ocs._();
+  const ApiSetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiSetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiSetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -518,33 +508,31 @@ abstract class FilesRemindersApiSetResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiSetResponseApplicationJson_Ocs> get serializer =>
-      _$filesRemindersApiSetResponseApplicationJsonOcsSerializer;
+  static Serializer<ApiSetResponseApplicationJson_Ocs> get serializer => _$apiSetResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiSetResponseApplicationJsonInterface {
-  FilesRemindersApiSetResponseApplicationJson_Ocs get ocs;
-  FilesRemindersApiSetResponseApplicationJsonInterface rebuild(
-    final void Function(FilesRemindersApiSetResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ApiSetResponseApplicationJsonInterface {
+  ApiSetResponseApplicationJson_Ocs get ocs;
+  ApiSetResponseApplicationJsonInterface rebuild(
+    final void Function(ApiSetResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesRemindersApiSetResponseApplicationJsonInterfaceBuilder toBuilder();
+  ApiSetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiSetResponseApplicationJson
+abstract class ApiSetResponseApplicationJson
     implements
-        FilesRemindersApiSetResponseApplicationJsonInterface,
-        Built<FilesRemindersApiSetResponseApplicationJson, FilesRemindersApiSetResponseApplicationJsonBuilder> {
-  factory FilesRemindersApiSetResponseApplicationJson([
-    final void Function(FilesRemindersApiSetResponseApplicationJsonBuilder)? b,
-  ]) = _$FilesRemindersApiSetResponseApplicationJson;
+        ApiSetResponseApplicationJsonInterface,
+        Built<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder> {
+  factory ApiSetResponseApplicationJson([final void Function(ApiSetResponseApplicationJsonBuilder)? b]) =
+      _$ApiSetResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesRemindersApiSetResponseApplicationJson._();
+  const ApiSetResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiSetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiSetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -552,35 +540,32 @@ abstract class FilesRemindersApiSetResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiSetResponseApplicationJson> get serializer =>
-      _$filesRemindersApiSetResponseApplicationJsonSerializer;
+  static Serializer<ApiSetResponseApplicationJson> get serializer => _$apiSetResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiRemoveResponseApplicationJson_OcsInterface {
-  FilesRemindersOCSMeta get meta;
+abstract interface class ApiRemoveResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
   JsonObject get data;
-  FilesRemindersApiRemoveResponseApplicationJson_OcsInterface rebuild(
-    final void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates,
+  ApiRemoveResponseApplicationJson_OcsInterface rebuild(
+    final void Function(ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates,
   );
-  FilesRemindersApiRemoveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  ApiRemoveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiRemoveResponseApplicationJson_Ocs
+abstract class ApiRemoveResponseApplicationJson_Ocs
     implements
-        FilesRemindersApiRemoveResponseApplicationJson_OcsInterface,
-        Built<FilesRemindersApiRemoveResponseApplicationJson_Ocs,
-            FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder> {
-  factory FilesRemindersApiRemoveResponseApplicationJson_Ocs([
-    final void Function(FilesRemindersApiRemoveResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FilesRemindersApiRemoveResponseApplicationJson_Ocs;
+        ApiRemoveResponseApplicationJson_OcsInterface,
+        Built<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder> {
+  factory ApiRemoveResponseApplicationJson_Ocs([final void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? b]) =
+      _$ApiRemoveResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const FilesRemindersApiRemoveResponseApplicationJson_Ocs._();
+  const ApiRemoveResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiRemoveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiRemoveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -588,33 +573,32 @@ abstract class FilesRemindersApiRemoveResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiRemoveResponseApplicationJson_Ocs> get serializer =>
-      _$filesRemindersApiRemoveResponseApplicationJsonOcsSerializer;
+  static Serializer<ApiRemoveResponseApplicationJson_Ocs> get serializer =>
+      _$apiRemoveResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesRemindersApiRemoveResponseApplicationJsonInterface {
-  FilesRemindersApiRemoveResponseApplicationJson_Ocs get ocs;
-  FilesRemindersApiRemoveResponseApplicationJsonInterface rebuild(
-    final void Function(FilesRemindersApiRemoveResponseApplicationJsonInterfaceBuilder) updates,
+abstract interface class ApiRemoveResponseApplicationJsonInterface {
+  ApiRemoveResponseApplicationJson_Ocs get ocs;
+  ApiRemoveResponseApplicationJsonInterface rebuild(
+    final void Function(ApiRemoveResponseApplicationJsonInterfaceBuilder) updates,
   );
-  FilesRemindersApiRemoveResponseApplicationJsonInterfaceBuilder toBuilder();
+  ApiRemoveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
-abstract class FilesRemindersApiRemoveResponseApplicationJson
+abstract class ApiRemoveResponseApplicationJson
     implements
-        FilesRemindersApiRemoveResponseApplicationJsonInterface,
-        Built<FilesRemindersApiRemoveResponseApplicationJson, FilesRemindersApiRemoveResponseApplicationJsonBuilder> {
-  factory FilesRemindersApiRemoveResponseApplicationJson([
-    final void Function(FilesRemindersApiRemoveResponseApplicationJsonBuilder)? b,
-  ]) = _$FilesRemindersApiRemoveResponseApplicationJson;
+        ApiRemoveResponseApplicationJsonInterface,
+        Built<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder> {
+  factory ApiRemoveResponseApplicationJson([final void Function(ApiRemoveResponseApplicationJsonBuilder)? b]) =
+      _$ApiRemoveResponseApplicationJson;
 
   // coverage:ignore-start
-  const FilesRemindersApiRemoveResponseApplicationJson._();
+  const ApiRemoveResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesRemindersApiRemoveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiRemoveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -622,49 +606,33 @@ abstract class FilesRemindersApiRemoveResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FilesRemindersApiRemoveResponseApplicationJson> get serializer =>
-      _$filesRemindersApiRemoveResponseApplicationJsonSerializer;
+  static Serializer<ApiRemoveResponseApplicationJson> get serializer => _$apiRemoveResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJson.new)
+      ..add(ApiGetResponseApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson_Ocs), ApiGetResponseApplicationJson_Ocs.new)
+      ..add(ApiGetResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..add(OCSMeta.serializer)
       ..addBuilderFactory(
-        const FullType(FilesRemindersApiGetResponseApplicationJson),
-        FilesRemindersApiGetResponseApplicationJson.new,
+        const FullType(ApiGetResponseApplicationJson_Ocs_Data),
+        ApiGetResponseApplicationJson_Ocs_Data.new,
       )
-      ..add(FilesRemindersApiGetResponseApplicationJson.serializer)
+      ..add(ApiGetResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJson.new)
+      ..add(ApiSetResponseApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson_Ocs), ApiSetResponseApplicationJson_Ocs.new)
+      ..add(ApiSetResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ApiRemoveResponseApplicationJson), ApiRemoveResponseApplicationJson.new)
+      ..add(ApiRemoveResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs),
-        FilesRemindersApiGetResponseApplicationJson_Ocs.new,
+        const FullType(ApiRemoveResponseApplicationJson_Ocs),
+        ApiRemoveResponseApplicationJson_Ocs.new,
       )
-      ..add(FilesRemindersApiGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(FilesRemindersOCSMeta), FilesRemindersOCSMeta.new)
-      ..add(FilesRemindersOCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesRemindersApiGetResponseApplicationJson_Ocs_Data),
-        FilesRemindersApiGetResponseApplicationJson_Ocs_Data.new,
-      )
-      ..add(FilesRemindersApiGetResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesRemindersApiSetResponseApplicationJson),
-        FilesRemindersApiSetResponseApplicationJson.new,
-      )
-      ..add(FilesRemindersApiSetResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesRemindersApiSetResponseApplicationJson_Ocs),
-        FilesRemindersApiSetResponseApplicationJson_Ocs.new,
-      )
-      ..add(FilesRemindersApiSetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesRemindersApiRemoveResponseApplicationJson),
-        FilesRemindersApiRemoveResponseApplicationJson.new,
-      )
-      ..add(FilesRemindersApiRemoveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesRemindersApiRemoveResponseApplicationJson_Ocs),
-        FilesRemindersApiRemoveResponseApplicationJson_Ocs.new,
-      )
-      ..add(FilesRemindersApiRemoveResponseApplicationJson_Ocs.serializer))
+      ..add(ApiRemoveResponseApplicationJson_Ocs.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

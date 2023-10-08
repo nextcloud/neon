@@ -6,8 +6,8 @@ export 'src/api/files_reminders.openapi.dart';
 
 // ignore: public_member_api_docs
 extension FilesRemindersExtension on NextcloudClient {
-  static final _filesReminders = Expando<FilesRemindersClient>();
+  static final _filesReminders = Expando<Client>();
 
   /// Client for the files_reminders APIs
-  FilesRemindersClient get filesReminders => _filesReminders[this] ??= FilesRemindersClient.fromClient(this);
+  Client get filesReminders => _filesReminders[this] ??= Client.fromClient(this);
 }

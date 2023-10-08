@@ -16,26 +16,26 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/localizations.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 
 @internal
 @immutable
 class PushUtils {
   const PushUtils._();
 
-  static Future<RSAKeypair> loadRSAKeypair() async {
+  static Future<notifications.RSAKeypair> loadRSAKeypair() async {
     const storage = AppStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
-    late RSAKeypair keypair;
+    late notifications.RSAKeypair keypair;
     if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)?.isEmpty ?? true)) {
       debugPrint('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
-      keypair = RSAKeypair.fromRandom(keySize: 2048);
+      keypair = notifications.RSAKeypair.fromRandom(keySize: 2048);
       await storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM());
     } else {
-      keypair = RSAKeypair(RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
+      keypair = notifications.RSAKeypair(notifications.RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
     }
 
     return keypair;
@@ -82,7 +82,7 @@ class PushUtils {
         accountID: instance,
         priority: data['priority']! as String,
         type: data['type']! as String,
-        subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
+        subject: notifications.decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
       );
 
       if (pushNotification.subject.delete ?? false) {
@@ -97,7 +97,7 @@ class PushUtils {
 
         final accounts = loadAccounts();
         Account? account;
-        NotificationsNotification? notification;
+        notifications.Notification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
           account = accounts.tryFind(instance);

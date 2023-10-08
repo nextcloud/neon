@@ -16,7 +16,7 @@ TypeResult resolveAllOf(
   final bool nullable = false,
 }) {
   final result = TypeResultObject(
-    '${state.classPrefix}$identifier',
+    identifier,
     nullable: nullable,
   );
 
@@ -55,7 +55,7 @@ TypeResult resolveAllOf(
 
     state.output.add(
       buildBuiltClass(
-        '${state.classPrefix}$identifier',
+        identifier,
         interfaces: interfaces,
       ),
     );
@@ -75,7 +75,7 @@ TypeResult resolveOfs(
   }
 
   final result = TypeResultObject(
-    '${state.classPrefix}$identifier',
+    identifier,
     nullable: nullable,
   );
 
@@ -94,13 +94,13 @@ TypeResult resolveOfs(
 
     final fields = <String, String>{};
     for (final result in results) {
-      final dartName = toDartName(result.name.replaceFirst(state.classPrefix, ''));
-      fields[result.name] = toFieldName(dartName, result.name.replaceFirst(state.classPrefix, ''));
+      final dartName = toDartName(result.name);
+      fields[result.name] = toFieldName(dartName, result.name);
     }
 
     state.output.addAll([
       buildBuiltClass(
-        '${state.classPrefix}$identifier',
+        identifier,
         methods: BuiltList.build((final b) {
           b.add(
             Method(
@@ -132,8 +132,8 @@ TypeResult resolveOfs(
       ),
       Class(
         (final b) => b
-          ..name = '_\$${state.classPrefix}${identifier}Serializer'
-          ..implements.add(refer('PrimitiveSerializer<${state.classPrefix}$identifier>'))
+          ..name = '_\$${identifier}Serializer'
+          ..implements.add(refer('PrimitiveSerializer<$identifier>'))
           ..fields.addAll([
             Field(
               (final b) => b
@@ -141,7 +141,7 @@ TypeResult resolveOfs(
                 ..modifier = FieldModifier.final$
                 ..type = refer('Iterable<Type>')
                 ..annotations.add(refer('override'))
-                ..assignment = Code('const [${state.classPrefix}$identifier, _\$${state.classPrefix}$identifier]'),
+                ..assignment = Code('const [$identifier, _\$$identifier]'),
             ),
             Field(
               (final b) => b
@@ -149,7 +149,7 @@ TypeResult resolveOfs(
                 ..modifier = FieldModifier.final$
                 ..type = refer('String')
                 ..annotations.add(refer('override'))
-                ..assignment = Code("r'${state.classPrefix}$identifier'"),
+                ..assignment = Code("r'$identifier'"),
             ),
           ])
           ..methods.addAll([
@@ -167,7 +167,7 @@ TypeResult resolveOfs(
                   Parameter(
                     (final b) => b
                       ..name = 'object'
-                      ..type = refer('${state.classPrefix}$identifier'),
+                      ..type = refer(identifier),
                   ),
                 ])
                 ..optionalParameters.add(
@@ -184,7 +184,7 @@ TypeResult resolveOfs(
             Method((final b) {
               b
                 ..name = 'deserialize'
-                ..returns = refer('${state.classPrefix}$identifier')
+                ..returns = refer(identifier)
                 ..annotations.add(refer('override'))
                 ..requiredParameters.addAll([
                   Parameter(
@@ -209,7 +209,7 @@ TypeResult resolveOfs(
                 )
                 ..body = Code(
                   <String>[
-                    'final result = new ${state.classPrefix}${identifier}Builder()',
+                    'final result = new ${identifier}Builder()',
                     '..data = JsonObject(data);',
                     if (schema.discriminator != null) ...[
                       'if (data is! Iterable) {',
@@ -231,12 +231,11 @@ TypeResult resolveOfs(
                     ],
                     for (final result in results) ...[
                       if (schema.discriminator != null) ...[
-                        "if (discriminator == '${result.name.replaceFirst(state.classPrefix, '')}'",
+                        "if (discriminator == '${result.name}'",
                         if (schema.discriminator!.mapping != null && schema.discriminator!.mapping!.isNotEmpty) ...[
                           for (final key in schema.discriminator!.mapping!.entries
                               .where(
-                                (final entry) =>
-                                    entry.value.endsWith('/${result.name.replaceFirst(state.classPrefix, '')}'),
+                                (final entry) => entry.value.endsWith('/${result.name}'),
                               )
                               .map((final entry) => entry.key)) ...[
                             " ||  discriminator == '$key'",

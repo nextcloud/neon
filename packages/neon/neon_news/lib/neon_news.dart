@@ -12,7 +12,6 @@ import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/platform.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
@@ -21,6 +20,9 @@ import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/routes.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/news.dart' as news;
+import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -85,7 +87,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   @override
   Future<(bool? supported, String? minimumVersion)> isSupported(
     final Account account,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       account.client.news.isSupported();
 }

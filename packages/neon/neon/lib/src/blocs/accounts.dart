@@ -16,7 +16,7 @@ import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 const _keyAccounts = 'accounts';

@@ -10,7 +10,7 @@ import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/push_utils.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:unifiedpush/unifiedpush.dart';
 
 @internal
@@ -80,7 +80,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
         debugPrint('Registering account $instance for push notifications on $endpoint');
 
         final subscription = await account.client.notifications.push.registerDevice(
-          pushTokenHash: generatePushTokenHash(endpoint),
+          pushTokenHash: notifications.generatePushTokenHash(endpoint),
           devicePublicKey: keypair.publicKey.toFormattedPEM(),
           proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
         );

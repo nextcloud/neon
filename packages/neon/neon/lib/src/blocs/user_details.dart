@@ -5,7 +5,7 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/request_manager.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
 @internal
@@ -13,7 +13,7 @@ abstract interface class UserDetailsBlocEvents {}
 
 @internal
 abstract interface class UserDetailsBlocStates {
-  BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
+  BehaviorSubject<Result<provisioning_api.UserDetails>> get userDetails;
 }
 
 @internal
@@ -33,7 +33,7 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
   }
 
   @override
-  BehaviorSubject<Result<ProvisioningApiUserDetails>> userDetails = BehaviorSubject();
+  BehaviorSubject<Result<provisioning_api.UserDetails>> userDetails = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

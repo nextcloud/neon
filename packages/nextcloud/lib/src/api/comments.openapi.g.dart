@@ -6,17 +6,17 @@ part of 'comments.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<CommentsCapabilities_Files> _$commentsCapabilitiesFilesSerializer = _$CommentsCapabilities_FilesSerializer();
-Serializer<CommentsCapabilities> _$commentsCapabilitiesSerializer = _$CommentsCapabilitiesSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$CommentsCapabilities_FilesSerializer implements StructuredSerializer<CommentsCapabilities_Files> {
+class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
-  final Iterable<Type> types = const [CommentsCapabilities_Files, _$CommentsCapabilities_Files];
+  final Iterable<Type> types = const [Capabilities_Files, _$Capabilities_Files];
   @override
-  final String wireName = 'CommentsCapabilities_Files';
+  final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CommentsCapabilities_Files object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'comments',
@@ -27,9 +27,9 @@ class _$CommentsCapabilities_FilesSerializer implements StructuredSerializer<Com
   }
 
   @override
-  CommentsCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CommentsCapabilities_FilesBuilder();
+    final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -47,27 +47,27 @@ class _$CommentsCapabilities_FilesSerializer implements StructuredSerializer<Com
   }
 }
 
-class _$CommentsCapabilitiesSerializer implements StructuredSerializer<CommentsCapabilities> {
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
-  final Iterable<Type> types = const [CommentsCapabilities, _$CommentsCapabilities];
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
   @override
-  final String wireName = 'CommentsCapabilities';
+  final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CommentsCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files',
-      serializers.serialize(object.files, specifiedType: const FullType(CommentsCapabilities_Files)),
+      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
     ];
 
     return result;
   }
 
   @override
-  CommentsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CommentsCapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,8 +76,8 @@ class _$CommentsCapabilitiesSerializer implements StructuredSerializer<CommentsC
       final Object? value = iterator.current;
       switch (key) {
         case 'files':
-          result.files.replace(serializers.deserialize(value,
-              specifiedType: const FullType(CommentsCapabilities_Files))! as CommentsCapabilities_Files);
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
           break;
       }
     }
@@ -86,35 +86,35 @@ class _$CommentsCapabilitiesSerializer implements StructuredSerializer<CommentsC
   }
 }
 
-abstract mixin class CommentsCapabilities_FilesInterfaceBuilder {
-  void replace(CommentsCapabilities_FilesInterface other);
-  void update(void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesInterfaceBuilder {
+  void replace(Capabilities_FilesInterface other);
+  void update(void Function(Capabilities_FilesInterfaceBuilder) updates);
   bool? get comments;
   set comments(bool? comments);
 }
 
-class _$CommentsCapabilities_Files extends CommentsCapabilities_Files {
+class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool comments;
 
-  factory _$CommentsCapabilities_Files([void Function(CommentsCapabilities_FilesBuilder)? updates]) =>
-      (CommentsCapabilities_FilesBuilder()..update(updates))._build();
+  factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
+      (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$CommentsCapabilities_Files._({required this.comments}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(comments, r'CommentsCapabilities_Files', 'comments');
+  _$Capabilities_Files._({required this.comments}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments');
   }
 
   @override
-  CommentsCapabilities_Files rebuild(void Function(CommentsCapabilities_FilesBuilder) updates) =>
+  Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CommentsCapabilities_FilesBuilder toBuilder() => CommentsCapabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CommentsCapabilities_Files && comments == other.comments;
+    return other is Capabilities_Files && comments == other.comments;
   }
 
   @override
@@ -127,23 +127,21 @@ class _$CommentsCapabilities_Files extends CommentsCapabilities_Files {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CommentsCapabilities_Files')..add('comments', comments)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')..add('comments', comments)).toString();
   }
 }
 
-class CommentsCapabilities_FilesBuilder
-    implements
-        Builder<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder>,
-        CommentsCapabilities_FilesInterfaceBuilder {
-  _$CommentsCapabilities_Files? _$v;
+class Capabilities_FilesBuilder
+    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, Capabilities_FilesInterfaceBuilder {
+  _$Capabilities_Files? _$v;
 
   bool? _comments;
   bool? get comments => _$this._comments;
   set comments(covariant bool? comments) => _$this._comments = comments;
 
-  CommentsCapabilities_FilesBuilder();
+  Capabilities_FilesBuilder();
 
-  CommentsCapabilities_FilesBuilder get _$this {
+  Capabilities_FilesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _comments = $v.comments;
@@ -153,57 +151,56 @@ class CommentsCapabilities_FilesBuilder
   }
 
   @override
-  void replace(covariant CommentsCapabilities_Files other) {
+  void replace(covariant Capabilities_Files other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CommentsCapabilities_Files;
+    _$v = other as _$Capabilities_Files;
   }
 
   @override
-  void update(void Function(CommentsCapabilities_FilesBuilder)? updates) {
+  void update(void Function(Capabilities_FilesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CommentsCapabilities_Files build() => _build();
+  Capabilities_Files build() => _build();
 
-  _$CommentsCapabilities_Files _build() {
+  _$Capabilities_Files _build() {
     final _$result = _$v ??
-        _$CommentsCapabilities_Files._(
-            comments: BuiltValueNullFieldError.checkNotNull(comments, r'CommentsCapabilities_Files', 'comments'));
+        _$Capabilities_Files._(
+            comments: BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class CommentsCapabilitiesInterfaceBuilder {
-  void replace(CommentsCapabilitiesInterface other);
-  void update(void Function(CommentsCapabilitiesInterfaceBuilder) updates);
-  CommentsCapabilities_FilesBuilder get files;
-  set files(CommentsCapabilities_FilesBuilder? files);
+abstract mixin class CapabilitiesInterfaceBuilder {
+  void replace(CapabilitiesInterface other);
+  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+  Capabilities_FilesBuilder get files;
+  set files(Capabilities_FilesBuilder? files);
 }
 
-class _$CommentsCapabilities extends CommentsCapabilities {
+class _$Capabilities extends Capabilities {
   @override
-  final CommentsCapabilities_Files files;
+  final Capabilities_Files files;
 
-  factory _$CommentsCapabilities([void Function(CommentsCapabilitiesBuilder)? updates]) =>
-      (CommentsCapabilitiesBuilder()..update(updates))._build();
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$CommentsCapabilities._({required this.files}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(files, r'CommentsCapabilities', 'files');
+  _$Capabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
   }
 
   @override
-  CommentsCapabilities rebuild(void Function(CommentsCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CommentsCapabilitiesBuilder toBuilder() => CommentsCapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CommentsCapabilities && files == other.files;
+    return other is Capabilities && files == other.files;
   }
 
   @override
@@ -216,21 +213,20 @@ class _$CommentsCapabilities extends CommentsCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CommentsCapabilities')..add('files', files)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('files', files)).toString();
   }
 }
 
-class CommentsCapabilitiesBuilder
-    implements Builder<CommentsCapabilities, CommentsCapabilitiesBuilder>, CommentsCapabilitiesInterfaceBuilder {
-  _$CommentsCapabilities? _$v;
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
 
-  CommentsCapabilities_FilesBuilder? _files;
-  CommentsCapabilities_FilesBuilder get files => _$this._files ??= CommentsCapabilities_FilesBuilder();
-  set files(covariant CommentsCapabilities_FilesBuilder? files) => _$this._files = files;
+  Capabilities_FilesBuilder? _files;
+  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
+  set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
-  CommentsCapabilitiesBuilder();
+  CapabilitiesBuilder();
 
-  CommentsCapabilitiesBuilder get _$this {
+  CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _files = $v.files.toBuilder();
@@ -240,30 +236,30 @@ class CommentsCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant CommentsCapabilities other) {
+  void replace(covariant Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CommentsCapabilities;
+    _$v = other as _$Capabilities;
   }
 
   @override
-  void update(void Function(CommentsCapabilitiesBuilder)? updates) {
+  void update(void Function(CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CommentsCapabilities build() => _build();
+  Capabilities build() => _build();
 
-  _$CommentsCapabilities _build() {
-    _$CommentsCapabilities _$result;
+  _$Capabilities _build() {
+    _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$CommentsCapabilities._(files: files.build());
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'CommentsCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

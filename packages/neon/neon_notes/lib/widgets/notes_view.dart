@@ -11,20 +11,22 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NotesNote>>.behaviorSubject(
-        stream: bloc.notes,
-        builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NotesNote>(
+  Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
+        stream: bloc.notesList,
+        builder: (final context, final notesList) => SortBoxBuilder<NotesSortProperty, notes.Note>(
           sortBox: notesSortBox,
           presort: const {
             (NotesSortProperty.favorite, SortBoxOrder.ascending),
           },
           sortProperty: bloc.options.notesSortPropertyOption,
           sortBoxOrder: bloc.options.notesSortBoxOrderOption,
-          input: category != null ? notes.data?.where((final note) => note.category == category).toList() : notes.data,
+          input: category != null
+              ? notesList.data?.where((final note) => note.category == category).toList()
+              : notesList.data,
           builder: (final context, final sorted) => NeonListView(
             scrollKey: 'notes-notes',
-            isLoading: notes.isLoading,
-            error: notes.error,
+            isLoading: notesList.isLoading,
+            error: notesList.error,
             onRefresh: bloc.refresh,
             itemCount: sorted.length,
             itemBuilder: (final context, final index) => _buildNote(context, sorted[index]),
@@ -34,7 +36,7 @@ class NotesView extends StatelessWidget {
 
   Widget _buildNote(
     final BuildContext context,
-    final NotesNote note,
+    final notes.Note note,
   ) =>
       ListTile(
         title: Text(note.title),

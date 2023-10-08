@@ -7,6 +7,7 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
 @internal

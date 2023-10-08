@@ -9,7 +9,8 @@ import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/server_icon.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 
 class NeonUserAvatar extends StatefulWidget {
@@ -91,7 +92,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublicInterface?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.PublicInterface?> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 

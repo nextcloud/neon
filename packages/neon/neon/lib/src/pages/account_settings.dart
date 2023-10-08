@@ -15,7 +15,7 @@ import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
 @internal
 class AccountSettingsPage extends StatelessWidget {
@@ -77,7 +77,7 @@ class AccountSettingsPage extends StatelessWidget {
       ],
     );
 
-    final body = ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
+    final body = ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
       stream: userDetailsBloc.userDetails,
       builder: (final context, final userDetails) => SettingsList(
         categories: [

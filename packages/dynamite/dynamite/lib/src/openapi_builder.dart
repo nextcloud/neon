@@ -49,7 +49,7 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI 3.0.0 and later are supported');
       }
 
-      final state = State(spec.info.title);
+      final state = State();
 
       final output = ListBuilder<Spec>()
         ..addAll(generateImports(outputId))

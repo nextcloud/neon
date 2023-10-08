@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/utils/user_agent.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -14,7 +15,7 @@ abstract interface class LoginCheckServerStatusBlocEvents {}
 @internal
 abstract interface class LoginCheckServerStatusBlocStates {
   /// Contains the current server connection state
-  BehaviorSubject<Result<CoreStatus>> get state;
+  BehaviorSubject<Result<core.Status>> get state;
 }
 
 @internal
@@ -34,7 +35,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
   }
 
   @override
-  BehaviorSubject<Result<CoreStatus>> state = BehaviorSubject();
+  BehaviorSubject<Result<core.Status>> state = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

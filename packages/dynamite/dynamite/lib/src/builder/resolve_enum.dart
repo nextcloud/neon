@@ -15,11 +15,11 @@ TypeResult resolveEnum(
   final TypeResult subResult, {
   final bool nullable = false,
 }) {
-  if (state.resolvedTypes.add(TypeResultEnum('${state.classPrefix}$identifier', subResult))) {
+  if (state.resolvedTypes.add(TypeResultEnum(identifier, subResult))) {
     state.output.add(
       Class(
         (final b) => b
-          ..name = '${state.classPrefix}$identifier'
+          ..name = identifier
           ..extend = refer('EnumClass')
           ..constructors.add(
             Constructor(
@@ -50,9 +50,9 @@ TypeResult resolveEnum(
                     ..name = toDartName(value)
                     ..static = true
                     ..modifier = FieldModifier.constant
-                    ..type = refer('${state.classPrefix}$identifier')
+                    ..type = refer(identifier)
                     ..assignment = Code(
-                      '_\$${toCamelCase('${state.classPrefix}$identifier')}${toDartName(value, uppercaseFirstCharacter: true)}',
+                      '_\$${toCamelCase(identifier)}${toDartName(value, uppercaseFirstCharacter: true)}',
                     );
 
                   if (toDartName(value) != value) {
@@ -60,7 +60,7 @@ TypeResult resolveEnum(
                       throw Exception(
                         'Sorry enum values are a bit broken. '
                         'See https://github.com/google/json_serializable.dart/issues/616. '
-                        'Please remove the enum values on ${state.classPrefix}$identifier.',
+                        'Please remove the enum values on $identifier.',
                       );
                     }
                     b.annotations.add(
@@ -77,16 +77,16 @@ TypeResult resolveEnum(
             Method(
               (final b) => b
                 ..name = 'values'
-                ..returns = refer('BuiltSet<${state.classPrefix}$identifier>')
+                ..returns = refer('BuiltSet<$identifier>')
                 ..lambda = true
                 ..static = true
-                ..body = Code('_\$${toCamelCase('${state.classPrefix}$identifier')}Values')
+                ..body = Code('_\$${toCamelCase(identifier)}Values')
                 ..type = MethodType.getter,
             ),
             Method(
               (final b) => b
                 ..name = 'valueOf'
-                ..returns = refer('${state.classPrefix}$identifier')
+                ..returns = refer(identifier)
                 ..lambda = true
                 ..static = true
                 ..requiredParameters.add(
@@ -96,15 +96,15 @@ TypeResult resolveEnum(
                       ..type = refer(subResult.name),
                   ),
                 )
-                ..body = Code('_\$valueOf${state.classPrefix}$identifier(name)'),
+                ..body = Code('_\$valueOf$identifier(name)'),
             ),
-            buildSerializer('${state.classPrefix}$identifier'),
+            buildSerializer(identifier),
           ]),
       ),
     );
   }
   return TypeResultEnum(
-    '${state.classPrefix}$identifier',
+    identifier,
     subResult,
     nullable: nullable,
   );

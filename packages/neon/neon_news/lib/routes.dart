@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_news/neon_news.dart';
+import 'package:nextcloud/nextcloud.dart';
 
 part 'routes.g.dart';
 

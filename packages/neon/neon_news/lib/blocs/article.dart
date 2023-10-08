@@ -19,7 +19,7 @@ abstract interface class NewsArticleBlocStates {
 class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, NewsArticleBlocStates {
   NewsArticleBloc(
     this._newsArticlesBloc,
-    final NewsArticle article,
+    final news.Article article,
   ) {
     _id = article.id;
     unread.add(article.unread);

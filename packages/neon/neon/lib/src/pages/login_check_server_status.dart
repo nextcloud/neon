@@ -8,7 +8,7 @@ import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 
 @internal
 class LoginCheckServerStatusPage extends StatefulWidget {
@@ -105,7 +105,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     }
   }
 
-  Widget _buildServerVersionTile(final Result<CoreStatus> result) {
+  Widget _buildServerVersionTile(final Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingServerVersion,
@@ -133,7 +133,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     );
   }
 
-  Widget _buildMaintenanceModeTile(final Result<CoreStatus> result) {
+  Widget _buildMaintenanceModeTile(final Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingMaintenanceMode,

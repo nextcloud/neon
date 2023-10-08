@@ -11,11 +11,11 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NewsFolder>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
         stream: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<List<NewsFeed>>.behaviorSubject(
+        builder: (final context, final folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
           stream: bloc.feeds,
-          builder: (final context, final feeds) => SortBoxBuilder<FeedsSortProperty, NewsFeed>(
+          builder: (final context, final feeds) => SortBoxBuilder<FeedsSortProperty, news.Feed>(
             sortBox: feedsSortBox,
             sortProperty: bloc.options.feedsSortPropertyOption,
             sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
@@ -40,8 +40,8 @@ class NewsFeedsView extends StatelessWidget {
 
   Widget _buildFeed(
     final BuildContext context,
-    final NewsFeed feed,
-    final List<NewsFolder> folders,
+    final news.Feed feed,
+    final List<news.Folder> folders,
   ) =>
       ListTile(
         title: Text(

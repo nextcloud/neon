@@ -7,8 +7,8 @@ export 'src/helpers/notifications.dart';
 
 // ignore: public_member_api_docs
 extension NotificationsExtension on NextcloudClient {
-  static final _notifications = Expando<NotificationsClient>();
+  static final _notifications = Expando<Client>();
 
   /// Client for the notifications APIs
-  NotificationsClient get notifications => _notifications[this] ??= NotificationsClient.fromClient(this);
+  Client get notifications => _notifications[this] ??= Client.fromClient(this);
 }

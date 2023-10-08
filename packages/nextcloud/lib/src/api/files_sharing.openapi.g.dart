@@ -6,218 +6,170 @@ part of 'files_sharing.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const FilesSharingShare_ItemType _$filesSharingShareItemTypeFile = FilesSharingShare_ItemType._('file');
-const FilesSharingShare_ItemType _$filesSharingShareItemTypeFolder = FilesSharingShare_ItemType._('folder');
+const Share_ItemType _$shareItemTypeFile = Share_ItemType._('file');
+const Share_ItemType _$shareItemTypeFolder = Share_ItemType._('folder');
 
-FilesSharingShare_ItemType _$valueOfFilesSharingShare_ItemType(String name) {
+Share_ItemType _$valueOfShare_ItemType(String name) {
   switch (name) {
     case 'file':
-      return _$filesSharingShareItemTypeFile;
+      return _$shareItemTypeFile;
     case 'folder':
-      return _$filesSharingShareItemTypeFolder;
+      return _$shareItemTypeFolder;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<FilesSharingShare_ItemType> _$filesSharingShareItemTypeValues =
-    BuiltSet<FilesSharingShare_ItemType>(const <FilesSharingShare_ItemType>[
-  _$filesSharingShareItemTypeFile,
-  _$filesSharingShareItemTypeFolder,
+final BuiltSet<Share_ItemType> _$shareItemTypeValues = BuiltSet<Share_ItemType>(const <Share_ItemType>[
+  _$shareItemTypeFile,
+  _$shareItemTypeFolder,
 ]);
 
-Serializer<FilesSharingOCSMeta> _$filesSharingOCSMetaSerializer = _$FilesSharingOCSMetaSerializer();
-Serializer<FilesSharingDeletedShare> _$filesSharingDeletedShareSerializer = _$FilesSharingDeletedShareSerializer();
-Serializer<FilesSharingDeletedShareapiListResponseApplicationJson_Ocs>
-    _$filesSharingDeletedShareapiListResponseApplicationJsonOcsSerializer =
-    _$FilesSharingDeletedShareapiListResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingDeletedShareapiListResponseApplicationJson>
-    _$filesSharingDeletedShareapiListResponseApplicationJsonSerializer =
-    _$FilesSharingDeletedShareapiListResponseApplicationJsonSerializer();
-Serializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs>
-    _$filesSharingDeletedShareapiUndeleteResponseApplicationJsonOcsSerializer =
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson>
-    _$filesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer =
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteShare> _$filesSharingRemoteShareSerializer = _$FilesSharingRemoteShareSerializer();
-Serializer<FilesSharingRemoteGetSharesResponseApplicationJson_Ocs>
-    _$filesSharingRemoteGetSharesResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteGetSharesResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteGetSharesResponseApplicationJson>
-    _$filesSharingRemoteGetSharesResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteGetSharesResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs>
-    _$filesSharingRemoteGetOpenSharesResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson>
-    _$filesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs>
-    _$filesSharingRemoteAcceptShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteAcceptShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteAcceptShareResponseApplicationJson>
-    _$filesSharingRemoteAcceptShareResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteAcceptShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs>
-    _$filesSharingRemoteDeclineShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteDeclineShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteDeclineShareResponseApplicationJson>
-    _$filesSharingRemoteDeclineShareResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteDeclineShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteGetShareResponseApplicationJson_Ocs>
-    _$filesSharingRemoteGetShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteGetShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteGetShareResponseApplicationJson>
-    _$filesSharingRemoteGetShareResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteGetShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingRemoteUnshareResponseApplicationJson_Ocs>
-    _$filesSharingRemoteUnshareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingRemoteUnshareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingRemoteUnshareResponseApplicationJson>
-    _$filesSharingRemoteUnshareResponseApplicationJsonSerializer =
-    _$FilesSharingRemoteUnshareResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareInfo> _$filesSharingShareInfoSerializer = _$FilesSharingShareInfoSerializer();
-Serializer<FilesSharingShare_ItemType> _$filesSharingShareItemTypeSerializer = _$FilesSharingShare_ItemTypeSerializer();
-Serializer<FilesSharingShare_Status> _$filesSharingShareStatusSerializer = _$FilesSharingShare_StatusSerializer();
-Serializer<FilesSharingShare> _$filesSharingShareSerializer = _$FilesSharingShareSerializer();
-Serializer<FilesSharingShareapiGetSharesResponseApplicationJson_Ocs>
-    _$filesSharingShareapiGetSharesResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiGetSharesResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiGetSharesResponseApplicationJson>
-    _$filesSharingShareapiGetSharesResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiGetSharesResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiCreateShareResponseApplicationJson_Ocs>
-    _$filesSharingShareapiCreateShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiCreateShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiCreateShareResponseApplicationJson>
-    _$filesSharingShareapiCreateShareResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiCreateShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs>
-    _$filesSharingShareapiGetInheritedSharesResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson>
-    _$filesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs>
-    _$filesSharingShareapiPendingSharesResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiPendingSharesResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiPendingSharesResponseApplicationJson>
-    _$filesSharingShareapiPendingSharesResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiPendingSharesResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiGetShareResponseApplicationJson_Ocs>
-    _$filesSharingShareapiGetShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiGetShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiGetShareResponseApplicationJson>
-    _$filesSharingShareapiGetShareResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiGetShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs>
-    _$filesSharingShareapiUpdateShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiUpdateShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiUpdateShareResponseApplicationJson>
-    _$filesSharingShareapiUpdateShareResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiUpdateShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs>
-    _$filesSharingShareapiDeleteShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiDeleteShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiDeleteShareResponseApplicationJson>
-    _$filesSharingShareapiDeleteShareResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiDeleteShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs>
-    _$filesSharingShareapiAcceptShareResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareapiAcceptShareResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareapiAcceptShareResponseApplicationJson>
-    _$filesSharingShareapiAcceptShareResponseApplicationJsonSerializer =
-    _$FilesSharingShareapiAcceptShareResponseApplicationJsonSerializer();
-Serializer<FilesSharingSharee> _$filesSharingShareeSerializer = _$FilesSharingShareeSerializer();
-Serializer<FilesSharingShareeValue> _$filesSharingShareeValueSerializer = _$FilesSharingShareeValueSerializer();
-Serializer<FilesSharingShareeCircle_1_Value> _$filesSharingShareeCircle1ValueSerializer =
-    _$FilesSharingShareeCircle_1_ValueSerializer();
-Serializer<FilesSharingShareeCircle> _$filesSharingShareeCircleSerializer = _$FilesSharingShareeCircleSerializer();
-Serializer<FilesSharingShareeEmail> _$filesSharingShareeEmailSerializer = _$FilesSharingShareeEmailSerializer();
-Serializer<FilesSharingShareeRemoteGroup_1_Value> _$filesSharingShareeRemoteGroup1ValueSerializer =
-    _$FilesSharingShareeRemoteGroup_1_ValueSerializer();
-Serializer<FilesSharingShareeRemoteGroup> _$filesSharingShareeRemoteGroupSerializer =
-    _$FilesSharingShareeRemoteGroupSerializer();
-Serializer<FilesSharingShareeRemote_1_Value> _$filesSharingShareeRemote1ValueSerializer =
-    _$FilesSharingShareeRemote_1_ValueSerializer();
-Serializer<FilesSharingShareeRemote> _$filesSharingShareeRemoteSerializer = _$FilesSharingShareeRemoteSerializer();
-Serializer<FilesSharingShareeUser_1_Status> _$filesSharingShareeUser1StatusSerializer =
-    _$FilesSharingShareeUser_1_StatusSerializer();
-Serializer<FilesSharingShareeUser> _$filesSharingShareeUserSerializer = _$FilesSharingShareeUserSerializer();
-Serializer<FilesSharingShareesSearchResult_Exact> _$filesSharingShareesSearchResultExactSerializer =
-    _$FilesSharingShareesSearchResult_ExactSerializer();
-Serializer<FilesSharingLookup> _$filesSharingLookupSerializer = _$FilesSharingLookupSerializer();
-Serializer<FilesSharingShareeLookup_1_Extra> _$filesSharingShareeLookup1ExtraSerializer =
-    _$FilesSharingShareeLookup_1_ExtraSerializer();
-Serializer<FilesSharingShareeLookup_1_Value> _$filesSharingShareeLookup1ValueSerializer =
-    _$FilesSharingShareeLookup_1_ValueSerializer();
-Serializer<FilesSharingShareeLookup> _$filesSharingShareeLookupSerializer = _$FilesSharingShareeLookupSerializer();
-Serializer<FilesSharingShareesSearchResult> _$filesSharingShareesSearchResultSerializer =
-    _$FilesSharingShareesSearchResultSerializer();
-Serializer<FilesSharingShareesapiSearchResponseApplicationJson_Ocs>
-    _$filesSharingShareesapiSearchResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareesapiSearchResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareesapiSearchResponseApplicationJson>
-    _$filesSharingShareesapiSearchResponseApplicationJsonSerializer =
-    _$FilesSharingShareesapiSearchResponseApplicationJsonSerializer();
-Serializer<FilesSharingShareesRecommendedResult_Exact> _$filesSharingShareesRecommendedResultExactSerializer =
-    _$FilesSharingShareesRecommendedResult_ExactSerializer();
-Serializer<FilesSharingShareesRecommendedResult> _$filesSharingShareesRecommendedResultSerializer =
-    _$FilesSharingShareesRecommendedResultSerializer();
-Serializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs>
-    _$filesSharingShareesapiFindRecommendedResponseApplicationJsonOcsSerializer =
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsSerializer();
-Serializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson>
-    _$filesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer =
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Public_Password>
-    _$filesSharingCapabilitiesFilesSharingPublicPasswordSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Public_PasswordSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDate>
-    _$filesSharingCapabilitiesFilesSharingPublicExpireDateSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal>
-    _$filesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote>
-    _$filesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Public> _$filesSharingCapabilitiesFilesSharingPublicSerializer =
-    _$FilesSharingCapabilities_FilesSharing_PublicSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_User_ExpireDate>
-    _$filesSharingCapabilitiesFilesSharingUserExpireDateSerializer =
-    _$FilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_User> _$filesSharingCapabilitiesFilesSharingUserSerializer =
-    _$FilesSharingCapabilities_FilesSharing_UserSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Group_ExpireDate>
-    _$filesSharingCapabilitiesFilesSharingGroupExpireDateSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Group> _$filesSharingCapabilitiesFilesSharingGroupSerializer =
-    _$FilesSharingCapabilities_FilesSharing_GroupSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate>
-    _$filesSharingCapabilitiesFilesSharingFederationExpireDateSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported>
-    _$filesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer =
-    _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Federation>
-    _$filesSharingCapabilitiesFilesSharingFederationSerializer =
-    _$FilesSharingCapabilities_FilesSharing_FederationSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing_Sharee> _$filesSharingCapabilitiesFilesSharingShareeSerializer =
-    _$FilesSharingCapabilities_FilesSharing_ShareeSerializer();
-Serializer<FilesSharingCapabilities_FilesSharing> _$filesSharingCapabilitiesFilesSharingSerializer =
-    _$FilesSharingCapabilities_FilesSharingSerializer();
-Serializer<FilesSharingCapabilities> _$filesSharingCapabilitiesSerializer = _$FilesSharingCapabilitiesSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<DeletedShare> _$deletedShareSerializer = _$DeletedShareSerializer();
+Serializer<DeletedShareapiListResponseApplicationJson_Ocs> _$deletedShareapiListResponseApplicationJsonOcsSerializer =
+    _$DeletedShareapiListResponseApplicationJson_OcsSerializer();
+Serializer<DeletedShareapiListResponseApplicationJson> _$deletedShareapiListResponseApplicationJsonSerializer =
+    _$DeletedShareapiListResponseApplicationJsonSerializer();
+Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs>
+    _$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer =
+    _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer();
+Serializer<DeletedShareapiUndeleteResponseApplicationJson> _$deletedShareapiUndeleteResponseApplicationJsonSerializer =
+    _$DeletedShareapiUndeleteResponseApplicationJsonSerializer();
+Serializer<RemoteShare> _$remoteShareSerializer = _$RemoteShareSerializer();
+Serializer<RemoteGetSharesResponseApplicationJson_Ocs> _$remoteGetSharesResponseApplicationJsonOcsSerializer =
+    _$RemoteGetSharesResponseApplicationJson_OcsSerializer();
+Serializer<RemoteGetSharesResponseApplicationJson> _$remoteGetSharesResponseApplicationJsonSerializer =
+    _$RemoteGetSharesResponseApplicationJsonSerializer();
+Serializer<RemoteGetOpenSharesResponseApplicationJson_Ocs> _$remoteGetOpenSharesResponseApplicationJsonOcsSerializer =
+    _$RemoteGetOpenSharesResponseApplicationJson_OcsSerializer();
+Serializer<RemoteGetOpenSharesResponseApplicationJson> _$remoteGetOpenSharesResponseApplicationJsonSerializer =
+    _$RemoteGetOpenSharesResponseApplicationJsonSerializer();
+Serializer<RemoteAcceptShareResponseApplicationJson_Ocs> _$remoteAcceptShareResponseApplicationJsonOcsSerializer =
+    _$RemoteAcceptShareResponseApplicationJson_OcsSerializer();
+Serializer<RemoteAcceptShareResponseApplicationJson> _$remoteAcceptShareResponseApplicationJsonSerializer =
+    _$RemoteAcceptShareResponseApplicationJsonSerializer();
+Serializer<RemoteDeclineShareResponseApplicationJson_Ocs> _$remoteDeclineShareResponseApplicationJsonOcsSerializer =
+    _$RemoteDeclineShareResponseApplicationJson_OcsSerializer();
+Serializer<RemoteDeclineShareResponseApplicationJson> _$remoteDeclineShareResponseApplicationJsonSerializer =
+    _$RemoteDeclineShareResponseApplicationJsonSerializer();
+Serializer<RemoteGetShareResponseApplicationJson_Ocs> _$remoteGetShareResponseApplicationJsonOcsSerializer =
+    _$RemoteGetShareResponseApplicationJson_OcsSerializer();
+Serializer<RemoteGetShareResponseApplicationJson> _$remoteGetShareResponseApplicationJsonSerializer =
+    _$RemoteGetShareResponseApplicationJsonSerializer();
+Serializer<RemoteUnshareResponseApplicationJson_Ocs> _$remoteUnshareResponseApplicationJsonOcsSerializer =
+    _$RemoteUnshareResponseApplicationJson_OcsSerializer();
+Serializer<RemoteUnshareResponseApplicationJson> _$remoteUnshareResponseApplicationJsonSerializer =
+    _$RemoteUnshareResponseApplicationJsonSerializer();
+Serializer<ShareInfo> _$shareInfoSerializer = _$ShareInfoSerializer();
+Serializer<Share_ItemType> _$shareItemTypeSerializer = _$Share_ItemTypeSerializer();
+Serializer<Share_Status> _$shareStatusSerializer = _$Share_StatusSerializer();
+Serializer<Share> _$shareSerializer = _$ShareSerializer();
+Serializer<ShareapiGetSharesResponseApplicationJson_Ocs> _$shareapiGetSharesResponseApplicationJsonOcsSerializer =
+    _$ShareapiGetSharesResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiGetSharesResponseApplicationJson> _$shareapiGetSharesResponseApplicationJsonSerializer =
+    _$ShareapiGetSharesResponseApplicationJsonSerializer();
+Serializer<ShareapiCreateShareResponseApplicationJson_Ocs> _$shareapiCreateShareResponseApplicationJsonOcsSerializer =
+    _$ShareapiCreateShareResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiCreateShareResponseApplicationJson> _$shareapiCreateShareResponseApplicationJsonSerializer =
+    _$ShareapiCreateShareResponseApplicationJsonSerializer();
+Serializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs>
+    _$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer =
+    _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiGetInheritedSharesResponseApplicationJson>
+    _$shareapiGetInheritedSharesResponseApplicationJsonSerializer =
+    _$ShareapiGetInheritedSharesResponseApplicationJsonSerializer();
+Serializer<ShareapiPendingSharesResponseApplicationJson_Ocs>
+    _$shareapiPendingSharesResponseApplicationJsonOcsSerializer =
+    _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiPendingSharesResponseApplicationJson> _$shareapiPendingSharesResponseApplicationJsonSerializer =
+    _$ShareapiPendingSharesResponseApplicationJsonSerializer();
+Serializer<ShareapiGetShareResponseApplicationJson_Ocs> _$shareapiGetShareResponseApplicationJsonOcsSerializer =
+    _$ShareapiGetShareResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiGetShareResponseApplicationJson> _$shareapiGetShareResponseApplicationJsonSerializer =
+    _$ShareapiGetShareResponseApplicationJsonSerializer();
+Serializer<ShareapiUpdateShareResponseApplicationJson_Ocs> _$shareapiUpdateShareResponseApplicationJsonOcsSerializer =
+    _$ShareapiUpdateShareResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiUpdateShareResponseApplicationJson> _$shareapiUpdateShareResponseApplicationJsonSerializer =
+    _$ShareapiUpdateShareResponseApplicationJsonSerializer();
+Serializer<ShareapiDeleteShareResponseApplicationJson_Ocs> _$shareapiDeleteShareResponseApplicationJsonOcsSerializer =
+    _$ShareapiDeleteShareResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiDeleteShareResponseApplicationJson> _$shareapiDeleteShareResponseApplicationJsonSerializer =
+    _$ShareapiDeleteShareResponseApplicationJsonSerializer();
+Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShareResponseApplicationJsonOcsSerializer =
+    _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
+    _$ShareapiAcceptShareResponseApplicationJsonSerializer();
+Serializer<Sharee> _$shareeSerializer = _$ShareeSerializer();
+Serializer<ShareeValue> _$shareeValueSerializer = _$ShareeValueSerializer();
+Serializer<ShareeCircle_1_Value> _$shareeCircle1ValueSerializer = _$ShareeCircle_1_ValueSerializer();
+Serializer<ShareeCircle> _$shareeCircleSerializer = _$ShareeCircleSerializer();
+Serializer<ShareeEmail> _$shareeEmailSerializer = _$ShareeEmailSerializer();
+Serializer<ShareeRemoteGroup_1_Value> _$shareeRemoteGroup1ValueSerializer = _$ShareeRemoteGroup_1_ValueSerializer();
+Serializer<ShareeRemoteGroup> _$shareeRemoteGroupSerializer = _$ShareeRemoteGroupSerializer();
+Serializer<ShareeRemote_1_Value> _$shareeRemote1ValueSerializer = _$ShareeRemote_1_ValueSerializer();
+Serializer<ShareeRemote> _$shareeRemoteSerializer = _$ShareeRemoteSerializer();
+Serializer<ShareeUser_1_Status> _$shareeUser1StatusSerializer = _$ShareeUser_1_StatusSerializer();
+Serializer<ShareeUser> _$shareeUserSerializer = _$ShareeUserSerializer();
+Serializer<ShareesSearchResult_Exact> _$shareesSearchResultExactSerializer = _$ShareesSearchResult_ExactSerializer();
+Serializer<Lookup> _$lookupSerializer = _$LookupSerializer();
+Serializer<ShareeLookup_1_Extra> _$shareeLookup1ExtraSerializer = _$ShareeLookup_1_ExtraSerializer();
+Serializer<ShareeLookup_1_Value> _$shareeLookup1ValueSerializer = _$ShareeLookup_1_ValueSerializer();
+Serializer<ShareeLookup> _$shareeLookupSerializer = _$ShareeLookupSerializer();
+Serializer<ShareesSearchResult> _$shareesSearchResultSerializer = _$ShareesSearchResultSerializer();
+Serializer<ShareesapiSearchResponseApplicationJson_Ocs> _$shareesapiSearchResponseApplicationJsonOcsSerializer =
+    _$ShareesapiSearchResponseApplicationJson_OcsSerializer();
+Serializer<ShareesapiSearchResponseApplicationJson> _$shareesapiSearchResponseApplicationJsonSerializer =
+    _$ShareesapiSearchResponseApplicationJsonSerializer();
+Serializer<ShareesRecommendedResult_Exact> _$shareesRecommendedResultExactSerializer =
+    _$ShareesRecommendedResult_ExactSerializer();
+Serializer<ShareesRecommendedResult> _$shareesRecommendedResultSerializer = _$ShareesRecommendedResultSerializer();
+Serializer<ShareesapiFindRecommendedResponseApplicationJson_Ocs>
+    _$shareesapiFindRecommendedResponseApplicationJsonOcsSerializer =
+    _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer();
+Serializer<ShareesapiFindRecommendedResponseApplicationJson>
+    _$shareesapiFindRecommendedResponseApplicationJsonSerializer =
+    _$ShareesapiFindRecommendedResponseApplicationJsonSerializer();
+Serializer<Capabilities_FilesSharing_Public_Password> _$capabilitiesFilesSharingPublicPasswordSerializer =
+    _$Capabilities_FilesSharing_Public_PasswordSerializer();
+Serializer<Capabilities_FilesSharing_Public_ExpireDate> _$capabilitiesFilesSharingPublicExpireDateSerializer =
+    _$Capabilities_FilesSharing_Public_ExpireDateSerializer();
+Serializer<Capabilities_FilesSharing_Public_ExpireDateInternal>
+    _$capabilitiesFilesSharingPublicExpireDateInternalSerializer =
+    _$Capabilities_FilesSharing_Public_ExpireDateInternalSerializer();
+Serializer<Capabilities_FilesSharing_Public_ExpireDateRemote>
+    _$capabilitiesFilesSharingPublicExpireDateRemoteSerializer =
+    _$Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
+Serializer<Capabilities_FilesSharing_Public> _$capabilitiesFilesSharingPublicSerializer =
+    _$Capabilities_FilesSharing_PublicSerializer();
+Serializer<Capabilities_FilesSharing_User_ExpireDate> _$capabilitiesFilesSharingUserExpireDateSerializer =
+    _$Capabilities_FilesSharing_User_ExpireDateSerializer();
+Serializer<Capabilities_FilesSharing_User> _$capabilitiesFilesSharingUserSerializer =
+    _$Capabilities_FilesSharing_UserSerializer();
+Serializer<Capabilities_FilesSharing_Group_ExpireDate> _$capabilitiesFilesSharingGroupExpireDateSerializer =
+    _$Capabilities_FilesSharing_Group_ExpireDateSerializer();
+Serializer<Capabilities_FilesSharing_Group> _$capabilitiesFilesSharingGroupSerializer =
+    _$Capabilities_FilesSharing_GroupSerializer();
+Serializer<Capabilities_FilesSharing_Federation_ExpireDate> _$capabilitiesFilesSharingFederationExpireDateSerializer =
+    _$Capabilities_FilesSharing_Federation_ExpireDateSerializer();
+Serializer<Capabilities_FilesSharing_Federation_ExpireDateSupported>
+    _$capabilitiesFilesSharingFederationExpireDateSupportedSerializer =
+    _$Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
+Serializer<Capabilities_FilesSharing_Federation> _$capabilitiesFilesSharingFederationSerializer =
+    _$Capabilities_FilesSharing_FederationSerializer();
+Serializer<Capabilities_FilesSharing_Sharee> _$capabilitiesFilesSharingShareeSerializer =
+    _$Capabilities_FilesSharing_ShareeSerializer();
+Serializer<Capabilities_FilesSharing> _$capabilitiesFilesSharingSerializer = _$Capabilities_FilesSharingSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$FilesSharingOCSMetaSerializer implements StructuredSerializer<FilesSharingOCSMeta> {
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
-  final Iterable<Type> types = const [FilesSharingOCSMeta, _$FilesSharingOCSMeta];
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
   @override
-  final String wireName = 'FilesSharingOCSMeta';
+  final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingOCSMeta object,
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -248,9 +200,9 @@ class _$FilesSharingOCSMetaSerializer implements StructuredSerializer<FilesShari
   }
 
   @override
-  FilesSharingOCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingOCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -280,14 +232,14 @@ class _$FilesSharingOCSMetaSerializer implements StructuredSerializer<FilesShari
   }
 }
 
-class _$FilesSharingDeletedShareSerializer implements StructuredSerializer<FilesSharingDeletedShare> {
+class _$DeletedShareSerializer implements StructuredSerializer<DeletedShare> {
   @override
-  final Iterable<Type> types = const [FilesSharingDeletedShare, _$FilesSharingDeletedShare];
+  final Iterable<Type> types = const [DeletedShare, _$DeletedShare];
   @override
-  final String wireName = 'FilesSharingDeletedShare';
+  final String wireName = 'DeletedShare';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingDeletedShare object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShare object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -352,9 +304,9 @@ class _$FilesSharingDeletedShareSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesSharingDeletedShare deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DeletedShare deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingDeletedShareBuilder();
+    final result = DeletedShareBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -431,36 +383,33 @@ class _$FilesSharingDeletedShareSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesSharingDeletedShareapiListResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingDeletedShareapiListResponseApplicationJson_Ocs> {
+class _$DeletedShareapiListResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DeletedShareapiListResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingDeletedShareapiListResponseApplicationJson_Ocs,
-    _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs
+    DeletedShareapiListResponseApplicationJson_Ocs,
+    _$DeletedShareapiListResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingDeletedShareapiListResponseApplicationJson_Ocs';
+  final String wireName = 'DeletedShareapiListResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingDeletedShareapiListResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiListResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingDeletedShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(DeletedShare)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiListResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder();
+    final result = DeletedShareapiListResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -469,12 +418,11 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingDeletedShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(DeletedShare)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -483,33 +431,31 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingDeletedShareapiListResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingDeletedShareapiListResponseApplicationJson> {
+class _$DeletedShareapiListResponseApplicationJsonSerializer
+    implements StructuredSerializer<DeletedShareapiListResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingDeletedShareapiListResponseApplicationJson,
-    _$FilesSharingDeletedShareapiListResponseApplicationJson
+    DeletedShareapiListResponseApplicationJson,
+    _$DeletedShareapiListResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingDeletedShareapiListResponseApplicationJson';
+  final String wireName = 'DeletedShareapiListResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingDeletedShareapiListResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiListResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DeletedShareapiListResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiListResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingDeletedShareapiListResponseApplicationJsonBuilder();
+    final result = DeletedShareapiListResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -519,8 +465,8 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingDeletedShareapiListResponseApplicationJson_Ocs))!
-              as FilesSharingDeletedShareapiListResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DeletedShareapiListResponseApplicationJson_Ocs))!
+              as DeletedShareapiListResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -529,23 +475,22 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs> {
+class _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs,
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs
+    DeletedShareapiUndeleteResponseApplicationJson_Ocs,
+    _$DeletedShareapiUndeleteResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs';
+  final String wireName = 'DeletedShareapiUndeleteResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiUndeleteResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -554,10 +499,9 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiUndeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
+    final result = DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -566,8 +510,7 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -579,34 +522,32 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingDeletedShareapiUndeleteResponseApplicationJson> {
+class _$DeletedShareapiUndeleteResponseApplicationJsonSerializer
+    implements StructuredSerializer<DeletedShareapiUndeleteResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingDeletedShareapiUndeleteResponseApplicationJson,
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson
+    DeletedShareapiUndeleteResponseApplicationJson,
+    _$DeletedShareapiUndeleteResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingDeletedShareapiUndeleteResponseApplicationJson';
+  final String wireName = 'DeletedShareapiUndeleteResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingDeletedShareapiUndeleteResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiUndeleteResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiUndeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder();
+    final result = DeletedShareapiUndeleteResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -616,8 +557,8 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs))!
-              as FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs))!
+              as DeletedShareapiUndeleteResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -626,14 +567,14 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteShareSerializer implements StructuredSerializer<FilesSharingRemoteShare> {
+class _$RemoteShareSerializer implements StructuredSerializer<RemoteShare> {
   @override
-  final Iterable<Type> types = const [FilesSharingRemoteShare, _$FilesSharingRemoteShare];
+  final Iterable<Type> types = const [RemoteShare, _$RemoteShare];
   @override
-  final String wireName = 'FilesSharingRemoteShare';
+  final String wireName = 'RemoteShare';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteShare object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteShare object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'accepted',
@@ -698,9 +639,9 @@ class _$FilesSharingRemoteShareSerializer implements StructuredSerializer<FilesS
   }
 
   @override
-  FilesSharingRemoteShare deserialize(Serializers serializers, Iterable<Object?> serialized,
+  RemoteShare deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteShareBuilder();
+    final result = RemoteShareBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -763,34 +704,33 @@ class _$FilesSharingRemoteShareSerializer implements StructuredSerializer<FilesS
   }
 }
 
-class _$FilesSharingRemoteGetSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetSharesResponseApplicationJson_Ocs> {
+class _$RemoteGetSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteGetSharesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteGetSharesResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs
+    RemoteGetSharesResponseApplicationJson_Ocs,
+    _$RemoteGetSharesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteGetSharesResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteGetSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteGetSharesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetSharesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesSharingRemoteShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(RemoteShare)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder();
+    final result = RemoteGetSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -799,12 +739,11 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingRemoteShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(RemoteShare)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -813,32 +752,28 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteGetSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetSharesResponseApplicationJson> {
+class _$RemoteGetSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteGetSharesResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingRemoteGetSharesResponseApplicationJson,
-    _$FilesSharingRemoteGetSharesResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [RemoteGetSharesResponseApplicationJson, _$RemoteGetSharesResponseApplicationJson];
   @override
-  final String wireName = 'FilesSharingRemoteGetSharesResponseApplicationJson';
+  final String wireName = 'RemoteGetSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteGetSharesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetSharesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetSharesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetSharesResponseApplicationJsonBuilder();
+    final result = RemoteGetSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -847,9 +782,9 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteGetSharesResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteGetSharesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RemoteGetSharesResponseApplicationJson_Ocs))!
+                  as RemoteGetSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -858,35 +793,33 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs> {
+class _$RemoteGetOpenSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteGetOpenSharesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs
+    RemoteGetOpenSharesResponseApplicationJson_Ocs,
+    _$RemoteGetOpenSharesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteGetOpenSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetOpenSharesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesSharingRemoteShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(RemoteShare)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetOpenSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
+    final result = RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -895,12 +828,11 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingRemoteShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(RemoteShare)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -909,33 +841,31 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetOpenSharesResponseApplicationJson> {
+class _$RemoteGetOpenSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteGetOpenSharesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteGetOpenSharesResponseApplicationJson,
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJson
+    RemoteGetOpenSharesResponseApplicationJson,
+    _$RemoteGetOpenSharesResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingRemoteGetOpenSharesResponseApplicationJson';
+  final String wireName = 'RemoteGetOpenSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteGetOpenSharesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetOpenSharesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetOpenSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder();
+    final result = RemoteGetOpenSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -945,8 +875,8 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs))!
+              as RemoteGetOpenSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -955,22 +885,22 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteAcceptShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs> {
+class _$RemoteAcceptShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteAcceptShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs
+    RemoteAcceptShareResponseApplicationJson_Ocs,
+    _$RemoteAcceptShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteAcceptShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteAcceptShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -979,10 +909,9 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteAcceptShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder();
+    final result = RemoteAcceptShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -991,8 +920,7 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1004,33 +932,31 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteAcceptShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteAcceptShareResponseApplicationJson> {
+class _$RemoteAcceptShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteAcceptShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteAcceptShareResponseApplicationJson,
-    _$FilesSharingRemoteAcceptShareResponseApplicationJson
+    RemoteAcceptShareResponseApplicationJson,
+    _$RemoteAcceptShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingRemoteAcceptShareResponseApplicationJson';
+  final String wireName = 'RemoteAcceptShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteAcceptShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteAcceptShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteAcceptShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteAcceptShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder();
+    final result = RemoteAcceptShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1040,8 +966,8 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(RemoteAcceptShareResponseApplicationJson_Ocs))!
+              as RemoteAcceptShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1050,22 +976,22 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteDeclineShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs> {
+class _$RemoteDeclineShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteDeclineShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs
+    RemoteDeclineShareResponseApplicationJson_Ocs,
+    _$RemoteDeclineShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteDeclineShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteDeclineShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1074,10 +1000,9 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteDeclineShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder();
+    final result = RemoteDeclineShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1086,8 +1011,7 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1099,33 +1023,31 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteDeclineShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteDeclineShareResponseApplicationJson> {
+class _$RemoteDeclineShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteDeclineShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteDeclineShareResponseApplicationJson,
-    _$FilesSharingRemoteDeclineShareResponseApplicationJson
+    RemoteDeclineShareResponseApplicationJson,
+    _$RemoteDeclineShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingRemoteDeclineShareResponseApplicationJson';
+  final String wireName = 'RemoteDeclineShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteDeclineShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteDeclineShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteDeclineShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteDeclineShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder();
+    final result = RemoteDeclineShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1135,8 +1057,8 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(RemoteDeclineShareResponseApplicationJson_Ocs))!
+              as RemoteDeclineShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1145,34 +1067,33 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteGetShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetShareResponseApplicationJson_Ocs> {
+class _$RemoteGetShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteGetShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteGetShareResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs
+    RemoteGetShareResponseApplicationJson_Ocs,
+    _$RemoteGetShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteGetShareResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteGetShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteGetShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingRemoteShare)),
+      serializers.serialize(object.data, specifiedType: const FullType(RemoteShare)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder();
+    final result = RemoteGetShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1181,12 +1102,11 @@ class _$FilesSharingRemoteGetShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingRemoteShare))!
-              as FilesSharingRemoteShare);
+          result.data
+              .replace(serializers.deserialize(value, specifiedType: const FullType(RemoteShare))! as RemoteShare);
           break;
       }
     }
@@ -1195,32 +1115,28 @@ class _$FilesSharingRemoteGetShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteGetShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteGetShareResponseApplicationJson> {
+class _$RemoteGetShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteGetShareResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingRemoteGetShareResponseApplicationJson,
-    _$FilesSharingRemoteGetShareResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [RemoteGetShareResponseApplicationJson, _$RemoteGetShareResponseApplicationJson];
   @override
-  final String wireName = 'FilesSharingRemoteGetShareResponseApplicationJson';
+  final String wireName = 'RemoteGetShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteGetShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteGetShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  RemoteGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteGetShareResponseApplicationJsonBuilder();
+    final result = RemoteGetShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1229,9 +1145,9 @@ class _$FilesSharingRemoteGetShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteGetShareResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteGetShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RemoteGetShareResponseApplicationJson_Ocs))!
+                  as RemoteGetShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1240,22 +1156,22 @@ class _$FilesSharingRemoteGetShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingRemoteUnshareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingRemoteUnshareResponseApplicationJson_Ocs> {
+class _$RemoteUnshareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RemoteUnshareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingRemoteUnshareResponseApplicationJson_Ocs,
-    _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs
+    RemoteUnshareResponseApplicationJson_Ocs,
+    _$RemoteUnshareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingRemoteUnshareResponseApplicationJson_Ocs';
+  final String wireName = 'RemoteUnshareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteUnshareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteUnshareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -1264,10 +1180,9 @@ class _$FilesSharingRemoteUnshareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  RemoteUnshareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder();
+    final result = RemoteUnshareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1276,8 +1191,7 @@ class _$FilesSharingRemoteUnshareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -1289,32 +1203,28 @@ class _$FilesSharingRemoteUnshareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingRemoteUnshareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingRemoteUnshareResponseApplicationJson> {
+class _$RemoteUnshareResponseApplicationJsonSerializer
+    implements StructuredSerializer<RemoteUnshareResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingRemoteUnshareResponseApplicationJson,
-    _$FilesSharingRemoteUnshareResponseApplicationJson
-  ];
+  final Iterable<Type> types = const [RemoteUnshareResponseApplicationJson, _$RemoteUnshareResponseApplicationJson];
   @override
-  final String wireName = 'FilesSharingRemoteUnshareResponseApplicationJson';
+  final String wireName = 'RemoteUnshareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingRemoteUnshareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, RemoteUnshareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(RemoteUnshareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  RemoteUnshareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingRemoteUnshareResponseApplicationJsonBuilder();
+    final result = RemoteUnshareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1323,9 +1233,9 @@ class _$FilesSharingRemoteUnshareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingRemoteUnshareResponseApplicationJson_Ocs))!
-              as FilesSharingRemoteUnshareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RemoteUnshareResponseApplicationJson_Ocs))!
+                  as RemoteUnshareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1334,14 +1244,14 @@ class _$FilesSharingRemoteUnshareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareInfoSerializer implements StructuredSerializer<FilesSharingShareInfo> {
+class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareInfo, _$FilesSharingShareInfo];
+  final Iterable<Type> types = const [ShareInfo, _$ShareInfo];
   @override
-  final String wireName = 'FilesSharingShareInfo';
+  final String wireName = 'ShareInfo';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareInfo object,
+  Iterable<Object?> serialize(Serializers serializers, ShareInfo object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -1357,7 +1267,7 @@ class _$FilesSharingShareInfoSerializer implements StructuredSerializer<FilesSha
       'mimetype',
       serializers.serialize(object.mimetype, specifiedType: const FullType(String)),
       'size',
-      serializers.serialize(object.size, specifiedType: const FullType(FilesSharingShareInfo_Size)),
+      serializers.serialize(object.size, specifiedType: const FullType(ShareInfo_Size)),
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'etag',
@@ -1377,9 +1287,9 @@ class _$FilesSharingShareInfoSerializer implements StructuredSerializer<FilesSha
   }
 
   @override
-  FilesSharingShareInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareInfoBuilder();
+    final result = ShareInfoBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1406,8 +1316,8 @@ class _$FilesSharingShareInfoSerializer implements StructuredSerializer<FilesSha
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'size':
-          result.size.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareInfo_Size))!
-              as FilesSharingShareInfo_Size);
+          result.size.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareInfo_Size))! as ShareInfo_Size);
           break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1428,31 +1338,30 @@ class _$FilesSharingShareInfoSerializer implements StructuredSerializer<FilesSha
   }
 }
 
-class _$FilesSharingShare_ItemTypeSerializer implements PrimitiveSerializer<FilesSharingShare_ItemType> {
+class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> {
   @override
-  final Iterable<Type> types = const <Type>[FilesSharingShare_ItemType];
+  final Iterable<Type> types = const <Type>[Share_ItemType];
   @override
-  final String wireName = 'FilesSharingShare_ItemType';
+  final String wireName = 'Share_ItemType';
 
   @override
-  Object serialize(Serializers serializers, FilesSharingShare_ItemType object,
-          {FullType specifiedType = FullType.unspecified}) =>
+  Object serialize(Serializers serializers, Share_ItemType object, {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  FilesSharingShare_ItemType deserialize(Serializers serializers, Object serialized,
+  Share_ItemType deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      FilesSharingShare_ItemType.valueOf(serialized as String);
+      Share_ItemType.valueOf(serialized as String);
 }
 
-class _$FilesSharingShare_StatusSerializer implements StructuredSerializer<FilesSharingShare_Status> {
+class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
   @override
-  final Iterable<Type> types = const [FilesSharingShare_Status, _$FilesSharingShare_Status];
+  final Iterable<Type> types = const [Share_Status, _$Share_Status];
   @override
-  final String wireName = 'FilesSharingShare_Status';
+  final String wireName = 'Share_Status';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShare_Status object,
+  Iterable<Object?> serialize(Serializers serializers, Share_Status object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -1484,9 +1393,9 @@ class _$FilesSharingShare_StatusSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesSharingShare_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Share_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShare_StatusBuilder();
+    final result = Share_StatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1513,15 +1422,14 @@ class _$FilesSharingShare_StatusSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharingShare> {
+class _$ShareSerializer implements StructuredSerializer<Share> {
   @override
-  final Iterable<Type> types = const [FilesSharingShare, _$FilesSharingShare];
+  final Iterable<Type> types = const [Share, _$Share];
   @override
-  final String wireName = 'FilesSharingShare';
+  final String wireName = 'Share';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShare object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Share object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'can_delete',
       serializers.serialize(object.canDelete, specifiedType: const FullType(bool)),
@@ -1546,11 +1454,11 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
       'item_mtime',
       serializers.serialize(object.itemMtime, specifiedType: const FullType(int)),
       'item_size',
-      serializers.serialize(object.itemSize, specifiedType: const FullType(FilesSharingShare_ItemSize)),
+      serializers.serialize(object.itemSize, specifiedType: const FullType(Share_ItemSize)),
       'item_source',
       serializers.serialize(object.itemSource, specifiedType: const FullType(int)),
       'item_type',
-      serializers.serialize(object.itemType, specifiedType: const FullType(FilesSharingShare_ItemType)),
+      serializers.serialize(object.itemType, specifiedType: const FullType(Share_ItemType)),
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
       'mail_send',
@@ -1657,7 +1565,7 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
     if (value != null) {
       result
         ..add('status')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingShare_Status)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Share_Status)));
     }
     value = object.token;
     if (value != null) {
@@ -1675,9 +1583,9 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
   }
 
   @override
-  FilesSharingShare deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Share deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareBuilder();
+    final result = ShareBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1729,15 +1637,15 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
           result.itemPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'item_size':
-          result.itemSize.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShare_ItemSize))! as FilesSharingShare_ItemSize);
+          result.itemSize.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Share_ItemSize))! as Share_ItemSize);
           break;
         case 'item_source':
           result.itemSource = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'item_type':
-          result.itemType = serializers.deserialize(value, specifiedType: const FullType(FilesSharingShare_ItemType))!
-              as FilesSharingShare_ItemType;
+          result.itemType =
+              serializers.deserialize(value, specifiedType: const FullType(Share_ItemType))! as Share_ItemType;
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1791,8 +1699,8 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
           result.shareWithLink = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'status':
-          result.status.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingShare_Status))!
-              as FilesSharingShare_Status);
+          result.status
+              .replace(serializers.deserialize(value, specifiedType: const FullType(Share_Status))! as Share_Status);
           break;
         case 'stime':
           result.stime = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -1822,34 +1730,33 @@ class _$FilesSharingShareSerializer implements StructuredSerializer<FilesSharing
   }
 }
 
-class _$FilesSharingShareapiGetSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetSharesResponseApplicationJson_Ocs> {
+class _$ShareapiGetSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiGetSharesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetSharesResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs
+    ShareapiGetSharesResponseApplicationJson_Ocs,
+    _$ShareapiGetSharesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetSharesResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiGetSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiGetSharesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetSharesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Share)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiGetSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder();
+    final result = ShareapiGetSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1858,12 +1765,11 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Share)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1872,33 +1778,31 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiGetSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetSharesResponseApplicationJson> {
+class _$ShareapiGetSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiGetSharesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetSharesResponseApplicationJson,
-    _$FilesSharingShareapiGetSharesResponseApplicationJson
+    ShareapiGetSharesResponseApplicationJson,
+    _$ShareapiGetSharesResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetSharesResponseApplicationJson';
+  final String wireName = 'ShareapiGetSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiGetSharesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetSharesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiGetSharesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetSharesResponseApplicationJsonBuilder();
+    final result = ShareapiGetSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1908,8 +1812,8 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiGetSharesResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiGetSharesResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiGetSharesResponseApplicationJson_Ocs))!
+              as ShareapiGetSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1918,35 +1822,33 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiCreateShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiCreateShareResponseApplicationJson_Ocs> {
+class _$ShareapiCreateShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiCreateShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiCreateShareResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs
+    ShareapiCreateShareResponseApplicationJson_Ocs,
+    _$ShareapiCreateShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiCreateShareResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiCreateShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiCreateShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiCreateShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingShare)),
+      serializers.serialize(object.data, specifiedType: const FullType(Share)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiCreateShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder();
+    final result = ShareapiCreateShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1955,12 +1857,10 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShare))! as FilesSharingShare);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Share))! as Share);
           break;
       }
     }
@@ -1969,33 +1869,31 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiCreateShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiCreateShareResponseApplicationJson> {
+class _$ShareapiCreateShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiCreateShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiCreateShareResponseApplicationJson,
-    _$FilesSharingShareapiCreateShareResponseApplicationJson
+    ShareapiCreateShareResponseApplicationJson,
+    _$ShareapiCreateShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiCreateShareResponseApplicationJson';
+  final String wireName = 'ShareapiCreateShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiCreateShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiCreateShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiCreateShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiCreateShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiCreateShareResponseApplicationJsonBuilder();
+    final result = ShareapiCreateShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2005,8 +1903,8 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiCreateShareResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiCreateShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiCreateShareResponseApplicationJson_Ocs))!
+              as ShareapiCreateShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2015,35 +1913,34 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs> {
+class _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs
+    ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+    _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiGetInheritedSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetInheritedSharesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Share)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs deserialize(
+  ShareapiGetInheritedSharesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
+    final result = ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2052,12 +1949,11 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsSeriali
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Share)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2066,34 +1962,32 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsSeriali
   }
 }
 
-class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetInheritedSharesResponseApplicationJson> {
+class _$ShareapiGetInheritedSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiGetInheritedSharesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetInheritedSharesResponseApplicationJson,
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson
+    ShareapiGetInheritedSharesResponseApplicationJson,
+    _$ShareapiGetInheritedSharesResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetInheritedSharesResponseApplicationJson';
+  final String wireName = 'ShareapiGetInheritedSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiGetInheritedSharesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetInheritedSharesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiGetInheritedSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder();
+    final result = ShareapiGetInheritedSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2103,8 +1997,8 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs))!
+              as ShareapiGetInheritedSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2113,35 +2007,33 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiPendingSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs> {
+class _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiPendingSharesResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs
+    ShareapiPendingSharesResponseApplicationJson_Ocs,
+    _$ShareapiPendingSharesResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiPendingSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiPendingSharesResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Share)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiPendingSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder();
+    final result = ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2150,12 +2042,11 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShare)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Share)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2164,33 +2055,32 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiPendingSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiPendingSharesResponseApplicationJson> {
+class _$ShareapiPendingSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiPendingSharesResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiPendingSharesResponseApplicationJson,
-    _$FilesSharingShareapiPendingSharesResponseApplicationJson
+    ShareapiPendingSharesResponseApplicationJson,
+    _$ShareapiPendingSharesResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiPendingSharesResponseApplicationJson';
+  final String wireName = 'ShareapiPendingSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiPendingSharesResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiPendingSharesResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiPendingSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder();
+    final result = ShareapiPendingSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2200,8 +2090,8 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs))!
+              as ShareapiPendingSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2210,34 +2100,33 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiGetShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetShareResponseApplicationJson_Ocs> {
+class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiGetShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetShareResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs
+    ShareapiGetShareResponseApplicationJson_Ocs,
+    _$ShareapiGetShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetShareResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiGetShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiGetShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingShare)),
+      serializers.serialize(object.data, specifiedType: const FullType(Share)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiGetShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder();
+    final result = ShareapiGetShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2246,12 +2135,10 @@ class _$FilesSharingShareapiGetShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShare))! as FilesSharingShare);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Share))! as Share);
           break;
       }
     }
@@ -2260,32 +2147,31 @@ class _$FilesSharingShareapiGetShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiGetShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiGetShareResponseApplicationJson> {
+class _$ShareapiGetShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiGetShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiGetShareResponseApplicationJson,
-    _$FilesSharingShareapiGetShareResponseApplicationJson
+    ShareapiGetShareResponseApplicationJson,
+    _$ShareapiGetShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiGetShareResponseApplicationJson';
+  final String wireName = 'ShareapiGetShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiGetShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGetShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiGetShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareapiGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiGetShareResponseApplicationJsonBuilder();
+    final result = ShareapiGetShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2295,8 +2181,8 @@ class _$FilesSharingShareapiGetShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiGetShareResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiGetShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiGetShareResponseApplicationJson_Ocs))!
+              as ShareapiGetShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2305,35 +2191,33 @@ class _$FilesSharingShareapiGetShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiUpdateShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs> {
+class _$ShareapiUpdateShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiUpdateShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs
+    ShareapiUpdateShareResponseApplicationJson_Ocs,
+    _$ShareapiUpdateShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiUpdateShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiUpdateShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingShare)),
+      serializers.serialize(object.data, specifiedType: const FullType(Share)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiUpdateShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder();
+    final result = ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2342,12 +2226,10 @@ class _$FilesSharingShareapiUpdateShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShare))! as FilesSharingShare);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Share))! as Share);
           break;
       }
     }
@@ -2356,33 +2238,31 @@ class _$FilesSharingShareapiUpdateShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiUpdateShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiUpdateShareResponseApplicationJson> {
+class _$ShareapiUpdateShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiUpdateShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiUpdateShareResponseApplicationJson,
-    _$FilesSharingShareapiUpdateShareResponseApplicationJson
+    ShareapiUpdateShareResponseApplicationJson,
+    _$ShareapiUpdateShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiUpdateShareResponseApplicationJson';
+  final String wireName = 'ShareapiUpdateShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiUpdateShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiUpdateShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiUpdateShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder();
+    final result = ShareapiUpdateShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2392,8 +2272,8 @@ class _$FilesSharingShareapiUpdateShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs))!
+              as ShareapiUpdateShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2402,23 +2282,22 @@ class _$FilesSharingShareapiUpdateShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiDeleteShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs> {
+class _$ShareapiDeleteShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiDeleteShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs
+    ShareapiDeleteShareResponseApplicationJson_Ocs,
+    _$ShareapiDeleteShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiDeleteShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiDeleteShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -2427,10 +2306,9 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiDeleteShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder();
+    final result = ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2439,8 +2317,7 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -2452,33 +2329,31 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiDeleteShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiDeleteShareResponseApplicationJson> {
+class _$ShareapiDeleteShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiDeleteShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiDeleteShareResponseApplicationJson,
-    _$FilesSharingShareapiDeleteShareResponseApplicationJson
+    ShareapiDeleteShareResponseApplicationJson,
+    _$ShareapiDeleteShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiDeleteShareResponseApplicationJson';
+  final String wireName = 'ShareapiDeleteShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiDeleteShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiDeleteShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiDeleteShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder();
+    final result = ShareapiDeleteShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2488,8 +2363,8 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs))!
+              as ShareapiDeleteShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2498,23 +2373,22 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareapiAcceptShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs> {
+class _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiAcceptShareResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs,
-    _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs
+    ShareapiAcceptShareResponseApplicationJson_Ocs,
+    _$ShareapiAcceptShareResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs';
+  final String wireName = 'ShareapiAcceptShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiAcceptShareResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
     ];
@@ -2523,10 +2397,9 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiAcceptShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder();
+    final result = ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2535,8 +2408,7 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -2548,33 +2420,31 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareapiAcceptShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareapiAcceptShareResponseApplicationJson> {
+class _$ShareapiAcceptShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiAcceptShareResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareapiAcceptShareResponseApplicationJson,
-    _$FilesSharingShareapiAcceptShareResponseApplicationJson
+    ShareapiAcceptShareResponseApplicationJson,
+    _$ShareapiAcceptShareResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareapiAcceptShareResponseApplicationJson';
+  final String wireName = 'ShareapiAcceptShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareapiAcceptShareResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareapiAcceptShareResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareapiAcceptShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder();
+    final result = ShareapiAcceptShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2584,8 +2454,8 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs))!
-              as FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs))!
+              as ShareapiAcceptShareResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2594,15 +2464,14 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareeSerializer implements StructuredSerializer<FilesSharingSharee> {
+class _$ShareeSerializer implements StructuredSerializer<Sharee> {
   @override
-  final Iterable<Type> types = const [FilesSharingSharee, _$FilesSharingSharee];
+  final Iterable<Type> types = const [Sharee, _$Sharee];
   @override
-  final String wireName = 'FilesSharingSharee';
+  final String wireName = 'Sharee';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingSharee object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Sharee object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
@@ -2618,9 +2487,9 @@ class _$FilesSharingShareeSerializer implements StructuredSerializer<FilesSharin
   }
 
   @override
-  FilesSharingSharee deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeBuilder();
+    final result = ShareeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2641,14 +2510,14 @@ class _$FilesSharingShareeSerializer implements StructuredSerializer<FilesSharin
   }
 }
 
-class _$FilesSharingShareeValueSerializer implements StructuredSerializer<FilesSharingShareeValue> {
+class _$ShareeValueSerializer implements StructuredSerializer<ShareeValue> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeValue, _$FilesSharingShareeValue];
+  final Iterable<Type> types = const [ShareeValue, _$ShareeValue];
   @override
-  final String wireName = 'FilesSharingShareeValue';
+  final String wireName = 'ShareeValue';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeValue object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeValue object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'shareType',
@@ -2661,9 +2530,9 @@ class _$FilesSharingShareeValueSerializer implements StructuredSerializer<FilesS
   }
 
   @override
-  FilesSharingShareeValue deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeValue deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeValueBuilder();
+    final result = ShareeValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2684,14 +2553,14 @@ class _$FilesSharingShareeValueSerializer implements StructuredSerializer<FilesS
   }
 }
 
-class _$FilesSharingShareeCircle_1_ValueSerializer implements StructuredSerializer<FilesSharingShareeCircle_1_Value> {
+class _$ShareeCircle_1_ValueSerializer implements StructuredSerializer<ShareeCircle_1_Value> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeCircle_1_Value, _$FilesSharingShareeCircle_1_Value];
+  final Iterable<Type> types = const [ShareeCircle_1_Value, _$ShareeCircle_1_Value];
   @override
-  final String wireName = 'FilesSharingShareeCircle_1_Value';
+  final String wireName = 'ShareeCircle_1_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeCircle_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeCircle_1_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'shareType',
@@ -2706,9 +2575,9 @@ class _$FilesSharingShareeCircle_1_ValueSerializer implements StructuredSerializ
   }
 
   @override
-  FilesSharingShareeCircle_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeCircle_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeCircle_1_ValueBuilder();
+    final result = ShareeCircle_1_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2732,14 +2601,14 @@ class _$FilesSharingShareeCircle_1_ValueSerializer implements StructuredSerializ
   }
 }
 
-class _$FilesSharingShareeCircleSerializer implements StructuredSerializer<FilesSharingShareeCircle> {
+class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeCircle, _$FilesSharingShareeCircle];
+  final Iterable<Type> types = const [ShareeCircle, _$ShareeCircle];
   @override
-  final String wireName = 'FilesSharingShareeCircle';
+  final String wireName = 'ShareeCircle';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeCircle object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeCircle object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -2747,7 +2616,7 @@ class _$FilesSharingShareeCircleSerializer implements StructuredSerializer<Files
       'shareWithDescription',
       serializers.serialize(object.shareWithDescription, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeCircle_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeCircle_1_Value)),
     ];
     Object? value;
     value = object.count;
@@ -2760,9 +2629,9 @@ class _$FilesSharingShareeCircleSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesSharingShareeCircle deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeCircle deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeCircleBuilder();
+    final result = ShareeCircleBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2781,8 +2650,8 @@ class _$FilesSharingShareeCircleSerializer implements StructuredSerializer<Files
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareeCircle_1_Value))! as FilesSharingShareeCircle_1_Value);
+          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_1_Value))!
+              as ShareeCircle_1_Value);
           break;
       }
     }
@@ -2791,14 +2660,14 @@ class _$FilesSharingShareeCircleSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesSharingShareeEmailSerializer implements StructuredSerializer<FilesSharingShareeEmail> {
+class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeEmail, _$FilesSharingShareeEmail];
+  final Iterable<Type> types = const [ShareeEmail, _$ShareeEmail];
   @override
-  final String wireName = 'FilesSharingShareeEmail';
+  final String wireName = 'ShareeEmail';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeEmail object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeEmail object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -2812,7 +2681,7 @@ class _$FilesSharingShareeEmailSerializer implements StructuredSerializer<FilesS
       'shareWithDisplayNameUnique',
       serializers.serialize(object.shareWithDisplayNameUnique, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeValue)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
     ];
     Object? value;
     value = object.count;
@@ -2825,9 +2694,9 @@ class _$FilesSharingShareeEmailSerializer implements StructuredSerializer<FilesS
   }
 
   @override
-  FilesSharingShareeEmail deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeEmail deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeEmailBuilder();
+    final result = ShareeEmailBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2855,8 +2724,8 @@ class _$FilesSharingShareeEmailSerializer implements StructuredSerializer<FilesS
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareeValue))!
-              as FilesSharingShareeValue);
+          result.value
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
       }
     }
@@ -2865,15 +2734,14 @@ class _$FilesSharingShareeEmailSerializer implements StructuredSerializer<FilesS
   }
 }
 
-class _$FilesSharingShareeRemoteGroup_1_ValueSerializer
-    implements StructuredSerializer<FilesSharingShareeRemoteGroup_1_Value> {
+class _$ShareeRemoteGroup_1_ValueSerializer implements StructuredSerializer<ShareeRemoteGroup_1_Value> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeRemoteGroup_1_Value, _$FilesSharingShareeRemoteGroup_1_Value];
+  final Iterable<Type> types = const [ShareeRemoteGroup_1_Value, _$ShareeRemoteGroup_1_Value];
   @override
-  final String wireName = 'FilesSharingShareeRemoteGroup_1_Value';
+  final String wireName = 'ShareeRemoteGroup_1_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeRemoteGroup_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup_1_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'shareType',
@@ -2888,9 +2756,9 @@ class _$FilesSharingShareeRemoteGroup_1_ValueSerializer
   }
 
   @override
-  FilesSharingShareeRemoteGroup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemoteGroup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeRemoteGroup_1_ValueBuilder();
+    final result = ShareeRemoteGroup_1_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2914,14 +2782,14 @@ class _$FilesSharingShareeRemoteGroup_1_ValueSerializer
   }
 }
 
-class _$FilesSharingShareeRemoteGroupSerializer implements StructuredSerializer<FilesSharingShareeRemoteGroup> {
+class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemoteGroup> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeRemoteGroup, _$FilesSharingShareeRemoteGroup];
+  final Iterable<Type> types = const [ShareeRemoteGroup, _$ShareeRemoteGroup];
   @override
-  final String wireName = 'FilesSharingShareeRemoteGroup';
+  final String wireName = 'ShareeRemoteGroup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeRemoteGroup object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -2931,7 +2799,7 @@ class _$FilesSharingShareeRemoteGroupSerializer implements StructuredSerializer<
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeRemoteGroup_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemoteGroup_1_Value)),
     ];
     Object? value;
     value = object.count;
@@ -2944,9 +2812,9 @@ class _$FilesSharingShareeRemoteGroupSerializer implements StructuredSerializer<
   }
 
   @override
-  FilesSharingShareeRemoteGroup deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemoteGroup deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeRemoteGroupBuilder();
+    final result = ShareeRemoteGroupBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2967,9 +2835,8 @@ class _$FilesSharingShareeRemoteGroupSerializer implements StructuredSerializer<
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareeRemoteGroup_1_Value))!
-                  as FilesSharingShareeRemoteGroup_1_Value);
+          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_1_Value))!
+              as ShareeRemoteGroup_1_Value);
           break;
       }
     }
@@ -2978,14 +2845,14 @@ class _$FilesSharingShareeRemoteGroupSerializer implements StructuredSerializer<
   }
 }
 
-class _$FilesSharingShareeRemote_1_ValueSerializer implements StructuredSerializer<FilesSharingShareeRemote_1_Value> {
+class _$ShareeRemote_1_ValueSerializer implements StructuredSerializer<ShareeRemote_1_Value> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeRemote_1_Value, _$FilesSharingShareeRemote_1_Value];
+  final Iterable<Type> types = const [ShareeRemote_1_Value, _$ShareeRemote_1_Value];
   @override
-  final String wireName = 'FilesSharingShareeRemote_1_Value';
+  final String wireName = 'ShareeRemote_1_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeRemote_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemote_1_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'shareType',
@@ -3000,9 +2867,9 @@ class _$FilesSharingShareeRemote_1_ValueSerializer implements StructuredSerializ
   }
 
   @override
-  FilesSharingShareeRemote_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemote_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeRemote_1_ValueBuilder();
+    final result = ShareeRemote_1_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3026,14 +2893,14 @@ class _$FilesSharingShareeRemote_1_ValueSerializer implements StructuredSerializ
   }
 }
 
-class _$FilesSharingShareeRemoteSerializer implements StructuredSerializer<FilesSharingShareeRemote> {
+class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeRemote, _$FilesSharingShareeRemote];
+  final Iterable<Type> types = const [ShareeRemote, _$ShareeRemote];
   @override
-  final String wireName = 'FilesSharingShareeRemote';
+  final String wireName = 'ShareeRemote';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeRemote object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemote object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -3045,7 +2912,7 @@ class _$FilesSharingShareeRemoteSerializer implements StructuredSerializer<Files
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeRemote_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemote_1_Value)),
     ];
     Object? value;
     value = object.count;
@@ -3058,9 +2925,9 @@ class _$FilesSharingShareeRemoteSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesSharingShareeRemote deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemote deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeRemoteBuilder();
+    final result = ShareeRemoteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3084,8 +2951,8 @@ class _$FilesSharingShareeRemoteSerializer implements StructuredSerializer<Files
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareeRemote_1_Value))! as FilesSharingShareeRemote_1_Value);
+          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_1_Value))!
+              as ShareeRemote_1_Value);
           break;
       }
     }
@@ -3094,14 +2961,14 @@ class _$FilesSharingShareeRemoteSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesSharingShareeUser_1_StatusSerializer implements StructuredSerializer<FilesSharingShareeUser_1_Status> {
+class _$ShareeUser_1_StatusSerializer implements StructuredSerializer<ShareeUser_1_Status> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeUser_1_Status, _$FilesSharingShareeUser_1_Status];
+  final Iterable<Type> types = const [ShareeUser_1_Status, _$ShareeUser_1_Status];
   @override
-  final String wireName = 'FilesSharingShareeUser_1_Status';
+  final String wireName = 'ShareeUser_1_Status';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeUser_1_Status object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeUser_1_Status object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -3122,9 +2989,9 @@ class _$FilesSharingShareeUser_1_StatusSerializer implements StructuredSerialize
   }
 
   @override
-  FilesSharingShareeUser_1_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeUser_1_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeUser_1_StatusBuilder();
+    final result = ShareeUser_1_StatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3151,14 +3018,14 @@ class _$FilesSharingShareeUser_1_StatusSerializer implements StructuredSerialize
   }
 }
 
-class _$FilesSharingShareeUserSerializer implements StructuredSerializer<FilesSharingShareeUser> {
+class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeUser, _$FilesSharingShareeUser];
+  final Iterable<Type> types = const [ShareeUser, _$ShareeUser];
   @override
-  final String wireName = 'FilesSharingShareeUser';
+  final String wireName = 'ShareeUser';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeUser object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeUser object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
@@ -3170,9 +3037,9 @@ class _$FilesSharingShareeUserSerializer implements StructuredSerializer<FilesSh
       'shareWithDisplayNameUnique',
       serializers.serialize(object.shareWithDisplayNameUnique, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(FilesSharingShareeUser_1_Status)),
+      serializers.serialize(object.status, specifiedType: const FullType(ShareeUser_1_Status)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeValue)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
     ];
     Object? value;
     value = object.count;
@@ -3185,9 +3052,9 @@ class _$FilesSharingShareeUserSerializer implements StructuredSerializer<FilesSh
   }
 
   @override
-  FilesSharingShareeUser deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeUser deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeUserBuilder();
+    final result = ShareeUserBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3212,12 +3079,12 @@ class _$FilesSharingShareeUserSerializer implements StructuredSerializer<FilesSh
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareeUser_1_Status))! as FilesSharingShareeUser_1_Status);
+          result.status.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeUser_1_Status))!
+              as ShareeUser_1_Status);
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareeValue))!
-              as FilesSharingShareeValue);
+          result.value
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
       }
     }
@@ -3226,44 +3093,40 @@ class _$FilesSharingShareeUserSerializer implements StructuredSerializer<FilesSh
   }
 }
 
-class _$FilesSharingShareesSearchResult_ExactSerializer
-    implements StructuredSerializer<FilesSharingShareesSearchResult_Exact> {
+class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<ShareesSearchResult_Exact> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareesSearchResult_Exact, _$FilesSharingShareesSearchResult_Exact];
+  final Iterable<Type> types = const [ShareesSearchResult_Exact, _$ShareesSearchResult_Exact];
   @override
-  final String wireName = 'FilesSharingShareesSearchResult_Exact';
+  final String wireName = 'ShareesSearchResult_Exact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesSearchResult_Exact object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesSearchResult_Exact object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'circles',
-      serializers.serialize(object.circles,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeCircle)])),
+      serializers.serialize(object.circles, specifiedType: const FullType(BuiltList, [FullType(ShareeCircle)])),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)])),
+      serializers.serialize(object.emails, specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)])),
+          specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)])),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)])),
+      serializers.serialize(object.remotes, specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)])),
       'rooms',
-      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'users',
-      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)])),
+      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(ShareeUser)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesSearchResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareesSearchResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesSearchResult_ExactBuilder();
+    final result = ShareesSearchResult_ExactBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3273,32 +3136,31 @@ class _$FilesSharingShareesSearchResult_ExactSerializer
       switch (key) {
         case 'circles':
           result.circles.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeCircle)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeCircle)]))! as BuiltList<Object?>);
           break;
         case 'emails':
           result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)]))! as BuiltList<Object?>);
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)]))! as BuiltList<Object?>);
           break;
         case 'remotes':
           result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)]))! as BuiltList<Object?>);
           break;
         case 'rooms':
           result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeUser)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -3307,15 +3169,14 @@ class _$FilesSharingShareesSearchResult_ExactSerializer
   }
 }
 
-class _$FilesSharingLookupSerializer implements StructuredSerializer<FilesSharingLookup> {
+class _$LookupSerializer implements StructuredSerializer<Lookup> {
   @override
-  final Iterable<Type> types = const [FilesSharingLookup, _$FilesSharingLookup];
+  final Iterable<Type> types = const [Lookup, _$Lookup];
   @override
-  final String wireName = 'FilesSharingLookup';
+  final String wireName = 'Lookup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingLookup object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Lookup object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'value',
       serializers.serialize(object.value, specifiedType: const FullType(String)),
@@ -3327,9 +3188,9 @@ class _$FilesSharingLookupSerializer implements StructuredSerializer<FilesSharin
   }
 
   @override
-  FilesSharingLookup deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Lookup deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingLookupBuilder();
+    final result = LookupBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3350,14 +3211,14 @@ class _$FilesSharingLookupSerializer implements StructuredSerializer<FilesSharin
   }
 }
 
-class _$FilesSharingShareeLookup_1_ExtraSerializer implements StructuredSerializer<FilesSharingShareeLookup_1_Extra> {
+class _$ShareeLookup_1_ExtraSerializer implements StructuredSerializer<ShareeLookup_1_Extra> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeLookup_1_Extra, _$FilesSharingShareeLookup_1_Extra];
+  final Iterable<Type> types = const [ShareeLookup_1_Extra, _$ShareeLookup_1_Extra];
   @override
-  final String wireName = 'FilesSharingShareeLookup_1_Extra';
+  final String wireName = 'ShareeLookup_1_Extra';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeLookup_1_Extra object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_1_Extra object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'federationId',
@@ -3368,63 +3229,63 @@ class _$FilesSharingShareeLookup_1_ExtraSerializer implements StructuredSerializ
     if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.email;
     if (value != null) {
       result
         ..add('email')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.address;
     if (value != null) {
       result
         ..add('address')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.website;
     if (value != null) {
       result
         ..add('website')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.twitter;
     if (value != null) {
       result
         ..add('twitter')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.phone;
     if (value != null) {
       result
         ..add('phone')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.twitterSignature;
     if (value != null) {
       result
         ..add('twitter_signature')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.websiteSignature;
     if (value != null) {
       result
         ..add('website_signature')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     value = object.userid;
     if (value != null) {
       result
         ..add('userid')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingLookup)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Lookup)));
     }
     return result;
   }
 
   @override
-  FilesSharingShareeLookup_1_Extra deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeLookup_1_Extra deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeLookup_1_ExtraBuilder();
+    final result = ShareeLookup_1_ExtraBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3436,40 +3297,33 @@ class _$FilesSharingShareeLookup_1_ExtraSerializer implements StructuredSerializ
           result.federationId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'name':
-          result.name.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.name.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'email':
-          result.email.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.email.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'address':
-          result.address.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.address.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'website':
-          result.website.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.website.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'twitter':
-          result.twitter.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.twitter.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'phone':
-          result.phone.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.phone.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'twitter_signature':
-          result.twitterSignature.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.twitterSignature
+              .replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'website_signature':
-          result.websiteSignature.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.websiteSignature
+              .replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'userid':
-          result.userid.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingLookup))! as FilesSharingLookup);
+          result.userid.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
       }
     }
@@ -3478,14 +3332,14 @@ class _$FilesSharingShareeLookup_1_ExtraSerializer implements StructuredSerializ
   }
 }
 
-class _$FilesSharingShareeLookup_1_ValueSerializer implements StructuredSerializer<FilesSharingShareeLookup_1_Value> {
+class _$ShareeLookup_1_ValueSerializer implements StructuredSerializer<ShareeLookup_1_Value> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeLookup_1_Value, _$FilesSharingShareeLookup_1_Value];
+  final Iterable<Type> types = const [ShareeLookup_1_Value, _$ShareeLookup_1_Value];
   @override
-  final String wireName = 'FilesSharingShareeLookup_1_Value';
+  final String wireName = 'ShareeLookup_1_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeLookup_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_1_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'shareType',
@@ -3500,9 +3354,9 @@ class _$FilesSharingShareeLookup_1_ValueSerializer implements StructuredSerializ
   }
 
   @override
-  FilesSharingShareeLookup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeLookup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeLookup_1_ValueBuilder();
+    final result = ShareeLookup_1_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3526,22 +3380,22 @@ class _$FilesSharingShareeLookup_1_ValueSerializer implements StructuredSerializ
   }
 }
 
-class _$FilesSharingShareeLookupSerializer implements StructuredSerializer<FilesSharingShareeLookup> {
+class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareeLookup, _$FilesSharingShareeLookup];
+  final Iterable<Type> types = const [ShareeLookup, _$ShareeLookup];
   @override
-  final String wireName = 'FilesSharingShareeLookup';
+  final String wireName = 'ShareeLookup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareeLookup object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeLookup object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
       'extra',
-      serializers.serialize(object.extra, specifiedType: const FullType(FilesSharingShareeLookup_1_Extra)),
+      serializers.serialize(object.extra, specifiedType: const FullType(ShareeLookup_1_Extra)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(FilesSharingShareeLookup_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeLookup_1_Value)),
     ];
     Object? value;
     value = object.count;
@@ -3554,9 +3408,9 @@ class _$FilesSharingShareeLookupSerializer implements StructuredSerializer<Files
   }
 
   @override
-  FilesSharingShareeLookup deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeLookup deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareeLookupBuilder();
+    final result = ShareeLookupBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3571,12 +3425,12 @@ class _$FilesSharingShareeLookupSerializer implements StructuredSerializer<Files
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'extra':
-          result.extra.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareeLookup_1_Extra))! as FilesSharingShareeLookup_1_Extra);
+          result.extra.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_1_Extra))!
+              as ShareeLookup_1_Extra);
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareeLookup_1_Value))! as FilesSharingShareeLookup_1_Value);
+          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_1_Value))!
+              as ShareeLookup_1_Value);
           break;
       }
     }
@@ -3585,39 +3439,35 @@ class _$FilesSharingShareeLookupSerializer implements StructuredSerializer<Files
   }
 }
 
-class _$FilesSharingShareesSearchResultSerializer implements StructuredSerializer<FilesSharingShareesSearchResult> {
+class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSearchResult> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareesSearchResult, _$FilesSharingShareesSearchResult];
+  final Iterable<Type> types = const [ShareesSearchResult, _$ShareesSearchResult];
   @override
-  final String wireName = 'FilesSharingShareesSearchResult';
+  final String wireName = 'ShareesSearchResult';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesSearchResult object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesSearchResult object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'exact',
-      serializers.serialize(object.exact, specifiedType: const FullType(FilesSharingShareesSearchResult_Exact)),
+      serializers.serialize(object.exact, specifiedType: const FullType(ShareesSearchResult_Exact)),
       'circles',
-      serializers.serialize(object.circles,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeCircle)])),
+      serializers.serialize(object.circles, specifiedType: const FullType(BuiltList, [FullType(ShareeCircle)])),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)])),
+      serializers.serialize(object.emails, specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'lookup',
-      serializers.serialize(object.lookup,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeLookup)])),
+      serializers.serialize(object.lookup, specifiedType: const FullType(BuiltList, [FullType(ShareeLookup)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)])),
+          specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)])),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)])),
+      serializers.serialize(object.remotes, specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)])),
       'rooms',
-      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'users',
-      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)])),
+      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(ShareeUser)])),
       'lookupEnabled',
       serializers.serialize(object.lookupEnabled, specifiedType: const FullType(bool)),
     ];
@@ -3626,9 +3476,9 @@ class _$FilesSharingShareesSearchResultSerializer implements StructuredSerialize
   }
 
   @override
-  FilesSharingShareesSearchResult deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareesSearchResult deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesSearchResultBuilder();
+    final result = ShareesSearchResultBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3637,42 +3487,40 @@ class _$FilesSharingShareesSearchResultSerializer implements StructuredSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'exact':
-          result.exact.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareesSearchResult_Exact))!
-                  as FilesSharingShareesSearchResult_Exact);
+          result.exact.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult_Exact))!
+              as ShareesSearchResult_Exact);
           break;
         case 'circles':
           result.circles.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeCircle)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeCircle)]))! as BuiltList<Object?>);
           break;
         case 'emails':
           result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)]))! as BuiltList<Object?>);
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'lookup':
           result.lookup.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeLookup)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeLookup)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)]))! as BuiltList<Object?>);
           break;
         case 'remotes':
           result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)]))! as BuiltList<Object?>);
           break;
         case 'rooms':
           result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeUser)]))! as BuiltList<Object?>);
           break;
         case 'lookupEnabled':
           result.lookupEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -3684,34 +3532,33 @@ class _$FilesSharingShareesSearchResultSerializer implements StructuredSerialize
   }
 }
 
-class _$FilesSharingShareesapiSearchResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareesapiSearchResponseApplicationJson_Ocs> {
+class _$ShareesapiSearchResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareesapiSearchResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareesapiSearchResponseApplicationJson_Ocs,
-    _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs
+    ShareesapiSearchResponseApplicationJson_Ocs,
+    _$ShareesapiSearchResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareesapiSearchResponseApplicationJson_Ocs';
+  final String wireName = 'ShareesapiSearchResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesapiSearchResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiSearchResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingShareesSearchResult)),
+      serializers.serialize(object.data, specifiedType: const FullType(ShareesSearchResult)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareesapiSearchResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder();
+    final result = ShareesapiSearchResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3720,12 +3567,11 @@ class _$FilesSharingShareesapiSearchResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(FilesSharingShareesSearchResult))! as FilesSharingShareesSearchResult);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult))!
+              as ShareesSearchResult);
           break;
       }
     }
@@ -3734,32 +3580,31 @@ class _$FilesSharingShareesapiSearchResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$FilesSharingShareesapiSearchResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareesapiSearchResponseApplicationJson> {
+class _$ShareesapiSearchResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareesapiSearchResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareesapiSearchResponseApplicationJson,
-    _$FilesSharingShareesapiSearchResponseApplicationJson
+    ShareesapiSearchResponseApplicationJson,
+    _$ShareesapiSearchResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareesapiSearchResponseApplicationJson';
+  final String wireName = 'ShareesapiSearchResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesapiSearchResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiSearchResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareesapiSearchResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareesapiSearchResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesapiSearchResponseApplicationJsonBuilder();
+    final result = ShareesapiSearchResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3769,8 +3614,8 @@ class _$FilesSharingShareesapiSearchResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareesapiSearchResponseApplicationJson_Ocs))!
-              as FilesSharingShareesapiSearchResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs))!
+              as ShareesapiSearchResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -3779,42 +3624,36 @@ class _$FilesSharingShareesapiSearchResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingShareesRecommendedResult_ExactSerializer
-    implements StructuredSerializer<FilesSharingShareesRecommendedResult_Exact> {
+class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer<ShareesRecommendedResult_Exact> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingShareesRecommendedResult_Exact,
-    _$FilesSharingShareesRecommendedResult_Exact
-  ];
+  final Iterable<Type> types = const [ShareesRecommendedResult_Exact, _$ShareesRecommendedResult_Exact];
   @override
-  final String wireName = 'FilesSharingShareesRecommendedResult_Exact';
+  final String wireName = 'ShareesRecommendedResult_Exact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesRecommendedResult_Exact object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesRecommendedResult_Exact object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)])),
+      serializers.serialize(object.emails, specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)])),
+          specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)])),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)])),
+      serializers.serialize(object.remotes, specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)])),
       'users',
-      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)])),
+      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(ShareeUser)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesRecommendedResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareesRecommendedResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesRecommendedResult_ExactBuilder();
+    final result = ShareesRecommendedResult_ExactBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3824,24 +3663,23 @@ class _$FilesSharingShareesRecommendedResult_ExactSerializer
       switch (key) {
         case 'emails':
           result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)]))! as BuiltList<Object?>);
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)]))! as BuiltList<Object?>);
           break;
         case 'remotes':
           result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeUser)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -3850,41 +3688,38 @@ class _$FilesSharingShareesRecommendedResult_ExactSerializer
   }
 }
 
-class _$FilesSharingShareesRecommendedResultSerializer
-    implements StructuredSerializer<FilesSharingShareesRecommendedResult> {
+class _$ShareesRecommendedResultSerializer implements StructuredSerializer<ShareesRecommendedResult> {
   @override
-  final Iterable<Type> types = const [FilesSharingShareesRecommendedResult, _$FilesSharingShareesRecommendedResult];
+  final Iterable<Type> types = const [ShareesRecommendedResult, _$ShareesRecommendedResult];
   @override
-  final String wireName = 'FilesSharingShareesRecommendedResult';
+  final String wireName = 'ShareesRecommendedResult';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingShareesRecommendedResult object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesRecommendedResult object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'exact',
-      serializers.serialize(object.exact, specifiedType: const FullType(FilesSharingShareesRecommendedResult_Exact)),
+      serializers.serialize(object.exact, specifiedType: const FullType(ShareesRecommendedResult_Exact)),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)])),
+      serializers.serialize(object.emails, specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)])),
+      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, [FullType(Sharee)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)])),
+          specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)])),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)])),
+      serializers.serialize(object.remotes, specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)])),
       'users',
-      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)])),
+      serializers.serialize(object.users, specifiedType: const FullType(BuiltList, [FullType(ShareeUser)])),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesRecommendedResult deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareesRecommendedResult deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesRecommendedResultBuilder();
+    final result = ShareesRecommendedResultBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3893,30 +3728,28 @@ class _$FilesSharingShareesRecommendedResultSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'exact':
-          result.exact.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareesRecommendedResult_Exact))!
-                  as FilesSharingShareesRecommendedResult_Exact);
+          result.exact.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ShareesRecommendedResult_Exact))! as ShareesRecommendedResult_Exact);
           break;
         case 'emails':
           result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeEmail)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeEmail)]))! as BuiltList<Object?>);
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingSharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(Sharee)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemoteGroup)]))! as BuiltList<Object?>);
           break;
         case 'remotes':
           result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeRemote)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeRemote)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FilesSharingShareeUser)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(ShareeUser)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -3925,35 +3758,34 @@ class _$FilesSharingShareesRecommendedResultSerializer
   }
 }
 
-class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs> {
+class _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareesapiFindRecommendedResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs,
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs
+    ShareesapiFindRecommendedResponseApplicationJson_Ocs,
+    _$ShareesapiFindRecommendedResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs';
+  final String wireName = 'ShareesapiFindRecommendedResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiFindRecommendedResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(FilesSharingOCSMeta)),
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(FilesSharingShareesRecommendedResult)),
+      serializers.serialize(object.data, specifiedType: const FullType(ShareesRecommendedResult)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs deserialize(
+  ShareesapiFindRecommendedResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
+    final result = ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3962,13 +3794,11 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(FilesSharingOCSMeta))!
-              as FilesSharingOCSMeta);
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingShareesRecommendedResult))!
-                  as FilesSharingShareesRecommendedResult);
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesRecommendedResult))!
+              as ShareesRecommendedResult);
           break;
       }
     }
@@ -3977,34 +3807,32 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsSerializ
   }
 }
 
-class _$FilesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer
-    implements StructuredSerializer<FilesSharingShareesapiFindRecommendedResponseApplicationJson> {
+class _$ShareesapiFindRecommendedResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareesapiFindRecommendedResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingShareesapiFindRecommendedResponseApplicationJson,
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJson
+    ShareesapiFindRecommendedResponseApplicationJson,
+    _$ShareesapiFindRecommendedResponseApplicationJson
   ];
   @override
-  final String wireName = 'FilesSharingShareesapiFindRecommendedResponseApplicationJson';
+  final String wireName = 'ShareesapiFindRecommendedResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingShareesapiFindRecommendedResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiFindRecommendedResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  ShareesapiFindRecommendedResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder();
+    final result = ShareesapiFindRecommendedResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4014,8 +3842,8 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs))!
-              as FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs))!
+              as ShareesapiFindRecommendedResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -4024,18 +3852,18 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_PasswordSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Public_Password> {
+class _$Capabilities_FilesSharing_Public_PasswordSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Public_Password> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Public_Password,
-    _$FilesSharingCapabilities_FilesSharing_Public_Password
+    Capabilities_FilesSharing_Public_Password,
+    _$Capabilities_FilesSharing_Public_Password
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Public_Password';
+  final String wireName = 'Capabilities_FilesSharing_Public_Password';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Public_Password object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_Password object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enforced',
@@ -4048,10 +3876,9 @@ class _$FilesSharingCapabilities_FilesSharing_Public_PasswordSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_Password deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Public_Password deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
+    final result = Capabilities_FilesSharing_Public_PasswordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4072,18 +3899,18 @@ class _$FilesSharingCapabilities_FilesSharing_Public_PasswordSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDate> {
+class _$Capabilities_FilesSharing_Public_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Public_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate
+    Capabilities_FilesSharing_Public_ExpireDate,
+    _$Capabilities_FilesSharing_Public_ExpireDate
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Public_ExpireDate';
+  final String wireName = 'Capabilities_FilesSharing_Public_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Public_ExpireDate object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4106,10 +3933,9 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDate deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Public_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
+    final result = Capabilities_FilesSharing_Public_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4133,19 +3959,18 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> {
+class _$Capabilities_FilesSharing_Public_ExpireDateInternalSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Public_ExpireDateInternal> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
+    Capabilities_FilesSharing_Public_ExpireDateInternal,
+    _$Capabilities_FilesSharing_Public_ExpireDateInternal
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal';
+  final String wireName = 'Capabilities_FilesSharing_Public_ExpireDateInternal';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDateInternal object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4168,10 +3993,9 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerialize
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Public_ExpireDateInternal deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+    final result = Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4195,19 +4019,18 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerialize
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> {
+class _$Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Public_ExpireDateRemote> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
-    _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
+    Capabilities_FilesSharing_Public_ExpireDateRemote,
+    _$Capabilities_FilesSharing_Public_ExpireDateRemote
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote';
+  final String wireName = 'Capabilities_FilesSharing_Public_ExpireDateRemote';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDateRemote object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4230,10 +4053,9 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Public_ExpireDateRemote deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+    final result = Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4257,18 +4079,14 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Public> {
+class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializer<Capabilities_FilesSharing_Public> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Public,
-    _$FilesSharingCapabilities_FilesSharing_Public
-  ];
+  final Iterable<Type> types = const [Capabilities_FilesSharing_Public, _$Capabilities_FilesSharing_Public];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Public';
+  final String wireName = 'Capabilities_FilesSharing_Public';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Public object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4279,8 +4097,7 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
     if (value != null) {
       result
         ..add('password')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_Password)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_Password)));
     }
     value = object.multipleLinks;
     if (value != null) {
@@ -4292,22 +4109,21 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
     if (value != null) {
       result
         ..add('expire_date')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDate)));
     }
     value = object.expireDateInternal;
     if (value != null) {
       result
         ..add('expire_date_internal')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal)));
+            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal)));
     }
     value = object.expireDateRemote;
     if (value != null) {
       result
         ..add('expire_date_remote')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote)));
+            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote)));
     }
     value = object.sendMail;
     if (value != null) {
@@ -4331,9 +4147,9 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Public deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_PublicBuilder();
+    final result = Capabilities_FilesSharing_PublicBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4345,27 +4161,27 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'password':
-          result.password.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_Password))!
-              as FilesSharingCapabilities_FilesSharing_Public_Password);
+          result.password.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_Password))!
+                  as Capabilities_FilesSharing_Public_Password);
           break;
         case 'multiple_links':
           result.multipleLinks = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate))!
-              as FilesSharingCapabilities_FilesSharing_Public_ExpireDate);
+                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDate))!
+              as Capabilities_FilesSharing_Public_ExpireDate);
           break;
         case 'expire_date_internal':
           result.expireDateInternal.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal))!
-              as FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal);
+                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal))!
+              as Capabilities_FilesSharing_Public_ExpireDateInternal);
           break;
         case 'expire_date_remote':
           result.expireDateRemote.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote))!
-              as FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote);
+                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote))!
+              as Capabilities_FilesSharing_Public_ExpireDateRemote);
           break;
         case 'send_mail':
           result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -4383,18 +4199,18 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_User_ExpireDate> {
+class _$Capabilities_FilesSharing_User_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_User_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_User_ExpireDate,
-    _$FilesSharingCapabilities_FilesSharing_User_ExpireDate
+    Capabilities_FilesSharing_User_ExpireDate,
+    _$Capabilities_FilesSharing_User_ExpireDate
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_User_ExpireDate';
+  final String wireName = 'Capabilities_FilesSharing_User_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_User_ExpireDate object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_User_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4405,10 +4221,9 @@ class _$FilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User_ExpireDate deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_User_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
+    final result = Capabilities_FilesSharing_User_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4426,18 +4241,14 @@ class _$FilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_UserSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_User> {
+class _$Capabilities_FilesSharing_UserSerializer implements StructuredSerializer<Capabilities_FilesSharing_User> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_User,
-    _$FilesSharingCapabilities_FilesSharing_User
-  ];
+  final Iterable<Type> types = const [Capabilities_FilesSharing_User, _$Capabilities_FilesSharing_User];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_User';
+  final String wireName = 'Capabilities_FilesSharing_User';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_User object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_User object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'send_mail',
@@ -4448,16 +4259,15 @@ class _$FilesSharingCapabilities_FilesSharing_UserSerializer
     if (value != null) {
       result
         ..add('expire_date')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_FilesSharing_User_ExpireDate)));
     }
     return result;
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_User deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_UserBuilder();
+    final result = Capabilities_FilesSharing_UserBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4469,9 +4279,9 @@ class _$FilesSharingCapabilities_FilesSharing_UserSerializer
           result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'expire_date':
-          result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate))!
-              as FilesSharingCapabilities_FilesSharing_User_ExpireDate);
+          result.expireDate.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_User_ExpireDate))!
+                  as Capabilities_FilesSharing_User_ExpireDate);
           break;
       }
     }
@@ -4480,18 +4290,18 @@ class _$FilesSharingCapabilities_FilesSharing_UserSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Group_ExpireDate> {
+class _$Capabilities_FilesSharing_Group_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Group_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
-    _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate
+    Capabilities_FilesSharing_Group_ExpireDate,
+    _$Capabilities_FilesSharing_Group_ExpireDate
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Group_ExpireDate';
+  final String wireName = 'Capabilities_FilesSharing_Group_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Group_ExpireDate object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Group_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4502,10 +4312,9 @@ class _$FilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDate deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Group_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
+    final result = Capabilities_FilesSharing_Group_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4523,18 +4332,14 @@ class _$FilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_GroupSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Group> {
+class _$Capabilities_FilesSharing_GroupSerializer implements StructuredSerializer<Capabilities_FilesSharing_Group> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Group,
-    _$FilesSharingCapabilities_FilesSharing_Group
-  ];
+  final Iterable<Type> types = const [Capabilities_FilesSharing_Group, _$Capabilities_FilesSharing_Group];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Group';
+  final String wireName = 'Capabilities_FilesSharing_Group';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Group object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Group object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4545,16 +4350,15 @@ class _$FilesSharingCapabilities_FilesSharing_GroupSerializer
     if (value != null) {
       result
         ..add('expire_date')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group_ExpireDate)));
     }
     return result;
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Group deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_GroupBuilder();
+    final result = Capabilities_FilesSharing_GroupBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4566,9 +4370,9 @@ class _$FilesSharingCapabilities_FilesSharing_GroupSerializer
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'expire_date':
-          result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate))!
-              as FilesSharingCapabilities_FilesSharing_Group_ExpireDate);
+          result.expireDate.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group_ExpireDate))!
+                  as Capabilities_FilesSharing_Group_ExpireDate);
           break;
       }
     }
@@ -4577,19 +4381,18 @@ class _$FilesSharingCapabilities_FilesSharing_GroupSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate> {
+class _$Capabilities_FilesSharing_Federation_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Federation_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
-    _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
+    Capabilities_FilesSharing_Federation_ExpireDate,
+    _$Capabilities_FilesSharing_Federation_ExpireDate
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate';
+  final String wireName = 'Capabilities_FilesSharing_Federation_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingCapabilities_FilesSharing_Federation_ExpireDate object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4600,10 +4403,9 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Federation_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
+    final result = Capabilities_FilesSharing_Federation_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4621,19 +4423,18 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> {
+class _$Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Federation_ExpireDateSupported> {
   @override
   final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
-    _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
+    Capabilities_FilesSharing_Federation_ExpireDateSupported,
+    _$Capabilities_FilesSharing_Federation_ExpireDateSupported
   ];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported';
+  final String wireName = 'Capabilities_FilesSharing_Federation_ExpireDateSupported';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation_ExpireDateSupported object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4644,10 +4445,10 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSeri
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported deserialize(
+  Capabilities_FilesSharing_Federation_ExpireDateSupported deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+    final result = Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4665,18 +4466,15 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSeri
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_FederationSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Federation> {
+class _$Capabilities_FilesSharing_FederationSerializer
+    implements StructuredSerializer<Capabilities_FilesSharing_Federation> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Federation,
-    _$FilesSharingCapabilities_FilesSharing_Federation
-  ];
+  final Iterable<Type> types = const [Capabilities_FilesSharing_Federation, _$Capabilities_FilesSharing_Federation];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Federation';
+  final String wireName = 'Capabilities_FilesSharing_Federation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Federation object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'outgoing',
@@ -4685,19 +4483,19 @@ class _$FilesSharingCapabilities_FilesSharing_FederationSerializer
       serializers.serialize(object.incoming, specifiedType: const FullType(bool)),
       'expire_date',
       serializers.serialize(object.expireDate,
-          specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate)),
+          specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate)),
       'expire_date_supported',
       serializers.serialize(object.expireDateSupported,
-          specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported)),
+          specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Federation deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_FederationBuilder();
+    final result = Capabilities_FilesSharing_FederationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4713,13 +4511,13 @@ class _$FilesSharingCapabilities_FilesSharing_FederationSerializer
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate))!
-              as FilesSharingCapabilities_FilesSharing_Federation_ExpireDate);
+                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate))!
+              as Capabilities_FilesSharing_Federation_ExpireDate);
           break;
         case 'expire_date_supported':
           result.expireDateSupported.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported))!
-              as FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported);
+                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported))!
+              as Capabilities_FilesSharing_Federation_ExpireDateSupported);
           break;
       }
     }
@@ -4728,18 +4526,14 @@ class _$FilesSharingCapabilities_FilesSharing_FederationSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharing_ShareeSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing_Sharee> {
+class _$Capabilities_FilesSharing_ShareeSerializer implements StructuredSerializer<Capabilities_FilesSharing_Sharee> {
   @override
-  final Iterable<Type> types = const [
-    FilesSharingCapabilities_FilesSharing_Sharee,
-    _$FilesSharingCapabilities_FilesSharing_Sharee
-  ];
+  final Iterable<Type> types = const [Capabilities_FilesSharing_Sharee, _$Capabilities_FilesSharing_Sharee];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing_Sharee';
+  final String wireName = 'Capabilities_FilesSharing_Sharee';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing_Sharee object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Sharee object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'query_lookup_default',
@@ -4752,9 +4546,9 @@ class _$FilesSharingCapabilities_FilesSharing_ShareeSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing_Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharing_ShareeBuilder();
+    final result = Capabilities_FilesSharing_ShareeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4775,30 +4569,28 @@ class _$FilesSharingCapabilities_FilesSharing_ShareeSerializer
   }
 }
 
-class _$FilesSharingCapabilities_FilesSharingSerializer
-    implements StructuredSerializer<FilesSharingCapabilities_FilesSharing> {
+class _$Capabilities_FilesSharingSerializer implements StructuredSerializer<Capabilities_FilesSharing> {
   @override
-  final Iterable<Type> types = const [FilesSharingCapabilities_FilesSharing, _$FilesSharingCapabilities_FilesSharing];
+  final Iterable<Type> types = const [Capabilities_FilesSharing, _$Capabilities_FilesSharing];
   @override
-  final String wireName = 'FilesSharingCapabilities_FilesSharing';
+  final String wireName = 'Capabilities_FilesSharing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities_FilesSharing object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'api_enabled',
       serializers.serialize(object.apiEnabled, specifiedType: const FullType(bool)),
       'public',
-      serializers.serialize(object.public, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public)),
+      serializers.serialize(object.public, specifiedType: const FullType(Capabilities_FilesSharing_Public)),
       'user',
-      serializers.serialize(object.user, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_User)),
+      serializers.serialize(object.user, specifiedType: const FullType(Capabilities_FilesSharing_User)),
       'resharing',
       serializers.serialize(object.resharing, specifiedType: const FullType(bool)),
       'federation',
-      serializers.serialize(object.federation,
-          specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation)),
+      serializers.serialize(object.federation, specifiedType: const FullType(Capabilities_FilesSharing_Federation)),
       'sharee',
-      serializers.serialize(object.sharee, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Sharee)),
+      serializers.serialize(object.sharee, specifiedType: const FullType(Capabilities_FilesSharing_Sharee)),
     ];
     Object? value;
     value = object.groupSharing;
@@ -4811,7 +4603,7 @@ class _$FilesSharingCapabilities_FilesSharingSerializer
     if (value != null) {
       result
         ..add('group')
-        ..add(serializers.serialize(value, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Group)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group)));
     }
     value = object.defaultPermissions;
     if (value != null) {
@@ -4823,9 +4615,9 @@ class _$FilesSharingCapabilities_FilesSharingSerializer
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilities_FilesSharingBuilder();
+    final result = Capabilities_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4838,13 +4630,11 @@ class _$FilesSharingCapabilities_FilesSharingSerializer
           break;
         case 'public':
           result.public.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Public))!
-              as FilesSharingCapabilities_FilesSharing_Public);
+              specifiedType: const FullType(Capabilities_FilesSharing_Public))! as Capabilities_FilesSharing_Public);
           break;
         case 'user':
-          result.user.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_User))!
-                  as FilesSharingCapabilities_FilesSharing_User);
+          result.user.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_FilesSharing_User))! as Capabilities_FilesSharing_User);
           break;
         case 'resharing':
           result.resharing = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -4854,21 +4644,19 @@ class _$FilesSharingCapabilities_FilesSharingSerializer
           break;
         case 'group':
           result.group.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Group))!
-              as FilesSharingCapabilities_FilesSharing_Group);
+              specifiedType: const FullType(Capabilities_FilesSharing_Group))! as Capabilities_FilesSharing_Group);
           break;
         case 'default_permissions':
           result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'federation':
-          result.federation.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Federation))!
-              as FilesSharingCapabilities_FilesSharing_Federation);
+          result.federation.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Federation))!
+                  as Capabilities_FilesSharing_Federation);
           break;
         case 'sharee':
           result.sharee.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FilesSharingCapabilities_FilesSharing_Sharee))!
-              as FilesSharingCapabilities_FilesSharing_Sharee);
+              specifiedType: const FullType(Capabilities_FilesSharing_Sharee))! as Capabilities_FilesSharing_Sharee);
           break;
       }
     }
@@ -4877,27 +4665,27 @@ class _$FilesSharingCapabilities_FilesSharingSerializer
   }
 }
 
-class _$FilesSharingCapabilitiesSerializer implements StructuredSerializer<FilesSharingCapabilities> {
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
-  final Iterable<Type> types = const [FilesSharingCapabilities, _$FilesSharingCapabilities];
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
   @override
-  final String wireName = 'FilesSharingCapabilities';
+  final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FilesSharingCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files_sharing',
-      serializers.serialize(object.filesSharing, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing)),
+      serializers.serialize(object.filesSharing, specifiedType: const FullType(Capabilities_FilesSharing)),
     ];
 
     return result;
   }
 
   @override
-  FilesSharingCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FilesSharingCapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4906,9 +4694,8 @@ class _$FilesSharingCapabilitiesSerializer implements StructuredSerializer<Files
       final Object? value = iterator.current;
       switch (key) {
         case 'files_sharing':
-          result.filesSharing.replace(
-              serializers.deserialize(value, specifiedType: const FullType(FilesSharingCapabilities_FilesSharing))!
-                  as FilesSharingCapabilities_FilesSharing);
+          result.filesSharing.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_FilesSharing))! as Capabilities_FilesSharing);
           break;
       }
     }
@@ -4917,9 +4704,9 @@ class _$FilesSharingCapabilitiesSerializer implements StructuredSerializer<Files
   }
 }
 
-abstract mixin class FilesSharingOCSMetaInterfaceBuilder {
-  void replace(FilesSharingOCSMetaInterface other);
-  void update(void Function(FilesSharingOCSMetaInterfaceBuilder) updates);
+abstract mixin class OCSMetaInterfaceBuilder {
+  void replace(OCSMetaInterface other);
+  void update(void Function(OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -4936,7 +4723,7 @@ abstract mixin class FilesSharingOCSMetaInterfaceBuilder {
   set itemsperpage(String? itemsperpage);
 }
 
-class _$FilesSharingOCSMeta extends FilesSharingOCSMeta {
+class _$OCSMeta extends OCSMeta {
   @override
   final String status;
   @override
@@ -4948,27 +4735,24 @@ class _$FilesSharingOCSMeta extends FilesSharingOCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$FilesSharingOCSMeta([void Function(FilesSharingOCSMetaBuilder)? updates]) =>
-      (FilesSharingOCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
-  _$FilesSharingOCSMeta._(
-      {required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesSharingOCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesSharingOCSMeta', 'statuscode');
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  FilesSharingOCSMeta rebuild(void Function(FilesSharingOCSMetaBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingOCSMetaBuilder toBuilder() => FilesSharingOCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingOCSMeta &&
+    return other is OCSMeta &&
         status == other.status &&
         statuscode == other.statuscode &&
         message == other.message &&
@@ -4990,7 +4774,7 @@ class _$FilesSharingOCSMeta extends FilesSharingOCSMeta {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingOCSMeta')
+    return (newBuiltValueToStringHelper(r'OCSMeta')
           ..add('status', status)
           ..add('statuscode', statuscode)
           ..add('message', message)
@@ -5000,9 +4784,8 @@ class _$FilesSharingOCSMeta extends FilesSharingOCSMeta {
   }
 }
 
-class FilesSharingOCSMetaBuilder
-    implements Builder<FilesSharingOCSMeta, FilesSharingOCSMetaBuilder>, FilesSharingOCSMetaInterfaceBuilder {
-  _$FilesSharingOCSMeta? _$v;
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -5024,9 +4807,9 @@ class FilesSharingOCSMetaBuilder
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  FilesSharingOCSMetaBuilder();
+  OCSMetaBuilder();
 
-  FilesSharingOCSMetaBuilder get _$this {
+  OCSMetaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -5040,24 +4823,24 @@ class FilesSharingOCSMetaBuilder
   }
 
   @override
-  void replace(covariant FilesSharingOCSMeta other) {
+  void replace(covariant OCSMeta other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingOCSMeta;
+    _$v = other as _$OCSMeta;
   }
 
   @override
-  void update(void Function(FilesSharingOCSMetaBuilder)? updates) {
+  void update(void Function(OCSMetaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingOCSMeta build() => _build();
+  OCSMeta build() => _build();
 
-  _$FilesSharingOCSMeta _build() {
+  _$OCSMeta _build() {
     final _$result = _$v ??
-        _$FilesSharingOCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'FilesSharingOCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'FilesSharingOCSMeta', 'statuscode'),
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -5066,9 +4849,9 @@ class FilesSharingOCSMetaBuilder
   }
 }
 
-abstract mixin class FilesSharingDeletedShareInterfaceBuilder {
-  void replace(FilesSharingDeletedShareInterface other);
-  void update(void Function(FilesSharingDeletedShareInterfaceBuilder) updates);
+abstract mixin class DeletedShareInterfaceBuilder {
+  void replace(DeletedShareInterface other);
+  void update(void Function(DeletedShareInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -5130,7 +4913,7 @@ abstract mixin class FilesSharingDeletedShareInterfaceBuilder {
   set shareWithLink(String? shareWithLink);
 }
 
-class _$FilesSharingDeletedShare extends FilesSharingDeletedShare {
+class _$DeletedShare extends DeletedShare {
   @override
   final String id;
   @override
@@ -5172,10 +4955,10 @@ class _$FilesSharingDeletedShare extends FilesSharingDeletedShare {
   @override
   final String? shareWithLink;
 
-  factory _$FilesSharingDeletedShare([void Function(FilesSharingDeletedShareBuilder)? updates]) =>
-      (FilesSharingDeletedShareBuilder()..update(updates))._build();
+  factory _$DeletedShare([void Function(DeletedShareBuilder)? updates]) =>
+      (DeletedShareBuilder()..update(updates))._build();
 
-  _$FilesSharingDeletedShare._(
+  _$DeletedShare._(
       {required this.id,
       required this.shareType,
       required this.uidOwner,
@@ -5197,35 +4980,34 @@ class _$FilesSharingDeletedShare extends FilesSharingDeletedShare {
       this.shareWithDisplayname,
       this.shareWithLink})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingDeletedShare', 'id');
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingDeletedShare', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(uidOwner, r'FilesSharingDeletedShare', 'uidOwner');
-    BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'FilesSharingDeletedShare', 'displaynameOwner');
-    BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingDeletedShare', 'permissions');
-    BuiltValueNullFieldError.checkNotNull(stime, r'FilesSharingDeletedShare', 'stime');
-    BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'FilesSharingDeletedShare', 'uidFileOwner');
-    BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'FilesSharingDeletedShare', 'displaynameFileOwner');
-    BuiltValueNullFieldError.checkNotNull(path, r'FilesSharingDeletedShare', 'path');
-    BuiltValueNullFieldError.checkNotNull(itemType, r'FilesSharingDeletedShare', 'itemType');
-    BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingDeletedShare', 'mimetype');
-    BuiltValueNullFieldError.checkNotNull(storage, r'FilesSharingDeletedShare', 'storage');
-    BuiltValueNullFieldError.checkNotNull(itemSource, r'FilesSharingDeletedShare', 'itemSource');
-    BuiltValueNullFieldError.checkNotNull(fileSource, r'FilesSharingDeletedShare', 'fileSource');
-    BuiltValueNullFieldError.checkNotNull(fileParent, r'FilesSharingDeletedShare', 'fileParent');
-    BuiltValueNullFieldError.checkNotNull(fileTarget, r'FilesSharingDeletedShare', 'fileTarget');
+    BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'DeletedShare', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(uidOwner, r'DeletedShare', 'uidOwner');
+    BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'DeletedShare', 'displaynameOwner');
+    BuiltValueNullFieldError.checkNotNull(permissions, r'DeletedShare', 'permissions');
+    BuiltValueNullFieldError.checkNotNull(stime, r'DeletedShare', 'stime');
+    BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'DeletedShare', 'uidFileOwner');
+    BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'DeletedShare', 'displaynameFileOwner');
+    BuiltValueNullFieldError.checkNotNull(path, r'DeletedShare', 'path');
+    BuiltValueNullFieldError.checkNotNull(itemType, r'DeletedShare', 'itemType');
+    BuiltValueNullFieldError.checkNotNull(mimetype, r'DeletedShare', 'mimetype');
+    BuiltValueNullFieldError.checkNotNull(storage, r'DeletedShare', 'storage');
+    BuiltValueNullFieldError.checkNotNull(itemSource, r'DeletedShare', 'itemSource');
+    BuiltValueNullFieldError.checkNotNull(fileSource, r'DeletedShare', 'fileSource');
+    BuiltValueNullFieldError.checkNotNull(fileParent, r'DeletedShare', 'fileParent');
+    BuiltValueNullFieldError.checkNotNull(fileTarget, r'DeletedShare', 'fileTarget');
   }
 
   @override
-  FilesSharingDeletedShare rebuild(void Function(FilesSharingDeletedShareBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  DeletedShare rebuild(void Function(DeletedShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingDeletedShareBuilder toBuilder() => FilesSharingDeletedShareBuilder()..replace(this);
+  DeletedShareBuilder toBuilder() => DeletedShareBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingDeletedShare &&
+    return other is DeletedShare &&
         id == other.id &&
         shareType == other.shareType &&
         uidOwner == other.uidOwner &&
@@ -5277,7 +5059,7 @@ class _$FilesSharingDeletedShare extends FilesSharingDeletedShare {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingDeletedShare')
+    return (newBuiltValueToStringHelper(r'DeletedShare')
           ..add('id', id)
           ..add('shareType', shareType)
           ..add('uidOwner', uidOwner)
@@ -5302,11 +5084,8 @@ class _$FilesSharingDeletedShare extends FilesSharingDeletedShare {
   }
 }
 
-class FilesSharingDeletedShareBuilder
-    implements
-        Builder<FilesSharingDeletedShare, FilesSharingDeletedShareBuilder>,
-        FilesSharingDeletedShareInterfaceBuilder {
-  _$FilesSharingDeletedShare? _$v;
+class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>, DeletedShareInterfaceBuilder {
+  _$DeletedShare? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -5390,9 +5169,9 @@ class FilesSharingDeletedShareBuilder
   String? get shareWithLink => _$this._shareWithLink;
   set shareWithLink(covariant String? shareWithLink) => _$this._shareWithLink = shareWithLink;
 
-  FilesSharingDeletedShareBuilder();
+  DeletedShareBuilder();
 
-  FilesSharingDeletedShareBuilder get _$this {
+  DeletedShareBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -5421,41 +5200,40 @@ class FilesSharingDeletedShareBuilder
   }
 
   @override
-  void replace(covariant FilesSharingDeletedShare other) {
+  void replace(covariant DeletedShare other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingDeletedShare;
+    _$v = other as _$DeletedShare;
   }
 
   @override
-  void update(void Function(FilesSharingDeletedShareBuilder)? updates) {
+  void update(void Function(DeletedShareBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingDeletedShare build() => _build();
+  DeletedShare build() => _build();
 
-  _$FilesSharingDeletedShare _build() {
+  _$DeletedShare _build() {
     final _$result = _$v ??
-        _$FilesSharingDeletedShare._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingDeletedShare', 'id'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingDeletedShare', 'shareType'),
-            uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'FilesSharingDeletedShare', 'uidOwner'),
-            displaynameOwner: BuiltValueNullFieldError.checkNotNull(
-                displaynameOwner, r'FilesSharingDeletedShare', 'displaynameOwner'),
-            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingDeletedShare', 'permissions'),
-            stime: BuiltValueNullFieldError.checkNotNull(stime, r'FilesSharingDeletedShare', 'stime'),
-            uidFileOwner:
-                BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'FilesSharingDeletedShare', 'uidFileOwner'),
-            displaynameFileOwner: BuiltValueNullFieldError.checkNotNull(
-                displaynameFileOwner, r'FilesSharingDeletedShare', 'displaynameFileOwner'),
-            path: BuiltValueNullFieldError.checkNotNull(path, r'FilesSharingDeletedShare', 'path'),
-            itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'FilesSharingDeletedShare', 'itemType'),
-            mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingDeletedShare', 'mimetype'),
-            storage: BuiltValueNullFieldError.checkNotNull(storage, r'FilesSharingDeletedShare', 'storage'),
-            itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'FilesSharingDeletedShare', 'itemSource'),
-            fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'FilesSharingDeletedShare', 'fileSource'),
-            fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'FilesSharingDeletedShare', 'fileParent'),
-            fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'FilesSharingDeletedShare', 'fileTarget'),
+        _$DeletedShare._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'DeletedShare', 'shareType'),
+            uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'DeletedShare', 'uidOwner'),
+            displaynameOwner:
+                BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'DeletedShare', 'displaynameOwner'),
+            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'DeletedShare', 'permissions'),
+            stime: BuiltValueNullFieldError.checkNotNull(stime, r'DeletedShare', 'stime'),
+            uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'DeletedShare', 'uidFileOwner'),
+            displaynameFileOwner:
+                BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'DeletedShare', 'displaynameFileOwner'),
+            path: BuiltValueNullFieldError.checkNotNull(path, r'DeletedShare', 'path'),
+            itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'DeletedShare', 'itemType'),
+            mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'DeletedShare', 'mimetype'),
+            storage: BuiltValueNullFieldError.checkNotNull(storage, r'DeletedShare', 'storage'),
+            itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'DeletedShare', 'itemSource'),
+            fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'DeletedShare', 'fileSource'),
+            fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'DeletedShare', 'fileParent'),
+            fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'DeletedShare', 'fileTarget'),
             expiration: expiration,
             shareWith: shareWith,
             shareWithDisplayname: shareWithDisplayname,
@@ -5465,47 +5243,44 @@ class FilesSharingDeletedShareBuilder
   }
 }
 
-abstract mixin class FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DeletedShareapiListResponseApplicationJson_OcsInterface other);
+  void update(void Function(DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingDeletedShare> get data;
-  set data(ListBuilder<FilesSharingDeletedShare>? data);
+  ListBuilder<DeletedShare> get data;
+  set data(ListBuilder<DeletedShare>? data);
 }
 
-class _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs
-    extends FilesSharingDeletedShareapiListResponseApplicationJson_Ocs {
+class _$DeletedShareapiListResponseApplicationJson_Ocs extends DeletedShareapiListResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingDeletedShare> data;
+  final BuiltList<DeletedShare> data;
 
-  factory _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs(
-          [void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DeletedShareapiListResponseApplicationJson_Ocs(
+          [void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DeletedShareapiListResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingDeletedShareapiListResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingDeletedShareapiListResponseApplicationJson_Ocs', 'data');
+  _$DeletedShareapiListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DeletedShareapiListResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DeletedShareapiListResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder) updates) =>
+  DeletedShareapiListResponseApplicationJson_Ocs rebuild(
+          void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder()..replace(this);
+  DeletedShareapiListResponseApplicationJson_OcsBuilder toBuilder() =>
+      DeletedShareapiListResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingDeletedShareapiListResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is DeletedShareapiListResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -5519,31 +5294,30 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingDeletedShareapiListResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DeletedShareapiListResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder
+class DeletedShareapiListResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingDeletedShareapiListResponseApplicationJson_Ocs,
-            FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder>,
-        FilesSharingDeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs? _$v;
+        Builder<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder>,
+        DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
+  _$DeletedShareapiListResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingDeletedShare>? _data;
-  ListBuilder<FilesSharingDeletedShare> get data => _$this._data ??= ListBuilder<FilesSharingDeletedShare>();
-  set data(covariant ListBuilder<FilesSharingDeletedShare>? data) => _$this._data = data;
+  ListBuilder<DeletedShare>? _data;
+  ListBuilder<DeletedShare> get data => _$this._data ??= ListBuilder<DeletedShare>();
+  set data(covariant ListBuilder<DeletedShare>? data) => _$this._data = data;
 
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder();
+  DeletedShareapiListResponseApplicationJson_OcsBuilder();
 
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder get _$this {
+  DeletedShareapiListResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -5554,24 +5328,23 @@ class FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingDeletedShareapiListResponseApplicationJson_Ocs other) {
+  void replace(covariant DeletedShareapiListResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs;
+    _$v = other as _$DeletedShareapiListResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson_Ocs build() => _build();
+  DeletedShareapiListResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs _build() {
-    _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs _$result;
+  _$DeletedShareapiListResponseApplicationJson_Ocs _build() {
+    _$DeletedShareapiListResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingDeletedShareapiListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DeletedShareapiListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5581,7 +5354,7 @@ class FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingDeletedShareapiListResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DeletedShareapiListResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5590,39 +5363,38 @@ class FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingDeletedShareapiListResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingDeletedShareapiListResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingDeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
+  void replace(DeletedShareapiListResponseApplicationJsonInterface other);
+  void update(void Function(DeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates);
+  DeletedShareapiListResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DeletedShareapiListResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingDeletedShareapiListResponseApplicationJson
-    extends FilesSharingDeletedShareapiListResponseApplicationJson {
+class _$DeletedShareapiListResponseApplicationJson extends DeletedShareapiListResponseApplicationJson {
   @override
-  final FilesSharingDeletedShareapiListResponseApplicationJson_Ocs ocs;
+  final DeletedShareapiListResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingDeletedShareapiListResponseApplicationJson(
-          [void Function(FilesSharingDeletedShareapiListResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingDeletedShareapiListResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeletedShareapiListResponseApplicationJson(
+          [void Function(DeletedShareapiListResponseApplicationJsonBuilder)? updates]) =>
+      (DeletedShareapiListResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingDeletedShareapiListResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingDeletedShareapiListResponseApplicationJson', 'ocs');
+  _$DeletedShareapiListResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DeletedShareapiListResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson rebuild(
-          void Function(FilesSharingDeletedShareapiListResponseApplicationJsonBuilder) updates) =>
+  DeletedShareapiListResponseApplicationJson rebuild(
+          void Function(DeletedShareapiListResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingDeletedShareapiListResponseApplicationJsonBuilder()..replace(this);
+  DeletedShareapiListResponseApplicationJsonBuilder toBuilder() =>
+      DeletedShareapiListResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingDeletedShareapiListResponseApplicationJson && ocs == other.ocs;
+    return other is DeletedShareapiListResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5635,26 +5407,24 @@ class _$FilesSharingDeletedShareapiListResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingDeletedShareapiListResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DeletedShareapiListResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingDeletedShareapiListResponseApplicationJsonBuilder
+class DeletedShareapiListResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingDeletedShareapiListResponseApplicationJson,
-            FilesSharingDeletedShareapiListResponseApplicationJsonBuilder>,
-        FilesSharingDeletedShareapiListResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingDeletedShareapiListResponseApplicationJson? _$v;
+        Builder<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder>,
+        DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
+  _$DeletedShareapiListResponseApplicationJson? _$v;
 
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingDeletedShareapiListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DeletedShareapiListResponseApplicationJson_OcsBuilder? _ocs;
+  DeletedShareapiListResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DeletedShareapiListResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DeletedShareapiListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingDeletedShareapiListResponseApplicationJsonBuilder();
+  DeletedShareapiListResponseApplicationJsonBuilder();
 
-  FilesSharingDeletedShareapiListResponseApplicationJsonBuilder get _$this {
+  DeletedShareapiListResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5664,31 +5434,30 @@ class FilesSharingDeletedShareapiListResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingDeletedShareapiListResponseApplicationJson other) {
+  void replace(covariant DeletedShareapiListResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingDeletedShareapiListResponseApplicationJson;
+    _$v = other as _$DeletedShareapiListResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingDeletedShareapiListResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DeletedShareapiListResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingDeletedShareapiListResponseApplicationJson build() => _build();
+  DeletedShareapiListResponseApplicationJson build() => _build();
 
-  _$FilesSharingDeletedShareapiListResponseApplicationJson _build() {
-    _$FilesSharingDeletedShareapiListResponseApplicationJson _$result;
+  _$DeletedShareapiListResponseApplicationJson _build() {
+    _$DeletedShareapiListResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingDeletedShareapiListResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DeletedShareapiListResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingDeletedShareapiListResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DeletedShareapiListResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5697,50 +5466,44 @@ class FilesSharingDeletedShareapiListResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(DeletedShareapiUndeleteResponseApplicationJson_OcsInterface other);
+  void update(void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs
-    extends FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs {
+class _$DeletedShareapiUndeleteResponseApplicationJson_Ocs extends DeletedShareapiUndeleteResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs(
-          [void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DeletedShareapiUndeleteResponseApplicationJson_Ocs(
+          [void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data');
+  _$DeletedShareapiUndeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder) updates) =>
+  DeletedShareapiUndeleteResponseApplicationJson_Ocs rebuild(
+          void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..replace(this);
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder toBuilder() =>
+      DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is DeletedShareapiUndeleteResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -5754,31 +5517,31 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DeletedShareapiUndeleteResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
+class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs,
-            FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder>,
-        FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs? _$v;
+        Builder<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
+            DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder>,
+        DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
+  _$DeletedShareapiUndeleteResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
 
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get _$this {
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -5789,27 +5552,27 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs other) {
+  void replace(covariant DeletedShareapiUndeleteResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs;
+    _$v = other as _$DeletedShareapiUndeleteResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs build() => _build();
+  DeletedShareapiUndeleteResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs _build() {
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs _$result;
+  _$DeletedShareapiUndeleteResponseApplicationJson_Ocs _build() {
+    _$DeletedShareapiUndeleteResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs._(
+          _$DeletedShareapiUndeleteResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data'));
+                  data, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -5817,7 +5580,7 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5826,39 +5589,38 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
+  void replace(DeletedShareapiUndeleteResponseApplicationJsonInterface other);
+  void update(void Function(DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates);
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson
-    extends FilesSharingDeletedShareapiUndeleteResponseApplicationJson {
+class _$DeletedShareapiUndeleteResponseApplicationJson extends DeletedShareapiUndeleteResponseApplicationJson {
   @override
-  final FilesSharingDeletedShareapiUndeleteResponseApplicationJson_Ocs ocs;
+  final DeletedShareapiUndeleteResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson(
-          [void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeletedShareapiUndeleteResponseApplicationJson(
+          [void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates]) =>
+      (DeletedShareapiUndeleteResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson', 'ocs');
+  _$DeletedShareapiUndeleteResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DeletedShareapiUndeleteResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson rebuild(
-          void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder) updates) =>
+  DeletedShareapiUndeleteResponseApplicationJson rebuild(
+          void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder()..replace(this);
+  DeletedShareapiUndeleteResponseApplicationJsonBuilder toBuilder() =>
+      DeletedShareapiUndeleteResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingDeletedShareapiUndeleteResponseApplicationJson && ocs == other.ocs;
+    return other is DeletedShareapiUndeleteResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5871,26 +5633,24 @@ class _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DeletedShareapiUndeleteResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder
+class DeletedShareapiUndeleteResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingDeletedShareapiUndeleteResponseApplicationJson,
-            FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder>,
-        FilesSharingDeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson? _$v;
+        Builder<DeletedShareapiUndeleteResponseApplicationJson, DeletedShareapiUndeleteResponseApplicationJsonBuilder>,
+        DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
+  _$DeletedShareapiUndeleteResponseApplicationJson? _$v;
 
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingDeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? _ocs;
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder();
+  DeletedShareapiUndeleteResponseApplicationJsonBuilder();
 
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder get _$this {
+  DeletedShareapiUndeleteResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5900,23 +5660,23 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingDeletedShareapiUndeleteResponseApplicationJson other) {
+  void replace(covariant DeletedShareapiUndeleteResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson;
+    _$v = other as _$DeletedShareapiUndeleteResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingDeletedShareapiUndeleteResponseApplicationJson build() => _build();
+  DeletedShareapiUndeleteResponseApplicationJson build() => _build();
 
-  _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson _build() {
-    _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson _$result;
+  _$DeletedShareapiUndeleteResponseApplicationJson _build() {
+    _$DeletedShareapiUndeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingDeletedShareapiUndeleteResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DeletedShareapiUndeleteResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5924,7 +5684,7 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingDeletedShareapiUndeleteResponseApplicationJson', _$failedField, e.toString());
+            r'DeletedShareapiUndeleteResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5933,9 +5693,9 @@ class FilesSharingDeletedShareapiUndeleteResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteShareInterfaceBuilder {
-  void replace(FilesSharingRemoteShareInterface other);
-  void update(void Function(FilesSharingRemoteShareInterfaceBuilder) updates);
+abstract mixin class RemoteShareInterfaceBuilder {
+  void replace(RemoteShareInterface other);
+  void update(void Function(RemoteShareInterfaceBuilder) updates);
   bool? get accepted;
   set accepted(bool? accepted);
 
@@ -5985,7 +5745,7 @@ abstract mixin class FilesSharingRemoteShareInterfaceBuilder {
   set user(String? user);
 }
 
-class _$FilesSharingRemoteShare extends FilesSharingRemoteShare {
+class _$RemoteShare extends RemoteShare {
   @override
   final bool accepted;
   @override
@@ -6019,10 +5779,10 @@ class _$FilesSharingRemoteShare extends FilesSharingRemoteShare {
   @override
   final String user;
 
-  factory _$FilesSharingRemoteShare([void Function(FilesSharingRemoteShareBuilder)? updates]) =>
-      (FilesSharingRemoteShareBuilder()..update(updates))._build();
+  factory _$RemoteShare([void Function(RemoteShareBuilder)? updates]) =>
+      (RemoteShareBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteShare._(
+  _$RemoteShare._(
       {required this.accepted,
       this.fileId,
       required this.id,
@@ -6040,29 +5800,28 @@ class _$FilesSharingRemoteShare extends FilesSharingRemoteShare {
       this.type,
       required this.user})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(accepted, r'FilesSharingRemoteShare', 'accepted');
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingRemoteShare', 'id');
-    BuiltValueNullFieldError.checkNotNull(mountpoint, r'FilesSharingRemoteShare', 'mountpoint');
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingRemoteShare', 'name');
-    BuiltValueNullFieldError.checkNotNull(owner, r'FilesSharingRemoteShare', 'owner');
-    BuiltValueNullFieldError.checkNotNull(remote, r'FilesSharingRemoteShare', 'remote');
-    BuiltValueNullFieldError.checkNotNull(remoteId, r'FilesSharingRemoteShare', 'remoteId');
-    BuiltValueNullFieldError.checkNotNull(shareToken, r'FilesSharingRemoteShare', 'shareToken');
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingRemoteShare', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(user, r'FilesSharingRemoteShare', 'user');
+    BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted');
+    BuiltValueNullFieldError.checkNotNull(id, r'RemoteShare', 'id');
+    BuiltValueNullFieldError.checkNotNull(mountpoint, r'RemoteShare', 'mountpoint');
+    BuiltValueNullFieldError.checkNotNull(name, r'RemoteShare', 'name');
+    BuiltValueNullFieldError.checkNotNull(owner, r'RemoteShare', 'owner');
+    BuiltValueNullFieldError.checkNotNull(remote, r'RemoteShare', 'remote');
+    BuiltValueNullFieldError.checkNotNull(remoteId, r'RemoteShare', 'remoteId');
+    BuiltValueNullFieldError.checkNotNull(shareToken, r'RemoteShare', 'shareToken');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'RemoteShare', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(user, r'RemoteShare', 'user');
   }
 
   @override
-  FilesSharingRemoteShare rebuild(void Function(FilesSharingRemoteShareBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  RemoteShare rebuild(void Function(RemoteShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteShareBuilder toBuilder() => FilesSharingRemoteShareBuilder()..replace(this);
+  RemoteShareBuilder toBuilder() => RemoteShareBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteShare &&
+    return other is RemoteShare &&
         accepted == other.accepted &&
         fileId == other.fileId &&
         id == other.id &&
@@ -6106,7 +5865,7 @@ class _$FilesSharingRemoteShare extends FilesSharingRemoteShare {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteShare')
+    return (newBuiltValueToStringHelper(r'RemoteShare')
           ..add('accepted', accepted)
           ..add('fileId', fileId)
           ..add('id', id)
@@ -6127,11 +5886,8 @@ class _$FilesSharingRemoteShare extends FilesSharingRemoteShare {
   }
 }
 
-class FilesSharingRemoteShareBuilder
-    implements
-        Builder<FilesSharingRemoteShare, FilesSharingRemoteShareBuilder>,
-        FilesSharingRemoteShareInterfaceBuilder {
-  _$FilesSharingRemoteShare? _$v;
+class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, RemoteShareInterfaceBuilder {
+  _$RemoteShare? _$v;
 
   bool? _accepted;
   bool? get accepted => _$this._accepted;
@@ -6197,9 +5953,9 @@ class FilesSharingRemoteShareBuilder
   String? get user => _$this._user;
   set user(covariant String? user) => _$this._user = user;
 
-  FilesSharingRemoteShareBuilder();
+  RemoteShareBuilder();
 
-  FilesSharingRemoteShareBuilder get _$this {
+  RemoteShareBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _accepted = $v.accepted;
@@ -6224,82 +5980,81 @@ class FilesSharingRemoteShareBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteShare other) {
+  void replace(covariant RemoteShare other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteShare;
+    _$v = other as _$RemoteShare;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteShareBuilder)? updates) {
+  void update(void Function(RemoteShareBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteShare build() => _build();
+  RemoteShare build() => _build();
 
-  _$FilesSharingRemoteShare _build() {
+  _$RemoteShare _build() {
     final _$result = _$v ??
-        _$FilesSharingRemoteShare._(
-            accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'FilesSharingRemoteShare', 'accepted'),
+        _$RemoteShare._(
+            accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted'),
             fileId: fileId,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingRemoteShare', 'id'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'RemoteShare', 'id'),
             mimetype: mimetype,
-            mountpoint: BuiltValueNullFieldError.checkNotNull(mountpoint, r'FilesSharingRemoteShare', 'mountpoint'),
+            mountpoint: BuiltValueNullFieldError.checkNotNull(mountpoint, r'RemoteShare', 'mountpoint'),
             mtime: mtime,
-            name: BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingRemoteShare', 'name'),
-            owner: BuiltValueNullFieldError.checkNotNull(owner, r'FilesSharingRemoteShare', 'owner'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'RemoteShare', 'name'),
+            owner: BuiltValueNullFieldError.checkNotNull(owner, r'RemoteShare', 'owner'),
             parent: parent,
             permissions: permissions,
-            remote: BuiltValueNullFieldError.checkNotNull(remote, r'FilesSharingRemoteShare', 'remote'),
-            remoteId: BuiltValueNullFieldError.checkNotNull(remoteId, r'FilesSharingRemoteShare', 'remoteId'),
-            shareToken: BuiltValueNullFieldError.checkNotNull(shareToken, r'FilesSharingRemoteShare', 'shareToken'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingRemoteShare', 'shareType'),
+            remote: BuiltValueNullFieldError.checkNotNull(remote, r'RemoteShare', 'remote'),
+            remoteId: BuiltValueNullFieldError.checkNotNull(remoteId, r'RemoteShare', 'remoteId'),
+            shareToken: BuiltValueNullFieldError.checkNotNull(shareToken, r'RemoteShare', 'shareToken'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'RemoteShare', 'shareType'),
             type: type,
-            user: BuiltValueNullFieldError.checkNotNull(user, r'FilesSharingRemoteShare', 'user'));
+            user: BuiltValueNullFieldError.checkNotNull(user, r'RemoteShare', 'user'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteGetSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingRemoteShare> get data;
-  set data(ListBuilder<FilesSharingRemoteShare>? data);
+  ListBuilder<RemoteShare> get data;
+  set data(ListBuilder<RemoteShare>? data);
 }
 
-class _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs
-    extends FilesSharingRemoteGetSharesResponseApplicationJson_Ocs {
+class _$RemoteGetSharesResponseApplicationJson_Ocs extends RemoteGetSharesResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingRemoteShare> data;
+  final BuiltList<RemoteShare> data;
 
-  factory _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetSharesResponseApplicationJson_Ocs(
+          [void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteGetSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteGetSharesResponseApplicationJson_Ocs', 'data');
+  _$RemoteGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteGetSharesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteGetSharesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteGetSharesResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteGetSharesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is RemoteGetSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6313,31 +6068,30 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetSharesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteGetSharesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder
+class RemoteGetSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteGetSharesResponseApplicationJson_Ocs,
-            FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteGetSharesResponseApplicationJson_Ocs, RemoteGetSharesResponseApplicationJson_OcsBuilder>,
+        RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteGetSharesResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingRemoteShare>? _data;
-  ListBuilder<FilesSharingRemoteShare> get data => _$this._data ??= ListBuilder<FilesSharingRemoteShare>();
-  set data(covariant ListBuilder<FilesSharingRemoteShare>? data) => _$this._data = data;
+  ListBuilder<RemoteShare>? _data;
+  ListBuilder<RemoteShare> get data => _$this._data ??= ListBuilder<RemoteShare>();
+  set data(covariant ListBuilder<RemoteShare>? data) => _$this._data = data;
 
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder();
+  RemoteGetSharesResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder get _$this {
+  RemoteGetSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6348,24 +6102,23 @@ class FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetSharesResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteGetSharesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteGetSharesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson_Ocs build() => _build();
+  RemoteGetSharesResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs _$result;
+  _$RemoteGetSharesResponseApplicationJson_Ocs _build() {
+    _$RemoteGetSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingRemoteGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6374,8 +6127,7 @@ class FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteGetSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6384,38 +6136,38 @@ class FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteGetSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteGetSharesResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteGetSharesResponseApplicationJsonInterface other);
+  void update(void Function(RemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteGetSharesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteGetSharesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteGetSharesResponseApplicationJson extends FilesSharingRemoteGetSharesResponseApplicationJson {
+class _$RemoteGetSharesResponseApplicationJson extends RemoteGetSharesResponseApplicationJson {
   @override
-  final FilesSharingRemoteGetSharesResponseApplicationJson_Ocs ocs;
+  final RemoteGetSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteGetSharesResponseApplicationJson(
-          [void Function(FilesSharingRemoteGetSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetSharesResponseApplicationJson(
+          [void Function(RemoteGetSharesResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteGetSharesResponseApplicationJson', 'ocs');
+  _$RemoteGetSharesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteGetSharesResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteGetSharesResponseApplicationJsonBuilder) updates) =>
+  RemoteGetSharesResponseApplicationJson rebuild(
+          void Function(RemoteGetSharesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteGetSharesResponseApplicationJsonBuilder()..replace(this);
+  RemoteGetSharesResponseApplicationJsonBuilder toBuilder() =>
+      RemoteGetSharesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetSharesResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteGetSharesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6428,26 +6180,24 @@ class _$FilesSharingRemoteGetSharesResponseApplicationJson extends FilesSharingR
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetSharesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteGetSharesResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteGetSharesResponseApplicationJsonBuilder
+class RemoteGetSharesResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteGetSharesResponseApplicationJson,
-            FilesSharingRemoteGetSharesResponseApplicationJsonBuilder>,
-        FilesSharingRemoteGetSharesResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteGetSharesResponseApplicationJson? _$v;
+        Builder<RemoteGetSharesResponseApplicationJson, RemoteGetSharesResponseApplicationJsonBuilder>,
+        RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
+  _$RemoteGetSharesResponseApplicationJson? _$v;
 
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteGetSharesResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteGetSharesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteGetSharesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteGetSharesResponseApplicationJsonBuilder();
+  RemoteGetSharesResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteGetSharesResponseApplicationJsonBuilder get _$this {
+  RemoteGetSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6457,31 +6207,30 @@ class FilesSharingRemoteGetSharesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetSharesResponseApplicationJson other) {
+  void replace(covariant RemoteGetSharesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetSharesResponseApplicationJson;
+    _$v = other as _$RemoteGetSharesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetSharesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteGetSharesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetSharesResponseApplicationJson build() => _build();
+  RemoteGetSharesResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteGetSharesResponseApplicationJson _build() {
-    _$FilesSharingRemoteGetSharesResponseApplicationJson _$result;
+  _$RemoteGetSharesResponseApplicationJson _build() {
+    _$RemoteGetSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteGetSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetSharesResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteGetSharesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6490,47 +6239,44 @@ class FilesSharingRemoteGetSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteGetOpenSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingRemoteShare> get data;
-  set data(ListBuilder<FilesSharingRemoteShare>? data);
+  ListBuilder<RemoteShare> get data;
+  set data(ListBuilder<RemoteShare>? data);
 }
 
-class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs
-    extends FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs {
+class _$RemoteGetOpenSharesResponseApplicationJson_Ocs extends RemoteGetOpenSharesResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingRemoteShare> data;
+  final BuiltList<RemoteShare> data;
 
-  factory _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetOpenSharesResponseApplicationJson_Ocs(
+          [void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs', 'data');
+  _$RemoteGetOpenSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteGetOpenSharesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteGetOpenSharesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteGetOpenSharesResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is RemoteGetOpenSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6544,31 +6290,30 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteGetOpenSharesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder
+class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs,
-            FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteGetOpenSharesResponseApplicationJson_Ocs, RemoteGetOpenSharesResponseApplicationJson_OcsBuilder>,
+        RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteGetOpenSharesResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingRemoteShare>? _data;
-  ListBuilder<FilesSharingRemoteShare> get data => _$this._data ??= ListBuilder<FilesSharingRemoteShare>();
-  set data(covariant ListBuilder<FilesSharingRemoteShare>? data) => _$this._data = data;
+  ListBuilder<RemoteShare>? _data;
+  ListBuilder<RemoteShare> get data => _$this._data ??= ListBuilder<RemoteShare>();
+  set data(covariant ListBuilder<RemoteShare>? data) => _$this._data = data;
 
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder get _$this {
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6579,24 +6324,23 @@ class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteGetOpenSharesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteGetOpenSharesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs build() => _build();
+  RemoteGetOpenSharesResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs _$result;
+  _$RemoteGetOpenSharesResponseApplicationJson_Ocs _build() {
+    _$RemoteGetOpenSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6606,7 +6350,7 @@ class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'RemoteGetOpenSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6615,39 +6359,38 @@ class FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteGetOpenSharesResponseApplicationJsonInterface other);
+  void update(void Function(RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson
-    extends FilesSharingRemoteGetOpenSharesResponseApplicationJson {
+class _$RemoteGetOpenSharesResponseApplicationJson extends RemoteGetOpenSharesResponseApplicationJson {
   @override
-  final FilesSharingRemoteGetOpenSharesResponseApplicationJson_Ocs ocs;
+  final RemoteGetOpenSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteGetOpenSharesResponseApplicationJson(
-          [void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetOpenSharesResponseApplicationJson(
+          [void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteGetOpenSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteGetOpenSharesResponseApplicationJson', 'ocs');
+  _$RemoteGetOpenSharesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteGetOpenSharesResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder) updates) =>
+  RemoteGetOpenSharesResponseApplicationJson rebuild(
+          void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder()..replace(this);
+  RemoteGetOpenSharesResponseApplicationJsonBuilder toBuilder() =>
+      RemoteGetOpenSharesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetOpenSharesResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteGetOpenSharesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6660,26 +6403,24 @@ class _$FilesSharingRemoteGetOpenSharesResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetOpenSharesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteGetOpenSharesResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder
+class RemoteGetOpenSharesResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteGetOpenSharesResponseApplicationJson,
-            FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder>,
-        FilesSharingRemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson? _$v;
+        Builder<RemoteGetOpenSharesResponseApplicationJson, RemoteGetOpenSharesResponseApplicationJsonBuilder>,
+        RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
+  _$RemoteGetOpenSharesResponseApplicationJson? _$v;
 
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder();
+  RemoteGetOpenSharesResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder get _$this {
+  RemoteGetOpenSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6689,31 +6430,30 @@ class FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetOpenSharesResponseApplicationJson other) {
+  void replace(covariant RemoteGetOpenSharesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetOpenSharesResponseApplicationJson;
+    _$v = other as _$RemoteGetOpenSharesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetOpenSharesResponseApplicationJson build() => _build();
+  RemoteGetOpenSharesResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteGetOpenSharesResponseApplicationJson _build() {
-    _$FilesSharingRemoteGetOpenSharesResponseApplicationJson _$result;
+  _$RemoteGetOpenSharesResponseApplicationJson _build() {
+    _$RemoteGetOpenSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteGetOpenSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetOpenSharesResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteGetOpenSharesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6722,47 +6462,44 @@ class FilesSharingRemoteGetOpenSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteAcceptShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs
-    extends FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs {
+class _$RemoteAcceptShareResponseApplicationJson_Ocs extends RemoteAcceptShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteAcceptShareResponseApplicationJson_Ocs(
+          [void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs', 'data');
+  _$RemoteAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteAcceptShareResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteAcceptShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is RemoteAcceptShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -6776,31 +6513,30 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteAcceptShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder
+class RemoteAcceptShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs,
-            FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteAcceptShareResponseApplicationJson_Ocs, RemoteAcceptShareResponseApplicationJson_OcsBuilder>,
+        RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteAcceptShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder();
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder get _$this {
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -6811,35 +6547,34 @@ class FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteAcceptShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteAcceptShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs build() => _build();
+  RemoteAcceptShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs _$result;
+  _$RemoteAcceptShareResponseApplicationJson_Ocs _build() {
+    _$RemoteAcceptShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs._(
+          _$RemoteAcceptShareResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs', 'data'));
+              data:
+                  BuiltValueNullFieldError.checkNotNull(data, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6848,39 +6583,38 @@ class FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteAcceptShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteAcceptShareResponseApplicationJsonInterface other);
+  void update(void Function(RemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteAcceptShareResponseApplicationJson
-    extends FilesSharingRemoteAcceptShareResponseApplicationJson {
+class _$RemoteAcceptShareResponseApplicationJson extends RemoteAcceptShareResponseApplicationJson {
   @override
-  final FilesSharingRemoteAcceptShareResponseApplicationJson_Ocs ocs;
+  final RemoteAcceptShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteAcceptShareResponseApplicationJson(
-          [void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteAcceptShareResponseApplicationJson(
+          [void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteAcceptShareResponseApplicationJson', 'ocs');
+  _$RemoteAcceptShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteAcceptShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder) updates) =>
+  RemoteAcceptShareResponseApplicationJson rebuild(
+          void Function(RemoteAcceptShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder()..replace(this);
+  RemoteAcceptShareResponseApplicationJsonBuilder toBuilder() =>
+      RemoteAcceptShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteAcceptShareResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteAcceptShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -6893,26 +6627,24 @@ class _$FilesSharingRemoteAcceptShareResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteAcceptShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteAcceptShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder
+class RemoteAcceptShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteAcceptShareResponseApplicationJson,
-            FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder>,
-        FilesSharingRemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson? _$v;
+        Builder<RemoteAcceptShareResponseApplicationJson, RemoteAcceptShareResponseApplicationJsonBuilder>,
+        RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
+  _$RemoteAcceptShareResponseApplicationJson? _$v;
 
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteAcceptShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder();
+  RemoteAcceptShareResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder get _$this {
+  RemoteAcceptShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -6922,31 +6654,30 @@ class FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteAcceptShareResponseApplicationJson other) {
+  void replace(covariant RemoteAcceptShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteAcceptShareResponseApplicationJson;
+    _$v = other as _$RemoteAcceptShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteAcceptShareResponseApplicationJson build() => _build();
+  RemoteAcceptShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteAcceptShareResponseApplicationJson _build() {
-    _$FilesSharingRemoteAcceptShareResponseApplicationJson _$result;
+  _$RemoteAcceptShareResponseApplicationJson _build() {
+    _$RemoteAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteAcceptShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteAcceptShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteAcceptShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteAcceptShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6955,47 +6686,44 @@ class FilesSharingRemoteAcceptShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteDeclineShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs
-    extends FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs {
+class _$RemoteDeclineShareResponseApplicationJson_Ocs extends RemoteDeclineShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteDeclineShareResponseApplicationJson_Ocs(
+          [void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteDeclineShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs', 'data');
+  _$RemoteDeclineShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteDeclineShareResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteDeclineShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is RemoteDeclineShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -7009,31 +6737,30 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteDeclineShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder
+class RemoteDeclineShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs,
-            FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteDeclineShareResponseApplicationJson_Ocs, RemoteDeclineShareResponseApplicationJson_OcsBuilder>,
+        RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteDeclineShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder();
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder get _$this {
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -7044,35 +6771,34 @@ class FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteDeclineShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteDeclineShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs build() => _build();
+  RemoteDeclineShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs _$result;
+  _$RemoteDeclineShareResponseApplicationJson_Ocs _build() {
+    _$RemoteDeclineShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs._(
+          _$RemoteDeclineShareResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs', 'data'));
+                  data, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteDeclineShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7081,39 +6807,38 @@ class FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteDeclineShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteDeclineShareResponseApplicationJsonInterface other);
+  void update(void Function(RemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteDeclineShareResponseApplicationJson
-    extends FilesSharingRemoteDeclineShareResponseApplicationJson {
+class _$RemoteDeclineShareResponseApplicationJson extends RemoteDeclineShareResponseApplicationJson {
   @override
-  final FilesSharingRemoteDeclineShareResponseApplicationJson_Ocs ocs;
+  final RemoteDeclineShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteDeclineShareResponseApplicationJson(
-          [void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteDeclineShareResponseApplicationJson(
+          [void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteDeclineShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteDeclineShareResponseApplicationJson', 'ocs');
+  _$RemoteDeclineShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteDeclineShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder) updates) =>
+  RemoteDeclineShareResponseApplicationJson rebuild(
+          void Function(RemoteDeclineShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder()..replace(this);
+  RemoteDeclineShareResponseApplicationJsonBuilder toBuilder() =>
+      RemoteDeclineShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteDeclineShareResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteDeclineShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -7126,26 +6851,24 @@ class _$FilesSharingRemoteDeclineShareResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteDeclineShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteDeclineShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder
+class RemoteDeclineShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteDeclineShareResponseApplicationJson,
-            FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder>,
-        FilesSharingRemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson? _$v;
+        Builder<RemoteDeclineShareResponseApplicationJson, RemoteDeclineShareResponseApplicationJsonBuilder>,
+        RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
+  _$RemoteDeclineShareResponseApplicationJson? _$v;
 
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteDeclineShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder();
+  RemoteDeclineShareResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder get _$this {
+  RemoteDeclineShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -7155,31 +6878,30 @@ class FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteDeclineShareResponseApplicationJson other) {
+  void replace(covariant RemoteDeclineShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteDeclineShareResponseApplicationJson;
+    _$v = other as _$RemoteDeclineShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteDeclineShareResponseApplicationJson build() => _build();
+  RemoteDeclineShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteDeclineShareResponseApplicationJson _build() {
-    _$FilesSharingRemoteDeclineShareResponseApplicationJson _$result;
+  _$RemoteDeclineShareResponseApplicationJson _build() {
+    _$RemoteDeclineShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteDeclineShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteDeclineShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteDeclineShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteDeclineShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7188,45 +6910,44 @@ class FilesSharingRemoteDeclineShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteGetShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteGetShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesSharingRemoteShareBuilder get data;
-  set data(FilesSharingRemoteShareBuilder? data);
+  RemoteShareBuilder get data;
+  set data(RemoteShareBuilder? data);
 }
 
-class _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs
-    extends FilesSharingRemoteGetShareResponseApplicationJson_Ocs {
+class _$RemoteGetShareResponseApplicationJson_Ocs extends RemoteGetShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesSharingRemoteShare data;
+  final RemoteShare data;
 
-  factory _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetShareResponseApplicationJson_Ocs(
+          [void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteGetShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteGetShareResponseApplicationJson_Ocs', 'data');
+  _$RemoteGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteGetShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteGetShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteGetShareResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteGetShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteGetShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is RemoteGetShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -7240,31 +6961,30 @@ class _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteGetShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder
+class RemoteGetShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteGetShareResponseApplicationJson_Ocs,
-            FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteGetShareResponseApplicationJson_Ocs, RemoteGetShareResponseApplicationJson_OcsBuilder>,
+        RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteGetShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesSharingRemoteShareBuilder? _data;
-  FilesSharingRemoteShareBuilder get data => _$this._data ??= FilesSharingRemoteShareBuilder();
-  set data(covariant FilesSharingRemoteShareBuilder? data) => _$this._data = data;
+  RemoteShareBuilder? _data;
+  RemoteShareBuilder get data => _$this._data ??= RemoteShareBuilder();
+  set data(covariant RemoteShareBuilder? data) => _$this._data = data;
 
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder();
+  RemoteGetShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder get _$this {
+  RemoteGetShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -7275,24 +6995,23 @@ class FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetShareResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteGetShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteGetShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson_Ocs build() => _build();
+  RemoteGetShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs _$result;
+  _$RemoteGetShareResponseApplicationJson_Ocs _build() {
+    _$RemoteGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingRemoteGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7301,8 +7020,7 @@ class FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteGetShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7311,38 +7029,37 @@ class FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteGetShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteGetShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteGetShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteGetShareResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteGetShareResponseApplicationJsonInterface other);
+  void update(void Function(RemoteGetShareResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteGetShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteGetShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteGetShareResponseApplicationJson extends FilesSharingRemoteGetShareResponseApplicationJson {
+class _$RemoteGetShareResponseApplicationJson extends RemoteGetShareResponseApplicationJson {
   @override
-  final FilesSharingRemoteGetShareResponseApplicationJson_Ocs ocs;
+  final RemoteGetShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteGetShareResponseApplicationJson(
-          [void Function(FilesSharingRemoteGetShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteGetShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetShareResponseApplicationJson(
+          [void Function(RemoteGetShareResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteGetShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteGetShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteGetShareResponseApplicationJson', 'ocs');
+  _$RemoteGetShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteGetShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteGetShareResponseApplicationJsonBuilder) updates) =>
+  RemoteGetShareResponseApplicationJson rebuild(void Function(RemoteGetShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteGetShareResponseApplicationJsonBuilder()..replace(this);
+  RemoteGetShareResponseApplicationJsonBuilder toBuilder() =>
+      RemoteGetShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteGetShareResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteGetShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -7355,26 +7072,24 @@ class _$FilesSharingRemoteGetShareResponseApplicationJson extends FilesSharingRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteGetShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteGetShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteGetShareResponseApplicationJsonBuilder
+class RemoteGetShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteGetShareResponseApplicationJson,
-            FilesSharingRemoteGetShareResponseApplicationJsonBuilder>,
-        FilesSharingRemoteGetShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteGetShareResponseApplicationJson? _$v;
+        Builder<RemoteGetShareResponseApplicationJson, RemoteGetShareResponseApplicationJsonBuilder>,
+        RemoteGetShareResponseApplicationJsonInterfaceBuilder {
+  _$RemoteGetShareResponseApplicationJson? _$v;
 
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteGetShareResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteGetShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteGetShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteGetShareResponseApplicationJsonBuilder();
+  RemoteGetShareResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteGetShareResponseApplicationJsonBuilder get _$this {
+  RemoteGetShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -7384,31 +7099,30 @@ class FilesSharingRemoteGetShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteGetShareResponseApplicationJson other) {
+  void replace(covariant RemoteGetShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteGetShareResponseApplicationJson;
+    _$v = other as _$RemoteGetShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteGetShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteGetShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteGetShareResponseApplicationJson build() => _build();
+  RemoteGetShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteGetShareResponseApplicationJson _build() {
-    _$FilesSharingRemoteGetShareResponseApplicationJson _$result;
+  _$RemoteGetShareResponseApplicationJson _build() {
+    _$RemoteGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteGetShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteGetShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteGetShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7417,45 +7131,44 @@ class FilesSharingRemoteGetShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingRemoteUnshareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(RemoteUnshareResponseApplicationJson_OcsInterface other);
+  void update(void Function(RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs
-    extends FilesSharingRemoteUnshareResponseApplicationJson_Ocs {
+class _$RemoteUnshareResponseApplicationJson_Ocs extends RemoteUnshareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteUnshareResponseApplicationJson_Ocs(
+          [void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RemoteUnshareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingRemoteUnshareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingRemoteUnshareResponseApplicationJson_Ocs', 'data');
+  _$RemoteUnshareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RemoteUnshareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RemoteUnshareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder) updates) =>
+  RemoteUnshareResponseApplicationJson_Ocs rebuild(
+          void Function(RemoteUnshareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder()..replace(this);
+  RemoteUnshareResponseApplicationJson_OcsBuilder toBuilder() =>
+      RemoteUnshareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteUnshareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is RemoteUnshareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -7469,31 +7182,30 @@ class _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteUnshareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'RemoteUnshareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder
+class RemoteUnshareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingRemoteUnshareResponseApplicationJson_Ocs,
-            FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder>,
-        FilesSharingRemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs? _$v;
+        Builder<RemoteUnshareResponseApplicationJson_Ocs, RemoteUnshareResponseApplicationJson_OcsBuilder>,
+        RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
+  _$RemoteUnshareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder();
+  RemoteUnshareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder get _$this {
+  RemoteUnshareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -7504,35 +7216,33 @@ class FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteUnshareResponseApplicationJson_Ocs other) {
+  void replace(covariant RemoteUnshareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs;
+    _$v = other as _$RemoteUnshareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson_Ocs build() => _build();
+  RemoteUnshareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs _$result;
+  _$RemoteUnshareResponseApplicationJson_Ocs _build() {
+    _$RemoteUnshareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingRemoteUnshareResponseApplicationJson_Ocs._(
+          _$RemoteUnshareResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingRemoteUnshareResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteUnshareResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteUnshareResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteUnshareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7541,38 +7251,37 @@ class FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingRemoteUnshareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingRemoteUnshareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingRemoteUnshareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class RemoteUnshareResponseApplicationJsonInterfaceBuilder {
+  void replace(RemoteUnshareResponseApplicationJsonInterface other);
+  void update(void Function(RemoteUnshareResponseApplicationJsonInterfaceBuilder) updates);
+  RemoteUnshareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RemoteUnshareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingRemoteUnshareResponseApplicationJson extends FilesSharingRemoteUnshareResponseApplicationJson {
+class _$RemoteUnshareResponseApplicationJson extends RemoteUnshareResponseApplicationJson {
   @override
-  final FilesSharingRemoteUnshareResponseApplicationJson_Ocs ocs;
+  final RemoteUnshareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingRemoteUnshareResponseApplicationJson(
-          [void Function(FilesSharingRemoteUnshareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingRemoteUnshareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteUnshareResponseApplicationJson(
+          [void Function(RemoteUnshareResponseApplicationJsonBuilder)? updates]) =>
+      (RemoteUnshareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingRemoteUnshareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingRemoteUnshareResponseApplicationJson', 'ocs');
+  _$RemoteUnshareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RemoteUnshareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson rebuild(
-          void Function(FilesSharingRemoteUnshareResponseApplicationJsonBuilder) updates) =>
+  RemoteUnshareResponseApplicationJson rebuild(void Function(RemoteUnshareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingRemoteUnshareResponseApplicationJsonBuilder()..replace(this);
+  RemoteUnshareResponseApplicationJsonBuilder toBuilder() =>
+      RemoteUnshareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingRemoteUnshareResponseApplicationJson && ocs == other.ocs;
+    return other is RemoteUnshareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -7585,26 +7294,24 @@ class _$FilesSharingRemoteUnshareResponseApplicationJson extends FilesSharingRem
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingRemoteUnshareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'RemoteUnshareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingRemoteUnshareResponseApplicationJsonBuilder
+class RemoteUnshareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingRemoteUnshareResponseApplicationJson,
-            FilesSharingRemoteUnshareResponseApplicationJsonBuilder>,
-        FilesSharingRemoteUnshareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingRemoteUnshareResponseApplicationJson? _$v;
+        Builder<RemoteUnshareResponseApplicationJson, RemoteUnshareResponseApplicationJsonBuilder>,
+        RemoteUnshareResponseApplicationJsonInterfaceBuilder {
+  _$RemoteUnshareResponseApplicationJson? _$v;
 
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingRemoteUnshareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  RemoteUnshareResponseApplicationJson_OcsBuilder? _ocs;
+  RemoteUnshareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RemoteUnshareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RemoteUnshareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingRemoteUnshareResponseApplicationJsonBuilder();
+  RemoteUnshareResponseApplicationJsonBuilder();
 
-  FilesSharingRemoteUnshareResponseApplicationJsonBuilder get _$this {
+  RemoteUnshareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -7614,31 +7321,30 @@ class FilesSharingRemoteUnshareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingRemoteUnshareResponseApplicationJson other) {
+  void replace(covariant RemoteUnshareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingRemoteUnshareResponseApplicationJson;
+    _$v = other as _$RemoteUnshareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingRemoteUnshareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(RemoteUnshareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingRemoteUnshareResponseApplicationJson build() => _build();
+  RemoteUnshareResponseApplicationJson build() => _build();
 
-  _$FilesSharingRemoteUnshareResponseApplicationJson _build() {
-    _$FilesSharingRemoteUnshareResponseApplicationJson _$result;
+  _$RemoteUnshareResponseApplicationJson _build() {
+    _$RemoteUnshareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingRemoteUnshareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$RemoteUnshareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingRemoteUnshareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'RemoteUnshareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -7647,7 +7353,7 @@ class FilesSharingRemoteUnshareResponseApplicationJsonBuilder
   }
 }
 
-class _$FilesSharingShareInfo_Size extends FilesSharingShareInfo_Size {
+class _$ShareInfo_Size extends ShareInfo_Size {
   @override
   final JsonObject data;
   @override
@@ -7655,24 +7361,23 @@ class _$FilesSharingShareInfo_Size extends FilesSharingShareInfo_Size {
   @override
   final num? $num;
 
-  factory _$FilesSharingShareInfo_Size([void Function(FilesSharingShareInfo_SizeBuilder)? updates]) =>
-      (FilesSharingShareInfo_SizeBuilder()..update(updates))._build();
+  factory _$ShareInfo_Size([void Function(ShareInfo_SizeBuilder)? updates]) =>
+      (ShareInfo_SizeBuilder()..update(updates))._build();
 
-  _$FilesSharingShareInfo_Size._({required this.data, this.$int, this.$num}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareInfo_Size', 'data');
+  _$ShareInfo_Size._({required this.data, this.$int, this.$num}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data');
   }
 
   @override
-  FilesSharingShareInfo_Size rebuild(void Function(FilesSharingShareInfo_SizeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareInfo_Size rebuild(void Function(ShareInfo_SizeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareInfo_SizeBuilder toBuilder() => FilesSharingShareInfo_SizeBuilder()..replace(this);
+  ShareInfo_SizeBuilder toBuilder() => ShareInfo_SizeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareInfo_Size && data == other.data && $int == other.$int && $num == other.$num;
+    return other is ShareInfo_Size && data == other.data && $int == other.$int && $num == other.$num;
   }
 
   @override
@@ -7687,7 +7392,7 @@ class _$FilesSharingShareInfo_Size extends FilesSharingShareInfo_Size {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareInfo_Size')
+    return (newBuiltValueToStringHelper(r'ShareInfo_Size')
           ..add('data', data)
           ..add('\$int', $int)
           ..add('\$num', $num))
@@ -7695,9 +7400,8 @@ class _$FilesSharingShareInfo_Size extends FilesSharingShareInfo_Size {
   }
 }
 
-class FilesSharingShareInfo_SizeBuilder
-    implements Builder<FilesSharingShareInfo_Size, FilesSharingShareInfo_SizeBuilder> {
-  _$FilesSharingShareInfo_Size? _$v;
+class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder> {
+  _$ShareInfo_Size? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -7711,9 +7415,9 @@ class FilesSharingShareInfo_SizeBuilder
   num? get $num => _$this._$num;
   set $num(num? $num) => _$this._$num = $num;
 
-  FilesSharingShareInfo_SizeBuilder();
+  ShareInfo_SizeBuilder();
 
-  FilesSharingShareInfo_SizeBuilder get _$this {
+  ShareInfo_SizeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -7725,33 +7429,31 @@ class FilesSharingShareInfo_SizeBuilder
   }
 
   @override
-  void replace(FilesSharingShareInfo_Size other) {
+  void replace(ShareInfo_Size other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareInfo_Size;
+    _$v = other as _$ShareInfo_Size;
   }
 
   @override
-  void update(void Function(FilesSharingShareInfo_SizeBuilder)? updates) {
+  void update(void Function(ShareInfo_SizeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareInfo_Size build() => _build();
+  ShareInfo_Size build() => _build();
 
-  _$FilesSharingShareInfo_Size _build() {
+  _$ShareInfo_Size _build() {
     final _$result = _$v ??
-        _$FilesSharingShareInfo_Size._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareInfo_Size', 'data'),
-            $int: $int,
-            $num: $num);
+        _$ShareInfo_Size._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data'), $int: $int, $num: $num);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareInfoInterfaceBuilder {
-  void replace(FilesSharingShareInfoInterface other);
-  void update(void Function(FilesSharingShareInfoInterfaceBuilder) updates);
+abstract mixin class ShareInfoInterfaceBuilder {
+  void replace(ShareInfoInterface other);
+  void update(void Function(ShareInfoInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -7770,8 +7472,8 @@ abstract mixin class FilesSharingShareInfoInterfaceBuilder {
   String? get mimetype;
   set mimetype(String? mimetype);
 
-  FilesSharingShareInfo_SizeBuilder get size;
-  set size(FilesSharingShareInfo_SizeBuilder? size);
+  ShareInfo_SizeBuilder get size;
+  set size(ShareInfo_SizeBuilder? size);
 
   String? get type;
   set type(String? type);
@@ -7783,7 +7485,7 @@ abstract mixin class FilesSharingShareInfoInterfaceBuilder {
   set children(ListBuilder<BuiltMap<String, JsonObject>>? children);
 }
 
-class _$FilesSharingShareInfo extends FilesSharingShareInfo {
+class _$ShareInfo extends ShareInfo {
   @override
   final int id;
   @override
@@ -7797,7 +7499,7 @@ class _$FilesSharingShareInfo extends FilesSharingShareInfo {
   @override
   final String mimetype;
   @override
-  final FilesSharingShareInfo_Size size;
+  final ShareInfo_Size size;
   @override
   final String type;
   @override
@@ -7805,10 +7507,9 @@ class _$FilesSharingShareInfo extends FilesSharingShareInfo {
   @override
   final BuiltList<BuiltMap<String, JsonObject>>? children;
 
-  factory _$FilesSharingShareInfo([void Function(FilesSharingShareInfoBuilder)? updates]) =>
-      (FilesSharingShareInfoBuilder()..update(updates))._build();
+  factory _$ShareInfo([void Function(ShareInfoBuilder)? updates]) => (ShareInfoBuilder()..update(updates))._build();
 
-  _$FilesSharingShareInfo._(
+  _$ShareInfo._(
       {required this.id,
       required this.parentId,
       required this.mtime,
@@ -7820,28 +7521,27 @@ class _$FilesSharingShareInfo extends FilesSharingShareInfo {
       required this.etag,
       this.children})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingShareInfo', 'id');
-    BuiltValueNullFieldError.checkNotNull(parentId, r'FilesSharingShareInfo', 'parentId');
-    BuiltValueNullFieldError.checkNotNull(mtime, r'FilesSharingShareInfo', 'mtime');
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareInfo', 'name');
-    BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingShareInfo', 'permissions');
-    BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingShareInfo', 'mimetype');
-    BuiltValueNullFieldError.checkNotNull(size, r'FilesSharingShareInfo', 'size');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareInfo', 'type');
-    BuiltValueNullFieldError.checkNotNull(etag, r'FilesSharingShareInfo', 'etag');
+    BuiltValueNullFieldError.checkNotNull(id, r'ShareInfo', 'id');
+    BuiltValueNullFieldError.checkNotNull(parentId, r'ShareInfo', 'parentId');
+    BuiltValueNullFieldError.checkNotNull(mtime, r'ShareInfo', 'mtime');
+    BuiltValueNullFieldError.checkNotNull(name, r'ShareInfo', 'name');
+    BuiltValueNullFieldError.checkNotNull(permissions, r'ShareInfo', 'permissions');
+    BuiltValueNullFieldError.checkNotNull(mimetype, r'ShareInfo', 'mimetype');
+    BuiltValueNullFieldError.checkNotNull(size, r'ShareInfo', 'size');
+    BuiltValueNullFieldError.checkNotNull(type, r'ShareInfo', 'type');
+    BuiltValueNullFieldError.checkNotNull(etag, r'ShareInfo', 'etag');
   }
 
   @override
-  FilesSharingShareInfo rebuild(void Function(FilesSharingShareInfoBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareInfo rebuild(void Function(ShareInfoBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareInfoBuilder toBuilder() => FilesSharingShareInfoBuilder()..replace(this);
+  ShareInfoBuilder toBuilder() => ShareInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareInfo &&
+    return other is ShareInfo &&
         id == other.id &&
         parentId == other.parentId &&
         mtime == other.mtime &&
@@ -7873,7 +7573,7 @@ class _$FilesSharingShareInfo extends FilesSharingShareInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareInfo')
+    return (newBuiltValueToStringHelper(r'ShareInfo')
           ..add('id', id)
           ..add('parentId', parentId)
           ..add('mtime', mtime)
@@ -7888,9 +7588,8 @@ class _$FilesSharingShareInfo extends FilesSharingShareInfo {
   }
 }
 
-class FilesSharingShareInfoBuilder
-    implements Builder<FilesSharingShareInfo, FilesSharingShareInfoBuilder>, FilesSharingShareInfoInterfaceBuilder {
-  _$FilesSharingShareInfo? _$v;
+class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInfoInterfaceBuilder {
+  _$ShareInfo? _$v;
 
   int? _id;
   int? get id => _$this._id;
@@ -7916,9 +7615,9 @@ class FilesSharingShareInfoBuilder
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  FilesSharingShareInfo_SizeBuilder? _size;
-  FilesSharingShareInfo_SizeBuilder get size => _$this._size ??= FilesSharingShareInfo_SizeBuilder();
-  set size(covariant FilesSharingShareInfo_SizeBuilder? size) => _$this._size = size;
+  ShareInfo_SizeBuilder? _size;
+  ShareInfo_SizeBuilder get size => _$this._size ??= ShareInfo_SizeBuilder();
+  set size(covariant ShareInfo_SizeBuilder? size) => _$this._size = size;
 
   String? _type;
   String? get type => _$this._type;
@@ -7933,9 +7632,9 @@ class FilesSharingShareInfoBuilder
       _$this._children ??= ListBuilder<BuiltMap<String, JsonObject>>();
   set children(covariant ListBuilder<BuiltMap<String, JsonObject>>? children) => _$this._children = children;
 
-  FilesSharingShareInfoBuilder();
+  ShareInfoBuilder();
 
-  FilesSharingShareInfoBuilder get _$this {
+  ShareInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -7954,33 +7653,33 @@ class FilesSharingShareInfoBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareInfo other) {
+  void replace(covariant ShareInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareInfo;
+    _$v = other as _$ShareInfo;
   }
 
   @override
-  void update(void Function(FilesSharingShareInfoBuilder)? updates) {
+  void update(void Function(ShareInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareInfo build() => _build();
+  ShareInfo build() => _build();
 
-  _$FilesSharingShareInfo _build() {
-    _$FilesSharingShareInfo _$result;
+  _$ShareInfo _build() {
+    _$ShareInfo _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareInfo._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingShareInfo', 'id'),
-              parentId: BuiltValueNullFieldError.checkNotNull(parentId, r'FilesSharingShareInfo', 'parentId'),
-              mtime: BuiltValueNullFieldError.checkNotNull(mtime, r'FilesSharingShareInfo', 'mtime'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareInfo', 'name'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingShareInfo', 'permissions'),
-              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingShareInfo', 'mimetype'),
+          _$ShareInfo._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'ShareInfo', 'id'),
+              parentId: BuiltValueNullFieldError.checkNotNull(parentId, r'ShareInfo', 'parentId'),
+              mtime: BuiltValueNullFieldError.checkNotNull(mtime, r'ShareInfo', 'mtime'),
+              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareInfo', 'name'),
+              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'ShareInfo', 'permissions'),
+              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'ShareInfo', 'mimetype'),
               size: size.build(),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareInfo', 'type'),
-              etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesSharingShareInfo', 'etag'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareInfo', 'type'),
+              etag: BuiltValueNullFieldError.checkNotNull(etag, r'ShareInfo', 'etag'),
               children: _children?.build());
     } catch (_) {
       late String _$failedField;
@@ -7991,7 +7690,7 @@ class FilesSharingShareInfoBuilder
         _$failedField = 'children';
         _children?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareInfo', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareInfo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8000,7 +7699,7 @@ class FilesSharingShareInfoBuilder
   }
 }
 
-class _$FilesSharingShare_ItemSize extends FilesSharingShare_ItemSize {
+class _$Share_ItemSize extends Share_ItemSize {
   @override
   final JsonObject data;
   @override
@@ -8008,24 +7707,23 @@ class _$FilesSharingShare_ItemSize extends FilesSharingShare_ItemSize {
   @override
   final int? $int;
 
-  factory _$FilesSharingShare_ItemSize([void Function(FilesSharingShare_ItemSizeBuilder)? updates]) =>
-      (FilesSharingShare_ItemSizeBuilder()..update(updates))._build();
+  factory _$Share_ItemSize([void Function(Share_ItemSizeBuilder)? updates]) =>
+      (Share_ItemSizeBuilder()..update(updates))._build();
 
-  _$FilesSharingShare_ItemSize._({required this.data, this.$num, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShare_ItemSize', 'data');
+  _$Share_ItemSize._({required this.data, this.$num, this.$int}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data');
   }
 
   @override
-  FilesSharingShare_ItemSize rebuild(void Function(FilesSharingShare_ItemSizeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Share_ItemSize rebuild(void Function(Share_ItemSizeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShare_ItemSizeBuilder toBuilder() => FilesSharingShare_ItemSizeBuilder()..replace(this);
+  Share_ItemSizeBuilder toBuilder() => Share_ItemSizeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShare_ItemSize && data == other.data && $num == other.$num && $int == other.$int;
+    return other is Share_ItemSize && data == other.data && $num == other.$num && $int == other.$int;
   }
 
   @override
@@ -8040,7 +7738,7 @@ class _$FilesSharingShare_ItemSize extends FilesSharingShare_ItemSize {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShare_ItemSize')
+    return (newBuiltValueToStringHelper(r'Share_ItemSize')
           ..add('data', data)
           ..add('\$num', $num)
           ..add('\$int', $int))
@@ -8048,9 +7746,8 @@ class _$FilesSharingShare_ItemSize extends FilesSharingShare_ItemSize {
   }
 }
 
-class FilesSharingShare_ItemSizeBuilder
-    implements Builder<FilesSharingShare_ItemSize, FilesSharingShare_ItemSizeBuilder> {
-  _$FilesSharingShare_ItemSize? _$v;
+class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder> {
+  _$Share_ItemSize? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -8064,9 +7761,9 @@ class FilesSharingShare_ItemSizeBuilder
   int? get $int => _$this._$int;
   set $int(int? $int) => _$this._$int = $int;
 
-  FilesSharingShare_ItemSizeBuilder();
+  Share_ItemSizeBuilder();
 
-  FilesSharingShare_ItemSizeBuilder get _$this {
+  Share_ItemSizeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -8078,33 +7775,31 @@ class FilesSharingShare_ItemSizeBuilder
   }
 
   @override
-  void replace(FilesSharingShare_ItemSize other) {
+  void replace(Share_ItemSize other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShare_ItemSize;
+    _$v = other as _$Share_ItemSize;
   }
 
   @override
-  void update(void Function(FilesSharingShare_ItemSizeBuilder)? updates) {
+  void update(void Function(Share_ItemSizeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShare_ItemSize build() => _build();
+  Share_ItemSize build() => _build();
 
-  _$FilesSharingShare_ItemSize _build() {
+  _$Share_ItemSize _build() {
     final _$result = _$v ??
-        _$FilesSharingShare_ItemSize._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShare_ItemSize', 'data'),
-            $num: $num,
-            $int: $int);
+        _$Share_ItemSize._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data'), $num: $num, $int: $int);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShare_StatusInterfaceBuilder {
-  void replace(FilesSharingShare_StatusInterface other);
-  void update(void Function(FilesSharingShare_StatusInterfaceBuilder) updates);
+abstract mixin class Share_StatusInterfaceBuilder {
+  void replace(Share_StatusInterface other);
+  void update(void Function(Share_StatusInterfaceBuilder) updates);
   int? get clearAt;
   set clearAt(int? clearAt);
 
@@ -8118,7 +7813,7 @@ abstract mixin class FilesSharingShare_StatusInterfaceBuilder {
   set status(String? status);
 }
 
-class _$FilesSharingShare_Status extends FilesSharingShare_Status {
+class _$Share_Status extends Share_Status {
   @override
   final int? clearAt;
   @override
@@ -8128,22 +7823,21 @@ class _$FilesSharingShare_Status extends FilesSharingShare_Status {
   @override
   final String? status;
 
-  factory _$FilesSharingShare_Status([void Function(FilesSharingShare_StatusBuilder)? updates]) =>
-      (FilesSharingShare_StatusBuilder()..update(updates))._build();
+  factory _$Share_Status([void Function(Share_StatusBuilder)? updates]) =>
+      (Share_StatusBuilder()..update(updates))._build();
 
-  _$FilesSharingShare_Status._({this.clearAt, this.icon, this.message, this.status}) : super._();
-
-  @override
-  FilesSharingShare_Status rebuild(void Function(FilesSharingShare_StatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  _$Share_Status._({this.clearAt, this.icon, this.message, this.status}) : super._();
 
   @override
-  FilesSharingShare_StatusBuilder toBuilder() => FilesSharingShare_StatusBuilder()..replace(this);
+  Share_Status rebuild(void Function(Share_StatusBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  Share_StatusBuilder toBuilder() => Share_StatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShare_Status &&
+    return other is Share_Status &&
         clearAt == other.clearAt &&
         icon == other.icon &&
         message == other.message &&
@@ -8163,7 +7857,7 @@ class _$FilesSharingShare_Status extends FilesSharingShare_Status {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShare_Status')
+    return (newBuiltValueToStringHelper(r'Share_Status')
           ..add('clearAt', clearAt)
           ..add('icon', icon)
           ..add('message', message)
@@ -8172,11 +7866,8 @@ class _$FilesSharingShare_Status extends FilesSharingShare_Status {
   }
 }
 
-class FilesSharingShare_StatusBuilder
-    implements
-        Builder<FilesSharingShare_Status, FilesSharingShare_StatusBuilder>,
-        FilesSharingShare_StatusInterfaceBuilder {
-  _$FilesSharingShare_Status? _$v;
+class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>, Share_StatusInterfaceBuilder {
+  _$Share_Status? _$v;
 
   int? _clearAt;
   int? get clearAt => _$this._clearAt;
@@ -8194,9 +7885,9 @@ class FilesSharingShare_StatusBuilder
   String? get status => _$this._status;
   set status(covariant String? status) => _$this._status = status;
 
-  FilesSharingShare_StatusBuilder();
+  Share_StatusBuilder();
 
-  FilesSharingShare_StatusBuilder get _$this {
+  Share_StatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _clearAt = $v.clearAt;
@@ -8209,30 +7900,29 @@ class FilesSharingShare_StatusBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShare_Status other) {
+  void replace(covariant Share_Status other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShare_Status;
+    _$v = other as _$Share_Status;
   }
 
   @override
-  void update(void Function(FilesSharingShare_StatusBuilder)? updates) {
+  void update(void Function(Share_StatusBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShare_Status build() => _build();
+  Share_Status build() => _build();
 
-  _$FilesSharingShare_Status _build() {
-    final _$result =
-        _$v ?? _$FilesSharingShare_Status._(clearAt: clearAt, icon: icon, message: message, status: status);
+  _$Share_Status _build() {
+    final _$result = _$v ?? _$Share_Status._(clearAt: clearAt, icon: icon, message: message, status: status);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareInterfaceBuilder {
-  void replace(FilesSharingShareInterface other);
-  void update(void Function(FilesSharingShareInterfaceBuilder) updates);
+abstract mixin class ShareInterfaceBuilder {
+  void replace(ShareInterface other);
+  void update(void Function(ShareInterfaceBuilder) updates);
   String? get attributes;
   set attributes(String? attributes);
 
@@ -8275,14 +7965,14 @@ abstract mixin class FilesSharingShareInterfaceBuilder {
   int? get itemPermissions;
   set itemPermissions(int? itemPermissions);
 
-  FilesSharingShare_ItemSizeBuilder get itemSize;
-  set itemSize(FilesSharingShare_ItemSizeBuilder? itemSize);
+  Share_ItemSizeBuilder get itemSize;
+  set itemSize(Share_ItemSizeBuilder? itemSize);
 
   int? get itemSource;
   set itemSource(int? itemSource);
 
-  FilesSharingShare_ItemType? get itemType;
-  set itemType(FilesSharingShare_ItemType? itemType);
+  Share_ItemType? get itemType;
+  set itemType(Share_ItemType? itemType);
 
   String? get label;
   set label(String? label);
@@ -8332,8 +8022,8 @@ abstract mixin class FilesSharingShareInterfaceBuilder {
   String? get shareWithLink;
   set shareWithLink(String? shareWithLink);
 
-  FilesSharingShare_StatusBuilder get status;
-  set status(FilesSharingShare_StatusBuilder? status);
+  Share_StatusBuilder get status;
+  set status(Share_StatusBuilder? status);
 
   int? get stime;
   set stime(int? stime);
@@ -8357,7 +8047,7 @@ abstract mixin class FilesSharingShareInterfaceBuilder {
   set url(String? url);
 }
 
-class _$FilesSharingShare extends FilesSharingShare {
+class _$Share extends Share {
   @override
   final String? attributes;
   @override
@@ -8387,11 +8077,11 @@ class _$FilesSharingShare extends FilesSharingShare {
   @override
   final int? itemPermissions;
   @override
-  final FilesSharingShare_ItemSize itemSize;
+  final Share_ItemSize itemSize;
   @override
   final int itemSource;
   @override
-  final FilesSharingShare_ItemType itemType;
+  final Share_ItemType itemType;
   @override
   final String label;
   @override
@@ -8425,7 +8115,7 @@ class _$FilesSharingShare extends FilesSharingShare {
   @override
   final String? shareWithLink;
   @override
-  final FilesSharingShare_Status? status;
+  final Share_Status? status;
   @override
   final int stime;
   @override
@@ -8441,10 +8131,9 @@ class _$FilesSharingShare extends FilesSharingShare {
   @override
   final String? url;
 
-  factory _$FilesSharingShare([void Function(FilesSharingShareBuilder)? updates]) =>
-      (FilesSharingShareBuilder()..update(updates))._build();
+  factory _$Share([void Function(ShareBuilder)? updates]) => (ShareBuilder()..update(updates))._build();
 
-  _$FilesSharingShare._(
+  _$Share._(
       {this.attributes,
       required this.canDelete,
       required this.canEdit,
@@ -8487,43 +8176,43 @@ class _$FilesSharingShare extends FilesSharingShare {
       required this.uidOwner,
       this.url})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(canDelete, r'FilesSharingShare', 'canDelete');
-    BuiltValueNullFieldError.checkNotNull(canEdit, r'FilesSharingShare', 'canEdit');
-    BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'FilesSharingShare', 'displaynameFileOwner');
-    BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'FilesSharingShare', 'displaynameOwner');
-    BuiltValueNullFieldError.checkNotNull(fileParent, r'FilesSharingShare', 'fileParent');
-    BuiltValueNullFieldError.checkNotNull(fileSource, r'FilesSharingShare', 'fileSource');
-    BuiltValueNullFieldError.checkNotNull(fileTarget, r'FilesSharingShare', 'fileTarget');
-    BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesSharingShare', 'hasPreview');
-    BuiltValueNullFieldError.checkNotNull(hideDownload, r'FilesSharingShare', 'hideDownload');
-    BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingShare', 'id');
-    BuiltValueNullFieldError.checkNotNull(itemMtime, r'FilesSharingShare', 'itemMtime');
-    BuiltValueNullFieldError.checkNotNull(itemSize, r'FilesSharingShare', 'itemSize');
-    BuiltValueNullFieldError.checkNotNull(itemSource, r'FilesSharingShare', 'itemSource');
-    BuiltValueNullFieldError.checkNotNull(itemType, r'FilesSharingShare', 'itemType');
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShare', 'label');
-    BuiltValueNullFieldError.checkNotNull(mailSend, r'FilesSharingShare', 'mailSend');
-    BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingShare', 'mimetype');
-    BuiltValueNullFieldError.checkNotNull(note, r'FilesSharingShare', 'note');
-    BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingShare', 'permissions');
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShare', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(stime, r'FilesSharingShare', 'stime');
-    BuiltValueNullFieldError.checkNotNull(storage, r'FilesSharingShare', 'storage');
-    BuiltValueNullFieldError.checkNotNull(storageId, r'FilesSharingShare', 'storageId');
-    BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'FilesSharingShare', 'uidFileOwner');
-    BuiltValueNullFieldError.checkNotNull(uidOwner, r'FilesSharingShare', 'uidOwner');
+    BuiltValueNullFieldError.checkNotNull(canDelete, r'Share', 'canDelete');
+    BuiltValueNullFieldError.checkNotNull(canEdit, r'Share', 'canEdit');
+    BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'Share', 'displaynameFileOwner');
+    BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'Share', 'displaynameOwner');
+    BuiltValueNullFieldError.checkNotNull(fileParent, r'Share', 'fileParent');
+    BuiltValueNullFieldError.checkNotNull(fileSource, r'Share', 'fileSource');
+    BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget');
+    BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview');
+    BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload');
+    BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id');
+    BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime');
+    BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize');
+    BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource');
+    BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType');
+    BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label');
+    BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend');
+    BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype');
+    BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note');
+    BuiltValueNullFieldError.checkNotNull(permissions, r'Share', 'permissions');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'Share', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(stime, r'Share', 'stime');
+    BuiltValueNullFieldError.checkNotNull(storage, r'Share', 'storage');
+    BuiltValueNullFieldError.checkNotNull(storageId, r'Share', 'storageId');
+    BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'Share', 'uidFileOwner');
+    BuiltValueNullFieldError.checkNotNull(uidOwner, r'Share', 'uidOwner');
   }
 
   @override
-  FilesSharingShare rebuild(void Function(FilesSharingShareBuilder) updates) => (toBuilder()..update(updates)).build();
+  Share rebuild(void Function(ShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareBuilder toBuilder() => FilesSharingShareBuilder()..replace(this);
+  ShareBuilder toBuilder() => ShareBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShare &&
+    return other is Share &&
         attributes == other.attributes &&
         canDelete == other.canDelete &&
         canEdit == other.canEdit &&
@@ -8617,7 +8306,7 @@ class _$FilesSharingShare extends FilesSharingShare {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShare')
+    return (newBuiltValueToStringHelper(r'Share')
           ..add('attributes', attributes)
           ..add('canDelete', canDelete)
           ..add('canEdit', canEdit)
@@ -8663,9 +8352,8 @@ class _$FilesSharingShare extends FilesSharingShare {
   }
 }
 
-class FilesSharingShareBuilder
-    implements Builder<FilesSharingShare, FilesSharingShareBuilder>, FilesSharingShareInterfaceBuilder {
-  _$FilesSharingShare? _$v;
+class ShareBuilder implements Builder<Share, ShareBuilder>, ShareInterfaceBuilder {
+  _$Share? _$v;
 
   String? _attributes;
   String? get attributes => _$this._attributes;
@@ -8724,17 +8412,17 @@ class FilesSharingShareBuilder
   int? get itemPermissions => _$this._itemPermissions;
   set itemPermissions(covariant int? itemPermissions) => _$this._itemPermissions = itemPermissions;
 
-  FilesSharingShare_ItemSizeBuilder? _itemSize;
-  FilesSharingShare_ItemSizeBuilder get itemSize => _$this._itemSize ??= FilesSharingShare_ItemSizeBuilder();
-  set itemSize(covariant FilesSharingShare_ItemSizeBuilder? itemSize) => _$this._itemSize = itemSize;
+  Share_ItemSizeBuilder? _itemSize;
+  Share_ItemSizeBuilder get itemSize => _$this._itemSize ??= Share_ItemSizeBuilder();
+  set itemSize(covariant Share_ItemSizeBuilder? itemSize) => _$this._itemSize = itemSize;
 
   int? _itemSource;
   int? get itemSource => _$this._itemSource;
   set itemSource(covariant int? itemSource) => _$this._itemSource = itemSource;
 
-  FilesSharingShare_ItemType? _itemType;
-  FilesSharingShare_ItemType? get itemType => _$this._itemType;
-  set itemType(covariant FilesSharingShare_ItemType? itemType) => _$this._itemType = itemType;
+  Share_ItemType? _itemType;
+  Share_ItemType? get itemType => _$this._itemType;
+  set itemType(covariant Share_ItemType? itemType) => _$this._itemType = itemType;
 
   String? _label;
   String? get label => _$this._label;
@@ -8803,9 +8491,9 @@ class FilesSharingShareBuilder
   String? get shareWithLink => _$this._shareWithLink;
   set shareWithLink(covariant String? shareWithLink) => _$this._shareWithLink = shareWithLink;
 
-  FilesSharingShare_StatusBuilder? _status;
-  FilesSharingShare_StatusBuilder get status => _$this._status ??= FilesSharingShare_StatusBuilder();
-  set status(covariant FilesSharingShare_StatusBuilder? status) => _$this._status = status;
+  Share_StatusBuilder? _status;
+  Share_StatusBuilder get status => _$this._status ??= Share_StatusBuilder();
+  set status(covariant Share_StatusBuilder? status) => _$this._status = status;
 
   int? _stime;
   int? get stime => _$this._stime;
@@ -8835,9 +8523,9 @@ class FilesSharingShareBuilder
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  FilesSharingShareBuilder();
+  ShareBuilder();
 
-  FilesSharingShareBuilder get _$this {
+  ShareBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _attributes = $v.attributes;
@@ -8887,66 +8575,65 @@ class FilesSharingShareBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShare other) {
+  void replace(covariant Share other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShare;
+    _$v = other as _$Share;
   }
 
   @override
-  void update(void Function(FilesSharingShareBuilder)? updates) {
+  void update(void Function(ShareBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShare build() => _build();
+  Share build() => _build();
 
-  _$FilesSharingShare _build() {
-    _$FilesSharingShare _$result;
+  _$Share _build() {
+    _$Share _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShare._(
+          _$Share._(
               attributes: attributes,
-              canDelete: BuiltValueNullFieldError.checkNotNull(canDelete, r'FilesSharingShare', 'canDelete'),
-              canEdit: BuiltValueNullFieldError.checkNotNull(canEdit, r'FilesSharingShare', 'canEdit'),
-              displaynameFileOwner: BuiltValueNullFieldError.checkNotNull(
-                  displaynameFileOwner, r'FilesSharingShare', 'displaynameFileOwner'),
-              displaynameOwner:
-                  BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'FilesSharingShare', 'displaynameOwner'),
+              canDelete: BuiltValueNullFieldError.checkNotNull(canDelete, r'Share', 'canDelete'),
+              canEdit: BuiltValueNullFieldError.checkNotNull(canEdit, r'Share', 'canEdit'),
+              displaynameFileOwner:
+                  BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'Share', 'displaynameFileOwner'),
+              displaynameOwner: BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'Share', 'displaynameOwner'),
               expiration: expiration,
-              fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'FilesSharingShare', 'fileParent'),
-              fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'FilesSharingShare', 'fileSource'),
-              fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'FilesSharingShare', 'fileTarget'),
-              hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'FilesSharingShare', 'hasPreview'),
-              hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'FilesSharingShare', 'hideDownload'),
-              id: BuiltValueNullFieldError.checkNotNull(id, r'FilesSharingShare', 'id'),
-              itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'FilesSharingShare', 'itemMtime'),
+              fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'Share', 'fileParent'),
+              fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'Share', 'fileSource'),
+              fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget'),
+              hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview'),
+              hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
+              itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
               itemPermissions: itemPermissions,
               itemSize: itemSize.build(),
-              itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'FilesSharingShare', 'itemSource'),
-              itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'FilesSharingShare', 'itemType'),
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShare', 'label'),
-              mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'FilesSharingShare', 'mailSend'),
-              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'FilesSharingShare', 'mimetype'),
-              note: BuiltValueNullFieldError.checkNotNull(note, r'FilesSharingShare', 'note'),
+              itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
+              itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label'),
+              mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend'),
+              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype'),
+              note: BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note'),
               parent: parent,
               password: password,
               passwordExpirationTime: passwordExpirationTime,
               path: path,
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'FilesSharingShare', 'permissions'),
+              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Share', 'permissions'),
               sendPasswordByTalk: sendPasswordByTalk,
-              shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShare', 'shareType'),
+              shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'Share', 'shareType'),
               shareWith: shareWith,
               shareWithAvatar: shareWithAvatar,
               shareWithDisplayname: shareWithDisplayname,
               shareWithDisplaynameUnique: shareWithDisplaynameUnique,
               shareWithLink: shareWithLink,
               status: _status?.build(),
-              stime: BuiltValueNullFieldError.checkNotNull(stime, r'FilesSharingShare', 'stime'),
-              storage: BuiltValueNullFieldError.checkNotNull(storage, r'FilesSharingShare', 'storage'),
-              storageId: BuiltValueNullFieldError.checkNotNull(storageId, r'FilesSharingShare', 'storageId'),
+              stime: BuiltValueNullFieldError.checkNotNull(stime, r'Share', 'stime'),
+              storage: BuiltValueNullFieldError.checkNotNull(storage, r'Share', 'storage'),
+              storageId: BuiltValueNullFieldError.checkNotNull(storageId, r'Share', 'storageId'),
               token: token,
-              uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'FilesSharingShare', 'uidFileOwner'),
-              uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'FilesSharingShare', 'uidOwner'),
+              uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'Share', 'uidFileOwner'),
+              uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'Share', 'uidOwner'),
               url: url);
     } catch (_) {
       late String _$failedField;
@@ -8957,7 +8644,7 @@ class FilesSharingShareBuilder
         _$failedField = 'status';
         _status?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShare', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Share', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -8966,47 +8653,44 @@ class FilesSharingShareBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiGetSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingShare> get data;
-  set data(ListBuilder<FilesSharingShare>? data);
+  ListBuilder<Share> get data;
+  set data(ListBuilder<Share>? data);
 }
 
-class _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs
-    extends FilesSharingShareapiGetSharesResponseApplicationJson_Ocs {
+class _$ShareapiGetSharesResponseApplicationJson_Ocs extends ShareapiGetSharesResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingShare> data;
+  final BuiltList<Share> data;
 
-  factory _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGetSharesResponseApplicationJson_Ocs(
+          [void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiGetSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiGetSharesResponseApplicationJson_Ocs', 'data');
+  _$ShareapiGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiGetSharesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiGetSharesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiGetSharesResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiGetSharesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetSharesResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiGetSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -9020,31 +8704,30 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetSharesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiGetSharesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder
+class ShareapiGetSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiGetSharesResponseApplicationJson_Ocs,
-            FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiGetSharesResponseApplicationJson_Ocs, ShareapiGetSharesResponseApplicationJson_OcsBuilder>,
+        ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiGetSharesResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingShare>? _data;
-  ListBuilder<FilesSharingShare> get data => _$this._data ??= ListBuilder<FilesSharingShare>();
-  set data(covariant ListBuilder<FilesSharingShare>? data) => _$this._data = data;
+  ListBuilder<Share>? _data;
+  ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
+  set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder();
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9055,24 +8738,471 @@ class FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiGetSharesResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiGetSharesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiGetSharesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson_Ocs build() => _build();
+  ShareapiGetSharesResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs _$result;
+  _$ShareapiGetSharesResponseApplicationJson_Ocs _build() {
+    _$ShareapiGetSharesResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ShareapiGetSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiGetSharesResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ShareapiGetSharesResponseApplicationJson extends ShareapiGetSharesResponseApplicationJson {
+  @override
+  final ShareapiGetSharesResponseApplicationJson_Ocs ocs;
+
+  factory _$ShareapiGetSharesResponseApplicationJson(
+          [void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ShareapiGetSharesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiGetSharesResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ShareapiGetSharesResponseApplicationJson rebuild(
+          void Function(ShareapiGetSharesResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiGetSharesResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiGetSharesResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiGetSharesResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiGetSharesResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ShareapiGetSharesResponseApplicationJsonBuilder
+    implements
+        Builder<ShareapiGetSharesResponseApplicationJson, ShareapiGetSharesResponseApplicationJsonBuilder>,
+        ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiGetSharesResponseApplicationJson? _$v;
+
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiGetSharesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ShareapiGetSharesResponseApplicationJsonBuilder();
+
+  ShareapiGetSharesResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiGetSharesResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiGetSharesResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiGetSharesResponseApplicationJson build() => _build();
+
+  _$ShareapiGetSharesResponseApplicationJson _build() {
+    _$ShareapiGetSharesResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ShareapiGetSharesResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiCreateShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ShareBuilder get data;
+  set data(ShareBuilder? data);
+}
+
+class _$ShareapiCreateShareResponseApplicationJson_Ocs extends ShareapiCreateShareResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Share data;
+
+  factory _$ShareapiCreateShareResponseApplicationJson_Ocs(
+          [void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiCreateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ShareapiCreateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiCreateShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiCreateShareResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ShareapiCreateShareResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiCreateShareResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiCreateShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiCreateShareResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ShareapiCreateShareResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ShareapiCreateShareResponseApplicationJson_Ocs, ShareapiCreateShareResponseApplicationJson_OcsBuilder>,
+        ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiCreateShareResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ShareBuilder? _data;
+  ShareBuilder get data => _$this._data ??= ShareBuilder();
+  set data(covariant ShareBuilder? data) => _$this._data = data;
+
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder();
+
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiCreateShareResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiCreateShareResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiCreateShareResponseApplicationJson_Ocs build() => _build();
+
+  _$ShareapiCreateShareResponseApplicationJson_Ocs _build() {
+    _$ShareapiCreateShareResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ShareapiCreateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiCreateShareResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ShareapiCreateShareResponseApplicationJson extends ShareapiCreateShareResponseApplicationJson {
+  @override
+  final ShareapiCreateShareResponseApplicationJson_Ocs ocs;
+
+  factory _$ShareapiCreateShareResponseApplicationJson(
+          [void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiCreateShareResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ShareapiCreateShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiCreateShareResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ShareapiCreateShareResponseApplicationJson rebuild(
+          void Function(ShareapiCreateShareResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiCreateShareResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiCreateShareResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiCreateShareResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiCreateShareResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ShareapiCreateShareResponseApplicationJsonBuilder
+    implements
+        Builder<ShareapiCreateShareResponseApplicationJson, ShareapiCreateShareResponseApplicationJsonBuilder>,
+        ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiCreateShareResponseApplicationJson? _$v;
+
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiCreateShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ShareapiCreateShareResponseApplicationJsonBuilder();
+
+  ShareapiCreateShareResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiCreateShareResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiCreateShareResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiCreateShareResponseApplicationJson build() => _build();
+
+  _$ShareapiCreateShareResponseApplicationJson _build() {
+    _$ShareapiCreateShareResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ShareapiCreateShareResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<Share> get data;
+  set data(ListBuilder<Share>? data);
+}
+
+class _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs
+    extends ShareapiGetInheritedSharesResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<Share> data;
+
+  factory _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs(
+          [void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ShareapiGetInheritedSharesResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiGetInheritedSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+            ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder>,
+        ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<Share>? _data;
+  ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
+  set data(covariant ListBuilder<Share>? data) => _$this._data = data;
+
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
+
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiGetInheritedSharesResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiGetInheritedSharesResponseApplicationJson_Ocs build() => _build();
+
+  _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _build() {
+    _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result =
-          _$v ?? _$FilesSharingShareapiGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9082,7 +9212,7 @@ class FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9091,39 +9221,38 @@ class FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiGetSharesResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiGetInheritedSharesResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiGetSharesResponseApplicationJson
-    extends FilesSharingShareapiGetSharesResponseApplicationJson {
+class _$ShareapiGetInheritedSharesResponseApplicationJson extends ShareapiGetInheritedSharesResponseApplicationJson {
   @override
-  final FilesSharingShareapiGetSharesResponseApplicationJson_Ocs ocs;
+  final ShareapiGetInheritedSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiGetSharesResponseApplicationJson(
-          [void Function(FilesSharingShareapiGetSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGetInheritedSharesResponseApplicationJson(
+          [void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiGetInheritedSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiGetSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiGetSharesResponseApplicationJson', 'ocs');
+  _$ShareapiGetInheritedSharesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiGetInheritedSharesResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiGetSharesResponseApplicationJsonBuilder) updates) =>
+  ShareapiGetInheritedSharesResponseApplicationJson rebuild(
+          void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiGetSharesResponseApplicationJsonBuilder()..replace(this);
+  ShareapiGetInheritedSharesResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiGetInheritedSharesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetSharesResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiGetInheritedSharesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9136,26 +9265,26 @@ class _$FilesSharingShareapiGetSharesResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetSharesResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'ShareapiGetInheritedSharesResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class FilesSharingShareapiGetSharesResponseApplicationJsonBuilder
+class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiGetSharesResponseApplicationJson,
-            FilesSharingShareapiGetSharesResponseApplicationJsonBuilder>,
-        FilesSharingShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiGetSharesResponseApplicationJson? _$v;
+        Builder<ShareapiGetInheritedSharesResponseApplicationJson,
+            ShareapiGetInheritedSharesResponseApplicationJsonBuilder>,
+        ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiGetInheritedSharesResponseApplicationJson? _$v;
 
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiGetSharesResponseApplicationJsonBuilder();
+  ShareapiGetInheritedSharesResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiGetSharesResponseApplicationJsonBuilder get _$this {
+  ShareapiGetInheritedSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9165,23 +9294,23 @@ class FilesSharingShareapiGetSharesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiGetSharesResponseApplicationJson other) {
+  void replace(covariant ShareapiGetInheritedSharesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetSharesResponseApplicationJson;
+    _$v = other as _$ShareapiGetInheritedSharesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiGetSharesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiGetSharesResponseApplicationJson build() => _build();
+  ShareapiGetInheritedSharesResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiGetSharesResponseApplicationJson _build() {
-    _$FilesSharingShareapiGetSharesResponseApplicationJson _$result;
+  _$ShareapiGetInheritedSharesResponseApplicationJson _build() {
+    _$ShareapiGetInheritedSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiGetSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9189,7 +9318,7 @@ class FilesSharingShareapiGetSharesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetSharesResponseApplicationJson', _$failedField, e.toString());
+            r'ShareapiGetInheritedSharesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9198,47 +9327,44 @@ class FilesSharingShareapiGetSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiPendingSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesSharingShareBuilder get data;
-  set data(FilesSharingShareBuilder? data);
+  ListBuilder<Share> get data;
+  set data(ListBuilder<Share>? data);
 }
 
-class _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs
-    extends FilesSharingShareapiCreateShareResponseApplicationJson_Ocs {
+class _$ShareapiPendingSharesResponseApplicationJson_Ocs extends ShareapiPendingSharesResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesSharingShare data;
+  final BuiltList<Share> data;
 
-  factory _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiPendingSharesResponseApplicationJson_Ocs(
+          [void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiPendingSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiCreateShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiCreateShareResponseApplicationJson_Ocs', 'data');
+  _$ShareapiPendingSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiPendingSharesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiPendingSharesResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiPendingSharesResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiPendingSharesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiCreateShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiPendingSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -9252,31 +9378,31 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiCreateShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiPendingSharesResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder
+class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiCreateShareResponseApplicationJson_Ocs,
-            FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiPendingSharesResponseApplicationJson_Ocs,
+            ShareapiPendingSharesResponseApplicationJson_OcsBuilder>,
+        ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiPendingSharesResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesSharingShareBuilder? _data;
-  FilesSharingShareBuilder get data => _$this._data ??= FilesSharingShareBuilder();
-  set data(covariant FilesSharingShareBuilder? data) => _$this._data = data;
+  ListBuilder<Share>? _data;
+  ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
+  set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder();
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9287,24 +9413,23 @@ class FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiCreateShareResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiPendingSharesResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiPendingSharesResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson_Ocs build() => _build();
+  ShareapiPendingSharesResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs _$result;
+  _$ShareapiPendingSharesResponseApplicationJson_Ocs _build() {
+    _$ShareapiPendingSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingShareapiCreateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9314,7 +9439,7 @@ class FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiCreateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareapiPendingSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9323,39 +9448,38 @@ class FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiCreateShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiPendingSharesResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiCreateShareResponseApplicationJson
-    extends FilesSharingShareapiCreateShareResponseApplicationJson {
+class _$ShareapiPendingSharesResponseApplicationJson extends ShareapiPendingSharesResponseApplicationJson {
   @override
-  final FilesSharingShareapiCreateShareResponseApplicationJson_Ocs ocs;
+  final ShareapiPendingSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiCreateShareResponseApplicationJson(
-          [void Function(FilesSharingShareapiCreateShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiCreateShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiPendingSharesResponseApplicationJson(
+          [void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiPendingSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiCreateShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiCreateShareResponseApplicationJson', 'ocs');
+  _$ShareapiPendingSharesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiPendingSharesResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiCreateShareResponseApplicationJsonBuilder) updates) =>
+  ShareapiPendingSharesResponseApplicationJson rebuild(
+          void Function(ShareapiPendingSharesResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiCreateShareResponseApplicationJsonBuilder()..replace(this);
+  ShareapiPendingSharesResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiPendingSharesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiCreateShareResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiPendingSharesResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9368,26 +9492,24 @@ class _$FilesSharingShareapiCreateShareResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiCreateShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiPendingSharesResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareapiCreateShareResponseApplicationJsonBuilder
+class ShareapiPendingSharesResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiCreateShareResponseApplicationJson,
-            FilesSharingShareapiCreateShareResponseApplicationJsonBuilder>,
-        FilesSharingShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiCreateShareResponseApplicationJson? _$v;
+        Builder<ShareapiPendingSharesResponseApplicationJson, ShareapiPendingSharesResponseApplicationJsonBuilder>,
+        ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiPendingSharesResponseApplicationJson? _$v;
 
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiCreateShareResponseApplicationJsonBuilder();
+  ShareapiPendingSharesResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiCreateShareResponseApplicationJsonBuilder get _$this {
+  ShareapiPendingSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9397,31 +9519,30 @@ class FilesSharingShareapiCreateShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiCreateShareResponseApplicationJson other) {
+  void replace(covariant ShareapiPendingSharesResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiCreateShareResponseApplicationJson;
+    _$v = other as _$ShareapiPendingSharesResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiCreateShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiCreateShareResponseApplicationJson build() => _build();
+  ShareapiPendingSharesResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiCreateShareResponseApplicationJson _build() {
-    _$FilesSharingShareapiCreateShareResponseApplicationJson _$result;
+  _$ShareapiPendingSharesResponseApplicationJson _build() {
+    _$ShareapiPendingSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiCreateShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiCreateShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiPendingSharesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9430,50 +9551,44 @@ class FilesSharingShareapiCreateShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiGetShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingShare> get data;
-  set data(ListBuilder<FilesSharingShare>? data);
+  ShareBuilder get data;
+  set data(ShareBuilder? data);
 }
 
-class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs
-    extends FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs {
+class _$ShareapiGetShareResponseApplicationJson_Ocs extends ShareapiGetShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingShare> data;
+  final Share data;
 
-  factory _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGetShareResponseApplicationJson_Ocs(
+          [void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs', 'data');
+  _$ShareapiGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiGetShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiGetShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiGetShareResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiGetShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiGetShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -9487,31 +9602,30 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiGetShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
+class ShareapiGetShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs,
-            FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiGetShareResponseApplicationJson_Ocs, ShareapiGetShareResponseApplicationJson_OcsBuilder>,
+        ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiGetShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingShare>? _data;
-  ListBuilder<FilesSharingShare> get data => _$this._data ??= ListBuilder<FilesSharingShare>();
-  set data(covariant ListBuilder<FilesSharingShare>? data) => _$this._data = data;
+  ShareBuilder? _data;
+  ShareBuilder get data => _$this._data ??= ShareBuilder();
+  set data(covariant ShareBuilder? data) => _$this._data = data;
 
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
+  ShareapiGetShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiGetShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9522,24 +9636,23 @@ class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiGetShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiGetShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs build() => _build();
+  ShareapiGetShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs _$result;
+  _$ShareapiGetShareResponseApplicationJson_Ocs _build() {
+    _$ShareapiGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9548,8 +9661,7 @@ class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiGetShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9558,39 +9670,38 @@ class FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiGetShareResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiGetShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiGetShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson
-    extends FilesSharingShareapiGetInheritedSharesResponseApplicationJson {
+class _$ShareapiGetShareResponseApplicationJson extends ShareapiGetShareResponseApplicationJson {
   @override
-  final FilesSharingShareapiGetInheritedSharesResponseApplicationJson_Ocs ocs;
+  final ShareapiGetShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson(
-          [void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGetShareResponseApplicationJson(
+          [void Function(ShareapiGetShareResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiGetShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson', 'ocs');
+  _$ShareapiGetShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiGetShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder) updates) =>
+  ShareapiGetShareResponseApplicationJson rebuild(
+          void Function(ShareapiGetShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder()..replace(this);
+  ShareapiGetShareResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiGetShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetInheritedSharesResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiGetShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9603,27 +9714,24 @@ class _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson')
-          ..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiGetShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder
+class ShareapiGetShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiGetInheritedSharesResponseApplicationJson,
-            FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder>,
-        FilesSharingShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson? _$v;
+        Builder<ShareapiGetShareResponseApplicationJson, ShareapiGetShareResponseApplicationJsonBuilder>,
+        ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiGetShareResponseApplicationJson? _$v;
 
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiGetShareResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiGetShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiGetShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder();
+  ShareapiGetShareResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder get _$this {
+  ShareapiGetShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9633,31 +9741,30 @@ class FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiGetInheritedSharesResponseApplicationJson other) {
+  void replace(covariant ShareapiGetShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson;
+    _$v = other as _$ShareapiGetShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiGetShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiGetInheritedSharesResponseApplicationJson build() => _build();
+  ShareapiGetShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson _build() {
-    _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson _$result;
+  _$ShareapiGetShareResponseApplicationJson _build() {
+    _$ShareapiGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiGetInheritedSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetInheritedSharesResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiGetShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9666,50 +9773,44 @@ class FilesSharingShareapiGetInheritedSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiUpdateShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<FilesSharingShare> get data;
-  set data(ListBuilder<FilesSharingShare>? data);
+  ShareBuilder get data;
+  set data(ShareBuilder? data);
 }
 
-class _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs
-    extends FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs {
+class _$ShareapiUpdateShareResponseApplicationJson_Ocs extends ShareapiUpdateShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final BuiltList<FilesSharingShare> data;
+  final Share data;
 
-  factory _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiUpdateShareResponseApplicationJson_Ocs(
+          [void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiUpdateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs', 'data');
+  _$ShareapiUpdateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiUpdateShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiUpdateShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiUpdateShareResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiUpdateShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiUpdateShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -9723,31 +9824,30 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiUpdateShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder
+class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs,
-            FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiUpdateShareResponseApplicationJson_Ocs, ShareapiUpdateShareResponseApplicationJson_OcsBuilder>,
+        ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiUpdateShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<FilesSharingShare>? _data;
-  ListBuilder<FilesSharingShare> get data => _$this._data ??= ListBuilder<FilesSharingShare>();
-  set data(covariant ListBuilder<FilesSharingShare>? data) => _$this._data = data;
+  ShareBuilder? _data;
+  ShareBuilder get data => _$this._data ??= ShareBuilder();
+  set data(covariant ShareBuilder? data) => _$this._data = data;
 
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder();
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -9758,24 +9858,23 @@ class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiUpdateShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiUpdateShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs build() => _build();
+  ShareapiUpdateShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs _$result;
+  _$ShareapiUpdateShareResponseApplicationJson_Ocs _build() {
+    _$ShareapiUpdateShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9785,7 +9884,7 @@ class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareapiUpdateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9794,39 +9893,38 @@ class FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiPendingSharesResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiUpdateShareResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiPendingSharesResponseApplicationJson
-    extends FilesSharingShareapiPendingSharesResponseApplicationJson {
+class _$ShareapiUpdateShareResponseApplicationJson extends ShareapiUpdateShareResponseApplicationJson {
   @override
-  final FilesSharingShareapiPendingSharesResponseApplicationJson_Ocs ocs;
+  final ShareapiUpdateShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiPendingSharesResponseApplicationJson(
-          [void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiUpdateShareResponseApplicationJson(
+          [void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiUpdateShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiPendingSharesResponseApplicationJson', 'ocs');
+  _$ShareapiUpdateShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiUpdateShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder) updates) =>
+  ShareapiUpdateShareResponseApplicationJson rebuild(
+          void Function(ShareapiUpdateShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder()..replace(this);
+  ShareapiUpdateShareResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiUpdateShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiPendingSharesResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiUpdateShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -9839,26 +9937,24 @@ class _$FilesSharingShareapiPendingSharesResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiPendingSharesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiUpdateShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder
+class ShareapiUpdateShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiPendingSharesResponseApplicationJson,
-            FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder>,
-        FilesSharingShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson? _$v;
+        Builder<ShareapiUpdateShareResponseApplicationJson, ShareapiUpdateShareResponseApplicationJsonBuilder>,
+        ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiUpdateShareResponseApplicationJson? _$v;
 
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder();
+  ShareapiUpdateShareResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder get _$this {
+  ShareapiUpdateShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -9868,31 +9964,30 @@ class FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiPendingSharesResponseApplicationJson other) {
+  void replace(covariant ShareapiUpdateShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiPendingSharesResponseApplicationJson;
+    _$v = other as _$ShareapiUpdateShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiPendingSharesResponseApplicationJson build() => _build();
+  ShareapiUpdateShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiPendingSharesResponseApplicationJson _build() {
-    _$FilesSharingShareapiPendingSharesResponseApplicationJson _$result;
+  _$ShareapiUpdateShareResponseApplicationJson _build() {
+    _$ShareapiUpdateShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiPendingSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiPendingSharesResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiUpdateShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -9901,509 +9996,44 @@ class FilesSharingShareapiPendingSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiGetShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
-
-  FilesSharingShareBuilder get data;
-  set data(FilesSharingShareBuilder? data);
-}
-
-class _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs
-    extends FilesSharingShareapiGetShareResponseApplicationJson_Ocs {
-  @override
-  final FilesSharingOCSMeta meta;
-  @override
-  final FilesSharingShare data;
-
-  factory _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiGetShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiGetShareResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetShareResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder
-    implements
-        Builder<FilesSharingShareapiGetShareResponseApplicationJson_Ocs,
-            FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs? _$v;
-
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  FilesSharingShareBuilder? _data;
-  FilesSharingShareBuilder get data => _$this._data ??= FilesSharingShareBuilder();
-  set data(covariant FilesSharingShareBuilder? data) => _$this._data = data;
-
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder();
-
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FilesSharingShareapiGetShareResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJson_Ocs build() => _build();
-
-  _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs _$result;
-    try {
-      _$result =
-          _$v ?? _$FilesSharingShareapiGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetShareResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class FilesSharingShareapiGetShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiGetShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$FilesSharingShareapiGetShareResponseApplicationJson
-    extends FilesSharingShareapiGetShareResponseApplicationJson {
-  @override
-  final FilesSharingShareapiGetShareResponseApplicationJson_Ocs ocs;
-
-  factory _$FilesSharingShareapiGetShareResponseApplicationJson(
-          [void Function(FilesSharingShareapiGetShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiGetShareResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$FilesSharingShareapiGetShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiGetShareResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiGetShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiGetShareResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FilesSharingShareapiGetShareResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiGetShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class FilesSharingShareapiGetShareResponseApplicationJsonBuilder
-    implements
-        Builder<FilesSharingShareapiGetShareResponseApplicationJson,
-            FilesSharingShareapiGetShareResponseApplicationJsonBuilder>,
-        FilesSharingShareapiGetShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiGetShareResponseApplicationJson? _$v;
-
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  FilesSharingShareapiGetShareResponseApplicationJsonBuilder();
-
-  FilesSharingShareapiGetShareResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FilesSharingShareapiGetShareResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiGetShareResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(FilesSharingShareapiGetShareResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FilesSharingShareapiGetShareResponseApplicationJson build() => _build();
-
-  _$FilesSharingShareapiGetShareResponseApplicationJson _build() {
-    _$FilesSharingShareapiGetShareResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$FilesSharingShareapiGetShareResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiGetShareResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
-
-  FilesSharingShareBuilder get data;
-  set data(FilesSharingShareBuilder? data);
-}
-
-class _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs
-    extends FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs {
-  @override
-  final FilesSharingOCSMeta meta;
-  @override
-  final FilesSharingShare data;
-
-  factory _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder
-    implements
-        Builder<FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs,
-            FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs? _$v;
-
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  FilesSharingShareBuilder? _data;
-  FilesSharingShareBuilder get data => _$this._data ??= FilesSharingShareBuilder();
-  set data(covariant FilesSharingShareBuilder? data) => _$this._data = data;
-
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder();
-
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs build() => _build();
-
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs _$result;
-    try {
-      _$result =
-          _$v ?? _$FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class FilesSharingShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiUpdateShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$FilesSharingShareapiUpdateShareResponseApplicationJson
-    extends FilesSharingShareapiUpdateShareResponseApplicationJson {
-  @override
-  final FilesSharingShareapiUpdateShareResponseApplicationJson_Ocs ocs;
-
-  factory _$FilesSharingShareapiUpdateShareResponseApplicationJson(
-          [void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiUpdateShareResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FilesSharingShareapiUpdateShareResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiUpdateShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder
-    implements
-        Builder<FilesSharingShareapiUpdateShareResponseApplicationJson,
-            FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder>,
-        FilesSharingShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson? _$v;
-
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder();
-
-  FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FilesSharingShareapiUpdateShareResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiUpdateShareResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(FilesSharingShareapiUpdateShareResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FilesSharingShareapiUpdateShareResponseApplicationJson build() => _build();
-
-  _$FilesSharingShareapiUpdateShareResponseApplicationJson _build() {
-    _$FilesSharingShareapiUpdateShareResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$FilesSharingShareapiUpdateShareResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiUpdateShareResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiDeleteShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs
-    extends FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs {
+class _$ShareapiDeleteShareResponseApplicationJson_Ocs extends ShareapiDeleteShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiDeleteShareResponseApplicationJson_Ocs(
+          [void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiDeleteShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs', 'data');
+  _$ShareapiDeleteShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiDeleteShareResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiDeleteShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiDeleteShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -10417,31 +10047,30 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiDeleteShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder
+class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs,
-            FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiDeleteShareResponseApplicationJson_Ocs, ShareapiDeleteShareResponseApplicationJson_OcsBuilder>,
+        ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiDeleteShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder();
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -10452,27 +10081,27 @@ class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiDeleteShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiDeleteShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs build() => _build();
+  ShareapiDeleteShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs _$result;
+  _$ShareapiDeleteShareResponseApplicationJson_Ocs _build() {
+    _$ShareapiDeleteShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs._(
+          _$ShareapiDeleteShareResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs', 'data'));
+                  data, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -10480,7 +10109,7 @@ class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareapiDeleteShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10489,39 +10118,38 @@ class FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiDeleteShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiDeleteShareResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiDeleteShareResponseApplicationJson
-    extends FilesSharingShareapiDeleteShareResponseApplicationJson {
+class _$ShareapiDeleteShareResponseApplicationJson extends ShareapiDeleteShareResponseApplicationJson {
   @override
-  final FilesSharingShareapiDeleteShareResponseApplicationJson_Ocs ocs;
+  final ShareapiDeleteShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiDeleteShareResponseApplicationJson(
-          [void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiDeleteShareResponseApplicationJson(
+          [void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiDeleteShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiDeleteShareResponseApplicationJson', 'ocs');
+  _$ShareapiDeleteShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiDeleteShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder) updates) =>
+  ShareapiDeleteShareResponseApplicationJson rebuild(
+          void Function(ShareapiDeleteShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder()..replace(this);
+  ShareapiDeleteShareResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiDeleteShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiDeleteShareResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiDeleteShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -10534,26 +10162,24 @@ class _$FilesSharingShareapiDeleteShareResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiDeleteShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiDeleteShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder
+class ShareapiDeleteShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiDeleteShareResponseApplicationJson,
-            FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder>,
-        FilesSharingShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson? _$v;
+        Builder<ShareapiDeleteShareResponseApplicationJson, ShareapiDeleteShareResponseApplicationJsonBuilder>,
+        ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiDeleteShareResponseApplicationJson? _$v;
 
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder();
+  ShareapiDeleteShareResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder get _$this {
+  ShareapiDeleteShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -10563,31 +10189,30 @@ class FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiDeleteShareResponseApplicationJson other) {
+  void replace(covariant ShareapiDeleteShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiDeleteShareResponseApplicationJson;
+    _$v = other as _$ShareapiDeleteShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiDeleteShareResponseApplicationJson build() => _build();
+  ShareapiDeleteShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiDeleteShareResponseApplicationJson _build() {
-    _$FilesSharingShareapiDeleteShareResponseApplicationJson _$result;
+  _$ShareapiDeleteShareResponseApplicationJson _build() {
+    _$ShareapiDeleteShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiDeleteShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiDeleteShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiDeleteShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiDeleteShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10596,47 +10221,44 @@ class FilesSharingShareapiDeleteShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareapiAcceptShareResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
   JsonObject? get data;
   set data(JsonObject? data);
 }
 
-class _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs
-    extends FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs {
+class _$ShareapiAcceptShareResponseApplicationJson_Ocs extends ShareapiAcceptShareResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiAcceptShareResponseApplicationJson_Ocs(
+          [void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs', 'data');
+  _$ShareapiAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
+  ShareapiAcceptShareResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiAcceptShareResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareapiAcceptShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -10650,31 +10272,30 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareapiAcceptShareResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder
+class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs,
-            FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs? _$v;
+        Builder<ShareapiAcceptShareResponseApplicationJson_Ocs, ShareapiAcceptShareResponseApplicationJson_OcsBuilder>,
+        ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiAcceptShareResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder();
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder get _$this {
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -10685,27 +10306,27 @@ class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareapiAcceptShareResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs;
+    _$v = other as _$ShareapiAcceptShareResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs build() => _build();
+  ShareapiAcceptShareResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs _$result;
+  _$ShareapiAcceptShareResponseApplicationJson_Ocs _build() {
+    _$ShareapiAcceptShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs._(
+          _$ShareapiAcceptShareResponseApplicationJson_Ocs._(
               meta: meta.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs', 'data'));
+                  data, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -10713,7 +10334,7 @@ class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareapiAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10722,39 +10343,38 @@ class FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareapiAcceptShareResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareapiAcceptShareResponseApplicationJsonInterface other);
+  void update(void Function(ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareapiAcceptShareResponseApplicationJson
-    extends FilesSharingShareapiAcceptShareResponseApplicationJson {
+class _$ShareapiAcceptShareResponseApplicationJson extends ShareapiAcceptShareResponseApplicationJson {
   @override
-  final FilesSharingShareapiAcceptShareResponseApplicationJson_Ocs ocs;
+  final ShareapiAcceptShareResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareapiAcceptShareResponseApplicationJson(
-          [void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiAcceptShareResponseApplicationJson(
+          [void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareapiAcceptShareResponseApplicationJson', 'ocs');
+  _$ShareapiAcceptShareResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiAcceptShareResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson rebuild(
-          void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder) updates) =>
+  ShareapiAcceptShareResponseApplicationJson rebuild(
+          void Function(ShareapiAcceptShareResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder()..replace(this);
+  ShareapiAcceptShareResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiAcceptShareResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareapiAcceptShareResponseApplicationJson && ocs == other.ocs;
+    return other is ShareapiAcceptShareResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -10767,26 +10387,24 @@ class _$FilesSharingShareapiAcceptShareResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareapiAcceptShareResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiAcceptShareResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder
+class ShareapiAcceptShareResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareapiAcceptShareResponseApplicationJson,
-            FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder>,
-        FilesSharingShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson? _$v;
+        Builder<ShareapiAcceptShareResponseApplicationJson, ShareapiAcceptShareResponseApplicationJsonBuilder>,
+        ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiAcceptShareResponseApplicationJson? _$v;
 
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder();
+  ShareapiAcceptShareResponseApplicationJsonBuilder();
 
-  FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder get _$this {
+  ShareapiAcceptShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -10796,31 +10414,30 @@ class FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareapiAcceptShareResponseApplicationJson other) {
+  void replace(covariant ShareapiAcceptShareResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareapiAcceptShareResponseApplicationJson;
+    _$v = other as _$ShareapiAcceptShareResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareapiAcceptShareResponseApplicationJson build() => _build();
+  ShareapiAcceptShareResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareapiAcceptShareResponseApplicationJson _build() {
-    _$FilesSharingShareapiAcceptShareResponseApplicationJson _$result;
+  _$ShareapiAcceptShareResponseApplicationJson _build() {
+    _$ShareapiAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareapiAcceptShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareapiAcceptShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareapiAcceptShareResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareapiAcceptShareResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10829,7 +10446,7 @@ class FilesSharingShareapiAcceptShareResponseApplicationJsonBuilder
   }
 }
 
-class _$FilesSharingShareesapiSearchShareType extends FilesSharingShareesapiSearchShareType {
+class _$ShareesapiSearchShareType extends ShareesapiSearchShareType {
   @override
   final JsonObject data;
   @override
@@ -10837,26 +10454,24 @@ class _$FilesSharingShareesapiSearchShareType extends FilesSharingShareesapiSear
   @override
   final BuiltList<int>? builtListInt;
 
-  factory _$FilesSharingShareesapiSearchShareType(
-          [void Function(FilesSharingShareesapiSearchShareTypeBuilder)? updates]) =>
-      (FilesSharingShareesapiSearchShareTypeBuilder()..update(updates))._build();
+  factory _$ShareesapiSearchShareType([void Function(ShareesapiSearchShareTypeBuilder)? updates]) =>
+      (ShareesapiSearchShareTypeBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiSearchShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareesapiSearchShareType', 'data');
+  _$ShareesapiSearchShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiSearchShareType', 'data');
   }
 
   @override
-  FilesSharingShareesapiSearchShareType rebuild(void Function(FilesSharingShareesapiSearchShareTypeBuilder) updates) =>
+  ShareesapiSearchShareType rebuild(void Function(ShareesapiSearchShareTypeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiSearchShareTypeBuilder toBuilder() =>
-      FilesSharingShareesapiSearchShareTypeBuilder()..replace(this);
+  ShareesapiSearchShareTypeBuilder toBuilder() => ShareesapiSearchShareTypeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiSearchShareType &&
+    return other is ShareesapiSearchShareType &&
         data == other.data &&
         $int == other.$int &&
         builtListInt == other.builtListInt;
@@ -10874,7 +10489,7 @@ class _$FilesSharingShareesapiSearchShareType extends FilesSharingShareesapiSear
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiSearchShareType')
+    return (newBuiltValueToStringHelper(r'ShareesapiSearchShareType')
           ..add('data', data)
           ..add('\$int', $int)
           ..add('builtListInt', builtListInt))
@@ -10882,9 +10497,8 @@ class _$FilesSharingShareesapiSearchShareType extends FilesSharingShareesapiSear
   }
 }
 
-class FilesSharingShareesapiSearchShareTypeBuilder
-    implements Builder<FilesSharingShareesapiSearchShareType, FilesSharingShareesapiSearchShareTypeBuilder> {
-  _$FilesSharingShareesapiSearchShareType? _$v;
+class ShareesapiSearchShareTypeBuilder implements Builder<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder> {
+  _$ShareesapiSearchShareType? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -10898,9 +10512,9 @@ class FilesSharingShareesapiSearchShareTypeBuilder
   ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
   set builtListInt(ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
 
-  FilesSharingShareesapiSearchShareTypeBuilder();
+  ShareesapiSearchShareTypeBuilder();
 
-  FilesSharingShareesapiSearchShareTypeBuilder get _$this {
+  ShareesapiSearchShareTypeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -10912,25 +10526,25 @@ class FilesSharingShareesapiSearchShareTypeBuilder
   }
 
   @override
-  void replace(FilesSharingShareesapiSearchShareType other) {
+  void replace(ShareesapiSearchShareType other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiSearchShareType;
+    _$v = other as _$ShareesapiSearchShareType;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiSearchShareTypeBuilder)? updates) {
+  void update(void Function(ShareesapiSearchShareTypeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiSearchShareType build() => _build();
+  ShareesapiSearchShareType build() => _build();
 
-  _$FilesSharingShareesapiSearchShareType _build() {
-    _$FilesSharingShareesapiSearchShareType _$result;
+  _$ShareesapiSearchShareType _build() {
+    _$ShareesapiSearchShareType _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesapiSearchShareType._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareesapiSearchShareType', 'data'),
+          _$ShareesapiSearchShareType._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiSearchShareType', 'data'),
               $int: $int,
               builtListInt: _builtListInt?.build());
     } catch (_) {
@@ -10939,7 +10553,7 @@ class FilesSharingShareesapiSearchShareTypeBuilder
         _$failedField = 'builtListInt';
         _builtListInt?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareesapiSearchShareType', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesapiSearchShareType', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -10948,36 +10562,33 @@ class FilesSharingShareesapiSearchShareTypeBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesapiShareesapiSearchHeadersInterfaceBuilder {
-  void replace(FilesSharingShareesapiShareesapiSearchHeadersInterface other);
-  void update(void Function(FilesSharingShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
+abstract mixin class ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+  void replace(ShareesapiShareesapiSearchHeadersInterface other);
+  void update(void Function(ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
   String? get link;
   set link(String? link);
 }
 
-class _$FilesSharingShareesapiShareesapiSearchHeaders extends FilesSharingShareesapiShareesapiSearchHeaders {
+class _$ShareesapiShareesapiSearchHeaders extends ShareesapiShareesapiSearchHeaders {
   @override
   final String? link;
 
-  factory _$FilesSharingShareesapiShareesapiSearchHeaders(
-          [void Function(FilesSharingShareesapiShareesapiSearchHeadersBuilder)? updates]) =>
-      (FilesSharingShareesapiShareesapiSearchHeadersBuilder()..update(updates))._build();
+  factory _$ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates]) =>
+      (ShareesapiShareesapiSearchHeadersBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiShareesapiSearchHeaders._({this.link}) : super._();
+  _$ShareesapiShareesapiSearchHeaders._({this.link}) : super._();
 
   @override
-  FilesSharingShareesapiShareesapiSearchHeaders rebuild(
-          void Function(FilesSharingShareesapiShareesapiSearchHeadersBuilder) updates) =>
+  ShareesapiShareesapiSearchHeaders rebuild(void Function(ShareesapiShareesapiSearchHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiShareesapiSearchHeadersBuilder toBuilder() =>
-      FilesSharingShareesapiShareesapiSearchHeadersBuilder()..replace(this);
+  ShareesapiShareesapiSearchHeadersBuilder toBuilder() => ShareesapiShareesapiSearchHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiShareesapiSearchHeaders && link == other.link;
+    return other is ShareesapiShareesapiSearchHeaders && link == other.link;
   }
 
   @override
@@ -10990,24 +10601,23 @@ class _$FilesSharingShareesapiShareesapiSearchHeaders extends FilesSharingSharee
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiShareesapiSearchHeaders')..add('link', link))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareesapiShareesapiSearchHeaders')..add('link', link)).toString();
   }
 }
 
-class FilesSharingShareesapiShareesapiSearchHeadersBuilder
+class ShareesapiShareesapiSearchHeadersBuilder
     implements
-        Builder<FilesSharingShareesapiShareesapiSearchHeaders, FilesSharingShareesapiShareesapiSearchHeadersBuilder>,
-        FilesSharingShareesapiShareesapiSearchHeadersInterfaceBuilder {
-  _$FilesSharingShareesapiShareesapiSearchHeaders? _$v;
+        Builder<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder>,
+        ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+  _$ShareesapiShareesapiSearchHeaders? _$v;
 
   String? _link;
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  FilesSharingShareesapiShareesapiSearchHeadersBuilder();
+  ShareesapiShareesapiSearchHeadersBuilder();
 
-  FilesSharingShareesapiShareesapiSearchHeadersBuilder get _$this {
+  ShareesapiShareesapiSearchHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _link = $v.link;
@@ -11017,29 +10627,29 @@ class FilesSharingShareesapiShareesapiSearchHeadersBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesapiShareesapiSearchHeaders other) {
+  void replace(covariant ShareesapiShareesapiSearchHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiShareesapiSearchHeaders;
+    _$v = other as _$ShareesapiShareesapiSearchHeaders;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiShareesapiSearchHeadersBuilder)? updates) {
+  void update(void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiShareesapiSearchHeaders build() => _build();
+  ShareesapiShareesapiSearchHeaders build() => _build();
 
-  _$FilesSharingShareesapiShareesapiSearchHeaders _build() {
-    final _$result = _$v ?? _$FilesSharingShareesapiShareesapiSearchHeaders._(link: link);
+  _$ShareesapiShareesapiSearchHeaders _build() {
+    final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeInterfaceBuilder {
-  void replace(FilesSharingShareeInterface other);
-  void update(void Function(FilesSharingShareeInterfaceBuilder) updates);
+abstract mixin class ShareeInterfaceBuilder {
+  void replace(ShareeInterface other);
+  void update(void Function(ShareeInterfaceBuilder) updates);
   int? get count;
   set count(int? count);
 
@@ -11047,30 +10657,28 @@ abstract mixin class FilesSharingShareeInterfaceBuilder {
   set label(String? label);
 }
 
-class _$FilesSharingSharee extends FilesSharingSharee {
+class _$Sharee extends Sharee {
   @override
   final int? count;
   @override
   final String label;
 
-  factory _$FilesSharingSharee([void Function(FilesSharingShareeBuilder)? updates]) =>
-      (FilesSharingShareeBuilder()..update(updates))._build();
+  factory _$Sharee([void Function(ShareeBuilder)? updates]) => (ShareeBuilder()..update(updates))._build();
 
-  _$FilesSharingSharee._({this.count, required this.label}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingSharee', 'label');
+  _$Sharee._({this.count, required this.label}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label');
   }
 
   @override
-  FilesSharingSharee rebuild(void Function(FilesSharingShareeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Sharee rebuild(void Function(ShareeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeBuilder toBuilder() => FilesSharingShareeBuilder()..replace(this);
+  ShareeBuilder toBuilder() => ShareeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingSharee && count == other.count && label == other.label;
+    return other is Sharee && count == other.count && label == other.label;
   }
 
   @override
@@ -11084,16 +10692,15 @@ class _$FilesSharingSharee extends FilesSharingSharee {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingSharee')
+    return (newBuiltValueToStringHelper(r'Sharee')
           ..add('count', count)
           ..add('label', label))
         .toString();
   }
 }
 
-class FilesSharingShareeBuilder
-    implements Builder<FilesSharingSharee, FilesSharingShareeBuilder>, FilesSharingShareeInterfaceBuilder {
-  _$FilesSharingSharee? _$v;
+class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, ShareeInterfaceBuilder {
+  _$Sharee? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -11103,9 +10710,9 @@ class FilesSharingShareeBuilder
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  FilesSharingShareeBuilder();
+  ShareeBuilder();
 
-  FilesSharingShareeBuilder get _$this {
+  ShareeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -11116,31 +10723,30 @@ class FilesSharingShareeBuilder
   }
 
   @override
-  void replace(covariant FilesSharingSharee other) {
+  void replace(covariant Sharee other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingSharee;
+    _$v = other as _$Sharee;
   }
 
   @override
-  void update(void Function(FilesSharingShareeBuilder)? updates) {
+  void update(void Function(ShareeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingSharee build() => _build();
+  Sharee build() => _build();
 
-  _$FilesSharingSharee _build() {
-    final _$result = _$v ??
-        _$FilesSharingSharee._(
-            count: count, label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingSharee', 'label'));
+  _$Sharee _build() {
+    final _$result =
+        _$v ?? _$Sharee._(count: count, label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeValueInterfaceBuilder {
-  void replace(FilesSharingShareeValueInterface other);
-  void update(void Function(FilesSharingShareeValueInterfaceBuilder) updates);
+abstract mixin class ShareeValueInterfaceBuilder {
+  void replace(ShareeValueInterface other);
+  void update(void Function(ShareeValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(int? shareType);
 
@@ -11148,31 +10754,30 @@ abstract mixin class FilesSharingShareeValueInterfaceBuilder {
   set shareWith(String? shareWith);
 }
 
-class _$FilesSharingShareeValue extends FilesSharingShareeValue {
+class _$ShareeValue extends ShareeValue {
   @override
   final int shareType;
   @override
   final String shareWith;
 
-  factory _$FilesSharingShareeValue([void Function(FilesSharingShareeValueBuilder)? updates]) =>
-      (FilesSharingShareeValueBuilder()..update(updates))._build();
+  factory _$ShareeValue([void Function(ShareeValueBuilder)? updates]) =>
+      (ShareeValueBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeValue._({required this.shareType, required this.shareWith}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeValue', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeValue', 'shareWith');
+  _$ShareeValue._({required this.shareType, required this.shareWith}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeValue', 'shareWith');
   }
 
   @override
-  FilesSharingShareeValue rebuild(void Function(FilesSharingShareeValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeValue rebuild(void Function(ShareeValueBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeValueBuilder toBuilder() => FilesSharingShareeValueBuilder()..replace(this);
+  ShareeValueBuilder toBuilder() => ShareeValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeValue && shareType == other.shareType && shareWith == other.shareWith;
+    return other is ShareeValue && shareType == other.shareType && shareWith == other.shareWith;
   }
 
   @override
@@ -11186,18 +10791,15 @@ class _$FilesSharingShareeValue extends FilesSharingShareeValue {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeValue')
+    return (newBuiltValueToStringHelper(r'ShareeValue')
           ..add('shareType', shareType)
           ..add('shareWith', shareWith))
         .toString();
   }
 }
 
-class FilesSharingShareeValueBuilder
-    implements
-        Builder<FilesSharingShareeValue, FilesSharingShareeValueBuilder>,
-        FilesSharingShareeValueInterfaceBuilder {
-  _$FilesSharingShareeValue? _$v;
+class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, ShareeValueInterfaceBuilder {
+  _$ShareeValue? _$v;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -11207,9 +10809,9 @@ class FilesSharingShareeValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  FilesSharingShareeValueBuilder();
+  ShareeValueBuilder();
 
-  FilesSharingShareeValueBuilder get _$this {
+  ShareeValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _shareType = $v.shareType;
@@ -11220,37 +10822,37 @@ class FilesSharingShareeValueBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareeValue other) {
+  void replace(covariant ShareeValue other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeValue;
+    _$v = other as _$ShareeValue;
   }
 
   @override
-  void update(void Function(FilesSharingShareeValueBuilder)? updates) {
+  void update(void Function(ShareeValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeValue build() => _build();
+  ShareeValue build() => _build();
 
-  _$FilesSharingShareeValue _build() {
+  _$ShareeValue _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeValue._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeValue', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeValue', 'shareWith'));
+        _$ShareeValue._(
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeValue', 'shareWith'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeCircle_1_Value_1InterfaceBuilder {
-  void replace(FilesSharingShareeCircle_1_Value_1Interface other);
-  void update(void Function(FilesSharingShareeCircle_1_Value_1InterfaceBuilder) updates);
+abstract mixin class ShareeCircle_1_Value_1InterfaceBuilder {
+  void replace(ShareeCircle_1_Value_1Interface other);
+  void update(void Function(ShareeCircle_1_Value_1InterfaceBuilder) updates);
   String? get circle;
   set circle(String? circle);
 }
 
-class _$FilesSharingShareeCircle_1_Value extends FilesSharingShareeCircle_1_Value {
+class _$ShareeCircle_1_Value extends ShareeCircle_1_Value {
   @override
   final int shareType;
   @override
@@ -11258,27 +10860,26 @@ class _$FilesSharingShareeCircle_1_Value extends FilesSharingShareeCircle_1_Valu
   @override
   final String circle;
 
-  factory _$FilesSharingShareeCircle_1_Value([void Function(FilesSharingShareeCircle_1_ValueBuilder)? updates]) =>
-      (FilesSharingShareeCircle_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeCircle_1_Value([void Function(ShareeCircle_1_ValueBuilder)? updates]) =>
+      (ShareeCircle_1_ValueBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeCircle_1_Value._({required this.shareType, required this.shareWith, required this.circle})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeCircle_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeCircle_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(circle, r'FilesSharingShareeCircle_1_Value', 'circle');
+  _$ShareeCircle_1_Value._({required this.shareType, required this.shareWith, required this.circle}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_1_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_1_Value', 'shareWith');
+    BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_1_Value', 'circle');
   }
 
   @override
-  FilesSharingShareeCircle_1_Value rebuild(void Function(FilesSharingShareeCircle_1_ValueBuilder) updates) =>
+  ShareeCircle_1_Value rebuild(void Function(ShareeCircle_1_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeCircle_1_ValueBuilder toBuilder() => FilesSharingShareeCircle_1_ValueBuilder()..replace(this);
+  ShareeCircle_1_ValueBuilder toBuilder() => ShareeCircle_1_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeCircle_1_Value &&
+    return other is ShareeCircle_1_Value &&
         shareType == other.shareType &&
         shareWith == other.shareWith &&
         circle == other.circle;
@@ -11296,7 +10897,7 @@ class _$FilesSharingShareeCircle_1_Value extends FilesSharingShareeCircle_1_Valu
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeCircle_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeCircle_1_Value')
           ..add('shareType', shareType)
           ..add('shareWith', shareWith)
           ..add('circle', circle))
@@ -11304,12 +10905,12 @@ class _$FilesSharingShareeCircle_1_Value extends FilesSharingShareeCircle_1_Valu
   }
 }
 
-class FilesSharingShareeCircle_1_ValueBuilder
+class ShareeCircle_1_ValueBuilder
     implements
-        Builder<FilesSharingShareeCircle_1_Value, FilesSharingShareeCircle_1_ValueBuilder>,
-        FilesSharingShareeValueInterfaceBuilder,
-        FilesSharingShareeCircle_1_Value_1InterfaceBuilder {
-  _$FilesSharingShareeCircle_1_Value? _$v;
+        Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>,
+        ShareeValueInterfaceBuilder,
+        ShareeCircle_1_Value_1InterfaceBuilder {
+  _$ShareeCircle_1_Value? _$v;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -11323,9 +10924,9 @@ class FilesSharingShareeCircle_1_ValueBuilder
   String? get circle => _$this._circle;
   set circle(covariant String? circle) => _$this._circle = circle;
 
-  FilesSharingShareeCircle_1_ValueBuilder();
+  ShareeCircle_1_ValueBuilder();
 
-  FilesSharingShareeCircle_1_ValueBuilder get _$this {
+  ShareeCircle_1_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _shareType = $v.shareType;
@@ -11338,43 +10939,41 @@ class FilesSharingShareeCircle_1_ValueBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeCircle_1_Value other) {
+  void replace(covariant ShareeCircle_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeCircle_1_Value;
+    _$v = other as _$ShareeCircle_1_Value;
   }
 
   @override
-  void update(void Function(FilesSharingShareeCircle_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeCircle_1_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeCircle_1_Value build() => _build();
+  ShareeCircle_1_Value build() => _build();
 
-  _$FilesSharingShareeCircle_1_Value _build() {
+  _$ShareeCircle_1_Value _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeCircle_1_Value._(
-            shareType:
-                BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeCircle_1_Value', 'shareType'),
-            shareWith:
-                BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeCircle_1_Value', 'shareWith'),
-            circle: BuiltValueNullFieldError.checkNotNull(circle, r'FilesSharingShareeCircle_1_Value', 'circle'));
+        _$ShareeCircle_1_Value._(
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_1_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_1_Value', 'shareWith'),
+            circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_1_Value', 'circle'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeCircle_1InterfaceBuilder {
-  void replace(FilesSharingShareeCircle_1Interface other);
-  void update(void Function(FilesSharingShareeCircle_1InterfaceBuilder) updates);
+abstract mixin class ShareeCircle_1InterfaceBuilder {
+  void replace(ShareeCircle_1Interface other);
+  void update(void Function(ShareeCircle_1InterfaceBuilder) updates);
   String? get shareWithDescription;
   set shareWithDescription(String? shareWithDescription);
 
-  FilesSharingShareeCircle_1_ValueBuilder get value;
-  set value(FilesSharingShareeCircle_1_ValueBuilder? value);
+  ShareeCircle_1_ValueBuilder get value;
+  set value(ShareeCircle_1_ValueBuilder? value);
 }
 
-class _$FilesSharingShareeCircle extends FilesSharingShareeCircle {
+class _$ShareeCircle extends ShareeCircle {
   @override
   final int? count;
   @override
@@ -11382,30 +10981,28 @@ class _$FilesSharingShareeCircle extends FilesSharingShareeCircle {
   @override
   final String shareWithDescription;
   @override
-  final FilesSharingShareeCircle_1_Value value;
+  final ShareeCircle_1_Value value;
 
-  factory _$FilesSharingShareeCircle([void Function(FilesSharingShareeCircleBuilder)? updates]) =>
-      (FilesSharingShareeCircleBuilder()..update(updates))._build();
+  factory _$ShareeCircle([void Function(ShareeCircleBuilder)? updates]) =>
+      (ShareeCircleBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeCircle._(
-      {this.count, required this.label, required this.shareWithDescription, required this.value})
+  _$ShareeCircle._({this.count, required this.label, required this.shareWithDescription, required this.value})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeCircle', 'label');
-    BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'FilesSharingShareeCircle', 'shareWithDescription');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeCircle', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label');
+    BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeCircle', 'value');
   }
 
   @override
-  FilesSharingShareeCircle rebuild(void Function(FilesSharingShareeCircleBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeCircle rebuild(void Function(ShareeCircleBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeCircleBuilder toBuilder() => FilesSharingShareeCircleBuilder()..replace(this);
+  ShareeCircleBuilder toBuilder() => ShareeCircleBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeCircle &&
+    return other is ShareeCircle &&
         count == other.count &&
         label == other.label &&
         shareWithDescription == other.shareWithDescription &&
@@ -11425,7 +11022,7 @@ class _$FilesSharingShareeCircle extends FilesSharingShareeCircle {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeCircle')
+    return (newBuiltValueToStringHelper(r'ShareeCircle')
           ..add('count', count)
           ..add('label', label)
           ..add('shareWithDescription', shareWithDescription)
@@ -11434,12 +11031,9 @@ class _$FilesSharingShareeCircle extends FilesSharingShareeCircle {
   }
 }
 
-class FilesSharingShareeCircleBuilder
-    implements
-        Builder<FilesSharingShareeCircle, FilesSharingShareeCircleBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeCircle_1InterfaceBuilder {
-  _$FilesSharingShareeCircle? _$v;
+class ShareeCircleBuilder
+    implements Builder<ShareeCircle, ShareeCircleBuilder>, ShareeInterfaceBuilder, ShareeCircle_1InterfaceBuilder {
+  _$ShareeCircle? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -11454,13 +11048,13 @@ class FilesSharingShareeCircleBuilder
   set shareWithDescription(covariant String? shareWithDescription) =>
       _$this._shareWithDescription = shareWithDescription;
 
-  FilesSharingShareeCircle_1_ValueBuilder? _value;
-  FilesSharingShareeCircle_1_ValueBuilder get value => _$this._value ??= FilesSharingShareeCircle_1_ValueBuilder();
-  set value(covariant FilesSharingShareeCircle_1_ValueBuilder? value) => _$this._value = value;
+  ShareeCircle_1_ValueBuilder? _value;
+  ShareeCircle_1_ValueBuilder get value => _$this._value ??= ShareeCircle_1_ValueBuilder();
+  set value(covariant ShareeCircle_1_ValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeCircleBuilder();
+  ShareeCircleBuilder();
 
-  FilesSharingShareeCircleBuilder get _$this {
+  ShareeCircleBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -11474,28 +11068,28 @@ class FilesSharingShareeCircleBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeCircle other) {
+  void replace(covariant ShareeCircle other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeCircle;
+    _$v = other as _$ShareeCircle;
   }
 
   @override
-  void update(void Function(FilesSharingShareeCircleBuilder)? updates) {
+  void update(void Function(ShareeCircleBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeCircle build() => _build();
+  ShareeCircle build() => _build();
 
-  _$FilesSharingShareeCircle _build() {
-    _$FilesSharingShareeCircle _$result;
+  _$ShareeCircle _build() {
+    _$ShareeCircle _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeCircle._(
+          _$ShareeCircle._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeCircle', 'label'),
-              shareWithDescription: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDescription, r'FilesSharingShareeCircle', 'shareWithDescription'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'),
+              shareWithDescription:
+                  BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
               value: value.build());
     } catch (_) {
       late String _$failedField;
@@ -11503,7 +11097,7 @@ class FilesSharingShareeCircleBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeCircle', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeCircle', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11512,9 +11106,9 @@ class FilesSharingShareeCircleBuilder
   }
 }
 
-abstract mixin class FilesSharingShareeEmail_1InterfaceBuilder {
-  void replace(FilesSharingShareeEmail_1Interface other);
-  void update(void Function(FilesSharingShareeEmail_1InterfaceBuilder) updates);
+abstract mixin class ShareeEmail_1InterfaceBuilder {
+  void replace(ShareeEmail_1Interface other);
+  void update(void Function(ShareeEmail_1InterfaceBuilder) updates);
   String? get uuid;
   set uuid(String? uuid);
 
@@ -11527,11 +11121,11 @@ abstract mixin class FilesSharingShareeEmail_1InterfaceBuilder {
   String? get shareWithDisplayNameUnique;
   set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique);
 
-  FilesSharingShareeValueBuilder get value;
-  set value(FilesSharingShareeValueBuilder? value);
+  ShareeValueBuilder get value;
+  set value(ShareeValueBuilder? value);
 }
 
-class _$FilesSharingShareeEmail extends FilesSharingShareeEmail {
+class _$ShareeEmail extends ShareeEmail {
   @override
   final int? count;
   @override
@@ -11545,12 +11139,12 @@ class _$FilesSharingShareeEmail extends FilesSharingShareeEmail {
   @override
   final String shareWithDisplayNameUnique;
   @override
-  final FilesSharingShareeValue value;
+  final ShareeValue value;
 
-  factory _$FilesSharingShareeEmail([void Function(FilesSharingShareeEmailBuilder)? updates]) =>
-      (FilesSharingShareeEmailBuilder()..update(updates))._build();
+  factory _$ShareeEmail([void Function(ShareeEmailBuilder)? updates]) =>
+      (ShareeEmailBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeEmail._(
+  _$ShareeEmail._(
       {this.count,
       required this.label,
       required this.uuid,
@@ -11559,26 +11153,24 @@ class _$FilesSharingShareeEmail extends FilesSharingShareeEmail {
       required this.shareWithDisplayNameUnique,
       required this.value})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeEmail', 'label');
-    BuiltValueNullFieldError.checkNotNull(uuid, r'FilesSharingShareeEmail', 'uuid');
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeEmail', 'name');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareeEmail', 'type');
-    BuiltValueNullFieldError.checkNotNull(
-        shareWithDisplayNameUnique, r'FilesSharingShareeEmail', 'shareWithDisplayNameUnique');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeEmail', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label');
+    BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid');
+    BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name');
+    BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type');
+    BuiltValueNullFieldError.checkNotNull(shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeEmail', 'value');
   }
 
   @override
-  FilesSharingShareeEmail rebuild(void Function(FilesSharingShareeEmailBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeEmail rebuild(void Function(ShareeEmailBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeEmailBuilder toBuilder() => FilesSharingShareeEmailBuilder()..replace(this);
+  ShareeEmailBuilder toBuilder() => ShareeEmailBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeEmail &&
+    return other is ShareeEmail &&
         count == other.count &&
         label == other.label &&
         uuid == other.uuid &&
@@ -11604,7 +11196,7 @@ class _$FilesSharingShareeEmail extends FilesSharingShareeEmail {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeEmail')
+    return (newBuiltValueToStringHelper(r'ShareeEmail')
           ..add('count', count)
           ..add('label', label)
           ..add('uuid', uuid)
@@ -11616,12 +11208,9 @@ class _$FilesSharingShareeEmail extends FilesSharingShareeEmail {
   }
 }
 
-class FilesSharingShareeEmailBuilder
-    implements
-        Builder<FilesSharingShareeEmail, FilesSharingShareeEmailBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeEmail_1InterfaceBuilder {
-  _$FilesSharingShareeEmail? _$v;
+class ShareeEmailBuilder
+    implements Builder<ShareeEmail, ShareeEmailBuilder>, ShareeInterfaceBuilder, ShareeEmail_1InterfaceBuilder {
+  _$ShareeEmail? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -11648,13 +11237,13 @@ class FilesSharingShareeEmailBuilder
   set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique) =>
       _$this._shareWithDisplayNameUnique = shareWithDisplayNameUnique;
 
-  FilesSharingShareeValueBuilder? _value;
-  FilesSharingShareeValueBuilder get value => _$this._value ??= FilesSharingShareeValueBuilder();
-  set value(covariant FilesSharingShareeValueBuilder? value) => _$this._value = value;
+  ShareeValueBuilder? _value;
+  ShareeValueBuilder get value => _$this._value ??= ShareeValueBuilder();
+  set value(covariant ShareeValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeEmailBuilder();
+  ShareeEmailBuilder();
 
-  FilesSharingShareeEmailBuilder get _$this {
+  ShareeEmailBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -11671,31 +11260,31 @@ class FilesSharingShareeEmailBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeEmail other) {
+  void replace(covariant ShareeEmail other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeEmail;
+    _$v = other as _$ShareeEmail;
   }
 
   @override
-  void update(void Function(FilesSharingShareeEmailBuilder)? updates) {
+  void update(void Function(ShareeEmailBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeEmail build() => _build();
+  ShareeEmail build() => _build();
 
-  _$FilesSharingShareeEmail _build() {
-    _$FilesSharingShareeEmail _$result;
+  _$ShareeEmail _build() {
+    _$ShareeEmail _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeEmail._(
+          _$ShareeEmail._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeEmail', 'label'),
-              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'FilesSharingShareeEmail', 'uuid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeEmail', 'name'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareeEmail', 'type'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'),
+              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid'),
+              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type'),
               shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDisplayNameUnique, r'FilesSharingShareeEmail', 'shareWithDisplayNameUnique'),
+                  shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
               value: value.build());
     } catch (_) {
       late String _$failedField;
@@ -11703,7 +11292,7 @@ class FilesSharingShareeEmailBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeEmail', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeEmail', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11712,14 +11301,14 @@ class FilesSharingShareeEmailBuilder
   }
 }
 
-abstract mixin class FilesSharingShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  void replace(FilesSharingShareeRemoteGroup_1_Value_1Interface other);
-  void update(void Function(FilesSharingShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+  void replace(ShareeRemoteGroup_1_Value_1Interface other);
+  void update(void Function(ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
 }
 
-class _$FilesSharingShareeRemoteGroup_1_Value extends FilesSharingShareeRemoteGroup_1_Value {
+class _$ShareeRemoteGroup_1_Value extends ShareeRemoteGroup_1_Value {
   @override
   final int shareType;
   @override
@@ -11727,29 +11316,26 @@ class _$FilesSharingShareeRemoteGroup_1_Value extends FilesSharingShareeRemoteGr
   @override
   final String server;
 
-  factory _$FilesSharingShareeRemoteGroup_1_Value(
-          [void Function(FilesSharingShareeRemoteGroup_1_ValueBuilder)? updates]) =>
-      (FilesSharingShareeRemoteGroup_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeRemoteGroup_1_Value([void Function(ShareeRemoteGroup_1_ValueBuilder)? updates]) =>
+      (ShareeRemoteGroup_1_ValueBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeRemoteGroup_1_Value._({required this.shareType, required this.shareWith, required this.server})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeRemoteGroup_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeRemoteGroup_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(server, r'FilesSharingShareeRemoteGroup_1_Value', 'server');
+  _$ShareeRemoteGroup_1_Value._({required this.shareType, required this.shareWith, required this.server}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_1_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_1_Value', 'shareWith');
+    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_1_Value', 'server');
   }
 
   @override
-  FilesSharingShareeRemoteGroup_1_Value rebuild(void Function(FilesSharingShareeRemoteGroup_1_ValueBuilder) updates) =>
+  ShareeRemoteGroup_1_Value rebuild(void Function(ShareeRemoteGroup_1_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeRemoteGroup_1_ValueBuilder toBuilder() =>
-      FilesSharingShareeRemoteGroup_1_ValueBuilder()..replace(this);
+  ShareeRemoteGroup_1_ValueBuilder toBuilder() => ShareeRemoteGroup_1_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeRemoteGroup_1_Value &&
+    return other is ShareeRemoteGroup_1_Value &&
         shareType == other.shareType &&
         shareWith == other.shareWith &&
         server == other.server;
@@ -11767,7 +11353,7 @@ class _$FilesSharingShareeRemoteGroup_1_Value extends FilesSharingShareeRemoteGr
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeRemoteGroup_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeRemoteGroup_1_Value')
           ..add('shareType', shareType)
           ..add('shareWith', shareWith)
           ..add('server', server))
@@ -11775,12 +11361,12 @@ class _$FilesSharingShareeRemoteGroup_1_Value extends FilesSharingShareeRemoteGr
   }
 }
 
-class FilesSharingShareeRemoteGroup_1_ValueBuilder
+class ShareeRemoteGroup_1_ValueBuilder
     implements
-        Builder<FilesSharingShareeRemoteGroup_1_Value, FilesSharingShareeRemoteGroup_1_ValueBuilder>,
-        FilesSharingShareeValueInterfaceBuilder,
-        FilesSharingShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  _$FilesSharingShareeRemoteGroup_1_Value? _$v;
+        Builder<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder>,
+        ShareeValueInterfaceBuilder,
+        ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+  _$ShareeRemoteGroup_1_Value? _$v;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -11794,9 +11380,9 @@ class FilesSharingShareeRemoteGroup_1_ValueBuilder
   String? get server => _$this._server;
   set server(covariant String? server) => _$this._server = server;
 
-  FilesSharingShareeRemoteGroup_1_ValueBuilder();
+  ShareeRemoteGroup_1_ValueBuilder();
 
-  FilesSharingShareeRemoteGroup_1_ValueBuilder get _$this {
+  ShareeRemoteGroup_1_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _shareType = $v.shareType;
@@ -11809,46 +11395,44 @@ class FilesSharingShareeRemoteGroup_1_ValueBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeRemoteGroup_1_Value other) {
+  void replace(covariant ShareeRemoteGroup_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeRemoteGroup_1_Value;
+    _$v = other as _$ShareeRemoteGroup_1_Value;
   }
 
   @override
-  void update(void Function(FilesSharingShareeRemoteGroup_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeRemoteGroup_1_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeRemoteGroup_1_Value build() => _build();
+  ShareeRemoteGroup_1_Value build() => _build();
 
-  _$FilesSharingShareeRemoteGroup_1_Value _build() {
+  _$ShareeRemoteGroup_1_Value _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeRemoteGroup_1_Value._(
-            shareType:
-                BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeRemoteGroup_1_Value', 'shareType'),
-            shareWith:
-                BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeRemoteGroup_1_Value', 'shareWith'),
-            server: BuiltValueNullFieldError.checkNotNull(server, r'FilesSharingShareeRemoteGroup_1_Value', 'server'));
+        _$ShareeRemoteGroup_1_Value._(
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_1_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_1_Value', 'shareWith'),
+            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_1_Value', 'server'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeRemoteGroup_1InterfaceBuilder {
-  void replace(FilesSharingShareeRemoteGroup_1Interface other);
-  void update(void Function(FilesSharingShareeRemoteGroup_1InterfaceBuilder) updates);
+abstract mixin class ShareeRemoteGroup_1InterfaceBuilder {
+  void replace(ShareeRemoteGroup_1Interface other);
+  void update(void Function(ShareeRemoteGroup_1InterfaceBuilder) updates);
   String? get guid;
   set guid(String? guid);
 
   String? get name;
   set name(String? name);
 
-  FilesSharingShareeRemoteGroup_1_ValueBuilder get value;
-  set value(FilesSharingShareeRemoteGroup_1_ValueBuilder? value);
+  ShareeRemoteGroup_1_ValueBuilder get value;
+  set value(ShareeRemoteGroup_1_ValueBuilder? value);
 }
 
-class _$FilesSharingShareeRemoteGroup extends FilesSharingShareeRemoteGroup {
+class _$ShareeRemoteGroup extends ShareeRemoteGroup {
   @override
   final int? count;
   @override
@@ -11858,31 +11442,29 @@ class _$FilesSharingShareeRemoteGroup extends FilesSharingShareeRemoteGroup {
   @override
   final String name;
   @override
-  final FilesSharingShareeRemoteGroup_1_Value value;
+  final ShareeRemoteGroup_1_Value value;
 
-  factory _$FilesSharingShareeRemoteGroup([void Function(FilesSharingShareeRemoteGroupBuilder)? updates]) =>
-      (FilesSharingShareeRemoteGroupBuilder()..update(updates))._build();
+  factory _$ShareeRemoteGroup([void Function(ShareeRemoteGroupBuilder)? updates]) =>
+      (ShareeRemoteGroupBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeRemoteGroup._(
-      {this.count, required this.label, required this.guid, required this.name, required this.value})
+  _$ShareeRemoteGroup._({this.count, required this.label, required this.guid, required this.name, required this.value})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeRemoteGroup', 'label');
-    BuiltValueNullFieldError.checkNotNull(guid, r'FilesSharingShareeRemoteGroup', 'guid');
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeRemoteGroup', 'name');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeRemoteGroup', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label');
+    BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid');
+    BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeRemoteGroup', 'value');
   }
 
   @override
-  FilesSharingShareeRemoteGroup rebuild(void Function(FilesSharingShareeRemoteGroupBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeRemoteGroup rebuild(void Function(ShareeRemoteGroupBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeRemoteGroupBuilder toBuilder() => FilesSharingShareeRemoteGroupBuilder()..replace(this);
+  ShareeRemoteGroupBuilder toBuilder() => ShareeRemoteGroupBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeRemoteGroup &&
+    return other is ShareeRemoteGroup &&
         count == other.count &&
         label == other.label &&
         guid == other.guid &&
@@ -11904,7 +11486,7 @@ class _$FilesSharingShareeRemoteGroup extends FilesSharingShareeRemoteGroup {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeRemoteGroup')
+    return (newBuiltValueToStringHelper(r'ShareeRemoteGroup')
           ..add('count', count)
           ..add('label', label)
           ..add('guid', guid)
@@ -11914,12 +11496,12 @@ class _$FilesSharingShareeRemoteGroup extends FilesSharingShareeRemoteGroup {
   }
 }
 
-class FilesSharingShareeRemoteGroupBuilder
+class ShareeRemoteGroupBuilder
     implements
-        Builder<FilesSharingShareeRemoteGroup, FilesSharingShareeRemoteGroupBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeRemoteGroup_1InterfaceBuilder {
-  _$FilesSharingShareeRemoteGroup? _$v;
+        Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>,
+        ShareeInterfaceBuilder,
+        ShareeRemoteGroup_1InterfaceBuilder {
+  _$ShareeRemoteGroup? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -11937,14 +11519,13 @@ class FilesSharingShareeRemoteGroupBuilder
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
-  FilesSharingShareeRemoteGroup_1_ValueBuilder? _value;
-  FilesSharingShareeRemoteGroup_1_ValueBuilder get value =>
-      _$this._value ??= FilesSharingShareeRemoteGroup_1_ValueBuilder();
-  set value(covariant FilesSharingShareeRemoteGroup_1_ValueBuilder? value) => _$this._value = value;
+  ShareeRemoteGroup_1_ValueBuilder? _value;
+  ShareeRemoteGroup_1_ValueBuilder get value => _$this._value ??= ShareeRemoteGroup_1_ValueBuilder();
+  set value(covariant ShareeRemoteGroup_1_ValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeRemoteGroupBuilder();
+  ShareeRemoteGroupBuilder();
 
-  FilesSharingShareeRemoteGroupBuilder get _$this {
+  ShareeRemoteGroupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -11959,28 +11540,28 @@ class FilesSharingShareeRemoteGroupBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeRemoteGroup other) {
+  void replace(covariant ShareeRemoteGroup other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeRemoteGroup;
+    _$v = other as _$ShareeRemoteGroup;
   }
 
   @override
-  void update(void Function(FilesSharingShareeRemoteGroupBuilder)? updates) {
+  void update(void Function(ShareeRemoteGroupBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeRemoteGroup build() => _build();
+  ShareeRemoteGroup build() => _build();
 
-  _$FilesSharingShareeRemoteGroup _build() {
-    _$FilesSharingShareeRemoteGroup _$result;
+  _$ShareeRemoteGroup _build() {
+    _$ShareeRemoteGroup _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeRemoteGroup._(
+          _$ShareeRemoteGroup._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeRemoteGroup', 'label'),
-              guid: BuiltValueNullFieldError.checkNotNull(guid, r'FilesSharingShareeRemoteGroup', 'guid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeRemoteGroup', 'name'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'),
+              guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
+              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
               value: value.build());
     } catch (_) {
       late String _$failedField;
@@ -11988,7 +11569,7 @@ class FilesSharingShareeRemoteGroupBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeRemoteGroup', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeRemoteGroup', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11997,14 +11578,14 @@ class FilesSharingShareeRemoteGroupBuilder
   }
 }
 
-abstract mixin class FilesSharingShareeRemote_1_Value_1InterfaceBuilder {
-  void replace(FilesSharingShareeRemote_1_Value_1Interface other);
-  void update(void Function(FilesSharingShareeRemote_1_Value_1InterfaceBuilder) updates);
+abstract mixin class ShareeRemote_1_Value_1InterfaceBuilder {
+  void replace(ShareeRemote_1_Value_1Interface other);
+  void update(void Function(ShareeRemote_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
 }
 
-class _$FilesSharingShareeRemote_1_Value extends FilesSharingShareeRemote_1_Value {
+class _$ShareeRemote_1_Value extends ShareeRemote_1_Value {
   @override
   final int shareType;
   @override
@@ -12012,27 +11593,26 @@ class _$FilesSharingShareeRemote_1_Value extends FilesSharingShareeRemote_1_Valu
   @override
   final String server;
 
-  factory _$FilesSharingShareeRemote_1_Value([void Function(FilesSharingShareeRemote_1_ValueBuilder)? updates]) =>
-      (FilesSharingShareeRemote_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeRemote_1_Value([void Function(ShareeRemote_1_ValueBuilder)? updates]) =>
+      (ShareeRemote_1_ValueBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeRemote_1_Value._({required this.shareType, required this.shareWith, required this.server})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeRemote_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeRemote_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(server, r'FilesSharingShareeRemote_1_Value', 'server');
+  _$ShareeRemote_1_Value._({required this.shareType, required this.shareWith, required this.server}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_1_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_1_Value', 'shareWith');
+    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_1_Value', 'server');
   }
 
   @override
-  FilesSharingShareeRemote_1_Value rebuild(void Function(FilesSharingShareeRemote_1_ValueBuilder) updates) =>
+  ShareeRemote_1_Value rebuild(void Function(ShareeRemote_1_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeRemote_1_ValueBuilder toBuilder() => FilesSharingShareeRemote_1_ValueBuilder()..replace(this);
+  ShareeRemote_1_ValueBuilder toBuilder() => ShareeRemote_1_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeRemote_1_Value &&
+    return other is ShareeRemote_1_Value &&
         shareType == other.shareType &&
         shareWith == other.shareWith &&
         server == other.server;
@@ -12050,7 +11630,7 @@ class _$FilesSharingShareeRemote_1_Value extends FilesSharingShareeRemote_1_Valu
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeRemote_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeRemote_1_Value')
           ..add('shareType', shareType)
           ..add('shareWith', shareWith)
           ..add('server', server))
@@ -12058,12 +11638,12 @@ class _$FilesSharingShareeRemote_1_Value extends FilesSharingShareeRemote_1_Valu
   }
 }
 
-class FilesSharingShareeRemote_1_ValueBuilder
+class ShareeRemote_1_ValueBuilder
     implements
-        Builder<FilesSharingShareeRemote_1_Value, FilesSharingShareeRemote_1_ValueBuilder>,
-        FilesSharingShareeValueInterfaceBuilder,
-        FilesSharingShareeRemote_1_Value_1InterfaceBuilder {
-  _$FilesSharingShareeRemote_1_Value? _$v;
+        Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>,
+        ShareeValueInterfaceBuilder,
+        ShareeRemote_1_Value_1InterfaceBuilder {
+  _$ShareeRemote_1_Value? _$v;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -12077,9 +11657,9 @@ class FilesSharingShareeRemote_1_ValueBuilder
   String? get server => _$this._server;
   set server(covariant String? server) => _$this._server = server;
 
-  FilesSharingShareeRemote_1_ValueBuilder();
+  ShareeRemote_1_ValueBuilder();
 
-  FilesSharingShareeRemote_1_ValueBuilder get _$this {
+  ShareeRemote_1_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _shareType = $v.shareType;
@@ -12092,35 +11672,33 @@ class FilesSharingShareeRemote_1_ValueBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeRemote_1_Value other) {
+  void replace(covariant ShareeRemote_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeRemote_1_Value;
+    _$v = other as _$ShareeRemote_1_Value;
   }
 
   @override
-  void update(void Function(FilesSharingShareeRemote_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeRemote_1_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeRemote_1_Value build() => _build();
+  ShareeRemote_1_Value build() => _build();
 
-  _$FilesSharingShareeRemote_1_Value _build() {
+  _$ShareeRemote_1_Value _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeRemote_1_Value._(
-            shareType:
-                BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeRemote_1_Value', 'shareType'),
-            shareWith:
-                BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeRemote_1_Value', 'shareWith'),
-            server: BuiltValueNullFieldError.checkNotNull(server, r'FilesSharingShareeRemote_1_Value', 'server'));
+        _$ShareeRemote_1_Value._(
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_1_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_1_Value', 'shareWith'),
+            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_1_Value', 'server'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeRemote_1InterfaceBuilder {
-  void replace(FilesSharingShareeRemote_1Interface other);
-  void update(void Function(FilesSharingShareeRemote_1InterfaceBuilder) updates);
+abstract mixin class ShareeRemote_1InterfaceBuilder {
+  void replace(ShareeRemote_1Interface other);
+  void update(void Function(ShareeRemote_1InterfaceBuilder) updates);
   String? get uuid;
   set uuid(String? uuid);
 
@@ -12130,11 +11708,11 @@ abstract mixin class FilesSharingShareeRemote_1InterfaceBuilder {
   String? get type;
   set type(String? type);
 
-  FilesSharingShareeRemote_1_ValueBuilder get value;
-  set value(FilesSharingShareeRemote_1_ValueBuilder? value);
+  ShareeRemote_1_ValueBuilder get value;
+  set value(ShareeRemote_1_ValueBuilder? value);
 }
 
-class _$FilesSharingShareeRemote extends FilesSharingShareeRemote {
+class _$ShareeRemote extends ShareeRemote {
   @override
   final int? count;
   @override
@@ -12146,12 +11724,12 @@ class _$FilesSharingShareeRemote extends FilesSharingShareeRemote {
   @override
   final String type;
   @override
-  final FilesSharingShareeRemote_1_Value value;
+  final ShareeRemote_1_Value value;
 
-  factory _$FilesSharingShareeRemote([void Function(FilesSharingShareeRemoteBuilder)? updates]) =>
-      (FilesSharingShareeRemoteBuilder()..update(updates))._build();
+  factory _$ShareeRemote([void Function(ShareeRemoteBuilder)? updates]) =>
+      (ShareeRemoteBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeRemote._(
+  _$ShareeRemote._(
       {this.count,
       required this.label,
       required this.uuid,
@@ -12159,24 +11737,23 @@ class _$FilesSharingShareeRemote extends FilesSharingShareeRemote {
       required this.type,
       required this.value})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeRemote', 'label');
-    BuiltValueNullFieldError.checkNotNull(uuid, r'FilesSharingShareeRemote', 'uuid');
-    BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeRemote', 'name');
-    BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareeRemote', 'type');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeRemote', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label');
+    BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid');
+    BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name');
+    BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeRemote', 'value');
   }
 
   @override
-  FilesSharingShareeRemote rebuild(void Function(FilesSharingShareeRemoteBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeRemote rebuild(void Function(ShareeRemoteBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeRemoteBuilder toBuilder() => FilesSharingShareeRemoteBuilder()..replace(this);
+  ShareeRemoteBuilder toBuilder() => ShareeRemoteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeRemote &&
+    return other is ShareeRemote &&
         count == other.count &&
         label == other.label &&
         uuid == other.uuid &&
@@ -12200,7 +11777,7 @@ class _$FilesSharingShareeRemote extends FilesSharingShareeRemote {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeRemote')
+    return (newBuiltValueToStringHelper(r'ShareeRemote')
           ..add('count', count)
           ..add('label', label)
           ..add('uuid', uuid)
@@ -12211,12 +11788,9 @@ class _$FilesSharingShareeRemote extends FilesSharingShareeRemote {
   }
 }
 
-class FilesSharingShareeRemoteBuilder
-    implements
-        Builder<FilesSharingShareeRemote, FilesSharingShareeRemoteBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeRemote_1InterfaceBuilder {
-  _$FilesSharingShareeRemote? _$v;
+class ShareeRemoteBuilder
+    implements Builder<ShareeRemote, ShareeRemoteBuilder>, ShareeInterfaceBuilder, ShareeRemote_1InterfaceBuilder {
+  _$ShareeRemote? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -12238,13 +11812,13 @@ class FilesSharingShareeRemoteBuilder
   String? get type => _$this._type;
   set type(covariant String? type) => _$this._type = type;
 
-  FilesSharingShareeRemote_1_ValueBuilder? _value;
-  FilesSharingShareeRemote_1_ValueBuilder get value => _$this._value ??= FilesSharingShareeRemote_1_ValueBuilder();
-  set value(covariant FilesSharingShareeRemote_1_ValueBuilder? value) => _$this._value = value;
+  ShareeRemote_1_ValueBuilder? _value;
+  ShareeRemote_1_ValueBuilder get value => _$this._value ??= ShareeRemote_1_ValueBuilder();
+  set value(covariant ShareeRemote_1_ValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeRemoteBuilder();
+  ShareeRemoteBuilder();
 
-  FilesSharingShareeRemoteBuilder get _$this {
+  ShareeRemoteBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -12260,29 +11834,29 @@ class FilesSharingShareeRemoteBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeRemote other) {
+  void replace(covariant ShareeRemote other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeRemote;
+    _$v = other as _$ShareeRemote;
   }
 
   @override
-  void update(void Function(FilesSharingShareeRemoteBuilder)? updates) {
+  void update(void Function(ShareeRemoteBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeRemote build() => _build();
+  ShareeRemote build() => _build();
 
-  _$FilesSharingShareeRemote _build() {
-    _$FilesSharingShareeRemote _$result;
+  _$ShareeRemote _build() {
+    _$ShareeRemote _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeRemote._(
+          _$ShareeRemote._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeRemote', 'label'),
-              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'FilesSharingShareeRemote', 'uuid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'FilesSharingShareeRemote', 'name'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'FilesSharingShareeRemote', 'type'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'),
+              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid'),
+              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type'),
               value: value.build());
     } catch (_) {
       late String _$failedField;
@@ -12290,7 +11864,7 @@ class FilesSharingShareeRemoteBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeRemote', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeRemote', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12299,9 +11873,9 @@ class FilesSharingShareeRemoteBuilder
   }
 }
 
-abstract mixin class FilesSharingShareeUser_1_StatusInterfaceBuilder {
-  void replace(FilesSharingShareeUser_1_StatusInterface other);
-  void update(void Function(FilesSharingShareeUser_1_StatusInterfaceBuilder) updates);
+abstract mixin class ShareeUser_1_StatusInterfaceBuilder {
+  void replace(ShareeUser_1_StatusInterface other);
+  void update(void Function(ShareeUser_1_StatusInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -12315,7 +11889,7 @@ abstract mixin class FilesSharingShareeUser_1_StatusInterfaceBuilder {
   set clearAt(int? clearAt);
 }
 
-class _$FilesSharingShareeUser_1_Status extends FilesSharingShareeUser_1_Status {
+class _$ShareeUser_1_Status extends ShareeUser_1_Status {
   @override
   final String status;
   @override
@@ -12325,27 +11899,26 @@ class _$FilesSharingShareeUser_1_Status extends FilesSharingShareeUser_1_Status 
   @override
   final int? clearAt;
 
-  factory _$FilesSharingShareeUser_1_Status([void Function(FilesSharingShareeUser_1_StatusBuilder)? updates]) =>
-      (FilesSharingShareeUser_1_StatusBuilder()..update(updates))._build();
+  factory _$ShareeUser_1_Status([void Function(ShareeUser_1_StatusBuilder)? updates]) =>
+      (ShareeUser_1_StatusBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeUser_1_Status._({required this.status, required this.message, required this.icon, this.clearAt})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesSharingShareeUser_1_Status', 'status');
-    BuiltValueNullFieldError.checkNotNull(message, r'FilesSharingShareeUser_1_Status', 'message');
-    BuiltValueNullFieldError.checkNotNull(icon, r'FilesSharingShareeUser_1_Status', 'icon');
+  _$ShareeUser_1_Status._({required this.status, required this.message, required this.icon, this.clearAt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_1_Status', 'status');
+    BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_1_Status', 'message');
+    BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_1_Status', 'icon');
   }
 
   @override
-  FilesSharingShareeUser_1_Status rebuild(void Function(FilesSharingShareeUser_1_StatusBuilder) updates) =>
+  ShareeUser_1_Status rebuild(void Function(ShareeUser_1_StatusBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeUser_1_StatusBuilder toBuilder() => FilesSharingShareeUser_1_StatusBuilder()..replace(this);
+  ShareeUser_1_StatusBuilder toBuilder() => ShareeUser_1_StatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeUser_1_Status &&
+    return other is ShareeUser_1_Status &&
         status == other.status &&
         message == other.message &&
         icon == other.icon &&
@@ -12365,7 +11938,7 @@ class _$FilesSharingShareeUser_1_Status extends FilesSharingShareeUser_1_Status 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeUser_1_Status')
+    return (newBuiltValueToStringHelper(r'ShareeUser_1_Status')
           ..add('status', status)
           ..add('message', message)
           ..add('icon', icon)
@@ -12374,11 +11947,9 @@ class _$FilesSharingShareeUser_1_Status extends FilesSharingShareeUser_1_Status 
   }
 }
 
-class FilesSharingShareeUser_1_StatusBuilder
-    implements
-        Builder<FilesSharingShareeUser_1_Status, FilesSharingShareeUser_1_StatusBuilder>,
-        FilesSharingShareeUser_1_StatusInterfaceBuilder {
-  _$FilesSharingShareeUser_1_Status? _$v;
+class ShareeUser_1_StatusBuilder
+    implements Builder<ShareeUser_1_Status, ShareeUser_1_StatusBuilder>, ShareeUser_1_StatusInterfaceBuilder {
+  _$ShareeUser_1_Status? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -12396,9 +11967,9 @@ class FilesSharingShareeUser_1_StatusBuilder
   int? get clearAt => _$this._clearAt;
   set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
 
-  FilesSharingShareeUser_1_StatusBuilder();
+  ShareeUser_1_StatusBuilder();
 
-  FilesSharingShareeUser_1_StatusBuilder get _$this {
+  ShareeUser_1_StatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -12411,34 +11982,34 @@ class FilesSharingShareeUser_1_StatusBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareeUser_1_Status other) {
+  void replace(covariant ShareeUser_1_Status other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeUser_1_Status;
+    _$v = other as _$ShareeUser_1_Status;
   }
 
   @override
-  void update(void Function(FilesSharingShareeUser_1_StatusBuilder)? updates) {
+  void update(void Function(ShareeUser_1_StatusBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeUser_1_Status build() => _build();
+  ShareeUser_1_Status build() => _build();
 
-  _$FilesSharingShareeUser_1_Status _build() {
+  _$ShareeUser_1_Status _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeUser_1_Status._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'FilesSharingShareeUser_1_Status', 'status'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'FilesSharingShareeUser_1_Status', 'message'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'FilesSharingShareeUser_1_Status', 'icon'),
+        _$ShareeUser_1_Status._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_1_Status', 'status'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_1_Status', 'message'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_1_Status', 'icon'),
             clearAt: clearAt);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeUser_1InterfaceBuilder {
-  void replace(FilesSharingShareeUser_1Interface other);
-  void update(void Function(FilesSharingShareeUser_1InterfaceBuilder) updates);
+abstract mixin class ShareeUser_1InterfaceBuilder {
+  void replace(ShareeUser_1Interface other);
+  void update(void Function(ShareeUser_1InterfaceBuilder) updates);
   String? get subline;
   set subline(String? subline);
 
@@ -12448,14 +12019,14 @@ abstract mixin class FilesSharingShareeUser_1InterfaceBuilder {
   String? get shareWithDisplayNameUnique;
   set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique);
 
-  FilesSharingShareeUser_1_StatusBuilder get status;
-  set status(FilesSharingShareeUser_1_StatusBuilder? status);
+  ShareeUser_1_StatusBuilder get status;
+  set status(ShareeUser_1_StatusBuilder? status);
 
-  FilesSharingShareeValueBuilder get value;
-  set value(FilesSharingShareeValueBuilder? value);
+  ShareeValueBuilder get value;
+  set value(ShareeValueBuilder? value);
 }
 
-class _$FilesSharingShareeUser extends FilesSharingShareeUser {
+class _$ShareeUser extends ShareeUser {
   @override
   final int? count;
   @override
@@ -12467,14 +12038,13 @@ class _$FilesSharingShareeUser extends FilesSharingShareeUser {
   @override
   final String shareWithDisplayNameUnique;
   @override
-  final FilesSharingShareeUser_1_Status status;
+  final ShareeUser_1_Status status;
   @override
-  final FilesSharingShareeValue value;
+  final ShareeValue value;
 
-  factory _$FilesSharingShareeUser([void Function(FilesSharingShareeUserBuilder)? updates]) =>
-      (FilesSharingShareeUserBuilder()..update(updates))._build();
+  factory _$ShareeUser([void Function(ShareeUserBuilder)? updates]) => (ShareeUserBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeUser._(
+  _$ShareeUser._(
       {this.count,
       required this.label,
       required this.subline,
@@ -12483,26 +12053,24 @@ class _$FilesSharingShareeUser extends FilesSharingShareeUser {
       required this.status,
       required this.value})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeUser', 'label');
-    BuiltValueNullFieldError.checkNotNull(subline, r'FilesSharingShareeUser', 'subline');
-    BuiltValueNullFieldError.checkNotNull(icon, r'FilesSharingShareeUser', 'icon');
-    BuiltValueNullFieldError.checkNotNull(
-        shareWithDisplayNameUnique, r'FilesSharingShareeUser', 'shareWithDisplayNameUnique');
-    BuiltValueNullFieldError.checkNotNull(status, r'FilesSharingShareeUser', 'status');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeUser', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label');
+    BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline');
+    BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon');
+    BuiltValueNullFieldError.checkNotNull(shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique');
+    BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser', 'status');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeUser', 'value');
   }
 
   @override
-  FilesSharingShareeUser rebuild(void Function(FilesSharingShareeUserBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeUser rebuild(void Function(ShareeUserBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeUserBuilder toBuilder() => FilesSharingShareeUserBuilder()..replace(this);
+  ShareeUserBuilder toBuilder() => ShareeUserBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeUser &&
+    return other is ShareeUser &&
         count == other.count &&
         label == other.label &&
         subline == other.subline &&
@@ -12528,7 +12096,7 @@ class _$FilesSharingShareeUser extends FilesSharingShareeUser {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeUser')
+    return (newBuiltValueToStringHelper(r'ShareeUser')
           ..add('count', count)
           ..add('label', label)
           ..add('subline', subline)
@@ -12540,12 +12108,9 @@ class _$FilesSharingShareeUser extends FilesSharingShareeUser {
   }
 }
 
-class FilesSharingShareeUserBuilder
-    implements
-        Builder<FilesSharingShareeUser, FilesSharingShareeUserBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeUser_1InterfaceBuilder {
-  _$FilesSharingShareeUser? _$v;
+class ShareeUserBuilder
+    implements Builder<ShareeUser, ShareeUserBuilder>, ShareeInterfaceBuilder, ShareeUser_1InterfaceBuilder {
+  _$ShareeUser? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -12568,17 +12133,17 @@ class FilesSharingShareeUserBuilder
   set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique) =>
       _$this._shareWithDisplayNameUnique = shareWithDisplayNameUnique;
 
-  FilesSharingShareeUser_1_StatusBuilder? _status;
-  FilesSharingShareeUser_1_StatusBuilder get status => _$this._status ??= FilesSharingShareeUser_1_StatusBuilder();
-  set status(covariant FilesSharingShareeUser_1_StatusBuilder? status) => _$this._status = status;
+  ShareeUser_1_StatusBuilder? _status;
+  ShareeUser_1_StatusBuilder get status => _$this._status ??= ShareeUser_1_StatusBuilder();
+  set status(covariant ShareeUser_1_StatusBuilder? status) => _$this._status = status;
 
-  FilesSharingShareeValueBuilder? _value;
-  FilesSharingShareeValueBuilder get value => _$this._value ??= FilesSharingShareeValueBuilder();
-  set value(covariant FilesSharingShareeValueBuilder? value) => _$this._value = value;
+  ShareeValueBuilder? _value;
+  ShareeValueBuilder get value => _$this._value ??= ShareeValueBuilder();
+  set value(covariant ShareeValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeUserBuilder();
+  ShareeUserBuilder();
 
-  FilesSharingShareeUserBuilder get _$this {
+  ShareeUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -12595,30 +12160,30 @@ class FilesSharingShareeUserBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeUser other) {
+  void replace(covariant ShareeUser other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeUser;
+    _$v = other as _$ShareeUser;
   }
 
   @override
-  void update(void Function(FilesSharingShareeUserBuilder)? updates) {
+  void update(void Function(ShareeUserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeUser build() => _build();
+  ShareeUser build() => _build();
 
-  _$FilesSharingShareeUser _build() {
-    _$FilesSharingShareeUser _$result;
+  _$ShareeUser _build() {
+    _$ShareeUser _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeUser._(
+          _$ShareeUser._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeUser', 'label'),
-              subline: BuiltValueNullFieldError.checkNotNull(subline, r'FilesSharingShareeUser', 'subline'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'FilesSharingShareeUser', 'icon'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'),
+              subline: BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline'),
+              icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon'),
               shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDisplayNameUnique, r'FilesSharingShareeUser', 'shareWithDisplayNameUnique'),
+                  shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
               status: status.build(),
               value: value.build());
     } catch (_) {
@@ -12629,7 +12194,7 @@ class FilesSharingShareeUserBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeUser', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeUser', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12638,52 +12203,51 @@ class FilesSharingShareeUserBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesSearchResult_ExactInterfaceBuilder {
-  void replace(FilesSharingShareesSearchResult_ExactInterface other);
-  void update(void Function(FilesSharingShareesSearchResult_ExactInterfaceBuilder) updates);
-  ListBuilder<FilesSharingShareeCircle> get circles;
-  set circles(ListBuilder<FilesSharingShareeCircle>? circles);
+abstract mixin class ShareesSearchResult_ExactInterfaceBuilder {
+  void replace(ShareesSearchResult_ExactInterface other);
+  void update(void Function(ShareesSearchResult_ExactInterfaceBuilder) updates);
+  ListBuilder<ShareeCircle> get circles;
+  set circles(ListBuilder<ShareeCircle>? circles);
 
-  ListBuilder<FilesSharingShareeEmail> get emails;
-  set emails(ListBuilder<FilesSharingShareeEmail>? emails);
+  ListBuilder<ShareeEmail> get emails;
+  set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<FilesSharingSharee> get groups;
-  set groups(ListBuilder<FilesSharingSharee>? groups);
+  ListBuilder<Sharee> get groups;
+  set groups(ListBuilder<Sharee>? groups);
 
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups;
-  set remoteGroups(ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups);
+  ListBuilder<ShareeRemoteGroup> get remoteGroups;
+  set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
 
-  ListBuilder<FilesSharingShareeRemote> get remotes;
-  set remotes(ListBuilder<FilesSharingShareeRemote>? remotes);
+  ListBuilder<ShareeRemote> get remotes;
+  set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<FilesSharingSharee> get rooms;
-  set rooms(ListBuilder<FilesSharingSharee>? rooms);
+  ListBuilder<Sharee> get rooms;
+  set rooms(ListBuilder<Sharee>? rooms);
 
-  ListBuilder<FilesSharingShareeUser> get users;
-  set users(ListBuilder<FilesSharingShareeUser>? users);
+  ListBuilder<ShareeUser> get users;
+  set users(ListBuilder<ShareeUser>? users);
 }
 
-class _$FilesSharingShareesSearchResult_Exact extends FilesSharingShareesSearchResult_Exact {
+class _$ShareesSearchResult_Exact extends ShareesSearchResult_Exact {
   @override
-  final BuiltList<FilesSharingShareeCircle> circles;
+  final BuiltList<ShareeCircle> circles;
   @override
-  final BuiltList<FilesSharingShareeEmail> emails;
+  final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<FilesSharingSharee> groups;
+  final BuiltList<Sharee> groups;
   @override
-  final BuiltList<FilesSharingShareeRemoteGroup> remoteGroups;
+  final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
-  final BuiltList<FilesSharingShareeRemote> remotes;
+  final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<FilesSharingSharee> rooms;
+  final BuiltList<Sharee> rooms;
   @override
-  final BuiltList<FilesSharingShareeUser> users;
+  final BuiltList<ShareeUser> users;
 
-  factory _$FilesSharingShareesSearchResult_Exact(
-          [void Function(FilesSharingShareesSearchResult_ExactBuilder)? updates]) =>
-      (FilesSharingShareesSearchResult_ExactBuilder()..update(updates))._build();
+  factory _$ShareesSearchResult_Exact([void Function(ShareesSearchResult_ExactBuilder)? updates]) =>
+      (ShareesSearchResult_ExactBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesSearchResult_Exact._(
+  _$ShareesSearchResult_Exact._(
       {required this.circles,
       required this.emails,
       required this.groups,
@@ -12692,27 +12256,26 @@ class _$FilesSharingShareesSearchResult_Exact extends FilesSharingShareesSearchR
       required this.rooms,
       required this.users})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(circles, r'FilesSharingShareesSearchResult_Exact', 'circles');
-    BuiltValueNullFieldError.checkNotNull(emails, r'FilesSharingShareesSearchResult_Exact', 'emails');
-    BuiltValueNullFieldError.checkNotNull(groups, r'FilesSharingShareesSearchResult_Exact', 'groups');
-    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'FilesSharingShareesSearchResult_Exact', 'remoteGroups');
-    BuiltValueNullFieldError.checkNotNull(remotes, r'FilesSharingShareesSearchResult_Exact', 'remotes');
-    BuiltValueNullFieldError.checkNotNull(rooms, r'FilesSharingShareesSearchResult_Exact', 'rooms');
-    BuiltValueNullFieldError.checkNotNull(users, r'FilesSharingShareesSearchResult_Exact', 'users');
+    BuiltValueNullFieldError.checkNotNull(circles, r'ShareesSearchResult_Exact', 'circles');
+    BuiltValueNullFieldError.checkNotNull(emails, r'ShareesSearchResult_Exact', 'emails');
+    BuiltValueNullFieldError.checkNotNull(groups, r'ShareesSearchResult_Exact', 'groups');
+    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'ShareesSearchResult_Exact', 'remoteGroups');
+    BuiltValueNullFieldError.checkNotNull(remotes, r'ShareesSearchResult_Exact', 'remotes');
+    BuiltValueNullFieldError.checkNotNull(rooms, r'ShareesSearchResult_Exact', 'rooms');
+    BuiltValueNullFieldError.checkNotNull(users, r'ShareesSearchResult_Exact', 'users');
   }
 
   @override
-  FilesSharingShareesSearchResult_Exact rebuild(void Function(FilesSharingShareesSearchResult_ExactBuilder) updates) =>
+  ShareesSearchResult_Exact rebuild(void Function(ShareesSearchResult_ExactBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesSearchResult_ExactBuilder toBuilder() =>
-      FilesSharingShareesSearchResult_ExactBuilder()..replace(this);
+  ShareesSearchResult_ExactBuilder toBuilder() => ShareesSearchResult_ExactBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesSearchResult_Exact &&
+    return other is ShareesSearchResult_Exact &&
         circles == other.circles &&
         emails == other.emails &&
         groups == other.groups &&
@@ -12738,7 +12301,7 @@ class _$FilesSharingShareesSearchResult_Exact extends FilesSharingShareesSearchR
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesSearchResult_Exact')
+    return (newBuiltValueToStringHelper(r'ShareesSearchResult_Exact')
           ..add('circles', circles)
           ..add('emails', emails)
           ..add('groups', groups)
@@ -12750,45 +12313,43 @@ class _$FilesSharingShareesSearchResult_Exact extends FilesSharingShareesSearchR
   }
 }
 
-class FilesSharingShareesSearchResult_ExactBuilder
+class ShareesSearchResult_ExactBuilder
     implements
-        Builder<FilesSharingShareesSearchResult_Exact, FilesSharingShareesSearchResult_ExactBuilder>,
-        FilesSharingShareesSearchResult_ExactInterfaceBuilder {
-  _$FilesSharingShareesSearchResult_Exact? _$v;
+        Builder<ShareesSearchResult_Exact, ShareesSearchResult_ExactBuilder>,
+        ShareesSearchResult_ExactInterfaceBuilder {
+  _$ShareesSearchResult_Exact? _$v;
 
-  ListBuilder<FilesSharingShareeCircle>? _circles;
-  ListBuilder<FilesSharingShareeCircle> get circles => _$this._circles ??= ListBuilder<FilesSharingShareeCircle>();
-  set circles(covariant ListBuilder<FilesSharingShareeCircle>? circles) => _$this._circles = circles;
+  ListBuilder<ShareeCircle>? _circles;
+  ListBuilder<ShareeCircle> get circles => _$this._circles ??= ListBuilder<ShareeCircle>();
+  set circles(covariant ListBuilder<ShareeCircle>? circles) => _$this._circles = circles;
 
-  ListBuilder<FilesSharingShareeEmail>? _emails;
-  ListBuilder<FilesSharingShareeEmail> get emails => _$this._emails ??= ListBuilder<FilesSharingShareeEmail>();
-  set emails(covariant ListBuilder<FilesSharingShareeEmail>? emails) => _$this._emails = emails;
+  ListBuilder<ShareeEmail>? _emails;
+  ListBuilder<ShareeEmail> get emails => _$this._emails ??= ListBuilder<ShareeEmail>();
+  set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<FilesSharingSharee>? _groups;
-  ListBuilder<FilesSharingSharee> get groups => _$this._groups ??= ListBuilder<FilesSharingSharee>();
-  set groups(covariant ListBuilder<FilesSharingSharee>? groups) => _$this._groups = groups;
+  ListBuilder<Sharee>? _groups;
+  ListBuilder<Sharee> get groups => _$this._groups ??= ListBuilder<Sharee>();
+  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
 
-  ListBuilder<FilesSharingShareeRemoteGroup>? _remoteGroups;
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups =>
-      _$this._remoteGroups ??= ListBuilder<FilesSharingShareeRemoteGroup>();
-  set remoteGroups(covariant ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups) =>
-      _$this._remoteGroups = remoteGroups;
+  ListBuilder<ShareeRemoteGroup>? _remoteGroups;
+  ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= ListBuilder<ShareeRemoteGroup>();
+  set remoteGroups(covariant ListBuilder<ShareeRemoteGroup>? remoteGroups) => _$this._remoteGroups = remoteGroups;
 
-  ListBuilder<FilesSharingShareeRemote>? _remotes;
-  ListBuilder<FilesSharingShareeRemote> get remotes => _$this._remotes ??= ListBuilder<FilesSharingShareeRemote>();
-  set remotes(covariant ListBuilder<FilesSharingShareeRemote>? remotes) => _$this._remotes = remotes;
+  ListBuilder<ShareeRemote>? _remotes;
+  ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= ListBuilder<ShareeRemote>();
+  set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<FilesSharingSharee>? _rooms;
-  ListBuilder<FilesSharingSharee> get rooms => _$this._rooms ??= ListBuilder<FilesSharingSharee>();
-  set rooms(covariant ListBuilder<FilesSharingSharee>? rooms) => _$this._rooms = rooms;
+  ListBuilder<Sharee>? _rooms;
+  ListBuilder<Sharee> get rooms => _$this._rooms ??= ListBuilder<Sharee>();
+  set rooms(covariant ListBuilder<Sharee>? rooms) => _$this._rooms = rooms;
 
-  ListBuilder<FilesSharingShareeUser>? _users;
-  ListBuilder<FilesSharingShareeUser> get users => _$this._users ??= ListBuilder<FilesSharingShareeUser>();
-  set users(covariant ListBuilder<FilesSharingShareeUser>? users) => _$this._users = users;
+  ListBuilder<ShareeUser>? _users;
+  ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
+  set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  FilesSharingShareesSearchResult_ExactBuilder();
+  ShareesSearchResult_ExactBuilder();
 
-  FilesSharingShareesSearchResult_ExactBuilder get _$this {
+  ShareesSearchResult_ExactBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _circles = $v.circles.toBuilder();
@@ -12804,24 +12365,24 @@ class FilesSharingShareesSearchResult_ExactBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesSearchResult_Exact other) {
+  void replace(covariant ShareesSearchResult_Exact other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesSearchResult_Exact;
+    _$v = other as _$ShareesSearchResult_Exact;
   }
 
   @override
-  void update(void Function(FilesSharingShareesSearchResult_ExactBuilder)? updates) {
+  void update(void Function(ShareesSearchResult_ExactBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesSearchResult_Exact build() => _build();
+  ShareesSearchResult_Exact build() => _build();
 
-  _$FilesSharingShareesSearchResult_Exact _build() {
-    _$FilesSharingShareesSearchResult_Exact _$result;
+  _$ShareesSearchResult_Exact _build() {
+    _$ShareesSearchResult_Exact _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesSearchResult_Exact._(
+          _$ShareesSearchResult_Exact._(
               circles: circles.build(),
               emails: emails.build(),
               groups: groups.build(),
@@ -12847,7 +12408,7 @@ class FilesSharingShareesSearchResult_ExactBuilder
         _$failedField = 'users';
         users.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareesSearchResult_Exact', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesSearchResult_Exact', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12856,9 +12417,9 @@ class FilesSharingShareesSearchResult_ExactBuilder
   }
 }
 
-abstract mixin class FilesSharingLookupInterfaceBuilder {
-  void replace(FilesSharingLookupInterface other);
-  void update(void Function(FilesSharingLookupInterfaceBuilder) updates);
+abstract mixin class LookupInterfaceBuilder {
+  void replace(LookupInterface other);
+  void update(void Function(LookupInterfaceBuilder) updates);
   String? get value;
   set value(String? value);
 
@@ -12866,31 +12427,29 @@ abstract mixin class FilesSharingLookupInterfaceBuilder {
   set verified(int? verified);
 }
 
-class _$FilesSharingLookup extends FilesSharingLookup {
+class _$Lookup extends Lookup {
   @override
   final String value;
   @override
   final int verified;
 
-  factory _$FilesSharingLookup([void Function(FilesSharingLookupBuilder)? updates]) =>
-      (FilesSharingLookupBuilder()..update(updates))._build();
+  factory _$Lookup([void Function(LookupBuilder)? updates]) => (LookupBuilder()..update(updates))._build();
 
-  _$FilesSharingLookup._({required this.value, required this.verified}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingLookup', 'value');
-    BuiltValueNullFieldError.checkNotNull(verified, r'FilesSharingLookup', 'verified');
+  _$Lookup._({required this.value, required this.verified}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value');
+    BuiltValueNullFieldError.checkNotNull(verified, r'Lookup', 'verified');
   }
 
   @override
-  FilesSharingLookup rebuild(void Function(FilesSharingLookupBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Lookup rebuild(void Function(LookupBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingLookupBuilder toBuilder() => FilesSharingLookupBuilder()..replace(this);
+  LookupBuilder toBuilder() => LookupBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingLookup && value == other.value && verified == other.verified;
+    return other is Lookup && value == other.value && verified == other.verified;
   }
 
   @override
@@ -12904,16 +12463,15 @@ class _$FilesSharingLookup extends FilesSharingLookup {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingLookup')
+    return (newBuiltValueToStringHelper(r'Lookup')
           ..add('value', value)
           ..add('verified', verified))
         .toString();
   }
 }
 
-class FilesSharingLookupBuilder
-    implements Builder<FilesSharingLookup, FilesSharingLookupBuilder>, FilesSharingLookupInterfaceBuilder {
-  _$FilesSharingLookup? _$v;
+class LookupBuilder implements Builder<Lookup, LookupBuilder>, LookupInterfaceBuilder {
+  _$Lookup? _$v;
 
   String? _value;
   String? get value => _$this._value;
@@ -12923,9 +12481,9 @@ class FilesSharingLookupBuilder
   int? get verified => _$this._verified;
   set verified(covariant int? verified) => _$this._verified = verified;
 
-  FilesSharingLookupBuilder();
+  LookupBuilder();
 
-  FilesSharingLookupBuilder get _$this {
+  LookupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _value = $v.value;
@@ -12936,89 +12494,89 @@ class FilesSharingLookupBuilder
   }
 
   @override
-  void replace(covariant FilesSharingLookup other) {
+  void replace(covariant Lookup other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingLookup;
+    _$v = other as _$Lookup;
   }
 
   @override
-  void update(void Function(FilesSharingLookupBuilder)? updates) {
+  void update(void Function(LookupBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingLookup build() => _build();
+  Lookup build() => _build();
 
-  _$FilesSharingLookup _build() {
+  _$Lookup _build() {
     final _$result = _$v ??
-        _$FilesSharingLookup._(
-            value: BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingLookup', 'value'),
-            verified: BuiltValueNullFieldError.checkNotNull(verified, r'FilesSharingLookup', 'verified'));
+        _$Lookup._(
+            value: BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value'),
+            verified: BuiltValueNullFieldError.checkNotNull(verified, r'Lookup', 'verified'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeLookup_1_ExtraInterfaceBuilder {
-  void replace(FilesSharingShareeLookup_1_ExtraInterface other);
-  void update(void Function(FilesSharingShareeLookup_1_ExtraInterfaceBuilder) updates);
+abstract mixin class ShareeLookup_1_ExtraInterfaceBuilder {
+  void replace(ShareeLookup_1_ExtraInterface other);
+  void update(void Function(ShareeLookup_1_ExtraInterfaceBuilder) updates);
   String? get federationId;
   set federationId(String? federationId);
 
-  FilesSharingLookupBuilder get name;
-  set name(FilesSharingLookupBuilder? name);
+  LookupBuilder get name;
+  set name(LookupBuilder? name);
 
-  FilesSharingLookupBuilder get email;
-  set email(FilesSharingLookupBuilder? email);
+  LookupBuilder get email;
+  set email(LookupBuilder? email);
 
-  FilesSharingLookupBuilder get address;
-  set address(FilesSharingLookupBuilder? address);
+  LookupBuilder get address;
+  set address(LookupBuilder? address);
 
-  FilesSharingLookupBuilder get website;
-  set website(FilesSharingLookupBuilder? website);
+  LookupBuilder get website;
+  set website(LookupBuilder? website);
 
-  FilesSharingLookupBuilder get twitter;
-  set twitter(FilesSharingLookupBuilder? twitter);
+  LookupBuilder get twitter;
+  set twitter(LookupBuilder? twitter);
 
-  FilesSharingLookupBuilder get phone;
-  set phone(FilesSharingLookupBuilder? phone);
+  LookupBuilder get phone;
+  set phone(LookupBuilder? phone);
 
-  FilesSharingLookupBuilder get twitterSignature;
-  set twitterSignature(FilesSharingLookupBuilder? twitterSignature);
+  LookupBuilder get twitterSignature;
+  set twitterSignature(LookupBuilder? twitterSignature);
 
-  FilesSharingLookupBuilder get websiteSignature;
-  set websiteSignature(FilesSharingLookupBuilder? websiteSignature);
+  LookupBuilder get websiteSignature;
+  set websiteSignature(LookupBuilder? websiteSignature);
 
-  FilesSharingLookupBuilder get userid;
-  set userid(FilesSharingLookupBuilder? userid);
+  LookupBuilder get userid;
+  set userid(LookupBuilder? userid);
 }
 
-class _$FilesSharingShareeLookup_1_Extra extends FilesSharingShareeLookup_1_Extra {
+class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
   @override
   final String federationId;
   @override
-  final FilesSharingLookup? name;
+  final Lookup? name;
   @override
-  final FilesSharingLookup? email;
+  final Lookup? email;
   @override
-  final FilesSharingLookup? address;
+  final Lookup? address;
   @override
-  final FilesSharingLookup? website;
+  final Lookup? website;
   @override
-  final FilesSharingLookup? twitter;
+  final Lookup? twitter;
   @override
-  final FilesSharingLookup? phone;
+  final Lookup? phone;
   @override
-  final FilesSharingLookup? twitterSignature;
+  final Lookup? twitterSignature;
   @override
-  final FilesSharingLookup? websiteSignature;
+  final Lookup? websiteSignature;
   @override
-  final FilesSharingLookup? userid;
+  final Lookup? userid;
 
-  factory _$FilesSharingShareeLookup_1_Extra([void Function(FilesSharingShareeLookup_1_ExtraBuilder)? updates]) =>
-      (FilesSharingShareeLookup_1_ExtraBuilder()..update(updates))._build();
+  factory _$ShareeLookup_1_Extra([void Function(ShareeLookup_1_ExtraBuilder)? updates]) =>
+      (ShareeLookup_1_ExtraBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeLookup_1_Extra._(
+  _$ShareeLookup_1_Extra._(
       {required this.federationId,
       this.name,
       this.email,
@@ -13030,20 +12588,20 @@ class _$FilesSharingShareeLookup_1_Extra extends FilesSharingShareeLookup_1_Extr
       this.websiteSignature,
       this.userid})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(federationId, r'FilesSharingShareeLookup_1_Extra', 'federationId');
+    BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_1_Extra', 'federationId');
   }
 
   @override
-  FilesSharingShareeLookup_1_Extra rebuild(void Function(FilesSharingShareeLookup_1_ExtraBuilder) updates) =>
+  ShareeLookup_1_Extra rebuild(void Function(ShareeLookup_1_ExtraBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeLookup_1_ExtraBuilder toBuilder() => FilesSharingShareeLookup_1_ExtraBuilder()..replace(this);
+  ShareeLookup_1_ExtraBuilder toBuilder() => ShareeLookup_1_ExtraBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeLookup_1_Extra &&
+    return other is ShareeLookup_1_Extra &&
         federationId == other.federationId &&
         name == other.name &&
         email == other.email &&
@@ -13075,7 +12633,7 @@ class _$FilesSharingShareeLookup_1_Extra extends FilesSharingShareeLookup_1_Extr
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeLookup_1_Extra')
+    return (newBuiltValueToStringHelper(r'ShareeLookup_1_Extra')
           ..add('federationId', federationId)
           ..add('name', name)
           ..add('email', email)
@@ -13090,57 +12648,53 @@ class _$FilesSharingShareeLookup_1_Extra extends FilesSharingShareeLookup_1_Extr
   }
 }
 
-class FilesSharingShareeLookup_1_ExtraBuilder
-    implements
-        Builder<FilesSharingShareeLookup_1_Extra, FilesSharingShareeLookup_1_ExtraBuilder>,
-        FilesSharingShareeLookup_1_ExtraInterfaceBuilder {
-  _$FilesSharingShareeLookup_1_Extra? _$v;
+class ShareeLookup_1_ExtraBuilder
+    implements Builder<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder>, ShareeLookup_1_ExtraInterfaceBuilder {
+  _$ShareeLookup_1_Extra? _$v;
 
   String? _federationId;
   String? get federationId => _$this._federationId;
   set federationId(covariant String? federationId) => _$this._federationId = federationId;
 
-  FilesSharingLookupBuilder? _name;
-  FilesSharingLookupBuilder get name => _$this._name ??= FilesSharingLookupBuilder();
-  set name(covariant FilesSharingLookupBuilder? name) => _$this._name = name;
+  LookupBuilder? _name;
+  LookupBuilder get name => _$this._name ??= LookupBuilder();
+  set name(covariant LookupBuilder? name) => _$this._name = name;
 
-  FilesSharingLookupBuilder? _email;
-  FilesSharingLookupBuilder get email => _$this._email ??= FilesSharingLookupBuilder();
-  set email(covariant FilesSharingLookupBuilder? email) => _$this._email = email;
+  LookupBuilder? _email;
+  LookupBuilder get email => _$this._email ??= LookupBuilder();
+  set email(covariant LookupBuilder? email) => _$this._email = email;
 
-  FilesSharingLookupBuilder? _address;
-  FilesSharingLookupBuilder get address => _$this._address ??= FilesSharingLookupBuilder();
-  set address(covariant FilesSharingLookupBuilder? address) => _$this._address = address;
+  LookupBuilder? _address;
+  LookupBuilder get address => _$this._address ??= LookupBuilder();
+  set address(covariant LookupBuilder? address) => _$this._address = address;
 
-  FilesSharingLookupBuilder? _website;
-  FilesSharingLookupBuilder get website => _$this._website ??= FilesSharingLookupBuilder();
-  set website(covariant FilesSharingLookupBuilder? website) => _$this._website = website;
+  LookupBuilder? _website;
+  LookupBuilder get website => _$this._website ??= LookupBuilder();
+  set website(covariant LookupBuilder? website) => _$this._website = website;
 
-  FilesSharingLookupBuilder? _twitter;
-  FilesSharingLookupBuilder get twitter => _$this._twitter ??= FilesSharingLookupBuilder();
-  set twitter(covariant FilesSharingLookupBuilder? twitter) => _$this._twitter = twitter;
+  LookupBuilder? _twitter;
+  LookupBuilder get twitter => _$this._twitter ??= LookupBuilder();
+  set twitter(covariant LookupBuilder? twitter) => _$this._twitter = twitter;
 
-  FilesSharingLookupBuilder? _phone;
-  FilesSharingLookupBuilder get phone => _$this._phone ??= FilesSharingLookupBuilder();
-  set phone(covariant FilesSharingLookupBuilder? phone) => _$this._phone = phone;
+  LookupBuilder? _phone;
+  LookupBuilder get phone => _$this._phone ??= LookupBuilder();
+  set phone(covariant LookupBuilder? phone) => _$this._phone = phone;
 
-  FilesSharingLookupBuilder? _twitterSignature;
-  FilesSharingLookupBuilder get twitterSignature => _$this._twitterSignature ??= FilesSharingLookupBuilder();
-  set twitterSignature(covariant FilesSharingLookupBuilder? twitterSignature) =>
-      _$this._twitterSignature = twitterSignature;
+  LookupBuilder? _twitterSignature;
+  LookupBuilder get twitterSignature => _$this._twitterSignature ??= LookupBuilder();
+  set twitterSignature(covariant LookupBuilder? twitterSignature) => _$this._twitterSignature = twitterSignature;
 
-  FilesSharingLookupBuilder? _websiteSignature;
-  FilesSharingLookupBuilder get websiteSignature => _$this._websiteSignature ??= FilesSharingLookupBuilder();
-  set websiteSignature(covariant FilesSharingLookupBuilder? websiteSignature) =>
-      _$this._websiteSignature = websiteSignature;
+  LookupBuilder? _websiteSignature;
+  LookupBuilder get websiteSignature => _$this._websiteSignature ??= LookupBuilder();
+  set websiteSignature(covariant LookupBuilder? websiteSignature) => _$this._websiteSignature = websiteSignature;
 
-  FilesSharingLookupBuilder? _userid;
-  FilesSharingLookupBuilder get userid => _$this._userid ??= FilesSharingLookupBuilder();
-  set userid(covariant FilesSharingLookupBuilder? userid) => _$this._userid = userid;
+  LookupBuilder? _userid;
+  LookupBuilder get userid => _$this._userid ??= LookupBuilder();
+  set userid(covariant LookupBuilder? userid) => _$this._userid = userid;
 
-  FilesSharingShareeLookup_1_ExtraBuilder();
+  ShareeLookup_1_ExtraBuilder();
 
-  FilesSharingShareeLookup_1_ExtraBuilder get _$this {
+  ShareeLookup_1_ExtraBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _federationId = $v.federationId;
@@ -13159,26 +12713,26 @@ class FilesSharingShareeLookup_1_ExtraBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareeLookup_1_Extra other) {
+  void replace(covariant ShareeLookup_1_Extra other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeLookup_1_Extra;
+    _$v = other as _$ShareeLookup_1_Extra;
   }
 
   @override
-  void update(void Function(FilesSharingShareeLookup_1_ExtraBuilder)? updates) {
+  void update(void Function(ShareeLookup_1_ExtraBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeLookup_1_Extra build() => _build();
+  ShareeLookup_1_Extra build() => _build();
 
-  _$FilesSharingShareeLookup_1_Extra _build() {
-    _$FilesSharingShareeLookup_1_Extra _$result;
+  _$ShareeLookup_1_Extra _build() {
+    _$ShareeLookup_1_Extra _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeLookup_1_Extra._(
-              federationId: BuiltValueNullFieldError.checkNotNull(
-                  federationId, r'FilesSharingShareeLookup_1_Extra', 'federationId'),
+          _$ShareeLookup_1_Extra._(
+              federationId:
+                  BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_1_Extra', 'federationId'),
               name: _name?.build(),
               email: _email?.build(),
               address: _address?.build(),
@@ -13210,7 +12764,7 @@ class FilesSharingShareeLookup_1_ExtraBuilder
         _$failedField = 'userid';
         _userid?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeLookup_1_Extra', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeLookup_1_Extra', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13219,14 +12773,14 @@ class FilesSharingShareeLookup_1_ExtraBuilder
   }
 }
 
-abstract mixin class FilesSharingShareeLookup_1_Value_1InterfaceBuilder {
-  void replace(FilesSharingShareeLookup_1_Value_1Interface other);
-  void update(void Function(FilesSharingShareeLookup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class ShareeLookup_1_Value_1InterfaceBuilder {
+  void replace(ShareeLookup_1_Value_1Interface other);
+  void update(void Function(ShareeLookup_1_Value_1InterfaceBuilder) updates);
   bool? get globalScale;
   set globalScale(bool? globalScale);
 }
 
-class _$FilesSharingShareeLookup_1_Value extends FilesSharingShareeLookup_1_Value {
+class _$ShareeLookup_1_Value extends ShareeLookup_1_Value {
   @override
   final int shareType;
   @override
@@ -13234,27 +12788,26 @@ class _$FilesSharingShareeLookup_1_Value extends FilesSharingShareeLookup_1_Valu
   @override
   final bool globalScale;
 
-  factory _$FilesSharingShareeLookup_1_Value([void Function(FilesSharingShareeLookup_1_ValueBuilder)? updates]) =>
-      (FilesSharingShareeLookup_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeLookup_1_Value([void Function(ShareeLookup_1_ValueBuilder)? updates]) =>
+      (ShareeLookup_1_ValueBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeLookup_1_Value._({required this.shareType, required this.shareWith, required this.globalScale})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeLookup_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeLookup_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(globalScale, r'FilesSharingShareeLookup_1_Value', 'globalScale');
+  _$ShareeLookup_1_Value._({required this.shareType, required this.shareWith, required this.globalScale}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_1_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_1_Value', 'shareWith');
+    BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_1_Value', 'globalScale');
   }
 
   @override
-  FilesSharingShareeLookup_1_Value rebuild(void Function(FilesSharingShareeLookup_1_ValueBuilder) updates) =>
+  ShareeLookup_1_Value rebuild(void Function(ShareeLookup_1_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeLookup_1_ValueBuilder toBuilder() => FilesSharingShareeLookup_1_ValueBuilder()..replace(this);
+  ShareeLookup_1_ValueBuilder toBuilder() => ShareeLookup_1_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeLookup_1_Value &&
+    return other is ShareeLookup_1_Value &&
         shareType == other.shareType &&
         shareWith == other.shareWith &&
         globalScale == other.globalScale;
@@ -13272,7 +12825,7 @@ class _$FilesSharingShareeLookup_1_Value extends FilesSharingShareeLookup_1_Valu
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeLookup_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeLookup_1_Value')
           ..add('shareType', shareType)
           ..add('shareWith', shareWith)
           ..add('globalScale', globalScale))
@@ -13280,12 +12833,12 @@ class _$FilesSharingShareeLookup_1_Value extends FilesSharingShareeLookup_1_Valu
   }
 }
 
-class FilesSharingShareeLookup_1_ValueBuilder
+class ShareeLookup_1_ValueBuilder
     implements
-        Builder<FilesSharingShareeLookup_1_Value, FilesSharingShareeLookup_1_ValueBuilder>,
-        FilesSharingShareeValueInterfaceBuilder,
-        FilesSharingShareeLookup_1_Value_1InterfaceBuilder {
-  _$FilesSharingShareeLookup_1_Value? _$v;
+        Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>,
+        ShareeValueInterfaceBuilder,
+        ShareeLookup_1_Value_1InterfaceBuilder {
+  _$ShareeLookup_1_Value? _$v;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -13299,9 +12852,9 @@ class FilesSharingShareeLookup_1_ValueBuilder
   bool? get globalScale => _$this._globalScale;
   set globalScale(covariant bool? globalScale) => _$this._globalScale = globalScale;
 
-  FilesSharingShareeLookup_1_ValueBuilder();
+  ShareeLookup_1_ValueBuilder();
 
-  FilesSharingShareeLookup_1_ValueBuilder get _$this {
+  ShareeLookup_1_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _shareType = $v.shareType;
@@ -13314,74 +12867,69 @@ class FilesSharingShareeLookup_1_ValueBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeLookup_1_Value other) {
+  void replace(covariant ShareeLookup_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeLookup_1_Value;
+    _$v = other as _$ShareeLookup_1_Value;
   }
 
   @override
-  void update(void Function(FilesSharingShareeLookup_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeLookup_1_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeLookup_1_Value build() => _build();
+  ShareeLookup_1_Value build() => _build();
 
-  _$FilesSharingShareeLookup_1_Value _build() {
+  _$ShareeLookup_1_Value _build() {
     final _$result = _$v ??
-        _$FilesSharingShareeLookup_1_Value._(
-            shareType:
-                BuiltValueNullFieldError.checkNotNull(shareType, r'FilesSharingShareeLookup_1_Value', 'shareType'),
-            shareWith:
-                BuiltValueNullFieldError.checkNotNull(shareWith, r'FilesSharingShareeLookup_1_Value', 'shareWith'),
-            globalScale:
-                BuiltValueNullFieldError.checkNotNull(globalScale, r'FilesSharingShareeLookup_1_Value', 'globalScale'));
+        _$ShareeLookup_1_Value._(
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_1_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_1_Value', 'shareWith'),
+            globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_1_Value', 'globalScale'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingShareeLookup_1InterfaceBuilder {
-  void replace(FilesSharingShareeLookup_1Interface other);
-  void update(void Function(FilesSharingShareeLookup_1InterfaceBuilder) updates);
-  FilesSharingShareeLookup_1_ExtraBuilder get extra;
-  set extra(FilesSharingShareeLookup_1_ExtraBuilder? extra);
+abstract mixin class ShareeLookup_1InterfaceBuilder {
+  void replace(ShareeLookup_1Interface other);
+  void update(void Function(ShareeLookup_1InterfaceBuilder) updates);
+  ShareeLookup_1_ExtraBuilder get extra;
+  set extra(ShareeLookup_1_ExtraBuilder? extra);
 
-  FilesSharingShareeLookup_1_ValueBuilder get value;
-  set value(FilesSharingShareeLookup_1_ValueBuilder? value);
+  ShareeLookup_1_ValueBuilder get value;
+  set value(ShareeLookup_1_ValueBuilder? value);
 }
 
-class _$FilesSharingShareeLookup extends FilesSharingShareeLookup {
+class _$ShareeLookup extends ShareeLookup {
   @override
   final int? count;
   @override
   final String label;
   @override
-  final FilesSharingShareeLookup_1_Extra extra;
+  final ShareeLookup_1_Extra extra;
   @override
-  final FilesSharingShareeLookup_1_Value value;
+  final ShareeLookup_1_Value value;
 
-  factory _$FilesSharingShareeLookup([void Function(FilesSharingShareeLookupBuilder)? updates]) =>
-      (FilesSharingShareeLookupBuilder()..update(updates))._build();
+  factory _$ShareeLookup([void Function(ShareeLookupBuilder)? updates]) =>
+      (ShareeLookupBuilder()..update(updates))._build();
 
-  _$FilesSharingShareeLookup._({this.count, required this.label, required this.extra, required this.value})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeLookup', 'label');
-    BuiltValueNullFieldError.checkNotNull(extra, r'FilesSharingShareeLookup', 'extra');
-    BuiltValueNullFieldError.checkNotNull(value, r'FilesSharingShareeLookup', 'value');
+  _$ShareeLookup._({this.count, required this.label, required this.extra, required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label');
+    BuiltValueNullFieldError.checkNotNull(extra, r'ShareeLookup', 'extra');
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeLookup', 'value');
   }
 
   @override
-  FilesSharingShareeLookup rebuild(void Function(FilesSharingShareeLookupBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeLookup rebuild(void Function(ShareeLookupBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareeLookupBuilder toBuilder() => FilesSharingShareeLookupBuilder()..replace(this);
+  ShareeLookupBuilder toBuilder() => ShareeLookupBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareeLookup &&
+    return other is ShareeLookup &&
         count == other.count &&
         label == other.label &&
         extra == other.extra &&
@@ -13401,7 +12949,7 @@ class _$FilesSharingShareeLookup extends FilesSharingShareeLookup {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareeLookup')
+    return (newBuiltValueToStringHelper(r'ShareeLookup')
           ..add('count', count)
           ..add('label', label)
           ..add('extra', extra)
@@ -13410,12 +12958,9 @@ class _$FilesSharingShareeLookup extends FilesSharingShareeLookup {
   }
 }
 
-class FilesSharingShareeLookupBuilder
-    implements
-        Builder<FilesSharingShareeLookup, FilesSharingShareeLookupBuilder>,
-        FilesSharingShareeInterfaceBuilder,
-        FilesSharingShareeLookup_1InterfaceBuilder {
-  _$FilesSharingShareeLookup? _$v;
+class ShareeLookupBuilder
+    implements Builder<ShareeLookup, ShareeLookupBuilder>, ShareeInterfaceBuilder, ShareeLookup_1InterfaceBuilder {
+  _$ShareeLookup? _$v;
 
   int? _count;
   int? get count => _$this._count;
@@ -13425,17 +12970,17 @@ class FilesSharingShareeLookupBuilder
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  FilesSharingShareeLookup_1_ExtraBuilder? _extra;
-  FilesSharingShareeLookup_1_ExtraBuilder get extra => _$this._extra ??= FilesSharingShareeLookup_1_ExtraBuilder();
-  set extra(covariant FilesSharingShareeLookup_1_ExtraBuilder? extra) => _$this._extra = extra;
+  ShareeLookup_1_ExtraBuilder? _extra;
+  ShareeLookup_1_ExtraBuilder get extra => _$this._extra ??= ShareeLookup_1_ExtraBuilder();
+  set extra(covariant ShareeLookup_1_ExtraBuilder? extra) => _$this._extra = extra;
 
-  FilesSharingShareeLookup_1_ValueBuilder? _value;
-  FilesSharingShareeLookup_1_ValueBuilder get value => _$this._value ??= FilesSharingShareeLookup_1_ValueBuilder();
-  set value(covariant FilesSharingShareeLookup_1_ValueBuilder? value) => _$this._value = value;
+  ShareeLookup_1_ValueBuilder? _value;
+  ShareeLookup_1_ValueBuilder get value => _$this._value ??= ShareeLookup_1_ValueBuilder();
+  set value(covariant ShareeLookup_1_ValueBuilder? value) => _$this._value = value;
 
-  FilesSharingShareeLookupBuilder();
+  ShareeLookupBuilder();
 
-  FilesSharingShareeLookupBuilder get _$this {
+  ShareeLookupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _count = $v.count;
@@ -13449,26 +12994,26 @@ class FilesSharingShareeLookupBuilder
 
   @override
 // ignore: override_on_non_overriding_method
-  void replace(covariant FilesSharingShareeLookup other) {
+  void replace(covariant ShareeLookup other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareeLookup;
+    _$v = other as _$ShareeLookup;
   }
 
   @override
-  void update(void Function(FilesSharingShareeLookupBuilder)? updates) {
+  void update(void Function(ShareeLookupBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareeLookup build() => _build();
+  ShareeLookup build() => _build();
 
-  _$FilesSharingShareeLookup _build() {
-    _$FilesSharingShareeLookup _$result;
+  _$ShareeLookup _build() {
+    _$ShareeLookup _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareeLookup._(
+          _$ShareeLookup._(
               count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'FilesSharingShareeLookup', 'label'),
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'),
               extra: extra.build(),
               value: value.build());
     } catch (_) {
@@ -13479,7 +13024,7 @@ class FilesSharingShareeLookupBuilder
         _$failedField = 'value';
         value.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareeLookup', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeLookup', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13488,66 +13033,66 @@ class FilesSharingShareeLookupBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesSearchResultInterfaceBuilder {
-  void replace(FilesSharingShareesSearchResultInterface other);
-  void update(void Function(FilesSharingShareesSearchResultInterfaceBuilder) updates);
-  FilesSharingShareesSearchResult_ExactBuilder get exact;
-  set exact(FilesSharingShareesSearchResult_ExactBuilder? exact);
+abstract mixin class ShareesSearchResultInterfaceBuilder {
+  void replace(ShareesSearchResultInterface other);
+  void update(void Function(ShareesSearchResultInterfaceBuilder) updates);
+  ShareesSearchResult_ExactBuilder get exact;
+  set exact(ShareesSearchResult_ExactBuilder? exact);
 
-  ListBuilder<FilesSharingShareeCircle> get circles;
-  set circles(ListBuilder<FilesSharingShareeCircle>? circles);
+  ListBuilder<ShareeCircle> get circles;
+  set circles(ListBuilder<ShareeCircle>? circles);
 
-  ListBuilder<FilesSharingShareeEmail> get emails;
-  set emails(ListBuilder<FilesSharingShareeEmail>? emails);
+  ListBuilder<ShareeEmail> get emails;
+  set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<FilesSharingSharee> get groups;
-  set groups(ListBuilder<FilesSharingSharee>? groups);
+  ListBuilder<Sharee> get groups;
+  set groups(ListBuilder<Sharee>? groups);
 
-  ListBuilder<FilesSharingShareeLookup> get lookup;
-  set lookup(ListBuilder<FilesSharingShareeLookup>? lookup);
+  ListBuilder<ShareeLookup> get lookup;
+  set lookup(ListBuilder<ShareeLookup>? lookup);
 
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups;
-  set remoteGroups(ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups);
+  ListBuilder<ShareeRemoteGroup> get remoteGroups;
+  set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
 
-  ListBuilder<FilesSharingShareeRemote> get remotes;
-  set remotes(ListBuilder<FilesSharingShareeRemote>? remotes);
+  ListBuilder<ShareeRemote> get remotes;
+  set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<FilesSharingSharee> get rooms;
-  set rooms(ListBuilder<FilesSharingSharee>? rooms);
+  ListBuilder<Sharee> get rooms;
+  set rooms(ListBuilder<Sharee>? rooms);
 
-  ListBuilder<FilesSharingShareeUser> get users;
-  set users(ListBuilder<FilesSharingShareeUser>? users);
+  ListBuilder<ShareeUser> get users;
+  set users(ListBuilder<ShareeUser>? users);
 
   bool? get lookupEnabled;
   set lookupEnabled(bool? lookupEnabled);
 }
 
-class _$FilesSharingShareesSearchResult extends FilesSharingShareesSearchResult {
+class _$ShareesSearchResult extends ShareesSearchResult {
   @override
-  final FilesSharingShareesSearchResult_Exact exact;
+  final ShareesSearchResult_Exact exact;
   @override
-  final BuiltList<FilesSharingShareeCircle> circles;
+  final BuiltList<ShareeCircle> circles;
   @override
-  final BuiltList<FilesSharingShareeEmail> emails;
+  final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<FilesSharingSharee> groups;
+  final BuiltList<Sharee> groups;
   @override
-  final BuiltList<FilesSharingShareeLookup> lookup;
+  final BuiltList<ShareeLookup> lookup;
   @override
-  final BuiltList<FilesSharingShareeRemoteGroup> remoteGroups;
+  final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
-  final BuiltList<FilesSharingShareeRemote> remotes;
+  final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<FilesSharingSharee> rooms;
+  final BuiltList<Sharee> rooms;
   @override
-  final BuiltList<FilesSharingShareeUser> users;
+  final BuiltList<ShareeUser> users;
   @override
   final bool lookupEnabled;
 
-  factory _$FilesSharingShareesSearchResult([void Function(FilesSharingShareesSearchResultBuilder)? updates]) =>
-      (FilesSharingShareesSearchResultBuilder()..update(updates))._build();
+  factory _$ShareesSearchResult([void Function(ShareesSearchResultBuilder)? updates]) =>
+      (ShareesSearchResultBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesSearchResult._(
+  _$ShareesSearchResult._(
       {required this.exact,
       required this.circles,
       required this.emails,
@@ -13559,29 +13104,29 @@ class _$FilesSharingShareesSearchResult extends FilesSharingShareesSearchResult 
       required this.users,
       required this.lookupEnabled})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(exact, r'FilesSharingShareesSearchResult', 'exact');
-    BuiltValueNullFieldError.checkNotNull(circles, r'FilesSharingShareesSearchResult', 'circles');
-    BuiltValueNullFieldError.checkNotNull(emails, r'FilesSharingShareesSearchResult', 'emails');
-    BuiltValueNullFieldError.checkNotNull(groups, r'FilesSharingShareesSearchResult', 'groups');
-    BuiltValueNullFieldError.checkNotNull(lookup, r'FilesSharingShareesSearchResult', 'lookup');
-    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'FilesSharingShareesSearchResult', 'remoteGroups');
-    BuiltValueNullFieldError.checkNotNull(remotes, r'FilesSharingShareesSearchResult', 'remotes');
-    BuiltValueNullFieldError.checkNotNull(rooms, r'FilesSharingShareesSearchResult', 'rooms');
-    BuiltValueNullFieldError.checkNotNull(users, r'FilesSharingShareesSearchResult', 'users');
-    BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'FilesSharingShareesSearchResult', 'lookupEnabled');
+    BuiltValueNullFieldError.checkNotNull(exact, r'ShareesSearchResult', 'exact');
+    BuiltValueNullFieldError.checkNotNull(circles, r'ShareesSearchResult', 'circles');
+    BuiltValueNullFieldError.checkNotNull(emails, r'ShareesSearchResult', 'emails');
+    BuiltValueNullFieldError.checkNotNull(groups, r'ShareesSearchResult', 'groups');
+    BuiltValueNullFieldError.checkNotNull(lookup, r'ShareesSearchResult', 'lookup');
+    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'ShareesSearchResult', 'remoteGroups');
+    BuiltValueNullFieldError.checkNotNull(remotes, r'ShareesSearchResult', 'remotes');
+    BuiltValueNullFieldError.checkNotNull(rooms, r'ShareesSearchResult', 'rooms');
+    BuiltValueNullFieldError.checkNotNull(users, r'ShareesSearchResult', 'users');
+    BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'ShareesSearchResult', 'lookupEnabled');
   }
 
   @override
-  FilesSharingShareesSearchResult rebuild(void Function(FilesSharingShareesSearchResultBuilder) updates) =>
+  ShareesSearchResult rebuild(void Function(ShareesSearchResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesSearchResultBuilder toBuilder() => FilesSharingShareesSearchResultBuilder()..replace(this);
+  ShareesSearchResultBuilder toBuilder() => ShareesSearchResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesSearchResult &&
+    return other is ShareesSearchResult &&
         exact == other.exact &&
         circles == other.circles &&
         emails == other.emails &&
@@ -13613,7 +13158,7 @@ class _$FilesSharingShareesSearchResult extends FilesSharingShareesSearchResult 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesSearchResult')
+    return (newBuiltValueToStringHelper(r'ShareesSearchResult')
           ..add('exact', exact)
           ..add('circles', circles)
           ..add('emails', emails)
@@ -13628,58 +13173,53 @@ class _$FilesSharingShareesSearchResult extends FilesSharingShareesSearchResult 
   }
 }
 
-class FilesSharingShareesSearchResultBuilder
-    implements
-        Builder<FilesSharingShareesSearchResult, FilesSharingShareesSearchResultBuilder>,
-        FilesSharingShareesSearchResultInterfaceBuilder {
-  _$FilesSharingShareesSearchResult? _$v;
+class ShareesSearchResultBuilder
+    implements Builder<ShareesSearchResult, ShareesSearchResultBuilder>, ShareesSearchResultInterfaceBuilder {
+  _$ShareesSearchResult? _$v;
 
-  FilesSharingShareesSearchResult_ExactBuilder? _exact;
-  FilesSharingShareesSearchResult_ExactBuilder get exact =>
-      _$this._exact ??= FilesSharingShareesSearchResult_ExactBuilder();
-  set exact(covariant FilesSharingShareesSearchResult_ExactBuilder? exact) => _$this._exact = exact;
+  ShareesSearchResult_ExactBuilder? _exact;
+  ShareesSearchResult_ExactBuilder get exact => _$this._exact ??= ShareesSearchResult_ExactBuilder();
+  set exact(covariant ShareesSearchResult_ExactBuilder? exact) => _$this._exact = exact;
 
-  ListBuilder<FilesSharingShareeCircle>? _circles;
-  ListBuilder<FilesSharingShareeCircle> get circles => _$this._circles ??= ListBuilder<FilesSharingShareeCircle>();
-  set circles(covariant ListBuilder<FilesSharingShareeCircle>? circles) => _$this._circles = circles;
+  ListBuilder<ShareeCircle>? _circles;
+  ListBuilder<ShareeCircle> get circles => _$this._circles ??= ListBuilder<ShareeCircle>();
+  set circles(covariant ListBuilder<ShareeCircle>? circles) => _$this._circles = circles;
 
-  ListBuilder<FilesSharingShareeEmail>? _emails;
-  ListBuilder<FilesSharingShareeEmail> get emails => _$this._emails ??= ListBuilder<FilesSharingShareeEmail>();
-  set emails(covariant ListBuilder<FilesSharingShareeEmail>? emails) => _$this._emails = emails;
+  ListBuilder<ShareeEmail>? _emails;
+  ListBuilder<ShareeEmail> get emails => _$this._emails ??= ListBuilder<ShareeEmail>();
+  set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<FilesSharingSharee>? _groups;
-  ListBuilder<FilesSharingSharee> get groups => _$this._groups ??= ListBuilder<FilesSharingSharee>();
-  set groups(covariant ListBuilder<FilesSharingSharee>? groups) => _$this._groups = groups;
+  ListBuilder<Sharee>? _groups;
+  ListBuilder<Sharee> get groups => _$this._groups ??= ListBuilder<Sharee>();
+  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
 
-  ListBuilder<FilesSharingShareeLookup>? _lookup;
-  ListBuilder<FilesSharingShareeLookup> get lookup => _$this._lookup ??= ListBuilder<FilesSharingShareeLookup>();
-  set lookup(covariant ListBuilder<FilesSharingShareeLookup>? lookup) => _$this._lookup = lookup;
+  ListBuilder<ShareeLookup>? _lookup;
+  ListBuilder<ShareeLookup> get lookup => _$this._lookup ??= ListBuilder<ShareeLookup>();
+  set lookup(covariant ListBuilder<ShareeLookup>? lookup) => _$this._lookup = lookup;
 
-  ListBuilder<FilesSharingShareeRemoteGroup>? _remoteGroups;
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups =>
-      _$this._remoteGroups ??= ListBuilder<FilesSharingShareeRemoteGroup>();
-  set remoteGroups(covariant ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups) =>
-      _$this._remoteGroups = remoteGroups;
+  ListBuilder<ShareeRemoteGroup>? _remoteGroups;
+  ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= ListBuilder<ShareeRemoteGroup>();
+  set remoteGroups(covariant ListBuilder<ShareeRemoteGroup>? remoteGroups) => _$this._remoteGroups = remoteGroups;
 
-  ListBuilder<FilesSharingShareeRemote>? _remotes;
-  ListBuilder<FilesSharingShareeRemote> get remotes => _$this._remotes ??= ListBuilder<FilesSharingShareeRemote>();
-  set remotes(covariant ListBuilder<FilesSharingShareeRemote>? remotes) => _$this._remotes = remotes;
+  ListBuilder<ShareeRemote>? _remotes;
+  ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= ListBuilder<ShareeRemote>();
+  set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<FilesSharingSharee>? _rooms;
-  ListBuilder<FilesSharingSharee> get rooms => _$this._rooms ??= ListBuilder<FilesSharingSharee>();
-  set rooms(covariant ListBuilder<FilesSharingSharee>? rooms) => _$this._rooms = rooms;
+  ListBuilder<Sharee>? _rooms;
+  ListBuilder<Sharee> get rooms => _$this._rooms ??= ListBuilder<Sharee>();
+  set rooms(covariant ListBuilder<Sharee>? rooms) => _$this._rooms = rooms;
 
-  ListBuilder<FilesSharingShareeUser>? _users;
-  ListBuilder<FilesSharingShareeUser> get users => _$this._users ??= ListBuilder<FilesSharingShareeUser>();
-  set users(covariant ListBuilder<FilesSharingShareeUser>? users) => _$this._users = users;
+  ListBuilder<ShareeUser>? _users;
+  ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
+  set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
   bool? _lookupEnabled;
   bool? get lookupEnabled => _$this._lookupEnabled;
   set lookupEnabled(covariant bool? lookupEnabled) => _$this._lookupEnabled = lookupEnabled;
 
-  FilesSharingShareesSearchResultBuilder();
+  ShareesSearchResultBuilder();
 
-  FilesSharingShareesSearchResultBuilder get _$this {
+  ShareesSearchResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _exact = $v.exact.toBuilder();
@@ -13698,24 +13238,24 @@ class FilesSharingShareesSearchResultBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesSearchResult other) {
+  void replace(covariant ShareesSearchResult other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesSearchResult;
+    _$v = other as _$ShareesSearchResult;
   }
 
   @override
-  void update(void Function(FilesSharingShareesSearchResultBuilder)? updates) {
+  void update(void Function(ShareesSearchResultBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesSearchResult build() => _build();
+  ShareesSearchResult build() => _build();
 
-  _$FilesSharingShareesSearchResult _build() {
-    _$FilesSharingShareesSearchResult _$result;
+  _$ShareesSearchResult _build() {
+    _$ShareesSearchResult _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesSearchResult._(
+          _$ShareesSearchResult._(
               exact: exact.build(),
               circles: circles.build(),
               emails: emails.build(),
@@ -13725,8 +13265,8 @@ class FilesSharingShareesSearchResultBuilder
               remotes: remotes.build(),
               rooms: rooms.build(),
               users: users.build(),
-              lookupEnabled: BuiltValueNullFieldError.checkNotNull(
-                  lookupEnabled, r'FilesSharingShareesSearchResult', 'lookupEnabled'));
+              lookupEnabled:
+                  BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'ShareesSearchResult', 'lookupEnabled'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -13749,7 +13289,7 @@ class FilesSharingShareesSearchResultBuilder
         _$failedField = 'users';
         users.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareesSearchResult', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesSearchResult', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13758,45 +13298,44 @@ class FilesSharingShareesSearchResultBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareesapiSearchResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareesapiSearchResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesSharingShareesSearchResultBuilder get data;
-  set data(FilesSharingShareesSearchResultBuilder? data);
+  ShareesSearchResultBuilder get data;
+  set data(ShareesSearchResultBuilder? data);
 }
 
-class _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs
-    extends FilesSharingShareesapiSearchResponseApplicationJson_Ocs {
+class _$ShareesapiSearchResponseApplicationJson_Ocs extends ShareesapiSearchResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesSharingShareesSearchResult data;
+  final ShareesSearchResult data;
 
-  factory _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareesapiSearchResponseApplicationJson_Ocs(
+          [void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareesapiSearchResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FilesSharingShareesapiSearchResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareesapiSearchResponseApplicationJson_Ocs', 'data');
+  _$ShareesapiSearchResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareesapiSearchResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiSearchResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder) updates) =>
+  ShareesapiSearchResponseApplicationJson_Ocs rebuild(
+          void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareesapiSearchResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareesapiSearchResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiSearchResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ShareesapiSearchResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -13810,31 +13349,30 @@ class _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiSearchResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareesapiSearchResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder
+class ShareesapiSearchResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareesapiSearchResponseApplicationJson_Ocs,
-            FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs? _$v;
+        Builder<ShareesapiSearchResponseApplicationJson_Ocs, ShareesapiSearchResponseApplicationJson_OcsBuilder>,
+        ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareesapiSearchResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesSharingShareesSearchResultBuilder? _data;
-  FilesSharingShareesSearchResultBuilder get data => _$this._data ??= FilesSharingShareesSearchResultBuilder();
-  set data(covariant FilesSharingShareesSearchResultBuilder? data) => _$this._data = data;
+  ShareesSearchResultBuilder? _data;
+  ShareesSearchResultBuilder get data => _$this._data ??= ShareesSearchResultBuilder();
+  set data(covariant ShareesSearchResultBuilder? data) => _$this._data = data;
 
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder();
+  ShareesapiSearchResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder get _$this {
+  ShareesapiSearchResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -13845,24 +13383,23 @@ class FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesapiSearchResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareesapiSearchResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs;
+    _$v = other as _$ShareesapiSearchResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson_Ocs build() => _build();
+  ShareesapiSearchResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs _$result;
+  _$ShareesapiSearchResponseApplicationJson_Ocs _build() {
+    _$ShareesapiSearchResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$FilesSharingShareesapiSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -13871,8 +13408,7 @@ class FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareesapiSearchResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesapiSearchResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13881,39 +13417,38 @@ class FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesapiSearchResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareesapiSearchResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareesapiSearchResponseApplicationJsonInterface other);
+  void update(void Function(ShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates);
+  ShareesapiSearchResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareesapiSearchResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareesapiSearchResponseApplicationJson
-    extends FilesSharingShareesapiSearchResponseApplicationJson {
+class _$ShareesapiSearchResponseApplicationJson extends ShareesapiSearchResponseApplicationJson {
   @override
-  final FilesSharingShareesapiSearchResponseApplicationJson_Ocs ocs;
+  final ShareesapiSearchResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareesapiSearchResponseApplicationJson(
-          [void Function(FilesSharingShareesapiSearchResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareesapiSearchResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareesapiSearchResponseApplicationJson(
+          [void Function(ShareesapiSearchResponseApplicationJsonBuilder)? updates]) =>
+      (ShareesapiSearchResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiSearchResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareesapiSearchResponseApplicationJson', 'ocs');
+  _$ShareesapiSearchResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareesapiSearchResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson rebuild(
-          void Function(FilesSharingShareesapiSearchResponseApplicationJsonBuilder) updates) =>
+  ShareesapiSearchResponseApplicationJson rebuild(
+          void Function(ShareesapiSearchResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareesapiSearchResponseApplicationJsonBuilder()..replace(this);
+  ShareesapiSearchResponseApplicationJsonBuilder toBuilder() =>
+      ShareesapiSearchResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiSearchResponseApplicationJson && ocs == other.ocs;
+    return other is ShareesapiSearchResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -13926,26 +13461,24 @@ class _$FilesSharingShareesapiSearchResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiSearchResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareesapiSearchResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class FilesSharingShareesapiSearchResponseApplicationJsonBuilder
+class ShareesapiSearchResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareesapiSearchResponseApplicationJson,
-            FilesSharingShareesapiSearchResponseApplicationJsonBuilder>,
-        FilesSharingShareesapiSearchResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareesapiSearchResponseApplicationJson? _$v;
+        Builder<ShareesapiSearchResponseApplicationJson, ShareesapiSearchResponseApplicationJsonBuilder>,
+        ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
+  _$ShareesapiSearchResponseApplicationJson? _$v;
 
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareesapiSearchResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareesapiSearchResponseApplicationJson_OcsBuilder? _ocs;
+  ShareesapiSearchResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareesapiSearchResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareesapiSearchResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareesapiSearchResponseApplicationJsonBuilder();
+  ShareesapiSearchResponseApplicationJsonBuilder();
 
-  FilesSharingShareesapiSearchResponseApplicationJsonBuilder get _$this {
+  ShareesapiSearchResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -13955,31 +13488,30 @@ class FilesSharingShareesapiSearchResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesapiSearchResponseApplicationJson other) {
+  void replace(covariant ShareesapiSearchResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiSearchResponseApplicationJson;
+    _$v = other as _$ShareesapiSearchResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiSearchResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareesapiSearchResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiSearchResponseApplicationJson build() => _build();
+  ShareesapiSearchResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareesapiSearchResponseApplicationJson _build() {
-    _$FilesSharingShareesapiSearchResponseApplicationJson _$result;
+  _$ShareesapiSearchResponseApplicationJson _build() {
+    _$ShareesapiSearchResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareesapiSearchResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareesapiSearchResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesapiSearchResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13988,7 +13520,7 @@ class FilesSharingShareesapiSearchResponseApplicationJsonBuilder
   }
 }
 
-class _$FilesSharingShareesapiFindRecommendedShareType extends FilesSharingShareesapiFindRecommendedShareType {
+class _$ShareesapiFindRecommendedShareType extends ShareesapiFindRecommendedShareType {
   @override
   final JsonObject data;
   @override
@@ -13996,27 +13528,24 @@ class _$FilesSharingShareesapiFindRecommendedShareType extends FilesSharingShare
   @override
   final BuiltList<int>? builtListInt;
 
-  factory _$FilesSharingShareesapiFindRecommendedShareType(
-          [void Function(FilesSharingShareesapiFindRecommendedShareTypeBuilder)? updates]) =>
-      (FilesSharingShareesapiFindRecommendedShareTypeBuilder()..update(updates))._build();
+  factory _$ShareesapiFindRecommendedShareType([void Function(ShareesapiFindRecommendedShareTypeBuilder)? updates]) =>
+      (ShareesapiFindRecommendedShareTypeBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiFindRecommendedShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'FilesSharingShareesapiFindRecommendedShareType', 'data');
+  _$ShareesapiFindRecommendedShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiFindRecommendedShareType', 'data');
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedShareType rebuild(
-          void Function(FilesSharingShareesapiFindRecommendedShareTypeBuilder) updates) =>
+  ShareesapiFindRecommendedShareType rebuild(void Function(ShareesapiFindRecommendedShareTypeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiFindRecommendedShareTypeBuilder toBuilder() =>
-      FilesSharingShareesapiFindRecommendedShareTypeBuilder()..replace(this);
+  ShareesapiFindRecommendedShareTypeBuilder toBuilder() => ShareesapiFindRecommendedShareTypeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiFindRecommendedShareType &&
+    return other is ShareesapiFindRecommendedShareType &&
         data == other.data &&
         $int == other.$int &&
         builtListInt == other.builtListInt;
@@ -14034,7 +13563,7 @@ class _$FilesSharingShareesapiFindRecommendedShareType extends FilesSharingShare
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiFindRecommendedShareType')
+    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedShareType')
           ..add('data', data)
           ..add('\$int', $int)
           ..add('builtListInt', builtListInt))
@@ -14042,10 +13571,9 @@ class _$FilesSharingShareesapiFindRecommendedShareType extends FilesSharingShare
   }
 }
 
-class FilesSharingShareesapiFindRecommendedShareTypeBuilder
-    implements
-        Builder<FilesSharingShareesapiFindRecommendedShareType, FilesSharingShareesapiFindRecommendedShareTypeBuilder> {
-  _$FilesSharingShareesapiFindRecommendedShareType? _$v;
+class ShareesapiFindRecommendedShareTypeBuilder
+    implements Builder<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder> {
+  _$ShareesapiFindRecommendedShareType? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
@@ -14059,9 +13587,9 @@ class FilesSharingShareesapiFindRecommendedShareTypeBuilder
   ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
   set builtListInt(ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
 
-  FilesSharingShareesapiFindRecommendedShareTypeBuilder();
+  ShareesapiFindRecommendedShareTypeBuilder();
 
-  FilesSharingShareesapiFindRecommendedShareTypeBuilder get _$this {
+  ShareesapiFindRecommendedShareTypeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
@@ -14073,26 +13601,25 @@ class FilesSharingShareesapiFindRecommendedShareTypeBuilder
   }
 
   @override
-  void replace(FilesSharingShareesapiFindRecommendedShareType other) {
+  void replace(ShareesapiFindRecommendedShareType other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiFindRecommendedShareType;
+    _$v = other as _$ShareesapiFindRecommendedShareType;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiFindRecommendedShareTypeBuilder)? updates) {
+  void update(void Function(ShareesapiFindRecommendedShareTypeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedShareType build() => _build();
+  ShareesapiFindRecommendedShareType build() => _build();
 
-  _$FilesSharingShareesapiFindRecommendedShareType _build() {
-    _$FilesSharingShareesapiFindRecommendedShareType _$result;
+  _$ShareesapiFindRecommendedShareType _build() {
+    _$ShareesapiFindRecommendedShareType _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesapiFindRecommendedShareType._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FilesSharingShareesapiFindRecommendedShareType', 'data'),
+          _$ShareesapiFindRecommendedShareType._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiFindRecommendedShareType', 'data'),
               $int: $int,
               builtListInt: _builtListInt?.build());
     } catch (_) {
@@ -14101,8 +13628,7 @@ class FilesSharingShareesapiFindRecommendedShareTypeBuilder
         _$failedField = 'builtListInt';
         _builtListInt?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingShareesapiFindRecommendedShareType', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesapiFindRecommendedShareType', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14111,68 +13637,65 @@ class FilesSharingShareesapiFindRecommendedShareTypeBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesRecommendedResult_ExactInterfaceBuilder {
-  void replace(FilesSharingShareesRecommendedResult_ExactInterface other);
-  void update(void Function(FilesSharingShareesRecommendedResult_ExactInterfaceBuilder) updates);
-  ListBuilder<FilesSharingShareeEmail> get emails;
-  set emails(ListBuilder<FilesSharingShareeEmail>? emails);
+abstract mixin class ShareesRecommendedResult_ExactInterfaceBuilder {
+  void replace(ShareesRecommendedResult_ExactInterface other);
+  void update(void Function(ShareesRecommendedResult_ExactInterfaceBuilder) updates);
+  ListBuilder<ShareeEmail> get emails;
+  set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<FilesSharingSharee> get groups;
-  set groups(ListBuilder<FilesSharingSharee>? groups);
+  ListBuilder<Sharee> get groups;
+  set groups(ListBuilder<Sharee>? groups);
 
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups;
-  set remoteGroups(ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups);
+  ListBuilder<ShareeRemoteGroup> get remoteGroups;
+  set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
 
-  ListBuilder<FilesSharingShareeRemote> get remotes;
-  set remotes(ListBuilder<FilesSharingShareeRemote>? remotes);
+  ListBuilder<ShareeRemote> get remotes;
+  set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<FilesSharingShareeUser> get users;
-  set users(ListBuilder<FilesSharingShareeUser>? users);
+  ListBuilder<ShareeUser> get users;
+  set users(ListBuilder<ShareeUser>? users);
 }
 
-class _$FilesSharingShareesRecommendedResult_Exact extends FilesSharingShareesRecommendedResult_Exact {
+class _$ShareesRecommendedResult_Exact extends ShareesRecommendedResult_Exact {
   @override
-  final BuiltList<FilesSharingShareeEmail> emails;
+  final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<FilesSharingSharee> groups;
+  final BuiltList<Sharee> groups;
   @override
-  final BuiltList<FilesSharingShareeRemoteGroup> remoteGroups;
+  final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
-  final BuiltList<FilesSharingShareeRemote> remotes;
+  final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<FilesSharingShareeUser> users;
+  final BuiltList<ShareeUser> users;
 
-  factory _$FilesSharingShareesRecommendedResult_Exact(
-          [void Function(FilesSharingShareesRecommendedResult_ExactBuilder)? updates]) =>
-      (FilesSharingShareesRecommendedResult_ExactBuilder()..update(updates))._build();
+  factory _$ShareesRecommendedResult_Exact([void Function(ShareesRecommendedResult_ExactBuilder)? updates]) =>
+      (ShareesRecommendedResult_ExactBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesRecommendedResult_Exact._(
+  _$ShareesRecommendedResult_Exact._(
       {required this.emails,
       required this.groups,
       required this.remoteGroups,
       required this.remotes,
       required this.users})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(emails, r'FilesSharingShareesRecommendedResult_Exact', 'emails');
-    BuiltValueNullFieldError.checkNotNull(groups, r'FilesSharingShareesRecommendedResult_Exact', 'groups');
-    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'FilesSharingShareesRecommendedResult_Exact', 'remoteGroups');
-    BuiltValueNullFieldError.checkNotNull(remotes, r'FilesSharingShareesRecommendedResult_Exact', 'remotes');
-    BuiltValueNullFieldError.checkNotNull(users, r'FilesSharingShareesRecommendedResult_Exact', 'users');
+    BuiltValueNullFieldError.checkNotNull(emails, r'ShareesRecommendedResult_Exact', 'emails');
+    BuiltValueNullFieldError.checkNotNull(groups, r'ShareesRecommendedResult_Exact', 'groups');
+    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'ShareesRecommendedResult_Exact', 'remoteGroups');
+    BuiltValueNullFieldError.checkNotNull(remotes, r'ShareesRecommendedResult_Exact', 'remotes');
+    BuiltValueNullFieldError.checkNotNull(users, r'ShareesRecommendedResult_Exact', 'users');
   }
 
   @override
-  FilesSharingShareesRecommendedResult_Exact rebuild(
-          void Function(FilesSharingShareesRecommendedResult_ExactBuilder) updates) =>
+  ShareesRecommendedResult_Exact rebuild(void Function(ShareesRecommendedResult_ExactBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesRecommendedResult_ExactBuilder toBuilder() =>
-      FilesSharingShareesRecommendedResult_ExactBuilder()..replace(this);
+  ShareesRecommendedResult_ExactBuilder toBuilder() => ShareesRecommendedResult_ExactBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesRecommendedResult_Exact &&
+    return other is ShareesRecommendedResult_Exact &&
         emails == other.emails &&
         groups == other.groups &&
         remoteGroups == other.remoteGroups &&
@@ -14194,7 +13717,7 @@ class _$FilesSharingShareesRecommendedResult_Exact extends FilesSharingShareesRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesRecommendedResult_Exact')
+    return (newBuiltValueToStringHelper(r'ShareesRecommendedResult_Exact')
           ..add('emails', emails)
           ..add('groups', groups)
           ..add('remoteGroups', remoteGroups)
@@ -14204,37 +13727,35 @@ class _$FilesSharingShareesRecommendedResult_Exact extends FilesSharingShareesRe
   }
 }
 
-class FilesSharingShareesRecommendedResult_ExactBuilder
+class ShareesRecommendedResult_ExactBuilder
     implements
-        Builder<FilesSharingShareesRecommendedResult_Exact, FilesSharingShareesRecommendedResult_ExactBuilder>,
-        FilesSharingShareesRecommendedResult_ExactInterfaceBuilder {
-  _$FilesSharingShareesRecommendedResult_Exact? _$v;
+        Builder<ShareesRecommendedResult_Exact, ShareesRecommendedResult_ExactBuilder>,
+        ShareesRecommendedResult_ExactInterfaceBuilder {
+  _$ShareesRecommendedResult_Exact? _$v;
 
-  ListBuilder<FilesSharingShareeEmail>? _emails;
-  ListBuilder<FilesSharingShareeEmail> get emails => _$this._emails ??= ListBuilder<FilesSharingShareeEmail>();
-  set emails(covariant ListBuilder<FilesSharingShareeEmail>? emails) => _$this._emails = emails;
+  ListBuilder<ShareeEmail>? _emails;
+  ListBuilder<ShareeEmail> get emails => _$this._emails ??= ListBuilder<ShareeEmail>();
+  set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<FilesSharingSharee>? _groups;
-  ListBuilder<FilesSharingSharee> get groups => _$this._groups ??= ListBuilder<FilesSharingSharee>();
-  set groups(covariant ListBuilder<FilesSharingSharee>? groups) => _$this._groups = groups;
+  ListBuilder<Sharee>? _groups;
+  ListBuilder<Sharee> get groups => _$this._groups ??= ListBuilder<Sharee>();
+  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
 
-  ListBuilder<FilesSharingShareeRemoteGroup>? _remoteGroups;
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups =>
-      _$this._remoteGroups ??= ListBuilder<FilesSharingShareeRemoteGroup>();
-  set remoteGroups(covariant ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups) =>
-      _$this._remoteGroups = remoteGroups;
+  ListBuilder<ShareeRemoteGroup>? _remoteGroups;
+  ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= ListBuilder<ShareeRemoteGroup>();
+  set remoteGroups(covariant ListBuilder<ShareeRemoteGroup>? remoteGroups) => _$this._remoteGroups = remoteGroups;
 
-  ListBuilder<FilesSharingShareeRemote>? _remotes;
-  ListBuilder<FilesSharingShareeRemote> get remotes => _$this._remotes ??= ListBuilder<FilesSharingShareeRemote>();
-  set remotes(covariant ListBuilder<FilesSharingShareeRemote>? remotes) => _$this._remotes = remotes;
+  ListBuilder<ShareeRemote>? _remotes;
+  ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= ListBuilder<ShareeRemote>();
+  set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<FilesSharingShareeUser>? _users;
-  ListBuilder<FilesSharingShareeUser> get users => _$this._users ??= ListBuilder<FilesSharingShareeUser>();
-  set users(covariant ListBuilder<FilesSharingShareeUser>? users) => _$this._users = users;
+  ListBuilder<ShareeUser>? _users;
+  ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
+  set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  FilesSharingShareesRecommendedResult_ExactBuilder();
+  ShareesRecommendedResult_ExactBuilder();
 
-  FilesSharingShareesRecommendedResult_ExactBuilder get _$this {
+  ShareesRecommendedResult_ExactBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _emails = $v.emails.toBuilder();
@@ -14248,24 +13769,24 @@ class FilesSharingShareesRecommendedResult_ExactBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesRecommendedResult_Exact other) {
+  void replace(covariant ShareesRecommendedResult_Exact other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesRecommendedResult_Exact;
+    _$v = other as _$ShareesRecommendedResult_Exact;
   }
 
   @override
-  void update(void Function(FilesSharingShareesRecommendedResult_ExactBuilder)? updates) {
+  void update(void Function(ShareesRecommendedResult_ExactBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesRecommendedResult_Exact build() => _build();
+  ShareesRecommendedResult_Exact build() => _build();
 
-  _$FilesSharingShareesRecommendedResult_Exact _build() {
-    _$FilesSharingShareesRecommendedResult_Exact _$result;
+  _$ShareesRecommendedResult_Exact _build() {
+    _$ShareesRecommendedResult_Exact _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesRecommendedResult_Exact._(
+          _$ShareesRecommendedResult_Exact._(
               emails: emails.build(),
               groups: groups.build(),
               remoteGroups: remoteGroups.build(),
@@ -14285,7 +13806,7 @@ class FilesSharingShareesRecommendedResult_ExactBuilder
         _$failedField = 'users';
         users.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareesRecommendedResult_Exact', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesRecommendedResult_Exact', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14294,47 +13815,46 @@ class FilesSharingShareesRecommendedResult_ExactBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesRecommendedResultInterfaceBuilder {
-  void replace(FilesSharingShareesRecommendedResultInterface other);
-  void update(void Function(FilesSharingShareesRecommendedResultInterfaceBuilder) updates);
-  FilesSharingShareesRecommendedResult_ExactBuilder get exact;
-  set exact(FilesSharingShareesRecommendedResult_ExactBuilder? exact);
+abstract mixin class ShareesRecommendedResultInterfaceBuilder {
+  void replace(ShareesRecommendedResultInterface other);
+  void update(void Function(ShareesRecommendedResultInterfaceBuilder) updates);
+  ShareesRecommendedResult_ExactBuilder get exact;
+  set exact(ShareesRecommendedResult_ExactBuilder? exact);
 
-  ListBuilder<FilesSharingShareeEmail> get emails;
-  set emails(ListBuilder<FilesSharingShareeEmail>? emails);
+  ListBuilder<ShareeEmail> get emails;
+  set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<FilesSharingSharee> get groups;
-  set groups(ListBuilder<FilesSharingSharee>? groups);
+  ListBuilder<Sharee> get groups;
+  set groups(ListBuilder<Sharee>? groups);
 
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups;
-  set remoteGroups(ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups);
+  ListBuilder<ShareeRemoteGroup> get remoteGroups;
+  set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
 
-  ListBuilder<FilesSharingShareeRemote> get remotes;
-  set remotes(ListBuilder<FilesSharingShareeRemote>? remotes);
+  ListBuilder<ShareeRemote> get remotes;
+  set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<FilesSharingShareeUser> get users;
-  set users(ListBuilder<FilesSharingShareeUser>? users);
+  ListBuilder<ShareeUser> get users;
+  set users(ListBuilder<ShareeUser>? users);
 }
 
-class _$FilesSharingShareesRecommendedResult extends FilesSharingShareesRecommendedResult {
+class _$ShareesRecommendedResult extends ShareesRecommendedResult {
   @override
-  final FilesSharingShareesRecommendedResult_Exact exact;
+  final ShareesRecommendedResult_Exact exact;
   @override
-  final BuiltList<FilesSharingShareeEmail> emails;
+  final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<FilesSharingSharee> groups;
+  final BuiltList<Sharee> groups;
   @override
-  final BuiltList<FilesSharingShareeRemoteGroup> remoteGroups;
+  final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
-  final BuiltList<FilesSharingShareeRemote> remotes;
+  final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<FilesSharingShareeUser> users;
+  final BuiltList<ShareeUser> users;
 
-  factory _$FilesSharingShareesRecommendedResult(
-          [void Function(FilesSharingShareesRecommendedResultBuilder)? updates]) =>
-      (FilesSharingShareesRecommendedResultBuilder()..update(updates))._build();
+  factory _$ShareesRecommendedResult([void Function(ShareesRecommendedResultBuilder)? updates]) =>
+      (ShareesRecommendedResultBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesRecommendedResult._(
+  _$ShareesRecommendedResult._(
       {required this.exact,
       required this.emails,
       required this.groups,
@@ -14342,26 +13862,25 @@ class _$FilesSharingShareesRecommendedResult extends FilesSharingShareesRecommen
       required this.remotes,
       required this.users})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(exact, r'FilesSharingShareesRecommendedResult', 'exact');
-    BuiltValueNullFieldError.checkNotNull(emails, r'FilesSharingShareesRecommendedResult', 'emails');
-    BuiltValueNullFieldError.checkNotNull(groups, r'FilesSharingShareesRecommendedResult', 'groups');
-    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'FilesSharingShareesRecommendedResult', 'remoteGroups');
-    BuiltValueNullFieldError.checkNotNull(remotes, r'FilesSharingShareesRecommendedResult', 'remotes');
-    BuiltValueNullFieldError.checkNotNull(users, r'FilesSharingShareesRecommendedResult', 'users');
+    BuiltValueNullFieldError.checkNotNull(exact, r'ShareesRecommendedResult', 'exact');
+    BuiltValueNullFieldError.checkNotNull(emails, r'ShareesRecommendedResult', 'emails');
+    BuiltValueNullFieldError.checkNotNull(groups, r'ShareesRecommendedResult', 'groups');
+    BuiltValueNullFieldError.checkNotNull(remoteGroups, r'ShareesRecommendedResult', 'remoteGroups');
+    BuiltValueNullFieldError.checkNotNull(remotes, r'ShareesRecommendedResult', 'remotes');
+    BuiltValueNullFieldError.checkNotNull(users, r'ShareesRecommendedResult', 'users');
   }
 
   @override
-  FilesSharingShareesRecommendedResult rebuild(void Function(FilesSharingShareesRecommendedResultBuilder) updates) =>
+  ShareesRecommendedResult rebuild(void Function(ShareesRecommendedResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesRecommendedResultBuilder toBuilder() =>
-      FilesSharingShareesRecommendedResultBuilder()..replace(this);
+  ShareesRecommendedResultBuilder toBuilder() => ShareesRecommendedResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesRecommendedResult &&
+    return other is ShareesRecommendedResult &&
         exact == other.exact &&
         emails == other.emails &&
         groups == other.groups &&
@@ -14385,7 +13904,7 @@ class _$FilesSharingShareesRecommendedResult extends FilesSharingShareesRecommen
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesRecommendedResult')
+    return (newBuiltValueToStringHelper(r'ShareesRecommendedResult')
           ..add('exact', exact)
           ..add('emails', emails)
           ..add('groups', groups)
@@ -14396,42 +13915,39 @@ class _$FilesSharingShareesRecommendedResult extends FilesSharingShareesRecommen
   }
 }
 
-class FilesSharingShareesRecommendedResultBuilder
+class ShareesRecommendedResultBuilder
     implements
-        Builder<FilesSharingShareesRecommendedResult, FilesSharingShareesRecommendedResultBuilder>,
-        FilesSharingShareesRecommendedResultInterfaceBuilder {
-  _$FilesSharingShareesRecommendedResult? _$v;
+        Builder<ShareesRecommendedResult, ShareesRecommendedResultBuilder>,
+        ShareesRecommendedResultInterfaceBuilder {
+  _$ShareesRecommendedResult? _$v;
 
-  FilesSharingShareesRecommendedResult_ExactBuilder? _exact;
-  FilesSharingShareesRecommendedResult_ExactBuilder get exact =>
-      _$this._exact ??= FilesSharingShareesRecommendedResult_ExactBuilder();
-  set exact(covariant FilesSharingShareesRecommendedResult_ExactBuilder? exact) => _$this._exact = exact;
+  ShareesRecommendedResult_ExactBuilder? _exact;
+  ShareesRecommendedResult_ExactBuilder get exact => _$this._exact ??= ShareesRecommendedResult_ExactBuilder();
+  set exact(covariant ShareesRecommendedResult_ExactBuilder? exact) => _$this._exact = exact;
 
-  ListBuilder<FilesSharingShareeEmail>? _emails;
-  ListBuilder<FilesSharingShareeEmail> get emails => _$this._emails ??= ListBuilder<FilesSharingShareeEmail>();
-  set emails(covariant ListBuilder<FilesSharingShareeEmail>? emails) => _$this._emails = emails;
+  ListBuilder<ShareeEmail>? _emails;
+  ListBuilder<ShareeEmail> get emails => _$this._emails ??= ListBuilder<ShareeEmail>();
+  set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<FilesSharingSharee>? _groups;
-  ListBuilder<FilesSharingSharee> get groups => _$this._groups ??= ListBuilder<FilesSharingSharee>();
-  set groups(covariant ListBuilder<FilesSharingSharee>? groups) => _$this._groups = groups;
+  ListBuilder<Sharee>? _groups;
+  ListBuilder<Sharee> get groups => _$this._groups ??= ListBuilder<Sharee>();
+  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
 
-  ListBuilder<FilesSharingShareeRemoteGroup>? _remoteGroups;
-  ListBuilder<FilesSharingShareeRemoteGroup> get remoteGroups =>
-      _$this._remoteGroups ??= ListBuilder<FilesSharingShareeRemoteGroup>();
-  set remoteGroups(covariant ListBuilder<FilesSharingShareeRemoteGroup>? remoteGroups) =>
-      _$this._remoteGroups = remoteGroups;
+  ListBuilder<ShareeRemoteGroup>? _remoteGroups;
+  ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= ListBuilder<ShareeRemoteGroup>();
+  set remoteGroups(covariant ListBuilder<ShareeRemoteGroup>? remoteGroups) => _$this._remoteGroups = remoteGroups;
 
-  ListBuilder<FilesSharingShareeRemote>? _remotes;
-  ListBuilder<FilesSharingShareeRemote> get remotes => _$this._remotes ??= ListBuilder<FilesSharingShareeRemote>();
-  set remotes(covariant ListBuilder<FilesSharingShareeRemote>? remotes) => _$this._remotes = remotes;
+  ListBuilder<ShareeRemote>? _remotes;
+  ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= ListBuilder<ShareeRemote>();
+  set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<FilesSharingShareeUser>? _users;
-  ListBuilder<FilesSharingShareeUser> get users => _$this._users ??= ListBuilder<FilesSharingShareeUser>();
-  set users(covariant ListBuilder<FilesSharingShareeUser>? users) => _$this._users = users;
+  ListBuilder<ShareeUser>? _users;
+  ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
+  set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  FilesSharingShareesRecommendedResultBuilder();
+  ShareesRecommendedResultBuilder();
 
-  FilesSharingShareesRecommendedResultBuilder get _$this {
+  ShareesRecommendedResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _exact = $v.exact.toBuilder();
@@ -14446,24 +13962,24 @@ class FilesSharingShareesRecommendedResultBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesRecommendedResult other) {
+  void replace(covariant ShareesRecommendedResult other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesRecommendedResult;
+    _$v = other as _$ShareesRecommendedResult;
   }
 
   @override
-  void update(void Function(FilesSharingShareesRecommendedResultBuilder)? updates) {
+  void update(void Function(ShareesRecommendedResultBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesRecommendedResult build() => _build();
+  ShareesRecommendedResult build() => _build();
 
-  _$FilesSharingShareesRecommendedResult _build() {
-    _$FilesSharingShareesRecommendedResult _$result;
+  _$ShareesRecommendedResult _build() {
+    _$ShareesRecommendedResult _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingShareesRecommendedResult._(
+          _$ShareesRecommendedResult._(
               exact: exact.build(),
               emails: emails.build(),
               groups: groups.build(),
@@ -14486,7 +14002,7 @@ class FilesSharingShareesRecommendedResultBuilder
         _$failedField = 'users';
         users.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingShareesRecommendedResult', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareesRecommendedResult', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14495,50 +14011,45 @@ class FilesSharingShareesRecommendedResultBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterface other);
-  void update(void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates);
-  FilesSharingOCSMetaBuilder get meta;
-  set meta(FilesSharingOCSMetaBuilder? meta);
+abstract mixin class ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(ShareesapiFindRecommendedResponseApplicationJson_OcsInterface other);
+  void update(void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
 
-  FilesSharingShareesRecommendedResultBuilder get data;
-  set data(FilesSharingShareesRecommendedResultBuilder? data);
+  ShareesRecommendedResultBuilder get data;
+  set data(ShareesRecommendedResultBuilder? data);
 }
 
-class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs
-    extends FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs {
+class _$ShareesapiFindRecommendedResponseApplicationJson_Ocs
+    extends ShareesapiFindRecommendedResponseApplicationJson_Ocs {
   @override
-  final FilesSharingOCSMeta meta;
+  final OCSMeta meta;
   @override
-  final FilesSharingShareesRecommendedResult data;
+  final ShareesRecommendedResult data;
 
-  factory _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs(
-          [void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareesapiFindRecommendedResponseApplicationJson_Ocs(
+          [void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs', 'data');
+  _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareesapiFindRecommendedResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiFindRecommendedResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs rebuild(
-          void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder) updates) =>
+  ShareesapiFindRecommendedResponseApplicationJson_Ocs rebuild(
+          void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder toBuilder() =>
-      FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..replace(this);
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
+    return other is ShareesapiFindRecommendedResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -14552,32 +14063,31 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
+class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
     implements
-        Builder<FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs,
-            FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder>,
-        FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs? _$v;
+        Builder<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
+            ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder>,
+        ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareesapiFindRecommendedResponseApplicationJson_Ocs? _$v;
 
-  FilesSharingOCSMetaBuilder? _meta;
-  FilesSharingOCSMetaBuilder get meta => _$this._meta ??= FilesSharingOCSMetaBuilder();
-  set meta(covariant FilesSharingOCSMetaBuilder? meta) => _$this._meta = meta;
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  FilesSharingShareesRecommendedResultBuilder? _data;
-  FilesSharingShareesRecommendedResultBuilder get data =>
-      _$this._data ??= FilesSharingShareesRecommendedResultBuilder();
-  set data(covariant FilesSharingShareesRecommendedResultBuilder? data) => _$this._data = data;
+  ShareesRecommendedResultBuilder? _data;
+  ShareesRecommendedResultBuilder get data => _$this._data ??= ShareesRecommendedResultBuilder();
+  set data(covariant ShareesRecommendedResultBuilder? data) => _$this._data = data;
 
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
 
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get _$this {
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -14588,24 +14098,24 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs other) {
+  void replace(covariant ShareesapiFindRecommendedResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs;
+    _$v = other as _$ShareesapiFindRecommendedResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs build() => _build();
+  ShareesapiFindRecommendedResponseApplicationJson_Ocs build() => _build();
 
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs _build() {
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs _$result;
+  _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _build() {
+    _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14615,7 +14125,7 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'ShareesapiFindRecommendedResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14624,39 +14134,38 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
-  void replace(FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterface other);
-  void update(void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates);
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
+  void replace(ShareesapiFindRecommendedResponseApplicationJsonInterface other);
+  void update(void Function(ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates);
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson
-    extends FilesSharingShareesapiFindRecommendedResponseApplicationJson {
+class _$ShareesapiFindRecommendedResponseApplicationJson extends ShareesapiFindRecommendedResponseApplicationJson {
   @override
-  final FilesSharingShareesapiFindRecommendedResponseApplicationJson_Ocs ocs;
+  final ShareesapiFindRecommendedResponseApplicationJson_Ocs ocs;
 
-  factory _$FilesSharingShareesapiFindRecommendedResponseApplicationJson(
-          [void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates]) =>
-      (FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareesapiFindRecommendedResponseApplicationJson(
+          [void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates]) =>
+      (ShareesapiFindRecommendedResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FilesSharingShareesapiFindRecommendedResponseApplicationJson', 'ocs');
+  _$ShareesapiFindRecommendedResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareesapiFindRecommendedResponseApplicationJson', 'ocs');
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson rebuild(
-          void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder) updates) =>
+  ShareesapiFindRecommendedResponseApplicationJson rebuild(
+          void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder toBuilder() =>
-      FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder()..replace(this);
+  ShareesapiFindRecommendedResponseApplicationJsonBuilder toBuilder() =>
+      ShareesapiFindRecommendedResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingShareesapiFindRecommendedResponseApplicationJson && ocs == other.ocs;
+    return other is ShareesapiFindRecommendedResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -14669,27 +14178,26 @@ class _$FilesSharingShareesapiFindRecommendedResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingShareesapiFindRecommendedResponseApplicationJson')
-          ..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder
+class ShareesapiFindRecommendedResponseApplicationJsonBuilder
     implements
-        Builder<FilesSharingShareesapiFindRecommendedResponseApplicationJson,
-            FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder>,
-        FilesSharingShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson? _$v;
+        Builder<ShareesapiFindRecommendedResponseApplicationJson,
+            ShareesapiFindRecommendedResponseApplicationJsonBuilder>,
+        ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
+  _$ShareesapiFindRecommendedResponseApplicationJson? _$v;
 
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? _ocs;
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FilesSharingShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? _ocs;
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder();
+  ShareesapiFindRecommendedResponseApplicationJsonBuilder();
 
-  FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder get _$this {
+  ShareesapiFindRecommendedResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -14699,23 +14207,23 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant FilesSharingShareesapiFindRecommendedResponseApplicationJson other) {
+  void replace(covariant ShareesapiFindRecommendedResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingShareesapiFindRecommendedResponseApplicationJson;
+    _$v = other as _$ShareesapiFindRecommendedResponseApplicationJson;
   }
 
   @override
-  void update(void Function(FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingShareesapiFindRecommendedResponseApplicationJson build() => _build();
+  ShareesapiFindRecommendedResponseApplicationJson build() => _build();
 
-  _$FilesSharingShareesapiFindRecommendedResponseApplicationJson _build() {
-    _$FilesSharingShareesapiFindRecommendedResponseApplicationJson _$result;
+  _$ShareesapiFindRecommendedResponseApplicationJson _build() {
+    _$ShareesapiFindRecommendedResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$FilesSharingShareesapiFindRecommendedResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14723,7 +14231,7 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'FilesSharingShareesapiFindRecommendedResponseApplicationJson', _$failedField, e.toString());
+            r'ShareesapiFindRecommendedResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14732,9 +14240,9 @@ class FilesSharingShareesapiFindRecommendedResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Public_PasswordInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Public_PasswordInterface other);
+  void update(void Function(Capabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates);
   bool? get enforced;
   set enforced(bool? enforced);
 
@@ -14742,39 +14250,36 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_Public_PasswordInterf
   set askForOptionalPassword(bool? askForOptionalPassword);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_Password
-    extends FilesSharingCapabilities_FilesSharing_Public_Password {
+class _$Capabilities_FilesSharing_Public_Password extends Capabilities_FilesSharing_Public_Password {
   @override
   final bool enforced;
   @override
   final bool askForOptionalPassword;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Public_Password(
-          [void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_Password(
+          [void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Public_PasswordBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_Password._(
-      {required this.enforced, required this.askForOptionalPassword})
+  _$Capabilities_FilesSharing_Public_Password._({required this.enforced, required this.askForOptionalPassword})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(enforced, r'Capabilities_FilesSharing_Public_Password', 'enforced');
     BuiltValueNullFieldError.checkNotNull(
-        enforced, r'FilesSharingCapabilities_FilesSharing_Public_Password', 'enforced');
-    BuiltValueNullFieldError.checkNotNull(
-        askForOptionalPassword, r'FilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword');
+        askForOptionalPassword, r'Capabilities_FilesSharing_Public_Password', 'askForOptionalPassword');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_Password rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder) updates) =>
+  Capabilities_FilesSharing_Public_Password rebuild(
+          void Function(Capabilities_FilesSharing_Public_PasswordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder()..replace(this);
+  Capabilities_FilesSharing_Public_PasswordBuilder toBuilder() =>
+      Capabilities_FilesSharing_Public_PasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Public_Password &&
+    return other is Capabilities_FilesSharing_Public_Password &&
         enforced == other.enforced &&
         askForOptionalPassword == other.askForOptionalPassword;
   }
@@ -14790,19 +14295,18 @@ class _$FilesSharingCapabilities_FilesSharing_Public_Password
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Public_Password')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Public_Password')
           ..add('enforced', enforced)
           ..add('askForOptionalPassword', askForOptionalPassword))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
+class Capabilities_FilesSharing_Public_PasswordBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Public_Password,
-            FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder>,
-        FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Public_Password? _$v;
+        Builder<Capabilities_FilesSharing_Public_Password, Capabilities_FilesSharing_Public_PasswordBuilder>,
+        Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
+  _$Capabilities_FilesSharing_Public_Password? _$v;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
@@ -14813,9 +14317,9 @@ class FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
   set askForOptionalPassword(covariant bool? askForOptionalPassword) =>
       _$this._askForOptionalPassword = askForOptionalPassword;
 
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
+  Capabilities_FilesSharing_Public_PasswordBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get _$this {
+  Capabilities_FilesSharing_Public_PasswordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enforced = $v.enforced;
@@ -14826,34 +14330,34 @@ class FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Public_Password other) {
+  void replace(covariant Capabilities_FilesSharing_Public_Password other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Public_Password;
+    _$v = other as _$Capabilities_FilesSharing_Public_Password;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_Password build() => _build();
+  Capabilities_FilesSharing_Public_Password build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_Password _build() {
+  _$Capabilities_FilesSharing_Public_Password _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Public_Password._(
+        _$Capabilities_FilesSharing_Public_Password._(
             enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'FilesSharingCapabilities_FilesSharing_Public_Password', 'enforced'),
-            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(askForOptionalPassword,
-                r'FilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword'));
+                enforced, r'Capabilities_FilesSharing_Public_Password', 'enforced'),
+            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
+                askForOptionalPassword, r'Capabilities_FilesSharing_Public_Password', 'askForOptionalPassword'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Public_ExpireDateInterface other);
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -14864,8 +14368,7 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInte
   set enforced(bool? enforced);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate
-    extends FilesSharingCapabilities_FilesSharing_Public_ExpireDate {
+class _$Capabilities_FilesSharing_Public_ExpireDate extends Capabilities_FilesSharing_Public_ExpireDate {
   @override
   final bool enabled;
   @override
@@ -14873,29 +14376,27 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   @override
   final bool? enforced;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate(
-          [void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDate(
+          [void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Public_ExpireDateBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate._({required this.enabled, this.days, this.enforced})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled');
+  _$Capabilities_FilesSharing_Public_ExpireDate._({required this.enabled, this.days, this.enforced}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public_ExpireDate', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDate rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder) updates) =>
+  Capabilities_FilesSharing_Public_ExpireDate rebuild(
+          void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder()..replace(this);
+  Capabilities_FilesSharing_Public_ExpireDateBuilder toBuilder() =>
+      Capabilities_FilesSharing_Public_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Public_ExpireDate &&
+    return other is Capabilities_FilesSharing_Public_ExpireDate &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -14913,7 +14414,7 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Public_ExpireDate')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Public_ExpireDate')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -14921,12 +14422,11 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
+class Capabilities_FilesSharing_Public_ExpireDateBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder>,
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate? _$v;
+        Builder<Capabilities_FilesSharing_Public_ExpireDate, Capabilities_FilesSharing_Public_ExpireDateBuilder>,
+        Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
+  _$Capabilities_FilesSharing_Public_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -14940,9 +14440,9 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get _$this {
+  Capabilities_FilesSharing_Public_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -14954,24 +14454,24 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDate other) {
+  void replace(covariant Capabilities_FilesSharing_Public_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate;
+    _$v = other as _$Capabilities_FilesSharing_Public_ExpireDate;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDate build() => _build();
+  Capabilities_FilesSharing_Public_ExpireDate build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate _build() {
+  _$Capabilities_FilesSharing_Public_ExpireDate _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate._(
+        _$Capabilities_FilesSharing_Public_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled'),
+                enabled, r'Capabilities_FilesSharing_Public_ExpireDate', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -14979,9 +14479,9 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Public_ExpireDateInternalInterface other);
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -14992,8 +14492,8 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInte
   set enforced(bool? enforced);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
-    extends FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal {
+class _$Capabilities_FilesSharing_Public_ExpireDateInternal
+    extends Capabilities_FilesSharing_Public_ExpireDateInternal {
   @override
   final bool enabled;
   @override
@@ -15001,29 +14501,28 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   @override
   final bool? enforced;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal(
-          [void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDateInternal(
+          [void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._({required this.enabled, this.days, this.enforced})
+  _$Capabilities_FilesSharing_Public_ExpireDateInternal._({required this.enabled, this.days, this.enforced})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public_ExpireDateInternal', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder) updates) =>
+  Capabilities_FilesSharing_Public_ExpireDateInternal rebuild(
+          void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder()..replace(this);
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder toBuilder() =>
+      Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal &&
+    return other is Capabilities_FilesSharing_Public_ExpireDateInternal &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -15041,7 +14540,7 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Public_ExpireDateInternal')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -15049,12 +14548,12 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
+class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder>,
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? _$v;
+        Builder<Capabilities_FilesSharing_Public_ExpireDateInternal,
+            Capabilities_FilesSharing_Public_ExpireDateInternalBuilder>,
+        Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
+  _$Capabilities_FilesSharing_Public_ExpireDateInternal? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -15068,9 +14567,9 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get _$this {
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15082,24 +14581,24 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal other) {
+  void replace(covariant Capabilities_FilesSharing_Public_ExpireDateInternal other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
+    _$v = other as _$Capabilities_FilesSharing_Public_ExpireDateInternal;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal build() => _build();
+  Capabilities_FilesSharing_Public_ExpireDateInternal build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal _build() {
+  _$Capabilities_FilesSharing_Public_ExpireDateInternal _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._(
+        _$Capabilities_FilesSharing_Public_ExpireDateInternal._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
+                enabled, r'Capabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -15107,9 +14606,9 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Public_ExpireDateRemoteInterface other);
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -15120,8 +14619,7 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemo
   set enforced(bool? enforced);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
-    extends FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote {
+class _$Capabilities_FilesSharing_Public_ExpireDateRemote extends Capabilities_FilesSharing_Public_ExpireDateRemote {
   @override
   final bool enabled;
   @override
@@ -15129,29 +14627,27 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   @override
   final bool? enforced;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote(
-          [void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDateRemote(
+          [void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._({required this.enabled, this.days, this.enforced})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled');
+  _$Capabilities_FilesSharing_Public_ExpireDateRemote._({required this.enabled, this.days, this.enforced}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public_ExpireDateRemote', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder) updates) =>
+  Capabilities_FilesSharing_Public_ExpireDateRemote rebuild(
+          void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..replace(this);
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder toBuilder() =>
+      Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote &&
+    return other is Capabilities_FilesSharing_Public_ExpireDateRemote &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -15169,7 +14665,7 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Public_ExpireDateRemote')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -15177,12 +14673,12 @@ class _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder>,
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? _$v;
+        Builder<Capabilities_FilesSharing_Public_ExpireDateRemote,
+            Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder>,
+        Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
+  _$Capabilities_FilesSharing_Public_ExpireDateRemote? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -15196,9 +14692,9 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get _$this {
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15210,24 +14706,24 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote other) {
+  void replace(covariant Capabilities_FilesSharing_Public_ExpireDateRemote other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
+    _$v = other as _$Capabilities_FilesSharing_Public_ExpireDateRemote;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote build() => _build();
+  Capabilities_FilesSharing_Public_ExpireDateRemote build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote _build() {
+  _$Capabilities_FilesSharing_Public_ExpireDateRemote _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._(
+        _$Capabilities_FilesSharing_Public_ExpireDateRemote._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
+                enabled, r'Capabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -15235,26 +14731,26 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_PublicInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_PublicInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_PublicInterface other);
+  void update(void Function(Capabilities_FilesSharing_PublicInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get password;
-  set password(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password);
+  Capabilities_FilesSharing_Public_PasswordBuilder get password;
+  set password(Capabilities_FilesSharing_Public_PasswordBuilder? password);
 
   bool? get multipleLinks;
   set multipleLinks(bool? multipleLinks);
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get expireDate;
-  set expireDate(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate);
+  Capabilities_FilesSharing_Public_ExpireDateBuilder get expireDate;
+  set expireDate(Capabilities_FilesSharing_Public_ExpireDateBuilder? expireDate);
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal;
-  set expireDateInternal(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal);
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal;
+  set expireDateInternal(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal);
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote;
-  set expireDateRemote(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote);
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote;
+  set expireDateRemote(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote);
 
   bool? get sendMail;
   set sendMail(bool? sendMail);
@@ -15266,19 +14762,19 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilde
   set uploadFilesDrop(bool? uploadFilesDrop);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabilities_FilesSharing_Public {
+class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Public {
   @override
   final bool enabled;
   @override
-  final FilesSharingCapabilities_FilesSharing_Public_Password? password;
+  final Capabilities_FilesSharing_Public_Password? password;
   @override
   final bool? multipleLinks;
   @override
-  final FilesSharingCapabilities_FilesSharing_Public_ExpireDate? expireDate;
+  final Capabilities_FilesSharing_Public_ExpireDate? expireDate;
   @override
-  final FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? expireDateInternal;
+  final Capabilities_FilesSharing_Public_ExpireDateInternal? expireDateInternal;
   @override
-  final FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? expireDateRemote;
+  final Capabilities_FilesSharing_Public_ExpireDateRemote? expireDateRemote;
   @override
   final bool? sendMail;
   @override
@@ -15286,11 +14782,10 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
   @override
   final bool? uploadFilesDrop;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Public(
-          [void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_PublicBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public([void Function(Capabilities_FilesSharing_PublicBuilder)? updates]) =>
+      (Capabilities_FilesSharing_PublicBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public._(
+  _$Capabilities_FilesSharing_Public._(
       {required this.enabled,
       this.password,
       this.multipleLinks,
@@ -15301,22 +14796,20 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
       this.upload,
       this.uploadFilesDrop})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'FilesSharingCapabilities_FilesSharing_Public', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder) updates) =>
+  Capabilities_FilesSharing_Public rebuild(void Function(Capabilities_FilesSharing_PublicBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_PublicBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_PublicBuilder()..replace(this);
+  Capabilities_FilesSharing_PublicBuilder toBuilder() => Capabilities_FilesSharing_PublicBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Public &&
+    return other is Capabilities_FilesSharing_Public &&
         enabled == other.enabled &&
         password == other.password &&
         multipleLinks == other.multipleLinks &&
@@ -15346,7 +14839,7 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Public')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Public')
           ..add('enabled', enabled)
           ..add('password', password)
           ..add('multipleLinks', multipleLinks)
@@ -15360,44 +14853,41 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_PublicBuilder
+class Capabilities_FilesSharing_PublicBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Public, FilesSharingCapabilities_FilesSharing_PublicBuilder>,
-        FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Public? _$v;
+        Builder<Capabilities_FilesSharing_Public, Capabilities_FilesSharing_PublicBuilder>,
+        Capabilities_FilesSharing_PublicInterfaceBuilder {
+  _$Capabilities_FilesSharing_Public? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? _password;
-  FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get password =>
-      _$this._password ??= FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
-  set password(covariant FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password) =>
-      _$this._password = password;
+  Capabilities_FilesSharing_Public_PasswordBuilder? _password;
+  Capabilities_FilesSharing_Public_PasswordBuilder get password =>
+      _$this._password ??= Capabilities_FilesSharing_Public_PasswordBuilder();
+  set password(covariant Capabilities_FilesSharing_Public_PasswordBuilder? password) => _$this._password = password;
 
   bool? _multipleLinks;
   bool? get multipleLinks => _$this._multipleLinks;
   set multipleLinks(covariant bool? multipleLinks) => _$this._multipleLinks = multipleLinks;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? _expireDate;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
-  set expireDate(covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate) =>
+  Capabilities_FilesSharing_Public_ExpireDateBuilder? _expireDate;
+  Capabilities_FilesSharing_Public_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= Capabilities_FilesSharing_Public_ExpireDateBuilder();
+  set expireDate(covariant Capabilities_FilesSharing_Public_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? _expireDateInternal;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal =>
-      _$this._expireDateInternal ??= FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
-  set expireDateInternal(
-          covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal) =>
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder? _expireDateInternal;
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal =>
+      _$this._expireDateInternal ??= Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  set expireDateInternal(covariant Capabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal) =>
       _$this._expireDateInternal = expireDateInternal;
 
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? _expireDateRemote;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote =>
-      _$this._expireDateRemote ??= FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
-  set expireDateRemote(
-          covariant FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote) =>
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder? _expireDateRemote;
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote =>
+      _$this._expireDateRemote ??= Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  set expireDateRemote(covariant Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote) =>
       _$this._expireDateRemote = expireDateRemote;
 
   bool? _sendMail;
@@ -15412,9 +14902,9 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
   set uploadFilesDrop(covariant bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
-  FilesSharingCapabilities_FilesSharing_PublicBuilder();
+  Capabilities_FilesSharing_PublicBuilder();
 
-  FilesSharingCapabilities_FilesSharing_PublicBuilder get _$this {
+  Capabilities_FilesSharing_PublicBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15432,26 +14922,25 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Public other) {
+  void replace(covariant Capabilities_FilesSharing_Public other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Public;
+    _$v = other as _$Capabilities_FilesSharing_Public;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_PublicBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Public build() => _build();
+  Capabilities_FilesSharing_Public build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Public _build() {
-    _$FilesSharingCapabilities_FilesSharing_Public _$result;
+  _$Capabilities_FilesSharing_Public _build() {
+    _$Capabilities_FilesSharing_Public _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingCapabilities_FilesSharing_Public._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'FilesSharingCapabilities_FilesSharing_Public', 'enabled'),
+          _$Capabilities_FilesSharing_Public._(
+              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled'),
               password: _password?.build(),
               multipleLinks: multipleLinks,
               expireDate: _expireDate?.build(),
@@ -15473,7 +14962,7 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
         _$failedField = 'expireDateRemote';
         _expireDateRemote?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingCapabilities_FilesSharing_Public', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_FilesSharing_Public', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -15482,39 +14971,38 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_User_ExpireDateInterface other);
+  void update(void Function(Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_User_ExpireDate
-    extends FilesSharingCapabilities_FilesSharing_User_ExpireDate {
+class _$Capabilities_FilesSharing_User_ExpireDate extends Capabilities_FilesSharing_User_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$FilesSharingCapabilities_FilesSharing_User_ExpireDate(
-          [void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_User_ExpireDate(
+          [void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? updates]) =>
+      (Capabilities_FilesSharing_User_ExpireDateBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_User_ExpireDate._({required this.enabled}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'FilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled');
+  _$Capabilities_FilesSharing_User_ExpireDate._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_User_ExpireDate', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User_ExpireDate rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder) updates) =>
+  Capabilities_FilesSharing_User_ExpireDate rebuild(
+          void Function(Capabilities_FilesSharing_User_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder()..replace(this);
+  Capabilities_FilesSharing_User_ExpireDateBuilder toBuilder() =>
+      Capabilities_FilesSharing_User_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_User_ExpireDate && enabled == other.enabled;
+    return other is Capabilities_FilesSharing_User_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -15527,26 +15015,24 @@ class _$FilesSharingCapabilities_FilesSharing_User_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_User_ExpireDate')
-          ..add('enabled', enabled))
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_User_ExpireDate')..add('enabled', enabled))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
+class Capabilities_FilesSharing_User_ExpireDateBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_User_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder>,
-        FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_User_ExpireDate? _$v;
+        Builder<Capabilities_FilesSharing_User_ExpireDate, Capabilities_FilesSharing_User_ExpireDateBuilder>,
+        Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
+  _$Capabilities_FilesSharing_User_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
+  Capabilities_FilesSharing_User_ExpireDateBuilder();
 
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get _$this {
+  Capabilities_FilesSharing_User_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15556,68 +15042,63 @@ class FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_User_ExpireDate other) {
+  void replace(covariant Capabilities_FilesSharing_User_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_User_ExpireDate;
+    _$v = other as _$Capabilities_FilesSharing_User_ExpireDate;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User_ExpireDate build() => _build();
+  Capabilities_FilesSharing_User_ExpireDate build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_User_ExpireDate _build() {
+  _$Capabilities_FilesSharing_User_ExpireDate _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_User_ExpireDate._(
+        _$Capabilities_FilesSharing_User_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled'));
+                enabled, r'Capabilities_FilesSharing_User_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_UserInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_UserInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_UserInterface other);
+  void update(void Function(Capabilities_FilesSharing_UserInterfaceBuilder) updates);
   bool? get sendMail;
   set sendMail(bool? sendMail);
 
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get expireDate;
-  set expireDate(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate);
+  Capabilities_FilesSharing_User_ExpireDateBuilder get expireDate;
+  set expireDate(Capabilities_FilesSharing_User_ExpireDateBuilder? expireDate);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_User extends FilesSharingCapabilities_FilesSharing_User {
+class _$Capabilities_FilesSharing_User extends Capabilities_FilesSharing_User {
   @override
   final bool sendMail;
   @override
-  final FilesSharingCapabilities_FilesSharing_User_ExpireDate? expireDate;
+  final Capabilities_FilesSharing_User_ExpireDate? expireDate;
 
-  factory _$FilesSharingCapabilities_FilesSharing_User(
-          [void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_UserBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_User([void Function(Capabilities_FilesSharing_UserBuilder)? updates]) =>
+      (Capabilities_FilesSharing_UserBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_User._({required this.sendMail, this.expireDate}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(sendMail, r'FilesSharingCapabilities_FilesSharing_User', 'sendMail');
+  _$Capabilities_FilesSharing_User._({required this.sendMail, this.expireDate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sendMail, r'Capabilities_FilesSharing_User', 'sendMail');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_UserBuilder) updates) =>
+  Capabilities_FilesSharing_User rebuild(void Function(Capabilities_FilesSharing_UserBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_UserBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_UserBuilder()..replace(this);
+  Capabilities_FilesSharing_UserBuilder toBuilder() => Capabilities_FilesSharing_UserBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_User &&
-        sendMail == other.sendMail &&
-        expireDate == other.expireDate;
+    return other is Capabilities_FilesSharing_User && sendMail == other.sendMail && expireDate == other.expireDate;
   }
 
   @override
@@ -15631,32 +15112,32 @@ class _$FilesSharingCapabilities_FilesSharing_User extends FilesSharingCapabilit
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_User')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_User')
           ..add('sendMail', sendMail)
           ..add('expireDate', expireDate))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_UserBuilder
+class Capabilities_FilesSharing_UserBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_User, FilesSharingCapabilities_FilesSharing_UserBuilder>,
-        FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_User? _$v;
+        Builder<Capabilities_FilesSharing_User, Capabilities_FilesSharing_UserBuilder>,
+        Capabilities_FilesSharing_UserInterfaceBuilder {
+  _$Capabilities_FilesSharing_User? _$v;
 
   bool? _sendMail;
   bool? get sendMail => _$this._sendMail;
   set sendMail(covariant bool? sendMail) => _$this._sendMail = sendMail;
 
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? _expireDate;
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
-  set expireDate(covariant FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
+  Capabilities_FilesSharing_User_ExpireDateBuilder? _expireDate;
+  Capabilities_FilesSharing_User_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= Capabilities_FilesSharing_User_ExpireDateBuilder();
+  set expireDate(covariant Capabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  FilesSharingCapabilities_FilesSharing_UserBuilder();
+  Capabilities_FilesSharing_UserBuilder();
 
-  FilesSharingCapabilities_FilesSharing_UserBuilder get _$this {
+  Capabilities_FilesSharing_UserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _sendMail = $v.sendMail;
@@ -15667,26 +15148,25 @@ class FilesSharingCapabilities_FilesSharing_UserBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_User other) {
+  void replace(covariant Capabilities_FilesSharing_User other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_User;
+    _$v = other as _$Capabilities_FilesSharing_User;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_UserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_User build() => _build();
+  Capabilities_FilesSharing_User build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_User _build() {
-    _$FilesSharingCapabilities_FilesSharing_User _$result;
+  _$Capabilities_FilesSharing_User _build() {
+    _$Capabilities_FilesSharing_User _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingCapabilities_FilesSharing_User._(
-              sendMail: BuiltValueNullFieldError.checkNotNull(
-                  sendMail, r'FilesSharingCapabilities_FilesSharing_User', 'sendMail'),
+          _$Capabilities_FilesSharing_User._(
+              sendMail: BuiltValueNullFieldError.checkNotNull(sendMail, r'Capabilities_FilesSharing_User', 'sendMail'),
               expireDate: _expireDate?.build());
     } catch (_) {
       late String _$failedField;
@@ -15694,7 +15174,7 @@ class FilesSharingCapabilities_FilesSharing_UserBuilder
         _$failedField = 'expireDate';
         _expireDate?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingCapabilities_FilesSharing_User', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_FilesSharing_User', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -15703,40 +15183,38 @@ class FilesSharingCapabilities_FilesSharing_UserBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Group_ExpireDateInterface other);
+  void update(void Function(Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate
-    extends FilesSharingCapabilities_FilesSharing_Group_ExpireDate {
+class _$Capabilities_FilesSharing_Group_ExpireDate extends Capabilities_FilesSharing_Group_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate(
-          [void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Group_ExpireDate(
+          [void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Group_ExpireDateBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate._({required this.enabled}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled');
+  _$Capabilities_FilesSharing_Group_ExpireDate._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group_ExpireDate', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDate rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder) updates) =>
+  Capabilities_FilesSharing_Group_ExpireDate rebuild(
+          void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder()..replace(this);
+  Capabilities_FilesSharing_Group_ExpireDateBuilder toBuilder() =>
+      Capabilities_FilesSharing_Group_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Group_ExpireDate && enabled == other.enabled;
+    return other is Capabilities_FilesSharing_Group_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -15749,26 +15227,24 @@ class _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Group_ExpireDate')
-          ..add('enabled', enabled))
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Group_ExpireDate')..add('enabled', enabled))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
+class Capabilities_FilesSharing_Group_ExpireDateBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder>,
-        FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate? _$v;
+        Builder<Capabilities_FilesSharing_Group_ExpireDate, Capabilities_FilesSharing_Group_ExpireDateBuilder>,
+        Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
+  _$Capabilities_FilesSharing_Group_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
+  Capabilities_FilesSharing_Group_ExpireDateBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get _$this {
+  Capabilities_FilesSharing_Group_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15778,68 +15254,63 @@ class FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Group_ExpireDate other) {
+  void replace(covariant Capabilities_FilesSharing_Group_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate;
+    _$v = other as _$Capabilities_FilesSharing_Group_ExpireDate;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDate build() => _build();
+  Capabilities_FilesSharing_Group_ExpireDate build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate _build() {
+  _$Capabilities_FilesSharing_Group_ExpireDate _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate._(
+        _$Capabilities_FilesSharing_Group_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled'));
+                enabled, r'Capabilities_FilesSharing_Group_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_GroupInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_GroupInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_GroupInterface other);
+  void update(void Function(Capabilities_FilesSharing_GroupInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get expireDate;
-  set expireDate(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate);
+  Capabilities_FilesSharing_Group_ExpireDateBuilder get expireDate;
+  set expireDate(Capabilities_FilesSharing_Group_ExpireDateBuilder? expireDate);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Group extends FilesSharingCapabilities_FilesSharing_Group {
+class _$Capabilities_FilesSharing_Group extends Capabilities_FilesSharing_Group {
   @override
   final bool enabled;
   @override
-  final FilesSharingCapabilities_FilesSharing_Group_ExpireDate? expireDate;
+  final Capabilities_FilesSharing_Group_ExpireDate? expireDate;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Group(
-          [void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_GroupBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Group([void Function(Capabilities_FilesSharing_GroupBuilder)? updates]) =>
+      (Capabilities_FilesSharing_GroupBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Group._({required this.enabled, this.expireDate}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'FilesSharingCapabilities_FilesSharing_Group', 'enabled');
+  _$Capabilities_FilesSharing_Group._({required this.enabled, this.expireDate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder) updates) =>
+  Capabilities_FilesSharing_Group rebuild(void Function(Capabilities_FilesSharing_GroupBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_GroupBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_GroupBuilder()..replace(this);
+  Capabilities_FilesSharing_GroupBuilder toBuilder() => Capabilities_FilesSharing_GroupBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Group &&
-        enabled == other.enabled &&
-        expireDate == other.expireDate;
+    return other is Capabilities_FilesSharing_Group && enabled == other.enabled && expireDate == other.expireDate;
   }
 
   @override
@@ -15853,32 +15324,32 @@ class _$FilesSharingCapabilities_FilesSharing_Group extends FilesSharingCapabili
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Group')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Group')
           ..add('enabled', enabled)
           ..add('expireDate', expireDate))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_GroupBuilder
+class Capabilities_FilesSharing_GroupBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Group, FilesSharingCapabilities_FilesSharing_GroupBuilder>,
-        FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Group? _$v;
+        Builder<Capabilities_FilesSharing_Group, Capabilities_FilesSharing_GroupBuilder>,
+        Capabilities_FilesSharing_GroupInterfaceBuilder {
+  _$Capabilities_FilesSharing_Group? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? _expireDate;
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
-  set expireDate(covariant FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
+  Capabilities_FilesSharing_Group_ExpireDateBuilder? _expireDate;
+  Capabilities_FilesSharing_Group_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= Capabilities_FilesSharing_Group_ExpireDateBuilder();
+  set expireDate(covariant Capabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  FilesSharingCapabilities_FilesSharing_GroupBuilder();
+  Capabilities_FilesSharing_GroupBuilder();
 
-  FilesSharingCapabilities_FilesSharing_GroupBuilder get _$this {
+  Capabilities_FilesSharing_GroupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -15889,26 +15360,25 @@ class FilesSharingCapabilities_FilesSharing_GroupBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Group other) {
+  void replace(covariant Capabilities_FilesSharing_Group other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Group;
+    _$v = other as _$Capabilities_FilesSharing_Group;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_GroupBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Group build() => _build();
+  Capabilities_FilesSharing_Group build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Group _build() {
-    _$FilesSharingCapabilities_FilesSharing_Group _$result;
+  _$Capabilities_FilesSharing_Group _build() {
+    _$Capabilities_FilesSharing_Group _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingCapabilities_FilesSharing_Group._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'FilesSharingCapabilities_FilesSharing_Group', 'enabled'),
+          _$Capabilities_FilesSharing_Group._(
+              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group', 'enabled'),
               expireDate: _expireDate?.build());
     } catch (_) {
       late String _$failedField;
@@ -15916,7 +15386,7 @@ class FilesSharingCapabilities_FilesSharing_GroupBuilder
         _$failedField = 'expireDate';
         _expireDate?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingCapabilities_FilesSharing_Group', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_FilesSharing_Group', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -15925,40 +15395,38 @@ class FilesSharingCapabilities_FilesSharing_GroupBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Federation_ExpireDateInterface other);
+  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
-    extends FilesSharingCapabilities_FilesSharing_Federation_ExpireDate {
+class _$Capabilities_FilesSharing_Federation_ExpireDate extends Capabilities_FilesSharing_Federation_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate(
-          [void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation_ExpireDate(
+          [void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Federation_ExpireDateBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._({required this.enabled}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled');
+  _$Capabilities_FilesSharing_Federation_ExpireDate._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Federation_ExpireDate', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder) updates) =>
+  Capabilities_FilesSharing_Federation_ExpireDate rebuild(
+          void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder()..replace(this);
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder toBuilder() =>
+      Capabilities_FilesSharing_Federation_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Federation_ExpireDate && enabled == other.enabled;
+    return other is Capabilities_FilesSharing_Federation_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -15971,26 +15439,25 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate')
-          ..add('enabled', enabled))
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation_ExpireDate')..add('enabled', enabled))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
+class Capabilities_FilesSharing_Federation_ExpireDateBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder>,
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate? _$v;
+        Builder<Capabilities_FilesSharing_Federation_ExpireDate,
+            Capabilities_FilesSharing_Federation_ExpireDateBuilder>,
+        Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
+  _$Capabilities_FilesSharing_Federation_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get _$this {
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -16000,64 +15467,63 @@ class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Federation_ExpireDate other) {
+  void replace(covariant Capabilities_FilesSharing_Federation_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
+    _$v = other as _$Capabilities_FilesSharing_Federation_ExpireDate;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDate build() => _build();
+  Capabilities_FilesSharing_Federation_ExpireDate build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate _build() {
+  _$Capabilities_FilesSharing_Federation_ExpireDate _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._(
+        _$Capabilities_FilesSharing_Federation_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled'));
+                enabled, r'Capabilities_FilesSharing_Federation_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface other);
-  void update(
-      void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface other);
+  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
-    extends FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported {
+class _$Capabilities_FilesSharing_Federation_ExpireDateSupported
+    extends Capabilities_FilesSharing_Federation_ExpireDateSupported {
   @override
   final bool enabled;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported(
-          [void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation_ExpireDateSupported(
+          [void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates]) =>
+      (Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._({required this.enabled}) : super._() {
+  _$Capabilities_FilesSharing_Federation_ExpireDateSupported._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled');
+        enabled, r'Capabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder) updates) =>
+  Capabilities_FilesSharing_Federation_ExpireDateSupported rebuild(
+          void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..replace(this);
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder toBuilder() =>
+      Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported && enabled == other.enabled;
+    return other is Capabilities_FilesSharing_Federation_ExpireDateSupported && enabled == other.enabled;
   }
 
   @override
@@ -16070,26 +15536,26 @@ class _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation_ExpireDateSupported')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
-            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder>,
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
+        Builder<Capabilities_FilesSharing_Federation_ExpireDateSupported,
+            Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder>,
+        Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
+  _$Capabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get _$this {
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -16099,84 +15565,81 @@ class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilde
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported other) {
+  void replace(covariant Capabilities_FilesSharing_Federation_ExpireDateSupported other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
+    _$v = other as _$Capabilities_FilesSharing_Federation_ExpireDateSupported;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported build() => _build();
+  Capabilities_FilesSharing_Federation_ExpireDateSupported build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported _build() {
+  _$Capabilities_FilesSharing_Federation_ExpireDateSupported _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._(
+        _$Capabilities_FilesSharing_Federation_ExpireDateSupported._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'));
+                enabled, r'Capabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_FederationInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_FederationInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_FederationInterface other);
+  void update(void Function(Capabilities_FilesSharing_FederationInterfaceBuilder) updates);
   bool? get outgoing;
   set outgoing(bool? outgoing);
 
   bool? get incoming;
   set incoming(bool? incoming);
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate;
-  set expireDate(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate);
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate;
+  set expireDate(Capabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate);
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported;
-  set expireDateSupported(
-      FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported);
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported;
+  set expireDateSupported(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Federation extends FilesSharingCapabilities_FilesSharing_Federation {
+class _$Capabilities_FilesSharing_Federation extends Capabilities_FilesSharing_Federation {
   @override
   final bool outgoing;
   @override
   final bool incoming;
   @override
-  final FilesSharingCapabilities_FilesSharing_Federation_ExpireDate expireDate;
+  final Capabilities_FilesSharing_Federation_ExpireDate expireDate;
   @override
-  final FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
+  final Capabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Federation(
-          [void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_FederationBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation(
+          [void Function(Capabilities_FilesSharing_FederationBuilder)? updates]) =>
+      (Capabilities_FilesSharing_FederationBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation._(
+  _$Capabilities_FilesSharing_Federation._(
       {required this.outgoing, required this.incoming, required this.expireDate, required this.expireDateSupported})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(outgoing, r'FilesSharingCapabilities_FilesSharing_Federation', 'outgoing');
-    BuiltValueNullFieldError.checkNotNull(incoming, r'FilesSharingCapabilities_FilesSharing_Federation', 'incoming');
+    BuiltValueNullFieldError.checkNotNull(outgoing, r'Capabilities_FilesSharing_Federation', 'outgoing');
+    BuiltValueNullFieldError.checkNotNull(incoming, r'Capabilities_FilesSharing_Federation', 'incoming');
+    BuiltValueNullFieldError.checkNotNull(expireDate, r'Capabilities_FilesSharing_Federation', 'expireDate');
     BuiltValueNullFieldError.checkNotNull(
-        expireDate, r'FilesSharingCapabilities_FilesSharing_Federation', 'expireDate');
-    BuiltValueNullFieldError.checkNotNull(
-        expireDateSupported, r'FilesSharingCapabilities_FilesSharing_Federation', 'expireDateSupported');
+        expireDateSupported, r'Capabilities_FilesSharing_Federation', 'expireDateSupported');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder) updates) =>
+  Capabilities_FilesSharing_Federation rebuild(void Function(Capabilities_FilesSharing_FederationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_FederationBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_FederationBuilder()..replace(this);
+  Capabilities_FilesSharing_FederationBuilder toBuilder() =>
+      Capabilities_FilesSharing_FederationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Federation &&
+    return other is Capabilities_FilesSharing_Federation &&
         outgoing == other.outgoing &&
         incoming == other.incoming &&
         expireDate == other.expireDate &&
@@ -16196,7 +15659,7 @@ class _$FilesSharingCapabilities_FilesSharing_Federation extends FilesSharingCap
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Federation')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation')
           ..add('outgoing', outgoing)
           ..add('incoming', incoming)
           ..add('expireDate', expireDate)
@@ -16205,12 +15668,11 @@ class _$FilesSharingCapabilities_FilesSharing_Federation extends FilesSharingCap
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_FederationBuilder
+class Capabilities_FilesSharing_FederationBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Federation,
-            FilesSharingCapabilities_FilesSharing_FederationBuilder>,
-        FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Federation? _$v;
+        Builder<Capabilities_FilesSharing_Federation, Capabilities_FilesSharing_FederationBuilder>,
+        Capabilities_FilesSharing_FederationInterfaceBuilder {
+  _$Capabilities_FilesSharing_Federation? _$v;
 
   bool? _outgoing;
   bool? get outgoing => _$this._outgoing;
@@ -16220,22 +15682,22 @@ class FilesSharingCapabilities_FilesSharing_FederationBuilder
   bool? get incoming => _$this._incoming;
   set incoming(covariant bool? incoming) => _$this._incoming = incoming;
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? _expireDate;
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
-  set expireDate(covariant FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate) =>
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder? _expireDate;
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+  set expireDate(covariant Capabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? _expireDateSupported;
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported =>
-      _$this._expireDateSupported ??= FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? _expireDateSupported;
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported =>
+      _$this._expireDateSupported ??= Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
   set expireDateSupported(
-          covariant FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
+          covariant Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
       _$this._expireDateSupported = expireDateSupported;
 
-  FilesSharingCapabilities_FilesSharing_FederationBuilder();
+  Capabilities_FilesSharing_FederationBuilder();
 
-  FilesSharingCapabilities_FilesSharing_FederationBuilder get _$this {
+  Capabilities_FilesSharing_FederationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _outgoing = $v.outgoing;
@@ -16248,28 +15710,28 @@ class FilesSharingCapabilities_FilesSharing_FederationBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Federation other) {
+  void replace(covariant Capabilities_FilesSharing_Federation other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Federation;
+    _$v = other as _$Capabilities_FilesSharing_Federation;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_FederationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Federation build() => _build();
+  Capabilities_FilesSharing_Federation build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Federation _build() {
-    _$FilesSharingCapabilities_FilesSharing_Federation _$result;
+  _$Capabilities_FilesSharing_Federation _build() {
+    _$Capabilities_FilesSharing_Federation _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingCapabilities_FilesSharing_Federation._(
-              outgoing: BuiltValueNullFieldError.checkNotNull(
-                  outgoing, r'FilesSharingCapabilities_FilesSharing_Federation', 'outgoing'),
-              incoming: BuiltValueNullFieldError.checkNotNull(
-                  incoming, r'FilesSharingCapabilities_FilesSharing_Federation', 'incoming'),
+          _$Capabilities_FilesSharing_Federation._(
+              outgoing:
+                  BuiltValueNullFieldError.checkNotNull(outgoing, r'Capabilities_FilesSharing_Federation', 'outgoing'),
+              incoming:
+                  BuiltValueNullFieldError.checkNotNull(incoming, r'Capabilities_FilesSharing_Federation', 'incoming'),
               expireDate: expireDate.build(),
               expireDateSupported: expireDateSupported.build());
     } catch (_) {
@@ -16280,8 +15742,7 @@ class FilesSharingCapabilities_FilesSharing_FederationBuilder
         _$failedField = 'expireDateSupported';
         expireDateSupported.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FilesSharingCapabilities_FilesSharing_Federation', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_FilesSharing_Federation', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -16290,9 +15751,9 @@ class FilesSharingCapabilities_FilesSharing_FederationBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharing_ShareeInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharing_ShareeInterfaceBuilder {
+  void replace(Capabilities_FilesSharing_ShareeInterface other);
+  void update(void Function(Capabilities_FilesSharing_ShareeInterfaceBuilder) updates);
   bool? get queryLookupDefault;
   set queryLookupDefault(bool? queryLookupDefault);
 
@@ -16300,37 +15761,32 @@ abstract mixin class FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilde
   set alwaysShowUnique(bool? alwaysShowUnique);
 }
 
-class _$FilesSharingCapabilities_FilesSharing_Sharee extends FilesSharingCapabilities_FilesSharing_Sharee {
+class _$Capabilities_FilesSharing_Sharee extends Capabilities_FilesSharing_Sharee {
   @override
   final bool queryLookupDefault;
   @override
   final bool alwaysShowUnique;
 
-  factory _$FilesSharingCapabilities_FilesSharing_Sharee(
-          [void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharing_ShareeBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Sharee([void Function(Capabilities_FilesSharing_ShareeBuilder)? updates]) =>
+      (Capabilities_FilesSharing_ShareeBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing_Sharee._({required this.queryLookupDefault, required this.alwaysShowUnique})
-      : super._() {
+  _$Capabilities_FilesSharing_Sharee._({required this.queryLookupDefault, required this.alwaysShowUnique}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        queryLookupDefault, r'FilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault');
-    BuiltValueNullFieldError.checkNotNull(
-        alwaysShowUnique, r'FilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique');
+        queryLookupDefault, r'Capabilities_FilesSharing_Sharee', 'queryLookupDefault');
+    BuiltValueNullFieldError.checkNotNull(alwaysShowUnique, r'Capabilities_FilesSharing_Sharee', 'alwaysShowUnique');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Sharee rebuild(
-          void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder) updates) =>
+  Capabilities_FilesSharing_Sharee rebuild(void Function(Capabilities_FilesSharing_ShareeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharing_ShareeBuilder()..replace(this);
+  Capabilities_FilesSharing_ShareeBuilder toBuilder() => Capabilities_FilesSharing_ShareeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing_Sharee &&
+    return other is Capabilities_FilesSharing_Sharee &&
         queryLookupDefault == other.queryLookupDefault &&
         alwaysShowUnique == other.alwaysShowUnique;
   }
@@ -16346,18 +15802,18 @@ class _$FilesSharingCapabilities_FilesSharing_Sharee extends FilesSharingCapabil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing_Sharee')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Sharee')
           ..add('queryLookupDefault', queryLookupDefault)
           ..add('alwaysShowUnique', alwaysShowUnique))
         .toString();
   }
 }
 
-class FilesSharingCapabilities_FilesSharing_ShareeBuilder
+class Capabilities_FilesSharing_ShareeBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing_Sharee, FilesSharingCapabilities_FilesSharing_ShareeBuilder>,
-        FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing_Sharee? _$v;
+        Builder<Capabilities_FilesSharing_Sharee, Capabilities_FilesSharing_ShareeBuilder>,
+        Capabilities_FilesSharing_ShareeInterfaceBuilder {
+  _$Capabilities_FilesSharing_Sharee? _$v;
 
   bool? _queryLookupDefault;
   bool? get queryLookupDefault => _$this._queryLookupDefault;
@@ -16367,9 +15823,9 @@ class FilesSharingCapabilities_FilesSharing_ShareeBuilder
   bool? get alwaysShowUnique => _$this._alwaysShowUnique;
   set alwaysShowUnique(covariant bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
 
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder();
+  Capabilities_FilesSharing_ShareeBuilder();
 
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder get _$this {
+  Capabilities_FilesSharing_ShareeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _queryLookupDefault = $v.queryLookupDefault;
@@ -16380,42 +15836,42 @@ class FilesSharingCapabilities_FilesSharing_ShareeBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing_Sharee other) {
+  void replace(covariant Capabilities_FilesSharing_Sharee other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing_Sharee;
+    _$v = other as _$Capabilities_FilesSharing_Sharee;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharing_ShareeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing_Sharee build() => _build();
+  Capabilities_FilesSharing_Sharee build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing_Sharee _build() {
+  _$Capabilities_FilesSharing_Sharee _build() {
     final _$result = _$v ??
-        _$FilesSharingCapabilities_FilesSharing_Sharee._(
+        _$Capabilities_FilesSharing_Sharee._(
             queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
-                queryLookupDefault, r'FilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault'),
+                queryLookupDefault, r'Capabilities_FilesSharing_Sharee', 'queryLookupDefault'),
             alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
-                alwaysShowUnique, r'FilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique'));
+                alwaysShowUnique, r'Capabilities_FilesSharing_Sharee', 'alwaysShowUnique'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class FilesSharingCapabilities_FilesSharingInterfaceBuilder {
-  void replace(FilesSharingCapabilities_FilesSharingInterface other);
-  void update(void Function(FilesSharingCapabilities_FilesSharingInterfaceBuilder) updates);
+abstract mixin class Capabilities_FilesSharingInterfaceBuilder {
+  void replace(Capabilities_FilesSharingInterface other);
+  void update(void Function(Capabilities_FilesSharingInterfaceBuilder) updates);
   bool? get apiEnabled;
   set apiEnabled(bool? apiEnabled);
 
-  FilesSharingCapabilities_FilesSharing_PublicBuilder get public;
-  set public(FilesSharingCapabilities_FilesSharing_PublicBuilder? public);
+  Capabilities_FilesSharing_PublicBuilder get public;
+  set public(Capabilities_FilesSharing_PublicBuilder? public);
 
-  FilesSharingCapabilities_FilesSharing_UserBuilder get user;
-  set user(FilesSharingCapabilities_FilesSharing_UserBuilder? user);
+  Capabilities_FilesSharing_UserBuilder get user;
+  set user(Capabilities_FilesSharing_UserBuilder? user);
 
   bool? get resharing;
   set resharing(bool? resharing);
@@ -16423,44 +15879,43 @@ abstract mixin class FilesSharingCapabilities_FilesSharingInterfaceBuilder {
   bool? get groupSharing;
   set groupSharing(bool? groupSharing);
 
-  FilesSharingCapabilities_FilesSharing_GroupBuilder get group;
-  set group(FilesSharingCapabilities_FilesSharing_GroupBuilder? group);
+  Capabilities_FilesSharing_GroupBuilder get group;
+  set group(Capabilities_FilesSharing_GroupBuilder? group);
 
   int? get defaultPermissions;
   set defaultPermissions(int? defaultPermissions);
 
-  FilesSharingCapabilities_FilesSharing_FederationBuilder get federation;
-  set federation(FilesSharingCapabilities_FilesSharing_FederationBuilder? federation);
+  Capabilities_FilesSharing_FederationBuilder get federation;
+  set federation(Capabilities_FilesSharing_FederationBuilder? federation);
 
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder get sharee;
-  set sharee(FilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee);
+  Capabilities_FilesSharing_ShareeBuilder get sharee;
+  set sharee(Capabilities_FilesSharing_ShareeBuilder? sharee);
 }
 
-class _$FilesSharingCapabilities_FilesSharing extends FilesSharingCapabilities_FilesSharing {
+class _$Capabilities_FilesSharing extends Capabilities_FilesSharing {
   @override
   final bool apiEnabled;
   @override
-  final FilesSharingCapabilities_FilesSharing_Public public;
+  final Capabilities_FilesSharing_Public public;
   @override
-  final FilesSharingCapabilities_FilesSharing_User user;
+  final Capabilities_FilesSharing_User user;
   @override
   final bool resharing;
   @override
   final bool? groupSharing;
   @override
-  final FilesSharingCapabilities_FilesSharing_Group? group;
+  final Capabilities_FilesSharing_Group? group;
   @override
   final int? defaultPermissions;
   @override
-  final FilesSharingCapabilities_FilesSharing_Federation federation;
+  final Capabilities_FilesSharing_Federation federation;
   @override
-  final FilesSharingCapabilities_FilesSharing_Sharee sharee;
+  final Capabilities_FilesSharing_Sharee sharee;
 
-  factory _$FilesSharingCapabilities_FilesSharing(
-          [void Function(FilesSharingCapabilities_FilesSharingBuilder)? updates]) =>
-      (FilesSharingCapabilities_FilesSharingBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing([void Function(Capabilities_FilesSharingBuilder)? updates]) =>
+      (Capabilities_FilesSharingBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities_FilesSharing._(
+  _$Capabilities_FilesSharing._(
       {required this.apiEnabled,
       required this.public,
       required this.user,
@@ -16471,26 +15926,25 @@ class _$FilesSharingCapabilities_FilesSharing extends FilesSharingCapabilities_F
       required this.federation,
       required this.sharee})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(apiEnabled, r'FilesSharingCapabilities_FilesSharing', 'apiEnabled');
-    BuiltValueNullFieldError.checkNotNull(public, r'FilesSharingCapabilities_FilesSharing', 'public');
-    BuiltValueNullFieldError.checkNotNull(user, r'FilesSharingCapabilities_FilesSharing', 'user');
-    BuiltValueNullFieldError.checkNotNull(resharing, r'FilesSharingCapabilities_FilesSharing', 'resharing');
-    BuiltValueNullFieldError.checkNotNull(federation, r'FilesSharingCapabilities_FilesSharing', 'federation');
-    BuiltValueNullFieldError.checkNotNull(sharee, r'FilesSharingCapabilities_FilesSharing', 'sharee');
+    BuiltValueNullFieldError.checkNotNull(apiEnabled, r'Capabilities_FilesSharing', 'apiEnabled');
+    BuiltValueNullFieldError.checkNotNull(public, r'Capabilities_FilesSharing', 'public');
+    BuiltValueNullFieldError.checkNotNull(user, r'Capabilities_FilesSharing', 'user');
+    BuiltValueNullFieldError.checkNotNull(resharing, r'Capabilities_FilesSharing', 'resharing');
+    BuiltValueNullFieldError.checkNotNull(federation, r'Capabilities_FilesSharing', 'federation');
+    BuiltValueNullFieldError.checkNotNull(sharee, r'Capabilities_FilesSharing', 'sharee');
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing rebuild(void Function(FilesSharingCapabilities_FilesSharingBuilder) updates) =>
+  Capabilities_FilesSharing rebuild(void Function(Capabilities_FilesSharingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilities_FilesSharingBuilder toBuilder() =>
-      FilesSharingCapabilities_FilesSharingBuilder()..replace(this);
+  Capabilities_FilesSharingBuilder toBuilder() => Capabilities_FilesSharingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities_FilesSharing &&
+    return other is Capabilities_FilesSharing &&
         apiEnabled == other.apiEnabled &&
         public == other.public &&
         user == other.user &&
@@ -16520,7 +15974,7 @@ class _$FilesSharingCapabilities_FilesSharing extends FilesSharingCapabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities_FilesSharing')
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing')
           ..add('apiEnabled', apiEnabled)
           ..add('public', public)
           ..add('user', user)
@@ -16534,25 +15988,23 @@ class _$FilesSharingCapabilities_FilesSharing extends FilesSharingCapabilities_F
   }
 }
 
-class FilesSharingCapabilities_FilesSharingBuilder
+class Capabilities_FilesSharingBuilder
     implements
-        Builder<FilesSharingCapabilities_FilesSharing, FilesSharingCapabilities_FilesSharingBuilder>,
-        FilesSharingCapabilities_FilesSharingInterfaceBuilder {
-  _$FilesSharingCapabilities_FilesSharing? _$v;
+        Builder<Capabilities_FilesSharing, Capabilities_FilesSharingBuilder>,
+        Capabilities_FilesSharingInterfaceBuilder {
+  _$Capabilities_FilesSharing? _$v;
 
   bool? _apiEnabled;
   bool? get apiEnabled => _$this._apiEnabled;
   set apiEnabled(covariant bool? apiEnabled) => _$this._apiEnabled = apiEnabled;
 
-  FilesSharingCapabilities_FilesSharing_PublicBuilder? _public;
-  FilesSharingCapabilities_FilesSharing_PublicBuilder get public =>
-      _$this._public ??= FilesSharingCapabilities_FilesSharing_PublicBuilder();
-  set public(covariant FilesSharingCapabilities_FilesSharing_PublicBuilder? public) => _$this._public = public;
+  Capabilities_FilesSharing_PublicBuilder? _public;
+  Capabilities_FilesSharing_PublicBuilder get public => _$this._public ??= Capabilities_FilesSharing_PublicBuilder();
+  set public(covariant Capabilities_FilesSharing_PublicBuilder? public) => _$this._public = public;
 
-  FilesSharingCapabilities_FilesSharing_UserBuilder? _user;
-  FilesSharingCapabilities_FilesSharing_UserBuilder get user =>
-      _$this._user ??= FilesSharingCapabilities_FilesSharing_UserBuilder();
-  set user(covariant FilesSharingCapabilities_FilesSharing_UserBuilder? user) => _$this._user = user;
+  Capabilities_FilesSharing_UserBuilder? _user;
+  Capabilities_FilesSharing_UserBuilder get user => _$this._user ??= Capabilities_FilesSharing_UserBuilder();
+  set user(covariant Capabilities_FilesSharing_UserBuilder? user) => _$this._user = user;
 
   bool? _resharing;
   bool? get resharing => _$this._resharing;
@@ -16562,29 +16014,26 @@ class FilesSharingCapabilities_FilesSharingBuilder
   bool? get groupSharing => _$this._groupSharing;
   set groupSharing(covariant bool? groupSharing) => _$this._groupSharing = groupSharing;
 
-  FilesSharingCapabilities_FilesSharing_GroupBuilder? _group;
-  FilesSharingCapabilities_FilesSharing_GroupBuilder get group =>
-      _$this._group ??= FilesSharingCapabilities_FilesSharing_GroupBuilder();
-  set group(covariant FilesSharingCapabilities_FilesSharing_GroupBuilder? group) => _$this._group = group;
+  Capabilities_FilesSharing_GroupBuilder? _group;
+  Capabilities_FilesSharing_GroupBuilder get group => _$this._group ??= Capabilities_FilesSharing_GroupBuilder();
+  set group(covariant Capabilities_FilesSharing_GroupBuilder? group) => _$this._group = group;
 
   int? _defaultPermissions;
   int? get defaultPermissions => _$this._defaultPermissions;
   set defaultPermissions(covariant int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
 
-  FilesSharingCapabilities_FilesSharing_FederationBuilder? _federation;
-  FilesSharingCapabilities_FilesSharing_FederationBuilder get federation =>
-      _$this._federation ??= FilesSharingCapabilities_FilesSharing_FederationBuilder();
-  set federation(covariant FilesSharingCapabilities_FilesSharing_FederationBuilder? federation) =>
-      _$this._federation = federation;
+  Capabilities_FilesSharing_FederationBuilder? _federation;
+  Capabilities_FilesSharing_FederationBuilder get federation =>
+      _$this._federation ??= Capabilities_FilesSharing_FederationBuilder();
+  set federation(covariant Capabilities_FilesSharing_FederationBuilder? federation) => _$this._federation = federation;
 
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder? _sharee;
-  FilesSharingCapabilities_FilesSharing_ShareeBuilder get sharee =>
-      _$this._sharee ??= FilesSharingCapabilities_FilesSharing_ShareeBuilder();
-  set sharee(covariant FilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
+  Capabilities_FilesSharing_ShareeBuilder? _sharee;
+  Capabilities_FilesSharing_ShareeBuilder get sharee => _$this._sharee ??= Capabilities_FilesSharing_ShareeBuilder();
+  set sharee(covariant Capabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
 
-  FilesSharingCapabilities_FilesSharingBuilder();
+  Capabilities_FilesSharingBuilder();
 
-  FilesSharingCapabilities_FilesSharingBuilder get _$this {
+  Capabilities_FilesSharingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apiEnabled = $v.apiEnabled;
@@ -16602,30 +16051,28 @@ class FilesSharingCapabilities_FilesSharingBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities_FilesSharing other) {
+  void replace(covariant Capabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities_FilesSharing;
+    _$v = other as _$Capabilities_FilesSharing;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilities_FilesSharingBuilder)? updates) {
+  void update(void Function(Capabilities_FilesSharingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities_FilesSharing build() => _build();
+  Capabilities_FilesSharing build() => _build();
 
-  _$FilesSharingCapabilities_FilesSharing _build() {
-    _$FilesSharingCapabilities_FilesSharing _$result;
+  _$Capabilities_FilesSharing _build() {
+    _$Capabilities_FilesSharing _$result;
     try {
       _$result = _$v ??
-          _$FilesSharingCapabilities_FilesSharing._(
-              apiEnabled: BuiltValueNullFieldError.checkNotNull(
-                  apiEnabled, r'FilesSharingCapabilities_FilesSharing', 'apiEnabled'),
+          _$Capabilities_FilesSharing._(
+              apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled, r'Capabilities_FilesSharing', 'apiEnabled'),
               public: public.build(),
               user: user.build(),
-              resharing: BuiltValueNullFieldError.checkNotNull(
-                  resharing, r'FilesSharingCapabilities_FilesSharing', 'resharing'),
+              resharing: BuiltValueNullFieldError.checkNotNull(resharing, r'Capabilities_FilesSharing', 'resharing'),
               groupSharing: groupSharing,
               group: _group?.build(),
               defaultPermissions: defaultPermissions,
@@ -16647,7 +16094,7 @@ class FilesSharingCapabilities_FilesSharingBuilder
         _$failedField = 'sharee';
         sharee.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingCapabilities_FilesSharing', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_FilesSharing', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -16656,35 +16103,34 @@ class FilesSharingCapabilities_FilesSharingBuilder
   }
 }
 
-abstract mixin class FilesSharingCapabilitiesInterfaceBuilder {
-  void replace(FilesSharingCapabilitiesInterface other);
-  void update(void Function(FilesSharingCapabilitiesInterfaceBuilder) updates);
-  FilesSharingCapabilities_FilesSharingBuilder get filesSharing;
-  set filesSharing(FilesSharingCapabilities_FilesSharingBuilder? filesSharing);
+abstract mixin class CapabilitiesInterfaceBuilder {
+  void replace(CapabilitiesInterface other);
+  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+  Capabilities_FilesSharingBuilder get filesSharing;
+  set filesSharing(Capabilities_FilesSharingBuilder? filesSharing);
 }
 
-class _$FilesSharingCapabilities extends FilesSharingCapabilities {
+class _$Capabilities extends Capabilities {
   @override
-  final FilesSharingCapabilities_FilesSharing filesSharing;
+  final Capabilities_FilesSharing filesSharing;
 
-  factory _$FilesSharingCapabilities([void Function(FilesSharingCapabilitiesBuilder)? updates]) =>
-      (FilesSharingCapabilitiesBuilder()..update(updates))._build();
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$FilesSharingCapabilities._({required this.filesSharing}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(filesSharing, r'FilesSharingCapabilities', 'filesSharing');
+  _$Capabilities._({required this.filesSharing}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(filesSharing, r'Capabilities', 'filesSharing');
   }
 
   @override
-  FilesSharingCapabilities rebuild(void Function(FilesSharingCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FilesSharingCapabilitiesBuilder toBuilder() => FilesSharingCapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesSharingCapabilities && filesSharing == other.filesSharing;
+    return other is Capabilities && filesSharing == other.filesSharing;
   }
 
   @override
@@ -16697,25 +16143,20 @@ class _$FilesSharingCapabilities extends FilesSharingCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesSharingCapabilities')..add('filesSharing', filesSharing)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('filesSharing', filesSharing)).toString();
   }
 }
 
-class FilesSharingCapabilitiesBuilder
-    implements
-        Builder<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder>,
-        FilesSharingCapabilitiesInterfaceBuilder {
-  _$FilesSharingCapabilities? _$v;
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
 
-  FilesSharingCapabilities_FilesSharingBuilder? _filesSharing;
-  FilesSharingCapabilities_FilesSharingBuilder get filesSharing =>
-      _$this._filesSharing ??= FilesSharingCapabilities_FilesSharingBuilder();
-  set filesSharing(covariant FilesSharingCapabilities_FilesSharingBuilder? filesSharing) =>
-      _$this._filesSharing = filesSharing;
+  Capabilities_FilesSharingBuilder? _filesSharing;
+  Capabilities_FilesSharingBuilder get filesSharing => _$this._filesSharing ??= Capabilities_FilesSharingBuilder();
+  set filesSharing(covariant Capabilities_FilesSharingBuilder? filesSharing) => _$this._filesSharing = filesSharing;
 
-  FilesSharingCapabilitiesBuilder();
+  CapabilitiesBuilder();
 
-  FilesSharingCapabilitiesBuilder get _$this {
+  CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _filesSharing = $v.filesSharing.toBuilder();
@@ -16725,30 +16166,30 @@ class FilesSharingCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant FilesSharingCapabilities other) {
+  void replace(covariant Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FilesSharingCapabilities;
+    _$v = other as _$Capabilities;
   }
 
   @override
-  void update(void Function(FilesSharingCapabilitiesBuilder)? updates) {
+  void update(void Function(CapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  FilesSharingCapabilities build() => _build();
+  Capabilities build() => _build();
 
-  _$FilesSharingCapabilities _build() {
-    _$FilesSharingCapabilities _$result;
+  _$Capabilities _build() {
+    _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$FilesSharingCapabilities._(filesSharing: filesSharing.build());
+      _$result = _$v ?? _$Capabilities._(filesSharing: filesSharing.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'filesSharing';
         filesSharing.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'FilesSharingCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

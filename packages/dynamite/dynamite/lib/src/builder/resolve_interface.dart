@@ -14,11 +14,11 @@ TypeResultObject resolveInterface(
   final openapi.Schema schema,
 ) {
   final result = TypeResultObject(
-    '${state.classPrefix}$identifier',
+    identifier,
   );
 
   if (state.resolvedInterfaces.add(result)) {
-    final className = '${state.classPrefix}$identifier$interfaceSuffix';
+    final className = '$identifier$interfaceSuffix';
 
     state.output.add(
       Class((final b) {

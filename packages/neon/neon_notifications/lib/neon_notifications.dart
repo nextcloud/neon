@@ -7,13 +7,15 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:go_router/go_router.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/nextcloud.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/theme.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:neon_notifications/routes.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 
 part 'blocs/notifications.dart';
@@ -56,7 +58,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   @override
   (bool? supported, String? minimumVersion) isSupported(
     final Account account,
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       const (null, null);
 }

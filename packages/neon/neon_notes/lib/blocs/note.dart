@@ -15,7 +15,7 @@ abstract interface class NotesNoteBlocStates {
 class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, NotesNoteBlocStates {
   NotesNoteBloc(
     this._notesBloc,
-    final NotesNote note,
+    final notes.Note note,
   ) {
     _emitNote(note);
     id = note.id;
@@ -23,13 +23,13 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     initialTitle = note.title;
   }
 
-  void _emitNote(final NotesNote note) {
+  void _emitNote(final notes.Note note) {
     category.add(note.category);
     _etag = note.etag;
   }
 
   // ignore: avoid_void_async
-  void _wrapAction(final Future<DynamiteResponse<NotesNote, dynamic>> Function(String etag) call) async {
+  void _wrapAction(final Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
     await _updateQueue.add(() async {
       try {
         final response = await call(_etag);

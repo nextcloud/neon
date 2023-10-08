@@ -15,9 +15,9 @@ String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.enco
 
 @JsonSerializable()
 // ignore: public_member_api_docs
-class NotificationsDecryptedSubject {
+class DecryptedSubject {
   // ignore: public_member_api_docs
-  NotificationsDecryptedSubject({
+  DecryptedSubject({
     this.nid,
     this.app,
     this.subject,
@@ -28,8 +28,7 @@ class NotificationsDecryptedSubject {
   });
 
   // ignore: public_member_api_docs
-  factory NotificationsDecryptedSubject.fromJson(final Map<String, dynamic> json) =>
-      _$NotificationsDecryptedSubjectFromJson(json);
+  factory DecryptedSubject.fromJson(final Map<String, dynamic> json) => _$DecryptedSubjectFromJson(json);
 
   /// ID if the notification
   final int? nid;
@@ -54,14 +53,14 @@ class NotificationsDecryptedSubject {
   final bool? deleteAll;
 
   // ignore: public_member_api_docs
-  Map<String, dynamic> toJson() => _$NotificationsDecryptedSubjectToJson(this);
+  Map<String, dynamic> toJson() => _$DecryptedSubjectToJson(this);
 }
 
 /// Decrypts the subject of a push notification
-NotificationsDecryptedSubject decryptPushNotificationSubject(
+DecryptedSubject decryptPushNotificationSubject(
   final RSAPrivateKey privateKey,
   final String subject,
 ) =>
-    NotificationsDecryptedSubject.fromJson(
+    DecryptedSubject.fromJson(
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
     );

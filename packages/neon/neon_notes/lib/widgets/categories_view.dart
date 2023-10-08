@@ -9,8 +9,8 @@ class NotesCategoriesView extends StatelessWidget {
   final NotesBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NotesNote>>.behaviorSubject(
-        stream: bloc.notes,
+  Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
+        stream: bloc.notesList,
         builder: (final context, final notes) => SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
           sortBox: categoriesSortBox,
           sortProperty: bloc.options.categoriesSortPropertyOption,

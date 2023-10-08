@@ -1,4 +1,5 @@
-import 'package:nextcloud/core.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -44,8 +45,8 @@ void main() {
         expect(response.body.installed, isTrue);
         expect(response.body.maintenance, isFalse);
         expect(response.body.needsDbUpgrade, isFalse);
-        expect(response.body.version, startsWith('$coreSupportedVersion.'));
-        expect(response.body.versionstring, startsWith('$coreSupportedVersion.'));
+        expect(response.body.version, startsWith('${core.supportedVersion}.'));
+        expect(response.body.versionstring, startsWith('${core.supportedVersion}.'));
         expect(response.body.edition, '');
         expect(response.body.productname, 'Nextcloud');
         expect(response.body.extendedSupport, isFalse);
@@ -56,8 +57,8 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        expect(response.body.ocs.data.version.major, coreSupportedVersion);
-        expect(response.body.ocs.data.version.string, startsWith('$coreSupportedVersion.'));
+        expect(response.body.ocs.data.version.major, core.supportedVersion);
+        expect(response.body.ocs.data.version.string, startsWith('${core.supportedVersion}.'));
         expect(response.body.ocs.data.capabilities.commentsCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.davCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.filesCapabilities, isNotNull);
@@ -92,7 +93,7 @@ void main() {
           search: '',
           itemType: 'call',
           itemId: 'new',
-          shareTypes: [ShareType.group.index],
+          shareTypes: [core.ShareType.group.index],
         );
         expect(response.body.ocs.data, hasLength(1));
 

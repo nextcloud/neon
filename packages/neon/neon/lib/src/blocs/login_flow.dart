@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/utils/user_agent.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -13,9 +14,9 @@ abstract interface class LoginFlowBlocEvents {}
 
 @internal
 abstract interface class LoginFlowBlocStates {
-  BehaviorSubject<Result<CoreLoginFlowV2>> get init;
+  BehaviorSubject<Result<core.LoginFlowV2>> get init;
 
-  Stream<CoreLoginFlowV2Credentials> get result;
+  Stream<core.LoginFlowV2Credentials> get result;
 }
 
 @internal
@@ -29,7 +30,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
     serverURL,
     userAgentOverride: neonUserAgent,
   );
-  final _resultController = StreamController<CoreLoginFlowV2Credentials>();
+  final _resultController = StreamController<core.LoginFlowV2Credentials>();
 
   Timer? _pollTimer;
 
@@ -43,10 +44,10 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   }
 
   @override
-  BehaviorSubject<Result<CoreLoginFlowV2>> init = BehaviorSubject();
+  BehaviorSubject<Result<core.LoginFlowV2>> init = BehaviorSubject();
 
   @override
-  late Stream<CoreLoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
+  late Stream<core.LoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
 
   @override
   Future<void> refresh() async {

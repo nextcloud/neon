@@ -8,7 +8,7 @@ class NewsFolderPage extends StatelessWidget {
   });
 
   final NewsBloc bloc;
-  final NewsFolder folder;
+  final news.Folder folder;
 
   @override
   Widget build(final BuildContext context) => Scaffold(

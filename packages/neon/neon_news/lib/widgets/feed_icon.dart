@@ -8,7 +8,7 @@ class NewsFeedIcon extends StatelessWidget {
     super.key,
   });
 
-  final NewsFeed feed;
+  final news.Feed feed;
   final double size;
   final BorderRadius? borderRadius;
 
