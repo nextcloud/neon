@@ -62,7 +62,7 @@ class ApiClient {
   ///   * [longMessage] Message of the notification
   ///   * [apiVersion]
   ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification generated successfully
@@ -77,7 +77,7 @@ class ApiClient {
     required final String userId,
     final String longMessage = '',
     final ApiGenerateNotificationApiVersion apiVersion = ApiGenerateNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = generateNotificationRaw(
       shortMessage: shortMessage,
@@ -104,7 +104,7 @@ class ApiClient {
   ///   * [longMessage] Message of the notification
   ///   * [apiVersion]
   ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification generated successfully
@@ -120,7 +120,7 @@ class ApiClient {
     required final String userId,
     final String longMessage = '',
     final ApiGenerateNotificationApiVersion apiVersion = ApiGenerateNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -152,7 +152,7 @@ class ApiClient {
       queryParameters['longMessage'] = longMessage;
     }
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -181,7 +181,7 @@ class EndpointClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notifications returned
@@ -192,7 +192,7 @@ class EndpointClient {
   Future<DynamiteResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>>
       listNotifications({
     final EndpointListNotificationsApiVersion apiVersion = EndpointListNotificationsApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = listNotificationsRaw(
       apiVersion: apiVersion,
@@ -211,7 +211,7 @@ class EndpointClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notifications returned
@@ -223,7 +223,7 @@ class EndpointClient {
   DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
       listNotificationsRaw({
     final EndpointListNotificationsApiVersion apiVersion = EndpointListNotificationsApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
     final queryParameters = <String, dynamic>{};
@@ -250,7 +250,7 @@ class EndpointClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
         EndpointEndpointListNotificationsHeaders>(
@@ -274,7 +274,7 @@ class EndpointClient {
   ///
   /// Parameters:
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: All notifications deleted successfully
@@ -284,7 +284,7 @@ class EndpointClient {
   ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>> deleteAllNotifications({
     final EndpointDeleteAllNotificationsApiVersion apiVersion = EndpointDeleteAllNotificationsApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = deleteAllNotificationsRaw(
       apiVersion: apiVersion,
@@ -303,7 +303,7 @@ class EndpointClient {
   ///
   /// Parameters:
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: All notifications deleted successfully
@@ -314,7 +314,7 @@ class EndpointClient {
   @experimental
   DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
     final EndpointDeleteAllNotificationsApiVersion apiVersion = EndpointDeleteAllNotificationsApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications';
     final queryParameters = <String, dynamic>{};
@@ -341,7 +341,7 @@ class EndpointClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -365,7 +365,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [apiVersion] Version of the API to use
   ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification returned
@@ -376,7 +376,7 @@ class EndpointClient {
   Future<DynamiteResponse<EndpointGetNotificationResponseApplicationJson, void>> getNotification({
     required final int id,
     final EndpointGetNotificationApiVersion apiVersion = EndpointGetNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = getNotificationRaw(
       id: id,
@@ -397,7 +397,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [apiVersion] Version of the API to use
   ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification returned
@@ -409,7 +409,7 @@ class EndpointClient {
   DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
     required final int id,
     final EndpointGetNotificationApiVersion apiVersion = EndpointGetNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
     final queryParameters = <String, dynamic>{};
@@ -437,7 +437,7 @@ class EndpointClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -461,7 +461,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [apiVersion]
   ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification deleted successfully
@@ -473,7 +473,7 @@ class EndpointClient {
   Future<DynamiteResponse<EndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
     required final int id,
     final EndpointDeleteNotificationApiVersion apiVersion = EndpointDeleteNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = deleteNotificationRaw(
       id: id,
@@ -494,7 +494,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [apiVersion]
   ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Notification deleted successfully
@@ -507,7 +507,7 @@ class EndpointClient {
   DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
     required final int id,
     final EndpointDeleteNotificationApiVersion apiVersion = EndpointDeleteNotificationApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}';
     final queryParameters = <String, dynamic>{};
@@ -535,7 +535,7 @@ class EndpointClient {
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -559,7 +559,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [ids] IDs of the notifications to check
   ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Existing notification IDs returned
@@ -570,7 +570,7 @@ class EndpointClient {
   Future<DynamiteResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
     required final List<int> ids,
     final EndpointConfirmIdsForUserApiVersion apiVersion = EndpointConfirmIdsForUserApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = confirmIdsForUserRaw(
       ids: ids,
@@ -591,7 +591,7 @@ class EndpointClient {
   /// Parameters:
   ///   * [ids] IDs of the notifications to check
   ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Existing notification IDs returned
@@ -603,7 +603,7 @@ class EndpointClient {
   DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
     required final List<int> ids,
     final EndpointConfirmIdsForUserApiVersion apiVersion = EndpointConfirmIdsForUserApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists';
     final queryParameters = <String, dynamic>{};
@@ -631,7 +631,7 @@ class EndpointClient {
 // coverage:ignore-end
     queryParameters['ids[]'] = ids.map((final e) => e.toString());
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -663,7 +663,7 @@ class PushClient {
   ///   * [devicePublicKey] Public key of the device
   ///   * [proxyServer] Proxy server to be used
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Device was already registered
@@ -678,7 +678,7 @@ class PushClient {
     required final String devicePublicKey,
     required final String proxyServer,
     final PushRegisterDeviceApiVersion apiVersion = PushRegisterDeviceApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = registerDeviceRaw(
       pushTokenHash: pushTokenHash,
@@ -703,7 +703,7 @@ class PushClient {
   ///   * [devicePublicKey] Public key of the device
   ///   * [proxyServer] Proxy server to be used
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: Device was already registered
@@ -719,7 +719,7 @@ class PushClient {
     required final String devicePublicKey,
     required final String proxyServer,
     final PushRegisterDeviceApiVersion apiVersion = PushRegisterDeviceApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
@@ -749,7 +749,7 @@ class PushClient {
     queryParameters['devicePublicKey'] = devicePublicKey;
     queryParameters['proxyServer'] = proxyServer;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -772,7 +772,7 @@ class PushClient {
   ///
   /// Parameters:
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: No device registered
@@ -784,7 +784,7 @@ class PushClient {
   ///  * [removeDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PushRemoveDeviceResponseApplicationJson, void>> removeDevice({
     final PushRemoveDeviceApiVersion apiVersion = PushRemoveDeviceApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = removeDeviceRaw(
       apiVersion: apiVersion,
@@ -803,7 +803,7 @@ class PushClient {
   ///
   /// Parameters:
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
   ///   * 200: No device registered
@@ -816,7 +816,7 @@ class PushClient {
   @experimental
   DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
     final PushRemoveDeviceApiVersion apiVersion = PushRemoveDeviceApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/push';
     final queryParameters = <String, dynamic>{};
@@ -843,7 +843,7 @@ class PushClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -875,10 +875,10 @@ class SettingsClient {
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
-  ///   * 200
+  ///   * 200: Personal settings updated
   ///
   /// See:
   ///  * [personalRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
@@ -887,7 +887,7 @@ class SettingsClient {
     required final String soundNotification,
     required final String soundTalk,
     final SettingsPersonalApiVersion apiVersion = SettingsPersonalApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = personalRaw(
       batchSetting: batchSetting,
@@ -912,10 +912,10 @@ class SettingsClient {
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
-  ///   * 200
+  ///   * 200: Personal settings updated
   ///
   /// See:
   ///  * [personal] for an operation that returns a [DynamiteResponse] with a stable API.
@@ -925,7 +925,7 @@ class SettingsClient {
     required final String soundNotification,
     required final String soundTalk,
     final SettingsPersonalApiVersion apiVersion = SettingsPersonalApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings';
     final queryParameters = <String, dynamic>{};
@@ -955,7 +955,7 @@ class SettingsClient {
     queryParameters['soundNotification'] = soundNotification;
     queryParameters['soundTalk'] = soundTalk;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -983,10 +983,10 @@ class SettingsClient {
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
-  ///   * 200
+  ///   * 200: Admin settings updated
   ///
   /// See:
   ///  * [adminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
@@ -995,7 +995,7 @@ class SettingsClient {
     required final String soundNotification,
     required final String soundTalk,
     final SettingsAdminApiVersion apiVersion = SettingsAdminApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = adminRaw(
       batchSetting: batchSetting,
@@ -1022,10 +1022,10 @@ class SettingsClient {
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
   ///   * [apiVersion]
-  ///   * [oCSAPIRequest]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass
   ///
   /// Status codes:
-  ///   * 200
+  ///   * 200: Admin settings updated
   ///
   /// See:
   ///  * [admin] for an operation that returns a [DynamiteResponse] with a stable API.
@@ -1035,7 +1035,7 @@ class SettingsClient {
     required final String soundNotification,
     required final String soundTalk,
     final SettingsAdminApiVersion apiVersion = SettingsAdminApiVersion.v2,
-    final String oCSAPIRequest = 'true',
+    final bool oCSAPIRequest = true,
   }) {
     var path = '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin';
     final queryParameters = <String, dynamic>{};
@@ -1065,7 +1065,7 @@ class SettingsClient {
     queryParameters['soundNotification'] = soundNotification;
     queryParameters['soundTalk'] = soundTalk;
     path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest;
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
       response: _rootClient.doRequest(
