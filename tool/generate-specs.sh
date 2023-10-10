@@ -14,7 +14,7 @@ function generate_spec() {
 for dir in external/nextcloud-server external/nextcloud-notifications; do
   (
     cd "$dir"
-    composer update
+    composer install
     composer install --no-dev
     git checkout . # Remove changed files
   )
