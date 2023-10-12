@@ -66,7 +66,7 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
   test: ^1.24.7
-  vector_graphics_compiler: ^1.1.7
+  vector_graphics_compiler: ^1.1.9
 
 flutter:
   uses-material-design: true
