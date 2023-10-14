@@ -1332,8 +1332,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1361,10 +1359,6 @@ abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_Edito
   BuiltList<String> get mimetypes;
   BuiltList<String> get optionalMimetypes;
   bool get secure;
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface rebuild(
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates,
-  );
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
@@ -1402,10 +1396,6 @@ abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creat
   String get $extension;
   bool get templates;
   BuiltList<String> get mimetypes;
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface rebuild(
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates,
-  );
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
@@ -1438,10 +1428,6 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
 abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors;
   BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators;
-  DirectEditingInfoResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
@@ -1474,10 +1460,6 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
 abstract interface class DirectEditingInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingInfoResponseApplicationJson_Ocs_Data get data;
-  DirectEditingInfoResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs
@@ -1508,10 +1490,6 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingInfoResponseApplicationJsonInterface {
   DirectEditingInfoResponseApplicationJson_Ocs get ocs;
-  DirectEditingInfoResponseApplicationJsonInterface rebuild(
-    final void Function(DirectEditingInfoResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DirectEditingInfoResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingInfoResponseApplicationJson
@@ -1547,10 +1525,6 @@ abstract interface class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_
   @BuiltValueField(wireName: 'extension')
   String get $extension;
   String get mimetype;
-  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface rebuild(
-    final void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates,
-  );
-  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
@@ -1582,10 +1556,6 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates;
-  DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
@@ -1618,10 +1588,6 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
 abstract interface class DirectEditingTemplatesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data get data;
-  DirectEditingTemplatesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
@@ -1653,10 +1619,6 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingTemplatesResponseApplicationJsonInterface {
   DirectEditingTemplatesResponseApplicationJson_Ocs get ocs;
-  DirectEditingTemplatesResponseApplicationJsonInterface rebuild(
-    final void Function(DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson
@@ -1687,10 +1649,6 @@ abstract class DirectEditingTemplatesResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingOpenResponseApplicationJson_Ocs_DataInterface {
   String get url;
-  DirectEditingOpenResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
@@ -1723,10 +1681,6 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
 abstract interface class DirectEditingOpenResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingOpenResponseApplicationJson_Ocs_Data get data;
-  DirectEditingOpenResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingOpenResponseApplicationJson_Ocs
@@ -1757,10 +1711,6 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingOpenResponseApplicationJsonInterface {
   DirectEditingOpenResponseApplicationJson_Ocs get ocs;
-  DirectEditingOpenResponseApplicationJsonInterface rebuild(
-    final void Function(DirectEditingOpenResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DirectEditingOpenResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingOpenResponseApplicationJson
@@ -1791,10 +1741,6 @@ abstract class DirectEditingOpenResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingCreateResponseApplicationJson_Ocs_DataInterface {
   String get url;
-  DirectEditingCreateResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
@@ -1827,10 +1773,6 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
 abstract interface class DirectEditingCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingCreateResponseApplicationJson_Ocs_Data get data;
-  DirectEditingCreateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingCreateResponseApplicationJson_Ocs
@@ -1861,10 +1803,6 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DirectEditingCreateResponseApplicationJsonInterface {
   DirectEditingCreateResponseApplicationJson_Ocs get ocs;
-  DirectEditingCreateResponseApplicationJsonInterface rebuild(
-    final void Function(DirectEditingCreateResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DirectEditingCreateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DirectEditingCreateResponseApplicationJson
@@ -1898,10 +1836,6 @@ abstract interface class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataIn
   String get pathHash;
   int get expirationTime;
   String get token;
-  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
@@ -1934,10 +1868,6 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
 abstract interface class OpenLocalEditorCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OpenLocalEditorCreateResponseApplicationJson_Ocs_Data get data;
-  OpenLocalEditorCreateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
@@ -1969,10 +1899,6 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class OpenLocalEditorCreateResponseApplicationJsonInterface {
   OpenLocalEditorCreateResponseApplicationJson_Ocs get ocs;
-  OpenLocalEditorCreateResponseApplicationJsonInterface rebuild(
-    final void Function(OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorCreateResponseApplicationJson
@@ -2006,10 +1932,6 @@ abstract interface class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   String get pathHash;
   int get expirationTime;
   String get token;
-  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
@@ -2042,10 +1964,6 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 abstract interface class OpenLocalEditorValidateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OpenLocalEditorValidateResponseApplicationJson_Ocs_Data get data;
-  OpenLocalEditorValidateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
@@ -2077,10 +1995,6 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class OpenLocalEditorValidateResponseApplicationJsonInterface {
   OpenLocalEditorValidateResponseApplicationJson_Ocs get ocs;
-  OpenLocalEditorValidateResponseApplicationJsonInterface rebuild(
-    final void Function(OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class OpenLocalEditorValidateResponseApplicationJson
@@ -2118,8 +2032,6 @@ abstract interface class TemplateFileCreatorInterface {
   BuiltList<String> get mimetypes;
   num? get ratio;
   String get actionLabel;
-  TemplateFileCreatorInterface rebuild(final void Function(TemplateFileCreatorInterfaceBuilder) updates);
-  TemplateFileCreatorInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateFileCreator
@@ -2146,10 +2058,6 @@ abstract class TemplateFileCreator
 abstract interface class TemplateListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<TemplateFileCreator> get data;
-  TemplateListResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TemplateListResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TemplateListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateListResponseApplicationJson_Ocs
@@ -2180,10 +2088,6 @@ abstract class TemplateListResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TemplateListResponseApplicationJsonInterface {
   TemplateListResponseApplicationJson_Ocs get ocs;
-  TemplateListResponseApplicationJsonInterface rebuild(
-    final void Function(TemplateListResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TemplateListResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateListResponseApplicationJson
@@ -2221,8 +2125,6 @@ abstract interface class TemplateFileInterface {
   int get size;
   String get type;
   bool get hasPreview;
-  TemplateFileInterface rebuild(final void Function(TemplateFileInterfaceBuilder) updates);
-  TemplateFileInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateFile implements TemplateFileInterface, Built<TemplateFile, TemplateFileBuilder> {
@@ -2247,10 +2149,6 @@ abstract class TemplateFile implements TemplateFileInterface, Built<TemplateFile
 abstract interface class TemplateCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TemplateFile get data;
-  TemplateCreateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TemplateCreateResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TemplateCreateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateCreateResponseApplicationJson_Ocs
@@ -2281,10 +2179,6 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TemplateCreateResponseApplicationJsonInterface {
   TemplateCreateResponseApplicationJson_Ocs get ocs;
-  TemplateCreateResponseApplicationJsonInterface rebuild(
-    final void Function(TemplateCreateResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TemplateCreateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TemplateCreateResponseApplicationJson
@@ -2317,10 +2211,6 @@ abstract interface class TemplatePathResponseApplicationJson_Ocs_DataInterface {
   @BuiltValueField(wireName: 'template_path')
   String get templatePath;
   BuiltList<TemplateFileCreator> get templates;
-  TemplatePathResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TemplatePathResponseApplicationJson_Ocs_Data
@@ -2352,10 +2242,6 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
 abstract interface class TemplatePathResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TemplatePathResponseApplicationJson_Ocs_Data get data;
-  TemplatePathResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TemplatePathResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TemplatePathResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TemplatePathResponseApplicationJson_Ocs
@@ -2386,10 +2272,6 @@ abstract class TemplatePathResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TemplatePathResponseApplicationJsonInterface {
   TemplatePathResponseApplicationJson_Ocs get ocs;
-  TemplatePathResponseApplicationJsonInterface rebuild(
-    final void Function(TemplatePathResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TemplatePathResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TemplatePathResponseApplicationJson
@@ -2420,10 +2302,6 @@ abstract class TemplatePathResponseApplicationJson
 abstract interface class TransferOwnershipTransferResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  TransferOwnershipTransferResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
@@ -2455,10 +2333,6 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TransferOwnershipTransferResponseApplicationJsonInterface {
   TransferOwnershipTransferResponseApplicationJson_Ocs get ocs;
-  TransferOwnershipTransferResponseApplicationJsonInterface rebuild(
-    final void Function(TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipTransferResponseApplicationJson
@@ -2491,10 +2365,6 @@ abstract class TransferOwnershipTransferResponseApplicationJson
 abstract interface class TransferOwnershipAcceptResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  TransferOwnershipAcceptResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
@@ -2526,10 +2396,6 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TransferOwnershipAcceptResponseApplicationJsonInterface {
   TransferOwnershipAcceptResponseApplicationJson_Ocs get ocs;
-  TransferOwnershipAcceptResponseApplicationJsonInterface rebuild(
-    final void Function(TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipAcceptResponseApplicationJson
@@ -2561,10 +2427,6 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
 abstract interface class TransferOwnershipRejectResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  TransferOwnershipRejectResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
@@ -2596,10 +2458,6 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TransferOwnershipRejectResponseApplicationJsonInterface {
   TransferOwnershipRejectResponseApplicationJson_Ocs get ocs;
-  TransferOwnershipRejectResponseApplicationJsonInterface rebuild(
-    final void Function(TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TransferOwnershipRejectResponseApplicationJson
@@ -2632,10 +2490,6 @@ abstract interface class Capabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
   bool get supportsFileId;
-  Capabilities_Files_DirectEditingInterface rebuild(
-    final void Function(Capabilities_Files_DirectEditingInterfaceBuilder) updates,
-  );
-  Capabilities_Files_DirectEditingInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Files_DirectEditing
@@ -2667,8 +2521,6 @@ abstract interface class Capabilities_FilesInterface {
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
   Capabilities_Files_DirectEditing get directEditing;
-  Capabilities_FilesInterface rebuild(final void Function(Capabilities_FilesInterfaceBuilder) updates);
-  Capabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Files
@@ -2694,8 +2546,6 @@ abstract class Capabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class CapabilitiesInterface {
   Capabilities_Files get files;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -2730,8 +2580,6 @@ abstract interface class TemplateInterface {
   String get type;
   bool get hasPreview;
   String? get previewUrl;
-  TemplateInterface rebuild(final void Function(TemplateInterfaceBuilder) updates);
-  TemplateInterfaceBuilder toBuilder();
 }
 
 abstract class Template implements TemplateInterface, Built<Template, TemplateBuilder> {

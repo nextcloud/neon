@@ -1409,8 +1409,6 @@ class Client extends DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
-  SupportedAPIVersionsInterface rebuild(final void Function(SupportedAPIVersionsInterfaceBuilder) updates);
-  SupportedAPIVersionsInterfaceBuilder toBuilder();
 }
 
 abstract class SupportedAPIVersions
@@ -1455,8 +1453,6 @@ abstract interface class ArticleInterface {
   bool get rtl;
   String get fingerprint;
   String get contentHash;
-  ArticleInterface rebuild(final void Function(ArticleInterfaceBuilder) updates);
-  ArticleInterfaceBuilder toBuilder();
 }
 
 abstract class Article implements ArticleInterface, Built<Article, ArticleBuilder> {
@@ -1492,8 +1488,6 @@ abstract interface class FeedInterface {
   int get updateErrorCount;
   String? get lastUpdateError;
   BuiltList<Article> get items;
-  FeedInterface rebuild(final void Function(FeedInterfaceBuilder) updates);
-  FeedInterfaceBuilder toBuilder();
 }
 
 abstract class Feed implements FeedInterface, Built<Feed, FeedBuilder> {
@@ -1522,8 +1516,6 @@ abstract interface class FolderInterface {
 
   /// This seems to be broken. In testing it is always empty.
   BuiltList<Feed> get feeds;
-  FolderInterface rebuild(final void Function(FolderInterfaceBuilder) updates);
-  FolderInterfaceBuilder toBuilder();
 }
 
 abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
@@ -1547,8 +1539,6 @@ abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
 @BuiltValue(instantiable: false)
 abstract interface class ListFoldersInterface {
   BuiltList<Folder> get folders;
-  ListFoldersInterface rebuild(final void Function(ListFoldersInterfaceBuilder) updates);
-  ListFoldersInterfaceBuilder toBuilder();
 }
 
 abstract class ListFolders implements ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
@@ -1574,8 +1564,6 @@ abstract interface class ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
   BuiltList<Feed> get feeds;
-  ListFeedsInterface rebuild(final void Function(ListFeedsInterfaceBuilder) updates);
-  ListFeedsInterfaceBuilder toBuilder();
 }
 
 abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
@@ -1599,8 +1587,6 @@ abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFee
 @BuiltValue(instantiable: false)
 abstract interface class ListArticlesInterface {
   BuiltList<Article> get items;
-  ListArticlesInterface rebuild(final void Function(ListArticlesInterfaceBuilder) updates);
-  ListArticlesInterfaceBuilder toBuilder();
 }
 
 abstract class ListArticles implements ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
@@ -1628,8 +1614,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1654,8 +1638,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 abstract interface class EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
-  EmptyOCS_OcsInterface rebuild(final void Function(EmptyOCS_OcsInterfaceBuilder) updates);
-  EmptyOCS_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
@@ -1679,8 +1661,6 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
-  EmptyOCSInterface rebuild(final void Function(EmptyOCSInterfaceBuilder) updates);
-  EmptyOCSInterfaceBuilder toBuilder();
 }
 
 abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {

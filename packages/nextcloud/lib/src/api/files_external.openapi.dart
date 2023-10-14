@@ -134,8 +134,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -217,8 +215,6 @@ abstract interface class StorageConfigInterface {
   String? get statusMessage;
   StorageConfig_Type get type;
   bool get userProvided;
-  StorageConfigInterface rebuild(final void Function(StorageConfigInterfaceBuilder) updates);
-  StorageConfigInterfaceBuilder toBuilder();
 }
 
 abstract class StorageConfig implements StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
@@ -252,8 +248,6 @@ abstract interface class MountInterface {
   @BuiltValueField(wireName: 'class')
   String get $class;
   StorageConfig get config;
-  MountInterface rebuild(final void Function(MountInterfaceBuilder) updates);
-  MountInterfaceBuilder toBuilder();
 }
 
 abstract class Mount implements MountInterface, Built<Mount, MountBuilder> {
@@ -278,10 +272,6 @@ abstract class Mount implements MountInterface, Built<Mount, MountBuilder> {
 abstract interface class ApiGetUserMountsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Mount> get data;
-  ApiGetUserMountsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson_Ocs
@@ -312,10 +302,6 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiGetUserMountsResponseApplicationJsonInterface {
   ApiGetUserMountsResponseApplicationJson_Ocs get ocs;
-  ApiGetUserMountsResponseApplicationJsonInterface rebuild(
-    final void Function(ApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiGetUserMountsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson

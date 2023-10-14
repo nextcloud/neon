@@ -152,8 +152,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -177,10 +175,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 @BuiltValue(instantiable: false)
 abstract interface class DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
-  DirectGetUrlResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
@@ -212,10 +206,6 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
 abstract interface class DirectGetUrlResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectGetUrlResponseApplicationJson_Ocs_Data get data;
-  DirectGetUrlResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs
@@ -246,10 +236,6 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DirectGetUrlResponseApplicationJsonInterface {
   DirectGetUrlResponseApplicationJson_Ocs get ocs;
-  DirectGetUrlResponseApplicationJsonInterface rebuild(
-    final void Function(DirectGetUrlResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DirectGetUrlResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DirectGetUrlResponseApplicationJson
@@ -280,8 +266,6 @@ abstract class DirectGetUrlResponseApplicationJson
 abstract interface class Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
-  Capabilities_DavInterface rebuild(final void Function(Capabilities_DavInterfaceBuilder) updates);
-  Capabilities_DavInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
@@ -306,8 +290,6 @@ abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capa
 @BuiltValue(instantiable: false)
 abstract interface class CapabilitiesInterface {
   Capabilities_Dav get dav;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

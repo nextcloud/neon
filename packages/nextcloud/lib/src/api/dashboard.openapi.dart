@@ -355,8 +355,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -382,8 +380,6 @@ abstract interface class Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
-  Widget_ButtonsInterface rebuild(final void Function(Widget_ButtonsInterfaceBuilder) updates);
-  Widget_ButtonsInterfaceBuilder toBuilder();
 }
 
 abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
@@ -423,8 +419,6 @@ abstract interface class WidgetInterface {
   @BuiltValueField(wireName: 'reload_interval')
   int get reloadInterval;
   BuiltList<Widget_Buttons>? get buttons;
-  WidgetInterface rebuild(final void Function(WidgetInterfaceBuilder) updates);
-  WidgetInterfaceBuilder toBuilder();
 }
 
 abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
@@ -449,10 +443,6 @@ abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
 abstract interface class DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, Widget> get data;
-  DashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
@@ -484,10 +474,6 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DashboardApiGetWidgetsResponseApplicationJsonInterface {
   DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
-  DashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson
@@ -523,8 +509,6 @@ abstract interface class WidgetItemInterface {
   String get iconUrl;
   String get overlayIconUrl;
   String get sinceId;
-  WidgetItemInterface rebuild(final void Function(WidgetItemInterfaceBuilder) updates);
-  WidgetItemInterfaceBuilder toBuilder();
 }
 
 abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
@@ -549,10 +533,6 @@ abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, Widg
 abstract interface class DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<WidgetItem>> get data;
-  DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
@@ -584,10 +564,6 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
-  DashboardApiGetWidgetItemsResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson
@@ -621,8 +597,6 @@ abstract interface class WidgetItemsInterface {
   BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
-  WidgetItemsInterface rebuild(final void Function(WidgetItemsInterfaceBuilder) updates);
-  WidgetItemsInterfaceBuilder toBuilder();
 }
 
 abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
@@ -647,10 +621,6 @@ abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, W
 abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, WidgetItems> get data;
-  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
@@ -682,10 +652,6 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
-  DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface rebuild(
-    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson

@@ -9285,6 +9285,19 @@ class AutocompleteResult_Status0Builder
   }
 }
 
+abstract mixin class AutocompleteResult_StatusInterfaceBuilder {
+  void replace(AutocompleteResult_StatusInterface other);
+  void update(void Function(AutocompleteResult_StatusInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  AutocompleteResult_Status0Builder get autocompleteResultStatus0;
+  set autocompleteResultStatus0(AutocompleteResult_Status0Builder? autocompleteResultStatus0);
+
+  String? get string;
+  set string(String? string);
+}
+
 class _$AutocompleteResult_Status extends AutocompleteResult_Status {
   @override
   final JsonObject data;
@@ -9336,22 +9349,25 @@ class _$AutocompleteResult_Status extends AutocompleteResult_Status {
   }
 }
 
-class AutocompleteResult_StatusBuilder implements Builder<AutocompleteResult_Status, AutocompleteResult_StatusBuilder> {
+class AutocompleteResult_StatusBuilder
+    implements
+        Builder<AutocompleteResult_Status, AutocompleteResult_StatusBuilder>,
+        AutocompleteResult_StatusInterfaceBuilder {
   _$AutocompleteResult_Status? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   AutocompleteResult_Status0Builder? _autocompleteResultStatus0;
   AutocompleteResult_Status0Builder get autocompleteResultStatus0 =>
       _$this._autocompleteResultStatus0 ??= AutocompleteResult_Status0Builder();
-  set autocompleteResultStatus0(AutocompleteResult_Status0Builder? autocompleteResultStatus0) =>
+  set autocompleteResultStatus0(covariant AutocompleteResult_Status0Builder? autocompleteResultStatus0) =>
       _$this._autocompleteResultStatus0 = autocompleteResultStatus0;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   AutocompleteResult_StatusBuilder();
 
@@ -9367,7 +9383,7 @@ class AutocompleteResult_StatusBuilder implements Builder<AutocompleteResult_Sta
   }
 
   @override
-  void replace(AutocompleteResult_Status other) {
+  void replace(covariant AutocompleteResult_Status other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AutocompleteResult_Status;
   }
@@ -12929,6 +12945,19 @@ class HoverCardGetUserResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class NavigationEntry_OrderInterfaceBuilder {
+  void replace(NavigationEntry_OrderInterface other);
+  void update(void Function(NavigationEntry_OrderInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  String? get string;
+  set string(String? string);
+}
+
 class _$NavigationEntry_Order extends NavigationEntry_Order {
   @override
   final JsonObject data;
@@ -12977,20 +13006,21 @@ class _$NavigationEntry_Order extends NavigationEntry_Order {
   }
 }
 
-class NavigationEntry_OrderBuilder implements Builder<NavigationEntry_Order, NavigationEntry_OrderBuilder> {
+class NavigationEntry_OrderBuilder
+    implements Builder<NavigationEntry_Order, NavigationEntry_OrderBuilder>, NavigationEntry_OrderInterfaceBuilder {
   _$NavigationEntry_Order? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   NavigationEntry_OrderBuilder();
 
@@ -13006,7 +13036,7 @@ class NavigationEntry_OrderBuilder implements Builder<NavigationEntry_Order, Nav
   }
 
   @override
-  void replace(NavigationEntry_Order other) {
+  void replace(covariant NavigationEntry_Order other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NavigationEntry_Order;
   }
@@ -19855,6 +19885,52 @@ class WeatherStatusCapabilitiesBuilder
   }
 }
 
+abstract mixin class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder {
+  void replace(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface other);
+  void update(void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  CommentsCapabilitiesBuilder get commentsCapabilities;
+  set commentsCapabilities(CommentsCapabilitiesBuilder? commentsCapabilities);
+
+  DavCapabilitiesBuilder get davCapabilities;
+  set davCapabilities(DavCapabilitiesBuilder? davCapabilities);
+
+  FilesCapabilitiesBuilder get filesCapabilities;
+  set filesCapabilities(FilesCapabilitiesBuilder? filesCapabilities);
+
+  FilesSharingCapabilitiesBuilder get filesSharingCapabilities;
+  set filesSharingCapabilities(FilesSharingCapabilitiesBuilder? filesSharingCapabilities);
+
+  FilesTrashbinCapabilitiesBuilder get filesTrashbinCapabilities;
+  set filesTrashbinCapabilities(FilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities);
+
+  FilesVersionsCapabilitiesBuilder get filesVersionsCapabilities;
+  set filesVersionsCapabilities(FilesVersionsCapabilitiesBuilder? filesVersionsCapabilities);
+
+  NotesCapabilitiesBuilder get notesCapabilities;
+  set notesCapabilities(NotesCapabilitiesBuilder? notesCapabilities);
+
+  NotificationsCapabilitiesBuilder get notificationsCapabilities;
+  set notificationsCapabilities(NotificationsCapabilitiesBuilder? notificationsCapabilities);
+
+  ProvisioningApiCapabilitiesBuilder get provisioningApiCapabilities;
+  set provisioningApiCapabilities(ProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities);
+
+  SharebymailCapabilitiesBuilder get sharebymailCapabilities;
+  set sharebymailCapabilities(SharebymailCapabilitiesBuilder? sharebymailCapabilities);
+
+  ThemingPublicCapabilitiesBuilder get themingPublicCapabilities;
+  set themingPublicCapabilities(ThemingPublicCapabilitiesBuilder? themingPublicCapabilities);
+
+  UserStatusCapabilitiesBuilder get userStatusCapabilities;
+  set userStatusCapabilities(UserStatusCapabilitiesBuilder? userStatusCapabilities);
+
+  WeatherStatusCapabilitiesBuilder get weatherStatusCapabilities;
+  set weatherStatusCapabilities(WeatherStatusCapabilitiesBuilder? weatherStatusCapabilities);
+}
+
 class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
     extends OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
   @override
@@ -19984,83 +20060,86 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
 class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
     implements
         Builder<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder>,
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder {
   _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   CommentsCapabilitiesBuilder? _commentsCapabilities;
   CommentsCapabilitiesBuilder get commentsCapabilities =>
       _$this._commentsCapabilities ??= CommentsCapabilitiesBuilder();
-  set commentsCapabilities(CommentsCapabilitiesBuilder? commentsCapabilities) =>
+  set commentsCapabilities(covariant CommentsCapabilitiesBuilder? commentsCapabilities) =>
       _$this._commentsCapabilities = commentsCapabilities;
 
   DavCapabilitiesBuilder? _davCapabilities;
   DavCapabilitiesBuilder get davCapabilities => _$this._davCapabilities ??= DavCapabilitiesBuilder();
-  set davCapabilities(DavCapabilitiesBuilder? davCapabilities) => _$this._davCapabilities = davCapabilities;
+  set davCapabilities(covariant DavCapabilitiesBuilder? davCapabilities) => _$this._davCapabilities = davCapabilities;
 
   FilesCapabilitiesBuilder? _filesCapabilities;
   FilesCapabilitiesBuilder get filesCapabilities => _$this._filesCapabilities ??= FilesCapabilitiesBuilder();
-  set filesCapabilities(FilesCapabilitiesBuilder? filesCapabilities) => _$this._filesCapabilities = filesCapabilities;
+  set filesCapabilities(covariant FilesCapabilitiesBuilder? filesCapabilities) =>
+      _$this._filesCapabilities = filesCapabilities;
 
   FilesSharingCapabilitiesBuilder? _filesSharingCapabilities;
   FilesSharingCapabilitiesBuilder get filesSharingCapabilities =>
       _$this._filesSharingCapabilities ??= FilesSharingCapabilitiesBuilder();
-  set filesSharingCapabilities(FilesSharingCapabilitiesBuilder? filesSharingCapabilities) =>
+  set filesSharingCapabilities(covariant FilesSharingCapabilitiesBuilder? filesSharingCapabilities) =>
       _$this._filesSharingCapabilities = filesSharingCapabilities;
 
   FilesTrashbinCapabilitiesBuilder? _filesTrashbinCapabilities;
   FilesTrashbinCapabilitiesBuilder get filesTrashbinCapabilities =>
       _$this._filesTrashbinCapabilities ??= FilesTrashbinCapabilitiesBuilder();
-  set filesTrashbinCapabilities(FilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities) =>
+  set filesTrashbinCapabilities(covariant FilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities) =>
       _$this._filesTrashbinCapabilities = filesTrashbinCapabilities;
 
   FilesVersionsCapabilitiesBuilder? _filesVersionsCapabilities;
   FilesVersionsCapabilitiesBuilder get filesVersionsCapabilities =>
       _$this._filesVersionsCapabilities ??= FilesVersionsCapabilitiesBuilder();
-  set filesVersionsCapabilities(FilesVersionsCapabilitiesBuilder? filesVersionsCapabilities) =>
+  set filesVersionsCapabilities(covariant FilesVersionsCapabilitiesBuilder? filesVersionsCapabilities) =>
       _$this._filesVersionsCapabilities = filesVersionsCapabilities;
 
   NotesCapabilitiesBuilder? _notesCapabilities;
   NotesCapabilitiesBuilder get notesCapabilities => _$this._notesCapabilities ??= NotesCapabilitiesBuilder();
-  set notesCapabilities(NotesCapabilitiesBuilder? notesCapabilities) => _$this._notesCapabilities = notesCapabilities;
+  set notesCapabilities(covariant NotesCapabilitiesBuilder? notesCapabilities) =>
+      _$this._notesCapabilities = notesCapabilities;
 
   NotificationsCapabilitiesBuilder? _notificationsCapabilities;
   NotificationsCapabilitiesBuilder get notificationsCapabilities =>
       _$this._notificationsCapabilities ??= NotificationsCapabilitiesBuilder();
-  set notificationsCapabilities(NotificationsCapabilitiesBuilder? notificationsCapabilities) =>
+  set notificationsCapabilities(covariant NotificationsCapabilitiesBuilder? notificationsCapabilities) =>
       _$this._notificationsCapabilities = notificationsCapabilities;
 
   ProvisioningApiCapabilitiesBuilder? _provisioningApiCapabilities;
   ProvisioningApiCapabilitiesBuilder get provisioningApiCapabilities =>
       _$this._provisioningApiCapabilities ??= ProvisioningApiCapabilitiesBuilder();
-  set provisioningApiCapabilities(ProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities) =>
+  set provisioningApiCapabilities(covariant ProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities) =>
       _$this._provisioningApiCapabilities = provisioningApiCapabilities;
 
   SharebymailCapabilitiesBuilder? _sharebymailCapabilities;
   SharebymailCapabilitiesBuilder get sharebymailCapabilities =>
       _$this._sharebymailCapabilities ??= SharebymailCapabilitiesBuilder();
-  set sharebymailCapabilities(SharebymailCapabilitiesBuilder? sharebymailCapabilities) =>
+  set sharebymailCapabilities(covariant SharebymailCapabilitiesBuilder? sharebymailCapabilities) =>
       _$this._sharebymailCapabilities = sharebymailCapabilities;
 
   ThemingPublicCapabilitiesBuilder? _themingPublicCapabilities;
   ThemingPublicCapabilitiesBuilder get themingPublicCapabilities =>
       _$this._themingPublicCapabilities ??= ThemingPublicCapabilitiesBuilder();
-  set themingPublicCapabilities(ThemingPublicCapabilitiesBuilder? themingPublicCapabilities) =>
+  set themingPublicCapabilities(covariant ThemingPublicCapabilitiesBuilder? themingPublicCapabilities) =>
       _$this._themingPublicCapabilities = themingPublicCapabilities;
 
   UserStatusCapabilitiesBuilder? _userStatusCapabilities;
   UserStatusCapabilitiesBuilder get userStatusCapabilities =>
       _$this._userStatusCapabilities ??= UserStatusCapabilitiesBuilder();
-  set userStatusCapabilities(UserStatusCapabilitiesBuilder? userStatusCapabilities) =>
+  set userStatusCapabilities(covariant UserStatusCapabilitiesBuilder? userStatusCapabilities) =>
       _$this._userStatusCapabilities = userStatusCapabilities;
 
   WeatherStatusCapabilitiesBuilder? _weatherStatusCapabilities;
   WeatherStatusCapabilitiesBuilder get weatherStatusCapabilities =>
       _$this._weatherStatusCapabilities ??= WeatherStatusCapabilitiesBuilder();
-  set weatherStatusCapabilities(WeatherStatusCapabilitiesBuilder? weatherStatusCapabilities) =>
+  set weatherStatusCapabilities(covariant WeatherStatusCapabilitiesBuilder? weatherStatusCapabilities) =>
       _$this._weatherStatusCapabilities = weatherStatusCapabilities;
 
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder();
@@ -20088,7 +20167,7 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
   }
 
   @override
-  void replace(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities other) {
+  void replace(covariant OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
   }
@@ -25827,6 +25906,19 @@ class UnifiedSearchGetProvidersResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class UnifiedSearchSearchCursorInterfaceBuilder {
+  void replace(UnifiedSearchSearchCursorInterface other);
+  void update(void Function(UnifiedSearchSearchCursorInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  String? get string;
+  set string(String? string);
+}
+
 class _$UnifiedSearchSearchCursor extends UnifiedSearchSearchCursor {
   @override
   final JsonObject data;
@@ -25875,20 +25967,23 @@ class _$UnifiedSearchSearchCursor extends UnifiedSearchSearchCursor {
   }
 }
 
-class UnifiedSearchSearchCursorBuilder implements Builder<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder> {
+class UnifiedSearchSearchCursorBuilder
+    implements
+        Builder<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder>,
+        UnifiedSearchSearchCursorInterfaceBuilder {
   _$UnifiedSearchSearchCursor? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   UnifiedSearchSearchCursorBuilder();
 
@@ -25904,7 +25999,7 @@ class UnifiedSearchSearchCursorBuilder implements Builder<UnifiedSearchSearchCur
   }
 
   @override
-  void replace(UnifiedSearchSearchCursor other) {
+  void replace(covariant UnifiedSearchSearchCursor other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UnifiedSearchSearchCursor;
   }
@@ -26132,6 +26227,19 @@ class UnifiedSearchResultEntryBuilder
   }
 }
 
+abstract mixin class UnifiedSearchResult_CursorInterfaceBuilder {
+  void replace(UnifiedSearchResult_CursorInterface other);
+  void update(void Function(UnifiedSearchResult_CursorInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  String? get string;
+  set string(String? string);
+}
+
 class _$UnifiedSearchResult_Cursor extends UnifiedSearchResult_Cursor {
   @override
   final JsonObject data;
@@ -26181,20 +26289,22 @@ class _$UnifiedSearchResult_Cursor extends UnifiedSearchResult_Cursor {
 }
 
 class UnifiedSearchResult_CursorBuilder
-    implements Builder<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder> {
+    implements
+        Builder<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder>,
+        UnifiedSearchResult_CursorInterfaceBuilder {
   _$UnifiedSearchResult_Cursor? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   UnifiedSearchResult_CursorBuilder();
 
@@ -26210,7 +26320,7 @@ class UnifiedSearchResult_CursorBuilder
   }
 
   @override
-  void replace(UnifiedSearchResult_Cursor other) {
+  void replace(covariant UnifiedSearchResult_Cursor other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UnifiedSearchResult_Cursor;
   }

@@ -1106,8 +1106,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1132,10 +1130,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 abstract interface class ApiGenerateNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ApiGenerateNotificationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
@@ -1167,10 +1161,6 @@ abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiGenerateNotificationResponseApplicationJsonInterface {
   ApiGenerateNotificationResponseApplicationJson_Ocs get ocs;
-  ApiGenerateNotificationResponseApplicationJsonInterface rebuild(
-    final void Function(ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGenerateNotificationResponseApplicationJson
@@ -1220,10 +1210,6 @@ class EndpointListNotificationsApiVersion extends EnumClass {
 abstract interface class EndpointEndpointListNotificationsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-user-status')
   String? get xNextcloudUserStatus;
-  EndpointEndpointListNotificationsHeadersInterface rebuild(
-    final void Function(EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates,
-  );
-  EndpointEndpointListNotificationsHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointEndpointListNotificationsHeaders
@@ -1301,8 +1287,6 @@ abstract interface class NotificationActionInterface {
   String get link;
   String get type;
   bool get primary;
-  NotificationActionInterface rebuild(final void Function(NotificationActionInterfaceBuilder) updates);
-  NotificationActionInterfaceBuilder toBuilder();
 }
 
 abstract class NotificationAction
@@ -1346,8 +1330,6 @@ abstract interface class NotificationInterface {
   BuiltMap<String, JsonObject>? get messageRichParameters;
   String? get icon;
   bool? get shouldNotify;
-  NotificationInterface rebuild(final void Function(NotificationInterfaceBuilder) updates);
-  NotificationInterfaceBuilder toBuilder();
 }
 
 abstract class Notification implements NotificationInterface, Built<Notification, NotificationBuilder> {
@@ -1372,10 +1354,6 @@ abstract class Notification implements NotificationInterface, Built<Notification
 abstract interface class EndpointListNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Notification> get data;
-  EndpointListNotificationsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointListNotificationsResponseApplicationJson_Ocs
@@ -1407,10 +1385,6 @@ abstract class EndpointListNotificationsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EndpointListNotificationsResponseApplicationJsonInterface {
   EndpointListNotificationsResponseApplicationJson_Ocs get ocs;
-  EndpointListNotificationsResponseApplicationJsonInterface rebuild(
-    final void Function(EndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  EndpointListNotificationsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointListNotificationsResponseApplicationJson
@@ -1462,10 +1436,6 @@ class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
 abstract interface class EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
@@ -1497,10 +1467,6 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EndpointDeleteAllNotificationsResponseApplicationJsonInterface {
   EndpointDeleteAllNotificationsResponseApplicationJson_Ocs get ocs;
-  EndpointDeleteAllNotificationsResponseApplicationJsonInterface rebuild(
-    final void Function(EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointDeleteAllNotificationsResponseApplicationJson
@@ -1550,10 +1516,6 @@ class EndpointGetNotificationApiVersion extends EnumClass {
 abstract interface class EndpointGetNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Notification get data;
-  EndpointGetNotificationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointGetNotificationResponseApplicationJson_Ocs
@@ -1585,10 +1547,6 @@ abstract class EndpointGetNotificationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EndpointGetNotificationResponseApplicationJsonInterface {
   EndpointGetNotificationResponseApplicationJson_Ocs get ocs;
-  EndpointGetNotificationResponseApplicationJsonInterface rebuild(
-    final void Function(EndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  EndpointGetNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointGetNotificationResponseApplicationJson
@@ -1638,10 +1596,6 @@ class EndpointDeleteNotificationApiVersion extends EnumClass {
 abstract interface class EndpointDeleteNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  EndpointDeleteNotificationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
@@ -1673,10 +1627,6 @@ abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EndpointDeleteNotificationResponseApplicationJsonInterface {
   EndpointDeleteNotificationResponseApplicationJson_Ocs get ocs;
-  EndpointDeleteNotificationResponseApplicationJsonInterface rebuild(
-    final void Function(EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointDeleteNotificationResponseApplicationJson
@@ -1727,10 +1677,6 @@ class EndpointConfirmIdsForUserApiVersion extends EnumClass {
 abstract interface class EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<int> get data;
-  EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
@@ -1762,10 +1708,6 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EndpointConfirmIdsForUserResponseApplicationJsonInterface {
   EndpointConfirmIdsForUserResponseApplicationJson_Ocs get ocs;
-  EndpointConfirmIdsForUserResponseApplicationJsonInterface rebuild(
-    final void Function(EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class EndpointConfirmIdsForUserResponseApplicationJson
@@ -1813,8 +1755,6 @@ abstract interface class PushDeviceInterface {
   String get publicKey;
   String get deviceIdentifier;
   String get signature;
-  PushDeviceInterface rebuild(final void Function(PushDeviceInterfaceBuilder) updates);
-  PushDeviceInterfaceBuilder toBuilder();
 }
 
 abstract class PushDevice implements PushDeviceInterface, Built<PushDevice, PushDeviceBuilder> {
@@ -1839,10 +1779,6 @@ abstract class PushDevice implements PushDeviceInterface, Built<PushDevice, Push
 abstract interface class PushRegisterDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   PushDevice get data;
-  PushRegisterDeviceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PushRegisterDeviceResponseApplicationJson_Ocs
@@ -1873,10 +1809,6 @@ abstract class PushRegisterDeviceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PushRegisterDeviceResponseApplicationJsonInterface {
   PushRegisterDeviceResponseApplicationJson_Ocs get ocs;
-  PushRegisterDeviceResponseApplicationJsonInterface rebuild(
-    final void Function(PushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PushRegisterDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PushRegisterDeviceResponseApplicationJson
@@ -1922,10 +1854,6 @@ class PushRemoveDeviceApiVersion extends EnumClass {
 abstract interface class PushRemoveDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  PushRemoveDeviceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PushRemoveDeviceResponseApplicationJson_Ocs
@@ -1956,10 +1884,6 @@ abstract class PushRemoveDeviceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PushRemoveDeviceResponseApplicationJsonInterface {
   PushRemoveDeviceResponseApplicationJson_Ocs get ocs;
-  PushRemoveDeviceResponseApplicationJsonInterface rebuild(
-    final void Function(PushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PushRemoveDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PushRemoveDeviceResponseApplicationJson
@@ -2005,10 +1929,6 @@ class SettingsPersonalApiVersion extends EnumClass {
 abstract interface class SettingsPersonalResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  SettingsPersonalResponseApplicationJson_OcsInterface rebuild(
-    final void Function(SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class SettingsPersonalResponseApplicationJson_Ocs
@@ -2039,10 +1959,6 @@ abstract class SettingsPersonalResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class SettingsPersonalResponseApplicationJsonInterface {
   SettingsPersonalResponseApplicationJson_Ocs get ocs;
-  SettingsPersonalResponseApplicationJsonInterface rebuild(
-    final void Function(SettingsPersonalResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  SettingsPersonalResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class SettingsPersonalResponseApplicationJson
@@ -2088,10 +2004,6 @@ class SettingsAdminApiVersion extends EnumClass {
 abstract interface class SettingsAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  SettingsAdminResponseApplicationJson_OcsInterface rebuild(
-    final void Function(SettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  SettingsAdminResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class SettingsAdminResponseApplicationJson_Ocs
@@ -2122,10 +2034,6 @@ abstract class SettingsAdminResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class SettingsAdminResponseApplicationJsonInterface {
   SettingsAdminResponseApplicationJson_Ocs get ocs;
-  SettingsAdminResponseApplicationJsonInterface rebuild(
-    final void Function(SettingsAdminResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  SettingsAdminResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class SettingsAdminResponseApplicationJson
@@ -2159,8 +2067,6 @@ abstract interface class Capabilities_NotificationsInterface {
   BuiltList<String> get push;
   @BuiltValueField(wireName: 'admin-notifications')
   BuiltList<String> get adminNotifications;
-  Capabilities_NotificationsInterface rebuild(final void Function(Capabilities_NotificationsInterfaceBuilder) updates);
-  Capabilities_NotificationsInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Notifications
@@ -2189,8 +2095,6 @@ abstract class Capabilities_Notifications
 @BuiltValue(instantiable: false)
 abstract interface class CapabilitiesInterface {
   Capabilities_Notifications get notifications;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

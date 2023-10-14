@@ -868,10 +868,6 @@ class Client extends DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class CheckResponseApplicationJsonInterface {
   bool get success;
-  CheckResponseApplicationJsonInterface rebuild(
-    final void Function(CheckResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CheckResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CheckResponseApplicationJson
@@ -900,10 +896,6 @@ abstract class CheckResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class SetKeepaliveResponseApplicationJsonInterface {
   bool get success;
-  SetKeepaliveResponseApplicationJsonInterface rebuild(
-    final void Function(SetKeepaliveResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  SetKeepaliveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class SetKeepaliveResponseApplicationJson
@@ -934,10 +926,6 @@ abstract class SetKeepaliveResponseApplicationJson
 abstract interface class CreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
-  CreateDeviceResponseApplicationJsonInterface rebuild(
-    final void Function(CreateDeviceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CreateDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CreateDeviceResponseApplicationJson
@@ -967,10 +955,6 @@ abstract class CreateDeviceResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class SyncDeviceResponseApplicationJsonInterface {
   bool get success;
-  SyncDeviceResponseApplicationJsonInterface rebuild(
-    final void Function(SyncDeviceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  SyncDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class SyncDeviceResponseApplicationJson
@@ -999,10 +983,6 @@ abstract class SyncDeviceResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class DeleteDeviceResponseApplicationJsonInterface {
   bool get success;
-  DeleteDeviceResponseApplicationJsonInterface rebuild(
-    final void Function(DeleteDeviceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DeleteDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DeleteDeviceResponseApplicationJson
@@ -1033,10 +1013,6 @@ abstract class DeleteDeviceResponseApplicationJson
 abstract interface class CreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
-  CreateAppResponseApplicationJsonInterface rebuild(
-    final void Function(CreateAppResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CreateAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CreateAppResponseApplicationJson
@@ -1065,10 +1041,6 @@ abstract class CreateAppResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class DeleteAppResponseApplicationJsonInterface {
   bool get success;
-  DeleteAppResponseApplicationJsonInterface rebuild(
-    final void Function(DeleteAppResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DeleteAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DeleteAppResponseApplicationJson
@@ -1097,10 +1069,6 @@ abstract class DeleteAppResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
-  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
-    final void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
-  );
-  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
@@ -1132,10 +1100,6 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedpushDiscoveryResponseApplicationJsonInterface {
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
-  UnifiedpushDiscoveryResponseApplicationJsonInterface rebuild(
-    final void Function(UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson
@@ -1166,10 +1130,6 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class PushResponseApplicationJsonInterface {
   bool get success;
-  PushResponseApplicationJsonInterface rebuild(
-    final void Function(PushResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PushResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PushResponseApplicationJson
@@ -1198,10 +1158,6 @@ abstract class PushResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
-  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
-    final void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
-  );
-  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
@@ -1233,10 +1189,6 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 @BuiltValue(instantiable: false)
 abstract interface class GatewayMatrixDiscoveryResponseApplicationJsonInterface {
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
-  GatewayMatrixDiscoveryResponseApplicationJsonInterface rebuild(
-    final void Function(GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson
@@ -1267,10 +1219,6 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class GatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
-  GatewayMatrixResponseApplicationJsonInterface rebuild(
-    final void Function(GatewayMatrixResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GatewayMatrixResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GatewayMatrixResponseApplicationJson

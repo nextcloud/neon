@@ -663,8 +663,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -688,10 +686,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
@@ -724,10 +718,6 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
 abstract interface class WeatherStatusSetModeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetModeResponseApplicationJson_Ocs_Data get data;
-  WeatherStatusSetModeResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
@@ -758,10 +748,6 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetModeResponseApplicationJsonInterface {
   WeatherStatusSetModeResponseApplicationJson_Ocs get ocs;
-  WeatherStatusSetModeResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson
@@ -795,10 +781,6 @@ abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_
   num? get lat;
   num? get lon;
   String? get address;
-  WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
@@ -831,10 +813,6 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
 abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data get data;
-  WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
@@ -866,10 +844,6 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs get ocs;
-  WeatherStatusUsePersonalAddressResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
@@ -904,10 +878,6 @@ abstract interface class WeatherStatusGetLocationResponseApplicationJson_Ocs_Dat
   num get lon;
   String get address;
   int get mode;
-  WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
@@ -940,10 +910,6 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
 abstract interface class WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusGetLocationResponseApplicationJson_Ocs_Data get data;
-  WeatherStatusGetLocationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
@@ -975,10 +941,6 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusGetLocationResponseApplicationJsonInterface {
   WeatherStatusGetLocationResponseApplicationJson_Ocs get ocs;
-  WeatherStatusGetLocationResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson
@@ -1012,10 +974,6 @@ abstract interface class WeatherStatusSetLocationResponseApplicationJson_Ocs_Dat
   num? get lat;
   num? get lon;
   String? get address;
-  WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
@@ -1048,10 +1006,6 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
 abstract interface class WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetLocationResponseApplicationJson_Ocs_Data get data;
-  WeatherStatusSetLocationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
@@ -1083,10 +1037,6 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetLocationResponseApplicationJsonInterface {
   WeatherStatusSetLocationResponseApplicationJson_Ocs get ocs;
-  WeatherStatusSetLocationResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson
@@ -1142,10 +1092,6 @@ abstract interface class Forecast_Data_Instant_DetailsInterface {
   num get windSpeed;
   @BuiltValueField(wireName: 'wind_speed_of_gust')
   num get windSpeedOfGust;
-  Forecast_Data_Instant_DetailsInterface rebuild(
-    final void Function(Forecast_Data_Instant_DetailsInterfaceBuilder) updates,
-  );
-  Forecast_Data_Instant_DetailsInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Instant_Details
@@ -1174,8 +1120,6 @@ abstract class Forecast_Data_Instant_Details
 @BuiltValue(instantiable: false)
 abstract interface class Forecast_Data_InstantInterface {
   Forecast_Data_Instant_Details get details;
-  Forecast_Data_InstantInterface rebuild(final void Function(Forecast_Data_InstantInterfaceBuilder) updates);
-  Forecast_Data_InstantInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Instant
@@ -1202,10 +1146,6 @@ abstract class Forecast_Data_Instant
 abstract interface class Forecast_Data_Next12Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
-  Forecast_Data_Next12Hours_SummaryInterface rebuild(
-    final void Function(Forecast_Data_Next12Hours_SummaryInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next12Hours_SummaryInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next12Hours_Summary
@@ -1235,10 +1175,6 @@ abstract class Forecast_Data_Next12Hours_Summary
 abstract interface class Forecast_Data_Next12Hours_DetailsInterface {
   @BuiltValueField(wireName: 'probability_of_precipitation')
   num get probabilityOfPrecipitation;
-  Forecast_Data_Next12Hours_DetailsInterface rebuild(
-    final void Function(Forecast_Data_Next12Hours_DetailsInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next12Hours_DetailsInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next12Hours_Details
@@ -1268,8 +1204,6 @@ abstract class Forecast_Data_Next12Hours_Details
 abstract interface class Forecast_Data_Next12HoursInterface {
   Forecast_Data_Next12Hours_Summary get summary;
   Forecast_Data_Next12Hours_Details get details;
-  Forecast_Data_Next12HoursInterface rebuild(final void Function(Forecast_Data_Next12HoursInterfaceBuilder) updates);
-  Forecast_Data_Next12HoursInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next12Hours
@@ -1297,10 +1231,6 @@ abstract class Forecast_Data_Next12Hours
 abstract interface class Forecast_Data_Next1Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
-  Forecast_Data_Next1Hours_SummaryInterface rebuild(
-    final void Function(Forecast_Data_Next1Hours_SummaryInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next1Hours_SummaryInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next1Hours_Summary
@@ -1338,10 +1268,6 @@ abstract interface class Forecast_Data_Next1Hours_DetailsInterface {
   num get probabilityOfPrecipitation;
   @BuiltValueField(wireName: 'probability_of_thunder')
   num get probabilityOfThunder;
-  Forecast_Data_Next1Hours_DetailsInterface rebuild(
-    final void Function(Forecast_Data_Next1Hours_DetailsInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next1Hours_DetailsInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next1Hours_Details
@@ -1371,8 +1297,6 @@ abstract class Forecast_Data_Next1Hours_Details
 abstract interface class Forecast_Data_Next1HoursInterface {
   Forecast_Data_Next1Hours_Summary get summary;
   Forecast_Data_Next1Hours_Details get details;
-  Forecast_Data_Next1HoursInterface rebuild(final void Function(Forecast_Data_Next1HoursInterfaceBuilder) updates);
-  Forecast_Data_Next1HoursInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next1Hours
@@ -1400,10 +1324,6 @@ abstract class Forecast_Data_Next1Hours
 abstract interface class Forecast_Data_Next6Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
-  Forecast_Data_Next6Hours_SummaryInterface rebuild(
-    final void Function(Forecast_Data_Next6Hours_SummaryInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next6Hours_SummaryInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next6Hours_Summary
@@ -1443,10 +1363,6 @@ abstract interface class Forecast_Data_Next6Hours_DetailsInterface {
   num get precipitationAmountMin;
   @BuiltValueField(wireName: 'probability_of_precipitation')
   num get probabilityOfPrecipitation;
-  Forecast_Data_Next6Hours_DetailsInterface rebuild(
-    final void Function(Forecast_Data_Next6Hours_DetailsInterfaceBuilder) updates,
-  );
-  Forecast_Data_Next6Hours_DetailsInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next6Hours_Details
@@ -1476,8 +1392,6 @@ abstract class Forecast_Data_Next6Hours_Details
 abstract interface class Forecast_Data_Next6HoursInterface {
   Forecast_Data_Next6Hours_Summary get summary;
   Forecast_Data_Next6Hours_Details get details;
-  Forecast_Data_Next6HoursInterface rebuild(final void Function(Forecast_Data_Next6HoursInterfaceBuilder) updates);
-  Forecast_Data_Next6HoursInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data_Next6Hours
@@ -1510,8 +1424,6 @@ abstract interface class Forecast_DataInterface {
   Forecast_Data_Next1Hours get next1Hours;
   @BuiltValueField(wireName: 'next_6_hours')
   Forecast_Data_Next6Hours get next6Hours;
-  Forecast_DataInterface rebuild(final void Function(Forecast_DataInterfaceBuilder) updates);
-  Forecast_DataInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast_Data implements Forecast_DataInterface, Built<Forecast_Data, Forecast_DataBuilder> {
@@ -1537,8 +1449,6 @@ abstract class Forecast_Data implements Forecast_DataInterface, Built<Forecast_D
 abstract interface class ForecastInterface {
   String get time;
   Forecast_Data get data;
-  ForecastInterface rebuild(final void Function(ForecastInterfaceBuilder) updates);
-  ForecastInterfaceBuilder toBuilder();
 }
 
 abstract class Forecast implements ForecastInterface, Built<Forecast, ForecastBuilder> {
@@ -1563,10 +1473,6 @@ abstract class Forecast implements ForecastInterface, Built<Forecast, ForecastBu
 abstract interface class WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Forecast> get data;
-  WeatherStatusGetForecastResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
@@ -1598,10 +1504,6 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusGetForecastResponseApplicationJsonInterface {
   WeatherStatusGetForecastResponseApplicationJson_Ocs get ocs;
-  WeatherStatusGetForecastResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson
@@ -1633,10 +1535,6 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
 abstract interface class WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
-  WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
@@ -1668,10 +1566,6 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusGetFavoritesResponseApplicationJsonInterface {
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs get ocs;
-  WeatherStatusGetFavoritesResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson
@@ -1703,10 +1597,6 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
@@ -1739,10 +1629,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
 abstract interface class WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data get data;
-  WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
@@ -1774,10 +1660,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetFavoritesResponseApplicationJsonInterface {
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs get ocs;
-  WeatherStatusSetFavoritesResponseApplicationJsonInterface rebuild(
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson
@@ -1809,8 +1691,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_WeatherStatusInterface {
   bool get enabled;
-  Capabilities_WeatherStatusInterface rebuild(final void Function(Capabilities_WeatherStatusInterfaceBuilder) updates);
-  Capabilities_WeatherStatusInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_WeatherStatus
@@ -1840,8 +1720,6 @@ abstract class Capabilities_WeatherStatus
 abstract interface class CapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   Capabilities_WeatherStatus get weatherStatus;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

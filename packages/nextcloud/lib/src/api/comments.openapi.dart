@@ -34,8 +34,6 @@ class Client extends DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesInterface {
   bool get comments;
-  Capabilities_FilesInterface rebuild(final void Function(Capabilities_FilesInterfaceBuilder) updates);
-  Capabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Files
@@ -61,8 +59,6 @@ abstract class Capabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class CapabilitiesInterface {
   Capabilities_Files get files;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

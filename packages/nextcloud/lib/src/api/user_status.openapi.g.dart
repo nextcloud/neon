@@ -1784,6 +1784,34 @@ abstract mixin class Private_1InterfaceBuilder {
   set statusIsUserDefined(bool? statusIsUserDefined);
 }
 
+abstract mixin class PrivateInterfaceBuilder implements PublicInterfaceBuilder, Private_1InterfaceBuilder {
+  void replace(covariant PrivateInterface other);
+  void update(void Function(PrivateInterfaceBuilder) updates);
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get message;
+  set message(covariant String? message);
+
+  String? get icon;
+  set icon(covariant String? icon);
+
+  int? get clearAt;
+  set clearAt(covariant int? clearAt);
+
+  String? get status;
+  set status(covariant String? status);
+
+  String? get messageId;
+  set messageId(covariant String? messageId);
+
+  bool? get messageIsPredefined;
+  set messageIsPredefined(covariant bool? messageIsPredefined);
+
+  bool? get statusIsUserDefined;
+  set statusIsUserDefined(covariant bool? statusIsUserDefined);
+}
+
 class _$Private extends Private {
   @override
   final String userId;
@@ -1870,7 +1898,7 @@ class _$Private extends Private {
   }
 }
 
-class PrivateBuilder implements Builder<Private, PrivateBuilder>, PublicInterfaceBuilder, Private_1InterfaceBuilder {
+class PrivateBuilder implements Builder<Private, PrivateBuilder>, PrivateInterfaceBuilder {
   _$Private? _$v;
 
   String? _userId;
@@ -1924,7 +1952,6 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, PublicInterfac
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant Private other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Private;
@@ -2178,6 +2205,19 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class ClearAt_TimeInterfaceBuilder {
+  void replace(ClearAt_TimeInterface other);
+  void update(void Function(ClearAt_TimeInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  ClearAtTimeType? get clearAtTimeType;
+  set clearAtTimeType(ClearAtTimeType? clearAtTimeType);
+}
+
 class _$ClearAt_Time extends ClearAt_Time {
   @override
   final JsonObject data;
@@ -2228,20 +2268,20 @@ class _$ClearAt_Time extends ClearAt_Time {
   }
 }
 
-class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder> {
+class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>, ClearAt_TimeInterfaceBuilder {
   _$ClearAt_Time? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   ClearAtTimeType? _clearAtTimeType;
   ClearAtTimeType? get clearAtTimeType => _$this._clearAtTimeType;
-  set clearAtTimeType(ClearAtTimeType? clearAtTimeType) => _$this._clearAtTimeType = clearAtTimeType;
+  set clearAtTimeType(covariant ClearAtTimeType? clearAtTimeType) => _$this._clearAtTimeType = clearAtTimeType;
 
   ClearAt_TimeBuilder();
 
@@ -2257,7 +2297,7 @@ class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder> 
   }
 
   @override
-  void replace(ClearAt_Time other) {
+  void replace(covariant ClearAt_Time other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ClearAt_Time;
   }
@@ -4348,6 +4388,19 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  PrivateBuilder get private;
+  set private(PrivateBuilder? private);
+
+  JsonObject? get jsonObject;
+  set jsonObject(JsonObject? jsonObject);
+}
+
 class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
     extends UserStatusRevertStatusResponseApplicationJson_Ocs_Data {
   @override
@@ -4407,20 +4460,21 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
 class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
-            UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder> {
+            UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder>,
+        UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   PrivateBuilder? _private;
   PrivateBuilder get private => _$this._private ??= PrivateBuilder();
-  set private(PrivateBuilder? private) => _$this._private = private;
+  set private(covariant PrivateBuilder? private) => _$this._private = private;
 
   JsonObject? _jsonObject;
   JsonObject? get jsonObject => _$this._jsonObject;
-  set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
+  set jsonObject(covariant JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
 
   UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder();
 
@@ -4436,7 +4490,7 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void replace(UserStatusRevertStatusResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant UserStatusRevertStatusResponseApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
   }
