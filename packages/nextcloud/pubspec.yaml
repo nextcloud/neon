@@ -16,7 +16,7 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite_runtime
   intl: ^0.18.0
-  json_annotation: ^4.0.0
+  json_annotation: ^4.8.1
   meta: ^1.0.0
   universal_io: ^2.0.0
   version: ^3.0.0
