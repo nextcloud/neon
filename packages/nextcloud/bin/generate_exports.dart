@@ -5,10 +5,14 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:path/path.dart' as p;
 
 void main() {
-  final files =
-      Directory('lib/src/api').listSync().cast<File>().where((final file) => file.path.endsWith('.openapi.dart'));
+  final files = Directory('lib/src/api')
+      .listSync()
+      .cast<File>()
+      .where((final file) => file.path.endsWith('.openapi.dart'))
+      .toList()
+    ..sort((final a, final b) => a.path.compareTo(b.path));
 
-  final idStatements = <String>[];
+  final idStatements = StringBuffer();
 
   for (final file in files) {
     final basename = p.basename(file.path);
@@ -16,7 +20,9 @@ void main() {
     final variablePrefix = toDartName(id);
     final classPrefix = toDartName(id, uppercaseFirstCharacter: true);
 
-    idStatements.add("  static const $variablePrefix = '$id';");
+    idStatements
+      ..writeln('  /// ID for the $id app.')
+      ..writeln("  static const $variablePrefix = '$id';");
 
     final exports = ["export 'src/api/$id.openapi.dart';"];
     if (File('lib/src/helpers/$id.dart').existsSync()) {
@@ -41,10 +47,9 @@ extension ${classPrefix}Extension on NextcloudClient {
   }
 
   File('lib/ids.dart').writeAsStringSync('''
-// ignore_for_file: public_member_api_docs
-
+/// IDs of the apps.
 final class AppIDs {
-${idStatements.join('\n')}
+$idStatements
 }
 ''');
 }
