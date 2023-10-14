@@ -27,7 +27,7 @@ dependencies:
   image: ^4.0.0
   intersperse: ^2.0.0
   intl: ^0.18.0
-  json_annotation: ^4.0.0
+  json_annotation: ^4.8.1
   meta: ^1.0.0
   nextcloud:
     git:
