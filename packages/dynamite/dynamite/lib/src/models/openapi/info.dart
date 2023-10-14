@@ -16,7 +16,7 @@ abstract class Info implements Built<Info, InfoBuilder> {
 
   String get version;
 
-  License get license;
+  License? get license;
 
   @BuiltValueField(compare: false)
   String? get description;

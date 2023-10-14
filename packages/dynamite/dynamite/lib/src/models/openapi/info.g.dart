@@ -21,10 +21,14 @@ class _$InfoSerializer implements StructuredSerializer<Info> {
       serializers.serialize(object.title, specifiedType: const FullType(String)),
       'version',
       serializers.serialize(object.version, specifiedType: const FullType(String)),
-      'license',
-      serializers.serialize(object.license, specifiedType: const FullType(License)),
     ];
     Object? value;
+    value = object.license;
+    if (value != null) {
+      result
+        ..add('license')
+        ..add(serializers.serialize(value, specifiedType: const FullType(License)));
+    }
     value = object.description;
     if (value != null) {
       result
@@ -70,16 +74,15 @@ class _$Info extends Info {
   @override
   final String version;
   @override
-  final License license;
+  final License? license;
   @override
   final String? description;
 
   factory _$Info([void Function(InfoBuilder)? updates]) => (InfoBuilder()..update(updates))._build();
 
-  _$Info._({required this.title, required this.version, required this.license, this.description}) : super._() {
+  _$Info._({required this.title, required this.version, this.license, this.description}) : super._() {
     BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title');
     BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version');
-    BuiltValueNullFieldError.checkNotNull(license, r'Info', 'license');
   }
 
   @override
@@ -140,7 +143,7 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
     if ($v != null) {
       _title = $v.title;
       _version = $v.version;
-      _license = $v.license.toBuilder();
+      _license = $v.license?.toBuilder();
       _description = $v.description;
       _$v = null;
     }
@@ -168,13 +171,13 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
           _$Info._(
               title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
               version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
-              license: license.build(),
+              license: _license?.build(),
               description: description);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'license';
-        license.build();
+        _license?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Info', _$failedField, e.toString());
       }
