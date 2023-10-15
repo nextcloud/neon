@@ -20,7 +20,7 @@ class NewsFeedIcon extends StatelessWidget {
       size: Size.square(size),
       borderRadius: borderRadius,
       child: faviconLink != null && faviconLink.isNotEmpty
-          ? NeonCachedImage.url(
+          ? NeonUrlImage(
               url: faviconLink,
               size: Size.square(size),
             )

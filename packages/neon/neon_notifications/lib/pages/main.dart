@@ -81,7 +81,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             )
           : SizedBox.fromSize(
               size: const Size.square(largeIconSize),
-              child: NeonCachedImage.url(
+              child: NeonUrlImage(
                 url: notification.icon!,
                 size: const Size.square(largeIconSize),
                 svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),

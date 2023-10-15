@@ -154,7 +154,7 @@ class NeonDrawerHeader extends StatelessWidget {
                   ),
             ),
             Flexible(
-              child: NeonCachedImage.url(
+              child: NeonUrlImage(
                 url: theme.logo,
               ),
             ),
