@@ -8,3 +8,4 @@ If you need to add a new package to the Neon project please make sure to execute
 3. Regenerate the dependency overrides by executing `melos bootstrap`.
 4. Add a Symlink to our main [license](../LICENSE).
 5. Update [commitlint.yaml](../commitlint.yaml) by adding the new package name.
+6. Remove the package `.gitignore` (a global `.gitignore` for all packages is used instead).

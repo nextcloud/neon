@@ -1,6 +1,15 @@
-/.dart_tool/
-/pubspec.lock
+.dart_tool
+pubspec.lock
+
+packages/**/.idea
+packages/**/*.iml
+packages/**/.flutter-plugins
+packages/**/.flutter-plugins-dependencies
 packages/**/coverage
+packages/**/build
+packages/**/doc/api
+
+!packages/app/pubspec.lock
 
 # Melos reccomends not adding them to vcs but we need them as we don't use melos in CI
 # **/pubspec_overrides.yaml
