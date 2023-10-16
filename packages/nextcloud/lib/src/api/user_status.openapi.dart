@@ -56,8 +56,8 @@ class HeartbeatClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [status] Only online, away.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status successfully updated
@@ -69,7 +69,7 @@ class HeartbeatClient {
   ///  * [heartbeatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HeartbeatHeartbeatResponseApplicationJson, void>> heartbeat({
     required final String status,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = heartbeatRaw(
       status: status,
@@ -87,8 +87,8 @@ class HeartbeatClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [status] Only online, away.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status successfully updated
@@ -101,7 +101,7 @@ class HeartbeatClient {
   @experimental
   DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void> heartbeatRaw({
     required final String status,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
@@ -128,7 +128,9 @@ class HeartbeatClient {
 
 // coverage:ignore-end
     queryParameters['status'] = status;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -156,7 +158,7 @@ class PredefinedStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Predefined statuses returned
@@ -164,7 +166,7 @@ class PredefinedStatusClient {
   /// See:
   ///  * [findAllRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PredefinedStatusFindAllResponseApplicationJson, void>> findAll({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = findAllRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -181,7 +183,7 @@ class PredefinedStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Predefined statuses returned
@@ -189,9 +191,7 @@ class PredefinedStatusClient {
   /// See:
   ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -216,7 +216,9 @@ class PredefinedStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -244,9 +246,9 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find
-  ///   * [offset] Offset for finding statuses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Statuses returned
@@ -256,7 +258,7 @@ class StatusesClient {
   Future<DynamiteResponse<StatusesFindAllResponseApplicationJson, void>> findAll({
     final int? limit,
     final int? offset,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = findAllRaw(
       limit: limit,
@@ -275,9 +277,9 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find
-  ///   * [offset] Offset for finding statuses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Statuses returned
@@ -288,7 +290,7 @@ class StatusesClient {
   DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void> findAllRaw({
     final int? limit,
     final int? offset,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
@@ -320,7 +322,9 @@ class StatusesClient {
     if (offset != null) {
       queryParameters['offset'] = offset.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -342,8 +346,8 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status returned
@@ -353,7 +357,7 @@ class StatusesClient {
   ///  * [findRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<StatusesFindResponseApplicationJson, void>> find({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = findRaw(
       userId: userId,
@@ -371,8 +375,8 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status returned
@@ -383,7 +387,7 @@ class StatusesClient {
   @experimental
   DynamiteRawResponse<StatusesFindResponseApplicationJson, void> findRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -410,7 +414,9 @@ class StatusesClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -438,7 +444,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was found successfully
@@ -447,7 +453,7 @@ class UserStatusClient {
   /// See:
   ///  * [getStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusGetStatusResponseApplicationJson, void>> getStatus({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getStatusRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -464,7 +470,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was found successfully
@@ -473,9 +479,7 @@ class UserStatusClient {
   /// See:
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -500,7 +504,9 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -522,8 +528,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusType] The new status type.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was updated successfully
@@ -533,7 +539,7 @@ class UserStatusClient {
   ///  * [setStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusSetStatusResponseApplicationJson, void>> setStatus({
     required final String statusType,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setStatusRaw(
       statusType: statusType,
@@ -551,8 +557,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusType] The new status type.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was updated successfully
@@ -563,7 +569,7 @@ class UserStatusClient {
   @experimental
   DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void> setStatusRaw({
     required final String statusType,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final queryParameters = <String, dynamic>{};
@@ -590,7 +596,9 @@ class UserStatusClient {
 
 // coverage:ignore-end
     queryParameters['statusType'] = statusType;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -612,9 +620,9 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the predefined message.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -625,7 +633,7 @@ class UserStatusClient {
   Future<DynamiteResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>> setPredefinedMessage({
     required final String messageId,
     final int? clearAt,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPredefinedMessageRaw(
       messageId: messageId,
@@ -644,9 +652,9 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the predefined message.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -658,7 +666,7 @@ class UserStatusClient {
   DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void> setPredefinedMessageRaw({
     required final String messageId,
     final int? clearAt,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final queryParameters = <String, dynamic>{};
@@ -688,7 +696,9 @@ class UserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -710,10 +720,10 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status
-  ///   * [message] Message of the status
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusIcon] Icon of the status.
+  ///   * [message] Message of the status.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -725,7 +735,7 @@ class UserStatusClient {
     final String? statusIcon,
     final String? message,
     final int? clearAt,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setCustomMessageRaw(
       statusIcon: statusIcon,
@@ -745,10 +755,10 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status
-  ///   * [message] Message of the status
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusIcon] Icon of the status.
+  ///   * [message] Message of the status.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -761,7 +771,7 @@ class UserStatusClient {
     final String? statusIcon,
     final String? message,
     final int? clearAt,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final queryParameters = <String, dynamic>{};
@@ -796,7 +806,9 @@ class UserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -818,7 +830,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Message cleared successfully
@@ -826,7 +838,7 @@ class UserStatusClient {
   /// See:
   ///  * [clearMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusClearMessageResponseApplicationJson, void>> clearMessage({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = clearMessageRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -843,7 +855,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Message cleared successfully
@@ -852,7 +864,7 @@ class UserStatusClient {
   ///  * [clearMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     final queryParameters = <String, dynamic>{};
@@ -878,7 +890,9 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -900,8 +914,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the message to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the message to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status reverted
@@ -910,7 +924,7 @@ class UserStatusClient {
   ///  * [revertStatusRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserStatusRevertStatusResponseApplicationJson, void>> revertStatus({
     required final String messageId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = revertStatusRaw(
       messageId: messageId,
@@ -928,8 +942,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the message to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the message to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status reverted
@@ -939,7 +953,7 @@ class UserStatusClient {
   @experimental
   DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void> revertStatusRaw({
     required final String messageId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}';
     final queryParameters = <String, dynamic>{};
@@ -966,7 +980,9 @@ class UserStatusClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{messageId}', Uri.encodeQueryComponent(messageId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
       response: _rootClient.doRequest(

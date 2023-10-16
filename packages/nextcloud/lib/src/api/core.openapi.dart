@@ -135,7 +135,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -144,7 +144,7 @@ class AppPasswordClient {
   /// See:
   ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -161,7 +161,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -171,7 +171,7 @@ class AppPasswordClient {
   ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/getapppassword';
     final queryParameters = <String, dynamic>{};
@@ -197,7 +197,9 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -219,7 +221,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -228,7 +230,7 @@ class AppPasswordClient {
   /// See:
   ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = rotateAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -245,7 +247,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -255,7 +257,7 @@ class AppPasswordClient {
   ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/apppassword/rotate';
     final queryParameters = <String, dynamic>{};
@@ -281,7 +283,9 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -303,7 +307,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password deleted successfully
@@ -312,7 +316,7 @@ class AppPasswordClient {
   /// See:
   ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -329,7 +333,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password deleted successfully
@@ -339,7 +343,7 @@ class AppPasswordClient {
   ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/apppassword';
     final queryParameters = <String, dynamic>{};
@@ -365,7 +369,9 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -393,13 +399,13 @@ class AutoCompleteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Type of the items to search for
-  ///   * [itemId] ID of the items to search for
-  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
-  ///   * [shareTypes] Types of shares to search for
-  ///   * [limit] Maximum number of results to return
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Autocomplete results returned
@@ -412,8 +418,8 @@ class AutoCompleteClient {
     final String? itemId,
     final String? sorter,
     final List<int>? shareTypes,
-    final int limit = 10,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       search: search,
@@ -436,13 +442,13 @@ class AutoCompleteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Type of the items to search for
-  ///   * [itemId] ID of the items to search for
-  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
-  ///   * [shareTypes] Types of shares to search for
-  ///   * [limit] Maximum number of results to return
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Autocomplete results returned
@@ -456,8 +462,8 @@ class AutoCompleteClient {
     final String? itemId,
     final String? sorter,
     final List<int>? shareTypes,
-    final int limit = 10,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/autocomplete/get';
     final queryParameters = <String, dynamic>{};
@@ -496,10 +502,12 @@ class AutoCompleteClient {
     if (shareTypes != null) {
       queryParameters['shareTypes[]'] = shareTypes.map((final e) => e.toString());
     }
-    if (limit != 10) {
+    if (limit != null && limit != 10) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -528,8 +536,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -557,8 +565,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -616,8 +624,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -645,8 +653,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -710,7 +718,7 @@ class ClientFlowLoginV2Client {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the flow
+  ///   * [token] Token of the flow.
   ///
   /// Status codes:
   ///   * 200: Login flow credentials returned
@@ -734,7 +742,7 @@ class ClientFlowLoginV2Client {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the flow
+  ///   * [token] Token of the flow.
   ///
   /// Status codes:
   ///   * 200: Login flow credentials returned
@@ -861,8 +869,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter collections
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -872,7 +880,7 @@ class CollaborationResourcesClient {
   ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchCollectionsRaw(
       filter: filter,
@@ -890,8 +898,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter collections
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -902,7 +910,7 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
     required final String filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/search/{filter}';
     final queryParameters = <String, dynamic>{};
@@ -929,7 +937,9 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -951,8 +961,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -963,7 +973,7 @@ class CollaborationResourcesClient {
   ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listCollectionRaw(
       collectionId: collectionId,
@@ -981,8 +991,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -994,7 +1004,7 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -1021,7 +1031,9 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1043,9 +1055,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionName] New name
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionName] New name.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1057,7 +1069,7 @@ class CollaborationResourcesClient {
   Future<DynamiteResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = renameCollectionRaw(
       collectionName: collectionName,
@@ -1076,9 +1088,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionName] New name
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionName] New name.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1091,7 +1103,7 @@ class CollaborationResourcesClient {
   DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
     required final String collectionName,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -1119,7 +1131,9 @@ class CollaborationResourcesClient {
 // coverage:ignore-end
     queryParameters['collectionName'] = collectionName;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1141,10 +1155,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1157,7 +1171,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addResourceRaw(
       resourceType: resourceType,
@@ -1177,10 +1191,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1194,7 +1208,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -1223,7 +1237,9 @@ class CollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1245,10 +1261,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1261,7 +1277,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeResourceRaw(
       resourceType: resourceType,
@@ -1281,10 +1297,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1298,7 +1314,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/collections/{collectionId}';
     final queryParameters = <String, dynamic>{};
@@ -1327,7 +1343,9 @@ class CollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1349,9 +1367,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Type of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Type of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -1363,7 +1381,7 @@ class CollaborationResourcesClient {
       getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCollectionsByResourceRaw(
       resourceType: resourceType,
@@ -1382,9 +1400,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Type of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Type of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -1397,7 +1415,7 @@ class CollaborationResourcesClient {
       getCollectionsByResourceRaw({
     required final String resourceType,
     required final String resourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}';
     final queryParameters = <String, dynamic>{};
@@ -1425,7 +1443,9 @@ class CollaborationResourcesClient {
 // coverage:ignore-end
     path = path.replaceAll('{resourceType}', Uri.encodeQueryComponent(resourceType));
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1447,10 +1467,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [name] Name of the collection
-  ///   * [baseResourceType] Type of the base resource
-  ///   * [baseResourceId] ID of the base resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [name] Name of the collection.
+  ///   * [baseResourceType] Type of the base resource.
+  ///   * [baseResourceId] ID of the base resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1465,7 +1485,7 @@ class CollaborationResourcesClient {
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createCollectionOnResourceRaw(
       name: name,
@@ -1485,10 +1505,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [name] Name of the collection
-  ///   * [baseResourceType] Type of the base resource
-  ///   * [baseResourceId] ID of the base resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [name] Name of the collection.
+  ///   * [baseResourceType] Type of the base resource.
+  ///   * [baseResourceId] ID of the base resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1504,7 +1524,7 @@ class CollaborationResourcesClient {
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}';
     final queryParameters = <String, dynamic>{};
@@ -1533,7 +1553,9 @@ class CollaborationResourcesClient {
     queryParameters['name'] = name;
     path = path.replaceAll('{baseResourceType}', Uri.encodeQueryComponent(baseResourceType));
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1562,8 +1584,8 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1592,8 +1614,8 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1652,9 +1674,9 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [darkTheme] Return dark avatar
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1666,7 +1688,7 @@ class GuestAvatarClient {
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String guestName,
     required final String size,
-    final int? darkTheme = 0,
+    final int? darkTheme,
   }) async {
     final rawResponse = getAvatarRaw(
       guestName: guestName,
@@ -1685,9 +1707,9 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [darkTheme] Return dark avatar
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1700,7 +1722,7 @@ class GuestAvatarClient {
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required final String guestName,
     required final String size,
-    final int? darkTheme = 0,
+    final int? darkTheme,
   }) {
     var path = '/index.php/avatar/guest/{guestName}/{size}';
     final queryParameters = <String, dynamic>{};
@@ -1726,10 +1748,8 @@ class GuestAvatarClient {
 // coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
-    if (darkTheme != null) {
-      if (darkTheme != 0) {
-        queryParameters['darkTheme'] = darkTheme.toString();
-      }
+    if (darkTheme != null && darkTheme != 0) {
+      queryParameters['darkTheme'] = darkTheme.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
@@ -1758,8 +1778,8 @@ class HoverCardClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User details returned
@@ -1769,7 +1789,7 @@ class HoverCardClient {
   ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserRaw(
       userId: userId,
@@ -1787,8 +1807,8 @@ class HoverCardClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User details returned
@@ -1799,7 +1819,7 @@ class HoverCardClient {
   @experimental
   DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/hovercard/v1/{userId}';
     final queryParameters = <String, dynamic>{};
@@ -1826,7 +1846,9 @@ class HoverCardClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1854,8 +1876,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1864,8 +1886,8 @@ class NavigationClient {
   /// See:
   ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppsNavigationRaw(
       absolute: absolute,
@@ -1883,8 +1905,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1894,8 +1916,8 @@ class NavigationClient {
   ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
@@ -1921,10 +1943,12 @@ class NavigationClient {
     }
 
 // coverage:ignore-end
-    if (absolute != 0) {
+    if (absolute != null && absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1946,8 +1970,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1956,8 +1980,8 @@ class NavigationClient {
   /// See:
   ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsNavigationRaw(
       absolute: absolute,
@@ -1975,8 +1999,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1986,8 +2010,8 @@ class NavigationClient {
   ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/navigation/settings';
     final queryParameters = <String, dynamic>{};
@@ -2013,10 +2037,12 @@ class NavigationClient {
     }
 
 // coverage:ignore-end
-    if (absolute != 0) {
+    if (absolute != null && absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2120,7 +2146,7 @@ class OcsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Capabilities returned
@@ -2128,7 +2154,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCapabilitiesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -2145,7 +2171,7 @@ class OcsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Capabilities returned
@@ -2153,9 +2179,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2178,7 +2202,9 @@ class OcsClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2206,13 +2232,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2224,13 +2250,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) async {
     final rawResponse = getPreviewByFileIdRaw(
       fileId: fileId,
@@ -2253,13 +2279,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2272,13 +2298,13 @@ class PreviewClient {
   ///  * [getPreviewByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) {
     const path = '/index.php/core/preview';
     final queryParameters = <String, dynamic>{};
@@ -2304,25 +2330,25 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (fileId != -1) {
+    if (fileId != null && fileId != -1) {
       queryParameters['fileId'] = fileId.toString();
     }
-    if (x != 32) {
+    if (x != null && x != 32) {
       queryParameters['x'] = x.toString();
     }
-    if (y != 32) {
+    if (y != null && y != 32) {
       queryParameters['y'] = y.toString();
     }
-    if (a != 0) {
+    if (a != null && a != 0) {
       queryParameters['a'] = a.toString();
     }
-    if (forceIcon != 1) {
+    if (forceIcon != null && forceIcon != 1) {
       queryParameters['forceIcon'] = forceIcon.toString();
     }
-    if (mode != 'fill') {
+    if (mode != null && mode != 'fill') {
       queryParameters['mode'] = mode;
     }
-    if (mimeFallback != 0) {
+    if (mimeFallback != null && mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
@@ -2346,13 +2372,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2364,13 +2390,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -2393,13 +2419,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2412,13 +2438,13 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) {
     const path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
@@ -2444,25 +2470,25 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (file != '') {
+    if (file != null && file != '') {
       queryParameters['file'] = file;
     }
-    if (x != 32) {
+    if (x != null && x != 32) {
       queryParameters['x'] = x.toString();
     }
-    if (y != 32) {
+    if (y != null && y != 32) {
       queryParameters['y'] = y.toString();
     }
-    if (a != 0) {
+    if (a != null && a != 0) {
       queryParameters['a'] = a.toString();
     }
-    if (forceIcon != 1) {
+    if (forceIcon != null && forceIcon != 1) {
       queryParameters['forceIcon'] = forceIcon.toString();
     }
-    if (mode != 'fill') {
+    if (mode != null && mode != 'fill') {
       queryParameters['mode'] = mode;
     }
-    if (mimeFallback != 0) {
+    if (mimeFallback != null && mimeFallback != 0) {
       queryParameters['mimeFallback'] = mimeFallback.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
@@ -2492,10 +2518,10 @@ class ProfileApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [paramId] ID of the parameter
-  ///   * [visibility] New visibility
-  ///   * [targetUserId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [paramId] ID of the parameter.
+  ///   * [visibility] New visibility.
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Visibility updated successfully
@@ -2509,7 +2535,7 @@ class ProfileApiClient {
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setVisibilityRaw(
       paramId: paramId,
@@ -2529,10 +2555,10 @@ class ProfileApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [paramId] ID of the parameter
-  ///   * [visibility] New visibility
-  ///   * [targetUserId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [paramId] ID of the parameter.
+  ///   * [visibility] New visibility.
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Visibility updated successfully
@@ -2547,7 +2573,7 @@ class ProfileApiClient {
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/profile/{targetUserId}';
     final queryParameters = <String, dynamic>{};
@@ -2576,7 +2602,9 @@ class ProfileApiClient {
     queryParameters['paramId'] = paramId;
     queryParameters['visibility'] = visibility;
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2604,7 +2632,7 @@ class ReferenceClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [referenceId] the reference cache key
+  ///   * [referenceId] the reference cache key.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2628,7 +2656,7 @@ class ReferenceClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [referenceId] the reference cache key
+  ///   * [referenceId] the reference cache key.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2688,8 +2716,8 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [reference] Reference to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [reference] Reference to resolve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reference returned
@@ -2698,7 +2726,7 @@ class ReferenceApiClient {
   ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveOneRaw(
       reference: reference,
@@ -2716,8 +2744,8 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [reference] Reference to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [reference] Reference to resolve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reference returned
@@ -2727,7 +2755,7 @@ class ReferenceApiClient {
   @experimental
   DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
     required final String reference,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
@@ -2754,7 +2782,9 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['reference'] = reference;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2776,9 +2806,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [references] References to resolve
-  ///   * [limit] Maximum amount of references to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [references] References to resolve.
+  ///   * [limit] Maximum amount of references to resolve. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2787,8 +2817,8 @@ class ReferenceApiClient {
   ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveResponseApplicationJson, void>> resolve({
     required final List<String> references,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveRaw(
       references: references,
@@ -2807,9 +2837,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [references] References to resolve
-  ///   * [limit] Maximum amount of references to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [references] References to resolve.
+  ///   * [limit] Maximum amount of references to resolve. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2819,8 +2849,8 @@ class ReferenceApiClient {
   @experimental
   DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void> resolveRaw({
     required final List<String> references,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/references/resolve';
     final queryParameters = <String, dynamic>{};
@@ -2847,10 +2877,12 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['references[]'] = references.map((final e) => e);
-    if (limit != 1) {
+    if (limit != null && limit != 1) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2872,10 +2904,10 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to extract from
-  ///   * [resolve] Resolve the references
-  ///   * [limit] Maximum amount of references to extract
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2884,9 +2916,9 @@ class ReferenceApiClient {
   ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
-    final int resolve = 0,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? resolve,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = extractRaw(
       text: text,
@@ -2906,10 +2938,10 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to extract from
-  ///   * [resolve] Resolve the references
-  ///   * [limit] Maximum amount of references to extract
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2919,9 +2951,9 @@ class ReferenceApiClient {
   @experimental
   DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required final String text,
-    final int resolve = 0,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? resolve,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/references/extract';
     final queryParameters = <String, dynamic>{};
@@ -2948,13 +2980,15 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['text'] = text;
-    if (resolve != 0) {
+    if (resolve != null && resolve != 0) {
       queryParameters['resolve'] = resolve.toString();
     }
-    if (limit != 1) {
+    if (limit != null && limit != 1) {
       queryParameters['limit'] = limit.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2976,7 +3010,7 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -2984,7 +3018,7 @@ class ReferenceApiClient {
   /// See:
   ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersInfoRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3001,7 +3035,7 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3010,7 +3044,7 @@ class ReferenceApiClient {
   ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/references/providers';
     final queryParameters = <String, dynamic>{};
@@ -3036,7 +3070,9 @@ class ReferenceApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3058,9 +3094,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [timestamp] Timestamp of the last usage
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [timestamp] Timestamp of the last usage.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Provider touched
@@ -3070,7 +3106,7 @@ class ReferenceApiClient {
   Future<DynamiteResponse<ReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = touchProviderRaw(
       providerId: providerId,
@@ -3089,9 +3125,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [timestamp] Timestamp of the last usage
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [timestamp] Timestamp of the last usage.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Provider touched
@@ -3102,7 +3138,7 @@ class ReferenceApiClient {
   DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
     required final String providerId,
     final int? timestamp,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/references/provider/{providerId}';
     final queryParameters = <String, dynamic>{};
@@ -3132,7 +3168,9 @@ class ReferenceApiClient {
     if (timestamp != null) {
       queryParameters['timestamp'] = timestamp.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3160,7 +3198,7 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task types returned
@@ -3168,7 +3206,7 @@ class TextProcessingApiClient {
   /// See:
   ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = taskTypesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3185,7 +3223,7 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task types returned
@@ -3194,7 +3232,7 @@ class TextProcessingApiClient {
   ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/textprocessing/tasktypes';
     final queryParameters = <String, dynamic>{};
@@ -3218,7 +3256,9 @@ class TextProcessingApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3240,11 +3280,11 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [input] Input text
-  ///   * [type] Type of the task
-  ///   * [appId] ID of the app that will execute the task
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [input] Input text.
+  ///   * [type] Type of the task.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
@@ -3257,8 +3297,8 @@ class TextProcessingApiClient {
     required final String input,
     required final String type,
     required final String appId,
-    final String identifier = '',
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = scheduleRaw(
       input: input,
@@ -3279,11 +3319,11 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [input] Input text
-  ///   * [type] Type of the task
-  ///   * [appId] ID of the app that will execute the task
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [input] Input text.
+  ///   * [type] Type of the task.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
@@ -3297,8 +3337,8 @@ class TextProcessingApiClient {
     required final String input,
     required final String type,
     required final String appId,
-    final String identifier = '',
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/textprocessing/schedule';
     final queryParameters = <String, dynamic>{};
@@ -3325,10 +3365,12 @@ class TextProcessingApiClient {
     queryParameters['input'] = input;
     queryParameters['type'] = type;
     queryParameters['appId'] = appId;
-    if (identifier != '') {
+    if (identifier != null && identifier != '') {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3350,8 +3392,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3362,7 +3404,7 @@ class TextProcessingApiClient {
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getTaskRaw(
       id: id,
@@ -3380,8 +3422,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3393,7 +3435,7 @@ class TextProcessingApiClient {
   @experimental
   DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
@@ -3418,7 +3460,9 @@ class TextProcessingApiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3440,8 +3484,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3452,7 +3496,7 @@ class TextProcessingApiClient {
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteTaskRaw(
       id: id,
@@ -3470,8 +3514,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3483,7 +3527,7 @@ class TextProcessingApiClient {
   @experimental
   DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/textprocessing/task/{id}';
     final queryParameters = <String, dynamic>{};
@@ -3510,7 +3554,9 @@ class TextProcessingApiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3532,9 +3578,9 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task list returned
@@ -3545,7 +3591,7 @@ class TextProcessingApiClient {
   Future<DynamiteResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listTasksByAppRaw(
       appId: appId,
@@ -3564,9 +3610,9 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task list returned
@@ -3578,7 +3624,7 @@ class TextProcessingApiClient {
   DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/textprocessing/tasks/app/{appId}';
     final queryParameters = <String, dynamic>{};
@@ -3608,7 +3654,9 @@ class TextProcessingApiClient {
     if (identifier != null) {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3636,7 +3684,7 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Supported languages returned
@@ -3644,7 +3692,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TranslationApiLanguagesResponseApplicationJson, void>> languages({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = languagesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3661,7 +3709,7 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Supported languages returned
@@ -3669,9 +3717,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/translation/languages';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3694,7 +3740,9 @@ class TranslationApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3716,10 +3764,10 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to be translated
-  ///   * [fromLanguage] Language to translate from
-  ///   * [toLanguage] Language to translate to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to be translated.
+  ///   * [fromLanguage] Language to translate from.
+  ///   * [toLanguage] Language to translate to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Translated text returned
@@ -3733,7 +3781,7 @@ class TranslationApiClient {
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = translateRaw(
       text: text,
@@ -3753,10 +3801,10 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to be translated
-  ///   * [fromLanguage] Language to translate from
-  ///   * [toLanguage] Language to translate to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to be translated.
+  ///   * [fromLanguage] Language to translate from.
+  ///   * [toLanguage] Language to translate to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Translated text returned
@@ -3771,7 +3819,7 @@ class TranslationApiClient {
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/translation/translate';
     final queryParameters = <String, dynamic>{};
@@ -3800,7 +3848,9 @@ class TranslationApiClient {
     if (fromLanguage != null) {
       queryParameters['fromLanguage'] = fromLanguage;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3828,8 +3878,8 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3837,8 +3887,8 @@ class UnifiedSearchClient {
   /// See:
   ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersRaw(
       from: from,
@@ -3856,8 +3906,8 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3866,8 +3916,8 @@ class UnifiedSearchClient {
   ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/search/providers';
     final queryParameters = <String, dynamic>{};
@@ -3893,10 +3943,12 @@ class UnifiedSearchClient {
     }
 
 // coverage:ignore-end
-    if (from != '') {
+    if (from != null && from != '') {
       queryParameters['from'] = from;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -3918,13 +3970,13 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search
-  ///   * [sortOrder] Order of entries
-  ///   * [limit] Maximum amount of entries
-  ///   * [cursor] Offset for searching
-  ///   * [from] The current user URL
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Search entries returned
@@ -3934,12 +3986,12 @@ class UnifiedSearchClient {
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
-    final String term = '',
+    final String? term,
     final int? sortOrder,
     final int? limit,
     final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
       providerId: providerId,
@@ -3962,13 +4014,13 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search
-  ///   * [sortOrder] Order of entries
-  ///   * [limit] Maximum amount of entries
-  ///   * [cursor] Offset for searching
-  ///   * [from] The current user URL
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Search entries returned
@@ -3979,12 +4031,12 @@ class UnifiedSearchClient {
   @experimental
   DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void> searchRaw({
     required final String providerId,
-    final String term = '',
+    final String? term,
     final int? sortOrder,
     final int? limit,
     final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/search/providers/{providerId}/search';
     final queryParameters = <String, dynamic>{};
@@ -4011,7 +4063,7 @@ class UnifiedSearchClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
-    if (term != '') {
+    if (term != null && term != '') {
       queryParameters['term'] = term;
     }
     if (sortOrder != null) {
@@ -4026,10 +4078,12 @@ class UnifiedSearchClient {
         specifiedType: const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
       );
     }
-    if (from != '') {
+    if (from != null && from != '') {
       queryParameters['from'] = from;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -4057,7 +4111,7 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes returned
@@ -4065,7 +4119,7 @@ class WhatsNewClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool? oCSAPIRequest}) async {
     final rawResponse = $getRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -4081,7 +4135,7 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes returned
@@ -4090,7 +4144,7 @@ class WhatsNewClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4115,7 +4169,9 @@ class WhatsNewClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -4137,8 +4193,8 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] Version to dismiss the changes for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [version] Version to dismiss the changes for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes dismissed
@@ -4148,7 +4204,7 @@ class WhatsNewClient {
   ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = dismissRaw(
       version: version,
@@ -4166,8 +4222,8 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] Version to dismiss the changes for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [version] Version to dismiss the changes for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes dismissed
@@ -4178,7 +4234,7 @@ class WhatsNewClient {
   @experimental
   DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void> dismissRaw({
     required final String version,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/core/whatsnew';
     final queryParameters = <String, dynamic>{};
@@ -4205,7 +4261,9 @@ class WhatsNewClient {
 
 // coverage:ignore-end
     queryParameters['version'] = version;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -4233,7 +4291,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Device should be wiped
@@ -4257,7 +4315,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Device should be wiped
@@ -4311,7 +4369,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Wipe finished successfully
@@ -4335,7 +4393,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Wipe finished successfully

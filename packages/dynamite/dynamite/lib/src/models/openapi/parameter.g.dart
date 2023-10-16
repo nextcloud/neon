@@ -6,7 +6,35 @@ part of 'parameter.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const ParameterType _$parameterTypePath = ParameterType._('path');
+const ParameterType _$parameterTypeQuery = ParameterType._('query');
+const ParameterType _$parameterTypeHeader = ParameterType._('header');
+const ParameterType _$parameterTypeCookie = ParameterType._('cookie');
+
+ParameterType _$parameterType(String name) {
+  switch (name) {
+    case 'path':
+      return _$parameterTypePath;
+    case 'query':
+      return _$parameterTypeQuery;
+    case 'header':
+      return _$parameterTypeHeader;
+    case 'cookie':
+      return _$parameterTypeCookie;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ParameterType> _$parameterTypeValues = BuiltSet<ParameterType>(const <ParameterType>[
+  _$parameterTypePath,
+  _$parameterTypeQuery,
+  _$parameterTypeHeader,
+  _$parameterTypeCookie,
+]);
+
 Serializer<Parameter> _$parameterSerializer = _$ParameterSerializer();
+Serializer<ParameterType> _$parameterTypeSerializer = _$ParameterTypeSerializer();
 
 class _$ParameterSerializer implements StructuredSerializer<Parameter> {
   @override
@@ -21,7 +49,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'in',
-      serializers.serialize(object.$in, specifiedType: const FullType(String)),
+      serializers.serialize(object.$in, specifiedType: const FullType(ParameterType)),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(bool)),
     ];
@@ -56,7 +84,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'in':
-          result.$in = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.$in = serializers.deserialize(value, specifiedType: const FullType(ParameterType))! as ParameterType;
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -74,11 +102,27 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
   }
 }
 
+class _$ParameterTypeSerializer implements PrimitiveSerializer<ParameterType> {
+  @override
+  final Iterable<Type> types = const <Type>[ParameterType];
+  @override
+  final String wireName = 'ParameterType';
+
+  @override
+  Object serialize(Serializers serializers, ParameterType object, {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  ParameterType deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      ParameterType.valueOf(serialized as String);
+}
+
 class _$Parameter extends Parameter {
   @override
   final String name;
   @override
-  final String $in;
+  final ParameterType $in;
   @override
   final String? description;
   @override
@@ -141,9 +185,9 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  String? _$in;
-  String? get $in => _$this._$in;
-  set $in(String? $in) => _$this._$in = $in;
+  ParameterType? _$in;
+  ParameterType? get $in => _$this._$in;
+  set $in(ParameterType? $in) => _$this._$in = $in;
 
   String? _description;
   String? get description => _$this._description;

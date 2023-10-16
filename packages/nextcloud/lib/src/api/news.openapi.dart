@@ -390,7 +390,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [newestItemId] The newest read item
+  ///   * [newestItemId] The newest read item.
   ///
   /// Status codes:
   ///   * 200
@@ -415,7 +415,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [newestItemId] The newest read item
+  ///   * [newestItemId] The newest read item.
   ///
   /// Status codes:
   ///   * 200
@@ -929,12 +929,12 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [getRead]
-  ///   * [batchSize]
-  ///   * [offset]
-  ///   * [oldestFirst]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [getRead] Defaults to `1`.
+  ///   * [batchSize] Defaults to `-1`.
+  ///   * [offset] Defaults to `0`.
+  ///   * [oldestFirst] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -942,12 +942,12 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listArticles({
-    final int type = 3,
-    final int id = 0,
-    final int getRead = 1,
-    final int batchSize = -1,
-    final int offset = 0,
-    final int oldestFirst = 0,
+    final int? type,
+    final int? id,
+    final int? getRead,
+    final int? batchSize,
+    final int? offset,
+    final int? oldestFirst,
   }) async {
     final rawResponse = listArticlesRaw(
       type: type,
@@ -967,12 +967,12 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [getRead]
-  ///   * [batchSize]
-  ///   * [offset]
-  ///   * [oldestFirst]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [getRead] Defaults to `1`.
+  ///   * [batchSize] Defaults to `-1`.
+  ///   * [offset] Defaults to `0`.
+  ///   * [oldestFirst] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -981,12 +981,12 @@ class Client extends DynamiteClient {
   ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listArticlesRaw({
-    final int type = 3,
-    final int id = 0,
-    final int getRead = 1,
-    final int batchSize = -1,
-    final int offset = 0,
-    final int oldestFirst = 0,
+    final int? type,
+    final int? id,
+    final int? getRead,
+    final int? batchSize,
+    final int? offset,
+    final int? oldestFirst,
   }) {
     const path = '/index.php/apps/news/api/v1-3/items';
     final queryParameters = <String, dynamic>{};
@@ -1012,22 +1012,22 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (type != 3) {
+    if (type != null && type != 3) {
       queryParameters['type'] = type.toString();
     }
-    if (id != 0) {
+    if (id != null && id != 0) {
       queryParameters['id'] = id.toString();
     }
-    if (getRead != 1) {
+    if (getRead != null && getRead != 1) {
       queryParameters['getRead'] = getRead.toString();
     }
-    if (batchSize != -1) {
+    if (batchSize != null && batchSize != -1) {
       queryParameters['batchSize'] = batchSize.toString();
     }
-    if (offset != 0) {
+    if (offset != null && offset != 0) {
       queryParameters['offset'] = offset.toString();
     }
-    if (oldestFirst != 0) {
+    if (oldestFirst != null && oldestFirst != 0) {
       queryParameters['oldestFirst'] = oldestFirst.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
@@ -1049,9 +1049,9 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [lastModified]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [lastModified] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -1059,9 +1059,9 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listUpdatedArticles({
-    final int type = 3,
-    final int id = 0,
-    final int lastModified = 0,
+    final int? type,
+    final int? id,
+    final int? lastModified,
   }) async {
     final rawResponse = listUpdatedArticlesRaw(
       type: type,
@@ -1078,9 +1078,9 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [lastModified]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [lastModified] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -1089,9 +1089,9 @@ class Client extends DynamiteClient {
   ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
-    final int type = 3,
-    final int id = 0,
-    final int lastModified = 0,
+    final int? type,
+    final int? id,
+    final int? lastModified,
   }) {
     const path = '/index.php/apps/news/api/v1-3/items/updated';
     final queryParameters = <String, dynamic>{};
@@ -1117,13 +1117,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (type != 3) {
+    if (type != null && type != 3) {
       queryParameters['type'] = type.toString();
     }
-    if (id != 0) {
+    if (id != null && id != 0) {
       queryParameters['id'] = id.toString();
     }
-    if (lastModified != 0) {
+    if (lastModified != null && lastModified != 0) {
       queryParameters['lastModified'] = lastModified.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);

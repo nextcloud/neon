@@ -51,8 +51,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder returned
@@ -63,7 +63,7 @@ class ApiClient {
   Future<DynamiteResponse<ApiGetResponseApplicationJson, void>> $get({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       version: version,
@@ -83,8 +83,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder returned
@@ -96,7 +96,7 @@ class ApiClient {
   DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -125,7 +125,9 @@ class ApiClient {
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -147,10 +149,10 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder updated
@@ -165,7 +167,7 @@ class ApiClient {
     required final String dueDate,
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $setRaw(
       dueDate: dueDate,
@@ -185,10 +187,10 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder updated
@@ -204,7 +206,7 @@ class ApiClient {
     required final String dueDate,
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -234,7 +236,9 @@ class ApiClient {
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -257,8 +261,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully
@@ -270,7 +274,7 @@ class ApiClient {
   Future<DynamiteResponse<ApiRemoveResponseApplicationJson, void>> remove({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeRaw(
       version: version,
@@ -290,8 +294,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully
@@ -304,7 +308,7 @@ class ApiClient {
   DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}';
     final queryParameters = <String, dynamic>{};
@@ -333,7 +337,9 @@ class ApiClient {
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
     path = path.replaceAll('{version}', Uri.encodeQueryComponent(version));
     path = path.replaceAll('{fileId}', Uri.encodeQueryComponent(fileId.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.doRequest(

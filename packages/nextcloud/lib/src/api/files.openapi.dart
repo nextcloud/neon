@@ -59,9 +59,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [x] Width of the thumbnail
-  ///   * [y] Height of the thumbnail
-  ///   * [file] URL-encoded filename
+  ///   * [x] Width of the thumbnail.
+  ///   * [y] Height of the thumbnail.
+  ///   * [file] URL-encoded filename.
   ///
   /// Status codes:
   ///   * 200: Thumbnail returned
@@ -92,9 +92,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [x] Width of the thumbnail
-  ///   * [y] Height of the thumbnail
-  ///   * [file] URL-encoded filename
+  ///   * [x] Width of the thumbnail.
+  ///   * [y] Height of the thumbnail.
+  ///   * [file] URL-encoded filename.
   ///
   /// Status codes:
   ///   * 200: Thumbnail returned
@@ -164,16 +164,14 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct editing capabilities returned
   ///
   /// See:
   ///  * [infoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({
-    final bool oCSAPIRequest = true,
-  }) async {
+  Future<DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({final bool? oCSAPIRequest}) async {
     final rawResponse = infoRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -189,7 +187,7 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct editing capabilities returned
@@ -197,7 +195,7 @@ class DirectEditingClient {
   /// See:
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -222,7 +220,9 @@ class DirectEditingClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -244,9 +244,9 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Templates returned
@@ -257,7 +257,7 @@ class DirectEditingClient {
   Future<DynamiteResponse<DirectEditingTemplatesResponseApplicationJson, void>> templates({
     required final String editorId,
     required final String creatorId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = templatesRaw(
       editorId: editorId,
@@ -276,9 +276,9 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Templates returned
@@ -290,7 +290,7 @@ class DirectEditingClient {
   DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
     required final String editorId,
     required final String creatorId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}';
     final queryParameters = <String, dynamic>{};
@@ -318,7 +318,9 @@ class DirectEditingClient {
 // coverage:ignore-end
     path = path.replaceAll('{editorId}', Uri.encodeQueryComponent(editorId));
     path = path.replaceAll('{creatorId}', Uri.encodeQueryComponent(creatorId));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -340,10 +342,10 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -356,7 +358,7 @@ class DirectEditingClient {
     required final String path,
     final String? editorId,
     final int? fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = openRaw(
       path: path,
@@ -376,10 +378,10 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -393,7 +395,7 @@ class DirectEditingClient {
     required final String path,
     final String? editorId,
     final int? fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/open';
     final queryParameters = <String, dynamic>{};
@@ -426,7 +428,9 @@ class DirectEditingClient {
     if (fileId != null) {
       queryParameters['fileId'] = fileId.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -448,11 +452,11 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [templateId] ID of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -466,7 +470,7 @@ class DirectEditingClient {
     required final String editorId,
     required final String creatorId,
     final String? templateId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       path: path,
@@ -487,11 +491,11 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [templateId] ID of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -506,7 +510,7 @@ class DirectEditingClient {
     required final String editorId,
     required final String creatorId,
     final String? templateId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/directEditing/create';
     final queryParameters = <String, dynamic>{};
@@ -538,7 +542,9 @@ class DirectEditingClient {
     if (templateId != null) {
       queryParameters['templateId'] = templateId;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -566,8 +572,8 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor returned
@@ -577,7 +583,7 @@ class OpenLocalEditorClient {
   ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OpenLocalEditorCreateResponseApplicationJson, void>> create({
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       path: path,
@@ -595,8 +601,8 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor returned
@@ -607,7 +613,7 @@ class OpenLocalEditorClient {
   @experimental
   DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void> createRaw({
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor';
     final queryParameters = <String, dynamic>{};
@@ -634,7 +640,9 @@ class OpenLocalEditorClient {
 
 // coverage:ignore-end
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -656,9 +664,9 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [token] Token of the local editor
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [token] Token of the local editor.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor validated successfully
@@ -669,7 +677,7 @@ class OpenLocalEditorClient {
   Future<DynamiteResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validate({
     required final String path,
     required final String token,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = validateRaw(
       path: path,
@@ -688,9 +696,9 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [token] Token of the local editor
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [token] Token of the local editor.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor validated successfully
@@ -702,7 +710,7 @@ class OpenLocalEditorClient {
   DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
     required final String path,
     required final String token,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path0 = '/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}';
     final queryParameters = <String, dynamic>{};
@@ -730,7 +738,9 @@ class OpenLocalEditorClient {
 // coverage:ignore-end
     queryParameters['path'] = path;
     path0 = path0.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -758,14 +768,14 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Available templates returned
   ///
   /// See:
   ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<TemplateListResponseApplicationJson, void>> list({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<TemplateListResponseApplicationJson, void>> list({final bool? oCSAPIRequest}) async {
     final rawResponse = listRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -781,7 +791,7 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Available templates returned
@@ -789,7 +799,7 @@ class TemplateClient {
   /// See:
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -814,7 +824,9 @@ class TemplateClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -836,10 +848,10 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file
-  ///   * [templatePath] Name of the template
-  ///   * [templateType] Type of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filePath] Path of the file.
+  ///   * [templatePath] Name of the template. Defaults to `''`.
+  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template created successfully
@@ -849,9 +861,9 @@ class TemplateClient {
   ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TemplateCreateResponseApplicationJson, void>> create({
     required final String filePath,
-    final String templatePath = '',
-    final String templateType = 'user',
-    final bool oCSAPIRequest = true,
+    final String? templatePath,
+    final String? templateType,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       filePath: filePath,
@@ -871,10 +883,10 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file
-  ///   * [templatePath] Name of the template
-  ///   * [templateType] Type of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filePath] Path of the file.
+  ///   * [templatePath] Name of the template. Defaults to `''`.
+  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template created successfully
@@ -885,9 +897,9 @@ class TemplateClient {
   @experimental
   DynamiteRawResponse<TemplateCreateResponseApplicationJson, void> createRaw({
     required final String filePath,
-    final String templatePath = '',
-    final String templateType = 'user',
-    final bool oCSAPIRequest = true,
+    final String? templatePath,
+    final String? templateType,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/create';
     final queryParameters = <String, dynamic>{};
@@ -914,13 +926,15 @@ class TemplateClient {
 
 // coverage:ignore-end
     queryParameters['filePath'] = filePath;
-    if (templatePath != '') {
+    if (templatePath != null && templatePath != '') {
       queryParameters['templatePath'] = templatePath;
     }
-    if (templateType != 'user') {
+    if (templateType != null && templateType != 'user') {
       queryParameters['templateType'] = templateType;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -942,9 +956,9 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template directory initialized successfully
@@ -953,9 +967,9 @@ class TemplateClient {
   /// See:
   ///  * [pathRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
-    final String templatePath = '',
-    final int copySystemTemplates = 0,
-    final bool oCSAPIRequest = true,
+    final String? templatePath,
+    final int? copySystemTemplates,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = pathRaw(
       templatePath: templatePath,
@@ -974,9 +988,9 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template directory initialized successfully
@@ -986,9 +1000,9 @@ class TemplateClient {
   ///  * [path] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplatePathResponseApplicationJson, void> pathRaw({
-    final String templatePath = '',
-    final int copySystemTemplates = 0,
-    final bool oCSAPIRequest = true,
+    final String? templatePath,
+    final int? copySystemTemplates,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/files/api/v1/templates/path';
     final queryParameters = <String, dynamic>{};
@@ -1014,13 +1028,15 @@ class TemplateClient {
     }
 
 // coverage:ignore-end
-    if (templatePath != '') {
+    if (templatePath != null && templatePath != '') {
       queryParameters['templatePath'] = templatePath;
     }
-    if (copySystemTemplates != 0) {
+    if (copySystemTemplates != null && copySystemTemplates != 0) {
       queryParameters['copySystemTemplates'] = copySystemTemplates.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1048,9 +1064,9 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [recipient] Username of the recipient.
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transferred successfully
@@ -1062,7 +1078,7 @@ class TransferOwnershipClient {
   Future<DynamiteResponse<TransferOwnershipTransferResponseApplicationJson, void>> transfer({
     required final String recipient,
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = transferRaw(
       recipient: recipient,
@@ -1081,9 +1097,9 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [recipient] Username of the recipient.
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transferred successfully
@@ -1096,7 +1112,7 @@ class TransferOwnershipClient {
   DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void> transferRaw({
     required final String recipient,
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files/api/v1/transferownership';
     final queryParameters = <String, dynamic>{};
@@ -1124,7 +1140,9 @@ class TransferOwnershipClient {
 // coverage:ignore-end
     queryParameters['recipient'] = recipient;
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1146,8 +1164,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer accepted successfully
@@ -1158,7 +1176,7 @@ class TransferOwnershipClient {
   ///  * [acceptRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TransferOwnershipAcceptResponseApplicationJson, void>> accept({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptRaw(
       id: id,
@@ -1176,8 +1194,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer accepted successfully
@@ -1189,7 +1207,7 @@ class TransferOwnershipClient {
   @experimental
   DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1216,7 +1234,9 @@ class TransferOwnershipClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1238,8 +1258,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer rejected successfully
@@ -1250,7 +1270,7 @@ class TransferOwnershipClient {
   ///  * [rejectRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TransferOwnershipRejectResponseApplicationJson, void>> reject({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = rejectRaw(
       id: id,
@@ -1268,8 +1288,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer rejected successfully
@@ -1281,7 +1301,7 @@ class TransferOwnershipClient {
   @experimental
   DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files/api/v1/transferownership/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1308,7 +1328,9 @@ class TransferOwnershipClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
       response: _rootClient.doRequest(

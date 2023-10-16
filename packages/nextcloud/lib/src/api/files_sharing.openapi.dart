@@ -60,16 +60,14 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Deleted shares returned
   ///
   /// See:
   ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeletedShareapiListResponseApplicationJson, void>> list({
-    final bool oCSAPIRequest = true,
-  }) async {
+  Future<DynamiteResponse<DeletedShareapiListResponseApplicationJson, void>> list({final bool? oCSAPIRequest}) async {
     final rawResponse = listRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -85,7 +83,7 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Deleted shares returned
@@ -93,7 +91,7 @@ class DeletedShareapiClient {
   /// See:
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -118,7 +116,9 @@ class DeletedShareapiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -140,8 +140,8 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share undeleted successfully
@@ -151,7 +151,7 @@ class DeletedShareapiClient {
   ///  * [undeleteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DeletedShareapiUndeleteResponseApplicationJson, void>> undelete({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = undeleteRaw(
       id: id,
@@ -169,8 +169,8 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share undeleted successfully
@@ -181,7 +181,7 @@ class DeletedShareapiClient {
   @experimental
   DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void> undeleteRaw({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -208,7 +208,9 @@ class DeletedShareapiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -236,8 +238,8 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -249,7 +251,7 @@ class PublicPreviewClient {
   ///  * [directLinkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> directLink({
     required final String token,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = directLinkRaw(
       token: token,
@@ -267,8 +269,8 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -281,7 +283,7 @@ class PublicPreviewClient {
   @experimental
   DynamiteRawResponse<Uint8List, void> directLinkRaw({
     required final String token,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/index.php/s/{token}/preview';
     final queryParameters = <String, dynamic>{};
@@ -306,7 +308,9 @@ class PublicPreviewClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.doRequest(
@@ -328,12 +332,12 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -345,11 +349,11 @@ class PublicPreviewClient {
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
     required final String token,
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final bool oCSAPIRequest = true,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getPreviewRaw(
       token: token,
@@ -371,12 +375,12 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -389,11 +393,11 @@ class PublicPreviewClient {
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     required final String token,
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final bool oCSAPIRequest = true,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/index.php/apps/files_sharing/publicpreview/{token}';
     final queryParameters = <String, dynamic>{};
@@ -418,19 +422,21 @@ class PublicPreviewClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
-    if (file != '') {
+    if (file != null && file != '') {
       queryParameters['file'] = file;
     }
-    if (x != 32) {
+    if (x != null && x != 32) {
       queryParameters['x'] = x.toString();
     }
-    if (y != 32) {
+    if (y != null && y != 32) {
       queryParameters['y'] = y.toString();
     }
-    if (a != 0) {
+    if (a != null && a != 0) {
       queryParameters['a'] = a.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.doRequest(
@@ -458,16 +464,14 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Accepted remote shares returned
   ///
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({
-    final bool oCSAPIRequest = true,
-  }) async {
+  Future<DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({final bool? oCSAPIRequest}) async {
     final rawResponse = getSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -483,7 +487,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Accepted remote shares returned
@@ -491,7 +495,7 @@ class RemoteClient {
   /// See:
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -516,7 +520,9 @@ class RemoteClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -538,7 +544,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending remote shares returned
@@ -546,7 +552,7 @@ class RemoteClient {
   /// See:
   ///  * [getOpenSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getOpenSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -563,7 +569,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending remote shares returned
@@ -571,9 +577,7 @@ class RemoteClient {
   /// See:
   ///  * [getOpenShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -598,7 +602,9 @@ class RemoteClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -620,8 +626,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -631,7 +637,7 @@ class RemoteClient {
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteAcceptShareResponseApplicationJson, void>> acceptShare({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -649,8 +655,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -661,7 +667,7 @@ class RemoteClient {
   @experimental
   DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -688,7 +694,9 @@ class RemoteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -710,8 +718,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share declined successfully
@@ -721,7 +729,7 @@ class RemoteClient {
   ///  * [declineShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteDeclineShareResponseApplicationJson, void>> declineShare({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = declineShareRaw(
       id: id,
@@ -739,8 +747,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share declined successfully
@@ -751,7 +759,7 @@ class RemoteClient {
   @experimental
   DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void> declineShareRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -778,7 +786,9 @@ class RemoteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -800,8 +810,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -811,7 +821,7 @@ class RemoteClient {
   ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteGetShareResponseApplicationJson, void>> getShare({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getShareRaw(
       id: id,
@@ -829,8 +839,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -841,7 +851,7 @@ class RemoteClient {
   @experimental
   DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void> getShareRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -868,7 +878,9 @@ class RemoteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -890,8 +902,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share unshared successfully
@@ -902,7 +914,7 @@ class RemoteClient {
   ///  * [unshareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteUnshareResponseApplicationJson, void>> unshare({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = unshareRaw(
       id: id,
@@ -920,8 +932,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share unshared successfully
@@ -933,7 +945,7 @@ class RemoteClient {
   @experimental
   DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void> unshareRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -960,7 +972,9 @@ class RemoteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -988,10 +1002,10 @@ class ShareInfoClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [t] Token of the share
-  ///   * [password] Password of the share
-  ///   * [dir] Subdirectory to get info about
-  ///   * [depth] Maximum depth to get info about
+  ///   * [t] Token of the share.
+  ///   * [password] Password of the share.
+  ///   * [dir] Subdirectory to get info about.
+  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
   ///
   /// Status codes:
   ///   * 200: Share info returned
@@ -1004,7 +1018,7 @@ class ShareInfoClient {
     required final String t,
     final String? password,
     final String? dir,
-    final int depth = -1,
+    final int? depth,
   }) async {
     final rawResponse = infoRaw(
       t: t,
@@ -1024,10 +1038,10 @@ class ShareInfoClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [t] Token of the share
-  ///   * [password] Password of the share
-  ///   * [dir] Subdirectory to get info about
-  ///   * [depth] Maximum depth to get info about
+  ///   * [t] Token of the share.
+  ///   * [password] Password of the share.
+  ///   * [dir] Subdirectory to get info about.
+  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
   ///
   /// Status codes:
   ///   * 200: Share info returned
@@ -1041,7 +1055,7 @@ class ShareInfoClient {
     required final String t,
     final String? password,
     final String? dir,
-    final int depth = -1,
+    final int? depth,
   }) {
     const path = '/index.php/apps/files_sharing/shareinfo';
     final queryParameters = <String, dynamic>{};
@@ -1072,7 +1086,7 @@ class ShareInfoClient {
     if (dir != null) {
       queryParameters['dir'] = dir;
     }
-    if (depth != -1) {
+    if (depth != null && depth != -1) {
       queryParameters['depth'] = depth.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
@@ -1102,12 +1116,12 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user
-  ///   * [reshares] Only get shares by the current user and reshares
-  ///   * [subfiles] Only get all shares in a folder
-  ///   * [path] Get shares for a specific path
-  ///   * [includeTags] Include tags in the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
+  ///   * [path] Get shares for a specific path. Defaults to `''`.
+  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1116,12 +1130,12 @@ class ShareapiClient {
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetSharesResponseApplicationJson, void>> getShares({
-    final String sharedWithMe = 'false',
-    final String reshares = 'false',
-    final String subfiles = 'false',
-    final String path = '',
-    final String includeTags = 'false',
-    final bool oCSAPIRequest = true,
+    final String? sharedWithMe,
+    final String? reshares,
+    final String? subfiles,
+    final String? path,
+    final String? includeTags,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSharesRaw(
       sharedWithMe: sharedWithMe,
@@ -1143,12 +1157,12 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user
-  ///   * [reshares] Only get shares by the current user and reshares
-  ///   * [subfiles] Only get all shares in a folder
-  ///   * [path] Get shares for a specific path
-  ///   * [includeTags] Include tags in the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
+  ///   * [path] Get shares for a specific path. Defaults to `''`.
+  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1158,12 +1172,12 @@ class ShareapiClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void> getSharesRaw({
-    final String sharedWithMe = 'false',
-    final String reshares = 'false',
-    final String subfiles = 'false',
-    final String path = '',
-    final String includeTags = 'false',
-    final bool oCSAPIRequest = true,
+    final String? sharedWithMe,
+    final String? reshares,
+    final String? subfiles,
+    final String? path,
+    final String? includeTags,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
@@ -1189,22 +1203,24 @@ class ShareapiClient {
     }
 
 // coverage:ignore-end
-    if (sharedWithMe != 'false') {
+    if (sharedWithMe != null && sharedWithMe != 'false') {
       queryParameters['shared_with_me'] = sharedWithMe;
     }
-    if (reshares != 'false') {
+    if (reshares != null && reshares != 'false') {
       queryParameters['reshares'] = reshares;
     }
-    if (subfiles != 'false') {
+    if (subfiles != null && subfiles != 'false') {
       queryParameters['subfiles'] = subfiles;
     }
-    if (path != '') {
+    if (path != null && path != '') {
       queryParameters['path'] = path;
     }
-    if (includeTags != 'false') {
+    if (includeTags != null && includeTags != 'false') {
       queryParameters['include_tags'] = includeTags;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1226,18 +1242,18 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share
-  ///   * [permissions] Permissions for the share
-  ///   * [shareType] Type of the share
-  ///   * [shareWith] The entity this should be shared with
-  ///   * [publicUpload] If public uploading is allowed
-  ///   * [password] Password for the share
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk
-  ///   * [expireDate] Expiry date of the share
-  ///   * [note] Note for the share
-  ///   * [label] Label for the share (only used in link and email)
-  ///   * [attributes] Additional attributes for the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the share.
+  ///   * [permissions] Permissions for the share.
+  ///   * [shareType] Type of the share. Defaults to `-1`.
+  ///   * [shareWith] The entity this should be shared with.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
+  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
+  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [note] Note for the share. Defaults to `''`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [attributes] Additional attributes for the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share created
@@ -1250,16 +1266,16 @@ class ShareapiClient {
   Future<DynamiteResponse<ShareapiCreateShareResponseApplicationJson, void>> createShare({
     final String? path,
     final int? permissions,
-    final int shareType = -1,
+    final int? shareType,
     final String? shareWith,
-    final String publicUpload = 'false',
-    final String password = '',
+    final String? publicUpload,
+    final String? password,
     final String? sendPasswordByTalk,
-    final String expireDate = '',
-    final String note = '',
-    final String label = '',
+    final String? expireDate,
+    final String? note,
+    final String? label,
     final String? attributes,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createShareRaw(
       path: path,
@@ -1287,18 +1303,18 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share
-  ///   * [permissions] Permissions for the share
-  ///   * [shareType] Type of the share
-  ///   * [shareWith] The entity this should be shared with
-  ///   * [publicUpload] If public uploading is allowed
-  ///   * [password] Password for the share
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk
-  ///   * [expireDate] Expiry date of the share
-  ///   * [note] Note for the share
-  ///   * [label] Label for the share (only used in link and email)
-  ///   * [attributes] Additional attributes for the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the share.
+  ///   * [permissions] Permissions for the share.
+  ///   * [shareType] Type of the share. Defaults to `-1`.
+  ///   * [shareWith] The entity this should be shared with.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
+  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
+  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [note] Note for the share. Defaults to `''`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [attributes] Additional attributes for the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share created
@@ -1312,16 +1328,16 @@ class ShareapiClient {
   DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void> createShareRaw({
     final String? path,
     final int? permissions,
-    final int shareType = -1,
+    final int? shareType,
     final String? shareWith,
-    final String publicUpload = 'false',
-    final String password = '',
+    final String? publicUpload,
+    final String? password,
     final String? sendPasswordByTalk,
-    final String expireDate = '',
-    final String note = '',
-    final String label = '',
+    final String? expireDate,
+    final String? note,
+    final String? label,
     final String? attributes,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
@@ -1353,34 +1369,36 @@ class ShareapiClient {
     if (permissions != null) {
       queryParameters['permissions'] = permissions.toString();
     }
-    if (shareType != -1) {
+    if (shareType != null && shareType != -1) {
       queryParameters['shareType'] = shareType.toString();
     }
     if (shareWith != null) {
       queryParameters['shareWith'] = shareWith;
     }
-    if (publicUpload != 'false') {
+    if (publicUpload != null && publicUpload != 'false') {
       queryParameters['publicUpload'] = publicUpload;
     }
-    if (password != '') {
+    if (password != null && password != '') {
       queryParameters['password'] = password;
     }
     if (sendPasswordByTalk != null) {
       queryParameters['sendPasswordByTalk'] = sendPasswordByTalk;
     }
-    if (expireDate != '') {
+    if (expireDate != null && expireDate != '') {
       queryParameters['expireDate'] = expireDate;
     }
-    if (note != '') {
+    if (note != null && note != '') {
       queryParameters['note'] = note;
     }
-    if (label != '') {
+    if (label != null && label != '') {
       queryParameters['label'] = label;
     }
     if (attributes != null) {
       queryParameters['attributes'] = attributes;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1402,8 +1420,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path all shares will be relative to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1414,7 +1432,7 @@ class ShareapiClient {
   ///  * [getInheritedSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getInheritedSharesRaw(
       path: path,
@@ -1432,8 +1450,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path all shares will be relative to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1445,7 +1463,7 @@ class ShareapiClient {
   @experimental
   DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void> getInheritedSharesRaw({
     required final String path,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
     final queryParameters = <String, dynamic>{};
@@ -1472,7 +1490,9 @@ class ShareapiClient {
 
 // coverage:ignore-end
     queryParameters['path'] = path;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1494,7 +1514,7 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending shares returned
@@ -1502,7 +1522,7 @@ class ShareapiClient {
   /// See:
   ///  * [pendingSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = pendingSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -1519,7 +1539,7 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending shares returned
@@ -1528,7 +1548,7 @@ class ShareapiClient {
   ///  * [pendingShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     final queryParameters = <String, dynamic>{};
@@ -1554,7 +1574,9 @@ class ShareapiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1576,9 +1598,9 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [includeTags] Include tags in the share. Defaults to `0`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -1588,8 +1610,8 @@ class ShareapiClient {
   ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetShareResponseApplicationJson, void>> getShare({
     required final String id,
-    final int includeTags = 0,
-    final bool oCSAPIRequest = true,
+    final int? includeTags,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getShareRaw(
       id: id,
@@ -1608,9 +1630,9 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [includeTags] Include tags in the share. Defaults to `0`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -1621,8 +1643,8 @@ class ShareapiClient {
   @experimental
   DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void> getShareRaw({
     required final String id,
-    final int includeTags = 0,
-    final bool oCSAPIRequest = true,
+    final int? includeTags,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1649,10 +1671,12 @@ class ShareapiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    if (includeTags != 0) {
+    if (includeTags != null && includeTags != 0) {
       queryParameters['include_tags'] = includeTags.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1674,17 +1698,17 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions
-  ///   * [password] New password
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
-  ///   * [publicUpload] New condition if public uploading is allowed
-  ///   * [expireDate] New expiry date
-  ///   * [note] New note
-  ///   * [label] New label
-  ///   * [hideDownload] New condition if the download should be hidden
-  ///   * [attributes] New additional attributes
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [permissions] New permissions.
+  ///   * [password] New password.
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
+  ///   * [publicUpload] New condition if public uploading is allowed.
+  ///   * [expireDate] New expiry date.
+  ///   * [note] New note.
+  ///   * [label] New label.
+  ///   * [hideDownload] New condition if the download should be hidden.
+  ///   * [attributes] New additional attributes.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share updated successfully
@@ -1705,7 +1729,7 @@ class ShareapiClient {
     final String? label,
     final String? hideDownload,
     final String? attributes,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = updateShareRaw(
       id: id,
@@ -1732,17 +1756,17 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions
-  ///   * [password] New password
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
-  ///   * [publicUpload] New condition if public uploading is allowed
-  ///   * [expireDate] New expiry date
-  ///   * [note] New note
-  ///   * [label] New label
-  ///   * [hideDownload] New condition if the download should be hidden
-  ///   * [attributes] New additional attributes
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [permissions] New permissions.
+  ///   * [password] New password.
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
+  ///   * [publicUpload] New condition if public uploading is allowed.
+  ///   * [expireDate] New expiry date.
+  ///   * [note] New note.
+  ///   * [label] New label.
+  ///   * [hideDownload] New condition if the download should be hidden.
+  ///   * [attributes] New additional attributes.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share updated successfully
@@ -1764,7 +1788,7 @@ class ShareapiClient {
     final String? label,
     final String? hideDownload,
     final String? attributes,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1818,7 +1842,9 @@ class ShareapiClient {
     if (attributes != null) {
       queryParameters['attributes'] = attributes;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1840,8 +1866,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share deleted successfully
@@ -1852,7 +1878,7 @@ class ShareapiClient {
   ///  * [deleteShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiDeleteShareResponseApplicationJson, void>> deleteShare({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteShareRaw(
       id: id,
@@ -1870,8 +1896,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share deleted successfully
@@ -1883,7 +1909,7 @@ class ShareapiClient {
   @experimental
   DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void> deleteShareRaw({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}';
     final queryParameters = <String, dynamic>{};
@@ -1910,7 +1936,9 @@ class ShareapiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -1932,8 +1960,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -1944,7 +1972,7 @@ class ShareapiClient {
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiAcceptShareResponseApplicationJson, void>> acceptShare({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -1962,8 +1990,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -1975,7 +2003,7 @@ class ShareapiClient {
   @experimental
   DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required final String id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}';
     final queryParameters = <String, dynamic>{};
@@ -2002,7 +2030,9 @@ class ShareapiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -2030,13 +2060,13 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Limit to specific item types
-  ///   * [page] Page offset for searching
-  ///   * [perPage] Limit amount of search results per page
-  ///   * [shareType] Limit to specific share types
-  ///   * [lookup] If a global lookup should be performed too
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [itemType] Limit to specific item types.
+  ///   * [page] Page offset for searching. Defaults to `1`.
+  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sharees search result returned
@@ -2045,13 +2075,13 @@ class ShareesapiClient {
   /// See:
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>> search({
-    final String search = '',
+    final String? search,
     final String? itemType,
-    final int page = 1,
-    final int perPage = 200,
+    final int? page,
+    final int? perPage,
     final ContentString<ShareesapiSearchShareType>? shareType,
-    final int lookup = 0,
-    final bool oCSAPIRequest = true,
+    final int? lookup,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
       search: search,
@@ -2074,13 +2104,13 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Limit to specific item types
-  ///   * [page] Page offset for searching
-  ///   * [perPage] Limit amount of search results per page
-  ///   * [shareType] Limit to specific share types
-  ///   * [lookup] If a global lookup should be performed too
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [itemType] Limit to specific item types.
+  ///   * [page] Page offset for searching. Defaults to `1`.
+  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sharees search result returned
@@ -2090,13 +2120,13 @@ class ShareesapiClient {
   ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders> searchRaw({
-    final String search = '',
+    final String? search,
     final String? itemType,
-    final int page = 1,
-    final int perPage = 200,
+    final int? page,
+    final int? perPage,
     final ContentString<ShareesapiSearchShareType>? shareType,
-    final int lookup = 0,
-    final bool oCSAPIRequest = true,
+    final int? lookup,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees';
     final queryParameters = <String, dynamic>{};
@@ -2122,16 +2152,16 @@ class ShareesapiClient {
     }
 
 // coverage:ignore-end
-    if (search != '') {
+    if (search != null && search != '') {
       queryParameters['search'] = search;
     }
     if (itemType != null) {
       queryParameters['itemType'] = itemType;
     }
-    if (page != 1) {
+    if (page != null && page != 1) {
       queryParameters['page'] = page.toString();
     }
-    if (perPage != 200) {
+    if (perPage != null && perPage != 200) {
       queryParameters['perPage'] = perPage.toString();
     }
     if (shareType != null) {
@@ -2140,10 +2170,12 @@ class ShareesapiClient {
         specifiedType: const FullType(ContentString, [FullType(ShareesapiSearchShareType)]),
       );
     }
-    if (lookup != 0) {
+    if (lookup != null && lookup != 0) {
       queryParameters['lookup'] = lookup.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
       response: _rootClient.doRequest(
@@ -2165,9 +2197,9 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types
-  ///   * [shareType] Limit to specific share types
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [itemType] Limit to specific item types.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Recommended sharees returned
@@ -2177,7 +2209,7 @@ class ShareesapiClient {
   Future<DynamiteResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
     required final String itemType,
     final ContentString<ShareesapiFindRecommendedShareType>? shareType,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = findRecommendedRaw(
       itemType: itemType,
@@ -2196,9 +2228,9 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types
-  ///   * [shareType] Limit to specific share types
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [itemType] Limit to specific item types.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Recommended sharees returned
@@ -2209,7 +2241,7 @@ class ShareesapiClient {
   DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
     required final String itemType,
     final ContentString<ShareesapiFindRecommendedShareType>? shareType,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended';
     final queryParameters = <String, dynamic>{};
@@ -2242,7 +2274,9 @@ class ShareesapiClient {
         specifiedType: const FullType(ContentString, [FullType(ShareesapiFindRecommendedShareType)]),
       );
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void>(
       response: _rootClient.doRequest(

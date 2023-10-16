@@ -51,9 +51,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [newVersion] Server version to check updates for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [newVersion] Server version to check updates for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned
@@ -63,8 +63,8 @@ class ApiClient {
   ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppListRaw(
       newVersion: newVersion,
@@ -85,9 +85,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [newVersion] Server version to check updates for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [newVersion] Server version to check updates for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned
@@ -98,8 +98,8 @@ class ApiClient {
   @experimental
   DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
     var path = '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}';
     final queryParameters = <String, dynamic>{};
@@ -126,8 +126,12 @@ class ApiClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{newVersion}', Uri.encodeQueryComponent(newVersion));
-    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (apiVersion != null && apiVersion != ApiGetAppListApiVersion.v1) {
+      path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    }
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.doRequest(

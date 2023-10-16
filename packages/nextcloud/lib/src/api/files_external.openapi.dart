@@ -50,7 +50,7 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User mounts returned
@@ -58,7 +58,7 @@ class ApiClient {
   /// See:
   ///  * [getUserMountsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserMountsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -75,7 +75,7 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User mounts returned
@@ -83,9 +83,7 @@ class ApiClient {
   /// See:
   ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -110,7 +108,9 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
       response: _rootClient.doRequest(

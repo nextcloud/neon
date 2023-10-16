@@ -21,7 +21,7 @@ bool isDartParameterNullable(
   final bool required,
   final openapi.Schema? schema,
 ) =>
-    (!required && schema?.$default == null) || (schema?.nullable ?? false);
+    !isRequired(required, schema) || (schema?.nullable ?? false);
 
 bool isRequired(
   final bool required,
@@ -30,8 +30,11 @@ bool isRequired(
     required && schema?.$default == null;
 
 int sortRequiredParameters(final openapi.Parameter a, final openapi.Parameter b) {
-  if (a.isDartRequired != b.isDartRequired) {
-    if (a.isDartRequired && !b.isDartRequired) {
+  final aRequired = isRequired(a.required, a.schema);
+  final bRequired = isRequired(b.required, b.schema);
+
+  if (aRequired != bRequired) {
+    if (aRequired && !bRequired) {
       return -1;
     } else {
       return 1;

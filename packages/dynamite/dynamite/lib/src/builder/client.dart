@@ -255,61 +255,20 @@ Iterable<Method> buildTags(
           nullable: dartParameterNullable,
         ).dartType;
 
-        buildPatternCheck(result, parameter).forEach(code.writeln);
-
-        final defaultValueCode = parameter.schema?.$default != null
-            ? valueToEscapedValue(result, parameter.schema!.$default.toString())
-            : null;
-
         operationParameters.add(
           Parameter(
             (final b) {
               b
                 ..named = true
                 ..name = toDartName(parameter.name)
-                ..required = parameter.isDartRequired;
-              if (parameter.schema != null) {
-                b.type = refer(result.nullableName);
-              }
-              if (defaultValueCode != null) {
-                b.defaultTo = Code(defaultValueCode);
-              }
+                ..required = !result.nullable
+                ..type = refer(result.nullableName);
             },
           ),
         );
 
-        if (dartParameterNullable) {
-          code.writeln('if (${toDartName(parameter.name)} != null) {');
-        }
-        final value = result.encode(
-          toDartName(parameter.name),
-          onlyChildren: result is TypeResultList && parameter.$in == 'query',
-        );
-        if (defaultValueCode != null && parameter.$in == 'query') {
-          code.writeln('if (${toDartName(parameter.name)} != $defaultValueCode) {');
-        }
-        switch (parameter.$in) {
-          case 'path':
-            code.writeln(
-              "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
-            );
-          case 'query':
-            code.writeln(
-              "_queryParameters['${parameter.name}'] = $value;",
-            );
-          case 'header':
-            code.writeln(
-              "_headers['${parameter.name}'] = $value;",
-            );
-          default:
-            throw Exception('Can not work with parameter in "${parameter.$in}"');
-        }
-        if (defaultValueCode != null && parameter.$in == 'query') {
-          code.writeln('}');
-        }
-        if (dartParameterNullable) {
-          code.writeln('}');
-        }
+        buildPatternCheck(result, parameter).forEach(code.writeln);
+        buildSerialization(result, parameter).forEach(code.writeln);
       }
       resolveMimeTypeEncode(operation, spec, state, operationId, operationParameters).forEach(code.writeln);
 
@@ -427,6 +386,46 @@ return rawResponse.future;
         },
       );
     }
+  }
+}
+
+Iterable<String> buildSerialization(
+  final TypeResult result,
+  final openapi.Parameter parameter,
+) sync* {
+  final $default = parameter.schema?.$default;
+  final hasDefault = $default != null;
+  final defaultValueCode = valueToEscapedValue(result, $default.toString());
+  final dartName = toDartName(parameter.name);
+
+  final value = result.encode(
+    dartName,
+    onlyChildren: parameter.$in == openapi.ParameterType.query,
+  );
+
+  final assignment = switch (parameter.$in) {
+    openapi.ParameterType.path => "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
+    openapi.ParameterType.query => "_queryParameters['${parameter.name}'] = $value;",
+    openapi.ParameterType.header => "_headers['${parameter.name}'] = $value;",
+    _ => throw Exception('Can not work with parameter "${parameter.name}" in "${parameter.$in}"'),
+  };
+
+  if (result.nullable || hasDefault) {
+    yield 'if( ';
+    if (result.nullable) {
+      yield '$dartName != null ';
+    }
+    if (result.nullable && hasDefault) {
+      yield '&&';
+    }
+    if (hasDefault) {
+      yield '$dartName != $defaultValueCode';
+    }
+    yield ') {';
+    yield assignment;
+    yield '}';
+  } else {
+    yield assignment;
   }
 }
 

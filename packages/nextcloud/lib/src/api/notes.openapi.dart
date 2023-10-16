@@ -42,9 +42,9 @@ class Client extends DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude]
-  ///   * [pruneBefore]
-  ///   * [chunkSize]
+  ///   * [exclude] Defaults to `''`.
+  ///   * [pruneBefore] Defaults to `0`.
+  ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
   ///   * [ifNoneMatch]
   ///
@@ -55,9 +55,9 @@ class Client extends DynamiteClient {
   ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Note>, void>> getNotes({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) async {
@@ -80,9 +80,9 @@ class Client extends DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude]
-  ///   * [pruneBefore]
-  ///   * [chunkSize]
+  ///   * [exclude] Defaults to `''`.
+  ///   * [pruneBefore] Defaults to `0`.
+  ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
   ///   * [ifNoneMatch]
   ///
@@ -94,9 +94,9 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) {
@@ -127,13 +127,13 @@ class Client extends DynamiteClient {
     if (category != null) {
       queryParameters['category'] = category;
     }
-    if (exclude != '') {
+    if (exclude != null && exclude != '') {
       queryParameters['exclude'] = exclude;
     }
-    if (pruneBefore != 0) {
+    if (pruneBefore != null && pruneBefore != 0) {
       queryParameters['pruneBefore'] = pruneBefore.toString();
     }
-    if (chunkSize != 0) {
+    if (chunkSize != null && chunkSize != 0) {
       queryParameters['chunkSize'] = chunkSize.toString();
     }
     if (chunkCursor != null) {
@@ -161,11 +161,11 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category]
-  ///   * [title]
-  ///   * [content]
-  ///   * [modified]
-  ///   * [favorite]
+  ///   * [category] Defaults to `''`.
+  ///   * [title] Defaults to `''`.
+  ///   * [content] Defaults to `''`.
+  ///   * [modified] Defaults to `0`.
+  ///   * [favorite] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -173,11 +173,11 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> createNote({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) async {
     final rawResponse = createNoteRaw(
       category: category,
@@ -196,11 +196,11 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category]
-  ///   * [title]
-  ///   * [content]
-  ///   * [modified]
-  ///   * [favorite]
+  ///   * [category] Defaults to `''`.
+  ///   * [title] Defaults to `''`.
+  ///   * [content] Defaults to `''`.
+  ///   * [modified] Defaults to `0`.
+  ///   * [favorite] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -209,11 +209,11 @@ class Client extends DynamiteClient {
   ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> createNoteRaw({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) {
     const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
@@ -239,19 +239,19 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (category != '') {
+    if (category != null && category != '') {
       queryParameters['category'] = category;
     }
-    if (title != '') {
+    if (title != null && title != '') {
       queryParameters['title'] = title;
     }
-    if (content != '') {
+    if (content != null && content != '') {
       queryParameters['content'] = content;
     }
-    if (modified != 0) {
+    if (modified != null && modified != 0) {
       queryParameters['modified'] = modified.toString();
     }
-    if (favorite != 0) {
+    if (favorite != null && favorite != 0) {
       queryParameters['favorite'] = favorite.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
@@ -273,7 +273,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude]
+  ///   * [exclude] Defaults to `''`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:
@@ -283,7 +283,7 @@ class Client extends DynamiteClient {
   ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> getNote({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) async {
     final rawResponse = getNoteRaw(
@@ -301,7 +301,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude]
+  ///   * [exclude] Defaults to `''`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:
@@ -312,7 +312,7 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<Note, void> getNoteRaw({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
@@ -340,7 +340,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    if (exclude != '') {
+    if (exclude != null && exclude != '') {
       queryParameters['exclude'] = exclude;
     }
     if (ifNoneMatch != null) {

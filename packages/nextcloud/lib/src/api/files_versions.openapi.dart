@@ -48,10 +48,10 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [version] Version of the file to get the preview for
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `44`.
+  ///   * [y] Height of the preview. Defaults to `44`.
+  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -61,10 +61,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String file = '',
-    final int x = 44,
-    final int y = 44,
-    final String version = '',
+    final String? file,
+    final int? x,
+    final int? y,
+    final String? version,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -84,10 +84,10 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [version] Version of the file to get the preview for
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `44`.
+  ///   * [y] Height of the preview. Defaults to `44`.
+  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -98,10 +98,10 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String file = '',
-    final int x = 44,
-    final int y = 44,
-    final String version = '',
+    final String? file,
+    final int? x,
+    final int? y,
+    final String? version,
   }) {
     const path = '/index.php/apps/files_versions/preview';
     final queryParameters = <String, dynamic>{};
@@ -127,16 +127,16 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (file != '') {
+    if (file != null && file != '') {
       queryParameters['file'] = file;
     }
-    if (x != 44) {
+    if (x != null && x != 44) {
       queryParameters['x'] = x.toString();
     }
-    if (y != 44) {
+    if (y != null && y != 44) {
       queryParameters['y'] = y.toString();
     }
-    if (version != '') {
+    if (version != null && version != '') {
       queryParameters['version'] = version;
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);

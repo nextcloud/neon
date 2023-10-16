@@ -48,10 +48,10 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -61,10 +61,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) async {
     final rawResponse = getPreviewRaw(
       fileId: fileId,
@@ -84,10 +84,10 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -98,10 +98,10 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) {
     const path = '/index.php/apps/files_trashbin/preview';
     final queryParameters = <String, dynamic>{};
@@ -127,16 +127,16 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (fileId != -1) {
+    if (fileId != null && fileId != -1) {
       queryParameters['fileId'] = fileId.toString();
     }
-    if (x != 32) {
+    if (x != null && x != 32) {
       queryParameters['x'] = x.toString();
     }
-    if (y != 32) {
+    if (y != null && y != 32) {
       queryParameters['y'] = y.toString();
     }
-    if (a != 0) {
+    if (a != null && a != 0) {
       queryParameters['a'] = a.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);

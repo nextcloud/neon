@@ -49,8 +49,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [mode] New mode.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Weather status mode updated
@@ -59,7 +59,7 @@ class WeatherStatusClient {
   ///  * [setModeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetModeResponseApplicationJson, void>> setMode({
     required final int mode,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setModeRaw(
       mode: mode,
@@ -77,8 +77,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [mode] New mode.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Weather status mode updated
@@ -88,7 +88,7 @@ class WeatherStatusClient {
   @experimental
   DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
     required final int mode,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
     final queryParameters = <String, dynamic>{};
@@ -115,7 +115,9 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     queryParameters['mode'] = mode.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -137,7 +139,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Address updated
@@ -145,7 +147,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [usePersonalAddressRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = usePersonalAddressRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -162,7 +164,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Address updated
@@ -171,7 +173,7 @@ class WeatherStatusClient {
   ///  * [usePersonalAddress] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
     final queryParameters = <String, dynamic>{};
@@ -197,7 +199,9 @@ class WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -219,7 +223,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location returned
@@ -227,7 +231,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getLocationRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -244,7 +248,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location returned
@@ -253,7 +257,7 @@ class WeatherStatusClient {
   ///  * [getLocation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
@@ -279,7 +283,9 @@ class WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -301,10 +307,10 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address
-  ///   * [lat] Latitude in decimal degree format
-  ///   * [lon] Longitude in decimal degree format
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [address] Any approximative or exact address.
+  ///   * [lat] Latitude in decimal degree format.
+  ///   * [lon] Longitude in decimal degree format.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location updated
@@ -315,7 +321,7 @@ class WeatherStatusClient {
     final String? address,
     final num? lat,
     final num? lon,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setLocationRaw(
       address: address,
@@ -335,10 +341,10 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address
-  ///   * [lat] Latitude in decimal degree format
-  ///   * [lon] Longitude in decimal degree format
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [address] Any approximative or exact address.
+  ///   * [lat] Latitude in decimal degree format.
+  ///   * [lon] Longitude in decimal degree format.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location updated
@@ -350,7 +356,7 @@ class WeatherStatusClient {
     final String? address,
     final num? lat,
     final num? lon,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final queryParameters = <String, dynamic>{};
@@ -385,7 +391,9 @@ class WeatherStatusClient {
     if (lon != null) {
       queryParameters['lon'] = lon.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -407,7 +415,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Forecast returned
@@ -416,7 +424,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getForecastRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getForecastRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -433,7 +441,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Forecast returned
@@ -443,7 +451,7 @@ class WeatherStatusClient {
   ///  * [getForecast] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
     final queryParameters = <String, dynamic>{};
@@ -469,7 +477,9 @@ class WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -491,7 +501,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites returned
@@ -499,7 +509,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getFavoritesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -516,7 +526,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites returned
@@ -525,7 +535,7 @@ class WeatherStatusClient {
   ///  * [getFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
@@ -551,7 +561,9 @@ class WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -573,8 +585,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [favorites] Favorite addresses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites updated
@@ -583,7 +595,7 @@ class WeatherStatusClient {
   ///  * [setFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
     required final List<String> favorites,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setFavoritesRaw(
       favorites: favorites,
@@ -601,8 +613,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [favorites] Favorite addresses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites updated
@@ -612,7 +624,7 @@ class WeatherStatusClient {
   @experimental
   DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
     required final List<String> favorites,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final queryParameters = <String, dynamic>{};
@@ -639,7 +651,9 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     queryParameters['favorites[]'] = favorites.map((final e) => e);
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
       response: _rootClient.doRequest(

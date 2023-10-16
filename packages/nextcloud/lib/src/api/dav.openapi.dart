@@ -48,9 +48,9 @@ class DirectClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [expirationTime] Duration until the link expires
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [expirationTime] Duration until the link expires.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct link returned
@@ -63,7 +63,7 @@ class DirectClient {
   Future<DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required final int fileId,
     final int? expirationTime,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUrlRaw(
       fileId: fileId,
@@ -82,9 +82,9 @@ class DirectClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [expirationTime] Duration until the link expires
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [expirationTime] Duration until the link expires.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct link returned
@@ -98,7 +98,7 @@ class DirectClient {
   DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required final int fileId,
     final int? expirationTime,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final queryParameters = <String, dynamic>{};
@@ -128,7 +128,9 @@ class DirectClient {
     if (expirationTime != null) {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.doRequest(

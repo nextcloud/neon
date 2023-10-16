@@ -49,7 +49,7 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widgets returned
@@ -57,7 +57,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -74,7 +74,7 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widgets returned
@@ -82,9 +82,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({final bool? oCSAPIRequest}) {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -109,7 +107,9 @@ class DashboardApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -131,10 +131,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -143,9 +143,9 @@ class DashboardApiClient {
   ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final List<String>? widgets,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsRaw(
       sinceIds: sinceIds,
@@ -165,10 +165,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -178,9 +178,9 @@ class DashboardApiClient {
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final List<String>? widgets,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
     final queryParameters = <String, dynamic>{};
@@ -214,13 +214,15 @@ class DashboardApiClient {
         ]),
       );
     }
-    if (limit != 7) {
+    if (limit != null && limit != 7) {
       queryParameters['limit'] = limit.toString();
     }
-    if (widgets != const <String>[]) {
+    if (widgets != null && widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
@@ -242,10 +244,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -254,9 +256,9 @@ class DashboardApiClient {
   ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final List<String>? widgets,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsV2Raw(
       sinceIds: sinceIds,
@@ -276,10 +278,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -289,9 +291,9 @@ class DashboardApiClient {
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final List<String>? widgets,
+    final bool? oCSAPIRequest,
   }) {
     const path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
     final queryParameters = <String, dynamic>{};
@@ -325,13 +327,15 @@ class DashboardApiClient {
         ]),
       );
     }
-    if (limit != 7) {
+    if (limit != null && limit != 7) {
       queryParameters['limit'] = limit.toString();
     }
-    if (widgets != const <String>[]) {
+    if (widgets != null && widgets != const <String>[]) {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    if (oCSAPIRequest != null && !oCSAPIRequest) {
+      headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.doRequest(
