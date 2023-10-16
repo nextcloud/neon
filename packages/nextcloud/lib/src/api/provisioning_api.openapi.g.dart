@@ -9637,6 +9637,19 @@ class GroupsAddGroupResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class GroupDetails_UsercountInterfaceBuilder {
+  void replace(GroupDetails_UsercountInterface other);
+  void update(void Function(GroupDetails_UsercountInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  bool? get $bool;
+  set $bool(bool? $bool);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
 class _$GroupDetails_Usercount extends GroupDetails_Usercount {
   @override
   final JsonObject data;
@@ -9685,20 +9698,21 @@ class _$GroupDetails_Usercount extends GroupDetails_Usercount {
   }
 }
 
-class GroupDetails_UsercountBuilder implements Builder<GroupDetails_Usercount, GroupDetails_UsercountBuilder> {
+class GroupDetails_UsercountBuilder
+    implements Builder<GroupDetails_Usercount, GroupDetails_UsercountBuilder>, GroupDetails_UsercountInterfaceBuilder {
   _$GroupDetails_Usercount? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   bool? _$bool;
   bool? get $bool => _$this._$bool;
-  set $bool(bool? $bool) => _$this._$bool = $bool;
+  set $bool(covariant bool? $bool) => _$this._$bool = $bool;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   GroupDetails_UsercountBuilder();
 
@@ -9714,7 +9728,7 @@ class GroupDetails_UsercountBuilder implements Builder<GroupDetails_Usercount, G
   }
 
   @override
-  void replace(GroupDetails_Usercount other) {
+  void replace(covariant GroupDetails_Usercount other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupDetails_Usercount;
   }
@@ -9736,6 +9750,19 @@ class GroupDetails_UsercountBuilder implements Builder<GroupDetails_Usercount, G
     replace(_$result);
     return _$result;
   }
+}
+
+abstract mixin class GroupDetails_DisabledInterfaceBuilder {
+  void replace(GroupDetails_DisabledInterface other);
+  void update(void Function(GroupDetails_DisabledInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  bool? get $bool;
+  set $bool(bool? $bool);
+
+  int? get $int;
+  set $int(int? $int);
 }
 
 class _$GroupDetails_Disabled extends GroupDetails_Disabled {
@@ -9786,20 +9813,21 @@ class _$GroupDetails_Disabled extends GroupDetails_Disabled {
   }
 }
 
-class GroupDetails_DisabledBuilder implements Builder<GroupDetails_Disabled, GroupDetails_DisabledBuilder> {
+class GroupDetails_DisabledBuilder
+    implements Builder<GroupDetails_Disabled, GroupDetails_DisabledBuilder>, GroupDetails_DisabledInterfaceBuilder {
   _$GroupDetails_Disabled? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   bool? _$bool;
   bool? get $bool => _$this._$bool;
-  set $bool(bool? $bool) => _$this._$bool = $bool;
+  set $bool(covariant bool? $bool) => _$this._$bool = $bool;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   GroupDetails_DisabledBuilder();
 
@@ -9815,7 +9843,7 @@ class GroupDetails_DisabledBuilder implements Builder<GroupDetails_Disabled, Gro
   }
 
   @override
-  void replace(GroupDetails_Disabled other) {
+  void replace(covariant GroupDetails_Disabled other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupDetails_Disabled;
   }
@@ -10794,6 +10822,22 @@ class UserDetails_BackendCapabilitiesBuilder
   }
 }
 
+abstract mixin class UserDetailsQuota_QuotaInterfaceBuilder {
+  void replace(UserDetailsQuota_QuotaInterface other);
+  void update(void Function(UserDetailsQuota_QuotaInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+
+  String? get string;
+  set string(String? string);
+}
+
 class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   @override
   final JsonObject data;
@@ -10850,24 +10894,25 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   }
 }
 
-class UserDetailsQuota_QuotaBuilder implements Builder<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder> {
+class UserDetailsQuota_QuotaBuilder
+    implements Builder<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder>, UserDetailsQuota_QuotaInterfaceBuilder {
   _$UserDetailsQuota_Quota? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   num? _$num;
   num? get $num => _$this._$num;
-  set $num(num? $num) => _$this._$num = $num;
+  set $num(covariant num? $num) => _$this._$num = $num;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   String? _string;
   String? get string => _$this._string;
-  set string(String? string) => _$this._string = string;
+  set string(covariant String? string) => _$this._string = string;
 
   UserDetailsQuota_QuotaBuilder();
 
@@ -10884,7 +10929,7 @@ class UserDetailsQuota_QuotaBuilder implements Builder<UserDetailsQuota_Quota, U
   }
 
   @override
-  void replace(UserDetailsQuota_Quota other) {
+  void replace(covariant UserDetailsQuota_Quota other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserDetailsQuota_Quota;
   }
@@ -11898,6 +11943,22 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
   }
 }
 
+abstract mixin class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
+  void replace(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
+  void update(void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  UserDetailsBuilder get userDetails;
+  set userDetails(UserDetailsBuilder? userDetails);
+
+  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
+      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
+  set groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1(
+      GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+          groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1);
+}
+
 class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
     extends GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users {
   @override
@@ -11962,16 +12023,17 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
 class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
     implements
         Builder<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
+            GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
+        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
   _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   UserDetailsBuilder? _userDetails;
   UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
-  set userDetails(UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
+  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
 
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
       _groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -11980,7 +12042,7 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
           _$this._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
               GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
   set groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1(
-          GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+          covariant GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
               groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
       _$this._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 =
           groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -12000,7 +12062,7 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
   }
 
   @override
-  void replace(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
+  void replace(covariant GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users;
   }
@@ -15049,6 +15111,22 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
   }
 }
 
+abstract mixin class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
+  void replace(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
+  void update(void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  UserDetailsBuilder get userDetails;
+  set userDetails(UserDetailsBuilder? userDetails);
+
+  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
+      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
+  set usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1(
+      UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+          usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1);
+}
+
 class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
     extends UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users {
   @override
@@ -15112,16 +15190,17 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
 class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
     implements
         Builder<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
+            UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
+        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
   _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   UserDetailsBuilder? _userDetails;
   UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
-  set userDetails(UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
+  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
 
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
       _usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -15130,7 +15209,7 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
           _$this._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
               UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
   set usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1(
-          UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+          covariant UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
               usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
       _$this._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 =
           usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -15150,7 +15229,7 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
   }
 
   @override
-  void replace(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
+  void replace(covariant UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users;
   }

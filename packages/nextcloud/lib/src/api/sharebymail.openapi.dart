@@ -34,10 +34,6 @@ class Client extends DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
-  Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
@@ -70,10 +66,6 @@ abstract class Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
 abstract interface class Capabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
-  Capabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Sharebymail_Password
@@ -105,10 +97,6 @@ abstract class Capabilities_FilesSharing_Sharebymail_Password
 abstract interface class Capabilities_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
-  Capabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Sharebymail_ExpireDate
@@ -147,10 +135,6 @@ abstract interface class Capabilities_FilesSharing_SharebymailInterface {
   Capabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
-  Capabilities_FilesSharing_SharebymailInterface rebuild(
-    final void Function(Capabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Sharebymail
@@ -181,8 +165,6 @@ abstract class Capabilities_FilesSharing_Sharebymail
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharingInterface {
   Capabilities_FilesSharing_Sharebymail get sharebymail;
-  Capabilities_FilesSharingInterface rebuild(final void Function(Capabilities_FilesSharingInterfaceBuilder) updates);
-  Capabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing
@@ -210,8 +192,6 @@ abstract class Capabilities_FilesSharing
 abstract interface class CapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities_FilesSharing get filesSharing;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

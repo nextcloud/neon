@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
@@ -18,18 +19,11 @@ TypeResultObject resolveInterface(
   );
 
   if (state.resolvedInterfaces.add(result)) {
-    final className = '$identifier$interfaceSuffix';
-
-    state.output.add(
-      Class((final b) {
-        b
-          ..abstract = true
-          ..modifier = ClassModifier.interface
-          ..name = className
-          ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
-
+    final $interface = buildInterface(
+      identifier,
+      methods: BuiltList.build((final b) {
         for (final property in schema.properties!.entries) {
-          b.methods.add(
+          b.add(
             Method(
               (final b) {
                 final propertyName = property.key;
@@ -62,29 +56,38 @@ TypeResultObject resolveInterface(
             ),
           );
         }
-
-        b.methods.addAll([
-          Method(
-            (final b) => b
-              ..returns = refer(className)
-              ..name = 'rebuild'
-              ..requiredParameters.add(
-                Parameter(
-                  (final b) => b
-                    ..name = 'updates'
-                    ..type = refer('void Function(${className}Builder)'),
-                ),
-              ),
-          ),
-          Method(
-            (final b) => b
-              ..returns = refer('${className}Builder')
-              ..name = 'toBuilder',
-          ),
-        ]);
       }),
     );
+
+    state.output.add($interface);
   }
 
   return result;
+}
+
+Spec buildInterface(
+  final String identifier, {
+  final BuiltList<Method>? methods,
+  final Iterable<TypeResultObject>? interfaces,
+}) {
+  assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
+  final className = '$identifier$interfaceSuffix';
+
+  return Class((final b) {
+    b
+      ..abstract = true
+      ..modifier = ClassModifier.interface
+      ..name = className
+      ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
+
+    if (interfaces != null) {
+      b.implements.addAll(
+        interfaces.map((final i) => refer('${i.name}$interfaceSuffix')),
+      );
+    }
+
+    if (methods != null) {
+      b.methods.addAll(methods);
+    }
+  });
 }

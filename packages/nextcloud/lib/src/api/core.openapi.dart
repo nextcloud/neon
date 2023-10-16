@@ -4394,8 +4394,6 @@ abstract interface class StatusInterface {
   String get edition;
   String get productname;
   bool get extendedSupport;
-  StatusInterface rebuild(final void Function(StatusInterfaceBuilder) updates);
-  StatusInterfaceBuilder toBuilder();
 }
 
 abstract class Status implements StatusInterface, Built<Status, StatusBuilder> {
@@ -4423,8 +4421,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -4448,10 +4444,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 @BuiltValue(instantiable: false)
 abstract interface class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
-  AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
@@ -4484,10 +4476,6 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
 abstract interface class AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data get data;
-  AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppPasswordGetAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
@@ -4519,10 +4507,6 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppPasswordGetAppPasswordResponseApplicationJsonInterface {
   AppPasswordGetAppPasswordResponseApplicationJson_Ocs get ocs;
-  AppPasswordGetAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordGetAppPasswordResponseApplicationJson
@@ -4554,10 +4538,6 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
-  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
@@ -4590,10 +4570,6 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
 abstract interface class AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data get data;
-  AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
@@ -4625,10 +4601,6 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppPasswordRotateAppPasswordResponseApplicationJsonInterface {
   AppPasswordRotateAppPasswordResponseApplicationJson_Ocs get ocs;
-  AppPasswordRotateAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson
@@ -4661,10 +4633,6 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson
 abstract interface class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
@@ -4696,10 +4664,6 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
   AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
-  AppPasswordDeleteAppPasswordResponseApplicationJsonInterface rebuild(
-    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
@@ -4734,8 +4698,6 @@ abstract interface class AutocompleteResult_Status0Interface {
   String? get message;
   String? get icon;
   int? get clearAt;
-  AutocompleteResult_Status0Interface rebuild(final void Function(AutocompleteResult_Status0InterfaceBuilder) updates);
-  AutocompleteResult_Status0InterfaceBuilder toBuilder();
 }
 
 abstract class AutocompleteResult_Status0
@@ -4761,7 +4723,15 @@ abstract class AutocompleteResult_Status0
   static Serializer<AutocompleteResult_Status0> get serializer => _$autocompleteResultStatus0Serializer;
 }
 
-abstract class AutocompleteResult_Status implements Built<AutocompleteResult_Status, AutocompleteResult_StatusBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class AutocompleteResult_StatusInterface {
+  JsonObject get data;
+  AutocompleteResult_Status0? get autocompleteResultStatus0;
+  String? get string;
+}
+
+abstract class AutocompleteResult_Status
+    implements AutocompleteResult_StatusInterface, Built<AutocompleteResult_Status, AutocompleteResult_StatusBuilder> {
   factory AutocompleteResult_Status([final void Function(AutocompleteResult_StatusBuilder)? b]) =
       _$AutocompleteResult_Status;
 
@@ -4778,9 +4748,6 @@ abstract class AutocompleteResult_Status implements Built<AutocompleteResult_Sta
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  AutocompleteResult_Status0? get autocompleteResultStatus0;
-  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<AutocompleteResult_Status> get serializer => _$AutocompleteResult_StatusSerializer();
 }
@@ -4834,8 +4801,6 @@ abstract interface class AutocompleteResultInterface {
   AutocompleteResult_Status get status;
   String get subline;
   String get shareWithDisplayNameUnique;
-  AutocompleteResultInterface rebuild(final void Function(AutocompleteResultInterfaceBuilder) updates);
-  AutocompleteResultInterfaceBuilder toBuilder();
 }
 
 abstract class AutocompleteResult
@@ -4862,10 +4827,6 @@ abstract class AutocompleteResult
 abstract interface class AutoCompleteGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<AutocompleteResult> get data;
-  AutoCompleteGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AutoCompleteGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AutoCompleteGetResponseApplicationJson_Ocs
@@ -4896,10 +4857,6 @@ abstract class AutoCompleteGetResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AutoCompleteGetResponseApplicationJsonInterface {
   AutoCompleteGetResponseApplicationJson_Ocs get ocs;
-  AutoCompleteGetResponseApplicationJsonInterface rebuild(
-    final void Function(AutoCompleteGetResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AutoCompleteGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AutoCompleteGetResponseApplicationJson
@@ -4931,10 +4888,6 @@ abstract class AutoCompleteGetResponseApplicationJson
 abstract interface class AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
-  AvatarAvatarGetAvatarDarkHeadersInterface rebuild(
-    final void Function(AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates,
-  );
-  AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class AvatarAvatarGetAvatarDarkHeaders
@@ -5005,10 +4958,6 @@ class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializ
 abstract interface class AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
-  AvatarAvatarGetAvatarHeadersInterface rebuild(
-    final void Function(AvatarAvatarGetAvatarHeadersInterfaceBuilder) updates,
-  );
-  AvatarAvatarGetAvatarHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class AvatarAvatarGetAvatarHeaders
@@ -5080,8 +5029,6 @@ abstract interface class LoginFlowV2CredentialsInterface {
   String get server;
   String get loginName;
   String get appPassword;
-  LoginFlowV2CredentialsInterface rebuild(final void Function(LoginFlowV2CredentialsInterfaceBuilder) updates);
-  LoginFlowV2CredentialsInterfaceBuilder toBuilder();
 }
 
 abstract class LoginFlowV2Credentials
@@ -5108,8 +5055,6 @@ abstract class LoginFlowV2Credentials
 abstract interface class LoginFlowV2_PollInterface {
   String get token;
   String get endpoint;
-  LoginFlowV2_PollInterface rebuild(final void Function(LoginFlowV2_PollInterfaceBuilder) updates);
-  LoginFlowV2_PollInterfaceBuilder toBuilder();
 }
 
 abstract class LoginFlowV2_Poll implements LoginFlowV2_PollInterface, Built<LoginFlowV2_Poll, LoginFlowV2_PollBuilder> {
@@ -5135,8 +5080,6 @@ abstract class LoginFlowV2_Poll implements LoginFlowV2_PollInterface, Built<Logi
 abstract interface class LoginFlowV2Interface {
   LoginFlowV2_Poll get poll;
   String get login;
-  LoginFlowV2Interface rebuild(final void Function(LoginFlowV2InterfaceBuilder) updates);
-  LoginFlowV2InterfaceBuilder toBuilder();
 }
 
 abstract class LoginFlowV2 implements LoginFlowV2Interface, Built<LoginFlowV2, LoginFlowV2Builder> {
@@ -5164,8 +5107,6 @@ abstract interface class OpenGraphObjectInterface {
   String? get description;
   String? get thumb;
   String get link;
-  OpenGraphObjectInterface rebuild(final void Function(OpenGraphObjectInterfaceBuilder) updates);
-  OpenGraphObjectInterfaceBuilder toBuilder();
 }
 
 abstract class OpenGraphObject implements OpenGraphObjectInterface, Built<OpenGraphObject, OpenGraphObjectBuilder> {
@@ -5193,8 +5134,6 @@ abstract interface class ResourceInterface {
   BuiltMap<String, JsonObject> get richObject;
   OpenGraphObject get openGraphObject;
   bool get accessible;
-  ResourceInterface rebuild(final void Function(ResourceInterfaceBuilder) updates);
-  ResourceInterfaceBuilder toBuilder();
 }
 
 abstract class Resource implements ResourceInterface, Built<Resource, ResourceBuilder> {
@@ -5220,8 +5159,6 @@ abstract interface class CollectionInterface {
   int get id;
   String get name;
   BuiltList<Resource> get resources;
-  CollectionInterface rebuild(final void Function(CollectionInterfaceBuilder) updates);
-  CollectionInterfaceBuilder toBuilder();
 }
 
 abstract class Collection implements CollectionInterface, Built<Collection, CollectionBuilder> {
@@ -5246,10 +5183,6 @@ abstract class Collection implements CollectionInterface, Built<Collection, Coll
 abstract interface class CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Collection> get data;
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
@@ -5283,10 +5216,6 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Oc
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
   CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
@@ -5319,10 +5248,6 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
 abstract interface class CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
-  CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
@@ -5354,10 +5279,6 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesListCollectionResponseApplicationJsonInterface {
   CollaborationResourcesListCollectionResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesListCollectionResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesListCollectionResponseApplicationJson
@@ -5390,10 +5311,6 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson
 abstract interface class CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
-  CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
@@ -5425,10 +5342,6 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesRenameCollectionResponseApplicationJsonInterface {
   CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesRenameCollectionResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
@@ -5461,10 +5374,6 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
 abstract interface class CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
-  CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  CollaborationResourcesAddResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
@@ -5496,10 +5405,6 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesAddResourceResponseApplicationJsonInterface {
   CollaborationResourcesAddResourceResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesAddResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesAddResourceResponseApplicationJson
@@ -5532,10 +5437,6 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson
 abstract interface class CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
-  CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
@@ -5567,10 +5468,6 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesRemoveResourceResponseApplicationJsonInterface {
   CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesRemoveResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
@@ -5603,11 +5500,6 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
 abstract interface class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Collection> get data;
-  CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder)
-        updates,
-  );
-  CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
@@ -5641,10 +5533,6 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface {
   CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson
@@ -5679,11 +5567,6 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
 abstract interface class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
-  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder)
-        updates,
-  );
-  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
@@ -5717,11 +5600,6 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
 @BuiltValue(instantiable: false)
 abstract interface class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface {
   CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs get ocs;
-  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface rebuild(
-    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder)
-        updates,
-  );
-  CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
@@ -5758,8 +5636,6 @@ abstract interface class ContactsActionInterface {
   String get icon;
   String get hyperlink;
   String get appId;
-  ContactsActionInterface rebuild(final void Function(ContactsActionInterfaceBuilder) updates);
-  ContactsActionInterfaceBuilder toBuilder();
 }
 
 abstract class ContactsAction implements ContactsActionInterface, Built<ContactsAction, ContactsActionBuilder> {
@@ -5786,10 +5662,6 @@ abstract interface class HoverCardGetUserResponseApplicationJson_Ocs_DataInterfa
   String get userId;
   String get displayName;
   BuiltList<ContactsAction> get actions;
-  HoverCardGetUserResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  HoverCardGetUserResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
@@ -5822,10 +5694,6 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
 abstract interface class HoverCardGetUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   HoverCardGetUserResponseApplicationJson_Ocs_Data get data;
-  HoverCardGetUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(HoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  HoverCardGetUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class HoverCardGetUserResponseApplicationJson_Ocs
@@ -5856,10 +5724,6 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class HoverCardGetUserResponseApplicationJsonInterface {
   HoverCardGetUserResponseApplicationJson_Ocs get ocs;
-  HoverCardGetUserResponseApplicationJsonInterface rebuild(
-    final void Function(HoverCardGetUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  HoverCardGetUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class HoverCardGetUserResponseApplicationJson
@@ -5887,7 +5751,15 @@ abstract class HoverCardGetUserResponseApplicationJson
       _$hoverCardGetUserResponseApplicationJsonSerializer;
 }
 
-abstract class NavigationEntry_Order implements Built<NavigationEntry_Order, NavigationEntry_OrderBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class NavigationEntry_OrderInterface {
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+}
+
+abstract class NavigationEntry_Order
+    implements NavigationEntry_OrderInterface, Built<NavigationEntry_Order, NavigationEntry_OrderBuilder> {
   factory NavigationEntry_Order([final void Function(NavigationEntry_OrderBuilder)? b]) = _$NavigationEntry_Order;
 
   // coverage:ignore-start
@@ -5903,9 +5775,6 @@ abstract class NavigationEntry_Order implements Built<NavigationEntry_Order, Nav
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<NavigationEntry_Order> get serializer => _$NavigationEntry_OrderSerializer();
 }
@@ -5954,8 +5823,6 @@ abstract interface class NavigationEntryInterface {
   bool get active;
   String get classes;
   int get unread;
-  NavigationEntryInterface rebuild(final void Function(NavigationEntryInterfaceBuilder) updates);
-  NavigationEntryInterfaceBuilder toBuilder();
 }
 
 abstract class NavigationEntry implements NavigationEntryInterface, Built<NavigationEntry, NavigationEntryBuilder> {
@@ -5981,10 +5848,6 @@ abstract class NavigationEntry implements NavigationEntryInterface, Built<Naviga
 abstract interface class NavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<NavigationEntry> get data;
-  NavigationGetAppsNavigationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  NavigationGetAppsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
@@ -6016,10 +5879,6 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class NavigationGetAppsNavigationResponseApplicationJsonInterface {
   NavigationGetAppsNavigationResponseApplicationJson_Ocs get ocs;
-  NavigationGetAppsNavigationResponseApplicationJsonInterface rebuild(
-    final void Function(NavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  NavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class NavigationGetAppsNavigationResponseApplicationJson
@@ -6052,10 +5911,6 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson
 abstract interface class NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<NavigationEntry> get data;
-  NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface rebuild(
-    final void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  NavigationGetSettingsNavigationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
@@ -6087,10 +5942,6 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class NavigationGetSettingsNavigationResponseApplicationJsonInterface {
   NavigationGetSettingsNavigationResponseApplicationJson_Ocs get ocs;
-  NavigationGetSettingsNavigationResponseApplicationJsonInterface rebuild(
-    final void Function(NavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  NavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class NavigationGetSettingsNavigationResponseApplicationJson
@@ -6123,8 +5974,6 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
 abstract interface class OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
   bool? get xNextcloudOcmProviders;
-  OcmOcmDiscoveryHeadersInterface rebuild(final void Function(OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  OcmOcmDiscoveryHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class OcmOcmDiscoveryHeaders
@@ -6193,10 +6042,6 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
 @BuiltValue(instantiable: false)
 abstract interface class OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
   String get webdav;
-  OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface rebuild(
-    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates,
-  );
-  OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder toBuilder();
 }
 
 abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
@@ -6230,10 +6075,6 @@ abstract interface class OcmDiscoveryResponseApplicationJson_ResourceTypesInterf
   String get name;
   BuiltList<String> get shareTypes;
   OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols get protocols;
-  OcmDiscoveryResponseApplicationJson_ResourceTypesInterface rebuild(
-    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder) updates,
-  );
-  OcmDiscoveryResponseApplicationJson_ResourceTypesInterfaceBuilder toBuilder();
 }
 
 abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
@@ -6268,10 +6109,6 @@ abstract interface class OcmDiscoveryResponseApplicationJsonInterface {
   String get apiVersion;
   String get endPoint;
   BuiltList<OcmDiscoveryResponseApplicationJson_ResourceTypes> get resourceTypes;
-  OcmDiscoveryResponseApplicationJsonInterface rebuild(
-    final void Function(OcmDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  OcmDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class OcmDiscoveryResponseApplicationJson
@@ -6306,10 +6143,6 @@ abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Vers
   String get string;
   String get edition;
   bool get extendedSupport;
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface rebuild(
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder) updates,
-  );
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfaceBuilder toBuilder();
 }
 
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
@@ -6341,8 +6174,6 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
 @BuiltValue(instantiable: false)
 abstract interface class CommentsCapabilities_FilesInterface {
   bool get comments;
-  CommentsCapabilities_FilesInterface rebuild(final void Function(CommentsCapabilities_FilesInterfaceBuilder) updates);
-  CommentsCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class CommentsCapabilities_Files
@@ -6371,8 +6202,6 @@ abstract class CommentsCapabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class CommentsCapabilitiesInterface {
   CommentsCapabilities_Files get files;
-  CommentsCapabilitiesInterface rebuild(final void Function(CommentsCapabilitiesInterfaceBuilder) updates);
-  CommentsCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class CommentsCapabilities
@@ -6399,8 +6228,6 @@ abstract class CommentsCapabilities
 abstract interface class DavCapabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
-  DavCapabilities_DavInterface rebuild(final void Function(DavCapabilities_DavInterfaceBuilder) updates);
-  DavCapabilities_DavInterfaceBuilder toBuilder();
 }
 
 abstract class DavCapabilities_Dav
@@ -6426,8 +6253,6 @@ abstract class DavCapabilities_Dav
 @BuiltValue(instantiable: false)
 abstract interface class DavCapabilitiesInterface {
   DavCapabilities_Dav get dav;
-  DavCapabilitiesInterface rebuild(final void Function(DavCapabilitiesInterfaceBuilder) updates);
-  DavCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class DavCapabilities implements DavCapabilitiesInterface, Built<DavCapabilities, DavCapabilitiesBuilder> {
@@ -6454,10 +6279,6 @@ abstract interface class FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
   bool get supportsFileId;
-  FilesCapabilities_Files_DirectEditingInterface rebuild(
-    final void Function(FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates,
-  );
-  FilesCapabilities_Files_DirectEditingInterfaceBuilder toBuilder();
 }
 
 abstract class FilesCapabilities_Files_DirectEditing
@@ -6491,8 +6312,6 @@ abstract interface class FilesCapabilities_FilesInterface {
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
   FilesCapabilities_Files_DirectEditing get directEditing;
-  FilesCapabilities_FilesInterface rebuild(final void Function(FilesCapabilities_FilesInterfaceBuilder) updates);
-  FilesCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesCapabilities_Files
@@ -6518,8 +6337,6 @@ abstract class FilesCapabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class FilesCapabilitiesInterface {
   FilesCapabilities_Files get files;
-  FilesCapabilitiesInterface rebuild(final void Function(FilesCapabilitiesInterfaceBuilder) updates);
-  FilesCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesCapabilities
@@ -6546,10 +6363,6 @@ abstract class FilesCapabilities
 abstract interface class FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
-  FilesSharingCapabilities_FilesSharing_Public_PasswordInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Public_Password
@@ -6583,10 +6396,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   bool get enabled;
   int? get days;
   bool? get enforced;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
@@ -6620,10 +6429,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   bool get enabled;
   int? get days;
   bool? get enforced;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
@@ -6657,10 +6462,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   bool get enabled;
   int? get days;
   bool? get enforced;
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
@@ -6706,10 +6507,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
-  FilesSharingCapabilities_FilesSharing_PublicInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Public
@@ -6740,10 +6537,6 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
 @BuiltValue(instantiable: false)
 abstract interface class FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
@@ -6778,10 +6571,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_UserInterface {
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
   FilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
-  FilesSharingCapabilities_FilesSharing_UserInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_UserInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_User
@@ -6812,10 +6601,6 @@ abstract class FilesSharingCapabilities_FilesSharing_User
 @BuiltValue(instantiable: false)
 abstract interface class FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
@@ -6849,10 +6634,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
-  FilesSharingCapabilities_FilesSharing_GroupInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Group
@@ -6883,10 +6664,6 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
 @BuiltValue(instantiable: false)
 abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
@@ -6918,10 +6695,6 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
 @BuiltValue(instantiable: false)
 abstract interface class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
@@ -6960,10 +6733,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_FederationInterfa
   FilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
   FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
-  FilesSharingCapabilities_FilesSharing_FederationInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Federation
@@ -6998,10 +6767,6 @@ abstract interface class FilesSharingCapabilities_FilesSharing_ShareeInterface {
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
-  FilesSharingCapabilities_FilesSharing_ShareeInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing_Sharee
@@ -7043,10 +6808,6 @@ abstract interface class FilesSharingCapabilities_FilesSharingInterface {
   int? get defaultPermissions;
   FilesSharingCapabilities_FilesSharing_Federation get federation;
   FilesSharingCapabilities_FilesSharing_Sharee get sharee;
-  FilesSharingCapabilities_FilesSharingInterface rebuild(
-    final void Function(FilesSharingCapabilities_FilesSharingInterfaceBuilder) updates,
-  );
-  FilesSharingCapabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities_FilesSharing
@@ -7078,8 +6839,6 @@ abstract class FilesSharingCapabilities_FilesSharing
 abstract interface class FilesSharingCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   FilesSharingCapabilities_FilesSharing get filesSharing;
-  FilesSharingCapabilitiesInterface rebuild(final void Function(FilesSharingCapabilitiesInterfaceBuilder) updates);
-  FilesSharingCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesSharingCapabilities
@@ -7106,10 +6865,6 @@ abstract class FilesSharingCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class FilesTrashbinCapabilities_FilesInterface {
   bool get undelete;
-  FilesTrashbinCapabilities_FilesInterface rebuild(
-    final void Function(FilesTrashbinCapabilities_FilesInterfaceBuilder) updates,
-  );
-  FilesTrashbinCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesTrashbinCapabilities_Files
@@ -7138,8 +6893,6 @@ abstract class FilesTrashbinCapabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class FilesTrashbinCapabilitiesInterface {
   FilesTrashbinCapabilities_Files get files;
-  FilesTrashbinCapabilitiesInterface rebuild(final void Function(FilesTrashbinCapabilitiesInterfaceBuilder) updates);
-  FilesTrashbinCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesTrashbinCapabilities
@@ -7170,10 +6923,6 @@ abstract interface class FilesVersionsCapabilities_FilesInterface {
   bool get versionLabeling;
   @BuiltValueField(wireName: 'version_deletion')
   bool get versionDeletion;
-  FilesVersionsCapabilities_FilesInterface rebuild(
-    final void Function(FilesVersionsCapabilities_FilesInterfaceBuilder) updates,
-  );
-  FilesVersionsCapabilities_FilesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesVersionsCapabilities_Files
@@ -7202,8 +6951,6 @@ abstract class FilesVersionsCapabilities_Files
 @BuiltValue(instantiable: false)
 abstract interface class FilesVersionsCapabilitiesInterface {
   FilesVersionsCapabilities_Files get files;
-  FilesVersionsCapabilitiesInterface rebuild(final void Function(FilesVersionsCapabilitiesInterfaceBuilder) updates);
-  FilesVersionsCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class FilesVersionsCapabilities
@@ -7232,8 +6979,6 @@ abstract interface class NotesCapabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
-  NotesCapabilities_NotesInterface rebuild(final void Function(NotesCapabilities_NotesInterfaceBuilder) updates);
-  NotesCapabilities_NotesInterfaceBuilder toBuilder();
 }
 
 abstract class NotesCapabilities_Notes
@@ -7259,8 +7004,6 @@ abstract class NotesCapabilities_Notes
 @BuiltValue(instantiable: false)
 abstract interface class NotesCapabilitiesInterface {
   NotesCapabilities_Notes get notes;
-  NotesCapabilitiesInterface rebuild(final void Function(NotesCapabilitiesInterfaceBuilder) updates);
-  NotesCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class NotesCapabilities
@@ -7290,10 +7033,6 @@ abstract interface class NotificationsCapabilities_NotificationsInterface {
   BuiltList<String> get push;
   @BuiltValueField(wireName: 'admin-notifications')
   BuiltList<String> get adminNotifications;
-  NotificationsCapabilities_NotificationsInterface rebuild(
-    final void Function(NotificationsCapabilities_NotificationsInterfaceBuilder) updates,
-  );
-  NotificationsCapabilities_NotificationsInterfaceBuilder toBuilder();
 }
 
 abstract class NotificationsCapabilities_Notifications
@@ -7324,8 +7063,6 @@ abstract class NotificationsCapabilities_Notifications
 @BuiltValue(instantiable: false)
 abstract interface class NotificationsCapabilitiesInterface {
   NotificationsCapabilities_Notifications get notifications;
-  NotificationsCapabilitiesInterface rebuild(final void Function(NotificationsCapabilitiesInterfaceBuilder) updates);
-  NotificationsCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class NotificationsCapabilities
@@ -7358,10 +7095,6 @@ abstract interface class ProvisioningApiCapabilities_ProvisioningApiInterface {
   bool get accountPropertyScopesFederatedEnabled;
   @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
   bool get accountPropertyScopesPublishedEnabled;
-  ProvisioningApiCapabilities_ProvisioningApiInterface rebuild(
-    final void Function(ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder) updates,
-  );
-  ProvisioningApiCapabilities_ProvisioningApiInterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiCapabilities_ProvisioningApi
@@ -7393,10 +7126,6 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
 abstract interface class ProvisioningApiCapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
   ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
-  ProvisioningApiCapabilitiesInterface rebuild(
-    final void Function(ProvisioningApiCapabilitiesInterfaceBuilder) updates,
-  );
-  ProvisioningApiCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class ProvisioningApiCapabilities
@@ -7425,10 +7154,6 @@ abstract class ProvisioningApiCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
-  );
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
@@ -7461,10 +7186,6 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
 abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
-  );
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
@@ -7497,10 +7218,6 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
 abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
-  );
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
@@ -7539,10 +7256,6 @@ abstract interface class SharebymailCapabilities_FilesSharing_SharebymailInterfa
   SharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
   SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
-  SharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
-    final void Function(SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
-  );
-  SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail
@@ -7574,10 +7287,6 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail
 @BuiltValue(instantiable: false)
 abstract interface class SharebymailCapabilities_FilesSharingInterface {
   SharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
-  SharebymailCapabilities_FilesSharingInterface rebuild(
-    final void Function(SharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
-  );
-  SharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities_FilesSharing
@@ -7608,8 +7317,6 @@ abstract class SharebymailCapabilities_FilesSharing
 abstract interface class SharebymailCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   SharebymailCapabilities_FilesSharing get filesSharing;
-  SharebymailCapabilitiesInterface rebuild(final void Function(SharebymailCapabilitiesInterfaceBuilder) updates);
-  SharebymailCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class SharebymailCapabilities
@@ -7654,10 +7361,6 @@ abstract interface class ThemingPublicCapabilities_ThemingInterface {
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
-  ThemingPublicCapabilities_ThemingInterface rebuild(
-    final void Function(ThemingPublicCapabilities_ThemingInterfaceBuilder) updates,
-  );
-  ThemingPublicCapabilities_ThemingInterfaceBuilder toBuilder();
 }
 
 abstract class ThemingPublicCapabilities_Theming
@@ -7686,8 +7389,6 @@ abstract class ThemingPublicCapabilities_Theming
 @BuiltValue(instantiable: false)
 abstract interface class ThemingPublicCapabilitiesInterface {
   ThemingPublicCapabilities_Theming get theming;
-  ThemingPublicCapabilitiesInterface rebuild(final void Function(ThemingPublicCapabilitiesInterfaceBuilder) updates);
-  ThemingPublicCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class ThemingPublicCapabilities
@@ -7717,10 +7418,6 @@ abstract interface class UserStatusCapabilities_UserStatusInterface {
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
-  UserStatusCapabilities_UserStatusInterface rebuild(
-    final void Function(UserStatusCapabilities_UserStatusInterfaceBuilder) updates,
-  );
-  UserStatusCapabilities_UserStatusInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusCapabilities_UserStatus
@@ -7750,8 +7447,6 @@ abstract class UserStatusCapabilities_UserStatus
 abstract interface class UserStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
   UserStatusCapabilities_UserStatus get userStatus;
-  UserStatusCapabilitiesInterface rebuild(final void Function(UserStatusCapabilitiesInterfaceBuilder) updates);
-  UserStatusCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusCapabilities
@@ -7777,10 +7472,6 @@ abstract class UserStatusCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusCapabilities_WeatherStatusInterface {
   bool get enabled;
-  WeatherStatusCapabilities_WeatherStatusInterface rebuild(
-    final void Function(WeatherStatusCapabilities_WeatherStatusInterfaceBuilder) updates,
-  );
-  WeatherStatusCapabilities_WeatherStatusInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusCapabilities_WeatherStatus
@@ -7812,8 +7503,6 @@ abstract class WeatherStatusCapabilities_WeatherStatus
 abstract interface class WeatherStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   WeatherStatusCapabilities_WeatherStatus get weatherStatus;
-  WeatherStatusCapabilitiesInterface rebuild(final void Function(WeatherStatusCapabilitiesInterfaceBuilder) updates);
-  WeatherStatusCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class WeatherStatusCapabilities
@@ -7837,8 +7526,27 @@ abstract class WeatherStatusCapabilities
   static Serializer<WeatherStatusCapabilities> get serializer => _$weatherStatusCapabilitiesSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface {
+  JsonObject get data;
+  CommentsCapabilities? get commentsCapabilities;
+  DavCapabilities? get davCapabilities;
+  FilesCapabilities? get filesCapabilities;
+  FilesSharingCapabilities? get filesSharingCapabilities;
+  FilesTrashbinCapabilities? get filesTrashbinCapabilities;
+  FilesVersionsCapabilities? get filesVersionsCapabilities;
+  NotesCapabilities? get notesCapabilities;
+  NotificationsCapabilities? get notificationsCapabilities;
+  ProvisioningApiCapabilities? get provisioningApiCapabilities;
+  SharebymailCapabilities? get sharebymailCapabilities;
+  ThemingPublicCapabilities? get themingPublicCapabilities;
+  UserStatusCapabilities? get userStatusCapabilities;
+  WeatherStatusCapabilities? get weatherStatusCapabilities;
+}
+
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
     implements
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface,
         Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
             OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities([
@@ -7858,20 +7566,6 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  CommentsCapabilities? get commentsCapabilities;
-  DavCapabilities? get davCapabilities;
-  FilesCapabilities? get filesCapabilities;
-  FilesSharingCapabilities? get filesSharingCapabilities;
-  FilesTrashbinCapabilities? get filesTrashbinCapabilities;
-  FilesVersionsCapabilities? get filesVersionsCapabilities;
-  NotesCapabilities? get notesCapabilities;
-  NotificationsCapabilities? get notificationsCapabilities;
-  ProvisioningApiCapabilities? get provisioningApiCapabilities;
-  SharebymailCapabilities? get sharebymailCapabilities;
-  ThemingPublicCapabilities? get themingPublicCapabilities;
-  UserStatusCapabilities? get userStatusCapabilities;
-  WeatherStatusCapabilities? get weatherStatusCapabilities;
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
       _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
@@ -8014,10 +7708,6 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerialize
 abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version get version;
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities get capabilities;
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
@@ -8050,10 +7740,6 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
 abstract interface class OcsGetCapabilitiesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
-  OcsGetCapabilitiesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  OcsGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
@@ -8084,10 +7770,6 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class OcsGetCapabilitiesResponseApplicationJsonInterface {
   OcsGetCapabilitiesResponseApplicationJson_Ocs get ocs;
-  OcsGetCapabilitiesResponseApplicationJsonInterface rebuild(
-    final void Function(OcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  OcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class OcsGetCapabilitiesResponseApplicationJson
@@ -8119,10 +7801,6 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
 abstract interface class ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ProfileApiSetVisibilityResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ProfileApiSetVisibilityResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
@@ -8154,10 +7832,6 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ProfileApiSetVisibilityResponseApplicationJsonInterface {
   ProfileApiSetVisibilityResponseApplicationJson_Ocs get ocs;
-  ProfileApiSetVisibilityResponseApplicationJsonInterface rebuild(
-    final void Function(ProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ProfileApiSetVisibilityResponseApplicationJson
@@ -8191,8 +7865,6 @@ abstract interface class ReferenceInterface {
   BuiltMap<String, JsonObject> get richObject;
   OpenGraphObject get openGraphObject;
   bool get accessible;
-  ReferenceInterface rebuild(final void Function(ReferenceInterfaceBuilder) updates);
-  ReferenceInterfaceBuilder toBuilder();
 }
 
 abstract class Reference implements ReferenceInterface, Built<Reference, ReferenceBuilder> {
@@ -8216,10 +7888,6 @@ abstract class Reference implements ReferenceInterface, Built<Reference, Referen
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference> get references;
-  ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
@@ -8252,10 +7920,6 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
 abstract interface class ReferenceApiResolveOneResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiResolveOneResponseApplicationJson_Ocs_Data get data;
-  ReferenceApiResolveOneResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveOneResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
@@ -8287,10 +7951,6 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiResolveOneResponseApplicationJsonInterface {
   ReferenceApiResolveOneResponseApplicationJson_Ocs get ocs;
-  ReferenceApiResolveOneResponseApplicationJsonInterface rebuild(
-    final void Function(ReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveOneResponseApplicationJson
@@ -8321,10 +7981,6 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference> get references;
-  ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
@@ -8357,10 +8013,6 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
 abstract interface class ReferenceApiResolveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiResolveResponseApplicationJson_Ocs_Data get data;
-  ReferenceApiResolveResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveResponseApplicationJson_Ocs
@@ -8391,10 +8043,6 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiResolveResponseApplicationJsonInterface {
   ReferenceApiResolveResponseApplicationJson_Ocs get ocs;
-  ReferenceApiResolveResponseApplicationJsonInterface rebuild(
-    final void Function(ReferenceApiResolveResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ReferenceApiResolveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiResolveResponseApplicationJson
@@ -8425,10 +8073,6 @@ abstract class ReferenceApiResolveResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference> get references;
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
@@ -8461,10 +8105,6 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
 abstract interface class ReferenceApiExtractResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
-  ReferenceApiExtractResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiExtractResponseApplicationJson_Ocs
@@ -8495,10 +8135,6 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiExtractResponseApplicationJsonInterface {
   ReferenceApiExtractResponseApplicationJson_Ocs get ocs;
-  ReferenceApiExtractResponseApplicationJsonInterface rebuild(
-    final void Function(ReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ReferenceApiExtractResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiExtractResponseApplicationJson
@@ -8535,8 +8171,6 @@ abstract interface class ReferenceProviderInterface {
   int get order;
   @BuiltValueField(wireName: 'search_providers_ids')
   BuiltList<String>? get searchProvidersIds;
-  ReferenceProviderInterface rebuild(final void Function(ReferenceProviderInterfaceBuilder) updates);
-  ReferenceProviderInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceProvider
@@ -8563,10 +8197,6 @@ abstract class ReferenceProvider
 abstract interface class ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ReferenceProvider> get data;
-  ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
@@ -8598,10 +8228,6 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
   ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs get ocs;
-  ReferenceApiGetProvidersInfoResponseApplicationJsonInterface rebuild(
-    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
@@ -8633,10 +8259,6 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
@@ -8669,10 +8291,6 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
 abstract interface class ReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data get data;
-  ReferenceApiTouchProviderResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ReferenceApiTouchProviderResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
@@ -8704,10 +8322,6 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ReferenceApiTouchProviderResponseApplicationJsonInterface {
   ReferenceApiTouchProviderResponseApplicationJson_Ocs get ocs;
-  ReferenceApiTouchProviderResponseApplicationJsonInterface rebuild(
-    final void Function(ReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ReferenceApiTouchProviderResponseApplicationJson
@@ -8741,10 +8355,6 @@ abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_D
   String get id;
   String get name;
   String get description;
-  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface rebuild(
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder) updates,
-  );
-  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
@@ -8776,10 +8386,6 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types;
-  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
@@ -8812,10 +8418,6 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
 abstract interface class TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data get data;
-  TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TextProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
@@ -8847,10 +8449,6 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiTaskTypesResponseApplicationJsonInterface {
   TextProcessingApiTaskTypesResponseApplicationJson_Ocs get ocs;
-  TextProcessingApiTaskTypesResponseApplicationJsonInterface rebuild(
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiTaskTypesResponseApplicationJson
@@ -8889,8 +8487,6 @@ abstract interface class TextProcessingTaskInterface {
   String get input;
   String? get output;
   String get identifier;
-  TextProcessingTaskInterface rebuild(final void Function(TextProcessingTaskInterfaceBuilder) updates);
-  TextProcessingTaskInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingTask
@@ -8916,10 +8512,6 @@ abstract class TextProcessingTask
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
-  TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
@@ -8952,10 +8544,6 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
 abstract interface class TextProcessingApiScheduleResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiScheduleResponseApplicationJson_Ocs_Data get data;
-  TextProcessingApiScheduleResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TextProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
@@ -8987,10 +8575,6 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiScheduleResponseApplicationJsonInterface {
   TextProcessingApiScheduleResponseApplicationJson_Ocs get ocs;
-  TextProcessingApiScheduleResponseApplicationJsonInterface rebuild(
-    final void Function(TextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiScheduleResponseApplicationJson
@@ -9022,10 +8606,6 @@ abstract class TextProcessingApiScheduleResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
-  TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
@@ -9058,10 +8638,6 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
 abstract interface class TextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data get data;
-  TextProcessingApiGetTaskResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TextProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
@@ -9093,10 +8669,6 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiGetTaskResponseApplicationJsonInterface {
   TextProcessingApiGetTaskResponseApplicationJson_Ocs get ocs;
-  TextProcessingApiGetTaskResponseApplicationJsonInterface rebuild(
-    final void Function(TextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiGetTaskResponseApplicationJson
@@ -9127,10 +8699,6 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
-  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
@@ -9163,10 +8731,6 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
 abstract interface class TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
-  TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
@@ -9198,10 +8762,6 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiDeleteTaskResponseApplicationJsonInterface {
   TextProcessingApiDeleteTaskResponseApplicationJson_Ocs get ocs;
-  TextProcessingApiDeleteTaskResponseApplicationJsonInterface rebuild(
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson
@@ -9233,10 +8793,6 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextProcessingTask> get tasks;
-  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
@@ -9269,10 +8825,6 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
 abstract interface class TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
-  TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
@@ -9304,10 +8856,6 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TextProcessingApiListTasksByAppResponseApplicationJsonInterface {
   TextProcessingApiListTasksByAppResponseApplicationJson_Ocs get ocs;
-  TextProcessingApiListTasksByAppResponseApplicationJsonInterface rebuild(
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson
@@ -9342,10 +8890,6 @@ abstract interface class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
   String get fromLabel;
   String get to;
   String get toLabel;
-  TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface rebuild(
-    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder) updates,
-  );
-  TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
@@ -9378,10 +8922,6 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
 abstract interface class TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages;
   bool get languageDetection;
-  TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
@@ -9414,10 +8954,6 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
 abstract interface class TranslationApiLanguagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TranslationApiLanguagesResponseApplicationJson_Ocs_Data get data;
-  TranslationApiLanguagesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TranslationApiLanguagesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
@@ -9449,10 +8985,6 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TranslationApiLanguagesResponseApplicationJsonInterface {
   TranslationApiLanguagesResponseApplicationJson_Ocs get ocs;
-  TranslationApiLanguagesResponseApplicationJsonInterface rebuild(
-    final void Function(TranslationApiLanguagesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TranslationApiLanguagesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiLanguagesResponseApplicationJson
@@ -9484,10 +9016,6 @@ abstract class TranslationApiLanguagesResponseApplicationJson
 abstract interface class TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
   String get text;
   String? get from;
-  TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  TranslationApiTranslateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
@@ -9520,10 +9048,6 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
 abstract interface class TranslationApiTranslateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TranslationApiTranslateResponseApplicationJson_Ocs_Data get data;
-  TranslationApiTranslateResponseApplicationJson_OcsInterface rebuild(
-    final void Function(TranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  TranslationApiTranslateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiTranslateResponseApplicationJson_Ocs
@@ -9555,10 +9079,6 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class TranslationApiTranslateResponseApplicationJsonInterface {
   TranslationApiTranslateResponseApplicationJson_Ocs get ocs;
-  TranslationApiTranslateResponseApplicationJsonInterface rebuild(
-    final void Function(TranslationApiTranslateResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  TranslationApiTranslateResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class TranslationApiTranslateResponseApplicationJson
@@ -9591,8 +9111,6 @@ abstract interface class UnifiedSearchProviderInterface {
   String get id;
   String get name;
   int get order;
-  UnifiedSearchProviderInterface rebuild(final void Function(UnifiedSearchProviderInterfaceBuilder) updates);
-  UnifiedSearchProviderInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchProvider
@@ -9619,10 +9137,6 @@ abstract class UnifiedSearchProvider
 abstract interface class UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<UnifiedSearchProvider> get data;
-  UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UnifiedSearchGetProvidersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
@@ -9654,10 +9168,6 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedSearchGetProvidersResponseApplicationJsonInterface {
   UnifiedSearchGetProvidersResponseApplicationJson_Ocs get ocs;
-  UnifiedSearchGetProvidersResponseApplicationJsonInterface rebuild(
-    final void Function(UnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchGetProvidersResponseApplicationJson
@@ -9686,7 +9196,15 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
       _$unifiedSearchGetProvidersResponseApplicationJsonSerializer;
 }
 
-abstract class UnifiedSearchSearchCursor implements Built<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class UnifiedSearchSearchCursorInterface {
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+}
+
+abstract class UnifiedSearchSearchCursor
+    implements UnifiedSearchSearchCursorInterface, Built<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder> {
   factory UnifiedSearchSearchCursor([final void Function(UnifiedSearchSearchCursorBuilder)? b]) =
       _$UnifiedSearchSearchCursor;
 
@@ -9703,9 +9221,6 @@ abstract class UnifiedSearchSearchCursor implements Built<UnifiedSearchSearchCur
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedSearchSearchCursor> get serializer => _$UnifiedSearchSearchCursorSerializer();
 }
@@ -9752,8 +9267,6 @@ abstract interface class UnifiedSearchResultEntryInterface {
   String get icon;
   bool get rounded;
   BuiltList<String> get attributes;
-  UnifiedSearchResultEntryInterface rebuild(final void Function(UnifiedSearchResultEntryInterfaceBuilder) updates);
-  UnifiedSearchResultEntryInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchResultEntry
@@ -9777,8 +9290,17 @@ abstract class UnifiedSearchResultEntry
   static Serializer<UnifiedSearchResultEntry> get serializer => _$unifiedSearchResultEntrySerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UnifiedSearchResult_CursorInterface {
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+}
+
 abstract class UnifiedSearchResult_Cursor
-    implements Built<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder> {
+    implements
+        UnifiedSearchResult_CursorInterface,
+        Built<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder> {
   factory UnifiedSearchResult_Cursor([final void Function(UnifiedSearchResult_CursorBuilder)? b]) =
       _$UnifiedSearchResult_Cursor;
 
@@ -9795,9 +9317,6 @@ abstract class UnifiedSearchResult_Cursor
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedSearchResult_Cursor> get serializer => _$UnifiedSearchResult_CursorSerializer();
 }
@@ -9841,8 +9360,6 @@ abstract interface class UnifiedSearchResultInterface {
   bool get isPaginated;
   BuiltList<UnifiedSearchResultEntry> get entries;
   UnifiedSearchResult_Cursor? get cursor;
-  UnifiedSearchResultInterface rebuild(final void Function(UnifiedSearchResultInterfaceBuilder) updates);
-  UnifiedSearchResultInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchResult
@@ -9869,10 +9386,6 @@ abstract class UnifiedSearchResult
 abstract interface class UnifiedSearchSearchResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UnifiedSearchResult get data;
-  UnifiedSearchSearchResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UnifiedSearchSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
@@ -9903,10 +9416,6 @@ abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedSearchSearchResponseApplicationJsonInterface {
   UnifiedSearchSearchResponseApplicationJson_Ocs get ocs;
-  UnifiedSearchSearchResponseApplicationJsonInterface rebuild(
-    final void Function(UnifiedSearchSearchResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UnifiedSearchSearchResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UnifiedSearchSearchResponseApplicationJson
@@ -9938,10 +9447,6 @@ abstract class UnifiedSearchSearchResponseApplicationJson
 abstract interface class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
   BuiltList<String> get regular;
   BuiltList<String> get admin;
-  WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface rebuild(
-    final void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder) updates,
-  );
-  WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
@@ -9976,10 +9481,6 @@ abstract interface class WhatsNewGetResponseApplicationJson_Ocs_DataInterface {
   String get product;
   String get version;
   WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew? get whatsNew;
-  WhatsNewGetResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(WhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  WhatsNewGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
@@ -10011,10 +9512,6 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
 abstract interface class WhatsNewGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WhatsNewGetResponseApplicationJson_Ocs_Data get data;
-  WhatsNewGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WhatsNewGetResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WhatsNewGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewGetResponseApplicationJson_Ocs
@@ -10045,10 +9542,6 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WhatsNewGetResponseApplicationJsonInterface {
   WhatsNewGetResponseApplicationJson_Ocs get ocs;
-  WhatsNewGetResponseApplicationJsonInterface rebuild(
-    final void Function(WhatsNewGetResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WhatsNewGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewGetResponseApplicationJson
@@ -10079,10 +9572,6 @@ abstract class WhatsNewGetResponseApplicationJson
 abstract interface class WhatsNewDismissResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  WhatsNewDismissResponseApplicationJson_OcsInterface rebuild(
-    final void Function(WhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  WhatsNewDismissResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewDismissResponseApplicationJson_Ocs
@@ -10113,10 +9602,6 @@ abstract class WhatsNewDismissResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class WhatsNewDismissResponseApplicationJsonInterface {
   WhatsNewDismissResponseApplicationJson_Ocs get ocs;
-  WhatsNewDismissResponseApplicationJsonInterface rebuild(
-    final void Function(WhatsNewDismissResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WhatsNewDismissResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WhatsNewDismissResponseApplicationJson
@@ -10147,10 +9632,6 @@ abstract class WhatsNewDismissResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class WipeCheckWipeResponseApplicationJsonInterface {
   bool get wipe;
-  WipeCheckWipeResponseApplicationJsonInterface rebuild(
-    final void Function(WipeCheckWipeResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  WipeCheckWipeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class WipeCheckWipeResponseApplicationJson

@@ -165,8 +165,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -191,8 +189,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 abstract interface class AppInterface {
   String get appId;
   String get appName;
-  AppInterface rebuild(final void Function(AppInterfaceBuilder) updates);
-  AppInterfaceBuilder toBuilder();
 }
 
 abstract class App implements AppInterface, Built<App, AppBuilder> {
@@ -217,10 +213,6 @@ abstract class App implements AppInterface, Built<App, AppBuilder> {
 abstract interface class ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
   BuiltList<App> get missing;
   BuiltList<App> get available;
-  ApiGetAppListResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
@@ -252,10 +244,6 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
 abstract interface class ApiGetAppListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppListResponseApplicationJson_Ocs_Data get data;
-  ApiGetAppListResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs
@@ -286,10 +274,6 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiGetAppListResponseApplicationJsonInterface {
   ApiGetAppListResponseApplicationJson_Ocs get ocs;
-  ApiGetAppListResponseApplicationJsonInterface rebuild(
-    final void Function(ApiGetAppListResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiGetAppListResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetAppListResponseApplicationJson

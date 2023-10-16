@@ -120,10 +120,6 @@ class LogSettingsClient {
 abstract interface class LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
-  LogSettingsLogSettingsDownloadHeadersInterface rebuild(
-    final void Function(LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates,
-  );
-  LogSettingsLogSettingsDownloadHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class LogSettingsLogSettingsDownloadHeaders

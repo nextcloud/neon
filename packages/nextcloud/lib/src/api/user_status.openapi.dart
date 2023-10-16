@@ -990,8 +990,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1019,8 +1017,6 @@ abstract interface class PublicInterface {
   String? get icon;
   int? get clearAt;
   String get status;
-  PublicInterface rebuild(final void Function(PublicInterfaceBuilder) updates);
-  PublicInterfaceBuilder toBuilder();
 }
 
 abstract class Public implements PublicInterface, Built<Public, PublicBuilder> {
@@ -1046,11 +1042,12 @@ abstract interface class Private_1Interface {
   String? get messageId;
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
-  Private_1Interface rebuild(final void Function(Private_1InterfaceBuilder) updates);
-  Private_1InterfaceBuilder toBuilder();
 }
 
-abstract class Private implements PublicInterface, Private_1Interface, Built<Private, PrivateBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class PrivateInterface implements PublicInterface, Private_1Interface {}
+
+abstract class Private implements PrivateInterface, Built<Private, PrivateBuilder> {
   factory Private([final void Function(PrivateBuilder)? b]) = _$Private;
 
   // coverage:ignore-start
@@ -1072,10 +1069,6 @@ abstract class Private implements PublicInterface, Private_1Interface, Built<Pri
 abstract interface class HeartbeatHeartbeatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
-  HeartbeatHeartbeatResponseApplicationJson_OcsInterface rebuild(
-    final void Function(HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
@@ -1106,10 +1099,6 @@ abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class HeartbeatHeartbeatResponseApplicationJsonInterface {
   HeartbeatHeartbeatResponseApplicationJson_Ocs get ocs;
-  HeartbeatHeartbeatResponseApplicationJsonInterface rebuild(
-    final void Function(HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class HeartbeatHeartbeatResponseApplicationJson
@@ -1170,7 +1159,14 @@ class ClearAtTimeType extends EnumClass {
   static Serializer<ClearAtTimeType> get serializer => _$clearAtTimeTypeSerializer;
 }
 
-abstract class ClearAt_Time implements Built<ClearAt_Time, ClearAt_TimeBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ClearAt_TimeInterface {
+  JsonObject get data;
+  int? get $int;
+  ClearAtTimeType? get clearAtTimeType;
+}
+
+abstract class ClearAt_Time implements ClearAt_TimeInterface, Built<ClearAt_Time, ClearAt_TimeBuilder> {
   factory ClearAt_Time([final void Function(ClearAt_TimeBuilder)? b]) = _$ClearAt_Time;
 
   // coverage:ignore-start
@@ -1185,9 +1181,6 @@ abstract class ClearAt_Time implements Built<ClearAt_Time, ClearAt_TimeBuilder> 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  ClearAtTimeType? get clearAtTimeType;
   @BuiltValueSerializer(custom: true)
   static Serializer<ClearAt_Time> get serializer => _$ClearAt_TimeSerializer();
 }
@@ -1233,8 +1226,6 @@ class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
 abstract interface class ClearAtInterface {
   ClearAt_Type get type;
   ClearAt_Time get time;
-  ClearAtInterface rebuild(final void Function(ClearAtInterfaceBuilder) updates);
-  ClearAtInterfaceBuilder toBuilder();
 }
 
 abstract class ClearAt implements ClearAtInterface, Built<ClearAt, ClearAtBuilder> {
@@ -1262,8 +1253,6 @@ abstract interface class PredefinedInterface {
   String get message;
   ClearAt? get clearAt;
   bool? get visible;
-  PredefinedInterface rebuild(final void Function(PredefinedInterfaceBuilder) updates);
-  PredefinedInterfaceBuilder toBuilder();
 }
 
 abstract class Predefined implements PredefinedInterface, Built<Predefined, PredefinedBuilder> {
@@ -1288,10 +1277,6 @@ abstract class Predefined implements PredefinedInterface, Built<Predefined, Pred
 abstract interface class PredefinedStatusFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Predefined> get data;
-  PredefinedStatusFindAllResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
@@ -1323,10 +1308,6 @@ abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PredefinedStatusFindAllResponseApplicationJsonInterface {
   PredefinedStatusFindAllResponseApplicationJson_Ocs get ocs;
-  PredefinedStatusFindAllResponseApplicationJsonInterface rebuild(
-    final void Function(PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PredefinedStatusFindAllResponseApplicationJson
@@ -1358,10 +1339,6 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
 abstract interface class StatusesFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Public> get data;
-  StatusesFindAllResponseApplicationJson_OcsInterface rebuild(
-    final void Function(StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class StatusesFindAllResponseApplicationJson_Ocs
@@ -1392,10 +1369,6 @@ abstract class StatusesFindAllResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class StatusesFindAllResponseApplicationJsonInterface {
   StatusesFindAllResponseApplicationJson_Ocs get ocs;
-  StatusesFindAllResponseApplicationJsonInterface rebuild(
-    final void Function(StatusesFindAllResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  StatusesFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class StatusesFindAllResponseApplicationJson
@@ -1427,10 +1400,6 @@ abstract class StatusesFindAllResponseApplicationJson
 abstract interface class StatusesFindResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Public get data;
-  StatusesFindResponseApplicationJson_OcsInterface rebuild(
-    final void Function(StatusesFindResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  StatusesFindResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class StatusesFindResponseApplicationJson_Ocs
@@ -1461,10 +1430,6 @@ abstract class StatusesFindResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class StatusesFindResponseApplicationJsonInterface {
   StatusesFindResponseApplicationJson_Ocs get ocs;
-  StatusesFindResponseApplicationJsonInterface rebuild(
-    final void Function(StatusesFindResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  StatusesFindResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class StatusesFindResponseApplicationJson
@@ -1495,10 +1460,6 @@ abstract class StatusesFindResponseApplicationJson
 abstract interface class UserStatusGetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
-  UserStatusGetStatusResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusGetStatusResponseApplicationJson_Ocs
@@ -1529,10 +1490,6 @@ abstract class UserStatusGetStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusGetStatusResponseApplicationJsonInterface {
   UserStatusGetStatusResponseApplicationJson_Ocs get ocs;
-  UserStatusGetStatusResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusGetStatusResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusGetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusGetStatusResponseApplicationJson
@@ -1564,10 +1521,6 @@ abstract class UserStatusGetStatusResponseApplicationJson
 abstract interface class UserStatusSetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
-  UserStatusSetStatusResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetStatusResponseApplicationJson_Ocs
@@ -1598,10 +1551,6 @@ abstract class UserStatusSetStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusSetStatusResponseApplicationJsonInterface {
   UserStatusSetStatusResponseApplicationJson_Ocs get ocs;
-  UserStatusSetStatusResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusSetStatusResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusSetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetStatusResponseApplicationJson
@@ -1633,10 +1582,6 @@ abstract class UserStatusSetStatusResponseApplicationJson
 abstract interface class UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
-  UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
@@ -1668,10 +1613,6 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusSetPredefinedMessageResponseApplicationJsonInterface {
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs get ocs;
-  UserStatusSetPredefinedMessageResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson
@@ -1704,10 +1645,6 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
 abstract interface class UserStatusSetCustomMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
-  UserStatusSetCustomMessageResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
@@ -1739,10 +1676,6 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusSetCustomMessageResponseApplicationJsonInterface {
   UserStatusSetCustomMessageResponseApplicationJson_Ocs get ocs;
-  UserStatusSetCustomMessageResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusSetCustomMessageResponseApplicationJson
@@ -1775,10 +1708,6 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson
 abstract interface class UserStatusClearMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UserStatusClearMessageResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusClearMessageResponseApplicationJson_Ocs
@@ -1810,10 +1739,6 @@ abstract class UserStatusClearMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusClearMessageResponseApplicationJsonInterface {
   UserStatusClearMessageResponseApplicationJson_Ocs get ocs;
-  UserStatusClearMessageResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusClearMessageResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusClearMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusClearMessageResponseApplicationJson
@@ -1841,8 +1766,16 @@ abstract class UserStatusClearMessageResponseApplicationJson
       _$userStatusClearMessageResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface {
+  JsonObject get data;
+  Private? get private;
+  JsonObject? get jsonObject;
+}
+
 abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
     implements
+        UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface,
         Built<UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
             UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder> {
   factory UserStatusRevertStatusResponseApplicationJson_Ocs_Data([
@@ -1862,9 +1795,6 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  Private? get private;
-  JsonObject? get jsonObject;
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
       _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer();
@@ -1915,10 +1845,6 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
 abstract interface class UserStatusRevertStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data get data;
-  UserStatusRevertStatusResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
@@ -1950,10 +1876,6 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusRevertStatusResponseApplicationJsonInterface {
   UserStatusRevertStatusResponseApplicationJson_Ocs get ocs;
-  UserStatusRevertStatusResponseApplicationJsonInterface rebuild(
-    final void Function(UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserStatusRevertStatusResponseApplicationJson
@@ -1987,8 +1909,6 @@ abstract interface class Capabilities_UserStatusInterface {
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
-  Capabilities_UserStatusInterface rebuild(final void Function(Capabilities_UserStatusInterfaceBuilder) updates);
-  Capabilities_UserStatusInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_UserStatus
@@ -2015,8 +1935,6 @@ abstract class Capabilities_UserStatus
 abstract interface class CapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
   Capabilities_UserStatus get userStatus;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

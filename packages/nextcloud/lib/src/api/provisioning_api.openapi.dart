@@ -4265,8 +4265,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -4290,10 +4288,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
-  AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppConfigGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppConfigGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
@@ -4326,10 +4320,6 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
 abstract interface class AppConfigGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetAppsResponseApplicationJson_Ocs_Data get data;
-  AppConfigGetAppsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppConfigGetAppsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppConfigGetAppsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson_Ocs
@@ -4360,10 +4350,6 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetAppsResponseApplicationJsonInterface {
   AppConfigGetAppsResponseApplicationJson_Ocs get ocs;
-  AppConfigGetAppsResponseApplicationJsonInterface rebuild(
-    final void Function(AppConfigGetAppsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppConfigGetAppsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson
@@ -4394,10 +4380,6 @@ abstract class AppConfigGetAppsResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
-  AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppConfigGetKeysResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppConfigGetKeysResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
@@ -4430,10 +4412,6 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
 abstract interface class AppConfigGetKeysResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetKeysResponseApplicationJson_Ocs_Data get data;
-  AppConfigGetKeysResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppConfigGetKeysResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppConfigGetKeysResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson_Ocs
@@ -4464,10 +4442,6 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetKeysResponseApplicationJsonInterface {
   AppConfigGetKeysResponseApplicationJson_Ocs get ocs;
-  AppConfigGetKeysResponseApplicationJsonInterface rebuild(
-    final void Function(AppConfigGetKeysResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppConfigGetKeysResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson
@@ -4498,10 +4472,6 @@ abstract class AppConfigGetKeysResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetValueResponseApplicationJson_Ocs_DataInterface {
   String get data;
-  AppConfigGetValueResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppConfigGetValueResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppConfigGetValueResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetValueResponseApplicationJson_Ocs_Data
@@ -4534,10 +4504,6 @@ abstract class AppConfigGetValueResponseApplicationJson_Ocs_Data
 abstract interface class AppConfigGetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetValueResponseApplicationJson_Ocs_Data get data;
-  AppConfigGetValueResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppConfigGetValueResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppConfigGetValueResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetValueResponseApplicationJson_Ocs
@@ -4568,10 +4534,6 @@ abstract class AppConfigGetValueResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigGetValueResponseApplicationJsonInterface {
   AppConfigGetValueResponseApplicationJson_Ocs get ocs;
-  AppConfigGetValueResponseApplicationJsonInterface rebuild(
-    final void Function(AppConfigGetValueResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppConfigGetValueResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigGetValueResponseApplicationJson
@@ -4603,10 +4565,6 @@ abstract class AppConfigGetValueResponseApplicationJson
 abstract interface class AppConfigSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  AppConfigSetValueResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppConfigSetValueResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppConfigSetValueResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigSetValueResponseApplicationJson_Ocs
@@ -4637,10 +4595,6 @@ abstract class AppConfigSetValueResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigSetValueResponseApplicationJsonInterface {
   AppConfigSetValueResponseApplicationJson_Ocs get ocs;
-  AppConfigSetValueResponseApplicationJsonInterface rebuild(
-    final void Function(AppConfigSetValueResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppConfigSetValueResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigSetValueResponseApplicationJson
@@ -4672,10 +4626,6 @@ abstract class AppConfigSetValueResponseApplicationJson
 abstract interface class AppConfigDeleteKeyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  AppConfigDeleteKeyResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppConfigDeleteKeyResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppConfigDeleteKeyResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigDeleteKeyResponseApplicationJson_Ocs
@@ -4706,10 +4656,6 @@ abstract class AppConfigDeleteKeyResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppConfigDeleteKeyResponseApplicationJsonInterface {
   AppConfigDeleteKeyResponseApplicationJson_Ocs get ocs;
-  AppConfigDeleteKeyResponseApplicationJsonInterface rebuild(
-    final void Function(AppConfigDeleteKeyResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppConfigDeleteKeyResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppConfigDeleteKeyResponseApplicationJson
@@ -4740,10 +4686,6 @@ abstract class AppConfigDeleteKeyResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class AppsGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get apps;
-  AppsGetAppsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
@@ -4775,10 +4717,6 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
 abstract interface class AppsGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppsGetAppsResponseApplicationJson_Ocs_Data get data;
-  AppsGetAppsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppsGetAppsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppsGetAppsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppsGetAppsResponseApplicationJson_Ocs
@@ -4809,10 +4747,6 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppsGetAppsResponseApplicationJsonInterface {
   AppsGetAppsResponseApplicationJson_Ocs get ocs;
-  AppsGetAppsResponseApplicationJsonInterface rebuild(
-    final void Function(AppsGetAppsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppsGetAppsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppsGetAppsResponseApplicationJson
@@ -4884,8 +4818,6 @@ abstract interface class AppInfoInterface {
   String get version;
   JsonObject? get versions;
   JsonObject? get website;
-  AppInfoInterface rebuild(final void Function(AppInfoInterfaceBuilder) updates);
-  AppInfoInterfaceBuilder toBuilder();
 }
 
 abstract class AppInfo implements AppInfoInterface, Built<AppInfo, AppInfoBuilder> {
@@ -4910,10 +4842,6 @@ abstract class AppInfo implements AppInfoInterface, Built<AppInfo, AppInfoBuilde
 abstract interface class AppsGetAppInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppInfo get data;
-  AppsGetAppInfoResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppsGetAppInfoResponseApplicationJson_Ocs
@@ -4944,10 +4872,6 @@ abstract class AppsGetAppInfoResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppsGetAppInfoResponseApplicationJsonInterface {
   AppsGetAppInfoResponseApplicationJson_Ocs get ocs;
-  AppsGetAppInfoResponseApplicationJsonInterface rebuild(
-    final void Function(AppsGetAppInfoResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppsGetAppInfoResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppsGetAppInfoResponseApplicationJson
@@ -4979,10 +4903,6 @@ abstract class AppsGetAppInfoResponseApplicationJson
 abstract interface class AppsEnableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  AppsEnableResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppsEnableResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppsEnableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppsEnableResponseApplicationJson_Ocs
@@ -5013,10 +4933,6 @@ abstract class AppsEnableResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppsEnableResponseApplicationJsonInterface {
   AppsEnableResponseApplicationJson_Ocs get ocs;
-  AppsEnableResponseApplicationJsonInterface rebuild(
-    final void Function(AppsEnableResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppsEnableResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppsEnableResponseApplicationJson
@@ -5046,10 +4962,6 @@ abstract class AppsEnableResponseApplicationJson
 abstract interface class AppsDisableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  AppsDisableResponseApplicationJson_OcsInterface rebuild(
-    final void Function(AppsDisableResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  AppsDisableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class AppsDisableResponseApplicationJson_Ocs
@@ -5080,10 +4992,6 @@ abstract class AppsDisableResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class AppsDisableResponseApplicationJsonInterface {
   AppsDisableResponseApplicationJson_Ocs get ocs;
-  AppsDisableResponseApplicationJsonInterface rebuild(
-    final void Function(AppsDisableResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  AppsDisableResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class AppsDisableResponseApplicationJson
@@ -5113,10 +5021,6 @@ abstract class AppsDisableResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
-  GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
@@ -5148,10 +5052,6 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
 abstract interface class GroupsGetGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsResponseApplicationJson_Ocs_Data get data;
-  GroupsGetGroupsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetGroupsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson_Ocs
@@ -5182,10 +5082,6 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupsResponseApplicationJsonInterface {
   GroupsGetGroupsResponseApplicationJson_Ocs get ocs;
-  GroupsGetGroupsResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetGroupsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson
@@ -5217,10 +5113,6 @@ abstract class GroupsGetGroupsResponseApplicationJson
 abstract interface class GroupsAddGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  GroupsAddGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsAddGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsAddGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsAddGroupResponseApplicationJson_Ocs
@@ -5251,10 +5143,6 @@ abstract class GroupsAddGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsAddGroupResponseApplicationJsonInterface {
   GroupsAddGroupResponseApplicationJson_Ocs get ocs;
-  GroupsAddGroupResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsAddGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsAddGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsAddGroupResponseApplicationJson
@@ -5282,7 +5170,15 @@ abstract class GroupsAddGroupResponseApplicationJson
       _$groupsAddGroupResponseApplicationJsonSerializer;
 }
 
-abstract class GroupDetails_Usercount implements Built<GroupDetails_Usercount, GroupDetails_UsercountBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class GroupDetails_UsercountInterface {
+  JsonObject get data;
+  bool? get $bool;
+  int? get $int;
+}
+
+abstract class GroupDetails_Usercount
+    implements GroupDetails_UsercountInterface, Built<GroupDetails_Usercount, GroupDetails_UsercountBuilder> {
   factory GroupDetails_Usercount([final void Function(GroupDetails_UsercountBuilder)? b]) = _$GroupDetails_Usercount;
 
   // coverage:ignore-start
@@ -5298,9 +5194,6 @@ abstract class GroupDetails_Usercount implements Built<GroupDetails_Usercount, G
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  bool? get $bool;
-  int? get $int;
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupDetails_Usercount> get serializer => _$GroupDetails_UsercountSerializer();
 }
@@ -5338,7 +5231,15 @@ class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDet
   }
 }
 
-abstract class GroupDetails_Disabled implements Built<GroupDetails_Disabled, GroupDetails_DisabledBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class GroupDetails_DisabledInterface {
+  JsonObject get data;
+  bool? get $bool;
+  int? get $int;
+}
+
+abstract class GroupDetails_Disabled
+    implements GroupDetails_DisabledInterface, Built<GroupDetails_Disabled, GroupDetails_DisabledBuilder> {
   factory GroupDetails_Disabled([final void Function(GroupDetails_DisabledBuilder)? b]) = _$GroupDetails_Disabled;
 
   // coverage:ignore-start
@@ -5354,9 +5255,6 @@ abstract class GroupDetails_Disabled implements Built<GroupDetails_Disabled, Gro
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  bool? get $bool;
-  int? get $int;
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupDetails_Disabled> get serializer => _$GroupDetails_DisabledSerializer();
 }
@@ -5402,8 +5300,6 @@ abstract interface class GroupDetailsInterface {
   GroupDetails_Disabled get disabled;
   bool get canAdd;
   bool get canRemove;
-  GroupDetailsInterface rebuild(final void Function(GroupDetailsInterfaceBuilder) updates);
-  GroupDetailsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupDetails implements GroupDetailsInterface, Built<GroupDetails, GroupDetailsBuilder> {
@@ -5427,10 +5323,6 @@ abstract class GroupDetails implements GroupDetailsInterface, Built<GroupDetails
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<GroupDetails> get groups;
-  GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
@@ -5463,10 +5355,6 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
 abstract interface class GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data get data;
-  GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetGroupsDetailsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsDetailsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
@@ -5498,10 +5386,6 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupsDetailsResponseApplicationJsonInterface {
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs get ocs;
-  GroupsGetGroupsDetailsResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetGroupsDetailsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetGroupsDetailsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson
@@ -5532,10 +5416,6 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
-  GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
@@ -5568,10 +5448,6 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
 abstract interface class GroupsGetGroupUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersResponseApplicationJson_Ocs_Data get data;
-  GroupsGetGroupUsersResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetGroupUsersResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
@@ -5602,10 +5478,6 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersResponseApplicationJsonInterface {
   GroupsGetGroupUsersResponseApplicationJson_Ocs get ocs;
-  GroupsGetGroupUsersResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetGroupUsersResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson
@@ -5637,10 +5509,6 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
 abstract interface class UserDetails_BackendCapabilitiesInterface {
   bool get setDisplayName;
   bool get setPassword;
-  UserDetails_BackendCapabilitiesInterface rebuild(
-    final void Function(UserDetails_BackendCapabilitiesInterfaceBuilder) updates,
-  );
-  UserDetails_BackendCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class UserDetails_BackendCapabilities
@@ -5666,7 +5534,16 @@ abstract class UserDetails_BackendCapabilities
   static Serializer<UserDetails_BackendCapabilities> get serializer => _$userDetailsBackendCapabilitiesSerializer;
 }
 
-abstract class UserDetailsQuota_Quota implements Built<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class UserDetailsQuota_QuotaInterface {
+  JsonObject get data;
+  num? get $num;
+  int? get $int;
+  String? get string;
+}
+
+abstract class UserDetailsQuota_Quota
+    implements UserDetailsQuota_QuotaInterface, Built<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder> {
   factory UserDetailsQuota_Quota([final void Function(UserDetailsQuota_QuotaBuilder)? b]) = _$UserDetailsQuota_Quota;
 
   // coverage:ignore-start
@@ -5682,10 +5559,6 @@ abstract class UserDetailsQuota_Quota implements Built<UserDetailsQuota_Quota, U
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  num? get $num;
-  int? get $int;
-  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDetailsQuota_Quota> get serializer => _$UserDetailsQuota_QuotaSerializer();
 }
@@ -5736,8 +5609,6 @@ abstract interface class UserDetailsQuotaInterface {
   num? get relative;
   num? get total;
   num? get used;
-  UserDetailsQuotaInterface rebuild(final void Function(UserDetailsQuotaInterfaceBuilder) updates);
-  UserDetailsQuotaInterfaceBuilder toBuilder();
 }
 
 abstract class UserDetailsQuota implements UserDetailsQuotaInterface, Built<UserDetailsQuota, UserDetailsQuotaBuilder> {
@@ -5808,8 +5679,6 @@ abstract interface class UserDetailsInterface {
   String? get twitterScope;
   String get website;
   String? get websiteScope;
-  UserDetailsInterface rebuild(final void Function(UserDetailsInterfaceBuilder) updates);
-  UserDetailsInterfaceBuilder toBuilder();
 }
 
 abstract class UserDetails implements UserDetailsInterface, Built<UserDetails, UserDetailsBuilder> {
@@ -5833,10 +5702,6 @@ abstract class UserDetails implements UserDetailsInterface, Built<UserDetails, U
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface rebuild(
-    final void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
@@ -5865,8 +5730,17 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
+  JsonObject get data;
+  UserDetails? get userDetails;
+  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
+}
+
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
     implements
+        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
         Built<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
             GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
   factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users([
@@ -5886,10 +5760,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  UserDetails? get userDetails;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
       _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
@@ -5945,10 +5815,6 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializ
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
@@ -5981,10 +5847,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
 abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data get data;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
@@ -6016,10 +5878,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJsonInterface {
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs get ocs;
-  GroupsGetGroupUsersDetailsResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetGroupUsersDetailsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetGroupUsersDetailsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
@@ -6052,10 +5910,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
 abstract interface class GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
-  GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
@@ -6087,10 +5941,6 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
   GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs get ocs;
-  GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetSubAdminsOfGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetSubAdminsOfGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
@@ -6122,10 +5972,6 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
-  GroupsGetGroupResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(GroupsGetGroupResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  GroupsGetGroupResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
@@ -6157,10 +6003,6 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
 abstract interface class GroupsGetGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupResponseApplicationJson_Ocs_Data get data;
-  GroupsGetGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsGetGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsGetGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupResponseApplicationJson_Ocs
@@ -6191,10 +6033,6 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupResponseApplicationJsonInterface {
   GroupsGetGroupResponseApplicationJson_Ocs get ocs;
-  GroupsGetGroupResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsGetGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsGetGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsGetGroupResponseApplicationJson
@@ -6226,10 +6064,6 @@ abstract class GroupsGetGroupResponseApplicationJson
 abstract interface class GroupsUpdateGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  GroupsUpdateGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsUpdateGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsUpdateGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsUpdateGroupResponseApplicationJson_Ocs
@@ -6260,10 +6094,6 @@ abstract class GroupsUpdateGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsUpdateGroupResponseApplicationJsonInterface {
   GroupsUpdateGroupResponseApplicationJson_Ocs get ocs;
-  GroupsUpdateGroupResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsUpdateGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsUpdateGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsUpdateGroupResponseApplicationJson
@@ -6295,10 +6125,6 @@ abstract class GroupsUpdateGroupResponseApplicationJson
 abstract interface class GroupsDeleteGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  GroupsDeleteGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(GroupsDeleteGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  GroupsDeleteGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsDeleteGroupResponseApplicationJson_Ocs
@@ -6329,10 +6155,6 @@ abstract class GroupsDeleteGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class GroupsDeleteGroupResponseApplicationJsonInterface {
   GroupsDeleteGroupResponseApplicationJson_Ocs get ocs;
-  GroupsDeleteGroupResponseApplicationJsonInterface rebuild(
-    final void Function(GroupsDeleteGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  GroupsDeleteGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class GroupsDeleteGroupResponseApplicationJson
@@ -6364,10 +6186,6 @@ abstract class GroupsDeleteGroupResponseApplicationJson
 abstract interface class PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  PreferencesSetPreferenceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PreferencesSetPreferenceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PreferencesSetPreferenceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
@@ -6399,10 +6217,6 @@ abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PreferencesSetPreferenceResponseApplicationJsonInterface {
   PreferencesSetPreferenceResponseApplicationJson_Ocs get ocs;
-  PreferencesSetPreferenceResponseApplicationJsonInterface rebuild(
-    final void Function(PreferencesSetPreferenceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PreferencesSetPreferenceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesSetPreferenceResponseApplicationJson
@@ -6434,10 +6248,6 @@ abstract class PreferencesSetPreferenceResponseApplicationJson
 abstract interface class PreferencesDeletePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  PreferencesDeletePreferenceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PreferencesDeletePreferenceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PreferencesDeletePreferenceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
@@ -6469,10 +6279,6 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PreferencesDeletePreferenceResponseApplicationJsonInterface {
   PreferencesDeletePreferenceResponseApplicationJson_Ocs get ocs;
-  PreferencesDeletePreferenceResponseApplicationJsonInterface rebuild(
-    final void Function(PreferencesDeletePreferenceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PreferencesDeletePreferenceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesDeletePreferenceResponseApplicationJson
@@ -6505,10 +6311,6 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson
 abstract interface class PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
@@ -6540,10 +6342,6 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PreferencesSetMultiplePreferencesResponseApplicationJsonInterface {
   PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs get ocs;
-  PreferencesSetMultiplePreferencesResponseApplicationJsonInterface rebuild(
-    final void Function(PreferencesSetMultiplePreferencesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PreferencesSetMultiplePreferencesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
@@ -6576,10 +6374,6 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
 abstract interface class PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface rebuild(
-    final void Function(PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
@@ -6611,10 +6405,6 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface {
   PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs get ocs;
-  PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface rebuild(
-    final void Function(PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
@@ -6646,10 +6436,6 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
-  UsersGetUsersResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(UsersGetUsersResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  UsersGetUsersResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
@@ -6681,10 +6467,6 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
 abstract interface class UsersGetUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersResponseApplicationJson_Ocs_Data get data;
-  UsersGetUsersResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetUsersResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetUsersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersResponseApplicationJson_Ocs
@@ -6715,10 +6497,6 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersResponseApplicationJsonInterface {
   UsersGetUsersResponseApplicationJson_Ocs get ocs;
-  UsersGetUsersResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetUsersResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetUsersResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersResponseApplicationJson
@@ -6748,10 +6526,6 @@ abstract class UsersGetUsersResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UsersAddUserResponseApplicationJson_Ocs_DataInterface {
   String get id;
-  UsersAddUserResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(UsersAddUserResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  UsersAddUserResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddUserResponseApplicationJson_Ocs_Data
@@ -6783,10 +6557,6 @@ abstract class UsersAddUserResponseApplicationJson_Ocs_Data
 abstract interface class UsersAddUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersAddUserResponseApplicationJson_Ocs_Data get data;
-  UsersAddUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersAddUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersAddUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddUserResponseApplicationJson_Ocs
@@ -6817,10 +6587,6 @@ abstract class UsersAddUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersAddUserResponseApplicationJsonInterface {
   UsersAddUserResponseApplicationJson_Ocs get ocs;
-  UsersAddUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersAddUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersAddUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddUserResponseApplicationJson
@@ -6850,10 +6616,6 @@ abstract class UsersAddUserResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface rebuild(
-    final void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates,
-  );
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
@@ -6882,8 +6644,17 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
       _$usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
+  JsonObject get data;
+  UserDetails? get userDetails;
+  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
+}
+
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
     implements
+        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
         Built<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
             UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
   factory UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users([
@@ -6903,10 +6674,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  UserDetails? get userDetails;
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
   @BuiltValueSerializer(custom: true)
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
       _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
@@ -6962,10 +6729,6 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
@@ -6998,10 +6761,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
 abstract interface class UsersGetUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data get data;
-  UsersGetUsersDetailsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetUsersDetailsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetUsersDetailsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
@@ -7032,10 +6791,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersDetailsResponseApplicationJsonInterface {
   UsersGetUsersDetailsResponseApplicationJson_Ocs get ocs;
-  UsersGetUsersDetailsResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetUsersDetailsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetUsersDetailsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson
@@ -7067,10 +6822,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
 abstract interface class UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, String> get data;
-  UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
@@ -7102,10 +6853,6 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersSearchByPhoneNumbersResponseApplicationJsonInterface {
   UsersSearchByPhoneNumbersResponseApplicationJson_Ocs get ocs;
-  UsersSearchByPhoneNumbersResponseApplicationJsonInterface rebuild(
-    final void Function(UsersSearchByPhoneNumbersResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersSearchByPhoneNumbersResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersSearchByPhoneNumbersResponseApplicationJson
@@ -7138,10 +6885,6 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson
 abstract interface class UsersGetUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
-  UsersGetUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUserResponseApplicationJson_Ocs
@@ -7172,10 +6915,6 @@ abstract class UsersGetUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUserResponseApplicationJsonInterface {
   UsersGetUserResponseApplicationJson_Ocs get ocs;
-  UsersGetUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUserResponseApplicationJson
@@ -7206,10 +6945,6 @@ abstract class UsersGetUserResponseApplicationJson
 abstract interface class UsersEditUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersEditUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersEditUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersEditUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEditUserResponseApplicationJson_Ocs
@@ -7240,10 +6975,6 @@ abstract class UsersEditUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersEditUserResponseApplicationJsonInterface {
   UsersEditUserResponseApplicationJson_Ocs get ocs;
-  UsersEditUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersEditUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersEditUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEditUserResponseApplicationJson
@@ -7274,10 +7005,6 @@ abstract class UsersEditUserResponseApplicationJson
 abstract interface class UsersDeleteUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersDeleteUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersDeleteUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersDeleteUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersDeleteUserResponseApplicationJson_Ocs
@@ -7308,10 +7035,6 @@ abstract class UsersDeleteUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersDeleteUserResponseApplicationJsonInterface {
   UsersDeleteUserResponseApplicationJson_Ocs get ocs;
-  UsersDeleteUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersDeleteUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersDeleteUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersDeleteUserResponseApplicationJson
@@ -7343,10 +7066,6 @@ abstract class UsersDeleteUserResponseApplicationJson
 abstract interface class UsersGetCurrentUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
-  UsersGetCurrentUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetCurrentUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetCurrentUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
@@ -7377,10 +7096,6 @@ abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetCurrentUserResponseApplicationJsonInterface {
   UsersGetCurrentUserResponseApplicationJson_Ocs get ocs;
-  UsersGetCurrentUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetCurrentUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetCurrentUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetCurrentUserResponseApplicationJson
@@ -7412,10 +7127,6 @@ abstract class UsersGetCurrentUserResponseApplicationJson
 abstract interface class UsersGetEditableFieldsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
-  UsersGetEditableFieldsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetEditableFieldsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetEditableFieldsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
@@ -7447,10 +7158,6 @@ abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetEditableFieldsResponseApplicationJsonInterface {
   UsersGetEditableFieldsResponseApplicationJson_Ocs get ocs;
-  UsersGetEditableFieldsResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetEditableFieldsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetEditableFieldsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetEditableFieldsResponseApplicationJson
@@ -7482,10 +7189,6 @@ abstract class UsersGetEditableFieldsResponseApplicationJson
 abstract interface class UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
-  UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
@@ -7517,10 +7220,6 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetEditableFieldsForUserResponseApplicationJsonInterface {
   UsersGetEditableFieldsForUserResponseApplicationJson_Ocs get ocs;
-  UsersGetEditableFieldsForUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetEditableFieldsForUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetEditableFieldsForUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetEditableFieldsForUserResponseApplicationJson
@@ -7553,10 +7252,6 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
 abstract interface class UsersEditUserMultiValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersEditUserMultiValueResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersEditUserMultiValueResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersEditUserMultiValueResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
@@ -7588,10 +7283,6 @@ abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersEditUserMultiValueResponseApplicationJsonInterface {
   UsersEditUserMultiValueResponseApplicationJson_Ocs get ocs;
-  UsersEditUserMultiValueResponseApplicationJsonInterface rebuild(
-    final void Function(UsersEditUserMultiValueResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersEditUserMultiValueResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEditUserMultiValueResponseApplicationJson
@@ -7623,10 +7314,6 @@ abstract class UsersEditUserMultiValueResponseApplicationJson
 abstract interface class UsersWipeUserDevicesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersWipeUserDevicesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersWipeUserDevicesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersWipeUserDevicesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
@@ -7657,10 +7344,6 @@ abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersWipeUserDevicesResponseApplicationJsonInterface {
   UsersWipeUserDevicesResponseApplicationJson_Ocs get ocs;
-  UsersWipeUserDevicesResponseApplicationJsonInterface rebuild(
-    final void Function(UsersWipeUserDevicesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersWipeUserDevicesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersWipeUserDevicesResponseApplicationJson
@@ -7692,10 +7375,6 @@ abstract class UsersWipeUserDevicesResponseApplicationJson
 abstract interface class UsersEnableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersEnableUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersEnableUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersEnableUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEnableUserResponseApplicationJson_Ocs
@@ -7726,10 +7405,6 @@ abstract class UsersEnableUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersEnableUserResponseApplicationJsonInterface {
   UsersEnableUserResponseApplicationJson_Ocs get ocs;
-  UsersEnableUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersEnableUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersEnableUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersEnableUserResponseApplicationJson
@@ -7761,10 +7436,6 @@ abstract class UsersEnableUserResponseApplicationJson
 abstract interface class UsersDisableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersDisableUserResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersDisableUserResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersDisableUserResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersDisableUserResponseApplicationJson_Ocs
@@ -7795,10 +7466,6 @@ abstract class UsersDisableUserResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersDisableUserResponseApplicationJsonInterface {
   UsersDisableUserResponseApplicationJson_Ocs get ocs;
-  UsersDisableUserResponseApplicationJsonInterface rebuild(
-    final void Function(UsersDisableUserResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersDisableUserResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersDisableUserResponseApplicationJson
@@ -7829,10 +7496,6 @@ abstract class UsersDisableUserResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
-  UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
@@ -7865,10 +7528,6 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
 abstract interface class UsersGetUsersGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersGroupsResponseApplicationJson_Ocs_Data get data;
-  UsersGetUsersGroupsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetUsersGroupsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetUsersGroupsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
@@ -7899,10 +7558,6 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersGroupsResponseApplicationJsonInterface {
   UsersGetUsersGroupsResponseApplicationJson_Ocs get ocs;
-  UsersGetUsersGroupsResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetUsersGroupsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetUsersGroupsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson
@@ -7934,10 +7589,6 @@ abstract class UsersGetUsersGroupsResponseApplicationJson
 abstract interface class UsersAddToGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersAddToGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersAddToGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersAddToGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddToGroupResponseApplicationJson_Ocs
@@ -7968,10 +7619,6 @@ abstract class UsersAddToGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersAddToGroupResponseApplicationJsonInterface {
   UsersAddToGroupResponseApplicationJson_Ocs get ocs;
-  UsersAddToGroupResponseApplicationJsonInterface rebuild(
-    final void Function(UsersAddToGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersAddToGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddToGroupResponseApplicationJson
@@ -8003,10 +7650,6 @@ abstract class UsersAddToGroupResponseApplicationJson
 abstract interface class UsersRemoveFromGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersRemoveFromGroupResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersRemoveFromGroupResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersRemoveFromGroupResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
@@ -8037,10 +7680,6 @@ abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersRemoveFromGroupResponseApplicationJsonInterface {
   UsersRemoveFromGroupResponseApplicationJson_Ocs get ocs;
-  UsersRemoveFromGroupResponseApplicationJsonInterface rebuild(
-    final void Function(UsersRemoveFromGroupResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersRemoveFromGroupResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersRemoveFromGroupResponseApplicationJson
@@ -8072,10 +7711,6 @@ abstract class UsersRemoveFromGroupResponseApplicationJson
 abstract interface class UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
-  UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
@@ -8107,10 +7742,6 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
   UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs get ocs;
-  UsersGetUserSubAdminGroupsResponseApplicationJsonInterface rebuild(
-    final void Function(UsersGetUserSubAdminGroupsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersGetUserSubAdminGroupsResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
@@ -8143,10 +7774,6 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
 abstract interface class UsersAddSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersAddSubAdminResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersAddSubAdminResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersAddSubAdminResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddSubAdminResponseApplicationJson_Ocs
@@ -8177,10 +7804,6 @@ abstract class UsersAddSubAdminResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersAddSubAdminResponseApplicationJsonInterface {
   UsersAddSubAdminResponseApplicationJson_Ocs get ocs;
-  UsersAddSubAdminResponseApplicationJsonInterface rebuild(
-    final void Function(UsersAddSubAdminResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersAddSubAdminResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersAddSubAdminResponseApplicationJson
@@ -8212,10 +7835,6 @@ abstract class UsersAddSubAdminResponseApplicationJson
 abstract interface class UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersRemoveSubAdminResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
@@ -8246,10 +7865,6 @@ abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersRemoveSubAdminResponseApplicationJsonInterface {
   UsersRemoveSubAdminResponseApplicationJson_Ocs get ocs;
-  UsersRemoveSubAdminResponseApplicationJsonInterface rebuild(
-    final void Function(UsersRemoveSubAdminResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersRemoveSubAdminResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersRemoveSubAdminResponseApplicationJson
@@ -8281,10 +7896,6 @@ abstract class UsersRemoveSubAdminResponseApplicationJson
 abstract interface class UsersResendWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UsersResendWelcomeMessageResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UsersResendWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UsersResendWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
@@ -8316,10 +7927,6 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UsersResendWelcomeMessageResponseApplicationJsonInterface {
   UsersResendWelcomeMessageResponseApplicationJson_Ocs get ocs;
-  UsersResendWelcomeMessageResponseApplicationJsonInterface rebuild(
-    final void Function(UsersResendWelcomeMessageResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UsersResendWelcomeMessageResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UsersResendWelcomeMessageResponseApplicationJson
@@ -8357,10 +7964,6 @@ abstract interface class Capabilities_ProvisioningApiInterface {
   bool get accountPropertyScopesFederatedEnabled;
   @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
   bool get accountPropertyScopesPublishedEnabled;
-  Capabilities_ProvisioningApiInterface rebuild(
-    final void Function(Capabilities_ProvisioningApiInterfaceBuilder) updates,
-  );
-  Capabilities_ProvisioningApiInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_ProvisioningApi
@@ -8390,8 +7993,6 @@ abstract class Capabilities_ProvisioningApi
 abstract interface class CapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
   Capabilities_ProvisioningApi get provisioningApi;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

@@ -701,8 +701,6 @@ abstract interface class NoteInterface {
   int get modified;
   bool get error;
   String get errorType;
-  NoteInterface rebuild(final void Function(NoteInterfaceBuilder) updates);
-  NoteInterfaceBuilder toBuilder();
 }
 
 abstract class Note implements NoteInterface, Built<Note, NoteBuilder> {
@@ -746,8 +744,6 @@ abstract interface class SettingsInterface {
   String get notesPath;
   String get fileSuffix;
   Settings_NoteMode get noteMode;
-  SettingsInterface rebuild(final void Function(SettingsInterfaceBuilder) updates);
-  SettingsInterfaceBuilder toBuilder();
 }
 
 abstract class Settings implements SettingsInterface, Built<Settings, SettingsBuilder> {
@@ -773,8 +769,6 @@ abstract interface class Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
-  Capabilities_NotesInterface rebuild(final void Function(Capabilities_NotesInterfaceBuilder) updates);
-  Capabilities_NotesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_Notes
@@ -800,8 +794,6 @@ abstract class Capabilities_Notes
 @BuiltValue(instantiable: false)
 abstract interface class CapabilitiesInterface {
   Capabilities_Notes get notes;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -829,8 +821,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -855,8 +845,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 abstract interface class EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
-  EmptyOCS_OcsInterface rebuild(final void Function(EmptyOCS_OcsInterfaceBuilder) updates);
-  EmptyOCS_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
@@ -880,8 +868,6 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
-  EmptyOCSInterface rebuild(final void Function(EmptyOCSInterfaceBuilder) updates);
-  EmptyOCSInterfaceBuilder toBuilder();
 }
 
 abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {

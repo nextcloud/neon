@@ -2266,8 +2266,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -2323,8 +2321,6 @@ abstract interface class DeletedShareInterface {
   String? get shareWithDisplayname;
   @BuiltValueField(wireName: 'share_with_link')
   String? get shareWithLink;
-  DeletedShareInterface rebuild(final void Function(DeletedShareInterfaceBuilder) updates);
-  DeletedShareInterfaceBuilder toBuilder();
 }
 
 abstract class DeletedShare implements DeletedShareInterface, Built<DeletedShare, DeletedShareBuilder> {
@@ -2349,10 +2345,6 @@ abstract class DeletedShare implements DeletedShareInterface, Built<DeletedShare
 abstract interface class DeletedShareapiListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeletedShare> get data;
-  DeletedShareapiListResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DeletedShareapiListResponseApplicationJson_Ocs
@@ -2383,10 +2375,6 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DeletedShareapiListResponseApplicationJsonInterface {
   DeletedShareapiListResponseApplicationJson_Ocs get ocs;
-  DeletedShareapiListResponseApplicationJsonInterface rebuild(
-    final void Function(DeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DeletedShareapiListResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DeletedShareapiListResponseApplicationJson
@@ -2418,10 +2406,6 @@ abstract class DeletedShareapiListResponseApplicationJson
 abstract interface class DeletedShareapiUndeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  DeletedShareapiUndeleteResponseApplicationJson_OcsInterface rebuild(
-    final void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
@@ -2453,10 +2437,6 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class DeletedShareapiUndeleteResponseApplicationJsonInterface {
   DeletedShareapiUndeleteResponseApplicationJson_Ocs get ocs;
-  DeletedShareapiUndeleteResponseApplicationJsonInterface rebuild(
-    final void Function(DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class DeletedShareapiUndeleteResponseApplicationJson
@@ -2506,8 +2486,6 @@ abstract interface class RemoteShareInterface {
   int get shareType;
   String? get type;
   String get user;
-  RemoteShareInterface rebuild(final void Function(RemoteShareInterfaceBuilder) updates);
-  RemoteShareInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteShare implements RemoteShareInterface, Built<RemoteShare, RemoteShareBuilder> {
@@ -2532,10 +2510,6 @@ abstract class RemoteShare implements RemoteShareInterface, Built<RemoteShare, R
 abstract interface class RemoteGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
-  RemoteGetSharesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetSharesResponseApplicationJson_Ocs
@@ -2566,10 +2540,6 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteGetSharesResponseApplicationJsonInterface {
   RemoteGetSharesResponseApplicationJson_Ocs get ocs;
-  RemoteGetSharesResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetSharesResponseApplicationJson
@@ -2601,10 +2571,6 @@ abstract class RemoteGetSharesResponseApplicationJson
 abstract interface class RemoteGetOpenSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
-  RemoteGetOpenSharesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
@@ -2635,10 +2601,6 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteGetOpenSharesResponseApplicationJsonInterface {
   RemoteGetOpenSharesResponseApplicationJson_Ocs get ocs;
-  RemoteGetOpenSharesResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetOpenSharesResponseApplicationJson
@@ -2670,10 +2632,6 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
 abstract interface class RemoteAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  RemoteAcceptShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteAcceptShareResponseApplicationJson_Ocs
@@ -2704,10 +2662,6 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteAcceptShareResponseApplicationJsonInterface {
   RemoteAcceptShareResponseApplicationJson_Ocs get ocs;
-  RemoteAcceptShareResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteAcceptShareResponseApplicationJson
@@ -2739,10 +2693,6 @@ abstract class RemoteAcceptShareResponseApplicationJson
 abstract interface class RemoteDeclineShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  RemoteDeclineShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteDeclineShareResponseApplicationJson_Ocs
@@ -2773,10 +2723,6 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteDeclineShareResponseApplicationJsonInterface {
   RemoteDeclineShareResponseApplicationJson_Ocs get ocs;
-  RemoteDeclineShareResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteDeclineShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteDeclineShareResponseApplicationJson
@@ -2808,10 +2754,6 @@ abstract class RemoteDeclineShareResponseApplicationJson
 abstract interface class RemoteGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RemoteShare get data;
-  RemoteGetShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetShareResponseApplicationJson_Ocs
@@ -2842,10 +2784,6 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteGetShareResponseApplicationJsonInterface {
   RemoteGetShareResponseApplicationJson_Ocs get ocs;
-  RemoteGetShareResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteGetShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteGetShareResponseApplicationJson
@@ -2877,10 +2815,6 @@ abstract class RemoteGetShareResponseApplicationJson
 abstract interface class RemoteUnshareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  RemoteUnshareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteUnshareResponseApplicationJson_Ocs
@@ -2911,10 +2845,6 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class RemoteUnshareResponseApplicationJsonInterface {
   RemoteUnshareResponseApplicationJson_Ocs get ocs;
-  RemoteUnshareResponseApplicationJsonInterface rebuild(
-    final void Function(RemoteUnshareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  RemoteUnshareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class RemoteUnshareResponseApplicationJson
@@ -2941,7 +2871,14 @@ abstract class RemoteUnshareResponseApplicationJson
       _$remoteUnshareResponseApplicationJsonSerializer;
 }
 
-abstract class ShareInfo_Size implements Built<ShareInfo_Size, ShareInfo_SizeBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareInfo_SizeInterface {
+  JsonObject get data;
+  int? get $int;
+  num? get $num;
+}
+
+abstract class ShareInfo_Size implements ShareInfo_SizeInterface, Built<ShareInfo_Size, ShareInfo_SizeBuilder> {
   factory ShareInfo_Size([final void Function(ShareInfo_SizeBuilder)? b]) = _$ShareInfo_Size;
 
   // coverage:ignore-start
@@ -2957,9 +2894,6 @@ abstract class ShareInfo_Size implements Built<ShareInfo_Size, ShareInfo_SizeBui
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  num? get $num;
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareInfo_Size> get serializer => _$ShareInfo_SizeSerializer();
 }
@@ -3009,8 +2943,6 @@ abstract interface class ShareInfoInterface {
   String get type;
   String get etag;
   BuiltList<BuiltMap<String, JsonObject>>? get children;
-  ShareInfoInterface rebuild(final void Function(ShareInfoInterfaceBuilder) updates);
-  ShareInfoInterfaceBuilder toBuilder();
 }
 
 abstract class ShareInfo implements ShareInfoInterface, Built<ShareInfo, ShareInfoBuilder> {
@@ -3031,7 +2963,14 @@ abstract class ShareInfo implements ShareInfoInterface, Built<ShareInfo, ShareIn
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
 }
 
-abstract class Share_ItemSize implements Built<Share_ItemSize, Share_ItemSizeBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class Share_ItemSizeInterface {
+  JsonObject get data;
+  num? get $num;
+  int? get $int;
+}
+
+abstract class Share_ItemSize implements Share_ItemSizeInterface, Built<Share_ItemSize, Share_ItemSizeBuilder> {
   factory Share_ItemSize([final void Function(Share_ItemSizeBuilder)? b]) = _$Share_ItemSize;
 
   // coverage:ignore-start
@@ -3047,9 +2986,6 @@ abstract class Share_ItemSize implements Built<Share_ItemSize, Share_ItemSizeBui
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  num? get $num;
-  int? get $int;
   @BuiltValueSerializer(custom: true)
   static Serializer<Share_ItemSize> get serializer => _$Share_ItemSizeSerializer();
 }
@@ -3109,8 +3045,6 @@ abstract interface class Share_StatusInterface {
   String? get icon;
   String? get message;
   String? get status;
-  Share_StatusInterface rebuild(final void Function(Share_StatusInterfaceBuilder) updates);
-  Share_StatusInterfaceBuilder toBuilder();
 }
 
 abstract class Share_Status implements Share_StatusInterface, Built<Share_Status, Share_StatusBuilder> {
@@ -3200,8 +3134,6 @@ abstract interface class ShareInterface {
   @BuiltValueField(wireName: 'uid_owner')
   String get uidOwner;
   String? get url;
-  ShareInterface rebuild(final void Function(ShareInterfaceBuilder) updates);
-  ShareInterfaceBuilder toBuilder();
 }
 
 abstract class Share implements ShareInterface, Built<Share, ShareBuilder> {
@@ -3226,10 +3158,6 @@ abstract class Share implements ShareInterface, Built<Share, ShareBuilder> {
 abstract interface class ShareapiGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
-  ShareapiGetSharesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetSharesResponseApplicationJson_Ocs
@@ -3260,10 +3188,6 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiGetSharesResponseApplicationJsonInterface {
   ShareapiGetSharesResponseApplicationJson_Ocs get ocs;
-  ShareapiGetSharesResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetSharesResponseApplicationJson
@@ -3295,10 +3219,6 @@ abstract class ShareapiGetSharesResponseApplicationJson
 abstract interface class ShareapiCreateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
-  ShareapiCreateShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiCreateShareResponseApplicationJson_Ocs
@@ -3329,10 +3249,6 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiCreateShareResponseApplicationJsonInterface {
   ShareapiCreateShareResponseApplicationJson_Ocs get ocs;
-  ShareapiCreateShareResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiCreateShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiCreateShareResponseApplicationJson
@@ -3364,10 +3280,6 @@ abstract class ShareapiCreateShareResponseApplicationJson
 abstract interface class ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
-  ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
@@ -3399,10 +3311,6 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiGetInheritedSharesResponseApplicationJsonInterface {
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs get ocs;
-  ShareapiGetInheritedSharesResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetInheritedSharesResponseApplicationJson
@@ -3435,10 +3343,6 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
 abstract interface class ShareapiPendingSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
-  ShareapiPendingSharesResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
@@ -3470,10 +3374,6 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiPendingSharesResponseApplicationJsonInterface {
   ShareapiPendingSharesResponseApplicationJson_Ocs get ocs;
-  ShareapiPendingSharesResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiPendingSharesResponseApplicationJson
@@ -3505,10 +3405,6 @@ abstract class ShareapiPendingSharesResponseApplicationJson
 abstract interface class ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
-  ShareapiGetShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetShareResponseApplicationJson_Ocs
@@ -3539,10 +3435,6 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiGetShareResponseApplicationJsonInterface {
   ShareapiGetShareResponseApplicationJson_Ocs get ocs;
-  ShareapiGetShareResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiGetShareResponseApplicationJson
@@ -3574,10 +3466,6 @@ abstract class ShareapiGetShareResponseApplicationJson
 abstract interface class ShareapiUpdateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
-  ShareapiUpdateShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
@@ -3608,10 +3496,6 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiUpdateShareResponseApplicationJsonInterface {
   ShareapiUpdateShareResponseApplicationJson_Ocs get ocs;
-  ShareapiUpdateShareResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiUpdateShareResponseApplicationJson
@@ -3643,10 +3527,6 @@ abstract class ShareapiUpdateShareResponseApplicationJson
 abstract interface class ShareapiDeleteShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ShareapiDeleteShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
@@ -3677,10 +3557,6 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiDeleteShareResponseApplicationJsonInterface {
   ShareapiDeleteShareResponseApplicationJson_Ocs get ocs;
-  ShareapiDeleteShareResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiDeleteShareResponseApplicationJson
@@ -3712,10 +3588,6 @@ abstract class ShareapiDeleteShareResponseApplicationJson
 abstract interface class ShareapiAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ShareapiAcceptShareResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
@@ -3746,10 +3618,6 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareapiAcceptShareResponseApplicationJsonInterface {
   ShareapiAcceptShareResponseApplicationJson_Ocs get ocs;
-  ShareapiAcceptShareResponseApplicationJsonInterface rebuild(
-    final void Function(ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareapiAcceptShareResponseApplicationJson
@@ -3777,7 +3645,15 @@ abstract class ShareapiAcceptShareResponseApplicationJson
       _$shareapiAcceptShareResponseApplicationJsonSerializer;
 }
 
-abstract class ShareesapiSearchShareType implements Built<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareesapiSearchShareTypeInterface {
+  JsonObject get data;
+  int? get $int;
+  BuiltList<int>? get builtListInt;
+}
+
+abstract class ShareesapiSearchShareType
+    implements ShareesapiSearchShareTypeInterface, Built<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder> {
   factory ShareesapiSearchShareType([final void Function(ShareesapiSearchShareTypeBuilder)? b]) =
       _$ShareesapiSearchShareType;
 
@@ -3794,9 +3670,6 @@ abstract class ShareesapiSearchShareType implements Built<ShareesapiSearchShareT
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  BuiltList<int>? get builtListInt;
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiSearchShareType> get serializer => _$ShareesapiSearchShareTypeSerializer();
 }
@@ -3844,10 +3717,6 @@ class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<Share
 @BuiltValue(instantiable: false)
 abstract interface class ShareesapiShareesapiSearchHeadersInterface {
   String? get link;
-  ShareesapiShareesapiSearchHeadersInterface rebuild(
-    final void Function(ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates,
-  );
-  ShareesapiShareesapiSearchHeadersInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesapiShareesapiSearchHeaders
@@ -3918,8 +3787,6 @@ class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSeriali
 abstract interface class ShareeInterface {
   int? get count;
   String get label;
-  ShareeInterface rebuild(final void Function(ShareeInterfaceBuilder) updates);
-  ShareeInterfaceBuilder toBuilder();
 }
 
 abstract class Sharee implements ShareeInterface, Built<Sharee, ShareeBuilder> {
@@ -3944,8 +3811,6 @@ abstract class Sharee implements ShareeInterface, Built<Sharee, ShareeBuilder> {
 abstract interface class ShareeValueInterface {
   int get shareType;
   String get shareWith;
-  ShareeValueInterface rebuild(final void Function(ShareeValueInterfaceBuilder) updates);
-  ShareeValueInterfaceBuilder toBuilder();
 }
 
 abstract class ShareeValue implements ShareeValueInterface, Built<ShareeValue, ShareeValueBuilder> {
@@ -3969,15 +3834,14 @@ abstract class ShareeValue implements ShareeValueInterface, Built<ShareeValue, S
 @BuiltValue(instantiable: false)
 abstract interface class ShareeCircle_1_Value_1Interface {
   String get circle;
-  ShareeCircle_1_Value_1Interface rebuild(final void Function(ShareeCircle_1_Value_1InterfaceBuilder) updates);
-  ShareeCircle_1_Value_1InterfaceBuilder toBuilder();
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareeCircle_1_ValueInterface
+    implements ShareeValueInterface, ShareeCircle_1_Value_1Interface {}
+
 abstract class ShareeCircle_1_Value
-    implements
-        ShareeValueInterface,
-        ShareeCircle_1_Value_1Interface,
-        Built<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder> {
+    implements ShareeCircle_1_ValueInterface, Built<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder> {
   factory ShareeCircle_1_Value([final void Function(ShareeCircle_1_ValueBuilder)? b]) = _$ShareeCircle_1_Value;
 
   // coverage:ignore-start
@@ -4000,12 +3864,12 @@ abstract class ShareeCircle_1_Value
 abstract interface class ShareeCircle_1Interface {
   String get shareWithDescription;
   ShareeCircle_1_Value get value;
-  ShareeCircle_1Interface rebuild(final void Function(ShareeCircle_1InterfaceBuilder) updates);
-  ShareeCircle_1InterfaceBuilder toBuilder();
 }
 
-abstract class ShareeCircle
-    implements ShareeInterface, ShareeCircle_1Interface, Built<ShareeCircle, ShareeCircleBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareeCircleInterface implements ShareeInterface, ShareeCircle_1Interface {}
+
+abstract class ShareeCircle implements ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
   factory ShareeCircle([final void Function(ShareeCircleBuilder)? b]) = _$ShareeCircle;
 
   // coverage:ignore-start
@@ -4030,11 +3894,12 @@ abstract interface class ShareeEmail_1Interface {
   String get type;
   String get shareWithDisplayNameUnique;
   ShareeValue get value;
-  ShareeEmail_1Interface rebuild(final void Function(ShareeEmail_1InterfaceBuilder) updates);
-  ShareeEmail_1InterfaceBuilder toBuilder();
 }
 
-abstract class ShareeEmail implements ShareeInterface, ShareeEmail_1Interface, Built<ShareeEmail, ShareeEmailBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareeEmailInterface implements ShareeInterface, ShareeEmail_1Interface {}
+
+abstract class ShareeEmail implements ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
   factory ShareeEmail([final void Function(ShareeEmailBuilder)? b]) = _$ShareeEmail;
 
   // coverage:ignore-start
@@ -4055,17 +3920,14 @@ abstract class ShareeEmail implements ShareeInterface, ShareeEmail_1Interface, B
 @BuiltValue(instantiable: false)
 abstract interface class ShareeRemoteGroup_1_Value_1Interface {
   String get server;
-  ShareeRemoteGroup_1_Value_1Interface rebuild(
-    final void Function(ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates,
-  );
-  ShareeRemoteGroup_1_Value_1InterfaceBuilder toBuilder();
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareeRemoteGroup_1_ValueInterface
+    implements ShareeValueInterface, ShareeRemoteGroup_1_Value_1Interface {}
+
 abstract class ShareeRemoteGroup_1_Value
-    implements
-        ShareeValueInterface,
-        ShareeRemoteGroup_1_Value_1Interface,
-        Built<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder> {
+    implements ShareeRemoteGroup_1_ValueInterface, Built<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder> {
   factory ShareeRemoteGroup_1_Value([final void Function(ShareeRemoteGroup_1_ValueBuilder)? b]) =
       _$ShareeRemoteGroup_1_Value;
 
@@ -4090,12 +3952,13 @@ abstract interface class ShareeRemoteGroup_1Interface {
   String get guid;
   String get name;
   ShareeRemoteGroup_1_Value get value;
-  ShareeRemoteGroup_1Interface rebuild(final void Function(ShareeRemoteGroup_1InterfaceBuilder) updates);
-  ShareeRemoteGroup_1InterfaceBuilder toBuilder();
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareeRemoteGroupInterface implements ShareeInterface, ShareeRemoteGroup_1Interface {}
+
 abstract class ShareeRemoteGroup
-    implements ShareeInterface, ShareeRemoteGroup_1Interface, Built<ShareeRemoteGroup, ShareeRemoteGroupBuilder> {
+    implements ShareeRemoteGroupInterface, Built<ShareeRemoteGroup, ShareeRemoteGroupBuilder> {
   factory ShareeRemoteGroup([final void Function(ShareeRemoteGroupBuilder)? b]) = _$ShareeRemoteGroup;
 
   // coverage:ignore-start
@@ -4117,15 +3980,14 @@ abstract class ShareeRemoteGroup
 @BuiltValue(instantiable: false)
 abstract interface class ShareeRemote_1_Value_1Interface {
   String get server;
-  ShareeRemote_1_Value_1Interface rebuild(final void Function(ShareeRemote_1_Value_1InterfaceBuilder) updates);
-  ShareeRemote_1_Value_1InterfaceBuilder toBuilder();
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareeRemote_1_ValueInterface
+    implements ShareeValueInterface, ShareeRemote_1_Value_1Interface {}
+
 abstract class ShareeRemote_1_Value
-    implements
-        ShareeValueInterface,
-        ShareeRemote_1_Value_1Interface,
-        Built<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder> {
+    implements ShareeRemote_1_ValueInterface, Built<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder> {
   factory ShareeRemote_1_Value([final void Function(ShareeRemote_1_ValueBuilder)? b]) = _$ShareeRemote_1_Value;
 
   // coverage:ignore-start
@@ -4150,12 +4012,12 @@ abstract interface class ShareeRemote_1Interface {
   String get name;
   String get type;
   ShareeRemote_1_Value get value;
-  ShareeRemote_1Interface rebuild(final void Function(ShareeRemote_1InterfaceBuilder) updates);
-  ShareeRemote_1InterfaceBuilder toBuilder();
 }
 
-abstract class ShareeRemote
-    implements ShareeInterface, ShareeRemote_1Interface, Built<ShareeRemote, ShareeRemoteBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareeRemoteInterface implements ShareeInterface, ShareeRemote_1Interface {}
+
+abstract class ShareeRemote implements ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
   factory ShareeRemote([final void Function(ShareeRemoteBuilder)? b]) = _$ShareeRemote;
 
   // coverage:ignore-start
@@ -4179,8 +4041,6 @@ abstract interface class ShareeUser_1_StatusInterface {
   String get message;
   String get icon;
   int? get clearAt;
-  ShareeUser_1_StatusInterface rebuild(final void Function(ShareeUser_1_StatusInterfaceBuilder) updates);
-  ShareeUser_1_StatusInterfaceBuilder toBuilder();
 }
 
 abstract class ShareeUser_1_Status
@@ -4210,11 +4070,12 @@ abstract interface class ShareeUser_1Interface {
   String get shareWithDisplayNameUnique;
   ShareeUser_1_Status get status;
   ShareeValue get value;
-  ShareeUser_1Interface rebuild(final void Function(ShareeUser_1InterfaceBuilder) updates);
-  ShareeUser_1InterfaceBuilder toBuilder();
 }
 
-abstract class ShareeUser implements ShareeInterface, ShareeUser_1Interface, Built<ShareeUser, ShareeUserBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareeUserInterface implements ShareeInterface, ShareeUser_1Interface {}
+
+abstract class ShareeUser implements ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
   factory ShareeUser([final void Function(ShareeUserBuilder)? b]) = _$ShareeUser;
 
   // coverage:ignore-start
@@ -4242,8 +4103,6 @@ abstract interface class ShareesSearchResult_ExactInterface {
   BuiltList<ShareeRemote> get remotes;
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
-  ShareesSearchResult_ExactInterface rebuild(final void Function(ShareesSearchResult_ExactInterfaceBuilder) updates);
-  ShareesSearchResult_ExactInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesSearchResult_Exact
@@ -4271,8 +4130,6 @@ abstract class ShareesSearchResult_Exact
 abstract interface class LookupInterface {
   String get value;
   int get verified;
-  LookupInterface rebuild(final void Function(LookupInterfaceBuilder) updates);
-  LookupInterfaceBuilder toBuilder();
 }
 
 abstract class Lookup implements LookupInterface, Built<Lookup, LookupBuilder> {
@@ -4307,8 +4164,6 @@ abstract interface class ShareeLookup_1_ExtraInterface {
   @BuiltValueField(wireName: 'website_signature')
   Lookup? get websiteSignature;
   Lookup? get userid;
-  ShareeLookup_1_ExtraInterface rebuild(final void Function(ShareeLookup_1_ExtraInterfaceBuilder) updates);
-  ShareeLookup_1_ExtraInterfaceBuilder toBuilder();
 }
 
 abstract class ShareeLookup_1_Extra
@@ -4334,15 +4189,14 @@ abstract class ShareeLookup_1_Extra
 @BuiltValue(instantiable: false)
 abstract interface class ShareeLookup_1_Value_1Interface {
   bool get globalScale;
-  ShareeLookup_1_Value_1Interface rebuild(final void Function(ShareeLookup_1_Value_1InterfaceBuilder) updates);
-  ShareeLookup_1_Value_1InterfaceBuilder toBuilder();
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareeLookup_1_ValueInterface
+    implements ShareeValueInterface, ShareeLookup_1_Value_1Interface {}
+
 abstract class ShareeLookup_1_Value
-    implements
-        ShareeValueInterface,
-        ShareeLookup_1_Value_1Interface,
-        Built<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder> {
+    implements ShareeLookup_1_ValueInterface, Built<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder> {
   factory ShareeLookup_1_Value([final void Function(ShareeLookup_1_ValueBuilder)? b]) = _$ShareeLookup_1_Value;
 
   // coverage:ignore-start
@@ -4365,12 +4219,12 @@ abstract class ShareeLookup_1_Value
 abstract interface class ShareeLookup_1Interface {
   ShareeLookup_1_Extra get extra;
   ShareeLookup_1_Value get value;
-  ShareeLookup_1Interface rebuild(final void Function(ShareeLookup_1InterfaceBuilder) updates);
-  ShareeLookup_1InterfaceBuilder toBuilder();
 }
 
-abstract class ShareeLookup
-    implements ShareeInterface, ShareeLookup_1Interface, Built<ShareeLookup, ShareeLookupBuilder> {
+@BuiltValue(instantiable: false)
+abstract interface class ShareeLookupInterface implements ShareeInterface, ShareeLookup_1Interface {}
+
+abstract class ShareeLookup implements ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {
   factory ShareeLookup([final void Function(ShareeLookupBuilder)? b]) = _$ShareeLookup;
 
   // coverage:ignore-start
@@ -4401,8 +4255,6 @@ abstract interface class ShareesSearchResultInterface {
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
   bool get lookupEnabled;
-  ShareesSearchResultInterface rebuild(final void Function(ShareesSearchResultInterfaceBuilder) updates);
-  ShareesSearchResultInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesSearchResult
@@ -4429,10 +4281,6 @@ abstract class ShareesSearchResult
 abstract interface class ShareesapiSearchResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesSearchResult get data;
-  ShareesapiSearchResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesapiSearchResponseApplicationJson_Ocs
@@ -4463,10 +4311,6 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareesapiSearchResponseApplicationJsonInterface {
   ShareesapiSearchResponseApplicationJson_Ocs get ocs;
-  ShareesapiSearchResponseApplicationJsonInterface rebuild(
-    final void Function(ShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareesapiSearchResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesapiSearchResponseApplicationJson
@@ -4494,8 +4338,17 @@ abstract class ShareesapiSearchResponseApplicationJson
       _$shareesapiSearchResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class ShareesapiFindRecommendedShareTypeInterface {
+  JsonObject get data;
+  int? get $int;
+  BuiltList<int>? get builtListInt;
+}
+
 abstract class ShareesapiFindRecommendedShareType
-    implements Built<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder> {
+    implements
+        ShareesapiFindRecommendedShareTypeInterface,
+        Built<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder> {
   factory ShareesapiFindRecommendedShareType([final void Function(ShareesapiFindRecommendedShareTypeBuilder)? b]) =
       _$ShareesapiFindRecommendedShareType;
 
@@ -4512,9 +4365,6 @@ abstract class ShareesapiFindRecommendedShareType
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  BuiltList<int>? get builtListInt;
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
       _$ShareesapiFindRecommendedShareTypeSerializer();
@@ -4569,10 +4419,6 @@ abstract interface class ShareesRecommendedResult_ExactInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
-  ShareesRecommendedResult_ExactInterface rebuild(
-    final void Function(ShareesRecommendedResult_ExactInterfaceBuilder) updates,
-  );
-  ShareesRecommendedResult_ExactInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesRecommendedResult_Exact
@@ -4607,8 +4453,6 @@ abstract interface class ShareesRecommendedResultInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
-  ShareesRecommendedResultInterface rebuild(final void Function(ShareesRecommendedResultInterfaceBuilder) updates);
-  ShareesRecommendedResultInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesRecommendedResult
@@ -4636,10 +4480,6 @@ abstract class ShareesRecommendedResult
 abstract interface class ShareesapiFindRecommendedResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesRecommendedResult get data;
-  ShareesapiFindRecommendedResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
@@ -4671,10 +4511,6 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ShareesapiFindRecommendedResponseApplicationJsonInterface {
   ShareesapiFindRecommendedResponseApplicationJson_Ocs get ocs;
-  ShareesapiFindRecommendedResponseApplicationJsonInterface rebuild(
-    final void Function(ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ShareesapiFindRecommendedResponseApplicationJson
@@ -4707,10 +4543,6 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
 abstract interface class Capabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
-  Capabilities_FilesSharing_Public_PasswordInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Public_Password
@@ -4743,10 +4575,6 @@ abstract interface class Capabilities_FilesSharing_Public_ExpireDateInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
-  Capabilities_FilesSharing_Public_ExpireDateInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDate
@@ -4779,10 +4607,6 @@ abstract interface class Capabilities_FilesSharing_Public_ExpireDateInternalInte
   bool get enabled;
   int? get days;
   bool? get enforced;
-  Capabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
@@ -4816,10 +4640,6 @@ abstract interface class Capabilities_FilesSharing_Public_ExpireDateRemoteInterf
   bool get enabled;
   int? get days;
   bool? get enforced;
-  Capabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
@@ -4865,10 +4685,6 @@ abstract interface class Capabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
-  Capabilities_FilesSharing_PublicInterface rebuild(
-    final void Function(Capabilities_FilesSharing_PublicInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Public
@@ -4897,10 +4713,6 @@ abstract class Capabilities_FilesSharing_Public
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
-  Capabilities_FilesSharing_User_ExpireDateInterface rebuild(
-    final void Function(Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_User_ExpireDate
@@ -4934,10 +4746,6 @@ abstract interface class Capabilities_FilesSharing_UserInterface {
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_User_ExpireDate? get expireDate;
-  Capabilities_FilesSharing_UserInterface rebuild(
-    final void Function(Capabilities_FilesSharing_UserInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_UserInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_User
@@ -4966,10 +4774,6 @@ abstract class Capabilities_FilesSharing_User
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
-  Capabilities_FilesSharing_Group_ExpireDateInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Group_ExpireDate
@@ -5002,10 +4806,6 @@ abstract interface class Capabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
-  Capabilities_FilesSharing_GroupInterface rebuild(
-    final void Function(Capabilities_FilesSharing_GroupInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Group
@@ -5034,10 +4834,6 @@ abstract class Capabilities_FilesSharing_Group
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
-  Capabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Federation_ExpireDate
@@ -5068,10 +4864,6 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
 @BuiltValue(instantiable: false)
 abstract interface class Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
-  Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
-    final void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
@@ -5108,10 +4900,6 @@ abstract interface class Capabilities_FilesSharing_FederationInterface {
   Capabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
   Capabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
-  Capabilities_FilesSharing_FederationInterface rebuild(
-    final void Function(Capabilities_FilesSharing_FederationInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Federation
@@ -5144,10 +4932,6 @@ abstract interface class Capabilities_FilesSharing_ShareeInterface {
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
-  Capabilities_FilesSharing_ShareeInterface rebuild(
-    final void Function(Capabilities_FilesSharing_ShareeInterfaceBuilder) updates,
-  );
-  Capabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing_Sharee
@@ -5187,8 +4971,6 @@ abstract interface class Capabilities_FilesSharingInterface {
   int? get defaultPermissions;
   Capabilities_FilesSharing_Federation get federation;
   Capabilities_FilesSharing_Sharee get sharee;
-  Capabilities_FilesSharingInterface rebuild(final void Function(Capabilities_FilesSharingInterfaceBuilder) updates);
-  Capabilities_FilesSharingInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities_FilesSharing
@@ -5216,8 +4998,6 @@ abstract class Capabilities_FilesSharing
 abstract interface class CapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities_FilesSharing get filesSharing;
-  CapabilitiesInterface rebuild(final void Function(CapabilitiesInterfaceBuilder) updates);
-  CapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {

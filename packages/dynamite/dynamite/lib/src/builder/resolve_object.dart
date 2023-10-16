@@ -36,23 +36,21 @@ TypeResultObject resolveObject(
       }
     }
 
-    final interfaceClass = resolveInterface(
+    resolveInterface(
       spec,
       state,
       identifier,
       schema,
     );
 
-    state.output.addAll([
+    state.output.add(
       buildBuiltClass(
         identifier,
         defaults: defaults,
         customSerializer: isHeader,
-        interfaces: [
-          interfaceClass,
-        ],
       ),
-    ]);
+    );
+
     if (isHeader) {
       state.output.add(buildHeaderSerializer(state, identifier, spec, schema));
     }

@@ -54,9 +54,12 @@ TypeResult resolveAllOf(
     }
 
     state.output.add(
+      buildInterface(identifier, interfaces: interfaces),
+    );
+
+    state.output.add(
       buildBuiltClass(
         identifier,
-        interfaces: interfaces,
       ),
     );
   }
@@ -99,7 +102,7 @@ TypeResult resolveOfs(
     }
 
     state.output.addAll([
-      buildBuiltClass(
+      buildInterface(
         identifier,
         methods: BuiltList.build((final b) {
           b.add(
@@ -128,6 +131,9 @@ TypeResult resolveOfs(
             );
           }
         }),
+      ),
+      buildBuiltClass(
+        identifier,
         customSerializer: true,
       ),
       Class(

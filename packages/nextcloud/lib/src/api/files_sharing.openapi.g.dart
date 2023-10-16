@@ -7353,6 +7353,19 @@ class RemoteUnshareResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class ShareInfo_SizeInterfaceBuilder {
+  void replace(ShareInfo_SizeInterface other);
+  void update(void Function(ShareInfo_SizeInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  num? get $num;
+  set $num(num? $num);
+}
+
 class _$ShareInfo_Size extends ShareInfo_Size {
   @override
   final JsonObject data;
@@ -7400,20 +7413,20 @@ class _$ShareInfo_Size extends ShareInfo_Size {
   }
 }
 
-class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder> {
+class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder>, ShareInfo_SizeInterfaceBuilder {
   _$ShareInfo_Size? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   num? _$num;
   num? get $num => _$this._$num;
-  set $num(num? $num) => _$this._$num = $num;
+  set $num(covariant num? $num) => _$this._$num = $num;
 
   ShareInfo_SizeBuilder();
 
@@ -7429,7 +7442,7 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
   }
 
   @override
-  void replace(ShareInfo_Size other) {
+  void replace(covariant ShareInfo_Size other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareInfo_Size;
   }
@@ -7699,6 +7712,19 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInf
   }
 }
 
+abstract mixin class Share_ItemSizeInterfaceBuilder {
+  void replace(Share_ItemSizeInterface other);
+  void update(void Function(Share_ItemSizeInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
 class _$Share_ItemSize extends Share_ItemSize {
   @override
   final JsonObject data;
@@ -7746,20 +7772,20 @@ class _$Share_ItemSize extends Share_ItemSize {
   }
 }
 
-class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder> {
+class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder>, Share_ItemSizeInterfaceBuilder {
   _$Share_ItemSize? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   num? _$num;
   num? get $num => _$this._$num;
-  set $num(num? $num) => _$this._$num = $num;
+  set $num(covariant num? $num) => _$this._$num = $num;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   Share_ItemSizeBuilder();
 
@@ -7775,7 +7801,7 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
   }
 
   @override
-  void replace(Share_ItemSize other) {
+  void replace(covariant Share_ItemSize other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Share_ItemSize;
   }
@@ -10446,6 +10472,19 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class ShareesapiSearchShareTypeInterfaceBuilder {
+  void replace(ShareesapiSearchShareTypeInterface other);
+  void update(void Function(ShareesapiSearchShareTypeInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  ListBuilder<int> get builtListInt;
+  set builtListInt(ListBuilder<int>? builtListInt);
+}
+
 class _$ShareesapiSearchShareType extends ShareesapiSearchShareType {
   @override
   final JsonObject data;
@@ -10497,20 +10536,23 @@ class _$ShareesapiSearchShareType extends ShareesapiSearchShareType {
   }
 }
 
-class ShareesapiSearchShareTypeBuilder implements Builder<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder> {
+class ShareesapiSearchShareTypeBuilder
+    implements
+        Builder<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder>,
+        ShareesapiSearchShareTypeInterfaceBuilder {
   _$ShareesapiSearchShareType? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   ListBuilder<int>? _builtListInt;
   ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
-  set builtListInt(ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
+  set builtListInt(covariant ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
 
   ShareesapiSearchShareTypeBuilder();
 
@@ -10526,7 +10568,7 @@ class ShareesapiSearchShareTypeBuilder implements Builder<ShareesapiSearchShareT
   }
 
   @override
-  void replace(ShareesapiSearchShareType other) {
+  void replace(covariant ShareesapiSearchShareType other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareesapiSearchShareType;
   }
@@ -10852,6 +10894,20 @@ abstract mixin class ShareeCircle_1_Value_1InterfaceBuilder {
   set circle(String? circle);
 }
 
+abstract mixin class ShareeCircle_1_ValueInterfaceBuilder
+    implements ShareeValueInterfaceBuilder, ShareeCircle_1_Value_1InterfaceBuilder {
+  void replace(covariant ShareeCircle_1_ValueInterface other);
+  void update(void Function(ShareeCircle_1_ValueInterfaceBuilder) updates);
+  int? get shareType;
+  set shareType(covariant int? shareType);
+
+  String? get shareWith;
+  set shareWith(covariant String? shareWith);
+
+  String? get circle;
+  set circle(covariant String? circle);
+}
+
 class _$ShareeCircle_1_Value extends ShareeCircle_1_Value {
   @override
   final int shareType;
@@ -10906,10 +10962,7 @@ class _$ShareeCircle_1_Value extends ShareeCircle_1_Value {
 }
 
 class ShareeCircle_1_ValueBuilder
-    implements
-        Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>,
-        ShareeValueInterfaceBuilder,
-        ShareeCircle_1_Value_1InterfaceBuilder {
+    implements Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>, ShareeCircle_1_ValueInterfaceBuilder {
   _$ShareeCircle_1_Value? _$v;
 
   int? _shareType;
@@ -10938,7 +10991,6 @@ class ShareeCircle_1_ValueBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeCircle_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeCircle_1_Value;
@@ -10971,6 +11023,22 @@ abstract mixin class ShareeCircle_1InterfaceBuilder {
 
   ShareeCircle_1_ValueBuilder get value;
   set value(ShareeCircle_1_ValueBuilder? value);
+}
+
+abstract mixin class ShareeCircleInterfaceBuilder implements ShareeInterfaceBuilder, ShareeCircle_1InterfaceBuilder {
+  void replace(covariant ShareeCircleInterface other);
+  void update(void Function(ShareeCircleInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get shareWithDescription;
+  set shareWithDescription(covariant String? shareWithDescription);
+
+  ShareeCircle_1_ValueBuilder get value;
+  set value(covariant ShareeCircle_1_ValueBuilder? value);
 }
 
 class _$ShareeCircle extends ShareeCircle {
@@ -11031,8 +11099,7 @@ class _$ShareeCircle extends ShareeCircle {
   }
 }
 
-class ShareeCircleBuilder
-    implements Builder<ShareeCircle, ShareeCircleBuilder>, ShareeInterfaceBuilder, ShareeCircle_1InterfaceBuilder {
+class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>, ShareeCircleInterfaceBuilder {
   _$ShareeCircle? _$v;
 
   int? _count;
@@ -11067,7 +11134,6 @@ class ShareeCircleBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeCircle other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeCircle;
@@ -11123,6 +11189,31 @@ abstract mixin class ShareeEmail_1InterfaceBuilder {
 
   ShareeValueBuilder get value;
   set value(ShareeValueBuilder? value);
+}
+
+abstract mixin class ShareeEmailInterfaceBuilder implements ShareeInterfaceBuilder, ShareeEmail_1InterfaceBuilder {
+  void replace(covariant ShareeEmailInterface other);
+  void update(void Function(ShareeEmailInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get uuid;
+  set uuid(covariant String? uuid);
+
+  String? get name;
+  set name(covariant String? name);
+
+  String? get type;
+  set type(covariant String? type);
+
+  String? get shareWithDisplayNameUnique;
+  set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique);
+
+  ShareeValueBuilder get value;
+  set value(covariant ShareeValueBuilder? value);
 }
 
 class _$ShareeEmail extends ShareeEmail {
@@ -11208,8 +11299,7 @@ class _$ShareeEmail extends ShareeEmail {
   }
 }
 
-class ShareeEmailBuilder
-    implements Builder<ShareeEmail, ShareeEmailBuilder>, ShareeInterfaceBuilder, ShareeEmail_1InterfaceBuilder {
+class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, ShareeEmailInterfaceBuilder {
   _$ShareeEmail? _$v;
 
   int? _count;
@@ -11259,7 +11349,6 @@ class ShareeEmailBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeEmail other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeEmail;
@@ -11306,6 +11395,20 @@ abstract mixin class ShareeRemoteGroup_1_Value_1InterfaceBuilder {
   void update(void Function(ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
+}
+
+abstract mixin class ShareeRemoteGroup_1_ValueInterfaceBuilder
+    implements ShareeValueInterfaceBuilder, ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+  void replace(covariant ShareeRemoteGroup_1_ValueInterface other);
+  void update(void Function(ShareeRemoteGroup_1_ValueInterfaceBuilder) updates);
+  int? get shareType;
+  set shareType(covariant int? shareType);
+
+  String? get shareWith;
+  set shareWith(covariant String? shareWith);
+
+  String? get server;
+  set server(covariant String? server);
 }
 
 class _$ShareeRemoteGroup_1_Value extends ShareeRemoteGroup_1_Value {
@@ -11364,8 +11467,7 @@ class _$ShareeRemoteGroup_1_Value extends ShareeRemoteGroup_1_Value {
 class ShareeRemoteGroup_1_ValueBuilder
     implements
         Builder<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder>,
-        ShareeValueInterfaceBuilder,
-        ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+        ShareeRemoteGroup_1_ValueInterfaceBuilder {
   _$ShareeRemoteGroup_1_Value? _$v;
 
   int? _shareType;
@@ -11394,7 +11496,6 @@ class ShareeRemoteGroup_1_ValueBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeRemoteGroup_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeRemoteGroup_1_Value;
@@ -11430,6 +11531,26 @@ abstract mixin class ShareeRemoteGroup_1InterfaceBuilder {
 
   ShareeRemoteGroup_1_ValueBuilder get value;
   set value(ShareeRemoteGroup_1_ValueBuilder? value);
+}
+
+abstract mixin class ShareeRemoteGroupInterfaceBuilder
+    implements ShareeInterfaceBuilder, ShareeRemoteGroup_1InterfaceBuilder {
+  void replace(covariant ShareeRemoteGroupInterface other);
+  void update(void Function(ShareeRemoteGroupInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get guid;
+  set guid(covariant String? guid);
+
+  String? get name;
+  set name(covariant String? name);
+
+  ShareeRemoteGroup_1_ValueBuilder get value;
+  set value(covariant ShareeRemoteGroup_1_ValueBuilder? value);
 }
 
 class _$ShareeRemoteGroup extends ShareeRemoteGroup {
@@ -11497,10 +11618,7 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
 }
 
 class ShareeRemoteGroupBuilder
-    implements
-        Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>,
-        ShareeInterfaceBuilder,
-        ShareeRemoteGroup_1InterfaceBuilder {
+    implements Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>, ShareeRemoteGroupInterfaceBuilder {
   _$ShareeRemoteGroup? _$v;
 
   int? _count;
@@ -11539,7 +11657,6 @@ class ShareeRemoteGroupBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeRemoteGroup other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeRemoteGroup;
@@ -11583,6 +11700,20 @@ abstract mixin class ShareeRemote_1_Value_1InterfaceBuilder {
   void update(void Function(ShareeRemote_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
+}
+
+abstract mixin class ShareeRemote_1_ValueInterfaceBuilder
+    implements ShareeValueInterfaceBuilder, ShareeRemote_1_Value_1InterfaceBuilder {
+  void replace(covariant ShareeRemote_1_ValueInterface other);
+  void update(void Function(ShareeRemote_1_ValueInterfaceBuilder) updates);
+  int? get shareType;
+  set shareType(covariant int? shareType);
+
+  String? get shareWith;
+  set shareWith(covariant String? shareWith);
+
+  String? get server;
+  set server(covariant String? server);
 }
 
 class _$ShareeRemote_1_Value extends ShareeRemote_1_Value {
@@ -11639,10 +11770,7 @@ class _$ShareeRemote_1_Value extends ShareeRemote_1_Value {
 }
 
 class ShareeRemote_1_ValueBuilder
-    implements
-        Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>,
-        ShareeValueInterfaceBuilder,
-        ShareeRemote_1_Value_1InterfaceBuilder {
+    implements Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>, ShareeRemote_1_ValueInterfaceBuilder {
   _$ShareeRemote_1_Value? _$v;
 
   int? _shareType;
@@ -11671,7 +11799,6 @@ class ShareeRemote_1_ValueBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeRemote_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeRemote_1_Value;
@@ -11710,6 +11837,28 @@ abstract mixin class ShareeRemote_1InterfaceBuilder {
 
   ShareeRemote_1_ValueBuilder get value;
   set value(ShareeRemote_1_ValueBuilder? value);
+}
+
+abstract mixin class ShareeRemoteInterfaceBuilder implements ShareeInterfaceBuilder, ShareeRemote_1InterfaceBuilder {
+  void replace(covariant ShareeRemoteInterface other);
+  void update(void Function(ShareeRemoteInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get uuid;
+  set uuid(covariant String? uuid);
+
+  String? get name;
+  set name(covariant String? name);
+
+  String? get type;
+  set type(covariant String? type);
+
+  ShareeRemote_1_ValueBuilder get value;
+  set value(covariant ShareeRemote_1_ValueBuilder? value);
 }
 
 class _$ShareeRemote extends ShareeRemote {
@@ -11788,8 +11937,7 @@ class _$ShareeRemote extends ShareeRemote {
   }
 }
 
-class ShareeRemoteBuilder
-    implements Builder<ShareeRemote, ShareeRemoteBuilder>, ShareeInterfaceBuilder, ShareeRemote_1InterfaceBuilder {
+class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>, ShareeRemoteInterfaceBuilder {
   _$ShareeRemote? _$v;
 
   int? _count;
@@ -11833,7 +11981,6 @@ class ShareeRemoteBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeRemote other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeRemote;
@@ -12026,6 +12173,31 @@ abstract mixin class ShareeUser_1InterfaceBuilder {
   set value(ShareeValueBuilder? value);
 }
 
+abstract mixin class ShareeUserInterfaceBuilder implements ShareeInterfaceBuilder, ShareeUser_1InterfaceBuilder {
+  void replace(covariant ShareeUserInterface other);
+  void update(void Function(ShareeUserInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get subline;
+  set subline(covariant String? subline);
+
+  String? get icon;
+  set icon(covariant String? icon);
+
+  String? get shareWithDisplayNameUnique;
+  set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique);
+
+  ShareeUser_1_StatusBuilder get status;
+  set status(covariant ShareeUser_1_StatusBuilder? status);
+
+  ShareeValueBuilder get value;
+  set value(covariant ShareeValueBuilder? value);
+}
+
 class _$ShareeUser extends ShareeUser {
   @override
   final int? count;
@@ -12108,8 +12280,7 @@ class _$ShareeUser extends ShareeUser {
   }
 }
 
-class ShareeUserBuilder
-    implements Builder<ShareeUser, ShareeUserBuilder>, ShareeInterfaceBuilder, ShareeUser_1InterfaceBuilder {
+class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, ShareeUserInterfaceBuilder {
   _$ShareeUser? _$v;
 
   int? _count;
@@ -12159,7 +12330,6 @@ class ShareeUserBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeUser other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeUser;
@@ -12780,6 +12950,20 @@ abstract mixin class ShareeLookup_1_Value_1InterfaceBuilder {
   set globalScale(bool? globalScale);
 }
 
+abstract mixin class ShareeLookup_1_ValueInterfaceBuilder
+    implements ShareeValueInterfaceBuilder, ShareeLookup_1_Value_1InterfaceBuilder {
+  void replace(covariant ShareeLookup_1_ValueInterface other);
+  void update(void Function(ShareeLookup_1_ValueInterfaceBuilder) updates);
+  int? get shareType;
+  set shareType(covariant int? shareType);
+
+  String? get shareWith;
+  set shareWith(covariant String? shareWith);
+
+  bool? get globalScale;
+  set globalScale(covariant bool? globalScale);
+}
+
 class _$ShareeLookup_1_Value extends ShareeLookup_1_Value {
   @override
   final int shareType;
@@ -12834,10 +13018,7 @@ class _$ShareeLookup_1_Value extends ShareeLookup_1_Value {
 }
 
 class ShareeLookup_1_ValueBuilder
-    implements
-        Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>,
-        ShareeValueInterfaceBuilder,
-        ShareeLookup_1_Value_1InterfaceBuilder {
+    implements Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>, ShareeLookup_1_ValueInterfaceBuilder {
   _$ShareeLookup_1_Value? _$v;
 
   int? _shareType;
@@ -12866,7 +13047,6 @@ class ShareeLookup_1_ValueBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeLookup_1_Value other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeLookup_1_Value;
@@ -12899,6 +13079,22 @@ abstract mixin class ShareeLookup_1InterfaceBuilder {
 
   ShareeLookup_1_ValueBuilder get value;
   set value(ShareeLookup_1_ValueBuilder? value);
+}
+
+abstract mixin class ShareeLookupInterfaceBuilder implements ShareeInterfaceBuilder, ShareeLookup_1InterfaceBuilder {
+  void replace(covariant ShareeLookupInterface other);
+  void update(void Function(ShareeLookupInterfaceBuilder) updates);
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
+
+  ShareeLookup_1_ExtraBuilder get extra;
+  set extra(covariant ShareeLookup_1_ExtraBuilder? extra);
+
+  ShareeLookup_1_ValueBuilder get value;
+  set value(covariant ShareeLookup_1_ValueBuilder? value);
 }
 
 class _$ShareeLookup extends ShareeLookup {
@@ -12958,8 +13154,7 @@ class _$ShareeLookup extends ShareeLookup {
   }
 }
 
-class ShareeLookupBuilder
-    implements Builder<ShareeLookup, ShareeLookupBuilder>, ShareeInterfaceBuilder, ShareeLookup_1InterfaceBuilder {
+class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>, ShareeLookupInterfaceBuilder {
   _$ShareeLookup? _$v;
 
   int? _count;
@@ -12993,7 +13188,6 @@ class ShareeLookupBuilder
   }
 
   @override
-// ignore: override_on_non_overriding_method
   void replace(covariant ShareeLookup other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareeLookup;
@@ -13520,6 +13714,19 @@ class ShareesapiSearchResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class ShareesapiFindRecommendedShareTypeInterfaceBuilder {
+  void replace(ShareesapiFindRecommendedShareTypeInterface other);
+  void update(void Function(ShareesapiFindRecommendedShareTypeInterfaceBuilder) updates);
+  JsonObject? get data;
+  set data(JsonObject? data);
+
+  int? get $int;
+  set $int(int? $int);
+
+  ListBuilder<int> get builtListInt;
+  set builtListInt(ListBuilder<int>? builtListInt);
+}
+
 class _$ShareesapiFindRecommendedShareType extends ShareesapiFindRecommendedShareType {
   @override
   final JsonObject data;
@@ -13572,20 +13779,22 @@ class _$ShareesapiFindRecommendedShareType extends ShareesapiFindRecommendedShar
 }
 
 class ShareesapiFindRecommendedShareTypeBuilder
-    implements Builder<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder> {
+    implements
+        Builder<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder>,
+        ShareesapiFindRecommendedShareTypeInterfaceBuilder {
   _$ShareesapiFindRecommendedShareType? _$v;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  set data(covariant JsonObject? data) => _$this._data = data;
 
   int? _$int;
   int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  set $int(covariant int? $int) => _$this._$int = $int;
 
   ListBuilder<int>? _builtListInt;
   ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
-  set builtListInt(ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
+  set builtListInt(covariant ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
 
   ShareesapiFindRecommendedShareTypeBuilder();
 
@@ -13601,7 +13810,7 @@ class ShareesapiFindRecommendedShareTypeBuilder
   }
 
   @override
-  void replace(ShareesapiFindRecommendedShareType other) {
+  void replace(covariant ShareesapiFindRecommendedShareType other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ShareesapiFindRecommendedShareType;
   }

@@ -357,8 +357,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -382,10 +380,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 @BuiltValue(instantiable: false)
 abstract interface class ApiGetResponseApplicationJson_Ocs_DataInterface {
   String? get dueDate;
-  ApiGetResponseApplicationJson_Ocs_DataInterface rebuild(
-    final void Function(ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-  ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs_Data
@@ -417,10 +411,6 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
 abstract interface class ApiGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetResponseApplicationJson_Ocs_Data get data;
-  ApiGetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiGetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs
@@ -449,10 +439,6 @@ abstract class ApiGetResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiGetResponseApplicationJsonInterface {
   ApiGetResponseApplicationJson_Ocs get ocs;
-  ApiGetResponseApplicationJsonInterface rebuild(
-    final void Function(ApiGetResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiGetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiGetResponseApplicationJson
@@ -482,10 +468,6 @@ abstract class ApiGetResponseApplicationJson
 abstract interface class ApiSetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ApiSetResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiSetResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiSetResponseApplicationJson_Ocs
@@ -514,10 +496,6 @@ abstract class ApiSetResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiSetResponseApplicationJsonInterface {
   ApiSetResponseApplicationJson_Ocs get ocs;
-  ApiSetResponseApplicationJsonInterface rebuild(
-    final void Function(ApiSetResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiSetResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiSetResponseApplicationJson
@@ -547,10 +525,6 @@ abstract class ApiSetResponseApplicationJson
 abstract interface class ApiRemoveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  ApiRemoveResponseApplicationJson_OcsInterface rebuild(
-    final void Function(ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  ApiRemoveResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class ApiRemoveResponseApplicationJson_Ocs
@@ -580,10 +554,6 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class ApiRemoveResponseApplicationJsonInterface {
   ApiRemoveResponseApplicationJson_Ocs get ocs;
-  ApiRemoveResponseApplicationJsonInterface rebuild(
-    final void Function(ApiRemoveResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ApiRemoveResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ApiRemoveResponseApplicationJson

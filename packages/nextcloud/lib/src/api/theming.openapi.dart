@@ -1038,10 +1038,6 @@ abstract interface class ThemingGetManifestResponseApplicationJson_IconsInterfac
   String get src;
   String get type;
   String get sizes;
-  ThemingGetManifestResponseApplicationJson_IconsInterface rebuild(
-    final void Function(ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder) updates,
-  );
-  ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder toBuilder();
 }
 
 abstract class ThemingGetManifestResponseApplicationJson_Icons
@@ -1083,10 +1079,6 @@ abstract interface class ThemingGetManifestResponseApplicationJsonInterface {
   String get description;
   BuiltList<ThemingGetManifestResponseApplicationJson_Icons> get icons;
   String get display;
-  ThemingGetManifestResponseApplicationJsonInterface rebuild(
-    final void Function(ThemingGetManifestResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  ThemingGetManifestResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class ThemingGetManifestResponseApplicationJson
@@ -1119,8 +1111,6 @@ abstract interface class BackgroundInterface {
   String? get backgroundImage;
   String get backgroundColor;
   int get version;
-  BackgroundInterface rebuild(final void Function(BackgroundInterfaceBuilder) updates);
-  BackgroundInterfaceBuilder toBuilder();
 }
 
 abstract class Background implements BackgroundInterface, Built<Background, BackgroundBuilder> {
@@ -1148,8 +1138,6 @@ abstract interface class OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
-  OCSMetaInterface rebuild(final void Function(OCSMetaInterfaceBuilder) updates);
-  OCSMetaInterfaceBuilder toBuilder();
 }
 
 abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1174,10 +1162,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 abstract interface class UserThemeEnableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UserThemeEnableThemeResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
@@ -1208,10 +1192,6 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserThemeEnableThemeResponseApplicationJsonInterface {
   UserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
-  UserThemeEnableThemeResponseApplicationJsonInterface rebuild(
-    final void Function(UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson
@@ -1243,10 +1223,6 @@ abstract class UserThemeEnableThemeResponseApplicationJson
 abstract interface class UserThemeDisableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
-  UserThemeDisableThemeResponseApplicationJson_OcsInterface rebuild(
-    final void Function(UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-  UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
@@ -1278,10 +1254,6 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 abstract interface class UserThemeDisableThemeResponseApplicationJsonInterface {
   UserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
-  UserThemeDisableThemeResponseApplicationJsonInterface rebuild(
-    final void Function(UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder) updates,
-  );
-  UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson
@@ -1331,8 +1303,6 @@ abstract interface class PublicCapabilities_ThemingInterface {
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
-  PublicCapabilities_ThemingInterface rebuild(final void Function(PublicCapabilities_ThemingInterfaceBuilder) updates);
-  PublicCapabilities_ThemingInterfaceBuilder toBuilder();
 }
 
 abstract class PublicCapabilities_Theming
@@ -1361,8 +1331,6 @@ abstract class PublicCapabilities_Theming
 @BuiltValue(instantiable: false)
 abstract interface class PublicCapabilitiesInterface {
   PublicCapabilities_Theming get theming;
-  PublicCapabilitiesInterface rebuild(final void Function(PublicCapabilitiesInterfaceBuilder) updates);
-  PublicCapabilitiesInterfaceBuilder toBuilder();
 }
 
 abstract class PublicCapabilities
