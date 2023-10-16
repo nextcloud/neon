@@ -23,7 +23,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  bool? get deprecated;
+  bool get deprecated;
 
   BuiltList<String>? get tags;
 
@@ -34,6 +34,11 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
   BuiltMap<String, Response>? get responses;
 
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final OperationBuilder b) {
+    b.deprecated ??= false;
+  }
 
   Iterable<String> formattedDescription(
     final String methodName, {

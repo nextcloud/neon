@@ -16,19 +16,16 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Header object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'required',
+      serializers.serialize(object.required, specifiedType: const FullType(bool)),
+    ];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.required;
-    if (value != null) {
-      result
-        ..add('required')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.schema;
     if (value != null) {
@@ -54,7 +51,7 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'required':
-          result.required = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
           result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
@@ -70,13 +67,15 @@ class _$Header extends Header {
   @override
   final String? description;
   @override
-  final bool? required;
+  final bool required;
   @override
   final Schema? schema;
 
   factory _$Header([void Function(HeaderBuilder)? updates]) => (HeaderBuilder()..update(updates))._build();
 
-  _$Header._({this.description, this.required, this.schema}) : super._();
+  _$Header._({this.description, required this.required, this.schema}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required');
+  }
 
   @override
   Header rebuild(void Function(HeaderBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -152,9 +151,14 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
   Header build() => _build();
 
   _$Header _build() {
+    Header._defaults(this);
     _$Header _$result;
     try {
-      _$result = _$v ?? _$Header._(description: description, required: required, schema: _schema?.build());
+      _$result = _$v ??
+          _$Header._(
+              description: description,
+              required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
+              schema: _schema?.build());
     } catch (_) {
       late String _$failedField;
       try {

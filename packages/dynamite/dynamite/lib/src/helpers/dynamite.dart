@@ -18,16 +18,16 @@ String filterMethodName(final String operationId, final String tag) {
 String clientName(final String tag) => '${toDartName(tag, uppercaseFirstCharacter: true)}Client';
 
 bool isDartParameterNullable(
-  final bool? required,
+  final bool required,
   final openapi.Schema? schema,
 ) =>
-    (!(required ?? false) && schema?.$default == null) || (schema?.nullable ?? false);
+    (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(
-  final bool? required,
-  final dynamic default_,
+  final bool required,
+  final openapi.Schema? schema,
 ) =>
-    (required ?? false) && default_ == null;
+    required && schema?.$default == null;
 
 int sortRequiredParameters(final openapi.Parameter a, final openapi.Parameter b) {
   if (a.isDartRequired != b.isDartRequired) {

@@ -16,7 +16,12 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Schema object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'required',
+      serializers.serialize(object.required, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
     Object? value;
     value = object.ref;
     if (value != null) {
@@ -48,12 +53,6 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         ..add('description')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.deprecated;
-    if (value != null) {
-      result
-        ..add('deprecated')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.type;
     if (value != null) {
       result
@@ -84,12 +83,6 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         ..add('properties')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)])));
-    }
-    value = object.required;
-    if (value != null) {
-      result
-        ..add('required')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     value = object.items;
     if (value != null) {
@@ -178,7 +171,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -250,7 +243,7 @@ class _$Schema extends Schema {
   @override
   final String? description;
   @override
-  final bool? deprecated;
+  final bool deprecated;
   @override
   final String? type;
   @override
@@ -262,7 +255,7 @@ class _$Schema extends Schema {
   @override
   final BuiltMap<String, Schema>? properties;
   @override
-  final BuiltList<String>? required;
+  final BuiltList<String> required;
   @override
   final Schema? items;
   @override
@@ -290,13 +283,13 @@ class _$Schema extends Schema {
       this.anyOf,
       this.allOf,
       this.description,
-      this.deprecated,
+      required this.deprecated,
       this.type,
       this.format,
       this.$default,
       this.$enum,
       this.properties,
-      this.required,
+      required this.required,
       this.items,
       this.additionalProperties,
       this.contentMediaType,
@@ -306,7 +299,10 @@ class _$Schema extends Schema {
       this.minLength,
       this.maxLength,
       this.nullable})
-      : super._();
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(required, r'Schema', 'required');
+  }
 
   @override
   Schema rebuild(void Function(SchemaBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -498,7 +494,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
       _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _properties = $v.properties?.toBuilder();
-      _required = $v.required?.toBuilder();
+      _required = $v.required.toBuilder();
       _items = $v.items?.toBuilder();
       _additionalProperties = $v.additionalProperties?.toBuilder();
       _contentMediaType = $v.contentMediaType;
@@ -528,6 +524,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   Schema build() => _build();
 
   _$Schema _build() {
+    Schema._defaults(this);
     _$Schema _$result;
     try {
       _$result = _$v ??
@@ -537,13 +534,13 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
               description: description,
-              deprecated: deprecated,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated'),
               type: type,
               format: format,
               $default: $default,
               $enum: _$enum?.build(),
               properties: _properties?.build(),
-              required: _required?.build(),
+              required: required.build(),
               items: _items?.build(),
               additionalProperties: _additionalProperties?.build(),
               contentMediaType: contentMediaType,
@@ -568,7 +565,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
         _$failedField = 'properties';
         _properties?.build();
         _$failedField = 'required';
-        _required?.build();
+        required.build();
         _$failedField = 'items';
         _items?.build();
         _$failedField = 'additionalProperties';

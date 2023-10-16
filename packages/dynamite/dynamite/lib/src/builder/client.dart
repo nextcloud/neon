@@ -234,7 +234,7 @@ Iterable<Method> buildTags(
       ).forEach(code.writeln);
 
       final operationParameters = ListBuilder<Parameter>();
-      final annotations = operation.deprecated ?? false ? refer('Deprecated').call([refer("''")]) : null;
+      final annotations = operation.deprecated ? refer('Deprecated').call([refer("''")]) : null;
       var returnDataType = 'void';
       var returnHeadersType = 'void';
 

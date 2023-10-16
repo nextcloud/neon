@@ -17,7 +17,10 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
   @override
   Iterable<Object?> serialize(Serializers serializers, RequestBody object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'required',
+      serializers.serialize(object.required, specifiedType: const FullType(bool)),
+    ];
     Object? value;
     value = object.description;
     if (value != null) {
@@ -31,12 +34,6 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
         ..add('content')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
-    }
-    value = object.required;
-    if (value != null) {
-      result
-        ..add('required')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -60,7 +57,7 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
           break;
         case 'required':
-          result.required = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -75,12 +72,14 @@ class _$RequestBody extends RequestBody {
   @override
   final BuiltMap<String, MediaType>? content;
   @override
-  final bool? required;
+  final bool required;
 
   factory _$RequestBody([void Function(RequestBodyBuilder)? updates]) =>
       (RequestBodyBuilder()..update(updates))._build();
 
-  _$RequestBody._({this.description, this.content, this.required}) : super._();
+  _$RequestBody._({this.description, this.content, required this.required}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required');
+  }
 
   @override
   RequestBody rebuild(void Function(RequestBodyBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -156,9 +155,14 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
   RequestBody build() => _build();
 
   _$RequestBody _build() {
+    RequestBody._defaults(this);
     _$RequestBody _$result;
     try {
-      _$result = _$v ?? _$RequestBody._(description: description, content: _content?.build(), required: required);
+      _$result = _$v ??
+          _$RequestBody._(
+              description: description,
+              content: _content?.build(),
+              required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'));
     } catch (_) {
       late String _$failedField;
       try {

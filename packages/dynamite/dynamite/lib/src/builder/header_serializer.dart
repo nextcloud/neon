@@ -122,7 +122,7 @@ Iterable<String> deserializeProperty(
       state,
       '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
       propertySchema,
-      nullable: isDartParameterNullable(schema.required?.contains(propertyName), propertySchema),
+      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
     );
 
     yield "case '$propertyName':";

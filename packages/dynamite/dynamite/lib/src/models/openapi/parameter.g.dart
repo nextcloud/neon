@@ -22,6 +22,8 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'in',
       serializers.serialize(object.$in, specifiedType: const FullType(String)),
+      'required',
+      serializers.serialize(object.required, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.description;
@@ -29,12 +31,6 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
       result
         ..add('description')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.required;
-    if (value != null) {
-      result
-        ..add('required')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.schema;
     if (value != null) {
@@ -66,7 +62,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'required':
-          result.required = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
           result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
@@ -86,15 +82,17 @@ class _$Parameter extends Parameter {
   @override
   final String? description;
   @override
-  final bool? required;
+  final bool required;
   @override
   final Schema? schema;
 
   factory _$Parameter([void Function(ParameterBuilder)? updates]) => (ParameterBuilder()..update(updates))._build();
 
-  _$Parameter._({required this.name, required this.$in, this.description, this.required, this.schema}) : super._() {
+  _$Parameter._({required this.name, required this.$in, this.description, required this.required, this.schema})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name');
     BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in');
+    BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required');
   }
 
   @override
@@ -189,6 +187,7 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   Parameter build() => _build();
 
   _$Parameter _build() {
+    Parameter._defaults(this);
     _$Parameter _$result;
     try {
       _$result = _$v ??
@@ -196,7 +195,7 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
               name: BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name'),
               $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
               description: description,
-              required: required,
+              required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
               schema: _schema?.build());
     } catch (_) {
       late String _$failedField;

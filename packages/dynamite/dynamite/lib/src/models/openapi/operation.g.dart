@@ -17,7 +17,10 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
   @override
   Iterable<Object?> serialize(Serializers serializers, Operation object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+    ];
     Object? value;
     value = object.operationId;
     if (value != null) {
@@ -36,12 +39,6 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
       result
         ..add('description')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.deprecated;
-    if (value != null) {
-      result
-        ..add('deprecated')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.tags;
     if (value != null) {
@@ -104,7 +101,7 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
@@ -146,7 +143,7 @@ class _$Operation extends Operation {
   @override
   final String? description;
   @override
-  final bool? deprecated;
+  final bool deprecated;
   @override
   final BuiltList<String>? tags;
   @override
@@ -164,13 +161,15 @@ class _$Operation extends Operation {
       {this.operationId,
       this.summary,
       this.description,
-      this.deprecated,
+      required this.deprecated,
       this.tags,
       this.parameters,
       this.requestBody,
       this.responses,
       this.security})
-      : super._();
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated');
+  }
 
   @override
   Operation rebuild(void Function(OperationBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -295,6 +294,7 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
   Operation build() => _build();
 
   _$Operation _build() {
+    Operation._defaults(this);
     _$Operation _$result;
     try {
       _$result = _$v ??
@@ -302,7 +302,7 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
               operationId: operationId,
               summary: summary,
               description: description,
-              deprecated: deprecated,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated'),
               tags: _tags?.build(),
               parameters: _parameters?.build(),
               requestBody: _requestBody?.build(),
