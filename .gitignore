@@ -3,6 +3,8 @@ pubspec.lock
 
 packages/**/.idea
 packages/**/*.iml
+packages/**/*.symbols
+packages/**/*.log
 packages/**/.flutter-plugins
 packages/**/.flutter-plugins-dependencies
 packages/**/coverage
