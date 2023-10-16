@@ -60,7 +60,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   Future<void> _setupUnifiedPush() async {
     // We just use a single RSA keypair for all accounts
-    final keypair = await PushUtils.loadRSAKeypair();
+    final keypair = PushUtils.loadRSAKeypair();
 
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {

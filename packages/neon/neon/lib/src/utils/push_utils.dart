@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 
@@ -23,17 +24,17 @@ import 'package:nextcloud/notifications.dart' as notifications;
 class PushUtils {
   const PushUtils._();
 
-  static Future<notifications.RSAKeypair> loadRSAKeypair() async {
+  static notifications.RSAKeypair loadRSAKeypair() {
     const storage = AppStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
-    late notifications.RSAKeypair keypair;
-    if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)?.isEmpty ?? true)) {
+    final notifications.RSAKeypair keypair;
+    if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)!.isEmpty)) {
       debugPrint('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
       keypair = notifications.RSAKeypair.fromRandom(keySize: 2048);
-      await storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM());
+      unawaited(storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM()));
     } else {
       keypair = notifications.RSAKeypair(notifications.RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
     }
@@ -74,16 +75,10 @@ class PushUtils {
     );
     await NeonStorage.init();
 
-    final keypair = await loadRSAKeypair();
-
+    final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
-      final pushNotification = PushNotification(
-        accountID: instance,
-        priority: data['priority']! as String,
-        type: data['type']! as String,
-        subject: notifications.decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
-      );
+      final pushNotification = PushNotification.fromEncrypted(data, keypair.privateKey);
 
       if (pushNotification.subject.delete ?? false) {
         await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
