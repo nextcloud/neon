@@ -26,7 +26,7 @@ class GlobalOptions extends OptionsCollection {
   void _rememberLastUsedAccountListener() {
     initialAccount.enabled = !rememberLastUsedAccount.value;
     if (rememberLastUsedAccount.value) {
-      initialAccount.value = null;
+      initialAccount.reset();
     } else {
       // Only override the initial account if there already has been a value,
       // which means it's not the initial emit from rememberLastUsedAccount
@@ -44,7 +44,7 @@ class GlobalOptions extends OptionsCollection {
         pushNotificationsEnabled.value = false;
       }
     } else {
-      pushNotificationsDistributor.value = null;
+      pushNotificationsDistributor.reset();
     }
   }
 
@@ -91,26 +91,29 @@ class GlobalOptions extends OptionsCollection {
   }
 
   void updateAccounts(final List<Account> accounts) {
-    initialAccount.values = {
-      for (final account in accounts) account.id: (final context) => account.humanReadableID,
-    };
+    initialAccount.values = Map.fromEntries(
+      accounts.map(
+        (final account) => MapEntry(account.id, (final context) => account.humanReadableID),
+      ),
+    );
 
-    if (accounts.tryFind(initialAccount.value) == null) {
+    if (!initialAccount.values.containsKey(initialAccount.value)) {
       initialAccount.reset();
     }
   }
 
-  Future<void> updateDistributors(final List<String> distributors) async {
-    pushNotificationsDistributor.values = {
-      for (final distributor in distributors) ...{
-        distributor: _distributorsMap[distributor] ?? (final _) => distributor,
-      },
-    };
+  void updateDistributors(final List<String> distributors) {
+    pushNotificationsDistributor.values = Map.fromEntries(
+      distributors.map(
+        (final distributor) => MapEntry(distributor, _distributorsMap[distributor] ?? (final _) => distributor),
+      ),
+    );
 
-    final allowed = distributors.isNotEmpty;
+    final allowed = pushNotificationsDistributor.values.containsKey(pushNotificationsDistributor.value);
     pushNotificationsEnabled.enabled = allowed;
     if (!allowed) {
-      pushNotificationsEnabled.value = false;
+      pushNotificationsDistributor.reset();
+      pushNotificationsEnabled.reset();
     }
   }
 
@@ -128,7 +131,7 @@ class GlobalOptions extends OptionsCollection {
 
   late final themeOLEDAsDark = ToggleOption(
     storage: storage,
-    key: GlobalOptionKeys.themeOledAsDark,
+    key: GlobalOptionKeys.themeOLEDAsDark,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
   );
@@ -209,12 +212,9 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: {
       NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
-      if (!Platform.isAndroid && !Platform.isIOS) ...{
+      if (!Platform.isAndroid && !Platform.isIOS)
         NavigationMode.drawerAlwaysVisible: (final context) =>
             AppLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
-      },
-      // ignore: deprecated_member_use_from_same_package
-      NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
     },
   );
 }
@@ -222,7 +222,7 @@ class GlobalOptions extends OptionsCollection {
 @internal
 enum GlobalOptionKeys implements Storable {
   themeMode._('theme-mode'),
-  themeOledAsDark._('theme-oled-as-dark'),
+  themeOLEDAsDark._('theme-oled-as-dark'),
   themeKeepOriginalAccentColor._('theme-keep-original-accent-color'),
   pushNotificationsEnabled._('push-notifications-enabled'),
   pushNotificationsDistributor._('push-notifications-distributor'),
@@ -244,6 +244,4 @@ enum GlobalOptionKeys implements Storable {
 enum NavigationMode {
   drawer,
   drawerAlwaysVisible,
-  @Deprecated("The new design won't use this anymore")
-  quickBar,
 }

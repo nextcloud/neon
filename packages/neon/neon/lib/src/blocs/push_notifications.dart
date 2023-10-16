@@ -35,7 +35,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   final AccountsBloc _accountsBloc;
-  late final _storage = const AppStorage(StorageKeys.notifications);
+  late final _storage = const AppStorage(StorageKeys.lastEndpoint);
   final GlobalOptions _globalOptions;
 
   StreamSubscription<List<Account>>? _accountsListener;
@@ -45,8 +45,6 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     unawaited(_accountsListener?.cancel());
     _globalOptions.pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
   }
-
-  String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 
   Future<void> _pushNotificationsEnabledListener() async {
     if (_globalOptions.pushNotificationsEnabled.value) {
@@ -72,7 +70,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
           return;
         }
 
-        if (_storage.getString(_keyLastEndpoint(account)) == endpoint) {
+        if (_storage.getString(account.id) == endpoint) {
           debugPrint('Endpoint not changed');
           return;
         }
@@ -85,7 +83,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
           proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
         );
 
-        await _storage.setString(_keyLastEndpoint(account), endpoint);
+        await _storage.setString(account.id, endpoint);
 
         debugPrint(
           'Account $instance registered for push notifications ${json.encode(subscription.body.ocs.data.toJson())}',
@@ -117,7 +115,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
       try {
         await account.client.notifications.push.removeDevice();
         await UnifiedPush.unregister(account.id);
-        await _storage.remove(_keyLastEndpoint(account));
+        await _storage.remove(account.id);
       } catch (e) {
         debugPrint('Failed to unregister device: $e');
       }

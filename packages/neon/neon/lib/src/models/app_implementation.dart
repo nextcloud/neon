@@ -21,11 +21,9 @@ import 'package:vector_graphics/vector_graphics.dart';
 
 @immutable
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable {
-  AppImplementation();
-
   String get id;
   LocalizationsDelegate<Object> get localizationsDelegate;
-  List<Locale> get supportedLocales;
+  Iterable<Locale> get supportedLocales;
 
   String nameFromLocalization(final AppLocalizations localizations) => localizations.appImplementationName(id);
   String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));

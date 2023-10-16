@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/models/app_implementation.dart';
 
@@ -6,7 +6,7 @@ import 'package:neon/src/models/app_implementation.dart';
 class NeonAppImplementationIcon extends StatelessWidget {
   const NeonAppImplementationIcon({
     required this.appImplementation,
-    this.unreadCount = 0,
+    this.unreadCount,
     this.color,
     this.size,
     super.key,
@@ -14,7 +14,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
 
   final AppImplementation appImplementation;
 
-  final int unreadCount;
+  final int? unreadCount;
 
   final Color? color;
 
@@ -22,6 +22,11 @@ class NeonAppImplementationIcon extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final unreadCount = this.unreadCount ?? 0;
+
+    final color = this.color ??
+        (unreadCount > 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onBackground);
+
     final icon = Container(
       margin: const EdgeInsets.all(5),
       child: appImplementation.buildIcon(

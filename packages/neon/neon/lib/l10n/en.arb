@@ -51,7 +51,7 @@
   "errorNoCompatibleNextcloudAppsFound": "No compatible Nextcloud apps could be found.\nWe are working hard to implement more and more apps!",
   "errorServerInMaintenanceMode": "The server is in maintenance mode. Please try again later or contact the server admin.",
   "errorMissingPermission": "Permission for {name} is missing",
-  "@errorMissingPermission" : {
+  "@errorMissingPermission": {
     "placeholders": {
       "name": {
         "type": "String"
@@ -59,7 +59,7 @@
     }
   },
   "errorUnsupportedAppVersions": "Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {names} \n Please contact your administrator to resolve the issues.",
-  "@errorUnsupportedAppVersions" : {
+  "@errorUnsupportedAppVersions": {
     "placeholders": {
       "names": {
         "type": "String"
@@ -70,7 +70,7 @@
   "errorInvalidURL": "Invalid URL provided",
   "errorInvalidQRcode": "Invalid QR-Code provided",
   "errorRouteNotFound": "Route not found: {route}",
-  "@errorRouteNotFound" : {
+  "@errorRouteNotFound": {
     "placeholders": {
       "route": {
         "type": "String"
@@ -152,7 +152,6 @@
   "globalOptionsNavigationMode": "Navigation mode",
   "globalOptionsNavigationModeDrawer": "Drawer",
   "globalOptionsNavigationModeDrawerAlwaysVisible": "Drawer always visible",
-  "globalOptionsNavigationModeQuickBar": "Quick bar",
   "accountOptionsRemove": "Remove account",
   "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
   "@accountOptionsRemoveConfirm": {

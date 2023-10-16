@@ -102,23 +102,23 @@ final class SingleValueStorage {
 @internal
 final class AppStorage implements SettingsStorage {
   const AppStorage(
-    this.key, [
+    this.groupKey, [
     this.suffix,
   ]);
 
-  final StorageKeys key;
+  final StorageKeys groupKey;
 
   final String? suffix;
 
-  String get id => suffix ?? key.value;
+  String get id => suffix ?? groupKey.value;
 
   @visibleForTesting
   String formatKey(final String key) {
     if (suffix != null) {
-      return '${this.key.value}-$suffix-$key';
+      return '${groupKey.value}-$suffix-$key';
     }
 
-    return '${this.key.value}-$key';
+    return '${groupKey.value}-$key';
   }
 
   bool containsKey(final String key) => NeonStorage.database.containsKey(formatKey(key));
