@@ -112,7 +112,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [keepalive] Keep alive value in seconds
+  ///   * [keepalive] Keep alive value in seconds.
   ///
   /// Status codes:
   ///   * 200
@@ -139,7 +139,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [keepalive] Keep alive value in seconds
+  ///   * [keepalive] Keep alive value in seconds.
   ///
   /// Status codes:
   ///   * 200
@@ -194,7 +194,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [deviceName] Name of the device
+  ///   * [deviceName] Name of the device.
   ///
   /// Status codes:
   ///   * 200
@@ -219,7 +219,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [deviceName] Name of the device
+  ///   * [deviceName] Name of the device.
   ///
   /// Status codes:
   ///   * 200
@@ -424,8 +424,8 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [deviceId] ID of the device
-  ///   * [appName] Name of the app
+  ///   * [deviceId] ID of the device.
+  ///   * [appName] Name of the app.
   ///
   /// Status codes:
   ///   * 200: App created successfully
@@ -452,8 +452,8 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [deviceId] ID of the device
-  ///   * [appName] Name of the app
+  ///   * [deviceId] ID of the device.
+  ///   * [appName] Name of the app.
   ///
   /// Status codes:
   ///   * 200: App created successfully

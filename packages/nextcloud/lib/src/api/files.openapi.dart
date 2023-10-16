@@ -59,9 +59,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [x] Width of the thumbnail
-  ///   * [y] Height of the thumbnail
-  ///   * [file] URL-encoded filename
+  ///   * [x] Width of the thumbnail.
+  ///   * [y] Height of the thumbnail.
+  ///   * [file] URL-encoded filename.
   ///
   /// Status codes:
   ///   * 200: Thumbnail returned
@@ -92,9 +92,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [x] Width of the thumbnail
-  ///   * [y] Height of the thumbnail
-  ///   * [file] URL-encoded filename
+  ///   * [x] Width of the thumbnail.
+  ///   * [y] Height of the thumbnail.
+  ///   * [file] URL-encoded filename.
   ///
   /// Status codes:
   ///   * 200: Thumbnail returned
@@ -164,7 +164,7 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct editing capabilities returned
@@ -189,7 +189,7 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct editing capabilities returned
@@ -244,9 +244,9 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Templates returned
@@ -276,9 +276,9 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Templates returned
@@ -340,10 +340,10 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -376,10 +376,10 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -448,11 +448,11 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [templateId] ID of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -487,11 +487,11 @@ class DirectEditingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [editorId] ID of the editor
-  ///   * [creatorId] ID of the creator
-  ///   * [templateId] ID of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: URL for direct editing returned
@@ -566,8 +566,8 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor returned
@@ -595,8 +595,8 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor returned
@@ -656,9 +656,9 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [token] Token of the local editor
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [token] Token of the local editor.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor validated successfully
@@ -688,9 +688,9 @@ class OpenLocalEditorClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file
-  ///   * [token] Token of the local editor
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the file.
+  ///   * [token] Token of the local editor.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Local editor validated successfully
@@ -758,7 +758,7 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Available templates returned
@@ -781,7 +781,7 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Available templates returned
@@ -836,10 +836,10 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file
-  ///   * [templatePath] Name of the template
-  ///   * [templateType] Type of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filePath] Path of the file.
+  ///   * [templatePath] Name of the template. Defaults to `''`.
+  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template created successfully
@@ -871,10 +871,10 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file
-  ///   * [templatePath] Name of the template
-  ///   * [templateType] Type of the template
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filePath] Path of the file.
+  ///   * [templatePath] Name of the template. Defaults to `''`.
+  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template created successfully
@@ -942,9 +942,9 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template directory initialized successfully
@@ -974,9 +974,9 @@ class TemplateClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Template directory initialized successfully
@@ -1048,9 +1048,9 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [recipient] Username of the recipient.
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transferred successfully
@@ -1081,9 +1081,9 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient
-  ///   * [path] Path of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [recipient] Username of the recipient.
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transferred successfully
@@ -1146,8 +1146,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer accepted successfully
@@ -1176,8 +1176,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer accepted successfully
@@ -1238,8 +1238,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer rejected successfully
@@ -1268,8 +1268,8 @@ class TransferOwnershipClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the ownership transfer
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Ownership transfer rejected successfully

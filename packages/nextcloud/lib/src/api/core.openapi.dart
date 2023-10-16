@@ -135,7 +135,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -161,7 +161,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -219,7 +219,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -245,7 +245,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password returned
@@ -303,7 +303,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password deleted successfully
@@ -329,7 +329,7 @@ class AppPasswordClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App password deleted successfully
@@ -393,13 +393,13 @@ class AutoCompleteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Type of the items to search for
-  ///   * [itemId] ID of the items to search for
-  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
-  ///   * [shareTypes] Types of shares to search for
-  ///   * [limit] Maximum number of results to return
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Autocomplete results returned
@@ -436,13 +436,13 @@ class AutoCompleteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Type of the items to search for
-  ///   * [itemId] ID of the items to search for
-  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients"
-  ///   * [shareTypes] Types of shares to search for
-  ///   * [limit] Maximum number of results to return
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Autocomplete results returned
@@ -528,8 +528,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -557,8 +557,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -616,8 +616,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -645,8 +645,8 @@ class AvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [size] Size of the avatar
+  ///   * [userId] ID of the user.
+  ///   * [size] Size of the avatar.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
@@ -710,7 +710,7 @@ class ClientFlowLoginV2Client {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the flow
+  ///   * [token] Token of the flow.
   ///
   /// Status codes:
   ///   * 200: Login flow credentials returned
@@ -734,7 +734,7 @@ class ClientFlowLoginV2Client {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the flow
+  ///   * [token] Token of the flow.
   ///
   /// Status codes:
   ///   * 200: Login flow credentials returned
@@ -861,8 +861,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter collections
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -890,8 +890,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter collections
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -951,8 +951,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -981,8 +981,8 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1043,9 +1043,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionName] New name
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionName] New name.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1076,9 +1076,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [collectionName] New name
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [collectionName] New name.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1141,10 +1141,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1177,10 +1177,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1245,10 +1245,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1281,10 +1281,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Name of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [collectionId] ID of the collection
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [collectionId] ID of the collection.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1349,9 +1349,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Type of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Type of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -1382,9 +1382,9 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [resourceType] Type of the resource
-  ///   * [resourceId] ID of the resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [resourceType] Type of the resource.
+  ///   * [resourceId] ID of the resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collections returned
@@ -1447,10 +1447,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [name] Name of the collection
-  ///   * [baseResourceType] Type of the base resource
-  ///   * [baseResourceId] ID of the base resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [name] Name of the collection.
+  ///   * [baseResourceType] Type of the base resource.
+  ///   * [baseResourceId] ID of the base resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1485,10 +1485,10 @@ class CollaborationResourcesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [name] Name of the collection
-  ///   * [baseResourceType] Type of the base resource
-  ///   * [baseResourceId] ID of the base resource
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [name] Name of the collection.
+  ///   * [baseResourceType] Type of the base resource.
+  ///   * [baseResourceId] ID of the base resource.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Collection returned
@@ -1562,8 +1562,8 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1592,8 +1592,8 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1652,9 +1652,9 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [darkTheme] Return dark avatar
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1685,9 +1685,9 @@ class GuestAvatarClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [darkTheme] Return dark avatar
-  ///   * [guestName] The guest name, e.g. "Albert"
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1726,10 +1726,8 @@ class GuestAvatarClient {
 // coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
-    if (darkTheme != null) {
-      if (darkTheme != 0) {
-        queryParameters['darkTheme'] = darkTheme.toString();
-      }
+    if (darkTheme != null && darkTheme != 0) {
+      queryParameters['darkTheme'] = darkTheme.toString();
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
@@ -1758,8 +1756,8 @@ class HoverCardClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User details returned
@@ -1787,8 +1785,8 @@ class HoverCardClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User details returned
@@ -1854,8 +1852,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1883,8 +1881,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1946,8 +1944,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -1975,8 +1973,8 @@ class NavigationClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [absolute] Rewrite URLs to absolute ones
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps navigation returned
@@ -2120,7 +2118,7 @@ class OcsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Capabilities returned
@@ -2145,7 +2143,7 @@ class OcsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Capabilities returned
@@ -2206,13 +2204,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2253,13 +2251,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2346,13 +2344,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2393,13 +2391,13 @@ class PreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [forceIcon] Force returning an icon
-  ///   * [mode] How to crop the image
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2492,10 +2490,10 @@ class ProfileApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [paramId] ID of the parameter
-  ///   * [visibility] New visibility
-  ///   * [targetUserId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [paramId] ID of the parameter.
+  ///   * [visibility] New visibility.
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Visibility updated successfully
@@ -2529,10 +2527,10 @@ class ProfileApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [paramId] ID of the parameter
-  ///   * [visibility] New visibility
-  ///   * [targetUserId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [paramId] ID of the parameter.
+  ///   * [visibility] New visibility.
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Visibility updated successfully
@@ -2604,7 +2602,7 @@ class ReferenceClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [referenceId] the reference cache key
+  ///   * [referenceId] the reference cache key.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2628,7 +2626,7 @@ class ReferenceClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [referenceId] the reference cache key
+  ///   * [referenceId] the reference cache key.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2688,8 +2686,8 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [reference] Reference to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [reference] Reference to resolve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reference returned
@@ -2716,8 +2714,8 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [reference] Reference to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [reference] Reference to resolve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reference returned
@@ -2776,9 +2774,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [references] References to resolve
-  ///   * [limit] Maximum amount of references to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [references] References to resolve.
+  ///   * [limit] Maximum amount of references to resolve. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2807,9 +2805,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [references] References to resolve
-  ///   * [limit] Maximum amount of references to resolve
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [references] References to resolve.
+  ///   * [limit] Maximum amount of references to resolve. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2872,10 +2870,10 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to extract from
-  ///   * [resolve] Resolve the references
-  ///   * [limit] Maximum amount of references to extract
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2906,10 +2904,10 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to extract from
-  ///   * [resolve] Resolve the references
-  ///   * [limit] Maximum amount of references to extract
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: References returned
@@ -2976,7 +2974,7 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3001,7 +2999,7 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3058,9 +3056,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [timestamp] Timestamp of the last usage
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [timestamp] Timestamp of the last usage.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Provider touched
@@ -3089,9 +3087,9 @@ class ReferenceApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [timestamp] Timestamp of the last usage
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [timestamp] Timestamp of the last usage.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Provider touched
@@ -3160,7 +3158,7 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task types returned
@@ -3185,7 +3183,7 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task types returned
@@ -3240,11 +3238,11 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [input] Input text
-  ///   * [type] Type of the task
-  ///   * [appId] ID of the app that will execute the task
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [input] Input text.
+  ///   * [type] Type of the task.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
@@ -3279,11 +3277,11 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [input] Input text
-  ///   * [type] Type of the task
-  ///   * [appId] ID of the app that will execute the task
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [input] Input text.
+  ///   * [type] Type of the task.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
@@ -3350,8 +3348,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3380,8 +3378,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3440,8 +3438,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3470,8 +3468,8 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] The id of the task
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task returned
@@ -3532,9 +3530,9 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task list returned
@@ -3564,9 +3562,9 @@ class TextProcessingApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [identifier] An arbitrary identifier for the task
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Task list returned
@@ -3636,7 +3634,7 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Supported languages returned
@@ -3661,7 +3659,7 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Supported languages returned
@@ -3716,10 +3714,10 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to be translated
-  ///   * [fromLanguage] Language to translate from
-  ///   * [toLanguage] Language to translate to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to be translated.
+  ///   * [fromLanguage] Language to translate from.
+  ///   * [toLanguage] Language to translate to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Translated text returned
@@ -3753,10 +3751,10 @@ class TranslationApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [text] Text to be translated
-  ///   * [fromLanguage] Language to translate from
-  ///   * [toLanguage] Language to translate to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [text] Text to be translated.
+  ///   * [fromLanguage] Language to translate from.
+  ///   * [toLanguage] Language to translate to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Translated text returned
@@ -3828,8 +3826,8 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3856,8 +3854,8 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Providers returned
@@ -3918,13 +3916,13 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search
-  ///   * [sortOrder] Order of entries
-  ///   * [limit] Maximum amount of entries
-  ///   * [cursor] Offset for searching
-  ///   * [from] The current user URL
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Search entries returned
@@ -3962,13 +3960,13 @@ class UnifiedSearchClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search
-  ///   * [sortOrder] Order of entries
-  ///   * [limit] Maximum amount of entries
-  ///   * [cursor] Offset for searching
-  ///   * [from] The current user URL
-  ///   * [providerId] ID of the provider
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [providerId] ID of the provider.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Search entries returned
@@ -4057,7 +4055,7 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes returned
@@ -4081,7 +4079,7 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes returned
@@ -4137,8 +4135,8 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] Version to dismiss the changes for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [version] Version to dismiss the changes for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes dismissed
@@ -4166,8 +4164,8 @@ class WhatsNewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] Version to dismiss the changes for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [version] Version to dismiss the changes for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Changes dismissed
@@ -4233,7 +4231,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Device should be wiped
@@ -4257,7 +4255,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Device should be wiped
@@ -4311,7 +4309,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Wipe finished successfully
@@ -4335,7 +4333,7 @@ class WipeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] App password
+  ///   * [token] App password.
   ///
   /// Status codes:
   ///   * 200: Wipe finished successfully

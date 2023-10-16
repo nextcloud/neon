@@ -42,9 +42,9 @@ class Client extends DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude]
-  ///   * [pruneBefore]
-  ///   * [chunkSize]
+  ///   * [exclude] Defaults to `''`.
+  ///   * [pruneBefore] Defaults to `0`.
+  ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
   ///   * [ifNoneMatch]
   ///
@@ -80,9 +80,9 @@ class Client extends DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude]
-  ///   * [pruneBefore]
-  ///   * [chunkSize]
+  ///   * [exclude] Defaults to `''`.
+  ///   * [pruneBefore] Defaults to `0`.
+  ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
   ///   * [ifNoneMatch]
   ///
@@ -161,11 +161,11 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category]
-  ///   * [title]
-  ///   * [content]
-  ///   * [modified]
-  ///   * [favorite]
+  ///   * [category] Defaults to `''`.
+  ///   * [title] Defaults to `''`.
+  ///   * [content] Defaults to `''`.
+  ///   * [modified] Defaults to `0`.
+  ///   * [favorite] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -196,11 +196,11 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category]
-  ///   * [title]
-  ///   * [content]
-  ///   * [modified]
-  ///   * [favorite]
+  ///   * [category] Defaults to `''`.
+  ///   * [title] Defaults to `''`.
+  ///   * [content] Defaults to `''`.
+  ///   * [modified] Defaults to `0`.
+  ///   * [favorite] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -273,7 +273,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude]
+  ///   * [exclude] Defaults to `''`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:
@@ -301,7 +301,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude]
+  ///   * [exclude] Defaults to `''`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:

@@ -56,8 +56,8 @@ class HeartbeatClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [status] Only online, away.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status successfully updated
@@ -87,8 +87,8 @@ class HeartbeatClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [status] Only online, away.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status successfully updated
@@ -156,7 +156,7 @@ class PredefinedStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Predefined statuses returned
@@ -181,7 +181,7 @@ class PredefinedStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Predefined statuses returned
@@ -244,9 +244,9 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find
-  ///   * [offset] Offset for finding statuses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Statuses returned
@@ -275,9 +275,9 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find
-  ///   * [offset] Offset for finding statuses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Statuses returned
@@ -342,8 +342,8 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status returned
@@ -371,8 +371,8 @@ class StatusesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status returned
@@ -438,7 +438,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was found successfully
@@ -464,7 +464,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was found successfully
@@ -522,8 +522,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusType] The new status type.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was updated successfully
@@ -551,8 +551,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusType] The new status type.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The status was updated successfully
@@ -612,9 +612,9 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the predefined message.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -644,9 +644,9 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the predefined message.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -710,10 +710,10 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status
-  ///   * [message] Message of the status
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusIcon] Icon of the status.
+  ///   * [message] Message of the status.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -745,10 +745,10 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status
-  ///   * [message] Message of the status
-  ///   * [clearAt] When the message should be cleared
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [statusIcon] Icon of the status.
+  ///   * [message] Message of the status.
+  ///   * [clearAt] When the message should be cleared.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: The message was updated successfully
@@ -818,7 +818,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Message cleared successfully
@@ -843,7 +843,7 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Message cleared successfully
@@ -900,8 +900,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the message to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the message to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status reverted
@@ -928,8 +928,8 @@ class UserStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the message to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [messageId] ID of the message to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Status reverted

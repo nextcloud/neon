@@ -49,8 +49,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [mode] New mode.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Weather status mode updated
@@ -77,8 +77,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [mode] New mode.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Weather status mode updated
@@ -137,7 +137,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Address updated
@@ -162,7 +162,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Address updated
@@ -219,7 +219,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location returned
@@ -244,7 +244,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location returned
@@ -301,10 +301,10 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address
-  ///   * [lat] Latitude in decimal degree format
-  ///   * [lon] Longitude in decimal degree format
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [address] Any approximative or exact address.
+  ///   * [lat] Latitude in decimal degree format.
+  ///   * [lon] Longitude in decimal degree format.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location updated
@@ -335,10 +335,10 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address
-  ///   * [lat] Latitude in decimal degree format
-  ///   * [lon] Longitude in decimal degree format
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [address] Any approximative or exact address.
+  ///   * [lat] Latitude in decimal degree format.
+  ///   * [lon] Longitude in decimal degree format.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Location updated
@@ -407,7 +407,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Forecast returned
@@ -433,7 +433,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Forecast returned
@@ -491,7 +491,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites returned
@@ -516,7 +516,7 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites returned
@@ -573,8 +573,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [favorites] Favorite addresses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites updated
@@ -601,8 +601,8 @@ class WeatherStatusClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [favorites] Favorite addresses.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Favorites updated

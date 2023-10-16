@@ -60,7 +60,7 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Deleted shares returned
@@ -85,7 +85,7 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Deleted shares returned
@@ -140,8 +140,8 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share undeleted successfully
@@ -169,8 +169,8 @@ class DeletedShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share undeleted successfully
@@ -236,8 +236,8 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -267,8 +267,8 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -328,12 +328,12 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -371,12 +371,12 @@ class PublicPreviewClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share
-  ///   * [x] Width of the preview
-  ///   * [y] Height of the preview
-  ///   * [a] Whether to not crop the preview
-  ///   * [token] Token of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [token] Token of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -458,7 +458,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Accepted remote shares returned
@@ -483,7 +483,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Accepted remote shares returned
@@ -538,7 +538,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending remote shares returned
@@ -563,7 +563,7 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending remote shares returned
@@ -620,8 +620,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -649,8 +649,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -710,8 +710,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share declined successfully
@@ -739,8 +739,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share declined successfully
@@ -800,8 +800,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -829,8 +829,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -890,8 +890,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share unshared successfully
@@ -920,8 +920,8 @@ class RemoteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share unshared successfully
@@ -988,10 +988,10 @@ class ShareInfoClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [t] Token of the share
-  ///   * [password] Password of the share
-  ///   * [dir] Subdirectory to get info about
-  ///   * [depth] Maximum depth to get info about
+  ///   * [t] Token of the share.
+  ///   * [password] Password of the share.
+  ///   * [dir] Subdirectory to get info about.
+  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
   ///
   /// Status codes:
   ///   * 200: Share info returned
@@ -1024,10 +1024,10 @@ class ShareInfoClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [t] Token of the share
-  ///   * [password] Password of the share
-  ///   * [dir] Subdirectory to get info about
-  ///   * [depth] Maximum depth to get info about
+  ///   * [t] Token of the share.
+  ///   * [password] Password of the share.
+  ///   * [dir] Subdirectory to get info about.
+  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
   ///
   /// Status codes:
   ///   * 200: Share info returned
@@ -1102,12 +1102,12 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user
-  ///   * [reshares] Only get shares by the current user and reshares
-  ///   * [subfiles] Only get all shares in a folder
-  ///   * [path] Get shares for a specific path
-  ///   * [includeTags] Include tags in the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
+  ///   * [path] Get shares for a specific path. Defaults to `''`.
+  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1143,12 +1143,12 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user
-  ///   * [reshares] Only get shares by the current user and reshares
-  ///   * [subfiles] Only get all shares in a folder
-  ///   * [path] Get shares for a specific path
-  ///   * [includeTags] Include tags in the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
+  ///   * [path] Get shares for a specific path. Defaults to `''`.
+  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1226,18 +1226,18 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share
-  ///   * [permissions] Permissions for the share
-  ///   * [shareType] Type of the share
-  ///   * [shareWith] The entity this should be shared with
-  ///   * [publicUpload] If public uploading is allowed
-  ///   * [password] Password for the share
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk
-  ///   * [expireDate] Expiry date of the share
-  ///   * [note] Note for the share
-  ///   * [label] Label for the share (only used in link and email)
-  ///   * [attributes] Additional attributes for the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the share.
+  ///   * [permissions] Permissions for the share.
+  ///   * [shareType] Type of the share. Defaults to `-1`.
+  ///   * [shareWith] The entity this should be shared with.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
+  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
+  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [note] Note for the share. Defaults to `''`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [attributes] Additional attributes for the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share created
@@ -1287,18 +1287,18 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share
-  ///   * [permissions] Permissions for the share
-  ///   * [shareType] Type of the share
-  ///   * [shareWith] The entity this should be shared with
-  ///   * [publicUpload] If public uploading is allowed
-  ///   * [password] Password for the share
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk
-  ///   * [expireDate] Expiry date of the share
-  ///   * [note] Note for the share
-  ///   * [label] Label for the share (only used in link and email)
-  ///   * [attributes] Additional attributes for the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path of the share.
+  ///   * [permissions] Permissions for the share.
+  ///   * [shareType] Type of the share. Defaults to `-1`.
+  ///   * [shareWith] The entity this should be shared with.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
+  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
+  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [note] Note for the share. Defaults to `''`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [attributes] Additional attributes for the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share created
@@ -1402,8 +1402,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path all shares will be relative to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1432,8 +1432,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [path] Path all shares will be relative to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Shares returned
@@ -1494,7 +1494,7 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending shares returned
@@ -1519,7 +1519,7 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Pending shares returned
@@ -1576,9 +1576,9 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [includeTags] Include tags in the share. Defaults to `0`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -1608,9 +1608,9 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [includeTags] Include tags in the share. Defaults to `0`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share returned
@@ -1674,17 +1674,17 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions
-  ///   * [password] New password
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
-  ///   * [publicUpload] New condition if public uploading is allowed
-  ///   * [expireDate] New expiry date
-  ///   * [note] New note
-  ///   * [label] New label
-  ///   * [hideDownload] New condition if the download should be hidden
-  ///   * [attributes] New additional attributes
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [permissions] New permissions.
+  ///   * [password] New password.
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
+  ///   * [publicUpload] New condition if public uploading is allowed.
+  ///   * [expireDate] New expiry date.
+  ///   * [note] New note.
+  ///   * [label] New label.
+  ///   * [hideDownload] New condition if the download should be hidden.
+  ///   * [attributes] New additional attributes.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share updated successfully
@@ -1732,17 +1732,17 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions
-  ///   * [password] New password
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk
-  ///   * [publicUpload] New condition if public uploading is allowed
-  ///   * [expireDate] New expiry date
-  ///   * [note] New note
-  ///   * [label] New label
-  ///   * [hideDownload] New condition if the download should be hidden
-  ///   * [attributes] New additional attributes
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [permissions] New permissions.
+  ///   * [password] New password.
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
+  ///   * [publicUpload] New condition if public uploading is allowed.
+  ///   * [expireDate] New expiry date.
+  ///   * [note] New note.
+  ///   * [label] New label.
+  ///   * [hideDownload] New condition if the download should be hidden.
+  ///   * [attributes] New additional attributes.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share updated successfully
@@ -1840,8 +1840,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share deleted successfully
@@ -1870,8 +1870,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share deleted successfully
@@ -1932,8 +1932,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -1962,8 +1962,8 @@ class ShareapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [id] ID of the share
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Share accepted successfully
@@ -2030,13 +2030,13 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Limit to specific item types
-  ///   * [page] Page offset for searching
-  ///   * [perPage] Limit amount of search results per page
-  ///   * [shareType] Limit to specific share types
-  ///   * [lookup] If a global lookup should be performed too
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [itemType] Limit to specific item types.
+  ///   * [page] Page offset for searching. Defaults to `1`.
+  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sharees search result returned
@@ -2074,13 +2074,13 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [itemType] Limit to specific item types
-  ///   * [page] Page offset for searching
-  ///   * [perPage] Limit amount of search results per page
-  ///   * [shareType] Limit to specific share types
-  ///   * [lookup] If a global lookup should be performed too
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [itemType] Limit to specific item types.
+  ///   * [page] Page offset for searching. Defaults to `1`.
+  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sharees search result returned
@@ -2165,9 +2165,9 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types
-  ///   * [shareType] Limit to specific share types
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [itemType] Limit to specific item types.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Recommended sharees returned
@@ -2196,9 +2196,9 @@ class ShareesapiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types
-  ///   * [shareType] Limit to specific share types
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [itemType] Limit to specific item types.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Recommended sharees returned

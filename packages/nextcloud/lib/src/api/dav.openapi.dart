@@ -48,9 +48,9 @@ class DirectClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [expirationTime] Duration until the link expires
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [expirationTime] Duration until the link expires.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct link returned
@@ -82,9 +82,9 @@ class DirectClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file
-  ///   * [expirationTime] Duration until the link expires
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [expirationTime] Duration until the link expires.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Direct link returned

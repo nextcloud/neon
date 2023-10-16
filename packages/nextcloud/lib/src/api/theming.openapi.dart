@@ -55,7 +55,7 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Favicon returned
@@ -80,7 +80,7 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Favicon returned
@@ -135,7 +135,7 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Touch icon returned
@@ -160,7 +160,7 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Touch icon returned
@@ -215,8 +215,8 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [image] image file name (svg required)
+  ///   * [app] ID of the app.
+  ///   * [image] image file name (svg required).
   ///
   /// Status codes:
   ///   * 200: Themed icon returned
@@ -245,8 +245,8 @@ class IconClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [image] image file name (svg required)
+  ///   * [app] ID of the app.
+  ///   * [image] image file name (svg required).
   ///
   /// Status codes:
   ///   * 200: Themed icon returned
@@ -314,9 +314,9 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [plain] Let the browser decide the CSS priority
-  ///   * [withCustomCss] Include custom CSS
-  ///   * [themeId] ID of the theme
+  ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
+  ///   * [withCustomCss] Include custom CSS. Defaults to `0`.
+  ///   * [themeId] ID of the theme.
   ///
   /// Status codes:
   ///   * 200: Stylesheet returned
@@ -346,9 +346,9 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [plain] Let the browser decide the CSS priority
-  ///   * [withCustomCss] Include custom CSS
-  ///   * [themeId] ID of the theme
+  ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
+  ///   * [withCustomCss] Include custom CSS. Defaults to `0`.
+  ///   * [themeId] ID of the theme.
   ///
   /// Status codes:
   ///   * 200: Stylesheet returned
@@ -412,8 +412,8 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [useSvg] Return image as SVG
-  ///   * [key] Key of the image
+  ///   * [useSvg] Return image as SVG. Defaults to `1`.
+  ///   * [key] Key of the image.
   ///
   /// Status codes:
   ///   * 200: Image returned
@@ -442,8 +442,8 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [useSvg] Return image as SVG
-  ///   * [key] Key of the image
+  ///   * [useSvg] Return image as SVG. Defaults to `1`.
+  ///   * [key] Key of the image.
   ///
   /// Status codes:
   ///   * 200: Image returned
@@ -504,7 +504,7 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app.
   ///
   /// Status codes:
   ///   * 200: Manifest returned
@@ -529,7 +529,7 @@ class ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
+  ///   * [app] ID of the app.
   ///
   /// Status codes:
   ///   * 200: Manifest returned
@@ -588,7 +588,7 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background image returned
@@ -612,7 +612,7 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background image returned
@@ -668,10 +668,10 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] Path of the background image
-  ///   * [color] Color for the background
-  ///   * [type] Type of background
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [value] Path of the background image. Defaults to `''`.
+  ///   * [color] Color for the background.
+  ///   * [type] Type of background.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background set successfully
@@ -704,10 +704,10 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] Path of the background image
-  ///   * [color] Color for the background
-  ///   * [type] Type of background
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [value] Path of the background image. Defaults to `''`.
+  ///   * [color] Color for the background.
+  ///   * [type] Type of background.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background set successfully
@@ -776,7 +776,7 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background deleted successfully
@@ -799,7 +799,7 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Background deleted successfully
@@ -854,8 +854,8 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [themeId] the theme ID
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [themeId] the theme ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Theme enabled successfully
@@ -884,8 +884,8 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [themeId] the theme ID
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [themeId] the theme ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Theme enabled successfully
@@ -946,8 +946,8 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [themeId] the theme ID
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [themeId] the theme ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Theme disabled successfully
@@ -976,8 +976,8 @@ class UserThemeClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [themeId] the theme ID
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [themeId] the theme ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Theme disabled successfully
