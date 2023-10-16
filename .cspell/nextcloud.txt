@@ -37,9 +37,6 @@ publicpreview
 reshares
 resharing
 rgdnvw
-r'sharebymail
-r'updatenotification
-r'uppush
 shareapi
 sharebymail
 sharee
