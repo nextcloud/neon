@@ -51,8 +51,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder returned
@@ -83,8 +83,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder returned
@@ -147,10 +147,10 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder updated
@@ -185,10 +185,10 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string
+  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder updated
@@ -257,8 +257,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully
@@ -290,8 +290,8 @@ class ApiClient {
   ///
   /// Parameters:
   ///   * [version]
-  ///   * [fileId] ID of the file
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully

@@ -390,7 +390,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [newestItemId] The newest read item
+  ///   * [newestItemId] The newest read item.
   ///
   /// Status codes:
   ///   * 200
@@ -415,7 +415,7 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [newestItemId] The newest read item
+  ///   * [newestItemId] The newest read item.
   ///
   /// Status codes:
   ///   * 200
@@ -929,12 +929,12 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [getRead]
-  ///   * [batchSize]
-  ///   * [offset]
-  ///   * [oldestFirst]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [getRead] Defaults to `1`.
+  ///   * [batchSize] Defaults to `-1`.
+  ///   * [offset] Defaults to `0`.
+  ///   * [oldestFirst] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -967,12 +967,12 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [getRead]
-  ///   * [batchSize]
-  ///   * [offset]
-  ///   * [oldestFirst]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [getRead] Defaults to `1`.
+  ///   * [batchSize] Defaults to `-1`.
+  ///   * [offset] Defaults to `0`.
+  ///   * [oldestFirst] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -1049,9 +1049,9 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [lastModified]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [lastModified] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200
@@ -1078,9 +1078,9 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [type]
-  ///   * [id]
-  ///   * [lastModified]
+  ///   * [type] Defaults to `3`.
+  ///   * [id] Defaults to `0`.
+  ///   * [lastModified] Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200

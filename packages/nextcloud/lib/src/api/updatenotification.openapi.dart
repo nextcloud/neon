@@ -51,9 +51,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [newVersion] Server version to check updates for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [newVersion] Server version to check updates for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned
@@ -85,9 +85,9 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [newVersion] Server version to check updates for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [newVersion] Server version to check updates for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned

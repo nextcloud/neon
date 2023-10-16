@@ -49,7 +49,7 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widgets returned
@@ -74,7 +74,7 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widgets returned
@@ -131,10 +131,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -165,10 +165,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -242,10 +242,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
@@ -276,10 +276,10 @@ class DashboardApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items
-  ///   * [limit] Limit number of result items per widget
-  ///   * [widgets] Limit results to specific widgets
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
+  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Widget items returned
