@@ -33,11 +33,6 @@ jobs:
 
       - name: Install dart
         uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1
-      - name: Cache dependencies
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
-        with:
-          path: ~/.pub-cache/hosted
-          key: dart-ci
       - name: Setup
         run: ./tool/setup.sh
 
