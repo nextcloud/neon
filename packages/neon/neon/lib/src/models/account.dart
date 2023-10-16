@@ -95,13 +95,11 @@ class Account implements Credentials {
   /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
   /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
   Uri completeUri(final Uri uri) {
-    final result = serverURL.replace(
-      queryParameters: uri.queryParameters,
-      fragment: uri.fragment,
-    );
-    return result.replace(
-      path: uri.hasAbsolutePath ? uri.path : '${result.path}/${uri.path}',
-    );
+    final result = serverURL.resolveUri(uri);
+    if (!uri.hasAbsolutePath) {
+      return result.replace(path: '${serverURL.path}/${uri.path}');
+    }
+    return result;
   }
 
   /// Removes the [serverURL] part from the [uri].
