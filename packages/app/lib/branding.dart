@@ -3,11 +3,13 @@ import 'dart:ui';
 import 'package:neon/theme.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+/// The custom theme used in the Neon app.
 const neonTheme = NeonTheme(
   branding: branding,
   colorScheme: colorScheme,
 );
 
+/// The custom branding used in the Neon app.
 const branding = Branding(
   name: 'Nextcloud Neon',
   logo: VectorGraphic(
@@ -22,6 +24,7 @@ const branding = Branding(
   legalese: 'Copyright © 2023, provokateurin\nUnder GPLv3 license',
 );
 
+/// The custom color scheme used in the Neon app.
 const colorScheme = NeonColorScheme(
   primary: Color(0xFFF37736),
 );
