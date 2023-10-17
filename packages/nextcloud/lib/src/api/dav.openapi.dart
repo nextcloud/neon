@@ -100,7 +100,6 @@ class DirectClient {
     final int? expirationTime,
     final bool oCSAPIRequest = true,
   }) {
-    const path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -129,7 +128,9 @@ class DirectClient {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    const path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'post',

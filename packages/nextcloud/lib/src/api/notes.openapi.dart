@@ -100,7 +100,6 @@ class Client extends DynamiteClient {
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) {
-    const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -142,7 +141,9 @@ class Client extends DynamiteClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
+    const path = '/index.php/apps/notes/api/v1/notes';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<BuiltList<Note>, void>(
       response: doRequest(
         'get',
@@ -215,7 +216,6 @@ class Client extends DynamiteClient {
     final int modified = 0,
     final int favorite = 0,
   }) {
-    const path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -254,7 +254,9 @@ class Client extends DynamiteClient {
     if (favorite != 0) {
       queryParameters['favorite'] = favorite.toString();
     }
+    const path = '/index.php/apps/notes/api/v1/notes';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'post',
@@ -315,7 +317,6 @@ class Client extends DynamiteClient {
     final String exclude = '',
     final String? ifNoneMatch,
   }) {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -339,14 +340,16 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final id0 = Uri.encodeQueryComponent(id.toString());
     if (exclude != '') {
       queryParameters['exclude'] = exclude;
     }
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }
+    final path = '/index.php/apps/notes/api/v1/notes/$id0';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'get',
@@ -427,7 +430,6 @@ class Client extends DynamiteClient {
     final int? favorite,
     final String? ifMatch,
   }) {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -451,7 +453,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final id0 = Uri.encodeQueryComponent(id.toString());
     if (content != null) {
       queryParameters['content'] = content;
     }
@@ -470,7 +472,9 @@ class Client extends DynamiteClient {
     if (ifMatch != null) {
       headers['If-Match'] = ifMatch;
     }
+    final path = '/index.php/apps/notes/api/v1/notes/$id0';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Note, void>(
       response: doRequest(
         'put',
@@ -513,7 +517,6 @@ class Client extends DynamiteClient {
   ///  * [deleteNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -537,8 +540,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final id0 = Uri.encodeQueryComponent(id.toString());
+    final path = '/index.php/apps/notes/api/v1/notes/$id0';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<String, void>(
       response: doRequest(
         'delete',
@@ -579,7 +584,6 @@ class Client extends DynamiteClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> getSettingsRaw() {
-    const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -603,7 +607,9 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
+    const path = '/index.php/apps/notes/api/v1/settings';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Settings, void>(
       response: doRequest(
         'get',
@@ -646,7 +652,6 @@ class Client extends DynamiteClient {
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> updateSettingsRaw({required final Settings settings}) {
-    const path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -673,7 +678,9 @@ class Client extends DynamiteClient {
     headers['Content-Type'] = 'application/json';
     body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))))
         as Uint8List;
+    const path = '/index.php/apps/notes/api/v1/settings';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Settings, void>(
       response: doRequest(
         'put',

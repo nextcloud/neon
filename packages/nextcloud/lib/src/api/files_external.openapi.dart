@@ -86,7 +86,6 @@ class ApiClient {
   DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({
     final bool oCSAPIRequest = true,
   }) {
-    const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -111,7 +110,9 @@ class ApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    const path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
       response: _rootClient.doRequest(
         'get',
