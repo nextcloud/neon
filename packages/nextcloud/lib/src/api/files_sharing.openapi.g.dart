@@ -7359,8 +7359,8 @@ abstract mixin class ShareInfo_SizeInterfaceBuilder {
   int? get $int;
   set $int(int? $int);
 
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 }
 
 class _$ShareInfo_Size extends ShareInfo_Size {
@@ -7369,12 +7369,12 @@ class _$ShareInfo_Size extends ShareInfo_Size {
   @override
   final int? $int;
   @override
-  final num? $num;
+  final double? $double;
 
   factory _$ShareInfo_Size([void Function(ShareInfo_SizeBuilder)? updates]) =>
       (ShareInfo_SizeBuilder()..update(updates))._build();
 
-  _$ShareInfo_Size._({required this.data, this.$int, this.$num}) : super._() {
+  _$ShareInfo_Size._({required this.data, this.$int, this.$double}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data');
   }
 
@@ -7387,7 +7387,7 @@ class _$ShareInfo_Size extends ShareInfo_Size {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareInfo_Size && data == other.data && $int == other.$int && $num == other.$num;
+    return other is ShareInfo_Size && data == other.data && $int == other.$int && $double == other.$double;
   }
 
   @override
@@ -7395,7 +7395,7 @@ class _$ShareInfo_Size extends ShareInfo_Size {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -7405,7 +7405,7 @@ class _$ShareInfo_Size extends ShareInfo_Size {
     return (newBuiltValueToStringHelper(r'ShareInfo_Size')
           ..add('data', data)
           ..add('\$int', $int)
-          ..add('\$num', $num))
+          ..add('\$double', $double))
         .toString();
   }
 }
@@ -7421,9 +7421,9 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
   int? get $int => _$this._$int;
   set $int(covariant int? $int) => _$this._$int = $int;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   ShareInfo_SizeBuilder();
 
@@ -7432,7 +7432,7 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
     if ($v != null) {
       _data = $v.data;
       _$int = $v.$int;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$v = null;
     }
     return this;
@@ -7455,7 +7455,7 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
   _$ShareInfo_Size _build() {
     final _$result = _$v ??
         _$ShareInfo_Size._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data'), $int: $int, $num: $num);
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data'), $int: $int, $double: $double);
     replace(_$result);
     return _$result;
   }
@@ -7712,8 +7712,8 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInf
 abstract mixin class Share_ItemSizeInterfaceBuilder {
   void replace(Share_ItemSizeInterface other);
   void update(void Function(Share_ItemSizeInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -7723,14 +7723,14 @@ class _$Share_ItemSize extends Share_ItemSize {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
 
   factory _$Share_ItemSize([void Function(Share_ItemSizeBuilder)? updates]) =>
       (Share_ItemSizeBuilder()..update(updates))._build();
 
-  _$Share_ItemSize._({required this.data, this.$num, this.$int}) : super._() {
+  _$Share_ItemSize._({required this.data, this.$double, this.$int}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data');
   }
 
@@ -7743,14 +7743,14 @@ class _$Share_ItemSize extends Share_ItemSize {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Share_ItemSize && data == other.data && $num == other.$num && $int == other.$int;
+    return other is Share_ItemSize && data == other.data && $double == other.$double && $int == other.$int;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -7760,7 +7760,7 @@ class _$Share_ItemSize extends Share_ItemSize {
   String toString() {
     return (newBuiltValueToStringHelper(r'Share_ItemSize')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int))
         .toString();
   }
@@ -7773,9 +7773,9 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -7787,7 +7787,7 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _$v = null;
     }
@@ -7811,7 +7811,7 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
   _$Share_ItemSize _build() {
     final _$result = _$v ??
         _$Share_ItemSize._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data'), $num: $num, $int: $int);
+            data: BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data'), $double: $double, $int: $int);
     replace(_$result);
     return _$result;
   }

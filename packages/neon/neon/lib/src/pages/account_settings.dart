@@ -80,9 +80,9 @@ class AccountSettingsPage extends StatelessWidget {
     final body = ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
       stream: userDetailsBloc.userDetails,
       builder: (final context, final userDetails) {
-        final quotaRelative = userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$num ?? 0;
-        final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$num ?? 0;
-        final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$num ?? 0;
+        final quotaRelative = userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$double ?? 0;
+        final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$double ?? 0;
+        final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$double ?? 0;
 
         return SettingsList(
           categories: [

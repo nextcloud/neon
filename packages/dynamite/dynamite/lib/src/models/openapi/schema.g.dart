@@ -6,7 +6,43 @@ part of 'schema.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const SchemaType _$schemaTypeBoolean = SchemaType._('boolean');
+const SchemaType _$schemaTypeInteger = SchemaType._('integer');
+const SchemaType _$schemaTypeNumber = SchemaType._('number');
+const SchemaType _$schemaTypeString = SchemaType._('string');
+const SchemaType _$schemaTypeArray = SchemaType._('array');
+const SchemaType _$schemaTypeObject = SchemaType._('object');
+
+SchemaType _$schemaType(String name) {
+  switch (name) {
+    case 'boolean':
+      return _$schemaTypeBoolean;
+    case 'integer':
+      return _$schemaTypeInteger;
+    case 'number':
+      return _$schemaTypeNumber;
+    case 'string':
+      return _$schemaTypeString;
+    case 'array':
+      return _$schemaTypeArray;
+    case 'object':
+      return _$schemaTypeObject;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SchemaType> _$schemaTypeValues = BuiltSet<SchemaType>(const <SchemaType>[
+  _$schemaTypeBoolean,
+  _$schemaTypeInteger,
+  _$schemaTypeNumber,
+  _$schemaTypeString,
+  _$schemaTypeArray,
+  _$schemaTypeObject,
+]);
+
 Serializer<Schema> _$schemaSerializer = _$SchemaSerializer();
+Serializer<SchemaType> _$schemaTypeSerializer = _$SchemaTypeSerializer();
 
 class _$SchemaSerializer implements StructuredSerializer<Schema> {
   @override
@@ -59,7 +95,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
     if (value != null) {
       result
         ..add('type')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
     }
     value = object.format;
     if (value != null) {
@@ -170,7 +206,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -227,6 +263,21 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
   }
 }
 
+class _$SchemaTypeSerializer implements PrimitiveSerializer<SchemaType> {
+  @override
+  final Iterable<Type> types = const <Type>[SchemaType];
+  @override
+  final String wireName = 'SchemaType';
+
+  @override
+  Object serialize(Serializers serializers, SchemaType object, {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  SchemaType deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
+      SchemaType.valueOf(serialized as String);
+}
+
 class _$Schema extends Schema {
   @override
   final String? ref;
@@ -241,7 +292,7 @@ class _$Schema extends Schema {
   @override
   final bool deprecated;
   @override
-  final String? type;
+  final SchemaType? type;
   @override
   final String? format;
   @override
@@ -415,9 +466,9 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   bool? get deprecated => _$this._deprecated;
   set deprecated(bool? deprecated) => _$this._deprecated = deprecated;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  SchemaType? _type;
+  SchemaType? get type => _$this._type;
+  set type(SchemaType? type) => _$this._type = type;
 
   String? _format;
   String? get format => _$this._format;

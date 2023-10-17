@@ -60,35 +60,42 @@ TypeResult resolveType(
     );
   } else {
     switch (schema.type) {
-      case 'boolean':
+      case openapi.SchemaType.boolean:
         result = TypeResultBase(
           'bool',
           nullable: nullable,
         );
-      case 'integer':
+      case openapi.SchemaType.integer:
         result = TypeResultBase(
           'int',
           nullable: nullable,
         );
-      case 'number':
-        result = TypeResultBase(
-          'num',
-          nullable: nullable,
-        );
-      case 'string':
-        switch (schema.format) {
-          case 'binary':
-            result = TypeResultBase(
+
+      case openapi.SchemaType.number:
+        result = switch (schema.format) {
+          'float' || 'double' => TypeResultBase(
+              'double',
+              nullable: nullable,
+            ),
+          _ => TypeResultBase(
+              'num',
+              nullable: nullable,
+            ),
+        };
+
+      case openapi.SchemaType.string:
+        result = switch (schema.format) {
+          'binary' => TypeResultBase(
               'Uint8List',
               nullable: nullable,
-            );
-        }
+            ),
+          _ => TypeResultBase(
+              'String',
+              nullable: nullable,
+            ),
+        };
 
-        result = TypeResultBase(
-          'String',
-          nullable: nullable,
-        );
-      case 'array':
+      case openapi.SchemaType.array:
         if (schema.items != null) {
           final subResult = resolveType(
             spec,
@@ -108,7 +115,7 @@ TypeResult resolveType(
             nullable: nullable,
           );
         }
-      case 'object':
+      case openapi.SchemaType.object:
         if (schema.properties == null) {
           if (schema.additionalProperties == null) {
             result = TypeResultBase(

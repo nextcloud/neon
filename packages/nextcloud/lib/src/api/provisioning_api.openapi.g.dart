@@ -11023,8 +11023,8 @@ class UserDetails_BackendCapabilitiesBuilder
 abstract mixin class UserDetailsQuota_FreeInterfaceBuilder {
   void replace(UserDetailsQuota_FreeInterface other);
   void update(void Function(UserDetailsQuota_FreeInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -11034,14 +11034,14 @@ class _$UserDetailsQuota_Free extends UserDetailsQuota_Free {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
 
   factory _$UserDetailsQuota_Free([void Function(UserDetailsQuota_FreeBuilder)? updates]) =>
       (UserDetailsQuota_FreeBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Free._({required this.data, this.$num, this.$int}) : super._() {
+  _$UserDetailsQuota_Free._({required this.data, this.$double, this.$int}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data');
   }
 
@@ -11055,14 +11055,14 @@ class _$UserDetailsQuota_Free extends UserDetailsQuota_Free {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Free && data == other.data && $num == other.$num && $int == other.$int;
+    return other is UserDetailsQuota_Free && data == other.data && $double == other.$double && $int == other.$int;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11072,7 +11072,7 @@ class _$UserDetailsQuota_Free extends UserDetailsQuota_Free {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Free')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int))
         .toString();
   }
@@ -11086,9 +11086,9 @@ class UserDetailsQuota_FreeBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -11100,7 +11100,7 @@ class UserDetailsQuota_FreeBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _$v = null;
     }
@@ -11125,7 +11125,7 @@ class UserDetailsQuota_FreeBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Free._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int);
     replace(_$result);
     return _$result;
@@ -11135,8 +11135,8 @@ class UserDetailsQuota_FreeBuilder
 abstract mixin class UserDetailsQuota_QuotaInterfaceBuilder {
   void replace(UserDetailsQuota_QuotaInterface other);
   void update(void Function(UserDetailsQuota_QuotaInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -11149,7 +11149,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
   @override
@@ -11158,7 +11158,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   factory _$UserDetailsQuota_Quota([void Function(UserDetailsQuota_QuotaBuilder)? updates]) =>
       (UserDetailsQuota_QuotaBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Quota._({required this.data, this.$num, this.$int, this.string}) : super._() {
+  _$UserDetailsQuota_Quota._({required this.data, this.$double, this.$int, this.string}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data');
   }
 
@@ -11174,7 +11174,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
     if (identical(other, this)) return true;
     return other is UserDetailsQuota_Quota &&
         data == other.data &&
-        $num == other.$num &&
+        $double == other.$double &&
         $int == other.$int &&
         string == other.string;
   }
@@ -11183,7 +11183,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jc(_$hash, string.hashCode);
     _$hash = $jf(_$hash);
@@ -11194,7 +11194,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Quota')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int)
           ..add('string', string))
         .toString();
@@ -11209,9 +11209,9 @@ class UserDetailsQuota_QuotaBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -11227,7 +11227,7 @@ class UserDetailsQuota_QuotaBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _string = $v.string;
       _$v = null;
@@ -11253,7 +11253,7 @@ class UserDetailsQuota_QuotaBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Quota._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int,
             string: string);
     replace(_$result);
@@ -11264,8 +11264,8 @@ class UserDetailsQuota_QuotaBuilder
 abstract mixin class UserDetailsQuota_RelativeInterfaceBuilder {
   void replace(UserDetailsQuota_RelativeInterface other);
   void update(void Function(UserDetailsQuota_RelativeInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -11275,14 +11275,14 @@ class _$UserDetailsQuota_Relative extends UserDetailsQuota_Relative {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
 
   factory _$UserDetailsQuota_Relative([void Function(UserDetailsQuota_RelativeBuilder)? updates]) =>
       (UserDetailsQuota_RelativeBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Relative._({required this.data, this.$num, this.$int}) : super._() {
+  _$UserDetailsQuota_Relative._({required this.data, this.$double, this.$int}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data');
   }
 
@@ -11296,14 +11296,14 @@ class _$UserDetailsQuota_Relative extends UserDetailsQuota_Relative {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Relative && data == other.data && $num == other.$num && $int == other.$int;
+    return other is UserDetailsQuota_Relative && data == other.data && $double == other.$double && $int == other.$int;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11313,7 +11313,7 @@ class _$UserDetailsQuota_Relative extends UserDetailsQuota_Relative {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Relative')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int))
         .toString();
   }
@@ -11329,9 +11329,9 @@ class UserDetailsQuota_RelativeBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -11343,7 +11343,7 @@ class UserDetailsQuota_RelativeBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _$v = null;
     }
@@ -11368,7 +11368,7 @@ class UserDetailsQuota_RelativeBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Relative._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int);
     replace(_$result);
     return _$result;
@@ -11378,8 +11378,8 @@ class UserDetailsQuota_RelativeBuilder
 abstract mixin class UserDetailsQuota_TotalInterfaceBuilder {
   void replace(UserDetailsQuota_TotalInterface other);
   void update(void Function(UserDetailsQuota_TotalInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -11389,14 +11389,14 @@ class _$UserDetailsQuota_Total extends UserDetailsQuota_Total {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
 
   factory _$UserDetailsQuota_Total([void Function(UserDetailsQuota_TotalBuilder)? updates]) =>
       (UserDetailsQuota_TotalBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Total._({required this.data, this.$num, this.$int}) : super._() {
+  _$UserDetailsQuota_Total._({required this.data, this.$double, this.$int}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data');
   }
 
@@ -11410,14 +11410,14 @@ class _$UserDetailsQuota_Total extends UserDetailsQuota_Total {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Total && data == other.data && $num == other.$num && $int == other.$int;
+    return other is UserDetailsQuota_Total && data == other.data && $double == other.$double && $int == other.$int;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11427,7 +11427,7 @@ class _$UserDetailsQuota_Total extends UserDetailsQuota_Total {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Total')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int))
         .toString();
   }
@@ -11441,9 +11441,9 @@ class UserDetailsQuota_TotalBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -11455,7 +11455,7 @@ class UserDetailsQuota_TotalBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _$v = null;
     }
@@ -11480,7 +11480,7 @@ class UserDetailsQuota_TotalBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Total._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int);
     replace(_$result);
     return _$result;
@@ -11490,8 +11490,8 @@ class UserDetailsQuota_TotalBuilder
 abstract mixin class UserDetailsQuota_UsedInterfaceBuilder {
   void replace(UserDetailsQuota_UsedInterface other);
   void update(void Function(UserDetailsQuota_UsedInterfaceBuilder) updates);
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -11501,14 +11501,14 @@ class _$UserDetailsQuota_Used extends UserDetailsQuota_Used {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
 
   factory _$UserDetailsQuota_Used([void Function(UserDetailsQuota_UsedBuilder)? updates]) =>
       (UserDetailsQuota_UsedBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Used._({required this.data, this.$num, this.$int}) : super._() {
+  _$UserDetailsQuota_Used._({required this.data, this.$double, this.$int}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data');
   }
 
@@ -11522,14 +11522,14 @@ class _$UserDetailsQuota_Used extends UserDetailsQuota_Used {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Used && data == other.data && $num == other.$num && $int == other.$int;
+    return other is UserDetailsQuota_Used && data == other.data && $double == other.$double && $int == other.$int;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11539,7 +11539,7 @@ class _$UserDetailsQuota_Used extends UserDetailsQuota_Used {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Used')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int))
         .toString();
   }
@@ -11553,9 +11553,9 @@ class UserDetailsQuota_UsedBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -11567,7 +11567,7 @@ class UserDetailsQuota_UsedBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _$v = null;
     }
@@ -11592,7 +11592,7 @@ class UserDetailsQuota_UsedBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Used._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int);
     replace(_$result);
     return _$result;

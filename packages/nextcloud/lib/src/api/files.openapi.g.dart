@@ -1277,7 +1277,7 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
     if (value != null) {
       result
         ..add('ratio')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     return result;
   }
@@ -1310,7 +1310,7 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'ratio':
-          result.ratio = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.ratio = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'actionLabel':
           result.actionLabel = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -5021,8 +5021,8 @@ abstract mixin class TemplateFileCreatorInterfaceBuilder {
   ListBuilder<String> get mimetypes;
   set mimetypes(ListBuilder<String>? mimetypes);
 
-  num? get ratio;
-  set ratio(num? ratio);
+  double? get ratio;
+  set ratio(double? ratio);
 
   String? get actionLabel;
   set actionLabel(String? actionLabel);
@@ -5040,7 +5040,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
   @override
   final BuiltList<String> mimetypes;
   @override
-  final num? ratio;
+  final double? ratio;
   @override
   final String actionLabel;
 
@@ -5135,9 +5135,9 @@ class TemplateFileCreatorBuilder
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
   set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
-  num? _ratio;
-  num? get ratio => _$this._ratio;
-  set ratio(covariant num? ratio) => _$this._ratio = ratio;
+  double? _ratio;
+  double? get ratio => _$this._ratio;
+  set ratio(covariant double? ratio) => _$this._ratio = ratio;
 
   String? _actionLabel;
   String? get actionLabel => _$this._actionLabel;

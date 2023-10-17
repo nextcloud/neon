@@ -5680,7 +5680,7 @@ abstract class UserDetails_BackendCapabilities
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_FreeInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
 }
 
@@ -5730,19 +5730,19 @@ class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetai
   }) {
     final result = UserDetailsQuota_FreeBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_QuotaInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
   String? get string;
 }
@@ -5793,7 +5793,7 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
   }) {
     final result = UserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
@@ -5802,7 +5802,7 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
       result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert(
-      [result._$num, result._$int, result._string].where((final x) => x != null).isNotEmpty,
+      [result._$double, result._$int, result._string].where((final x) => x != null).isNotEmpty,
       'Need oneOf for ${result._data}',
     );
     return result.build();
@@ -5811,7 +5811,7 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_RelativeInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
 }
 
@@ -5862,19 +5862,19 @@ class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserD
   }) {
     final result = UserDetailsQuota_RelativeBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_TotalInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
 }
 
@@ -5924,19 +5924,19 @@ class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDeta
   }) {
     final result = UserDetailsQuota_TotalBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_UsedInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
 }
 
@@ -5986,12 +5986,12 @@ class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetai
   }) {
     final result = UserDetailsQuota_UsedBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
