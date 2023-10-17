@@ -2043,7 +2043,7 @@ abstract interface class TemplateFileCreatorInterface {
   String get $extension;
   String? get iconClass;
   BuiltList<String> get mimetypes;
-  num? get ratio;
+  double? get ratio;
   String get actionLabel;
 }
 

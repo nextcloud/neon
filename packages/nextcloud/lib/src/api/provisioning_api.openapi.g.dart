@@ -2292,7 +2292,7 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
     if (value != null) {
       result
         ..add('free')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.quota;
     if (value != null) {
@@ -2304,19 +2304,19 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
     if (value != null) {
       result
         ..add('relative')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.total;
     if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.used;
     if (value != null) {
       result
         ..add('used')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     return result;
   }
@@ -2333,20 +2333,20 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
       final Object? value = iterator.current;
       switch (key) {
         case 'free':
-          result.free = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.free = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'quota':
           result.quota.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Quota))!
               as UserDetailsQuota_Quota);
           break;
         case 'relative':
-          result.relative = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.relative = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'total':
-          result.total = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.total = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'used':
-          result.used = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.used = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
       }
     }
@@ -10828,8 +10828,8 @@ abstract mixin class UserDetailsQuota_QuotaInterfaceBuilder {
   JsonObject? get data;
   set data(JsonObject? data);
 
-  num? get $num;
-  set $num(num? $num);
+  double? get $double;
+  set $double(double? $double);
 
   int? get $int;
   set $int(int? $int);
@@ -10842,7 +10842,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   @override
   final JsonObject data;
   @override
-  final num? $num;
+  final double? $double;
   @override
   final int? $int;
   @override
@@ -10851,7 +10851,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   factory _$UserDetailsQuota_Quota([void Function(UserDetailsQuota_QuotaBuilder)? updates]) =>
       (UserDetailsQuota_QuotaBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota_Quota._({required this.data, this.$num, this.$int, this.string}) : super._() {
+  _$UserDetailsQuota_Quota._({required this.data, this.$double, this.$int, this.string}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data');
   }
 
@@ -10867,7 +10867,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
     if (identical(other, this)) return true;
     return other is UserDetailsQuota_Quota &&
         data == other.data &&
-        $num == other.$num &&
+        $double == other.$double &&
         $int == other.$int &&
         string == other.string;
   }
@@ -10876,7 +10876,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
     _$hash = $jc(_$hash, string.hashCode);
     _$hash = $jf(_$hash);
@@ -10887,7 +10887,7 @@ class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserDetailsQuota_Quota')
           ..add('data', data)
-          ..add('\$num', $num)
+          ..add('\$double', $double)
           ..add('\$int', $int)
           ..add('string', string))
         .toString();
@@ -10902,9 +10902,9 @@ class UserDetailsQuota_QuotaBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  num? _$num;
-  num? get $num => _$this._$num;
-  set $num(covariant num? $num) => _$this._$num = $num;
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
 
   int? _$int;
   int? get $int => _$this._$int;
@@ -10920,7 +10920,7 @@ class UserDetailsQuota_QuotaBuilder
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _$num = $v.$num;
+      _$double = $v.$double;
       _$int = $v.$int;
       _string = $v.string;
       _$v = null;
@@ -10946,7 +10946,7 @@ class UserDetailsQuota_QuotaBuilder
     final _$result = _$v ??
         _$UserDetailsQuota_Quota._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data'),
-            $num: $num,
+            $double: $double,
             $int: $int,
             string: string);
     replace(_$result);
@@ -10957,33 +10957,33 @@ class UserDetailsQuota_QuotaBuilder
 abstract mixin class UserDetailsQuotaInterfaceBuilder {
   void replace(UserDetailsQuotaInterface other);
   void update(void Function(UserDetailsQuotaInterfaceBuilder) updates);
-  num? get free;
-  set free(num? free);
+  double? get free;
+  set free(double? free);
 
   UserDetailsQuota_QuotaBuilder get quota;
   set quota(UserDetailsQuota_QuotaBuilder? quota);
 
-  num? get relative;
-  set relative(num? relative);
+  double? get relative;
+  set relative(double? relative);
 
-  num? get total;
-  set total(num? total);
+  double? get total;
+  set total(double? total);
 
-  num? get used;
-  set used(num? used);
+  double? get used;
+  set used(double? used);
 }
 
 class _$UserDetailsQuota extends UserDetailsQuota {
   @override
-  final num? free;
+  final double? free;
   @override
   final UserDetailsQuota_Quota? quota;
   @override
-  final num? relative;
+  final double? relative;
   @override
-  final num? total;
+  final double? total;
   @override
-  final num? used;
+  final double? used;
 
   factory _$UserDetailsQuota([void Function(UserDetailsQuotaBuilder)? updates]) =>
       (UserDetailsQuotaBuilder()..update(updates))._build();
@@ -11035,25 +11035,25 @@ class UserDetailsQuotaBuilder
     implements Builder<UserDetailsQuota, UserDetailsQuotaBuilder>, UserDetailsQuotaInterfaceBuilder {
   _$UserDetailsQuota? _$v;
 
-  num? _free;
-  num? get free => _$this._free;
-  set free(covariant num? free) => _$this._free = free;
+  double? _free;
+  double? get free => _$this._free;
+  set free(covariant double? free) => _$this._free = free;
 
   UserDetailsQuota_QuotaBuilder? _quota;
   UserDetailsQuota_QuotaBuilder get quota => _$this._quota ??= UserDetailsQuota_QuotaBuilder();
   set quota(covariant UserDetailsQuota_QuotaBuilder? quota) => _$this._quota = quota;
 
-  num? _relative;
-  num? get relative => _$this._relative;
-  set relative(covariant num? relative) => _$this._relative = relative;
+  double? _relative;
+  double? get relative => _$this._relative;
+  set relative(covariant double? relative) => _$this._relative = relative;
 
-  num? _total;
-  num? get total => _$this._total;
-  set total(covariant num? total) => _$this._total = total;
+  double? _total;
+  double? get total => _$this._total;
+  set total(covariant double? total) => _$this._total = total;
 
-  num? _used;
-  num? get used => _$this._used;
-  set used(covariant num? used) => _$this._used = used;
+  double? _used;
+  double? get used => _$this._used;
+  set used(covariant double? used) => _$this._used = used;
 
   UserDetailsQuotaBuilder();
 

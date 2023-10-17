@@ -5580,7 +5580,7 @@ abstract class UserDetails_BackendCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_QuotaInterface {
   JsonObject get data;
-  num? get $num;
+  double? get $double;
   int? get $int;
   String? get string;
 }
@@ -5629,7 +5629,7 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
   }) {
     final result = UserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
@@ -5638,7 +5638,7 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
       result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     assert(
-      [result._$num, result._$int, result._string].where((final x) => x != null).isNotEmpty,
+      [result._$double, result._$int, result._string].where((final x) => x != null).isNotEmpty,
       'Need oneOf for ${result._data}',
     );
     return result.build();
@@ -5647,11 +5647,11 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuotaInterface {
-  num? get free;
+  double? get free;
   UserDetailsQuota_Quota? get quota;
-  num? get relative;
-  num? get total;
-  num? get used;
+  double? get relative;
+  double? get total;
+  double? get used;
 }
 
 abstract class UserDetailsQuota implements UserDetailsQuotaInterface, Built<UserDetailsQuota, UserDetailsQuotaBuilder> {

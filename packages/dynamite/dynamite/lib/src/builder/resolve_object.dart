@@ -29,7 +29,7 @@ TypeResultObject resolveObject(
         final result = resolveType(
           spec,
           state,
-          propertySchema.type!,
+          propertySchema.type!.name,
           propertySchema,
         );
         defaults.add('..${toDartName(property.key)} = ${valueToEscapedValue(result, value)}');
