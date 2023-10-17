@@ -103,7 +103,6 @@ class PreviewClient {
     final int y = 32,
     final int a = 0,
   }) {
-    const path = '/index.php/apps/files_trashbin/preview';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
@@ -139,7 +138,9 @@ class PreviewClient {
     if (a != 0) {
       queryParameters['a'] = a.toString();
     }
+    const path = '/index.php/apps/files_trashbin/preview';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',

@@ -219,7 +219,6 @@ Iterable<Method> buildTags(
           .join(',');
 
       code.writeln('''
-  var _path = '${pathEntry.key}';
   final _queryParameters = <String, dynamic>{};
   final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
@@ -317,8 +316,16 @@ Iterable<Method> buildTags(
           ),
         );
 
+        var path = pathEntry.key;
+        for (final pathParameter in parameters.where((final p) => p.$in == openapi.ParameterType.path)) {
+          path = path.replaceAll('{${pathParameter.name}}', '\$_${toDartName(pathParameter.name)}');
+        }
+
         code.writeln(
-          'final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);',
+          '''
+final _path = '$path';
+final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
+''',
         );
 
         if (dataType != null) {
@@ -412,7 +419,7 @@ Iterable<String> buildParameterSerialization(
   );
 
   final assignment = switch (parameter.$in) {
-    openapi.ParameterType.path => "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
+    openapi.ParameterType.path => 'final _${toDartName(parameter.name)} = Uri.encodeQueryComponent($value);',
     openapi.ParameterType.query => "_queryParameters['${parameter.name}'] = $value;",
     openapi.ParameterType.header => "_headers['${parameter.name}'] = $value;",
     _ => throw UnsupportedError('Can not work with parameter "${parameter.name}" in "${parameter.$in}"'),
