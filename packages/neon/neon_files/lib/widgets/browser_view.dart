@@ -43,13 +43,30 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
         stream: widget.bloc.files,
-        builder: (final context, final files) => StreamBuilder<List<String>>(
+        builder: (final context, final filesSnapshot) => StreamBuilder<List<String>>(
           stream: widget.bloc.path,
           builder: (final context, final pathSnapshot) => StreamBuilder<List<FilesTask>>(
             stream: widget.filesBloc.tasks,
-            builder: (final context, final tasksSnapshot) => !pathSnapshot.hasData || !tasksSnapshot.hasData
-                ? const SizedBox()
-                : BackButtonListener(
+            builder: (final context, final tasksSnapshot) {
+              if (!pathSnapshot.hasData || !tasksSnapshot.hasData) {
+                return const SizedBox();
+              }
+              return ValueListenableBuilder(
+                valueListenable: widget.bloc.options.showHiddenFilesOption,
+                builder: (final context, final showHiddenFiles, final _) {
+                  final files = filesSnapshot.data?.where((final file) {
+                    var hideFile = false;
+                    if (widget.mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
+                      hideFile = true;
+                    }
+                    if (!showHiddenFiles && file.isHidden) {
+                      hideFile = true;
+                    }
+
+                    return !hideFile;
+                  }).toList();
+
+                  return BackButtonListener(
                     onBackButtonPressed: () async {
                       final path = pathSnapshot.requireData;
                       if (path.isNotEmpty) {
@@ -65,71 +82,65 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       presort: const {
                         (FilesSortProperty.isFolder, SortBoxOrder.ascending),
                       },
-                      input: files.data,
-                      builder: (final context, final sorted) => ValueListenableBuilder(
-                        valueListenable: widget.bloc.options.showHiddenFilesOption,
-                        builder: (final context, final showHiddenFiles, final _) {
-                          final uploadingTasks = tasksSnapshot.requireData
-                              .whereType<FilesUploadTask>()
-                              .where(
-                                (final task) =>
-                                    sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
-                              )
-                              .toList();
+                      input: files,
+                      builder: (final context, final sorted) {
+                        final uploadingTasks = tasksSnapshot.requireData
+                            .whereType<FilesUploadTask>()
+                            .where(
+                              (final task) =>
+                                  sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
+                            )
+                            .toList();
 
-                          return NeonListView(
-                            scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
-                            itemCount: uploadingTasks.length + sorted.length,
-                            itemBuilder: (final context, final index) {
-                              if (index < uploadingTasks.length) {
-                                return FileListTile(
-                                  bloc: widget.filesBloc,
-                                  browserBloc: widget.bloc,
-                                  details: FileDetails.fromUploadTask(
-                                    task: uploadingTasks[index],
-                                  ),
-                                );
-                              }
+                        return NeonListView(
+                          scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
+                          itemCount: uploadingTasks.length + sorted.length,
+                          itemBuilder: (final context, final index) {
+                            if (index < uploadingTasks.length) {
+                              return FileListTile(
+                                bloc: widget.filesBloc,
+                                browserBloc: widget.bloc,
+                                details: FileDetails.fromUploadTask(
+                                  task: uploadingTasks[index],
+                                ),
+                              );
+                            }
+                            final file = sorted[index - uploadingTasks.length];
+                            final matchingTask = tasksSnapshot.requireData
+                                .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
 
-                              final file = sorted[index - uploadingTasks.length];
-                              if ((widget.mode != FilesBrowserMode.selectDirectory || file.isDirectory) &&
-                                  (!file.isHidden || showHiddenFiles)) {
-                                final matchingTask = tasksSnapshot.requireData
-                                    .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
+                            final details = matchingTask != null
+                                ? FileDetails.fromTask(
+                                    task: matchingTask,
+                                    file: file,
+                                  )
+                                : FileDetails.fromWebDav(
+                                    file: file,
+                                    path: widget.bloc.path.value,
+                                  );
 
-                                final details = matchingTask != null
-                                    ? FileDetails.fromTask(
-                                        task: matchingTask,
-                                        file: file,
-                                      )
-                                    : FileDetails.fromWebDav(
-                                        file: file,
-                                        path: widget.bloc.path.value,
-                                      );
-
-                                return FileListTile(
-                                  bloc: widget.filesBloc,
-                                  browserBloc: widget.bloc,
-                                  details: details,
-                                );
-                              }
-
-                              return null;
-                            },
-                            isLoading: files.isLoading,
-                            error: files.error,
-                            onRefresh: widget.bloc.refresh,
-                            topScrollingChildren: [
-                              FilesBrowserNavigator(
-                                path: pathSnapshot.requireData,
-                                bloc: widget.bloc,
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                            return FileListTile(
+                              bloc: widget.filesBloc,
+                              browserBloc: widget.bloc,
+                              details: details,
+                            );
+                          },
+                          isLoading: filesSnapshot.isLoading,
+                          error: filesSnapshot.error,
+                          onRefresh: widget.bloc.refresh,
+                          topScrollingChildren: [
+                            FilesBrowserNavigator(
+                              path: pathSnapshot.requireData,
+                              bloc: widget.bloc,
+                            ),
+                          ],
+                        );
+                      },
                     ),
-                  ),
+                  );
+                },
+              );
+            },
           ),
         ),
       );
