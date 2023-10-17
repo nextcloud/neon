@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:nextcloud/notifications.dart' show DecryptedSubject, RSAPrivateKey, decryptPushNotificationSubject;
 
 part 'push_notification.g.dart';
 
@@ -38,9 +38,9 @@ class PushNotification {
   /// Use [PushNotification.fromJson] when the [subject] is not encrypted.
   factory PushNotification.fromEncrypted(
     final Map<String, dynamic> json,
-    final notifications.RSAPrivateKey privateKey,
+    final RSAPrivateKey privateKey,
   ) {
-    final subject = notifications.decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
+    final subject = decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
 
     return PushNotification(
       accountID: json[_accountIDKey] as String,
@@ -67,5 +67,5 @@ class PushNotification {
 
   /// The subject of this notification.
   @JsonKey(name: _subjectKey)
-  final notifications.DecryptedSubject subject;
+  final DecryptedSubject subject;
 }
