@@ -101,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.url,
                       validator: (final input) => validateHttpUrl(context, input),
                       onFieldSubmitted: login,
+                      autofillHints: const [AutofillHints.url],
                     ),
                   ),
                   if (NeonPlatform.instance.canUseCamera) ...[
