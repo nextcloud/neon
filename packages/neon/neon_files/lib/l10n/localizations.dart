@@ -89,18 +89,6 @@ abstract class FilesLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @actionYes.
-  ///
-  /// In en, this message translates to:
-  /// **'Yes'**
-  String get actionYes;
-
-  /// No description provided for @actionNo.
-  ///
-  /// In en, this message translates to:
-  /// **'No'**
-  String get actionNo;
-
   /// No description provided for @actionDelete.
   ///
   /// In en, this message translates to:
@@ -184,6 +172,18 @@ abstract class FilesLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
   String downloadConfirmSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @actionDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete?'**
+  String get actionDeleteTitle;
+
+  /// No description provided for @filesChooseCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Nextcloud'**
+  String get filesChooseCreate;
 
   /// No description provided for @folderCreate.
   ///

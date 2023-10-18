@@ -16,11 +16,11 @@ class NotesFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<(String, String?)>(
+          final result = await showAdaptiveDialog<(String, String?)>(
             context: context,
             builder: (final context) => NotesCreateNoteDialog(
               bloc: bloc,
-              category: category,
+              initialCategory: category,
             ),
           );
           if (result != null) {

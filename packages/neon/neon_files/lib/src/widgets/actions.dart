@@ -1,10 +1,9 @@
-import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_files/src/pages/details.dart';
-import 'package:neon_files/src/widgets/dialog.dart';
+import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
@@ -47,7 +46,7 @@ class FileActions extends StatelessWidget {
           title: details.isDirectory
               ? FilesLocalizations.of(context).folderRename
               : FilesLocalizations.of(context).fileRename,
-          value: details.name,
+          initialValue: details.name,
         );
         if (result != null) {
           bloc.rename(details.uri, result);
@@ -56,17 +55,8 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        final originalPath = details.uri.parent!;
-        final b = bloc.getNewFilesBrowserBloc(initialUri: originalPath);
-        final result = await showDialog<PathUri>(
-          context: context,
-          builder: (final context) => FilesChooseFolderDialog(
-            bloc: b,
-            filesBloc: bloc,
-            originalPath: originalPath,
-          ),
-        );
-        b.dispose();
+        final result = await showChooseFolderDialog(context, details);
+
         if (result != null) {
           bloc.move(details.uri, result.join(PathUri.parse(details.name)));
         }
@@ -74,17 +64,8 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        final originalPath = details.uri.parent!;
-        final b = bloc.getNewFilesBrowserBloc(initialUri: originalPath);
-        final result = await showDialog<PathUri>(
-          context: context,
-          builder: (final context) => FilesChooseFolderDialog(
-            bloc: b,
-            filesBloc: bloc,
-            originalPath: originalPath,
-          ),
-        );
-        b.dispose();
+
+        final result = await showChooseFolderDialog(context, details);
         if (result != null) {
           bloc.copy(details.uri, result.join(PathUri.parse(details.name)));
         }
@@ -94,13 +75,9 @@ class FileActions extends StatelessWidget {
         }
         final sizeWarning = browserBloc.options.downloadSizeWarning.value;
         if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-          if (!(await showConfirmationDialog(
-            context,
-            FilesLocalizations.of(context).downloadConfirmSizeWarning(
-              filesize(sizeWarning),
-              filesize(details.size),
-            ),
-          ))) {
+          final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
+
+          if (!decision) {
             return;
           }
         }
@@ -109,12 +86,8 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        if (await showConfirmationDialog(
-          context,
-          details.isDirectory
-              ? FilesLocalizations.of(context).folderDeleteConfirm(details.name)
-              : FilesLocalizations.of(context).fileDeleteConfirm(details.name),
-        )) {
+        final decision = await showDeleteConfirmationDialog(context, details);
+        if (decision) {
           bloc.delete(details.uri);
         }
     }
@@ -123,13 +96,12 @@ class FileActions extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => PopupMenuButton<FilesFileAction>(
         itemBuilder: (final context) => [
-          if (!details.isDirectory && NeonPlatform.instance.canUseSharing) ...[
+          if (!details.isDirectory && NeonPlatform.instance.canUseSharing)
             PopupMenuItem(
               value: FilesFileAction.share,
               child: Text(FilesLocalizations.of(context).actionShare),
             ),
-          ],
-          if (details.isFavorite != null) ...[
+          if (details.isFavorite != null)
             PopupMenuItem(
               value: FilesFileAction.toggleFavorite,
               child: Text(
@@ -138,7 +110,7 @@ class FileActions extends StatelessWidget {
                     : FilesLocalizations.of(context).addToFavorites,
               ),
             ),
-          ],
+
           PopupMenuItem(
             value: FilesFileAction.details,
             child: Text(FilesLocalizations.of(context).details),
@@ -156,12 +128,12 @@ class FileActions extends StatelessWidget {
             child: Text(FilesLocalizations.of(context).actionCopy),
           ),
           // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
-          if (!details.isDirectory) ...[
+          if (!details.isDirectory)
             PopupMenuItem(
               value: FilesFileAction.sync,
               child: Text(FilesLocalizations.of(context).actionSync),
             ),
-          ],
+
           PopupMenuItem(
             value: FilesFileAction.delete,
             child: Text(FilesLocalizations.of(context).actionDelete),

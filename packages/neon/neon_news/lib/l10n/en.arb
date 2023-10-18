@@ -1,8 +1,6 @@
 {
   "@@locale": "en",
-  "actionClose": "Close",
   "actionDelete": "Delete",
-  "actionRemove": "Remove",
   "actionRename": "Rename",
   "actionMove": "Move",
   "general": "General",
@@ -19,6 +17,7 @@
       }
     }
   },
+  "actionDeleteTitle": "Permanently delete?",
   "folderRename": "Rename folder",
   "feeds": "Feeds",
   "feedAdd": "Add feed",

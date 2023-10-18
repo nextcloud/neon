@@ -8,6 +8,7 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
+import 'package:neon_framework/src/utils/dialog.dart';
 import 'package:neon_framework/src/utils/global_options.dart' as global_options;
 import 'package:neon_framework/src/utils/global_popups.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
       }
 
       final message = l10n.errorUnsupportedAppVersions(buffer.toString());
-      unawaited(_showProblem(message));
+      unawaited(showErrorDialog(context: context, message: message));
     });
 
     GlobalPopups().register(context);
@@ -80,10 +81,10 @@ class _HomePageState extends State<HomePage> {
   Future<void> _checkMaintenanceMode() async {
     try {
       final status = await _account.client.core.getStatus();
+
       if (status.body.maintenance && mounted) {
-        await _showProblem(
-          NeonLocalizations.of(context).errorServerInMaintenanceMode,
-        );
+        final message = NeonLocalizations.of(context).errorServerInMaintenanceMode;
+        await showErrorDialog(context: context, message: message);
       }
     } catch (e, s) {
       debugPrint(e.toString());
@@ -92,29 +93,6 @@ class _HomePageState extends State<HomePage> {
         NeonError.showSnackbar(context, e);
       }
     }
-  }
-
-  Future<void> _showProblem(final String title) async {
-    final colorScheme = Theme.of(context).colorScheme;
-
-    await showDialog<void>(
-      context: context,
-      builder: (final context) => AlertDialog(
-        title: Text(title),
-        actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: colorScheme.error,
-              foregroundColor: colorScheme.onError,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(NeonLocalizations.of(context).actionClose),
-          ),
-        ],
-      ),
-    );
   }
 
   @override

@@ -1,41 +1,58 @@
 import 'dart:async';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:filesize/filesize.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_files/src/widgets/browser_view.dart';
 import 'package:neon_framework/platform.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
 import 'package:universal_io/io.dart';
 
-class FilesChooseCreateDialog extends StatefulWidget {
-  const FilesChooseCreateDialog({
+/// Creates an adaptive bottom sheet to select an action to add a file.
+class FilesChooseCreateModal extends StatefulWidget {
+  /// Creates a new add files modal.
+  const FilesChooseCreateModal({
     required this.bloc,
-    required this.basePath,
     super.key,
   });
 
+  /// The bloc of the flies client.
   final FilesBloc bloc;
-  final PathUri basePath;
 
   @override
-  State<FilesChooseCreateDialog> createState() => _FilesChooseCreateDialogState();
+  State<FilesChooseCreateModal> createState() => _FilesChooseCreateModalState();
 }
 
-class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
+class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
+  late PathUri baseUri;
+
+  @override
+  void initState() {
+    baseUri = widget.bloc.browser.uri.value;
+
+    super.initState();
+  }
+
   Future<void> uploadFromPick(final FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
       type: type,
     );
+
+    if (mounted) {
+      Navigator.of(context).pop();
+    }
+
     if (result != null) {
       for (final file in result.files) {
         await upload(File(file.path!));
@@ -48,95 +65,150 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
     if (sizeWarning != null) {
       final stat = file.statSync();
       if (stat.size > sizeWarning) {
-        if (!(await showConfirmationDialog(
-          context,
-          FilesLocalizations.of(context).uploadConfirmSizeWarning(
-            filesize(sizeWarning),
-            filesize(stat.size),
-          ),
-        ))) {
+        final result = await showUploadConfirmationDialog(context, sizeWarning, stat.size);
+
+        if (!result) {
           return;
         }
       }
     }
     widget.bloc.uploadFile(
-      widget.basePath.join(PathUri.parse(p.basename(file.path))),
+      baseUri.join(PathUri.parse(p.basename(file.path))),
       file.path,
     );
   }
 
+  Widget wrapAction({
+    required final Widget icon,
+    required final Widget message,
+    required final VoidCallback onPressed,
+  }) {
+    final theme = Theme.of(context);
+
+    switch (theme.platform) {
+      case TargetPlatform.android:
+      case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return ListTile(
+          leading: icon,
+          title: message,
+          onTap: onPressed,
+        );
+
+      case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
+        return CupertinoActionSheetAction(
+          onPressed: onPressed,
+          child: message,
+        );
+    }
+  }
+
   @override
-  Widget build(final BuildContext context) => NeonDialog(
-        children: [
-          ListTile(
-            leading: Icon(
-              MdiIcons.filePlus,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            title: Text(FilesLocalizations.of(context).uploadFiles),
-            onTap: () async {
-              await uploadFromPick(FileType.any);
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
+    final title = FilesLocalizations.of(context).filesChooseCreate;
 
-              if (mounted) {
-                Navigator.of(context).pop();
-              }
-            },
+    final actions = [
+      wrapAction(
+        icon: Icon(
+          MdiIcons.filePlus,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        message: Text(FilesLocalizations.of(context).uploadFiles),
+        onPressed: () async => uploadFromPick(FileType.any),
+      ),
+      wrapAction(
+        icon: Icon(
+          MdiIcons.fileImagePlus,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        message: Text(FilesLocalizations.of(context).uploadImages),
+        onPressed: () async => uploadFromPick(FileType.image),
+      ),
+      if (NeonPlatform.instance.canUseCamera)
+        wrapAction(
+          icon: Icon(
+            MdiIcons.cameraPlus,
+            color: Theme.of(context).colorScheme.primary,
           ),
-          ListTile(
-            leading: Icon(
-              MdiIcons.fileImagePlus,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            title: Text(FilesLocalizations.of(context).uploadImages),
-            onTap: () async {
-              await uploadFromPick(FileType.image);
+          message: Text(FilesLocalizations.of(context).uploadCamera),
+          onPressed: () async {
+            Navigator.of(context).pop();
 
-              if (mounted) {
-                Navigator.of(context).pop();
-              }
-            },
+            final picker = ImagePicker();
+            final result = await picker.pickImage(source: ImageSource.camera);
+            if (result != null) {
+              await upload(File(result.path));
+            }
+          },
+        ),
+      wrapAction(
+        icon: Icon(
+          MdiIcons.folderPlus,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        message: Text(FilesLocalizations.of(context).folderCreate),
+        onPressed: () async {
+          Navigator.of(context).pop();
+
+          final result = await showFolderCreateDialog(context: context);
+          if (result != null) {
+            widget.bloc.browser.createFolder(baseUri.join(PathUri.parse(result)));
+          }
+        },
+      ),
+    ];
+
+    switch (theme.platform) {
+      case TargetPlatform.android:
+      case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return BottomSheet(
+          onClosing: () {},
+          builder: (final context) => Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      title,
+                      style: theme.textTheme.titleLarge,
+                    ),
+                  ),
+                ),
+                ...actions,
+              ],
+            ),
           ),
-          if (NeonPlatform.instance.canUseCamera) ...[
-            ListTile(
-              leading: Icon(
-                MdiIcons.cameraPlus,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              title: Text(FilesLocalizations.of(context).uploadCamera),
-              onTap: () async {
-                Navigator.of(context).pop();
+        );
 
-                final picker = ImagePicker();
-                final result = await picker.pickImage(source: ImageSource.camera);
-                if (result != null) {
-                  await upload(File(result.path));
-                }
-              },
-            ),
-          ],
-          ListTile(
-            leading: Icon(
-              MdiIcons.folderPlus,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            title: Text(FilesLocalizations.of(context).folderCreate),
-            onTap: () async {
-              Navigator.of(context).pop();
-
-              final result = await showDialog<String>(
-                context: context,
-                builder: (final context) => const FilesCreateFolderDialog(),
-              );
-              if (result != null) {
-                widget.bloc.browser.createFolder(widget.basePath.join(PathUri.parse(result)));
-              }
-            },
+      case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
+        return CupertinoActionSheet(
+          actions: actions,
+          title: Text(title),
+          cancelButton: CupertinoActionSheetAction(
+            onPressed: () => Navigator.pop(context),
+            isDestructiveAction: true,
+            child: Text(NeonLocalizations.of(context).actionCancel),
           ),
-        ],
-      );
+        );
+    }
+  }
 }
 
+/// A dialog for choosing a folder.
+///
+/// This dialog is not adaptive and always builds a material design dialog.
 class FilesChooseFolderDialog extends StatelessWidget {
+  /// Creates a new folder chooser dialog.
   const FilesChooseFolderDialog({
     required this.bloc,
     required this.filesBloc,
@@ -147,61 +219,66 @@ class FilesChooseFolderDialog extends StatelessWidget {
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
 
+  /// The initial path to start at.
   final PathUri originalPath;
 
   @override
-  Widget build(final BuildContext context) => AlertDialog(
-        title: Text(FilesLocalizations.of(context).folderChoose),
-        contentPadding: EdgeInsets.zero,
-        content: SizedBox(
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              Expanded(
-                child: FilesBrowserView(
-                  bloc: bloc,
-                  filesBloc: filesBloc,
-                  mode: FilesBrowserMode.selectDirectory,
-                ),
-              ),
-              StreamBuilder<PathUri>(
-                stream: bloc.uri,
-                builder: (final context, final uriSnapshot) => uriSnapshot.hasData
-                    ? Container(
-                        margin: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () async {
-                                final result = await showDialog<String>(
-                                  context: context,
-                                  builder: (final context) => const FilesCreateFolderDialog(),
-                                );
-                                if (result != null) {
-                                  bloc.createFolder(uriSnapshot.requireData.join(PathUri.parse(result)));
-                                }
-                              },
-                              child: Text(FilesLocalizations.of(context).folderCreate),
-                            ),
-                            ElevatedButton(
-                              onPressed: originalPath != uriSnapshot.requireData
-                                  ? () => Navigator.of(context).pop(uriSnapshot.requireData)
-                                  : null,
-                              child: Text(FilesLocalizations.of(context).folderChoose),
-                            ),
-                          ],
-                        ),
-                      )
-                    : const SizedBox(),
-              ),
-            ],
+  Widget build(final BuildContext context) {
+    final dialogTheme = NeonDialogTheme.of(context);
+
+    return StreamBuilder<PathUri>(
+      stream: bloc.uri,
+      builder: (final context, final uriSnapshot) {
+        final actions = [
+          OutlinedButton(
+            onPressed: () async {
+              final result = await showFolderCreateDialog(context: context);
+
+              if (result != null) {
+                bloc.createFolder(uriSnapshot.requireData.join(PathUri.parse(result)));
+              }
+            },
+            child: Text(
+              FilesLocalizations.of(context).folderCreate,
+              textAlign: TextAlign.end,
+            ),
           ),
-        ),
-      );
+          ElevatedButton(
+            onPressed: originalPath != uriSnapshot.data ? () => Navigator.of(context).pop(uriSnapshot.data) : null,
+            child: Text(
+              FilesLocalizations.of(context).folderChoose,
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ];
+
+        return AlertDialog(
+          title: Text(FilesLocalizations.of(context).folderChoose),
+          content: ConstrainedBox(
+            constraints: dialogTheme.constraints,
+            child: SizedBox(
+              width: double.maxFinite,
+              child: FilesBrowserView(
+                bloc: bloc,
+                filesBloc: filesBloc,
+                mode: FilesBrowserMode.selectDirectory,
+              ),
+            ),
+          ),
+          actions: uriSnapshot.hasData ? actions : null,
+        );
+      },
+    );
+  }
 }
 
+/// A [NeonDialog] that shows for renaming creating a new folder.
+///
+/// Use `showFolderCreateDialog` to display this dialog.
+///
+/// When submitted the folder name will be popped as a `String`.
 class FilesCreateFolderDialog extends StatefulWidget {
+  /// Creates a new NeonDialog for creating a folder.
   const FilesCreateFolderDialog({
     super.key,
   });
@@ -212,7 +289,6 @@ class FilesCreateFolderDialog extends StatefulWidget {
 
 class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
   final formKey = GlobalKey<FormState>();
-
   final controller = TextEditingController();
 
   @override
@@ -228,32 +304,37 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => NeonDialog(
-        title: Text(FilesLocalizations.of(context).folderCreate),
-        children: [
-          Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextFormField(
-                  controller: controller,
-                  decoration: InputDecoration(
-                    hintText: FilesLocalizations.of(context).folderName,
-                  ),
-                  autofocus: true,
-                  validator: (final input) => validateNotEmpty(context, input),
-                  onFieldSubmitted: (final _) {
-                    submit();
-                  },
-                ),
-                ElevatedButton(
-                  onPressed: submit,
-                  child: Text(FilesLocalizations.of(context).folderCreate),
-                ),
-              ],
-            ),
+  Widget build(final BuildContext context) {
+    final content = Material(
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: FilesLocalizations.of(context).folderName,
+        ),
+        autofocus: true,
+        validator: (final input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (final _) {
+          submit();
+        },
+      ),
+    );
+
+    return NeonDialog(
+      title: Text(FilesLocalizations.of(context).folderCreate),
+      content: Form(
+        key: formKey,
+        child: content,
+      ),
+      actions: [
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: submit,
+          child: Text(
+            FilesLocalizations.of(context).folderCreate,
+            textAlign: TextAlign.end,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }

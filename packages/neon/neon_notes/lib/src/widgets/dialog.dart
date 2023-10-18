@@ -7,15 +7,20 @@ import 'package:neon_notes/src/blocs/notes.dart';
 import 'package:neon_notes/src/widgets/category_select.dart';
 import 'package:nextcloud/notes.dart' as notes;
 
+/// A dialog for creating a note.
 class NotesCreateNoteDialog extends StatefulWidget {
+  /// Creates a new create note dialog.
   const NotesCreateNoteDialog({
     required this.bloc,
-    this.category,
+    this.initialCategory,
     super.key,
   });
 
+  /// The active notes bloc.
   final NotesBloc bloc;
-  final String? category;
+
+  /// The initial category of the note.
+  final String? initialCategory;
 
   @override
   State<NotesCreateNoteDialog> createState() => _NotesCreateNoteDialogState();
@@ -34,74 +39,96 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop((controller.text, widget.category ?? selectedCategory));
+      Navigator.of(context).pop((controller.text, widget.initialCategory ?? selectedCategory));
     }
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
-        subject: widget.bloc.notesList,
-        builder: (final context, final notes) => NeonDialog(
-          title: Text(NotesLocalizations.of(context).noteCreate),
-          children: [
-            Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  TextFormField(
-                    autofocus: true,
-                    controller: controller,
-                    decoration: InputDecoration(
-                      hintText: NotesLocalizations.of(context).noteTitle,
-                    ),
-                    validator: (final input) => validateNotEmpty(context, input),
-                    onFieldSubmitted: (final _) {
-                      submit();
-                    },
-                  ),
-                  if (widget.category == null) ...[
-                    Center(
-                      child: NeonError(
-                        notes.error,
-                        onRetry: widget.bloc.refresh,
-                      ),
-                    ),
-                    Center(
-                      child: NeonLinearProgressIndicator(
-                        visible: notes.isLoading,
-                      ),
-                    ),
-                    if (notes.hasData) ...[
-                      NotesCategorySelect(
-                        categories: notes.requireData.map((final note) => note.category).toSet().toList(),
-                        onChanged: (final category) {
-                          selectedCategory = category;
-                        },
-                        onSubmitted: submit,
-                      ),
-                    ],
-                  ],
-                  ElevatedButton(
-                    onPressed: submit,
-                    child: Text(NotesLocalizations.of(context).noteCreate),
-                  ),
-                ],
-              ),
+  Widget build(final BuildContext context) {
+    final titleField = Form(
+      key: formKey,
+      child: TextFormField(
+        autofocus: true,
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: NotesLocalizations.of(context).noteTitle,
+        ),
+        validator: (final input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (final _) {
+          submit();
+        },
+      ),
+    );
+
+    final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
+      subject: widget.bloc.notesList,
+      builder: (final context, final notes) {
+        if (notes.hasError) {
+          return Center(
+            child: NeonError(
+              notes.error,
+              onRetry: widget.bloc.refresh,
             ),
+          );
+        }
+        if (!notes.hasData) {
+          return Center(
+            child: NeonLinearProgressIndicator(
+              visible: notes.isLoading,
+            ),
+          );
+        }
+
+        return NotesCategorySelect(
+          categories: notes.requireData.map((final note) => note.category).toSet().toList(),
+          onChanged: (final category) {
+            selectedCategory = category;
+          },
+          onSubmitted: submit,
+        );
+      },
+    );
+
+    return NeonDialog(
+      title: Text(NotesLocalizations.of(context).noteCreate),
+      content: Material(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            titleField,
+            const SizedBox(height: 8),
+            folderSelector,
           ],
         ),
-      );
+      ),
+      actions: [
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: submit,
+          child: Text(
+            NotesLocalizations.of(context).noteCreate,
+            textAlign: TextAlign.end,
+          ),
+        ),
+      ],
+    );
+  }
 }
 
+/// A dialog for selecting a category for a note.
 class NotesSelectCategoryDialog extends StatefulWidget {
+  /// Creates a new category selection dialog.
   const NotesSelectCategoryDialog({
     required this.bloc,
     this.initialCategory,
     super.key,
   });
 
+  /// The active notes bloc.
   final NotesBloc bloc;
+
+  /// The initial category of the note.
   final String? initialCategory;
 
   @override
@@ -120,45 +147,55 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
-        subject: widget.bloc.notesList,
-        builder: (final context, final notes) => NeonDialog(
-          title: Text(NotesLocalizations.of(context).category),
-          children: [
-            Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Center(
-                    child: NeonError(
-                      notes.error,
-                      onRetry: widget.bloc.refresh,
-                    ),
-                  ),
-                  Center(
-                    child: NeonLinearProgressIndicator(
-                      visible: notes.isLoading,
-                    ),
-                  ),
-                  if (notes.hasData) ...[
-                    NotesCategorySelect(
-                      categories: notes.requireData.map((final note) => note.category).toSet().toList(),
-                      initialValue: widget.initialCategory,
-                      onChanged: (final category) {
-                        selectedCategory = category;
-                      },
-                      onSubmitted: submit,
-                    ),
-                  ],
-                  ElevatedButton(
-                    onPressed: submit,
-                    child: Text(NotesLocalizations.of(context).noteSetCategory),
-                  ),
-                ],
-              ),
+  Widget build(final BuildContext context) {
+    final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
+      subject: widget.bloc.notesList,
+      builder: (final context, final notes) {
+        if (notes.hasError) {
+          return Center(
+            child: NeonError(
+              notes.error,
+              onRetry: widget.bloc.refresh,
             ),
-          ],
+          );
+        }
+        if (!notes.hasData) {
+          return Center(
+            child: NeonLinearProgressIndicator(
+              visible: notes.isLoading,
+            ),
+          );
+        }
+
+        return Form(
+          key: formKey,
+          child: NotesCategorySelect(
+            categories: notes.requireData.map((final note) => note.category).toSet().toList(),
+            initialValue: widget.initialCategory,
+            onChanged: (final category) {
+              selectedCategory = category;
+            },
+            onSubmitted: submit,
+          ),
+        );
+      },
+    );
+
+    return NeonDialog(
+      title: Text(NotesLocalizations.of(context).category),
+      content: Material(
+        child: folderSelector,
+      ),
+      actions: [
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: submit,
+          child: Text(
+            NotesLocalizations.of(context).noteSetCategory,
+            textAlign: TextAlign.end,
+          ),
         ),
-      );
+      ],
+    );
+  }
 }

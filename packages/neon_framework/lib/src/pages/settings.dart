@@ -19,10 +19,10 @@ import 'package:neon_framework/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
-import 'package:neon_framework/src/utils/dialog.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/save_file.dart';
+import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -93,7 +93,18 @@ class _SettingsPageState extends State<SettingsPage> {
       actions: [
         IconButton(
           onPressed: () async {
-            if (await showConfirmationDialog(context, NeonLocalizations.of(context).settingsResetAllConfirmation)) {
+            final content =
+                '${NeonLocalizations.of(context).settingsResetAllConfirmation} ${NeonLocalizations.of(context).settingsResetAllExplanation}';
+            final decision = await showAdaptiveDialog<bool>(
+              context: context,
+              builder: (final context) => NeonConfirmationDialog(
+                icon: const Icon(Icons.restart_alt),
+                title: NeonLocalizations.of(context).settingsReset,
+                content: Text(content),
+              ),
+            );
+
+            if (decision ?? false) {
               globalOptions.reset();
 
               for (final appImplementation in appImplementations) {

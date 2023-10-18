@@ -134,7 +134,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
                   return IconButton(
                     onPressed: () async {
-                      final result = await showDialog<String>(
+                      final result = await showAdaptiveDialog<String>(
                         context: context,
                         builder: (final context) => NotesSelectCategoryDialog(
                           bloc: widget.notesBloc,

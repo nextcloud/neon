@@ -89,12 +89,6 @@ abstract class NotificationsLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @actionClose.
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get actionClose;
-
   /// No description provided for @notificationsDismissAll.
   ///
   /// In en, this message translates to:

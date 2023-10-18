@@ -105,8 +105,8 @@ class NotesView extends StatelessWidget {
         },
         onLongPress: () async {
           final result = await showConfirmationDialog(
-            context,
-            NotesLocalizations.of(context).noteDeleteConfirm(note.title),
+            context: context,
+            title: NotesLocalizations.of(context).noteDeleteConfirm(note.title),
           );
           if (result) {
             bloc.deleteNote(note.id);

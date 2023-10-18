@@ -10,6 +10,7 @@ import 'package:neon_news/src/pages/feed.dart';
 import 'package:neon_news/src/sort/feeds.dart';
 import 'package:neon_news/src/widgets/dialog.dart';
 import 'package:neon_news/src/widgets/feed_icon.dart';
+import 'package:neon_news/utils/dialog.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFeedsView extends StatelessWidget {
@@ -69,16 +70,14 @@ class NewsFeedsView extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (feed.updateErrorCount > 0) ...[
+            if (feed.updateErrorCount > 0)
               IconButton(
-                onPressed: () async {
-                  await showDialog<void>(
-                    context: context,
-                    builder: (final context) => NewsFeedUpdateErrorDialog(
-                      feed: feed,
-                    ),
-                  );
-                },
+                onPressed: () async => showAdaptiveDialog<void>(
+                  context: context,
+                  builder: (final context) => NewsFeedUpdateErrorDialog(
+                    feed: feed,
+                  ),
+                ),
                 tooltip: NewsLocalizations.of(context).feedShowErrorMessage,
                 iconSize: 30,
                 icon: Text(
@@ -88,7 +87,6 @@ class NewsFeedsView extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
             PopupMenuButton<NewsFeedAction>(
               itemBuilder: (final context) => [
                 PopupMenuItem(
@@ -103,17 +101,16 @@ class NewsFeedsView extends StatelessWidget {
                   value: NewsFeedAction.rename,
                   child: Text(NewsLocalizations.of(context).actionRename),
                 ),
-                if (folders.isNotEmpty) ...[
+                if (folders.isNotEmpty)
                   PopupMenuItem(
                     value: NewsFeedAction.move,
                     child: Text(NewsLocalizations.of(context).actionMove),
                   ),
-                ],
               ],
               onSelected: (final action) async {
                 switch (action) {
                   case NewsFeedAction.showURL:
-                    await showDialog<void>(
+                    await showAdaptiveDialog<void>(
                       context: context,
                       builder: (final context) => NewsFeedShowURLDialog(
                         feed: feed,
@@ -123,10 +120,9 @@ class NewsFeedsView extends StatelessWidget {
                     if (!context.mounted) {
                       return;
                     }
-                    if (await showConfirmationDialog(
-                      context,
-                      NewsLocalizations.of(context).feedRemoveConfirm(feed.title),
-                    )) {
+                    final result = await showDeleteFeedDialog(context, feed);
+
+                    if (result) {
                       bloc.removeFeed(feed.id);
                     }
                   case NewsFeedAction.rename:
@@ -136,7 +132,7 @@ class NewsFeedsView extends StatelessWidget {
                     final result = await showRenameDialog(
                       context: context,
                       title: NewsLocalizations.of(context).feedRename,
-                      value: feed.title,
+                      initialValue: feed.title,
                     );
                     if (result != null) {
                       bloc.renameFeed(feed.id, result);
@@ -145,15 +141,15 @@ class NewsFeedsView extends StatelessWidget {
                     if (!context.mounted) {
                       return;
                     }
-                    final result = await showDialog<List<int?>>(
+                    final result = await showAdaptiveDialog<int?>(
                       context: context,
                       builder: (final context) => NewsMoveFeedDialog(
                         folders: folders,
                         feed: feed,
                       ),
                     );
-                    if (result != null) {
-                      bloc.moveFeed(feed.id, result[0]);
+                    if (result != null && result != feed.folderId) {
+                      bloc.moveFeed(feed.id, result);
                     }
                 }
               },

@@ -127,6 +127,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   }
 
   @override
+  String get errorDialog => 'An error has occurred';
+
+  @override
   String get actionYes => 'Yes';
 
   @override
@@ -146,6 +149,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get actionContinue => 'Continue';
+
+  @override
+  String get actionCancel => 'Cancel';
 
   @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
@@ -188,6 +194,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get settingsImport => 'Import settings';
 
   @override
+  String get settingsReset => 'Reset settings?';
+
+  @override
   String get settingsImportWrongFileExtension => 'Settings import has wrong file extension (has to be .json.base64)';
 
   @override
@@ -197,9 +206,19 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get settingsResetAllConfirmation => 'Do you want to reset all settings?';
 
   @override
+  String get settingsResetAllExplanation => 'This will reset all preferences back to their default settings.';
+
+  @override
   String settingsResetFor(String name) {
     return 'Reset all settings for $name';
   }
+
+  @override
+  String get settingsResetForExplanation => 'This will reset your account preferences back to their default settings.';
+
+  @override
+  String get settingsResetForClientExplanation =>
+      'This will reset all preferences for the app back to their default settings.';
 
   @override
   String settingsResetForConfirmation(String name) {

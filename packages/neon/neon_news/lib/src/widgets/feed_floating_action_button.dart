@@ -16,7 +16,7 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<(String, int?)>(
+          final result = await showAdaptiveDialog<(String, int?)>(
             context: context,
             builder: (final context) => NewsAddFeedDialog(
               bloc: bloc,

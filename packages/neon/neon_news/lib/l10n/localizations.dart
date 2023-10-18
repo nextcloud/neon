@@ -89,23 +89,11 @@ abstract class NewsLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @actionClose.
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get actionClose;
-
   /// No description provided for @actionDelete.
   ///
   /// In en, this message translates to:
   /// **'Delete'**
   String get actionDelete;
-
-  /// No description provided for @actionRemove.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove'**
-  String get actionRemove;
 
   /// No description provided for @actionRename.
   ///
@@ -160,6 +148,12 @@ abstract class NewsLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to delete the folder \'{name}\'?'**
   String folderDeleteConfirm(String name);
+
+  /// No description provided for @actionDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete?'**
+  String get actionDeleteTitle;
 
   /// No description provided for @folderRename.
   ///

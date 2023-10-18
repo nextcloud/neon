@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
-import 'package:neon_news/src/widgets/dialog.dart';
+import 'package:neon_news/utils/dialog.dart';
 
 class NewsFolderFloatingActionButton extends StatelessWidget {
   const NewsFolderFloatingActionButton({
@@ -14,10 +14,8 @@ class NewsFolderFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<String>(
-            context: context,
-            builder: (final context) => const NewsCreateFolderDialog(),
-          );
+          final result = await showFolderCreateDialog(context: context);
+
           if (result != null) {
             bloc.createFolder(result);
           }

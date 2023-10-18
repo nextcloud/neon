@@ -5,12 +5,6 @@ class FilesLocalizationsEn extends FilesLocalizations {
   FilesLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get actionYes => 'Yes';
-
-  @override
-  String get actionNo => 'No';
-
-  @override
   String get actionDelete => 'Delete';
 
   @override
@@ -57,6 +51,12 @@ class FilesLocalizationsEn extends FilesLocalizations {
   String downloadConfirmSizeWarning(String warningSize, String actualSize) {
     return 'Are you sure you want to download a file that is bigger than $warningSize ($actualSize)?';
   }
+
+  @override
+  String get actionDeleteTitle => 'Permanently delete?';
+
+  @override
+  String get filesChooseCreate => 'Add to Nextcloud';
 
   @override
   String get folderCreate => 'Create folder';
