@@ -6,10 +6,10 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/note.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
-import 'package:neon_notes/src/dialogs/select_category.dart';
 import 'package:neon_notes/src/options.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
 import 'package:neon_notes/src/utils/exception_handler.dart';
+import 'package:neon_notes/src/widgets/dialog.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';

@@ -13,7 +13,7 @@ import 'package:neon_framework/src/settings/widgets/settings_category.dart';
 import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
-import 'package:neon_framework/src/utils/confirmation_dialog.dart';
+import 'package:neon_framework/src/utils/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 

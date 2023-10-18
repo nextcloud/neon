@@ -5,12 +5,10 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
-import 'package:neon_news/src/dialogs/feed_show_url.dart';
-import 'package:neon_news/src/dialogs/feed_update_error.dart';
-import 'package:neon_news/src/dialogs/move_feed.dart';
 import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/feed.dart';
 import 'package:neon_news/src/sort/feeds.dart';
+import 'package:neon_news/src/widgets/dialog.dart';
 import 'package:neon_news/src/widgets/feed_icon.dart';
 import 'package:nextcloud/news.dart' as news;
 

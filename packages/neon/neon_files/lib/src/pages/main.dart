@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
-import 'package:neon_files/src/dialogs/choose_create.dart';
 import 'package:neon_files/src/widgets/browser_view.dart';
+import 'package:neon_files/src/widgets/dialog.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 

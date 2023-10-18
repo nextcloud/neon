@@ -19,7 +19,7 @@ import 'package:neon_framework/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
-import 'package:neon_framework/src/utils/confirmation_dialog.dart';
+import 'package:neon_framework/src/utils/dialog.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/save_file.dart';
