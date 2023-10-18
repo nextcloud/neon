@@ -25,7 +25,7 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
             bloc.addFeed(url, folderId);
           }
         },
-        tooltip: AppLocalizations.of(context).feedAdd,
+        tooltip: NewsLocalizations.of(context).feedAdd,
         child: const Icon(Icons.add),
       );
 }

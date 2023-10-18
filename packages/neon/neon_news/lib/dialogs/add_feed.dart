@@ -52,7 +52,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(
-          title: Text(AppLocalizations.of(context).feedAdd),
+          title: Text(NewsLocalizations.of(context).feedAdd),
           children: [
             Form(
               key: formKey,
@@ -97,7 +97,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                   ],
                   ElevatedButton(
                     onPressed: folders.hasData ? submit : null,
-                    child: Text(AppLocalizations.of(context).feedAdd),
+                    child: Text(NewsLocalizations.of(context).feedAdd),
                   ),
                 ],
               ),

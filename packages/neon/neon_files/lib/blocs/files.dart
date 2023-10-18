@@ -223,6 +223,6 @@ class UnableToOpenFileException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (final context) => AppLocalizations.of(context).errorUnableToOpenFile,
+        getText: (final context) => FilesLocalizations.of(context).errorUnableToOpenFile,
       );
 }

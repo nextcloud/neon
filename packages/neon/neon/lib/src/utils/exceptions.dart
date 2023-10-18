@@ -43,6 +43,6 @@ class MissingPermissionException extends NeonException {
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
         getText: (final context) =>
-            AppLocalizations.of(context).errorMissingPermission(permission.toString().split('.')[1]),
+            NeonLocalizations.of(context).errorMissingPermission(permission.toString().split('.')[1]),
       );
 }

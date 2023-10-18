@@ -73,13 +73,13 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
                     onRetry: bloc.refresh,
                   ),
                   if (init.hasData) ...[
-                    Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
+                    Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
                     const SizedBox(
                       height: 10,
                     ),
                     ElevatedButton(
                       onPressed: bloc.refresh,
-                      child: Text(AppLocalizations.of(context).loginOpenAgain),
+                      child: Text(NeonLocalizations.of(context).loginOpenAgain),
                     ),
                   ],
                 ],

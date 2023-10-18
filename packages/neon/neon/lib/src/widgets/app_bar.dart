@@ -120,7 +120,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                     Flexible(
                       child: SearchBar(
                         focusNode: _searchBarFocusNode,
-                        hintText: AppLocalizations.of(context).search,
+                        hintText: NeonLocalizations.of(context).search,
                         padding: const MaterialStatePropertyAll(EdgeInsets.only(left: 16)),
                         onChanged: _searchTermController.add,
                         trailing: [
@@ -128,7 +128,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                             onPressed: () {
                               unifiedSearchBloc.disable();
                             },
-                            tooltip: AppLocalizations.of(context).searchCancel,
+                            tooltip: NeonLocalizations.of(context).searchCancel,
                             icon: const Icon(
                               Icons.close,
                             ),
@@ -160,7 +160,7 @@ class SearchIconButton extends StatelessWidget {
         onPressed: () {
           NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
         },
-        tooltip: AppLocalizations.of(context).search,
+        tooltip: NeonLocalizations.of(context).search,
         icon: const Icon(
           Icons.search,
         ),
@@ -256,7 +256,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
             onPressed: () async {
               await _openNotifications(notificationsImplementationData);
             },
-            tooltip: AppLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
+            tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
             icon: StreamBuilder<int>(
               stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
               builder: (final context, final unreadCounterSnapshot) => NeonAppImplementationIcon(

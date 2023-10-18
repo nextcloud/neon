@@ -27,7 +27,7 @@ class FilesBrowserNavigator extends StatelessWidget {
                   horizontal: VisualDensity.minimumDensity,
                   vertical: VisualDensity.minimumDensity,
                 ),
-                tooltip: AppLocalizations.of(context).goToPath(''),
+                tooltip: FilesLocalizations.of(context).goToPath(''),
                 icon: const Icon(Icons.house),
                 onPressed: () {
                   bloc.setPath([]);
@@ -44,7 +44,7 @@ class FilesBrowserNavigator extends StatelessWidget {
               },
               child: Text(
                 path.last,
-                semanticsLabel: AppLocalizations.of(context).goToPath(label),
+                semanticsLabel: FilesLocalizations.of(context).goToPath(label),
               ),
             );
           },

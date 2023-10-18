@@ -53,10 +53,10 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   final String id = AppIDs.files;
 
   @override
-  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<FilesLocalizations> localizationsDelegate = FilesLocalizations.delegate;
 
   @override
-  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = FilesLocalizations.supportedLocales;
 
   @override
   late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);

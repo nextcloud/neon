@@ -32,10 +32,10 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final String id = AppIDs.notifications;
 
   @override
-  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<NotificationsLocalizations> localizationsDelegate = NotificationsLocalizations.delegate;
 
   @override
-  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = NotificationsLocalizations.supportedLocales;
 
   @override
   late final NotificationsAppSpecificOptions options = NotificationsAppSpecificOptions(storage);

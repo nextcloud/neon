@@ -41,7 +41,7 @@ class AccountSettingsPage extends StatelessWidget {
           onPressed: () async {
             if (await showConfirmationDialog(
               context,
-              AppLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
+              NeonLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
             )) {
               final isActive = bloc.activeAccount.valueOrNull == account;
 
@@ -59,19 +59,19 @@ class AccountSettingsPage extends StatelessWidget {
               }
             }
           },
-          tooltip: AppLocalizations.of(context).accountOptionsRemove,
+          tooltip: NeonLocalizations.of(context).accountOptionsRemove,
           icon: const Icon(Icons.logout),
         ),
         IconButton(
           onPressed: () async {
             if (await showConfirmationDialog(
               context,
-              AppLocalizations.of(context).settingsResetForConfirmation(name),
+              NeonLocalizations.of(context).settingsResetForConfirmation(name),
             )) {
               options.reset();
             }
           },
-          tooltip: AppLocalizations.of(context).settingsResetFor(name),
+          tooltip: NeonLocalizations.of(context).settingsResetFor(name),
           icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
@@ -82,7 +82,7 @@ class AccountSettingsPage extends StatelessWidget {
       builder: (final context, final userDetails) => SettingsList(
         categories: [
           SettingsCategory(
-            title: Text(AppLocalizations.of(context).accountOptionsCategoryStorageInfo),
+            title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
             tiles: [
               CustomSettingsTile(
                 title: Column(
@@ -97,7 +97,7 @@ class AccountSettingsPage extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        AppLocalizations.of(context).accountOptionsQuotaUsedOf(
+                        NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
                           filesize(userDetails.requireData.quota.used ?? 0, 1),
                           filesize(userDetails.requireData.quota.total ?? 0, 1),
                           (userDetails.requireData.quota.relative ?? 0).toString(),
@@ -117,7 +117,7 @@ class AccountSettingsPage extends StatelessWidget {
             ],
           ),
           SettingsCategory(
-            title: Text(AppLocalizations.of(context).optionsCategoryGeneral),
+            title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
             tiles: [
               SelectSettingsTile(
                 option: options.initialApp,

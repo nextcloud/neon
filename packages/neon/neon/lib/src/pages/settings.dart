@@ -60,11 +60,11 @@ class _SettingsPageState extends State<SettingsPage> {
     final branding = Branding.of(context);
 
     final appBar = AppBar(
-      title: Text(AppLocalizations.of(context).settings),
+      title: Text(NeonLocalizations.of(context).settings),
       actions: [
         IconButton(
           onPressed: () async {
-            if (await showConfirmationDialog(context, AppLocalizations.of(context).settingsResetAllConfirmation)) {
+            if (await showConfirmationDialog(context, NeonLocalizations.of(context).settingsResetAllConfirmation)) {
               globalOptions.reset();
 
               for (final appImplementation in appImplementations) {
@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
               }
             }
           },
-          tooltip: AppLocalizations.of(context).settingsResetAll,
+          tooltip: NeonLocalizations.of(context).settingsResetAll,
           icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
@@ -99,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
           initialCategory: widget.initialCategory?.name,
           categories: [
             SettingsCategory(
-              title: Text(AppLocalizations.of(context).settingsApps),
+              title: Text(NeonLocalizations.of(context).settingsApps),
               key: ValueKey(SettingsCategories.apps.name),
               tiles: <SettingsTile>[
                 for (final appImplementation in appImplementations) ...[
@@ -116,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
             SettingsCategory(
-              title: Text(AppLocalizations.of(context).optionsCategoryTheme),
+              title: Text(NeonLocalizations.of(context).optionsCategoryTheme),
               key: ValueKey(SettingsCategories.theme.name),
               tiles: [
                 SelectSettingsTile(
@@ -131,7 +131,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
             SettingsCategory(
-              title: Text(AppLocalizations.of(context).optionsCategoryNavigation),
+              title: Text(NeonLocalizations.of(context).optionsCategoryNavigation),
               key: ValueKey(SettingsCategories.navigation.name),
               tiles: [
                 SelectSettingsTile(
@@ -141,12 +141,12 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             if (NeonPlatform.instance.canUsePushNotifications) ...[
               SettingsCategory(
-                title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
+                title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
                 key: ValueKey(SettingsCategories.pushNotifications.name),
                 tiles: [
                   if (!globalOptions.pushNotificationsEnabled.enabled) ...[
                     TextSettingsTile(
-                      text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
+                      text: NeonLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontStyle: FontStyle.italic,
@@ -165,7 +165,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
             if (NeonPlatform.instance.canUseWindowManager) ...[
               SettingsCategory(
-                title: Text(AppLocalizations.of(context).optionsCategoryStartup),
+                title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
                 key: ValueKey(SettingsCategories.startup.name),
                 tiles: [
                   ToggleSettingsTile(
@@ -179,7 +179,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
             if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray) ...[
               SettingsCategory(
-                title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
+                title: Text(NeonLocalizations.of(context).optionsCategorySystemTray),
                 key: ValueKey(SettingsCategories.systemTray.name),
                 tiles: [
                   ToggleSettingsTile(
@@ -192,7 +192,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
             SettingsCategory(
-              title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
+              title: Text(NeonLocalizations.of(context).optionsCategoryAccounts),
               key: ValueKey(SettingsCategories.accounts.name),
               tiles: [
                 if (accountsSnapshot.requireData.length > 1) ...[
@@ -215,13 +215,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: ElevatedButton.icon(
                     onPressed: () async => const LoginRoute().push(context),
                     icon: const Icon(MdiIcons.accountPlus),
-                    label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
+                    label: Text(NeonLocalizations.of(context).globalOptionsAccountsAdd),
                   ),
                 ),
               ],
             ),
             SettingsCategory(
-              title: Text(AppLocalizations.of(context).optionsCategoryOther),
+              title: Text(NeonLocalizations.of(context).optionsCategoryOther),
               key: ValueKey(SettingsCategories.other.name),
               tiles: <SettingsTile>[
                 if (branding.sourceCodeURL != null)
@@ -230,7 +230,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       Icons.code,
                       color: Theme.of(context).colorScheme.primary,
                     ),
-                    title: Text(AppLocalizations.of(context).sourceCode),
+                    title: Text(NeonLocalizations.of(context).sourceCode),
                     onTap: () async {
                       await launchUrlString(
                         branding.sourceCodeURL!,
@@ -244,7 +244,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       MdiIcons.textBoxEditOutline,
                       color: Theme.of(context).colorScheme.primary,
                     ),
-                    title: Text(AppLocalizations.of(context).issueTracker),
+                    title: Text(NeonLocalizations.of(context).issueTracker),
                     onTap: () async {
                       await launchUrlString(
                         branding.issueTrackerURL!,
@@ -257,7 +257,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     MdiIcons.scriptText,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  title: Text(AppLocalizations.of(context).licenses),
+                  title: Text(NeonLocalizations.of(context).licenses),
                   onTap: () async {
                     showLicensePage(
                       context: context,
@@ -273,7 +273,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     MdiIcons.export,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  title: Text(AppLocalizations.of(context).settingsExport),
+                  title: Text(NeonLocalizations.of(context).settingsExport),
                   onTap: () async {
                     final settingsExportHelper = _buildSettingsExportHelper(context);
 
@@ -296,7 +296,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     MdiIcons.import,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  title: Text(AppLocalizations.of(context).settingsImport),
+                  title: Text(NeonLocalizations.of(context).settingsImport),
                   onTap: () async {
                     final settingsExportHelper = _buildSettingsExportHelper(context);
 
@@ -313,7 +313,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         if (mounted) {
                           NeonError.showSnackbar(
                             context,
-                            AppLocalizations.of(context).settingsImportWrongFileExtension,
+                            NeonLocalizations.of(context).settingsImportWrongFileExtension,
                           );
                         }
                         return;

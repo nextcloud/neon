@@ -7,10 +7,10 @@ import 'package:intl/intl.dart' as intl;
 
 import 'localizations_en.dart';
 
-/// Callers can lookup localized strings with an instance of AppLocalizations
-/// returned by `AppLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of FilesLocalizations
+/// returned by `FilesLocalizations.of(context)`.
 ///
-/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// Applications need to include `FilesLocalizations.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
@@ -18,8 +18,8 @@ import 'localizations_en.dart';
 /// import 'l10n/localizations.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: AppLocalizations.localizationsDelegates,
-///   supportedLocales: AppLocalizations.supportedLocales,
+///   localizationsDelegates: FilesLocalizations.localizationsDelegates,
+///   supportedLocales: FilesLocalizations.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -56,18 +56,18 @@ import 'localizations_en.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// be consistent with the languages listed in the FilesLocalizations.supportedLocales
 /// property.
-abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+abstract class FilesLocalizations {
+  FilesLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  static FilesLocalizations of(BuildContext context) {
+    return Localizations.of<FilesLocalizations>(context, FilesLocalizations)!;
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<FilesLocalizations> delegate = _FilesLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -360,29 +360,29 @@ abstract class AppLocalizations {
   String get optionsSizeWarningDisabled;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+class _FilesLocalizationsDelegate extends LocalizationsDelegate<FilesLocalizations> {
+  const _FilesLocalizationsDelegate();
 
   @override
-  Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  Future<FilesLocalizations> load(Locale locale) {
+    return SynchronousFuture<FilesLocalizations>(lookupFilesLocalizations(locale));
   }
 
   @override
   bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_AppLocalizationsDelegate old) => false;
+  bool shouldReload(_FilesLocalizationsDelegate old) => false;
 }
 
-AppLocalizations lookupAppLocalizations(Locale locale) {
+FilesLocalizations lookupFilesLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en':
-      return AppLocalizationsEn();
+      return FilesLocalizationsEn();
   }
 
-  throw FlutterError('AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError('FilesLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');

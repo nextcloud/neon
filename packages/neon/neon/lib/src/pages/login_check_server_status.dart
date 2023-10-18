@@ -79,8 +79,8 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                           onPressed: success ? _onContinue : bloc.refresh,
                           child: Text(
                             success
-                                ? AppLocalizations.of(context).actionContinue
-                                : AppLocalizations.of(context).actionRetry,
+                                ? NeonLocalizations.of(context).actionContinue
+                                : NeonLocalizations.of(context).actionRetry,
                           ),
                         ),
                       ),
@@ -108,27 +108,27 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   Widget _buildServerVersionTile(final Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginCheckingServerVersion,
+        title: NeonLocalizations.of(context).loginCheckingServerVersion,
         state: ValidationState.canceled,
       );
     }
 
     if (!result.hasData) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginCheckingServerVersion,
+        title: NeonLocalizations.of(context).loginCheckingServerVersion,
         state: ValidationState.loading,
       );
     }
 
     if (result.requireData.isSupported) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
+        title: NeonLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
         state: ValidationState.success,
       );
     }
 
     return NeonValidationTile(
-      title: AppLocalizations.of(context).loginUnsupportedServerVersion(result.requireData.versionstring),
+      title: NeonLocalizations.of(context).loginUnsupportedServerVersion(result.requireData.versionstring),
       state: ValidationState.failure,
     );
   }
@@ -136,27 +136,27 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   Widget _buildMaintenanceModeTile(final Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginCheckingMaintenanceMode,
+        title: NeonLocalizations.of(context).loginCheckingMaintenanceMode,
         state: ValidationState.canceled,
       );
     }
 
     if (!result.hasData) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginCheckingMaintenanceMode,
+        title: NeonLocalizations.of(context).loginCheckingMaintenanceMode,
         state: ValidationState.loading,
       );
     }
 
     if (result.requireData.maintenance) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginMaintenanceModeEnabled,
+        title: NeonLocalizations.of(context).loginMaintenanceModeEnabled,
         state: ValidationState.failure,
       );
     }
 
     return NeonValidationTile(
-      title: AppLocalizations.of(context).loginMaintenanceModeDisabled,
+      title: NeonLocalizations.of(context).loginMaintenanceModeDisabled,
       state: ValidationState.success,
     );
   }

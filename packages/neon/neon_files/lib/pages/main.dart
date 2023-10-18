@@ -38,7 +38,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               ),
             );
           },
-          tooltip: AppLocalizations.of(context).uploadFiles,
+          tooltip: FilesLocalizations.of(context).uploadFiles,
           child: const Icon(Icons.add),
         ),
       );

@@ -1,3 +1,4 @@
+export 'package:neon/l10n/localizations.dart';
 export 'package:neon/src/utils/app_route.dart';
 export 'package:neon/src/utils/confirmation_dialog.dart';
 export 'package:neon/src/utils/exceptions.dart';

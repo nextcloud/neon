@@ -52,18 +52,18 @@ class GlobalOptions extends OptionsCollection {
 
   late final _distributorsMap = <String, LabelBuilder>{
     _packageInfo.packageName: (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
     'com.github.gotify.up': (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
     'eu.siacs.conversations': (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
-    'io.heckel.ntfy': (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
+    'io.heckel.ntfy': (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
     'org.unifiedpush.distributor.fcm': (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
     unifiedPushNextPushID: (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
     'org.unifiedpush.distributor.noprovider2push': (final context) =>
-        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
   };
 
   @override
@@ -120,40 +120,40 @@ class GlobalOptions extends OptionsCollection {
   late final themeMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.themeMode,
-    label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeMode,
     defaultValue: ThemeMode.system,
     values: {
-      ThemeMode.light: (final context) => AppLocalizations.of(context).globalOptionsThemeModeLight,
-      ThemeMode.dark: (final context) => AppLocalizations.of(context).globalOptionsThemeModeDark,
-      ThemeMode.system: (final context) => AppLocalizations.of(context).globalOptionsThemeModeAutomatic,
+      ThemeMode.light: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeLight,
+      ThemeMode.dark: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeDark,
+      ThemeMode.system: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeAutomatic,
     },
   );
 
   late final themeOLEDAsDark = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeOLEDAsDark,
-    label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
   );
 
   late final themeKeepOriginalAccentColor = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeKeepOriginalAccentColor,
-    label: (final context) => AppLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
     defaultValue: false,
   );
 
   late final pushNotificationsEnabled = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsEnabled,
-    label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: false,
   );
 
   late final pushNotificationsDistributor = SelectOption<String?>.depend(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
-    label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributor,
     defaultValue: null,
     values: {},
     enabled: pushNotificationsEnabled,
@@ -162,14 +162,14 @@ class GlobalOptions extends OptionsCollection {
   late final startupMinimized = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimized,
-    label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimized,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsStartupMinimized,
     defaultValue: false,
   );
 
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
-    label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
     defaultValue: false,
   );
 
@@ -178,14 +178,14 @@ class GlobalOptions extends OptionsCollection {
   late final systemTrayEnabled = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.systemTrayEnabled,
-    label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsSystemTrayEnabled,
     defaultValue: false,
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
     storage: storage,
     key: GlobalOptionKeys.systemTrayHideToTrayWhenMinimized,
-    label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
     defaultValue: true,
     enabled: systemTrayEnabled,
   );
@@ -193,14 +193,14 @@ class GlobalOptions extends OptionsCollection {
   late final rememberLastUsedAccount = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.rememberLastUsedAccount,
-    label: (final context) => AppLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
     defaultValue: true,
   );
 
   late final initialAccount = SelectOption<String?>(
     storage: storage,
     key: GlobalOptionKeys.initialAccount,
-    label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: null,
     values: {},
   );
@@ -208,13 +208,13 @@ class GlobalOptions extends OptionsCollection {
   late final navigationMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.navigationMode,
-    label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsNavigationMode,
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: {
-      NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
+      NavigationMode.drawer: (final context) => NeonLocalizations.of(context).globalOptionsNavigationModeDrawer,
       if (!Platform.isAndroid && !Platform.isIOS)
         NavigationMode.drawerAlwaysVisible: (final context) =>
-            AppLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
+            NeonLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
     },
   );
 }

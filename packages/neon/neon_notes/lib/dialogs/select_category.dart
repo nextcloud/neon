@@ -29,7 +29,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
         stream: widget.bloc.notesList,
         builder: (final context, final notes) => NeonDialog(
-          title: Text(AppLocalizations.of(context).category),
+          title: Text(NotesLocalizations.of(context).category),
           children: [
             Form(
               key: formKey,
@@ -59,7 +59,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   ],
                   ElevatedButton(
                     onPressed: submit,
-                    child: Text(AppLocalizations.of(context).noteSetCategory),
+                    child: Text(NotesLocalizations.of(context).noteSetCategory),
                   ),
                 ],
               ),

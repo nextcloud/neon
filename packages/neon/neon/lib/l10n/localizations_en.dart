@@ -3,8 +3,8 @@ import 'package:intl/intl.dart' as intl;
 import 'localizations.dart';
 
 /// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+class NeonLocalizationsEn extends NeonLocalizations {
+  NeonLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
   String get nextcloud => 'Nextcloud';

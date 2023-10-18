@@ -71,12 +71,12 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(AppLocalizations.of(context).loginWorksWith),
+                    Text(NeonLocalizations.of(context).loginWorksWith),
                     const SizedBox(
                       height: 10,
                     ),
                     Semantics(
-                      label: AppLocalizations.of(context).nextcloud,
+                      label: NeonLocalizations.of(context).nextcloud,
                       child: const NextcloudLogo(),
                     ),
                   ],
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _controller,
                       decoration: InputDecoration(
                         hintText: 'https://...',
-                        labelText: AppLocalizations.of(context).loginUsingServerAddress,
+                        labelText: NeonLocalizations.of(context).loginUsingServerAddress,
                         suffixIcon: IconButton(
                           icon: const Icon(Icons.arrow_forward),
                           onPressed: () {
@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                     ),
                     IconButton(
-                      tooltip: AppLocalizations.of(context).loginUsingQRcode,
+                      tooltip: NeonLocalizations.of(context).loginUsingQRcode,
                       icon: const Icon(
                         Icons.qr_code_scanner_rounded,
                         size: 60,

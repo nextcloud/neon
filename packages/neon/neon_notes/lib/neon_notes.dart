@@ -50,10 +50,10 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   final String id = AppIDs.notes;
 
   @override
-  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = NotesLocalizations.supportedLocales;
 
   @override
-  final LocalizationsDelegate<AppLocalizations> localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate<NotesLocalizations> localizationsDelegate = NotesLocalizations.delegate;
 
   @override
   late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);

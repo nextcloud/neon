@@ -18,20 +18,20 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   }
 
   final generalCategory = OptionsCategory(
-    name: (final context) => AppLocalizations.of(context).general,
+    name: (final context) => FilesLocalizations.of(context).general,
   );
 
   late final filesSortPropertyOption = SelectOption<FilesSortProperty>(
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.sortProperty,
-    label: (final context) => AppLocalizations.of(context).optionsFilesSortProperty,
+    label: (final context) => FilesLocalizations.of(context).optionsFilesSortProperty,
     defaultValue: FilesSortProperty.name,
     values: {
-      FilesSortProperty.name: (final context) => AppLocalizations.of(context).optionsFilesSortPropertyName,
+      FilesSortProperty.name: (final context) => FilesLocalizations.of(context).optionsFilesSortPropertyName,
       FilesSortProperty.modifiedDate: (final context) =>
-          AppLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
-      FilesSortProperty.size: (final context) => AppLocalizations.of(context).optionsFilesSortPropertySize,
+          FilesLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
+      FilesSortProperty.size: (final context) => FilesLocalizations.of(context).optionsFilesSortPropertySize,
     },
   );
 
@@ -39,7 +39,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.sortOrder,
-    label: (final context) => AppLocalizations.of(context).optionsFilesSortOrder,
+    label: (final context) => FilesLocalizations.of(context).optionsFilesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
   );
@@ -48,7 +48,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.showHiddenFiles,
-    label: (final context) => AppLocalizations.of(context).optionsShowHiddenFiles,
+    label: (final context) => FilesLocalizations.of(context).optionsShowHiddenFiles,
     defaultValue: false,
   );
 
@@ -56,7 +56,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.showPreviews,
-    label: (final context) => AppLocalizations.of(context).optionsShowPreviews,
+    label: (final context) => FilesLocalizations.of(context).optionsShowPreviews,
     defaultValue: true,
   );
 
@@ -64,7 +64,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadQueueParallelism,
-    label: (final context) => AppLocalizations.of(context).optionsUploadQueueParallelism,
+    label: (final context) => FilesLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
@@ -77,7 +77,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadQueueParallelism,
-    label: (final context) => AppLocalizations.of(context).optionsDownloadQueueParallelism,
+    label: (final context) => FilesLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
@@ -87,7 +87,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   );
 
   late final _sizeWarningValues = <int?, LabelBuilder>{
-    null: (final context) => AppLocalizations.of(context).optionsSizeWarningDisabled,
+    null: (final context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
     for (final i in [
       1,
       10,
@@ -107,7 +107,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadSizeWarning,
-    label: (final context) => AppLocalizations.of(context).optionsUploadSizeWarning,
+    label: (final context) => FilesLocalizations.of(context).optionsUploadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );
@@ -116,7 +116,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadSizeWarning,
-    label: (final context) => AppLocalizations.of(context).optionsDownloadSizeWarning,
+    label: (final context) => FilesLocalizations.of(context).optionsDownloadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );
