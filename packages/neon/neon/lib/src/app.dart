@@ -48,7 +48,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   late final Iterable<AppImplementation> _appImplementations;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
-  late final _routerDelegate = AppRouter(
+  late final _routerDelegate = buildAppRouter(
     navigatorKey: _navigatorKey,
     accountsBloc: _accountsBloc,
   );
