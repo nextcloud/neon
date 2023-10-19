@@ -16,6 +16,7 @@ rules:
       - dynamite_runtime
       - file_icons
       - neon
+      - neon_dashboard
       - neon_files
       - neon_news
       - neon_notes
