@@ -14,7 +14,7 @@ List<Spec> buildSerializer(final State state) {
       const Code(').build();'),
       const Code(''),
       const Code(
-        'final Serializers _jsonSerializers = (_serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
+        'final Serializers _jsonSerializers = (_serializers.toBuilder()..add(DynamiteDoubleSerializer())..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
       ),
       const Code('// coverage:ignore-end'),
     ];
