@@ -25,49 +25,48 @@ import 'package:neon/src/utils/stream_listenable.dart';
 part 'router.g.dart';
 
 @internal
-class AppRouter extends GoRouter {
-  AppRouter({
-    required final GlobalKey<NavigatorState> navigatorKey,
-    required final AccountsBloc accountsBloc,
-  }) : super(
-          debugLogDiagnostics: kDebugMode,
-          refreshListenable: StreamListenable(accountsBloc.activeAccount),
-          navigatorKey: navigatorKey,
-          initialLocation: const HomeRoute().location,
-          errorPageBuilder: _buildErrorPage,
-          redirect: (final context, final state) {
-            final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
-            if (loginQRcode != null) {
-              return LoginCheckServerStatusRoute.withCredentials(
-                serverUrl: loginQRcode.serverURL,
-                loginName: loginQRcode.username,
-                password: loginQRcode.password,
-              ).location;
-            }
+GoRouter buildAppRouter({
+  required final GlobalKey<NavigatorState> navigatorKey,
+  required final AccountsBloc accountsBloc,
+}) =>
+    GoRouter(
+      debugLogDiagnostics: kDebugMode,
+      refreshListenable: StreamListenable(accountsBloc.activeAccount),
+      navigatorKey: navigatorKey,
+      initialLocation: const HomeRoute().location,
+      errorPageBuilder: _buildErrorPage,
+      redirect: (final context, final state) {
+        final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
+        if (loginQRcode != null) {
+          return LoginCheckServerStatusRoute.withCredentials(
+            serverUrl: loginQRcode.serverURL,
+            loginName: loginQRcode.username,
+            password: loginQRcode.password,
+          ).location;
+        }
 
-            if (accountsBloc.hasAccounts && state.uri.hasScheme) {
-              final strippedUri = accountsBloc.activeAccount.value!.stripUri(state.uri);
-              if (strippedUri != state.uri) {
-                return strippedUri.toString();
-              }
-            }
+        if (accountsBloc.hasAccounts && state.uri.hasScheme) {
+          final strippedUri = accountsBloc.activeAccount.value!.stripUri(state.uri);
+          if (strippedUri != state.uri) {
+            return strippedUri.toString();
+          }
+        }
 
-            // redirect to login screen when no account is logged in
-            if (!accountsBloc.hasAccounts && !state.uri.toString().startsWith(const LoginRoute().location)) {
-              return const LoginRoute().location;
-            }
+        // redirect to login screen when no account is logged in
+        if (!accountsBloc.hasAccounts && !state.uri.toString().startsWith(const LoginRoute().location)) {
+          return const LoginRoute().location;
+        }
 
-            return null;
-          },
-          routes: $appRoutes,
-        );
+        return null;
+      },
+      routes: $appRoutes,
+    );
 
-  static Page<void> _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
-        child: RouteNotFoundPage(
-          uri: state.uri,
-        ),
-      );
-}
+Page<void> _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
+      child: RouteNotFoundPage(
+        uri: state.uri,
+      ),
+    );
 
 @immutable
 class AccountSettingsRoute extends GoRouteData {
